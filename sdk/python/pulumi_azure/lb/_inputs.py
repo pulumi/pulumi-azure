@@ -26,15 +26,15 @@ __all__ = [
 ]
 
 class BackendAddressPoolAddressInboundNatRulePortMappingArgsDict(TypedDict):
-    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    backend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
     """
-    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    frontend_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
     """
-    inbound_nat_rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_nat_rule_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
     """
@@ -42,9 +42,9 @@ class BackendAddressPoolAddressInboundNatRulePortMappingArgsDict(TypedDict):
 @pulumi.input_type
 class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
     def __init__(__self__, *,
-                 backend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 frontend_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 inbound_nat_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 frontend_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 inbound_nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] backend_port: The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
         :param pulumi.Input[_builtins.int] frontend_port: The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
@@ -59,38 +59,38 @@ class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def frontend_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def frontend_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "frontend_port", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRuleName")
-    def inbound_nat_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_nat_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
         """
         return pulumi.get(self, "inbound_nat_rule_name")
 
     @inbound_nat_rule_name.setter
-    def inbound_nat_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_nat_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_nat_rule_name", value)
 
 
@@ -184,51 +184,51 @@ class LoadBalancerFrontendIpConfigurationArgsDict(TypedDict):
     """
     Specifies the name of the frontend IP configuration.
     """
-    gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The id of the Frontend IP Configuration.
     """
-    inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inbound_nat_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IDs of inbound rules that use this frontend IP.
     """
-    load_balancer_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    load_balancer_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IDs of load balancing rules that use this frontend IP.
     """
-    outbound_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    outbound_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IDs outbound rules that use this frontend IP.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
     """
-    private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address_allocation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
     """
-    private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of a Public IP Address which should be associated with the Load Balancer.
     """
-    public_ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_prefix_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet which should be associated with the IP Configuration.
     """
-    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 
@@ -239,18 +239,18 @@ class LoadBalancerFrontendIpConfigurationArgsDict(TypedDict):
 class LoadBalancerFrontendIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_allocation: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 gateway_load_balancer_frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 outbound_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address_allocation: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the frontend IP configuration.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
@@ -308,139 +308,139 @@ class LoadBalancerFrontendIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
-    def gateway_load_balancer_frontend_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_load_balancer_frontend_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         """
         return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
     @gateway_load_balancer_frontend_ip_configuration_id.setter
-    def gateway_load_balancer_frontend_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_load_balancer_frontend_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_load_balancer_frontend_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the Frontend IP Configuration.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inbound_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IDs of inbound rules that use this frontend IP.
         """
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inbound_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerRules")
-    def load_balancer_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IDs of load balancing rules that use this frontend IP.
         """
         return pulumi.get(self, "load_balancer_rules")
 
     @load_balancer_rules.setter
-    def load_balancer_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def outbound_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IDs outbound rules that use this frontend IP.
         """
         return pulumi.get(self, "outbound_rules")
 
     @outbound_rules.setter
-    def outbound_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def outbound_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "outbound_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddressAllocation")
-    def private_ip_address_allocation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address_allocation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
 
     @private_ip_address_allocation.setter
-    def private_ip_address_allocation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address_allocation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address_allocation", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddressVersion")
-    def private_ip_address_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
         """
         return pulumi.get(self, "private_ip_address_version")
 
     @private_ip_address_version.setter
-    def private_ip_address_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Public IP Address which should be associated with the Load Balancer.
         """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpPrefixId")
-    def public_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
     @public_ip_prefix_id.setter
-    def public_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_prefix_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet which should be associated with the IP Configuration.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 
@@ -449,7 +449,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -458,7 +458,7 @@ class OutboundRuleFrontendIpConfigurationArgsDict(TypedDict):
     """
     The name of the Frontend IP Configuration.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Load Balancer Outbound Rule.
     """
@@ -467,7 +467,7 @@ class OutboundRuleFrontendIpConfigurationArgsDict(TypedDict):
 class OutboundRuleFrontendIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Frontend IP Configuration.
         :param pulumi.Input[_builtins.str] id: The ID of the Load Balancer Outbound Rule.
@@ -490,14 +490,14 @@ class OutboundRuleFrontendIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Load Balancer Outbound Rule.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 

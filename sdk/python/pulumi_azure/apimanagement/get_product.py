@@ -210,9 +210,9 @@ def get_product(api_management_name: Optional[_builtins.str] = None,
         subscription_required=pulumi.get(__ret__, 'subscription_required'),
         subscriptions_limit=pulumi.get(__ret__, 'subscriptions_limit'),
         terms=pulumi.get(__ret__, 'terms'))
-def get_product_output(api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_output(api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Use this data source to access information about an existing API Management Product.

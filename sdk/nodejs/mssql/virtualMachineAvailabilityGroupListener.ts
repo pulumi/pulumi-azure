@@ -208,33 +208,33 @@ export interface VirtualMachineAvailabilityGroupListenerState {
     /**
      * The name of the Availability Group. Changing this forces a new resource to be created.
      */
-    availabilityGroupName?: pulumi.Input<string>;
+    availabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      */
-    loadBalancerConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration>;
+    loadBalancerConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration | undefined>;
     /**
      * One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      */
-    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>[]>;
+    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>[] | undefined>;
     /**
      * The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The port of the listener. Changing this forces a new resource to be created.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
      */
-    replicas?: pulumi.Input<pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerReplica>[]>;
+    replicas?: pulumi.Input<pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerReplica>[] | undefined>;
     /**
      * The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
      */
-    sqlVirtualMachineGroupId?: pulumi.Input<string>;
+    sqlVirtualMachineGroupId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -244,25 +244,25 @@ export interface VirtualMachineAvailabilityGroupListenerArgs {
     /**
      * The name of the Availability Group. Changing this forces a new resource to be created.
      */
-    availabilityGroupName?: pulumi.Input<string>;
+    availabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      */
-    loadBalancerConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration>;
+    loadBalancerConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration | undefined>;
     /**
      * One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      */
-    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>[]>;
+    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.mssql.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>[] | undefined>;
     /**
      * The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The port of the listener. Changing this forces a new resource to be created.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
      */

@@ -230,43 +230,43 @@ export interface AlertPrometheusRuleGroupState {
     /**
      * Specifies the name of the Managed Kubernetes Cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The description of the Alert Management Prometheus Rule Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
      */
-    interval?: pulumi.Input<string>;
+    interval?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
      */
-    ruleGroupEnabled?: pulumi.Input<boolean>;
+    ruleGroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRule>[] | undefined>;
     /**
      * Specifies the resource ID of the Azure Monitor Workspace.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags to assign to the Alert Management Prometheus Rule Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -276,23 +276,23 @@ export interface AlertPrometheusRuleGroupArgs {
     /**
      * Specifies the name of the Managed Kubernetes Cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The description of the Alert Management Prometheus Rule Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
      */
-    interval?: pulumi.Input<string>;
+    interval?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      */
@@ -300,7 +300,7 @@ export interface AlertPrometheusRuleGroupArgs {
     /**
      * Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
      */
-    ruleGroupEnabled?: pulumi.Input<boolean>;
+    ruleGroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `rule` blocks as defined below.
      */
@@ -312,5 +312,5 @@ export interface AlertPrometheusRuleGroupArgs {
     /**
      * A mapping of tags to assign to the Alert Management Prometheus Rule Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

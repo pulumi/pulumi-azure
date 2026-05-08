@@ -126,19 +126,19 @@ export interface TableState {
     /**
      * One or more `acl` blocks as defined below.
      */
-    acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[] | undefined>;
     /**
      * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Resource Manager ID of this Storage Table.
      */
-    resourceManagerId?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,11 +148,11 @@ export interface TableArgs {
     /**
      * One or more `acl` blocks as defined below.
      */
-    acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[] | undefined>;
     /**
      * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */

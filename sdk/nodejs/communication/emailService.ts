@@ -126,19 +126,19 @@ export interface EmailServiceState {
     /**
      * The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
      */
-    dataLocation?: pulumi.Input<string>;
+    dataLocation?: pulumi.Input<string | undefined>;
     /**
      * The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Email Communication Service should exist. Changing this forces a new Email Communication Service to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Email Communication Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface EmailServiceArgs {
     /**
      * The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Email Communication Service should exist. Changing this forces a new Email Communication Service to be created.
      */
@@ -160,5 +160,5 @@ export interface EmailServiceArgs {
     /**
      * A mapping of tags which should be assigned to the Email Communication Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

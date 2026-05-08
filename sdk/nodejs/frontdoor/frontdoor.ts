@@ -271,78 +271,78 @@ export interface FrontdoorState {
     /**
      * A `backendPoolHealthProbe` block as defined below.
      */
-    backendPoolHealthProbes?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
+    backendPoolHealthProbes?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[] | undefined>;
     /**
      * A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
      */
-    backendPoolHealthProbesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backendPoolHealthProbesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
      */
-    backendPoolLoadBalancingSettingsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backendPoolLoadBalancingSettingsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `backendPoolLoadBalancing` block as defined below.
      */
-    backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[] | undefined>;
     /**
      * A `backendPoolSettings` block as defined below.
      */
-    backendPoolSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolSetting>[]>;
+    backendPoolSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolSetting>[] | undefined>;
     /**
      * A `backendPool` block as defined below.
      *
      * > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      */
-    backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
+    backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[] | undefined>;
     /**
      * A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
      */
-    backendPoolsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backendPoolsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The host that each frontendEndpoint must CNAME to.
      */
-    cname?: pulumi.Input<string>;
-    explicitResourceOrders?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorExplicitResourceOrder>[]>;
+    cname?: pulumi.Input<string | undefined>;
+    explicitResourceOrders?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorExplicitResourceOrder>[] | undefined>;
     /**
      * A friendly name for the Front Door service.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * A `frontendEndpoint` block as defined below.
      */
-    frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
+    frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[] | undefined>;
     /**
      * A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      */
-    frontendEndpointsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    frontendEndpointsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
      */
-    headerFrontdoorId?: pulumi.Input<string>;
+    headerFrontdoorId?: pulumi.Input<string | undefined>;
     /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
-    loadBalancerEnabled?: pulumi.Input<boolean>;
+    loadBalancerEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `routingRule` block as defined below.
      */
-    routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[] | undefined>;
     /**
      * A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
      */
-    routingRulesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    routingRulesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -360,7 +360,7 @@ export interface FrontdoorArgs {
     /**
      * A `backendPoolSettings` block as defined below.
      */
-    backendPoolSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolSetting>[]>;
+    backendPoolSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolSetting>[] | undefined>;
     /**
      * A `backendPool` block as defined below.
      *
@@ -370,7 +370,7 @@ export interface FrontdoorArgs {
     /**
      * A friendly name for the Front Door service.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * A `frontendEndpoint` block as defined below.
      */
@@ -378,11 +378,11 @@ export interface FrontdoorArgs {
     /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
-    loadBalancerEnabled?: pulumi.Input<boolean>;
+    loadBalancerEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
@@ -394,5 +394,5 @@ export interface FrontdoorArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

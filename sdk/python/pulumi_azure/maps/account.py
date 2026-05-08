@@ -23,13 +23,13 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['AccountCorsArgs']] = None,
-                 data_stores: Optional[pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cors: pulumi.Input[Optional['AccountCorsArgs']] = None,
+                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input['AccountDataStoreArgs']]]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -90,104 +90,104 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['AccountCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['AccountCorsArgs']]:
         """
         A `cors` block as defined below
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['AccountCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['AccountCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStores")
-    def data_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]]]:
+    def data_stores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountDataStoreArgs']]]]:
         """
         One or more `data_store` blocks as defined below.
         """
         return pulumi.get(self, "data_stores")
 
     @data_stores.setter
-    def data_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]]]):
+    def data_stores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountDataStoreArgs']]]]):
         pulumi.set(self, "data_stores", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Maps Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Azure Maps Account.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 cors: Optional[pulumi.Input['AccountCorsArgs']] = None,
-                 data_stores: Optional[pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 x_ms_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cors: pulumi.Input[Optional['AccountCorsArgs']] = None,
+                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input['AccountDataStoreArgs']]]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 x_ms_client_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -233,115 +233,115 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['AccountCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['AccountCorsArgs']]:
         """
         A `cors` block as defined below
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['AccountCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['AccountCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStores")
-    def data_stores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]]]:
+    def data_stores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountDataStoreArgs']]]]:
         """
         One or more `data_store` blocks as defined below.
         """
         return pulumi.get(self, "data_stores")
 
     @data_stores.setter
-    def data_stores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]]]):
+    def data_stores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountDataStoreArgs']]]]):
         pulumi.set(self, "data_stores", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Maps Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key used to authenticate and authorize access to the Maps REST APIs.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary key used to authenticate and authorize access to the Maps REST APIs.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
 
@@ -350,31 +350,31 @@ class _AccountState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Azure Maps Account.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="xMsClientId")
-    def x_ms_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x_ms_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the Maps Account.
         """
         return pulumi.get(self, "x_ms_client_id")
 
     @x_ms_client_id.setter
-    def x_ms_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x_ms_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x_ms_client_id", value)
 
 
@@ -384,15 +384,15 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
-                 data_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
+                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Maps Account.
@@ -505,15 +505,15 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
-                 data_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
+                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -551,18 +551,18 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cors: Optional[pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
-            data_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            x_ms_client_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Account':
+            cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
+            data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            x_ms_client_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

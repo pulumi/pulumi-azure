@@ -125,7 +125,7 @@ def get_access_policy(name: Optional[_builtins.str] = None,
         key_permissions=pulumi.get(__ret__, 'key_permissions'),
         name=pulumi.get(__ret__, 'name'),
         secret_permissions=pulumi.get(__ret__, 'secret_permissions'))
-def get_access_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.

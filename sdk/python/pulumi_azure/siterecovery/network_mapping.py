@@ -25,7 +25,7 @@ class NetworkMappingArgs:
                  source_recovery_fabric_name: pulumi.Input[_builtins.str],
                  target_network_id: pulumi.Input[_builtins.str],
                  target_recovery_fabric_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkMapping resource.
 
@@ -120,27 +120,27 @@ class NetworkMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkMappingState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkMapping resources.
 
@@ -169,86 +169,86 @@ class _NetworkMappingState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceNetworkId")
-    def source_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the primary network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_network_id")
 
     @source_network_id.setter
-    def source_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRecoveryFabricName")
-    def source_recovery_fabric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_recovery_fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
     @source_recovery_fabric_name.setter
-    def source_recovery_fabric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_recovery_fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_recovery_fabric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the recovery network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRecoveryFabricName")
-    def target_recovery_fabric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_recovery_fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_recovery_fabric_name")
 
     @target_recovery_fabric_name.setter
-    def target_recovery_fabric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_recovery_fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_recovery_fabric_name", value)
 
 
@@ -258,13 +258,13 @@ class NetworkMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
@@ -431,13 +431,13 @@ class NetworkMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,13 +476,13 @@ class NetworkMapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkMapping':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkMapping':
         """
         Get an existing NetworkMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

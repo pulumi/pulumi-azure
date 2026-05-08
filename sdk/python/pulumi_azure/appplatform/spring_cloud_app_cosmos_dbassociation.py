@@ -23,12 +23,12 @@ class SpringCloudAppCosmosDBAssociationArgs:
                  cosmosdb_access_key: pulumi.Input[_builtins.str],
                  cosmosdb_account_id: pulumi.Input[_builtins.str],
                  spring_cloud_app_id: pulumi.Input[_builtins.str],
-                 cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_mongo_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cosmosdb_cassandra_keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_mongo_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAppCosmosDBAssociation resource.
 
@@ -110,90 +110,90 @@ class SpringCloudAppCosmosDBAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbCassandraKeyspaceName")
-    def cosmosdb_cassandra_keyspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_cassandra_keyspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
         """
         return pulumi.get(self, "cosmosdb_cassandra_keyspace_name")
 
     @cosmosdb_cassandra_keyspace_name.setter
-    def cosmosdb_cassandra_keyspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_cassandra_keyspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_cassandra_keyspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbGremlinDatabaseName")
-    def cosmosdb_gremlin_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_gremlin_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         """
         return pulumi.get(self, "cosmosdb_gremlin_database_name")
 
     @cosmosdb_gremlin_database_name.setter
-    def cosmosdb_gremlin_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_gremlin_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_gremlin_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbGremlinGraphName")
-    def cosmosdb_gremlin_graph_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_gremlin_graph_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         """
         return pulumi.get(self, "cosmosdb_gremlin_graph_name")
 
     @cosmosdb_gremlin_graph_name.setter
-    def cosmosdb_gremlin_graph_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_gremlin_graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_gremlin_graph_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbMongoDatabaseName")
-    def cosmosdb_mongo_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_mongo_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
         """
         return pulumi.get(self, "cosmosdb_mongo_database_name")
 
     @cosmosdb_mongo_database_name.setter
-    def cosmosdb_mongo_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_mongo_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_mongo_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbSqlDatabaseName")
-    def cosmosdb_sql_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_sql_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         """
         return pulumi.get(self, "cosmosdb_sql_database_name")
 
     @cosmosdb_sql_database_name.setter
-    def cosmosdb_sql_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_sql_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_sql_database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudAppCosmosDBAssociationState:
     def __init__(__self__, *,
-                 api_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_mongo_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_cassandra_keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_mongo_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppCosmosDBAssociation resources.
 
@@ -231,122 +231,122 @@ class _SpringCloudAppCosmosDBAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="apiType")
-    def api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_type")
 
     @api_type.setter
-    def api_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbAccessKey")
-    def cosmosdb_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the CosmosDB Account access key.
         """
         return pulumi.get(self, "cosmosdb_access_key")
 
     @cosmosdb_access_key.setter
-    def cosmosdb_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbAccountId")
-    def cosmosdb_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cosmosdb_account_id")
 
     @cosmosdb_account_id.setter
-    def cosmosdb_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbCassandraKeyspaceName")
-    def cosmosdb_cassandra_keyspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_cassandra_keyspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
         """
         return pulumi.get(self, "cosmosdb_cassandra_keyspace_name")
 
     @cosmosdb_cassandra_keyspace_name.setter
-    def cosmosdb_cassandra_keyspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_cassandra_keyspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_cassandra_keyspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbGremlinDatabaseName")
-    def cosmosdb_gremlin_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_gremlin_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         """
         return pulumi.get(self, "cosmosdb_gremlin_database_name")
 
     @cosmosdb_gremlin_database_name.setter
-    def cosmosdb_gremlin_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_gremlin_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_gremlin_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbGremlinGraphName")
-    def cosmosdb_gremlin_graph_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_gremlin_graph_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         """
         return pulumi.get(self, "cosmosdb_gremlin_graph_name")
 
     @cosmosdb_gremlin_graph_name.setter
-    def cosmosdb_gremlin_graph_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_gremlin_graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_gremlin_graph_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbMongoDatabaseName")
-    def cosmosdb_mongo_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_mongo_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
         """
         return pulumi.get(self, "cosmosdb_mongo_database_name")
 
     @cosmosdb_mongo_database_name.setter
-    def cosmosdb_mongo_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_mongo_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_mongo_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbSqlDatabaseName")
-    def cosmosdb_sql_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_sql_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         """
         return pulumi.get(self, "cosmosdb_sql_database_name")
 
     @cosmosdb_sql_database_name.setter
-    def cosmosdb_sql_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_sql_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_sql_database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudAppId")
-    def spring_cloud_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_app_id")
 
     @spring_cloud_app_id.setter
-    def spring_cloud_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
@@ -356,16 +356,16 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_mongo_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_cassandra_keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_mongo_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associates a Spring Cloud Application with a CosmosDB Account.
@@ -505,16 +505,16 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_gremlin_graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_mongo_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_sql_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_cassandra_keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_gremlin_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_mongo_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_sql_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -552,16 +552,16 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_gremlin_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_gremlin_graph_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_mongo_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_sql_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudAppCosmosDBAssociation':
+            api_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_cassandra_keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_gremlin_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_gremlin_graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_mongo_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_sql_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudAppCosmosDBAssociation':
         """
         Get an existing SpringCloudAppCosmosDBAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,9 +21,9 @@ class TriggerHttpRequestArgs:
     def __init__(__self__, *,
                  logic_app_id: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerHttpRequest resource.
 
@@ -72,19 +72,19 @@ class TriggerHttpRequestArgs:
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -93,12 +93,12 @@ class TriggerHttpRequestArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="relativePath")
-    def relative_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Relative Path used for this Request.
 
@@ -107,19 +107,19 @@ class TriggerHttpRequestArgs:
         return pulumi.get(self, "relative_path")
 
     @relative_path.setter
-    def relative_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_path", value)
 
 
 @pulumi.input_type
 class _TriggerHttpRequestState:
     def __init__(__self__, *,
-                 callback_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None):
+                 callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerHttpRequest resources.
 
@@ -149,43 +149,43 @@ class _TriggerHttpRequestState:
 
     @_builtins.property
     @pulumi.getter(name="callbackUrl")
-    def callback_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def callback_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         """
         return pulumi.get(self, "callback_url")
 
     @callback_url.setter
-    def callback_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def callback_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "callback_url", value)
 
     @_builtins.property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "logic_app_id")
 
     @logic_app_id.setter
-    def logic_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -194,12 +194,12 @@ class _TriggerHttpRequestState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="relativePath")
-    def relative_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Relative Path used for this Request.
 
@@ -208,19 +208,19 @@ class _TriggerHttpRequestState:
         return pulumi.get(self, "relative_path")
 
     @relative_path.setter
-    def relative_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
 
@@ -230,11 +230,11 @@ class TriggerHttpRequest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
@@ -351,11 +351,11 @@ class TriggerHttpRequest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,12 +385,12 @@ class TriggerHttpRequest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            callback_url: Optional[pulumi.Input[_builtins.str]] = None,
-            logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            method: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            relative_path: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None) -> 'TriggerHttpRequest':
+            callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            relative_path: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None) -> 'TriggerHttpRequest':
         """
         Get an existing TriggerHttpRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

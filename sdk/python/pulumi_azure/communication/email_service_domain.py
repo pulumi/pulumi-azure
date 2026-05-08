@@ -23,9 +23,9 @@ class EmailServiceDomainArgs:
     def __init__(__self__, *,
                  domain_management: pulumi.Input[_builtins.str],
                  email_service_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_engagement_tracking_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EmailServiceDomain resource.
 
@@ -70,52 +70,52 @@ class EmailServiceDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Email Communication Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userEngagementTrackingEnabled")
-    def user_engagement_tracking_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_engagement_tracking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Describes user engagement tracking is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "user_engagement_tracking_enabled")
 
     @user_engagement_tracking_enabled.setter
-    def user_engagement_tracking_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_engagement_tracking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_engagement_tracking_enabled", value)
 
 
 @pulumi.input_type
 class _EmailServiceDomainState:
     def __init__(__self__, *,
-                 domain_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_sender_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 mail_from_sender_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_engagement_tracking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verification_records: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]] = None):
+                 domain_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_sender_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 mail_from_sender_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verification_records: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]] = None):
         """
         Input properties used for looking up and filtering EmailServiceDomain resources.
 
@@ -147,98 +147,98 @@ class _EmailServiceDomainState:
 
     @_builtins.property
     @pulumi.getter(name="domainManagement")
-    def domain_management(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_management(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "domain_management")
 
     @domain_management.setter
-    def domain_management(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_management(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_management", value)
 
     @_builtins.property
     @pulumi.getter(name="emailServiceId")
-    def email_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "email_service_id")
 
     @email_service_id.setter
-    def email_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSenderDomain")
-    def from_sender_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_sender_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         P2 sender domain that is displayed to the email recipients [RFC 5322].
         """
         return pulumi.get(self, "from_sender_domain")
 
     @from_sender_domain.setter
-    def from_sender_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_sender_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_sender_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="mailFromSenderDomain")
-    def mail_from_sender_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mail_from_sender_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         P1 sender domain that is present on the email envelope [RFC 5321].
         """
         return pulumi.get(self, "mail_from_sender_domain")
 
     @mail_from_sender_domain.setter
-    def mail_from_sender_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mail_from_sender_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mail_from_sender_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Email Communication Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userEngagementTrackingEnabled")
-    def user_engagement_tracking_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_engagement_tracking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Describes user engagement tracking is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "user_engagement_tracking_enabled")
 
     @user_engagement_tracking_enabled.setter
-    def user_engagement_tracking_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_engagement_tracking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_engagement_tracking_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationRecords")
-    def verification_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]]:
+    def verification_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]]:
         """
         (Optional) An `verification_records` block as defined below.
         """
         return pulumi.get(self, "verification_records")
 
     @verification_records.setter
-    def verification_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]]):
+    def verification_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]]):
         pulumi.set(self, "verification_records", value)
 
 
@@ -248,11 +248,11 @@ class EmailServiceDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_engagement_tracking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 domain_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an Email Communication Service Domain.
@@ -359,11 +359,11 @@ class EmailServiceDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_engagement_tracking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 domain_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,14 +395,14 @@ class EmailServiceDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_management: Optional[pulumi.Input[_builtins.str]] = None,
-            email_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            from_sender_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            mail_from_sender_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user_engagement_tracking_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            verification_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict']]]]] = None) -> 'EmailServiceDomain':
+            domain_management: pulumi.Input[Optional[_builtins.str]] = None,
+            email_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            from_sender_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            mail_from_sender_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            verification_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict']]]]] = None) -> 'EmailServiceDomain':
         """
         Get an existing EmailServiceDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

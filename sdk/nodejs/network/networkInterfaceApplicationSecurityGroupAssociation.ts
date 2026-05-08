@@ -142,11 +142,11 @@ export interface NetworkInterfaceApplicationSecurityGroupAssociationState {
     /**
      * The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    applicationSecurityGroupId?: pulumi.Input<string>;
+    applicationSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
 }
 
 /**

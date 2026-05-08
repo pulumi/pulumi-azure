@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleGetCertificate = example.then(example => std.toset({
  *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getCertificate({
- *     name: __key,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
+ *     name: String(__key),
  *     keyVaultId: existing.id,
  * }) }), {}));
  * ```
@@ -88,8 +88,8 @@ export interface GetCertificatesResult {
  * });
  * const exampleGetCertificate = example.then(example => std.toset({
  *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getCertificate({
- *     name: __key,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getCertificate({
+ *     name: String(__key),
  *     keyVaultId: existing.id,
  * }) }), {}));
  * ```
@@ -109,7 +109,7 @@ export interface GetCertificatesOutputArgs {
     /**
      * Specifies whether to include certificates which are not completely provisioned. Defaults to true.
      */
-    includePending?: pulumi.Input<boolean>;
+    includePending?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Key Vault instance to fetch certificate names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      *

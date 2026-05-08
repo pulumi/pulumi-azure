@@ -413,9 +413,9 @@ def get_pool(account_name: Optional[_builtins.str] = None,
         user_accounts=pulumi.get(__ret__, 'user_accounts'),
         vm_size=pulumi.get(__ret__, 'vm_size'),
         windows=pulumi.get(__ret__, 'windows'))
-def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pool_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source to access information about an existing Batch pool

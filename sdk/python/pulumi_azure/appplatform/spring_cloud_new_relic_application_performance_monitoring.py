@@ -22,15 +22,15 @@ class SpringCloudNewRelicApplicationPerformanceMonitoringArgs:
                  app_name: pulumi.Input[_builtins.str],
                  license_key: pulumi.Input[_builtins.str],
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 agent_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 audit_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_app_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_transaction_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 audit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_app_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_transaction_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudNewRelicApplicationPerformanceMonitoring resource.
 
@@ -107,128 +107,128 @@ class SpringCloudNewRelicApplicationPerformanceMonitoringArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentEnabled")
-    def agent_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agent_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the agent. Defaults to `true`.
         """
         return pulumi.get(self, "agent_enabled")
 
     @agent_enabled.setter
-    def agent_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agent_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agent_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="appServerPort")
-    def app_server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def app_server_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the port number to differentiate JVMs for the same app on the same machine.
         """
         return pulumi.get(self, "app_server_port")
 
     @app_server_port.setter
-    def app_server_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def app_server_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "app_server_port", value)
 
     @_builtins.property
     @pulumi.getter(name="auditModeEnabled")
-    def audit_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def audit_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
         """
         return pulumi.get(self, "audit_mode_enabled")
 
     @audit_mode_enabled.setter
-    def audit_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def audit_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "audit_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAppNamingEnabled")
-    def auto_app_naming_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_app_naming_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
         """
         return pulumi.get(self, "auto_app_naming_enabled")
 
     @auto_app_naming_enabled.setter
-    def auto_app_naming_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_app_naming_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_app_naming_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoTransactionNamingEnabled")
-    def auto_transaction_naming_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_transaction_naming_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the component-based transaction naming. Defaults to `true`.
         """
         return pulumi.get(self, "auto_transaction_naming_enabled")
 
     @auto_transaction_naming_enabled.setter
-    def auto_transaction_naming_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_transaction_naming_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_transaction_naming_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customTracingEnabled")
-    def custom_tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_tracing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
         """
         return pulumi.get(self, "custom_tracing_enabled")
 
     @custom_tracing_enabled.setter
-    def custom_tracing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_tracing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_tracing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a mapping of labels to be added to the New Relic application.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for New Relic. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudNewRelicApplicationPerformanceMonitoringState:
     def __init__(__self__, *,
-                 agent_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 audit_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_app_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_transaction_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 license_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 audit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_app_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_transaction_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 license_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudNewRelicApplicationPerformanceMonitoring resources.
 
@@ -272,146 +272,146 @@ class _SpringCloudNewRelicApplicationPerformanceMonitoringState:
 
     @_builtins.property
     @pulumi.getter(name="agentEnabled")
-    def agent_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agent_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the agent. Defaults to `true`.
         """
         return pulumi.get(self, "agent_enabled")
 
     @agent_enabled.setter
-    def agent_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agent_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agent_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="appName")
-    def app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the application name used to report data to New Relic.
         """
         return pulumi.get(self, "app_name")
 
     @app_name.setter
-    def app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="appServerPort")
-    def app_server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def app_server_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the port number to differentiate JVMs for the same app on the same machine.
         """
         return pulumi.get(self, "app_server_port")
 
     @app_server_port.setter
-    def app_server_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def app_server_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "app_server_port", value)
 
     @_builtins.property
     @pulumi.getter(name="auditModeEnabled")
-    def audit_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def audit_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
         """
         return pulumi.get(self, "audit_mode_enabled")
 
     @audit_mode_enabled.setter
-    def audit_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def audit_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "audit_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAppNamingEnabled")
-    def auto_app_naming_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_app_naming_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
         """
         return pulumi.get(self, "auto_app_naming_enabled")
 
     @auto_app_naming_enabled.setter
-    def auto_app_naming_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_app_naming_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_app_naming_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoTransactionNamingEnabled")
-    def auto_transaction_naming_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_transaction_naming_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable the component-based transaction naming. Defaults to `true`.
         """
         return pulumi.get(self, "auto_transaction_naming_enabled")
 
     @auto_transaction_naming_enabled.setter
-    def auto_transaction_naming_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_transaction_naming_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_transaction_naming_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customTracingEnabled")
-    def custom_tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_tracing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
         """
         return pulumi.get(self, "custom_tracing_enabled")
 
     @custom_tracing_enabled.setter
-    def custom_tracing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_tracing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_tracing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a mapping of labels to be added to the New Relic application.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseKey")
-    def license_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the license key associated with the New Relic account. This key binds your agent's data to your account in New Relic service.
         """
         return pulumi.get(self, "license_key")
 
     @license_key.setter
-    def license_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for New Relic. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
@@ -421,18 +421,18 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 audit_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_app_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_transaction_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 license_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 audit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_app_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_transaction_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 license_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
@@ -570,18 +570,18 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 audit_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_app_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_transaction_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 license_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 audit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_app_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_transaction_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 license_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -621,18 +621,18 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            app_name: Optional[pulumi.Input[_builtins.str]] = None,
-            app_server_port: Optional[pulumi.Input[_builtins.int]] = None,
-            audit_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_app_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_transaction_naming_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            custom_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            license_key: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudNewRelicApplicationPerformanceMonitoring':
+            agent_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            app_name: pulumi.Input[Optional[_builtins.str]] = None,
+            app_server_port: pulumi.Input[Optional[_builtins.int]] = None,
+            audit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_app_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_transaction_naming_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            license_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudNewRelicApplicationPerformanceMonitoring':
         """
         Get an existing SpringCloudNewRelicApplicationPerformanceMonitoring resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -168,27 +168,27 @@ export interface SqlPoolExtendedAuditingPolicyState {
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    sqlPoolId?: pulumi.Input<string>;
+    sqlPoolId?: pulumi.Input<string | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,11 +198,11 @@ export interface SqlPoolExtendedAuditingPolicyArgs {
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
      */
@@ -210,13 +210,13 @@ export interface SqlPoolExtendedAuditingPolicyArgs {
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

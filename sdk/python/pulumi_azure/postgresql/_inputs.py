@@ -34,15 +34,15 @@ __all__ = [
 ]
 
 class FlexibleServerAuthenticationArgsDict(TypedDict):
-    active_directory_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    active_directory_auth_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
     """
-    password_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    password_auth_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
 
@@ -54,9 +54,9 @@ class FlexibleServerAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class FlexibleServerAuthenticationArgs:
     def __init__(__self__, *,
-                 active_directory_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] active_directory_auth_enabled: Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] password_auth_enabled: Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
@@ -75,31 +75,31 @@ class FlexibleServerAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryAuthEnabled")
-    def active_directory_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active_directory_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         """
         return pulumi.get(self, "active_directory_auth_enabled")
 
     @active_directory_auth_enabled.setter
-    def active_directory_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active_directory_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active_directory_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordAuthEnabled")
-    def password_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         """
         return pulumi.get(self, "password_auth_enabled")
 
     @password_auth_enabled.setter
-    def password_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
 
@@ -110,7 +110,7 @@ class FlexibleServerAuthenticationArgs:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -125,7 +125,7 @@ class FlexibleServerClusterArgsDict(TypedDict):
 
     > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
     """
-    default_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
     """
@@ -134,7 +134,7 @@ class FlexibleServerClusterArgsDict(TypedDict):
 class FlexibleServerClusterArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[_builtins.int],
-                 default_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] size: The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
                
@@ -169,14 +169,14 @@ class FlexibleServerClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultDatabaseName")
-    def default_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
         """
         return pulumi.get(self, "default_database_name")
 
     @default_database_name.setter
-    def default_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_database_name", value)
 
 
@@ -185,13 +185,13 @@ class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
     """
     The versioned/versionless ID of the Key Vault Key.
     """
-    geo_backup_key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    geo_backup_key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The versioned/versionless ID of the geo backup Key Vault Key.
 
     > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
     """
-    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 
@@ -199,7 +199,7 @@ class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
 
     > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
     """
-    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
     """
@@ -208,9 +208,9 @@ class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
 class FlexibleServerCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[_builtins.str],
-                 geo_backup_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_backup_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 geo_backup_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_backup_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_vault_key_id: The versioned/versionless ID of the Key Vault Key.
         :param pulumi.Input[_builtins.str] geo_backup_key_vault_key_id: The versioned/versionless ID of the geo backup Key Vault Key.
@@ -245,7 +245,7 @@ class FlexibleServerCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="geoBackupKeyVaultKeyId")
-    def geo_backup_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The versioned/versionless ID of the geo backup Key Vault Key.
 
@@ -254,12 +254,12 @@ class FlexibleServerCustomerManagedKeyArgs:
         return pulumi.get(self, "geo_backup_key_vault_key_id")
 
     @geo_backup_key_vault_key_id.setter
-    def geo_backup_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
-    def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 
@@ -270,19 +270,19 @@ class FlexibleServerCustomerManagedKeyArgs:
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
     @geo_backup_user_assigned_identity_id.setter
-    def geo_backup_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
-    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @primary_user_assigned_identity_id.setter
-    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
 
@@ -291,7 +291,7 @@ class FlexibleServerHighAvailabilityArgsDict(TypedDict):
     """
     The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
     """
-    standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    standby_availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Availability Zone in which the standby Flexible Server should be located.
 
@@ -304,7 +304,7 @@ class FlexibleServerHighAvailabilityArgsDict(TypedDict):
 class FlexibleServerHighAvailabilityArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 standby_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 standby_availability_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
         :param pulumi.Input[_builtins.str] standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located.
@@ -331,7 +331,7 @@ class FlexibleServerHighAvailabilityArgs:
 
     @_builtins.property
     @pulumi.getter(name="standbyAvailabilityZone")
-    def standby_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standby_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which the standby Flexible Server should be located.
 
@@ -342,7 +342,7 @@ class FlexibleServerHighAvailabilityArgs:
         return pulumi.get(self, "standby_availability_zone")
 
     @standby_availability_zone.setter
-    def standby_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standby_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standby_availability_zone", value)
 
 
@@ -353,17 +353,17 @@ class FlexibleServerIdentityArgsDict(TypedDict):
 
     > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
 
     > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -372,9 +372,9 @@ class FlexibleServerIdentityArgsDict(TypedDict):
 class FlexibleServerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
                
@@ -409,7 +409,7 @@ class FlexibleServerIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
 
@@ -418,44 +418,44 @@ class FlexibleServerIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
-    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
     """
-    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    start_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The start hour for maintenance window. Defaults to `0`.
     """
-    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    start_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The start minute for maintenance window. Defaults to `0`.
 
@@ -465,9 +465,9 @@ class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class FlexibleServerMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 day_of_week: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] day_of_week: The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         :param pulumi.Input[_builtins.int] start_hour: The start hour for maintenance window. Defaults to `0`.
@@ -484,31 +484,31 @@ class FlexibleServerMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start hour for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
-    def start_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start minute for maintenance window. Defaults to `0`.
 
@@ -517,7 +517,7 @@ class FlexibleServerMaintenanceWindowArgs:
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
-    def start_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minute", value)
 
 
@@ -526,11 +526,11 @@ class ServerIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -539,8 +539,8 @@ class ServerIdentityArgsDict(TypedDict):
 class ServerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
@@ -566,55 +566,55 @@ class ServerIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ServerThreatDetectionPolicyArgsDict(TypedDict):
-    disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled_alerts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
     """
-    email_account_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    email_account_admins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the account administrators be emailed when this alert is triggered?
     """
-    email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    email_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of email addresses which alerts should be sent to.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the policy enabled?
     """
-    retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of days to keep in the Threat Detection audit logs.
     """
-    storage_account_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the identifier key of the Threat Detection audit storage account.
     """
-    storage_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    storage_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
     """
@@ -622,13 +622,13 @@ class ServerThreatDetectionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ServerThreatDetectionPolicyArgs:
     def __init__(__self__, *,
-                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
         :param pulumi.Input[_builtins.bool] email_account_admins: Should the account administrators be emailed when this alert is triggered?
@@ -655,86 +655,86 @@ class ServerThreatDetectionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_alerts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_alerts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_account_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the account administrators be emailed when this alert is triggered?
         """
         return pulumi.get(self, "email_account_admins")
 
     @email_account_admins.setter
-    def email_account_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_account_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_account_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email addresses which alerts should be sent to.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the policy enabled?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_endpoint", value)
 
 

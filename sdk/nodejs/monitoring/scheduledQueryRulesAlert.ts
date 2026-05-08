@@ -294,72 +294,72 @@ export interface ScheduledQueryRulesAlertState {
     /**
      * An `action` block as defined below.
      */
-    action?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertAction>;
+    action?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertAction | undefined>;
     /**
      * List of Resource IDs referred into query.
      */
-    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      * > **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      */
-    autoMitigationEnabled?: pulumi.Input<boolean>;
+    autoMitigationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
-    dataSourceId?: pulumi.Input<string>;
+    dataSourceId?: pulumi.Input<string | undefined>;
     /**
      * The description of the scheduled query rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this scheduled query rule is enabled. Default is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Log search query.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      */
-    queryType?: pulumi.Input<string>;
+    queryType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
-    severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      */
-    throttling?: pulumi.Input<number>;
+    throttling?: pulumi.Input<number | undefined>;
     /**
      * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      */
-    timeWindow?: pulumi.Input<number>;
+    timeWindow?: pulumi.Input<number | undefined>;
     /**
      * A `trigger` block as defined below.
      */
-    trigger?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
+    trigger?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger | undefined>;
 }
 
 /**
@@ -373,12 +373,12 @@ export interface ScheduledQueryRulesAlertArgs {
     /**
      * List of Resource IDs referred into query.
      */
-    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      * > **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      */
-    autoMitigationEnabled?: pulumi.Input<boolean>;
+    autoMitigationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
@@ -386,11 +386,11 @@ export interface ScheduledQueryRulesAlertArgs {
     /**
      * The description of the scheduled query rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this scheduled query rule is enabled. Default is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      */
@@ -398,11 +398,11 @@ export interface ScheduledQueryRulesAlertArgs {
     /**
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Log search query.
      */
@@ -410,7 +410,7 @@ export interface ScheduledQueryRulesAlertArgs {
     /**
      * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      */
-    queryType?: pulumi.Input<string>;
+    queryType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
@@ -418,15 +418,15 @@ export interface ScheduledQueryRulesAlertArgs {
     /**
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
-    severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      */
-    throttling?: pulumi.Input<number>;
+    throttling?: pulumi.Input<number | undefined>;
     /**
      * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      */

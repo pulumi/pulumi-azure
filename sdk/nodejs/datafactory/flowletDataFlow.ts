@@ -289,43 +289,43 @@ export interface FlowletDataFlowState {
     /**
      * List of tags that can be used for describing the Data Factory Flowlet Data Flow.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Flowlet Data Flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The script for the Data Factory Flowlet Data Flow.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The script lines for the Data Factory Flowlet Data Flow.
      */
-    scriptLines?: pulumi.Input<pulumi.Input<string>[]>;
+    scriptLines?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `sink` blocks as defined below.
      */
-    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSink>[]>;
+    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSink>[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSource>[] | undefined>;
     /**
      * One or more `transformation` blocks as defined below.
      */
-    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowTransformation>[]>;
+    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowTransformation>[] | undefined>;
 }
 
 /**
@@ -335,7 +335,7 @@ export interface FlowletDataFlowArgs {
     /**
      * List of tags that can be used for describing the Data Factory Flowlet Data Flow.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
      */
@@ -343,33 +343,33 @@ export interface FlowletDataFlowArgs {
     /**
      * The description for the Data Factory Flowlet Data Flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The script for the Data Factory Flowlet Data Flow.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The script lines for the Data Factory Flowlet Data Flow.
      */
-    scriptLines?: pulumi.Input<pulumi.Input<string>[]>;
+    scriptLines?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `sink` blocks as defined below.
      */
-    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSink>[]>;
+    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSink>[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSource>[] | undefined>;
     /**
      * One or more `transformation` blocks as defined below.
      */
-    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowTransformation>[]>;
+    transformations?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowTransformation>[] | undefined>;
 }

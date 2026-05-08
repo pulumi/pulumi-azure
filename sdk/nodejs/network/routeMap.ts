@@ -144,15 +144,15 @@ export interface RouteMapState {
     /**
      * The name which should be used for this Route Map. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `rule` block as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRule>[] | undefined>;
     /**
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,11 +162,11 @@ export interface RouteMapArgs {
     /**
      * The name which should be used for this Route Map. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `rule` block as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRule>[] | undefined>;
     /**
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      */

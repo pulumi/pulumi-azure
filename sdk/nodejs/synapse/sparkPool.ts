@@ -237,52 +237,52 @@ export interface SparkPoolState {
     /**
      * An `autoPause` block as defined below.
      */
-    autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause>;
+    autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause | undefined>;
     /**
      * An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale | undefined>;
     /**
      * The cache size in the Spark Pool.
      */
-    cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether compute isolation is enabled or not. Defaults to `false`.
      */
-    computeIsolationEnabled?: pulumi.Input<boolean>;
-    dynamicExecutorAllocationEnabled?: pulumi.Input<boolean>;
-    libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
-    maxExecutors?: pulumi.Input<number>;
-    minExecutors?: pulumi.Input<number>;
+    computeIsolationEnabled?: pulumi.Input<boolean | undefined>;
+    dynamicExecutorAllocationEnabled?: pulumi.Input<boolean | undefined>;
+    libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement | undefined>;
+    maxExecutors?: pulumi.Input<number | undefined>;
+    minExecutors?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number | undefined>;
     /**
      * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      */
-    nodeSize?: pulumi.Input<string>;
+    nodeSize?: pulumi.Input<string | undefined>;
     /**
      * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
-    nodeSizeFamily?: pulumi.Input<string>;
-    sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
-    sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
-    sparkEventsFolder?: pulumi.Input<string>;
-    sparkLogFolder?: pulumi.Input<string>;
+    nodeSizeFamily?: pulumi.Input<string | undefined>;
+    sessionLevelPackagesEnabled?: pulumi.Input<boolean | undefined>;
+    sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig | undefined>;
+    sparkEventsFolder?: pulumi.Input<string | undefined>;
+    sparkLogFolder?: pulumi.Input<string | undefined>;
     /**
      * The Apache Spark version. Possible values are `3.4` and `3.5`.
      */
-    sparkVersion?: pulumi.Input<string>;
+    sparkVersion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -292,31 +292,31 @@ export interface SparkPoolArgs {
     /**
      * An `autoPause` block as defined below.
      */
-    autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause>;
+    autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause | undefined>;
     /**
      * An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale | undefined>;
     /**
      * The cache size in the Spark Pool.
      */
-    cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether compute isolation is enabled or not. Defaults to `false`.
      */
-    computeIsolationEnabled?: pulumi.Input<boolean>;
-    dynamicExecutorAllocationEnabled?: pulumi.Input<boolean>;
-    libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
-    maxExecutors?: pulumi.Input<number>;
-    minExecutors?: pulumi.Input<number>;
+    computeIsolationEnabled?: pulumi.Input<boolean | undefined>;
+    dynamicExecutorAllocationEnabled?: pulumi.Input<boolean | undefined>;
+    libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement | undefined>;
+    maxExecutors?: pulumi.Input<number | undefined>;
+    minExecutors?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number | undefined>;
     /**
      * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      */
@@ -325,10 +325,10 @@ export interface SparkPoolArgs {
      * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     nodeSizeFamily: pulumi.Input<string>;
-    sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
-    sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
-    sparkEventsFolder?: pulumi.Input<string>;
-    sparkLogFolder?: pulumi.Input<string>;
+    sessionLevelPackagesEnabled?: pulumi.Input<boolean | undefined>;
+    sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig | undefined>;
+    sparkEventsFolder?: pulumi.Input<string | undefined>;
+    sparkLogFolder?: pulumi.Input<string | undefined>;
     /**
      * The Apache Spark version. Possible values are `3.4` and `3.5`.
      */
@@ -337,5 +337,5 @@ export interface SparkPoolArgs {
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
     synapseWorkspaceId: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

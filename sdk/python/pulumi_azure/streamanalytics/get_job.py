@@ -301,8 +301,8 @@ def get_job(name: Optional[_builtins.str] = None,
         start_time=pulumi.get(__ret__, 'start_time'),
         streaming_units=pulumi.get(__ret__, 'streaming_units'),
         transformation_query=pulumi.get(__ret__, 'transformation_query'))
-def get_job_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Use this data source to access information about an existing Stream Analytics Job.

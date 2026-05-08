@@ -21,9 +21,9 @@ class ContainerImmutabilityPolicyArgs:
     def __init__(__self__, *,
                  immutability_period_in_days: pulumi.Input[_builtins.int],
                  storage_container_resource_manager_id: pulumi.Input[_builtins.str],
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ContainerImmutabilityPolicy resource.
 
@@ -70,7 +70,7 @@ class ContainerImmutabilityPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
 
@@ -79,42 +79,42 @@ class ContainerImmutabilityPolicyArgs:
         return pulumi.get(self, "locked")
 
     @locked.setter
-    def locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "locked", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedAppendWritesAllEnabled")
-    def protected_append_writes_all_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protected_append_writes_all_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
         """
         return pulumi.get(self, "protected_append_writes_all_enabled")
 
     @protected_append_writes_all_enabled.setter
-    def protected_append_writes_all_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protected_append_writes_all_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protected_append_writes_all_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedAppendWritesEnabled")
-    def protected_append_writes_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protected_append_writes_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
         """
         return pulumi.get(self, "protected_append_writes_enabled")
 
     @protected_append_writes_enabled.setter
-    def protected_append_writes_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protected_append_writes_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protected_append_writes_enabled", value)
 
 
 @pulumi.input_type
 class _ContainerImmutabilityPolicyState:
     def __init__(__self__, *,
-                 immutability_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_container_resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 immutability_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_container_resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerImmutabilityPolicy resources.
 
@@ -139,19 +139,19 @@ class _ContainerImmutabilityPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="immutabilityPeriodInDays")
-    def immutability_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def immutability_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
         """
         return pulumi.get(self, "immutability_period_in_days")
 
     @immutability_period_in_days.setter
-    def immutability_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def immutability_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "immutability_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
 
@@ -160,43 +160,43 @@ class _ContainerImmutabilityPolicyState:
         return pulumi.get(self, "locked")
 
     @locked.setter
-    def locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "locked", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedAppendWritesAllEnabled")
-    def protected_append_writes_all_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protected_append_writes_all_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
         """
         return pulumi.get(self, "protected_append_writes_all_enabled")
 
     @protected_append_writes_all_enabled.setter
-    def protected_append_writes_all_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protected_append_writes_all_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protected_append_writes_all_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedAppendWritesEnabled")
-    def protected_append_writes_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protected_append_writes_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
         """
         return pulumi.get(self, "protected_append_writes_enabled")
 
     @protected_append_writes_enabled.setter
-    def protected_append_writes_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protected_append_writes_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protected_append_writes_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerResourceManagerId")
-    def storage_container_resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of the Storage Container where this Immutability Policy should be applied. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_resource_manager_id")
 
     @storage_container_resource_manager_id.setter
-    def storage_container_resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_resource_manager_id", value)
 
 
@@ -206,11 +206,11 @@ class ContainerImmutabilityPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 immutability_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_container_resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 immutability_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_container_resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Immutability Policy for a Container within an Azure Storage Account.
@@ -339,11 +339,11 @@ class ContainerImmutabilityPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 immutability_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protected_append_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_container_resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 immutability_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protected_append_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_container_resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,11 +372,11 @@ class ContainerImmutabilityPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            immutability_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            locked: Optional[pulumi.Input[_builtins.bool]] = None,
-            protected_append_writes_all_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            protected_append_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_container_resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ContainerImmutabilityPolicy':
+            immutability_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            protected_append_writes_all_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            protected_append_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_container_resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContainerImmutabilityPolicy':
         """
         Get an existing ContainerImmutabilityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

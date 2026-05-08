@@ -161,7 +161,7 @@ export interface GetAppOutputArgs {
     /**
      * Should the data source read the secrets from the Container App? Defaults to `true`.
      */
-    readSecrets?: pulumi.Input<boolean>;
+    readSecrets?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where this Container App exists.
      */

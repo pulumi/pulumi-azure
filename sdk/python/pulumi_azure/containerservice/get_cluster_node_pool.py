@@ -442,9 +442,9 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[_builtins.str] = Non
         vm_size=pulumi.get(__ret__, 'vm_size'),
         vnet_subnet_id=pulumi.get(__ret__, 'vnet_subnet_id'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_node_pool_output(kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterNodePoolResult]:
     """
     Use this data source to access information about an existing Kubernetes Cluster Node Pool.

@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.WorkspaceSecurityAlertPolicy;
  * import com.pulumi.azure.synapse.WorkspaceSecurityAlertPolicyArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .aadAdmin(List.of(Map.ofEntries(
+ *             .aadAdmin(Arrays.asList(Map.ofEntries(
  *                 Map.entry("login", "AzureAD Admin"),
  *                 Map.entry("objectId", "00000000-0000-0000-0000-000000000000"),
  *                 Map.entry("tenantId", "00000000-0000-0000-0000-000000000000")

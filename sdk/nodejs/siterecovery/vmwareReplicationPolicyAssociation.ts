@@ -133,16 +133,16 @@ export interface VmwareReplicationPolicyAssociationState {
     /**
      * The name of the replication policy association. Changing this forces a new association to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Recovery Service Vault to which the policy should be associated.
      * Changing this forces a new association to be created.
      */
-    recoveryVaultId?: pulumi.Input<string>;
+    recoveryVaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface VmwareReplicationPolicyAssociationArgs {
     /**
      * The name of the replication policy association. Changing this forces a new association to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      */

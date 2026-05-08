@@ -155,27 +155,27 @@ export interface ClusterState {
     /**
      * The count of the Azure VMware Solution Cluster nodes.
      */
-    clusterNodeCount?: pulumi.Input<number>;
+    clusterNodeCount?: pulumi.Input<number | undefined>;
     /**
      * A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
      */
-    clusterNumber?: pulumi.Input<number>;
+    clusterNumber?: pulumi.Input<number | undefined>;
     /**
      * A list of hosts in the Azure VMware Solution Cluster.
      */
-    hosts?: pulumi.Input<pulumi.Input<string>[]>;
+    hosts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    vmwareCloudId?: pulumi.Input<string>;
+    vmwareCloudId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface ClusterArgs {
     /**
      * The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      */

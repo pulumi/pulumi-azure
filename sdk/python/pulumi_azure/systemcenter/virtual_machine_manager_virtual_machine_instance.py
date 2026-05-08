@@ -24,11 +24,11 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
                  custom_location_id: pulumi.Input[_builtins.str],
                  infrastructure: pulumi.Input['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs'],
                  scoped_resource_id: pulumi.Input[_builtins.str],
-                 hardware: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]] = None,
-                 operating_system: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']] = None,
-                 storage_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]] = None,
-                 system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 hardware: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]] = None,
+                 operating_system: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']] = None,
+                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]] = None,
+                 system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerVirtualMachineInstance resource.
 
@@ -99,7 +99,7 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hardware(self) -> Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]:
+    def hardware(self) -> pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]:
         """
         A `hardware` block as defined below. Changing this forces a new resource to be created.
 
@@ -108,12 +108,12 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         return pulumi.get(self, "hardware")
 
     @hardware.setter
-    def hardware(self, value: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]):
+    def hardware(self, value: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]):
         pulumi.set(self, "hardware", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]:
         """
         A `network_interface` block as defined below.
 
@@ -122,24 +122,24 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]:
+    def operating_system(self) -> pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]:
         """
         An `operating_system` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]):
+    def operating_system(self, value: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter(name="storageDisks")
-    def storage_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]:
+    def storage_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]:
         """
         A `storage_disk` block as defined below.
 
@@ -148,33 +148,33 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
         return pulumi.get(self, "storage_disks")
 
     @storage_disks.setter
-    def storage_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]):
+    def storage_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]):
         pulumi.set(self, "storage_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="systemCenterVirtualMachineManagerAvailabilitySetIds")
-    def system_center_virtual_machine_manager_availability_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def system_center_virtual_machine_manager_availability_set_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of System Center Virtual Machine Manager Availability Set.
         """
         return pulumi.get(self, "system_center_virtual_machine_manager_availability_set_ids")
 
     @system_center_virtual_machine_manager_availability_set_ids.setter
-    def system_center_virtual_machine_manager_availability_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def system_center_virtual_machine_manager_availability_set_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "system_center_virtual_machine_manager_availability_set_ids", value)
 
 
 @pulumi.input_type
 class _VirtualMachineManagerVirtualMachineInstanceState:
     def __init__(__self__, *,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']] = None,
-                 infrastructure: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs']] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]] = None,
-                 operating_system: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']] = None,
-                 scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]] = None,
-                 system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']] = None,
+                 infrastructure: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs']] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]] = None,
+                 operating_system: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']] = None,
+                 scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]] = None,
+                 system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerVirtualMachineInstance resources.
 
@@ -212,19 +212,19 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
 
     @_builtins.property
     @pulumi.getter(name="customLocationId")
-    def custom_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_location_id")
 
     @custom_location_id.setter
-    def custom_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_location_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_location_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def hardware(self) -> Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]:
+    def hardware(self) -> pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]:
         """
         A `hardware` block as defined below. Changing this forces a new resource to be created.
 
@@ -233,24 +233,24 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         return pulumi.get(self, "hardware")
 
     @hardware.setter
-    def hardware(self, value: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]):
+    def hardware(self, value: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceHardwareArgs']]):
         pulumi.set(self, "hardware", value)
 
     @_builtins.property
     @pulumi.getter
-    def infrastructure(self) -> Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs']]:
+    def infrastructure(self) -> pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs']]:
         """
         An `infrastructure` block as defined below.
         """
         return pulumi.get(self, "infrastructure")
 
     @infrastructure.setter
-    def infrastructure(self, value: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs']]):
+    def infrastructure(self, value: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs']]):
         pulumi.set(self, "infrastructure", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]:
         """
         A `network_interface` block as defined below.
 
@@ -259,36 +259,36 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]:
+    def operating_system(self) -> pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]:
         """
         An `operating_system` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]):
+    def operating_system(self, value: pulumi.Input[Optional['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs']]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter(name="scopedResourceId")
-    def scoped_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scoped_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scoped_resource_id")
 
     @scoped_resource_id.setter
-    def scoped_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scoped_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scoped_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageDisks")
-    def storage_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]:
+    def storage_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]:
         """
         A `storage_disk` block as defined below.
 
@@ -297,19 +297,19 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         return pulumi.get(self, "storage_disks")
 
     @storage_disks.setter
-    def storage_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]):
+    def storage_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs']]]]):
         pulumi.set(self, "storage_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="systemCenterVirtualMachineManagerAvailabilitySetIds")
-    def system_center_virtual_machine_manager_availability_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def system_center_virtual_machine_manager_availability_set_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of System Center Virtual Machine Manager Availability Set.
         """
         return pulumi.get(self, "system_center_virtual_machine_manager_availability_set_ids")
 
     @system_center_virtual_machine_manager_availability_set_ids.setter
-    def system_center_virtual_machine_manager_availability_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def system_center_virtual_machine_manager_availability_set_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "system_center_virtual_machine_manager_availability_set_ids", value)
 
 
@@ -319,14 +319,14 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
-                 infrastructure: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
-                 operating_system: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
-                 scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
-                 system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
+                 infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
+                 operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
+                 scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
+                 system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a System Center Virtual Machine Manager Virtual Machine Instance.
@@ -514,14 +514,14 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
-                 infrastructure: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
-                 operating_system: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
-                 scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
-                 system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
+                 infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
+                 operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
+                 scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
+                 system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -555,14 +555,14 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hardware: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
-            infrastructure: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
-            operating_system: Optional[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
-            scoped_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
-            system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'VirtualMachineManagerVirtualMachineInstance':
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
+            infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
+            operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
+            scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
+            system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'VirtualMachineManagerVirtualMachineInstance':
         """
         Get an existing VirtualMachineManagerVirtualMachineInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

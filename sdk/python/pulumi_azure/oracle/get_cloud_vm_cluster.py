@@ -770,8 +770,8 @@ def get_cloud_vm_cluster(name: Optional[_builtins.str] = None,
         vip_ods=pulumi.get(__ret__, 'vip_ods'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-def get_cloud_vm_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_vm_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudVmClusterResult]:
     """
     Use this data source to access information about an existing Cloud VM Cluster.

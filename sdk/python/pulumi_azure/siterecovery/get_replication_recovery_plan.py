@@ -169,8 +169,8 @@ def get_replication_recovery_plan(name: Optional[_builtins.str] = None,
         recovery_vault_id=pulumi.get(__ret__, 'recovery_vault_id'),
         source_recovery_fabric_id=pulumi.get(__ret__, 'source_recovery_fabric_id'),
         target_recovery_fabric_id=pulumi.get(__ret__, 'target_recovery_fabric_id'))
-def get_replication_recovery_plan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_recovery_plan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationRecoveryPlanResult]:
     """
     Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.

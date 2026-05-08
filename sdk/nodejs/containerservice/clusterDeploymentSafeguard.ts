@@ -148,19 +148,19 @@ export interface ClusterDeploymentSafeguardState {
     /**
      * A list of Kubernetes namespace names that should be excluded from Deployment Safeguards enforcement. This allows certain namespaces to bypass the configured policies.
      */
-    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Kubernetes Cluster ID for which Deployment Safeguards should be configured. Changing this forces a new resource to be created.
      */
-    kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string | undefined>;
     /**
      * The level of Deployment Safeguards enforcement. Possible values are `Warn` and `Enforce`.
      */
-    level?: pulumi.Input<string>;
+    level?: pulumi.Input<string | undefined>;
     /**
      * The Pod Security Standards level to enforce. Possible values are `Baseline`, `Privileged`, and `Restricted`. Defaults to `Privileged`.
      */
-    podSecurityStandardsLevel?: pulumi.Input<string>;
+    podSecurityStandardsLevel?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface ClusterDeploymentSafeguardArgs {
     /**
      * A list of Kubernetes namespace names that should be excluded from Deployment Safeguards enforcement. This allows certain namespaces to bypass the configured policies.
      */
-    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Kubernetes Cluster ID for which Deployment Safeguards should be configured. Changing this forces a new resource to be created.
      */
@@ -182,5 +182,5 @@ export interface ClusterDeploymentSafeguardArgs {
     /**
      * The Pod Security Standards level to enforce. Possible values are `Baseline`, `Privileged`, and `Restricted`. Defaults to `Privileged`.
      */
-    podSecurityStandardsLevel?: pulumi.Input<string>;
+    podSecurityStandardsLevel?: pulumi.Input<string | undefined>;
 }

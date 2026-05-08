@@ -150,19 +150,19 @@ export interface SpringCloudBuildPackBindingState {
     /**
      * Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
-    bindingType?: pulumi.Input<string>;
+    bindingType?: pulumi.Input<string | undefined>;
     /**
      * A `launch` block as defined below.
      */
-    launch?: pulumi.Input<inputs.appplatform.SpringCloudBuildPackBindingLaunch>;
+    launch?: pulumi.Input<inputs.appplatform.SpringCloudBuildPackBindingLaunch | undefined>;
     /**
      * The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      */
-    springCloudBuilderId?: pulumi.Input<string>;
+    springCloudBuilderId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,15 +172,15 @@ export interface SpringCloudBuildPackBindingArgs {
     /**
      * Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
-    bindingType?: pulumi.Input<string>;
+    bindingType?: pulumi.Input<string | undefined>;
     /**
      * A `launch` block as defined below.
      */
-    launch?: pulumi.Input<inputs.appplatform.SpringCloudBuildPackBindingLaunch>;
+    launch?: pulumi.Input<inputs.appplatform.SpringCloudBuildPackBindingLaunch | undefined>;
     /**
      * The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      */

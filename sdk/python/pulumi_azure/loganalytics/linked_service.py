@@ -21,8 +21,8 @@ class LinkedServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 read_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_access_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 read_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_access_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedService resource.
 
@@ -66,19 +66,19 @@ class LinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="readAccessId")
-    def read_access_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def read_access_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         """
         return pulumi.get(self, "read_access_id")
 
     @read_access_id.setter
-    def read_access_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def read_access_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "read_access_id", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAccessId")
-    def write_access_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def write_access_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 
@@ -87,18 +87,18 @@ class LinkedServiceArgs:
         return pulumi.get(self, "write_access_id")
 
     @write_access_id.setter
-    def write_access_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def write_access_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "write_access_id", value)
 
 
 @pulumi.input_type
 class _LinkedServiceState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_access_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_access_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedService resources.
 
@@ -123,55 +123,55 @@ class _LinkedServiceState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="readAccessId")
-    def read_access_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def read_access_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         """
         return pulumi.get(self, "read_access_id")
 
     @read_access_id.setter
-    def read_access_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def read_access_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "read_access_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAccessId")
-    def write_access_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def write_access_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 
@@ -180,7 +180,7 @@ class _LinkedServiceState:
         return pulumi.get(self, "write_access_id")
 
     @write_access_id.setter
-    def write_access_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def write_access_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "write_access_id", value)
 
 
@@ -190,10 +190,10 @@ class LinkedService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 read_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_access_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_access_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics Linked Service.
@@ -331,10 +331,10 @@ class LinkedService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 read_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_access_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_access_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,11 +363,11 @@ class LinkedService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            read_access_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            write_access_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkedService':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            read_access_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            write_access_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedService':
         """
         Get an existing LinkedService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

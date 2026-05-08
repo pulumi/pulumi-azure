@@ -216,69 +216,69 @@ export interface RunBookState {
     /**
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The desired content of the runbook.
      *
      * > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * A description for the runbook.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `draft` block as defined below.
      */
-    draft?: pulumi.Input<inputs.automation.RunBookDraft>;
+    draft?: pulumi.Input<inputs.automation.RunBookDraft | undefined>;
     /**
      * One or more `jobSchedule` block as defined below.
      *
      * > **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
-    jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
+    jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
-    logActivityTraceLevel?: pulumi.Input<number>;
+    logActivityTraceLevel?: pulumi.Input<number | undefined>;
     /**
      * Progress log option.
      */
-    logProgress?: pulumi.Input<boolean>;
+    logProgress?: pulumi.Input<boolean | undefined>;
     /**
      * Verbose log option.
      */
-    logVerbose?: pulumi.Input<boolean>;
+    logVerbose?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Runbook. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One `publishContentLink` block as defined below.
      */
-    publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
+    publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink | undefined>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      */
-    runbookType?: pulumi.Input<string>;
+    runbookType?: pulumi.Input<string | undefined>;
     /**
      * The runtime environment name for the runbook.
      *
      * > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
      */
-    runtimeEnvironmentName?: pulumi.Input<string>;
+    runtimeEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -294,29 +294,29 @@ export interface RunBookArgs {
      *
      * > **Note:** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * A description for the runbook.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `draft` block as defined below.
      */
-    draft?: pulumi.Input<inputs.automation.RunBookDraft>;
+    draft?: pulumi.Input<inputs.automation.RunBookDraft | undefined>;
     /**
      * One or more `jobSchedule` block as defined below.
      *
      * > **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
-    jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
+    jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
      */
-    logActivityTraceLevel?: pulumi.Input<number>;
+    logActivityTraceLevel?: pulumi.Input<number | undefined>;
     /**
      * Progress log option.
      */
@@ -328,11 +328,11 @@ export interface RunBookArgs {
     /**
      * Specifies the name of the Runbook. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One `publishContentLink` block as defined below.
      */
-    publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
+    publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink | undefined>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */
@@ -346,9 +346,9 @@ export interface RunBookArgs {
      *
      * > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
      */
-    runtimeEnvironmentName?: pulumi.Input<string>;
+    runtimeEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

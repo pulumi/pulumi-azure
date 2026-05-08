@@ -203,67 +203,67 @@ export interface AccountState {
     /**
      * Atlas Kafka endpoint primary connection string.
      */
-    atlasKafkaEndpointPrimaryConnectionString?: pulumi.Input<string>;
+    atlasKafkaEndpointPrimaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Atlas Kafka endpoint secondary connection string.
      */
-    atlasKafkaEndpointSecondaryConnectionString?: pulumi.Input<string>;
+    atlasKafkaEndpointSecondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Configured in AWS to allow use of the role arn used for scanning
      */
-    awsExternalId?: pulumi.Input<string>;
+    awsExternalId?: pulumi.Input<string | undefined>;
     /**
      * Catalog endpoint.
      */
-    catalogEndpoint?: pulumi.Input<string>;
+    catalogEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Guardian endpoint.
      */
-    guardianEndpoint?: pulumi.Input<string>;
+    guardianEndpoint?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.purview.AccountIdentity>;
+    identity?: pulumi.Input<inputs.purview.AccountIdentity | undefined>;
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
      *
      * > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
      */
-    managedEventHubEnabled?: pulumi.Input<boolean>;
+    managedEventHubEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
      * > **Note:** `managedResourceGroupName` must be a new Resource Group.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `managedResources` block as defined below.
      */
-    managedResources?: pulumi.Input<pulumi.Input<inputs.purview.AccountManagedResource>[]>;
+    managedResources?: pulumi.Input<pulumi.Input<inputs.purview.AccountManagedResource>[] | undefined>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should the Purview Account be visible to the public network? Defaults to `true`.
      */
-    publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Scan endpoint.
      */
-    scanEndpoint?: pulumi.Input<string>;
+    scanEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -277,27 +277,27 @@ export interface AccountArgs {
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
      *
      * > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
      */
-    managedEventHubEnabled?: pulumi.Input<boolean>;
+    managedEventHubEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
      * > **Note:** `managedResourceGroupName` must be a new Resource Group.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should the Purview Account be visible to the public network? Defaults to `true`.
      */
-    publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
@@ -305,5 +305,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

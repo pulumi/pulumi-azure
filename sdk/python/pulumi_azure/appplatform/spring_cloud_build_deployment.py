@@ -23,12 +23,12 @@ class SpringCloudBuildDeploymentArgs:
     def __init__(__self__, *,
                  build_result_id: pulumi.Input[_builtins.str],
                  spring_cloud_app_id: pulumi.Input[_builtins.str],
-                 addon_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None):
+                 addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional['SpringCloudBuildDeploymentQuotaArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudBuildDeployment resource.
 
@@ -82,88 +82,88 @@ class SpringCloudBuildDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonJson")
-    def addon_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         """
         return pulumi.get(self, "addon_json")
 
     @addon_json.setter
-    def addon_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_json", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationPerformanceMonitoringIds")
-    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def application_performance_monitoring_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         """
         return pulumi.get(self, "application_performance_monitoring_ids")
 
     @application_performance_monitoring_ids.setter
-    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def application_performance_monitoring_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]:
+    def quota(self) -> pulumi.Input[Optional['SpringCloudBuildDeploymentQuotaArgs']]:
         """
         A `quota` block as defined below.
         """
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]):
+    def quota(self, value: pulumi.Input[Optional['SpringCloudBuildDeploymentQuotaArgs']]):
         pulumi.set(self, "quota", value)
 
 
 @pulumi.input_type
 class _SpringCloudBuildDeploymentState:
     def __init__(__self__, *,
-                 addon_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 build_result_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 build_result_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional['SpringCloudBuildDeploymentQuotaArgs']] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
 
@@ -195,98 +195,98 @@ class _SpringCloudBuildDeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="addonJson")
-    def addon_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         """
         return pulumi.get(self, "addon_json")
 
     @addon_json.setter
-    def addon_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_json", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationPerformanceMonitoringIds")
-    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def application_performance_monitoring_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         """
         return pulumi.get(self, "application_performance_monitoring_ids")
 
     @application_performance_monitoring_ids.setter
-    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def application_performance_monitoring_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="buildResultId")
-    def build_result_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_result_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Build Result.
         """
         return pulumi.get(self, "build_result_id")
 
     @build_result_id.setter
-    def build_result_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_result_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_result_id", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]:
+    def quota(self) -> pulumi.Input[Optional['SpringCloudBuildDeploymentQuotaArgs']]:
         """
         A `quota` block as defined below.
         """
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]):
+    def quota(self, value: pulumi.Input[Optional['SpringCloudBuildDeploymentQuotaArgs']]):
         pulumi.set(self, "quota", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudAppId")
-    def spring_cloud_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
         return pulumi.get(self, "spring_cloud_app_id")
 
     @spring_cloud_app_id.setter
-    def spring_cloud_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
@@ -296,14 +296,14 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 build_result_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict']]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 build_result_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict']]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Spring Cloud Build Deployment.
@@ -435,14 +435,14 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 build_result_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota: Optional[pulumi.Input[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict']]] = None,
-                 spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 build_result_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota: pulumi.Input[Optional[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict']]] = None,
+                 spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,14 +474,14 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addon_json: Optional[pulumi.Input[_builtins.str]] = None,
-            application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            build_result_id: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            quota: Optional[pulumi.Input[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict']]] = None,
-            spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudBuildDeployment':
+            addon_json: pulumi.Input[Optional[_builtins.str]] = None,
+            application_performance_monitoring_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            build_result_id: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quota: pulumi.Input[Optional[Union['SpringCloudBuildDeploymentQuotaArgs', 'SpringCloudBuildDeploymentQuotaArgsDict']]] = None,
+            spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudBuildDeployment':
         """
         Get an existing SpringCloudBuildDeployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

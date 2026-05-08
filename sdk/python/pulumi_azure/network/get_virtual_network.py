@@ -209,8 +209,8 @@ def get_virtual_network(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vnet_peerings=pulumi.get(__ret__, 'vnet_peerings'),
         vnet_peerings_addresses=pulumi.get(__ret__, 'vnet_peerings_addresses'))
-def get_virtual_network_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     Use this data source to access information about an existing Virtual Network.

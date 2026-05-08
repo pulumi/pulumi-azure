@@ -21,13 +21,13 @@ class GrafanaManagedPrivateEndpointArgs:
     def __init__(__self__, *,
                  grafana_id: pulumi.Input[_builtins.str],
                  private_link_resource_id: pulumi.Input[_builtins.str],
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GrafanaManagedPrivateEndpoint resource.
 
@@ -84,101 +84,101 @@ class GrafanaManagedPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceRegion")
-    def private_link_resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "private_link_resource_region")
 
     @private_link_resource_region.setter
-    def private_link_resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_region", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceUrl")
-    def private_link_service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
         """
         return pulumi.get(self, "private_link_service_url")
 
     @private_link_service_url.setter
-    def private_link_service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_url", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to provide in the request which will be seen by approvers.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _GrafanaManagedPrivateEndpointState:
     def __init__(__self__, *,
-                 grafana_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 grafana_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GrafanaManagedPrivateEndpoint resources.
 
@@ -213,110 +213,110 @@ class _GrafanaManagedPrivateEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="grafanaId")
-    def grafana_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grafana_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "grafana_id")
 
     @grafana_id.setter
-    def grafana_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grafana_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grafana_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "private_link_resource_id")
 
     @private_link_resource_id.setter
-    def private_link_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceRegion")
-    def private_link_resource_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_resource_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         """
         return pulumi.get(self, "private_link_resource_region")
 
     @private_link_resource_region.setter
-    def private_link_resource_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_resource_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_region", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceUrl")
-    def private_link_service_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
         """
         return pulumi.get(self, "private_link_service_url")
 
     @private_link_service_url.setter
-    def private_link_service_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_url", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to provide in the request which will be seen by approvers.
         """
         return pulumi.get(self, "request_message")
 
     @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -326,15 +326,15 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grafana_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 grafana_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Dashboard Grafana Managed Private Endpoint.
@@ -475,15 +475,15 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grafana_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 grafana_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -516,15 +516,15 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            grafana_id: Optional[pulumi.Input[_builtins.str]] = None,
-            group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            private_link_resource_region: Optional[pulumi.Input[_builtins.str]] = None,
-            private_link_service_url: Optional[pulumi.Input[_builtins.str]] = None,
-            request_message: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'GrafanaManagedPrivateEndpoint':
+            grafana_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
+            private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
+            request_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'GrafanaManagedPrivateEndpoint':
         """
         Get an existing GrafanaManagedPrivateEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

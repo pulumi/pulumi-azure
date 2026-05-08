@@ -207,47 +207,47 @@ export interface NextGenerationFirewallVirtualHubStrataCloudManagerState {
     /**
      * One or more `destinationNat` blocks as defined below.
      */
-    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat>[]>;
+    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat>[] | undefined>;
     /**
      * A `dnsSettings` block as defined below.
      */
-    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings>;
+    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerIdentity>;
+    identity?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerIdentity | undefined>;
     /**
      * The Azure Region where the Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the marketplace offer. Defaults to `panSwfwCloudNgfw`. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    marketplaceOfferId?: pulumi.Input<string>;
+    marketplaceOfferId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below.
      */
-    networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile>;
+    networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfile | undefined>;
     /**
      * The ID of the billing plan. Defaults to `panw-cngfw-payg`.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Strata Cloud Manager name which is intended to manage the policy for this firewall.
      */
-    strataCloudManagerTenantName?: pulumi.Input<string>;
+    strataCloudManagerTenantName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -257,27 +257,27 @@ export interface NextGenerationFirewallVirtualHubStrataCloudManagerArgs {
     /**
      * One or more `destinationNat` blocks as defined below.
      */
-    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat>[]>;
+    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNat>[] | undefined>;
     /**
      * A `dnsSettings` block as defined below.
      */
-    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings>;
+    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettings | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerIdentity>;
+    identity?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerIdentity | undefined>;
     /**
      * The Azure Region where the Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the marketplace offer. Defaults to `panSwfwCloudNgfw`. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    marketplaceOfferId?: pulumi.Input<string>;
+    marketplaceOfferId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below.
      */
@@ -285,7 +285,7 @@ export interface NextGenerationFirewallVirtualHubStrataCloudManagerArgs {
     /**
      * The ID of the billing plan. Defaults to `panw-cngfw-payg`.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
      */
@@ -297,5 +297,5 @@ export interface NextGenerationFirewallVirtualHubStrataCloudManagerArgs {
     /**
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -219,51 +219,51 @@ export interface IdentityProviderAadb2cState {
     /**
      * The allowed AAD tenant, usually your B2C tenant domain.
      */
-    allowedTenant?: pulumi.Input<string>;
+    allowedTenant?: pulumi.Input<string | undefined>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
      */
-    authority?: pulumi.Input<string>;
+    authority?: pulumi.Input<string | undefined>;
     /**
      * Client ID of the Application in your B2C tenant.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The client library to be used in the Azure AD B2C Identity Provider.
      */
-    clientLibrary?: pulumi.Input<string>;
+    clientLibrary?: pulumi.Input<string | undefined>;
     /**
      * Client secret of the Application in your B2C tenant.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Password reset Policy Name.
      */
-    passwordResetPolicy?: pulumi.Input<string>;
+    passwordResetPolicy?: pulumi.Input<string | undefined>;
     /**
      * Profile editing Policy Name.
      */
-    profileEditingPolicy?: pulumi.Input<string>;
+    profileEditingPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Signin Policy Name.
      */
-    signinPolicy?: pulumi.Input<string>;
+    signinPolicy?: pulumi.Input<string | undefined>;
     /**
      * The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
      */
-    signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string | undefined>;
     /**
      * Signup Policy Name.
      */
-    signupPolicy?: pulumi.Input<string>;
+    signupPolicy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface IdentityProviderAadb2cArgs {
     /**
      * The client library to be used in the Azure AD B2C Identity Provider.
      */
-    clientLibrary?: pulumi.Input<string>;
+    clientLibrary?: pulumi.Input<string | undefined>;
     /**
      * Client secret of the Application in your B2C tenant.
      */
@@ -297,11 +297,11 @@ export interface IdentityProviderAadb2cArgs {
     /**
      * Password reset Policy Name.
      */
-    passwordResetPolicy?: pulumi.Input<string>;
+    passwordResetPolicy?: pulumi.Input<string | undefined>;
     /**
      * Profile editing Policy Name.
      */
-    profileEditingPolicy?: pulumi.Input<string>;
+    profileEditingPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */

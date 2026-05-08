@@ -22,7 +22,7 @@ class VMWareReplicationPolicyArgs:
                  application_consistent_snapshot_frequency_in_minutes: pulumi.Input[_builtins.int],
                  recovery_point_retention_in_minutes: pulumi.Input[_builtins.int],
                  recovery_vault_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VMWareReplicationPolicy resource.
 
@@ -75,24 +75,24 @@ class VMWareReplicationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _VMWareReplicationPolicyState:
     def __init__(__self__, *,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VMWareReplicationPolicy resources.
 
@@ -112,50 +112,50 @@ class _VMWareReplicationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
-    def application_consistent_snapshot_frequency_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_minutes")
 
     @application_consistent_snapshot_frequency_in_minutes.setter
-    def application_consistent_snapshot_frequency_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def application_consistent_snapshot_frequency_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointRetentionInMinutes")
-    def recovery_point_retention_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_point_retention_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
         """
         return pulumi.get(self, "recovery_point_retention_in_minutes")
 
     @recovery_point_retention_in_minutes.setter
-    def recovery_point_retention_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_point_retention_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_point_retention_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultId")
-    def recovery_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
-    def recovery_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_id", value)
 
 
@@ -165,10 +165,10 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a VMWare Replication Policy.
@@ -282,10 +282,10 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -315,10 +315,10 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_point_retention_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VMWareReplicationPolicy':
+            application_consistent_snapshot_frequency_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_retention_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VMWareReplicationPolicy':
         """
         Get an existing VMWareReplicationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

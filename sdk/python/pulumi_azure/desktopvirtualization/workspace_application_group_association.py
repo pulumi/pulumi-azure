@@ -58,8 +58,8 @@ class WorkspaceApplicationGroupAssociationArgs:
 @pulumi.input_type
 class _WorkspaceApplicationGroupAssociationState:
     def __init__(__self__, *,
-                 application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApplicationGroupAssociation resources.
 
@@ -73,26 +73,26 @@ class _WorkspaceApplicationGroupAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="applicationGroupId")
-    def application_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
     @application_group_id.setter
-    def application_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -102,8 +102,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Desktop Workspace Application Group Association.
@@ -233,8 +233,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,8 +260,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceApplicationGroupAssociation':
+            application_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceApplicationGroupAssociation':
         """
         Get an existing WorkspaceApplicationGroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

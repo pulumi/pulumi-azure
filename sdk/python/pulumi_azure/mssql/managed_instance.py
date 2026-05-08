@@ -27,26 +27,26 @@ class ManagedInstanceArgs:
                  storage_size_in_gb: pulumi.Input[_builtins.int],
                  subnet_id: pulumi.Input[_builtins.str],
                  vcores: pulumi.Input[_builtins.int],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory_administrator: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory_administrator: pulumi.Input[Optional['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedInstanceIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedInstance resource.
 
@@ -210,19 +210,19 @@ class ManagedInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 
@@ -231,36 +231,36 @@ class ManagedInstanceArgs:
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectoryAdministrator")
-    def azure_active_directory_administrator(self) -> Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]:
+    def azure_active_directory_administrator(self) -> pulumi.Input[Optional['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]:
         """
         An `azure_active_directory_administrator` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory_administrator")
 
     @azure_active_directory_administrator.setter
-    def azure_active_directory_administrator(self, value: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]):
+    def azure_active_directory_administrator(self, value: pulumi.Input[Optional['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]):
         pulumi.set(self, "azure_active_directory_administrator", value)
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseFormat")
-    def database_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
 
@@ -269,24 +269,24 @@ class ManagedInstanceArgs:
         return pulumi.get(self, "database_format")
 
     @database_format.setter
-    def database_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_format", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonePartnerId")
-    def dns_zone_partner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_zone_partner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
     @dns_zone_partner_id.setter
-    def dns_zone_partner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_zone_partner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_zone_partner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="generalPurposeV2Enabled")
-    def general_purpose_v2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def general_purpose_v2_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
 
@@ -295,60 +295,60 @@ class ManagedInstanceArgs:
         return pulumi.get(self, "general_purpose_v2_enabled")
 
     @general_purpose_v2_enabled.setter
-    def general_purpose_v2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def general_purpose_v2_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "general_purpose_v2_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hybridSecondaryUsage")
-    def hybrid_secondary_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hybrid_secondary_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         """
         return pulumi.get(self, "hybrid_secondary_usage")
 
     @hybrid_secondary_usage.setter
-    def hybrid_secondary_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hybrid_secondary_usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hybrid_secondary_usage", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedInstanceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedInstanceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedInstanceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationName")
-    def maintenance_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 
     @maintenance_configuration_name.setter
-    def maintenance_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 
@@ -357,137 +357,137 @@ class ManagedInstanceArgs:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyOverride")
-    def proxy_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
         """
         return pulumi.get(self, "proxy_override")
 
     @proxy_override.setter
-    def proxy_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_override", value)
 
     @_builtins.property
     @pulumi.getter(name="publicDataEndpointEnabled")
-    def public_data_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the public data endpoint enabled? Defaults to `false`.
         """
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @public_data_endpoint_enabled.setter
-    def public_data_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_data_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_data_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalType")
-    def service_principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal type. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "service_principal_type")
 
     @service_principal_type.setter
-    def service_principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timezoneId")
-    def timezone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone_id")
 
     @timezone_id.setter
-    def timezone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundantEnabled")
-    def zone_redundant_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundant_enabled")
 
     @zone_redundant_enabled.setter
-    def zone_redundant_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant_enabled", value)
 
 
 @pulumi.input_type
 class _ManagedInstanceState:
     def __init__(__self__, *,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory_administrator: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcores: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory_administrator: pulumi.Input[Optional['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedInstanceIdentityArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcores: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ManagedInstance resources.
 
@@ -589,19 +589,19 @@ class _ManagedInstanceState:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 
@@ -610,36 +610,36 @@ class _ManagedInstanceState:
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="azureActiveDirectoryAdministrator")
-    def azure_active_directory_administrator(self) -> Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]:
+    def azure_active_directory_administrator(self) -> pulumi.Input[Optional['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]:
         """
         An `azure_active_directory_administrator` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory_administrator")
 
     @azure_active_directory_administrator.setter
-    def azure_active_directory_administrator(self, value: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]):
+    def azure_active_directory_administrator(self, value: pulumi.Input[Optional['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]):
         pulumi.set(self, "azure_active_directory_administrator", value)
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseFormat")
-    def database_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
 
@@ -648,48 +648,48 @@ class _ManagedInstanceState:
         return pulumi.get(self, "database_format")
 
     @database_format.setter
-    def database_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_format", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZone")
-    def dns_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Dns Zone where the SQL Managed Instance is located.
         """
         return pulumi.get(self, "dns_zone")
 
     @dns_zone.setter
-    def dns_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZonePartnerId")
-    def dns_zone_partner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_zone_partner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
     @dns_zone_partner_id.setter
-    def dns_zone_partner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_zone_partner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_zone_partner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the Azure Managed SQL Instance
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="generalPurposeV2Enabled")
-    def general_purpose_v2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def general_purpose_v2_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
 
@@ -698,72 +698,72 @@ class _ManagedInstanceState:
         return pulumi.get(self, "general_purpose_v2_enabled")
 
     @general_purpose_v2_enabled.setter
-    def general_purpose_v2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def general_purpose_v2_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "general_purpose_v2_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hybridSecondaryUsage")
-    def hybrid_secondary_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hybrid_secondary_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         """
         return pulumi.get(self, "hybrid_secondary_usage")
 
     @hybrid_secondary_usage.setter
-    def hybrid_secondary_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hybrid_secondary_usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hybrid_secondary_usage", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedInstanceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedInstanceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedInstanceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationName")
-    def maintenance_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 
     @maintenance_configuration_name.setter
-    def maintenance_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 
@@ -772,96 +772,96 @@ class _ManagedInstanceState:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyOverride")
-    def proxy_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
         """
         return pulumi.get(self, "proxy_override")
 
     @proxy_override.setter
-    def proxy_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_override", value)
 
     @_builtins.property
     @pulumi.getter(name="publicDataEndpointEnabled")
-    def public_data_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the public data endpoint enabled? Defaults to `false`.
         """
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @public_data_endpoint_enabled.setter
-    def public_data_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_data_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_data_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalType")
-    def service_principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal type. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "service_principal_type")
 
     @service_principal_type.setter
-    def service_principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSizeInGb")
-    def storage_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 
@@ -870,67 +870,67 @@ class _ManagedInstanceState:
         return pulumi.get(self, "storage_size_in_gb")
 
     @storage_size_in_gb.setter
-    def storage_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet resource id that the SQL Managed Instance will be associated with.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timezoneId")
-    def timezone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone_id")
 
     @timezone_id.setter
-    def timezone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def vcores(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vcores(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         """
         return pulumi.get(self, "vcores")
 
     @vcores.setter
-    def vcores(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vcores(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vcores", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundantEnabled")
-    def zone_redundant_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundant_enabled")
 
     @zone_redundant_enabled.setter
-    def zone_redundant_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant_enabled", value)
 
 
@@ -940,32 +940,32 @@ class ManagedInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcores: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcores: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Azure Managed Instance.
@@ -1411,32 +1411,32 @@ class ManagedInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcores: Optional[pulumi.Input[_builtins.int]] = None,
-                 zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcores: pulumi.Input[Optional[_builtins.int]] = None,
+                 zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1500,34 +1500,34 @@ class ManagedInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
-            collation: Optional[pulumi.Input[_builtins.str]] = None,
-            database_format: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
-            license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_override: Optional[pulumi.Input[_builtins.str]] = None,
-            public_data_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vcores: Optional[pulumi.Input[_builtins.int]] = None,
-            zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ManagedInstance':
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
+            collation: pulumi.Input[Optional[_builtins.str]] = None,
+            database_format: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_override: pulumi.Input[Optional[_builtins.str]] = None,
+            public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vcores: pulumi.Input[Optional[_builtins.int]] = None,
+            zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ManagedInstance':
         """
         Get an existing ManagedInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

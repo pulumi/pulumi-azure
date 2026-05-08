@@ -118,19 +118,19 @@ export interface CustomDomainState {
      *
      * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    webPubsubCustomCertificateId?: pulumi.Input<string>;
+    webPubsubCustomCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    webPubsubId?: pulumi.Input<string>;
+    webPubsubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface CustomDomainArgs {
     /**
      * Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */

@@ -172,9 +172,9 @@ def get_service_tags(location: Optional[_builtins.str] = None,
         location_filter=pulumi.get(__ret__, 'location_filter'),
         name=pulumi.get(__ret__, 'name'),
         service=pulumi.get(__ret__, 'service'))
-def get_service_tags_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                            location_filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            service: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_tags_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                            location_filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            service: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceTagsResult]:
     """
     Use this data source to access information about Service Tags.

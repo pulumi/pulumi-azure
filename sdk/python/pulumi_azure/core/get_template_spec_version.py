@@ -145,9 +145,9 @@ def get_template_spec_version(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'),
         version=pulumi.get(__ret__, 'version'))
-def get_template_spec_version_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_template_spec_version_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     version: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
     Use this data source to access information about an existing Template Spec Version.

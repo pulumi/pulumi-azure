@@ -23,10 +23,10 @@ class AccountNetworkRulesInitArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
-                 bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_link_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+                 virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccountNetworkRules resource.
 
@@ -84,7 +84,7 @@ class AccountNetworkRulesInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def bypasses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 
@@ -93,12 +93,12 @@ class AccountNetworkRulesInitArgs:
         return pulumi.get(self, "bypasses")
 
     @bypasses.setter
-    def bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def bypasses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bypasses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 
@@ -111,24 +111,24 @@ class AccountNetworkRulesInitArgs:
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAccessRules")
-    def private_link_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]:
+    def private_link_access_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]:
         """
         One or more `private_link_access` block as defined below.
         """
         return pulumi.get(self, "private_link_access_rules")
 
     @private_link_access_rules.setter
-    def private_link_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]):
+    def private_link_access_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]):
         pulumi.set(self, "private_link_access_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def virtual_network_subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of virtual network subnet ids to secure the storage account.
 
@@ -137,19 +137,19 @@ class AccountNetworkRulesInitArgs:
         return pulumi.get(self, "virtual_network_subnet_ids")
 
     @virtual_network_subnet_ids.setter
-    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def virtual_network_subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
 @pulumi.input_type
 class _AccountNetworkRulesState:
     def __init__(__self__, *,
-                 bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_link_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountNetworkRules resources.
 
@@ -185,7 +185,7 @@ class _AccountNetworkRulesState:
 
     @_builtins.property
     @pulumi.getter
-    def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def bypasses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 
@@ -194,24 +194,24 @@ class _AccountNetworkRulesState:
         return pulumi.get(self, "bypasses")
 
     @bypasses.setter
-    def bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def bypasses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bypasses", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 
@@ -224,36 +224,36 @@ class _AccountNetworkRulesState:
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkAccessRules")
-    def private_link_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]:
+    def private_link_access_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]:
         """
         One or more `private_link_access` block as defined below.
         """
         return pulumi.get(self, "private_link_access_rules")
 
     @private_link_access_rules.setter
-    def private_link_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]):
+    def private_link_access_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]):
         pulumi.set(self, "private_link_access_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the storage account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def virtual_network_subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of virtual network subnet ids to secure the storage account.
 
@@ -262,7 +262,7 @@ class _AccountNetworkRulesState:
         return pulumi.get(self, "virtual_network_subnet_ids")
 
     @virtual_network_subnet_ids.setter
-    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def virtual_network_subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
@@ -272,12 +272,12 @@ class AccountNetworkRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_link_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages network rules inside of a Azure Storage Account.
@@ -443,12 +443,12 @@ class AccountNetworkRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_link_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -478,12 +478,12 @@ class AccountNetworkRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_action: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict']]]]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AccountNetworkRules':
+            bypasses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_action: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_link_access_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountNetworkRulesPrivateLinkAccessRuleArgs', 'AccountNetworkRulesPrivateLinkAccessRuleArgsDict']]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AccountNetworkRules':
         """
         Get an existing AccountNetworkRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -397,33 +397,33 @@ export interface FrontdoorRuleState {
     /**
      * An `actions` block as defined below.
      */
-    actions?: pulumi.Input<inputs.cdn.FrontdoorRuleActions>;
+    actions?: pulumi.Input<inputs.cdn.FrontdoorRuleActions | undefined>;
     /**
      * If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      */
-    behaviorOnMatch?: pulumi.Input<string>;
+    behaviorOnMatch?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      */
-    cdnFrontdoorRuleSetId?: pulumi.Input<string>;
+    cdnFrontdoorRuleSetId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Front Door Rule Set containing this Front Door Rule.
      */
-    cdnFrontdoorRuleSetName?: pulumi.Input<string>;
+    cdnFrontdoorRuleSetName?: pulumi.Input<string | undefined>;
     /**
      * A `conditions` block as defined below.
      */
-    conditions?: pulumi.Input<inputs.cdn.FrontdoorRuleConditions>;
+    conditions?: pulumi.Input<inputs.cdn.FrontdoorRuleConditions | undefined>;
     /**
      * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      *
      * > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -437,7 +437,7 @@ export interface FrontdoorRuleArgs {
     /**
      * If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      */
-    behaviorOnMatch?: pulumi.Input<string>;
+    behaviorOnMatch?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      */
@@ -445,11 +445,11 @@ export interface FrontdoorRuleArgs {
     /**
      * A `conditions` block as defined below.
      */
-    conditions?: pulumi.Input<inputs.cdn.FrontdoorRuleConditions>;
+    conditions?: pulumi.Input<inputs.cdn.FrontdoorRuleConditions | undefined>;
     /**
      * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      *

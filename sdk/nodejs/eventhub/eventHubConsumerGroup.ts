@@ -159,23 +159,23 @@ export interface EventHubConsumerGroupState {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user metadata.
      */
-    userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface EventHubConsumerGroupArgs {
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
@@ -201,5 +201,5 @@ export interface EventHubConsumerGroupArgs {
     /**
      * Specifies the user metadata.
      */
-    userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string | undefined>;
 }

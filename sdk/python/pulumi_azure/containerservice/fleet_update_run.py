@@ -23,9 +23,9 @@ class FleetUpdateRunArgs:
     def __init__(__self__, *,
                  kubernetes_fleet_manager_id: pulumi.Input[_builtins.str],
                  managed_cluster_update: pulumi.Input['FleetUpdateRunManagedClusterUpdateArgs'],
-                 fleet_update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]] = None):
+                 fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]] = None):
         """
         The set of arguments for constructing a FleetUpdateRun resource.
 
@@ -70,49 +70,49 @@ class FleetUpdateRunArgs:
 
     @_builtins.property
     @pulumi.getter(name="fleetUpdateStrategyId")
-    def fleet_update_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_update_strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         """
         return pulumi.get(self, "fleet_update_strategy_id")
 
     @fleet_update_strategy_id.setter
-    def fleet_update_strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_update_strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_update_strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]:
+    def stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]:
         """
         One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         """
         return pulumi.get(self, "stages")
 
     @stages.setter
-    def stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]):
+    def stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]):
         pulumi.set(self, "stages", value)
 
 
 @pulumi.input_type
 class _FleetUpdateRunState:
     def __init__(__self__, *,
-                 fleet_update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_fleet_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input['FleetUpdateRunManagedClusterUpdateArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]] = None):
+                 fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_cluster_update: pulumi.Input[Optional['FleetUpdateRunManagedClusterUpdateArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]] = None):
         """
         Input properties used for looking up and filtering FleetUpdateRun resources.
 
@@ -135,62 +135,62 @@ class _FleetUpdateRunState:
 
     @_builtins.property
     @pulumi.getter(name="fleetUpdateStrategyId")
-    def fleet_update_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_update_strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         """
         return pulumi.get(self, "fleet_update_strategy_id")
 
     @fleet_update_strategy_id.setter
-    def fleet_update_strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_update_strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_update_strategy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesFleetManagerId")
-    def kubernetes_fleet_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_fleet_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
         """
         return pulumi.get(self, "kubernetes_fleet_manager_id")
 
     @kubernetes_fleet_manager_id.setter
-    def kubernetes_fleet_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_fleet_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_fleet_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedClusterUpdate")
-    def managed_cluster_update(self) -> Optional[pulumi.Input['FleetUpdateRunManagedClusterUpdateArgs']]:
+    def managed_cluster_update(self) -> pulumi.Input[Optional['FleetUpdateRunManagedClusterUpdateArgs']]:
         """
         A `managed_cluster_update` block as defined below.
         """
         return pulumi.get(self, "managed_cluster_update")
 
     @managed_cluster_update.setter
-    def managed_cluster_update(self, value: Optional[pulumi.Input['FleetUpdateRunManagedClusterUpdateArgs']]):
+    def managed_cluster_update(self, value: pulumi.Input[Optional['FleetUpdateRunManagedClusterUpdateArgs']]):
         pulumi.set(self, "managed_cluster_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]:
+    def stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]:
         """
         One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         """
         return pulumi.get(self, "stages")
 
     @stages.setter
-    def stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]):
+    def stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]]):
         pulumi.set(self, "stages", value)
 
 
@@ -200,11 +200,11 @@ class FleetUpdateRun(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_fleet_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
+                 fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Kubernetes Fleet Update Run.
@@ -377,11 +377,11 @@ class FleetUpdateRun(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_fleet_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
+                 fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,11 +410,11 @@ class FleetUpdateRun(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            fleet_update_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kubernetes_fleet_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_cluster_update: Optional[pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None) -> 'FleetUpdateRun':
+            fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None) -> 'FleetUpdateRun':
         """
         Get an existing FleetUpdateRun resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

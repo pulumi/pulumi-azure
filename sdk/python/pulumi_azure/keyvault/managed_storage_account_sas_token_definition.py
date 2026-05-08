@@ -23,8 +23,8 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
                  sas_template_uri: pulumi.Input[_builtins.str],
                  sas_type: pulumi.Input[_builtins.str],
                  validity_period: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedStorageAccountSasTokenDefinition resource.
 
@@ -94,39 +94,39 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this SAS Definition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ManagedStorageAccountSasTokenDefinitionState:
     def __init__(__self__, *,
-                 managed_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validity_period: Optional[pulumi.Input[_builtins.str]] = None):
+                 managed_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validity_period: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedStorageAccountSasTokenDefinition resources.
 
@@ -155,86 +155,86 @@ class _ManagedStorageAccountSasTokenDefinitionState:
 
     @_builtins.property
     @pulumi.getter(name="managedStorageAccountId")
-    def managed_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Storage Account.
         """
         return pulumi.get(self, "managed_storage_account_id")
 
     @managed_storage_account_id.setter
-    def managed_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this SAS Definition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sasTemplateUri")
-    def sas_template_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_template_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         """
         return pulumi.get(self, "sas_template_uri")
 
     @sas_template_uri.setter
-    def sas_template_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_template_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_template_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="sasType")
-    def sas_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
         """
         return pulumi.get(self, "sas_type")
 
     @sas_type.setter
-    def sas_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_type", value)
 
     @_builtins.property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Secret that is created by Managed Storage Account SAS Definition.
         """
         return pulumi.get(self, "secret_id")
 
     @secret_id.setter
-    def secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validityPeriod")
-    def validity_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validity_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "validity_period")
 
     @validity_period.setter
-    def validity_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validity_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validity_period", value)
 
 
@@ -244,12 +244,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validity_period: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validity_period: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Key Vault Managed Storage Account SAS Definition.
@@ -469,12 +469,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validity_period: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validity_period: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -509,13 +509,13 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            sas_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            sas_type: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            validity_period: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedStorageAccountSasTokenDefinition':
+            managed_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_type: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            validity_period: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedStorageAccountSasTokenDefinition':
         """
         Get an existing ManagedStorageAccountSasTokenDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

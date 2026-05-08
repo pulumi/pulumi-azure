@@ -26,7 +26,7 @@ class PolicyVMWorkloadArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  settings: pulumi.Input['PolicyVMWorkloadSettingsArgs'],
                  workload_type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyVMWorkload resource.
 
@@ -107,26 +107,26 @@ class PolicyVMWorkloadArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PolicyVMWorkloadState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protection_policies: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['PolicyVMWorkloadSettingsArgs']] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyVMWorkload resources.
 
@@ -152,74 +152,74 @@ class _PolicyVMWorkloadState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectionPolicies")
-    def protection_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]]:
+    def protection_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]]:
         """
         One or more `protection_policy` blocks as defined below.
         """
         return pulumi.get(self, "protection_policies")
 
     @protection_policies.setter
-    def protection_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]]):
+    def protection_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]]):
         pulumi.set(self, "protection_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
     @recovery_vault_name.setter
-    def recovery_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['PolicyVMWorkloadSettingsArgs']]:
         """
         A `settings` block as defined below.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['PolicyVMWorkloadSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -229,12 +229,12 @@ class PolicyVMWorkload(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protection_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
@@ -384,12 +384,12 @@ class PolicyVMWorkload(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
-                 recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
-                 workload_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protection_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
+                 recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
+                 workload_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,12 +425,12 @@ class PolicyVMWorkload(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
-            recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
-            workload_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicyVMWorkload':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protection_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyVMWorkloadProtectionPolicyArgs', 'PolicyVMWorkloadProtectionPolicyArgsDict']]]]] = None,
+            recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['PolicyVMWorkloadSettingsArgs', 'PolicyVMWorkloadSettingsArgsDict']]] = None,
+            workload_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicyVMWorkload':
         """
         Get an existing PolicyVMWorkload resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

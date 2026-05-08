@@ -249,8 +249,8 @@ def get_data_collection_rule(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         stream_declarations=pulumi.get(__ret__, 'stream_declarations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_collection_rule_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_collection_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Use this data source to access information about an existing Data Collection Rule.

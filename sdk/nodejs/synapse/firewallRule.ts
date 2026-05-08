@@ -155,19 +155,19 @@ export interface FirewallRuleState {
      *
      * > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      */
-    endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The Name of the firewall rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface FirewallRuleArgs {
     /**
      * The Name of the firewall rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */

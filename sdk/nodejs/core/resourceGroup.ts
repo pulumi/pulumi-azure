@@ -112,19 +112,19 @@ export interface ResourceGroupState {
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource or application that manages this Resource Group.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -134,17 +134,17 @@ export interface ResourceGroupArgs {
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource or application that manages this Resource Group.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

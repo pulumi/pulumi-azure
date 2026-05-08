@@ -21,7 +21,7 @@ class NetappVolumeAttachmentArgs:
     def __init__(__self__, *,
                  netapp_volume_id: pulumi.Input[_builtins.str],
                  vmware_cluster_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetappVolumeAttachment resource.
 
@@ -64,23 +64,23 @@ class NetappVolumeAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetappVolumeAttachmentState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 netapp_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmware_cluster_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 netapp_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmware_cluster_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetappVolumeAttachment resources.
 
@@ -99,31 +99,31 @@ class _NetappVolumeAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="netappVolumeId")
-    def netapp_volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def netapp_volume_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The netapp file volume for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         """
         return pulumi.get(self, "netapp_volume_id")
 
     @netapp_volume_id.setter
-    def netapp_volume_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def netapp_volume_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "netapp_volume_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmwareClusterId")
-    def vmware_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vmware_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
 
@@ -132,7 +132,7 @@ class _NetappVolumeAttachmentState:
         return pulumi.get(self, "vmware_cluster_id")
 
     @vmware_cluster_id.setter
-    def vmware_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vmware_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vmware_cluster_id", value)
 
 
@@ -142,9 +142,9 @@ class NetappVolumeAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 netapp_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmware_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 netapp_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmware_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure VMware Solution Private Cloud Netapp File Attachment.
@@ -445,9 +445,9 @@ class NetappVolumeAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 netapp_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmware_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 netapp_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmware_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,9 +474,9 @@ class NetappVolumeAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            netapp_volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vmware_cluster_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetappVolumeAttachment':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            netapp_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vmware_cluster_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetappVolumeAttachment':
         """
         Get an existing NetappVolumeAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

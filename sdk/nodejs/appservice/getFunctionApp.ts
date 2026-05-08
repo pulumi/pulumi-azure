@@ -154,5 +154,5 @@ export interface GetFunctionAppOutputArgs {
      * The name of the Resource Group where the Function App exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

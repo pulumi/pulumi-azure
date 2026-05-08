@@ -145,10 +145,10 @@ def get_consume_group(eventhub_name: Optional[_builtins.str] = None,
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         user_metadata=pulumi.get(__ret__, 'user_metadata'))
-def get_consume_group_output(eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             name: Optional[pulumi.Input[_builtins.str]] = None,
-                             namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_consume_group_output(eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             name: pulumi.Input[Optional[_builtins.str]] = None,
+                             namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumeGroupResult]:
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.

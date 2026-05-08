@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ContainerApp
     ///     {
     ///         Name = "myfriendlyname",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         CertificateBlob = Std.Index.Filebase64.Invoke(new()
+    ///         CertificateBlob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -116,11 +116,11 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleCustomDomain = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Index.Trimprefix.Invoke(new()
+    ///         Name = Std.Trimprefix.Invoke(new()
     ///         {
     ///             Input = api.Fqdn,
     ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Index.Trimsuffix.Invoke(new()
+    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
     ///         {
     ///             Input = invoke.Result,
     ///             Suffix = ".",
@@ -146,11 +146,11 @@ namespace Pulumi.Azure.ContainerApp
     /// {
     ///     var example = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Index.Trimprefix.Invoke(new()
+    ///         Name = Std.Trimprefix.Invoke(new()
     ///         {
     ///             Input = api.Fqdn,
     ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Index.Trimsuffix.Invoke(new()
+    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
     ///         {
     ///             Input = invoke.Result,
     ///             Suffix = ".",

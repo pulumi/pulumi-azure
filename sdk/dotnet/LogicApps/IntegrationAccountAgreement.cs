@@ -75,7 +75,7 @@ namespace Pulumi.Azure.LogicApps
     ///         AgreementType = "AS2",
     ///         HostPartnerName = host.Name,
     ///         GuestPartnerName = guest.Name,
-    ///         Content = Std.Index.File.Invoke(new()
+    ///         Content = Std.File.Invoke(new()
     ///         {
     ///             Input = "testdata/integration_account_agreement_content_as2.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

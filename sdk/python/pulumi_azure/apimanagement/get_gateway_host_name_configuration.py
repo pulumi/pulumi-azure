@@ -202,9 +202,9 @@ def get_gateway_host_name_configuration(api_management_id: Optional[_builtins.st
         request_client_certificate_enabled=pulumi.get(__ret__, 'request_client_certificate_enabled'),
         tls10_enabled=pulumi.get(__ret__, 'tls10_enabled'),
         tls11_enabled=pulumi.get(__ret__, 'tls11_enabled'))
-def get_gateway_host_name_configuration_output(api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                               gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_host_name_configuration_output(api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                               gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayHostNameConfigurationResult]:
     """
     Use this data source to access information about an existing API Management Gateway Host Configuration.

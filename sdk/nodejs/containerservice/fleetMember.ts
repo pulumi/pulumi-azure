@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     dnsPrefix: "acctestaksexample",
  *     defaultNodePool: {
  *         name: "example-value",
- *         nodeCount: "example-value",
+ *         nodeCount: Number("example-value"),
  *         vmSize: "example-value",
  *         upgradeSettings: {
  *             maxSurge: "example-value",
@@ -148,19 +148,19 @@ export interface FleetMemberState {
     /**
      * The group this member belongs to for multi-cluster update management.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    kubernetesFleetId?: pulumi.Input<string>;
+    kubernetesFleetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface FleetMemberArgs {
     /**
      * The group this member belongs to for multi-cluster update management.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
      */
@@ -182,5 +182,5 @@ export interface FleetMemberArgs {
     /**
      * Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

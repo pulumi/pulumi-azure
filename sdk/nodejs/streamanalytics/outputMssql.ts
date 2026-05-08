@@ -200,47 +200,47 @@ export interface OutputMssqlState {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
      */
-    maxBatchCount?: pulumi.Input<number>;
+    maxBatchCount?: pulumi.Input<number | undefined>;
     /**
      * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
      */
-    maxWriterCount?: pulumi.Input<number>;
+    maxWriterCount?: pulumi.Input<number | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SQL server url. Changing this forces a new resource to be created.
      */
-    server?: pulumi.Input<string>;
+    server?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
     /**
      * Table in the database that the output points to. Changing this forces a new resource to be created.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
     /**
      * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -250,7 +250,7 @@ export interface OutputMssqlArgs {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
      */
@@ -258,19 +258,19 @@ export interface OutputMssqlArgs {
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
      */
-    maxBatchCount?: pulumi.Input<number>;
+    maxBatchCount?: pulumi.Input<number | undefined>;
     /**
      * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
      */
-    maxWriterCount?: pulumi.Input<number>;
+    maxWriterCount?: pulumi.Input<number | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -290,5 +290,5 @@ export interface OutputMssqlArgs {
     /**
      * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }

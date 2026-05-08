@@ -228,53 +228,53 @@ export interface NetworkWatcherFlowLogState {
     /**
      * Should Network Flow Logging be Enabled?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    networkSecurityGroupId?: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    networkWatcherName?: pulumi.Input<string>;
+    networkWatcherName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `retentionPolicy` block as documented below.
      */
-    retentionPolicy?: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy | undefined>;
     /**
      * The ID of the Storage Account where flow logs are stored.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Resource for which to enable flow logs for.
      *
      * > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
-    trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
+    trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
      * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -288,15 +288,15 @@ export interface NetworkWatcherFlowLogArgs {
     /**
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    networkSecurityGroupId?: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
@@ -316,19 +316,19 @@ export interface NetworkWatcherFlowLogArgs {
     /**
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Resource for which to enable flow logs for.
      *
      * > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
-    trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
+    trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
      * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }

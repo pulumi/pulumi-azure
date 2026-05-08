@@ -249,60 +249,60 @@ export interface AssignmentState {
     /**
      * The name of the blueprint assigned
      */
-    blueprintName?: pulumi.Input<string>;
+    blueprintName?: pulumi.Input<string | undefined>;
     /**
      * The Description on the Blueprint
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the blueprint
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
+    identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity | undefined>;
     /**
      * The Azure location of the Assignment. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
      */
-    lockExcludeActions?: pulumi.Input<pulumi.Input<string>[]>;
+    lockExcludeActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
-    lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
      */
-    lockMode?: pulumi.Input<string>;
+    lockMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      *
      * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
-    parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string | undefined>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      *
      * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
-    resourceGroups?: pulumi.Input<string>;
+    resourceGroups?: pulumi.Input<string | undefined>;
     /**
      * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
-    targetSubscriptionId?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    targetSubscriptionId?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Published Version of the blueprint to be assigned.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -316,35 +316,35 @@ export interface AssignmentArgs {
     /**
      * The Azure location of the Assignment. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
      */
-    lockExcludeActions?: pulumi.Input<pulumi.Input<string>[]>;
+    lockExcludeActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
-    lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
      */
-    lockMode?: pulumi.Input<string>;
+    lockMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      *
      * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
-    parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string | undefined>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      *
      * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
-    resourceGroups?: pulumi.Input<string>;
+    resourceGroups?: pulumi.Input<string | undefined>;
     /**
      * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */

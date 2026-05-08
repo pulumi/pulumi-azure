@@ -153,23 +153,23 @@ export interface LicationLoadBalancerSecurityPolicyState {
     /**
      * The ID of the Application Load Balancer. Changing this forces a new Application Gateway for Containers Security Policy to be created.
      */
-    applicationLoadBalancerId?: pulumi.Input<string>;
+    applicationLoadBalancerId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Application Load Balancer Security Policy should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Load Balancer Security Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Load Balancer Security Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Web Application Firewall Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
      */
-    webApplicationFirewallPolicyId?: pulumi.Input<string>;
+    webApplicationFirewallPolicyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,15 +183,15 @@ export interface LicationLoadBalancerSecurityPolicyArgs {
     /**
      * The Azure Region where the Application Load Balancer Security Policy should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Load Balancer Security Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Load Balancer Security Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Web Application Firewall Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
      */

@@ -126,29 +126,29 @@ export interface CacheBlobTargetState {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
-    cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string | undefined>;
     /**
      * The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The client-facing file path of the HPC Cache Blob Target.
      */
-    namespacePath?: pulumi.Input<string>;
+    namespacePath?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
      *
      * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
-    storageContainerId?: pulumi.Input<string>;
+    storageContainerId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -158,7 +158,7 @@ export interface CacheBlobTargetArgs {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
@@ -166,7 +166,7 @@ export interface CacheBlobTargetArgs {
     /**
      * The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The client-facing file path of the HPC Cache Blob Target.
      */

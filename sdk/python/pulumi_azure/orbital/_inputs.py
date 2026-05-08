@@ -127,11 +127,11 @@ class ContactProfileLinkChannelArgsDict(TypedDict):
     """
     Name of the channel.
     """
-    demodulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    demodulation_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
     """
-    modulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    modulation_configuration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
     """
@@ -143,8 +143,8 @@ class ContactProfileLinkChannelArgs:
                  center_frequency_mhz: pulumi.Input[_builtins.float],
                  end_points: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgs']]],
                  name: pulumi.Input[_builtins.str],
-                 demodulation_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 modulation_configuration: Optional[pulumi.Input[_builtins.str]] = None):
+                 demodulation_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 modulation_configuration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.float] bandwidth_mhz: Bandwidth in MHz.
         :param pulumi.Input[_builtins.float] center_frequency_mhz: Center frequency in MHz.
@@ -212,26 +212,26 @@ class ContactProfileLinkChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="demodulationConfiguration")
-    def demodulation_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def demodulation_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         """
         return pulumi.get(self, "demodulation_configuration")
 
     @demodulation_configuration.setter
-    def demodulation_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def demodulation_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "demodulation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="modulationConfiguration")
-    def modulation_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modulation_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
         return pulumi.get(self, "modulation_configuration")
 
     @modulation_configuration.setter
-    def modulation_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modulation_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modulation_configuration", value)
 
 
@@ -248,7 +248,7 @@ class ContactProfileLinkChannelEndPointArgsDict(TypedDict):
     """
     Protocol of an end point. Possible values are `TCP` and `UDP`.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP address of an end point.
     """
@@ -259,7 +259,7 @@ class ContactProfileLinkChannelEndPointArgs:
                  end_point_name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] end_point_name: Name of an end point.
         :param pulumi.Input[_builtins.str] port: TCP port to listen on to receive data.
@@ -310,14 +310,14 @@ class ContactProfileLinkChannelEndPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address of an end point.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
 

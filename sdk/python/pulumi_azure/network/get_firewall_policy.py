@@ -199,8 +199,8 @@ def get_firewall_policy(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         threat_intelligence_allowlists=pulumi.get(__ret__, 'threat_intelligence_allowlists'),
         threat_intelligence_mode=pulumi.get(__ret__, 'threat_intelligence_mode'))
-def get_firewall_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Use this data source to access information about an existing Firewall Policy.

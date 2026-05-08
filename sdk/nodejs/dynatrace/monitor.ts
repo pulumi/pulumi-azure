@@ -191,43 +191,43 @@ export interface MonitorState {
     /**
      * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
      */
-    environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[]>;
+    environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[] | undefined>;
     /**
      * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.dynatrace.MonitorIdentity>;
+    identity?: pulumi.Input<inputs.dynatrace.MonitorIdentity | undefined>;
     /**
      * The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      */
-    marketplaceSubscription?: pulumi.Input<string>;
+    marketplaceSubscription?: pulumi.Input<string | undefined>;
     /**
      * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      */
-    monitoringEnabled?: pulumi.Input<boolean>;
+    monitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Dynatrace monitor. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.dynatrace.MonitorPlan>;
+    plan?: pulumi.Input<inputs.dynatrace.MonitorPlan | undefined>;
     /**
      * The name of the Resource Group where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * User's information. A `user` block as defined below. Changing this forces a new resource to be created.
      */
-    user?: pulumi.Input<inputs.dynatrace.MonitorUser>;
+    user?: pulumi.Input<inputs.dynatrace.MonitorUser | undefined>;
 }
 
 /**
@@ -237,7 +237,7 @@ export interface MonitorArgs {
     /**
      * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
      */
-    environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[]>;
+    environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[] | undefined>;
     /**
      * The kind of managed identity assigned to this resource. A `identity` block as defined below.
      */
@@ -245,7 +245,7 @@ export interface MonitorArgs {
     /**
      * The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
      */
@@ -253,11 +253,11 @@ export interface MonitorArgs {
     /**
      * Flag specifying if the resource monitoring is enabled or disabled. Default is `true`. Changing this forces a new resource to be created.
      */
-    monitoringEnabled?: pulumi.Input<boolean>;
+    monitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Dynatrace monitor. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
      */
@@ -269,7 +269,7 @@ export interface MonitorArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * User's information. A `user` block as defined below. Changing this forces a new resource to be created.
      */

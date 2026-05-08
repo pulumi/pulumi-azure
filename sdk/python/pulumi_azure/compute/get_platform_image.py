@@ -146,11 +146,11 @@ def get_platform_image(location: Optional[_builtins.str] = None,
         publisher=pulumi.get(__ret__, 'publisher'),
         sku=pulumi.get(__ret__, 'sku'),
         version=pulumi.get(__ret__, 'version'))
-def get_platform_image_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                              offer: Optional[pulumi.Input[_builtins.str]] = None,
-                              publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                              sku: Optional[pulumi.Input[_builtins.str]] = None,
-                              version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_platform_image_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                              offer: pulumi.Input[Optional[_builtins.str]] = None,
+                              publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                              sku: pulumi.Input[Optional[_builtins.str]] = None,
+                              version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlatformImageResult]:
     """
     Use this data source to access information about a Platform Image.

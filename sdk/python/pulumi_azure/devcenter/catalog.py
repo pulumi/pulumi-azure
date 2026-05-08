@@ -23,9 +23,9 @@ class CatalogArgs:
     def __init__(__self__, *,
                  dev_center_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 catalog_adogit: Optional[pulumi.Input['CatalogCatalogAdogitArgs']] = None,
-                 catalog_github: Optional[pulumi.Input['CatalogCatalogGithubArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog_adogit: pulumi.Input[Optional['CatalogCatalogAdogitArgs']] = None,
+                 catalog_github: pulumi.Input[Optional['CatalogCatalogGithubArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Catalog resource.
 
@@ -70,49 +70,49 @@ class CatalogArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogAdogit")
-    def catalog_adogit(self) -> Optional[pulumi.Input['CatalogCatalogAdogitArgs']]:
+    def catalog_adogit(self) -> pulumi.Input[Optional['CatalogCatalogAdogitArgs']]:
         """
         A `catalog_adogit` block as defined below.
         """
         return pulumi.get(self, "catalog_adogit")
 
     @catalog_adogit.setter
-    def catalog_adogit(self, value: Optional[pulumi.Input['CatalogCatalogAdogitArgs']]):
+    def catalog_adogit(self, value: pulumi.Input[Optional['CatalogCatalogAdogitArgs']]):
         pulumi.set(self, "catalog_adogit", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogGithub")
-    def catalog_github(self) -> Optional[pulumi.Input['CatalogCatalogGithubArgs']]:
+    def catalog_github(self) -> pulumi.Input[Optional['CatalogCatalogGithubArgs']]:
         """
         A `catalog_github` block as defined below.
         """
         return pulumi.get(self, "catalog_github")
 
     @catalog_github.setter
-    def catalog_github(self, value: Optional[pulumi.Input['CatalogCatalogGithubArgs']]):
+    def catalog_github(self, value: pulumi.Input[Optional['CatalogCatalogGithubArgs']]):
         pulumi.set(self, "catalog_github", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CatalogState:
     def __init__(__self__, *,
-                 catalog_adogit: Optional[pulumi.Input['CatalogCatalogAdogitArgs']] = None,
-                 catalog_github: Optional[pulumi.Input['CatalogCatalogGithubArgs']] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog_adogit: pulumi.Input[Optional['CatalogCatalogAdogitArgs']] = None,
+                 catalog_github: pulumi.Input[Optional['CatalogCatalogGithubArgs']] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Catalog resources.
 
@@ -135,62 +135,62 @@ class _CatalogState:
 
     @_builtins.property
     @pulumi.getter(name="catalogAdogit")
-    def catalog_adogit(self) -> Optional[pulumi.Input['CatalogCatalogAdogitArgs']]:
+    def catalog_adogit(self) -> pulumi.Input[Optional['CatalogCatalogAdogitArgs']]:
         """
         A `catalog_adogit` block as defined below.
         """
         return pulumi.get(self, "catalog_adogit")
 
     @catalog_adogit.setter
-    def catalog_adogit(self, value: Optional[pulumi.Input['CatalogCatalogAdogitArgs']]):
+    def catalog_adogit(self, value: pulumi.Input[Optional['CatalogCatalogAdogitArgs']]):
         pulumi.set(self, "catalog_adogit", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogGithub")
-    def catalog_github(self) -> Optional[pulumi.Input['CatalogCatalogGithubArgs']]:
+    def catalog_github(self) -> pulumi.Input[Optional['CatalogCatalogGithubArgs']]:
         """
         A `catalog_github` block as defined below.
         """
         return pulumi.get(self, "catalog_github")
 
     @catalog_github.setter
-    def catalog_github(self, value: Optional[pulumi.Input['CatalogCatalogGithubArgs']]):
+    def catalog_github(self, value: pulumi.Input[Optional['CatalogCatalogGithubArgs']]):
         pulumi.set(self, "catalog_github", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterId")
-    def dev_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
         """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
-    def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -200,11 +200,11 @@ class Catalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_adogit: Optional[pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
-                 catalog_github: Optional[pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
+                 catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Dev Center Catalog.
@@ -339,11 +339,11 @@ class Catalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_adogit: Optional[pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
-                 catalog_github: Optional[pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
+                 catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,11 +372,11 @@ class Catalog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catalog_adogit: Optional[pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
-            catalog_github: Optional[pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
-            dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Catalog':
+            catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
+            catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Catalog':
         """
         Get an existing Catalog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -25,11 +25,11 @@ class MonitorArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
                  user: pulumi.Input['MonitorUserArgs'],
-                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['MonitorIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -108,78 +108,78 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MonitorIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MonitorIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringEnabled")
-    def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is monitoring enabled? Defaults to `true`.
         """
         return pulumi.get(self, "monitoring_enabled")
 
     @monitoring_enabled.setter
-    def monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Datadog Monitor.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 datadog_organization: Optional[pulumi.Input['MonitorDatadogOrganizationArgs']] = None,
-                 identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 marketplace_subscription_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: Optional[pulumi.Input['MonitorUserArgs']] = None):
+                 datadog_organization: pulumi.Input[Optional['MonitorDatadogOrganizationArgs']] = None,
+                 identity: pulumi.Input[Optional['MonitorIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 marketplace_subscription_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user: pulumi.Input[Optional['MonitorUserArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
 
@@ -217,122 +217,122 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter(name="datadogOrganization")
-    def datadog_organization(self) -> Optional[pulumi.Input['MonitorDatadogOrganizationArgs']]:
+    def datadog_organization(self) -> pulumi.Input[Optional['MonitorDatadogOrganizationArgs']]:
         """
         A `datadog_organization` block as defined below.
         """
         return pulumi.get(self, "datadog_organization")
 
     @datadog_organization.setter
-    def datadog_organization(self, value: Optional[pulumi.Input['MonitorDatadogOrganizationArgs']]):
+    def datadog_organization(self, value: pulumi.Input[Optional['MonitorDatadogOrganizationArgs']]):
         pulumi.set(self, "datadog_organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MonitorIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MonitorIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MonitorIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MonitorIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="marketplaceSubscriptionStatus")
-    def marketplace_subscription_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def marketplace_subscription_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         """
         return pulumi.get(self, "marketplace_subscription_status")
 
     @marketplace_subscription_status.setter
-    def marketplace_subscription_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def marketplace_subscription_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "marketplace_subscription_status", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringEnabled")
-    def monitoring_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitoring_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is monitoring enabled? Defaults to `true`.
         """
         return pulumi.get(self, "monitoring_enabled")
 
     @monitoring_enabled.setter
-    def monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitoring_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitoring_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this sku.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Datadog Monitor.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['MonitorUserArgs']]:
+    def user(self) -> pulumi.Input[Optional['MonitorUserArgs']]:
         """
         A `user` block as defined below.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input['MonitorUserArgs']]):
+    def user(self, value: pulumi.Input[Optional['MonitorUserArgs']]):
         pulumi.set(self, "user", value)
 
 
@@ -342,15 +342,15 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_organization: Optional[pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
                  __props__=None):
         """
         Manages a datadog Monitor.
@@ -517,15 +517,15 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_organization: Optional[pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,16 +563,16 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datadog_organization: Optional[pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            marketplace_subscription_status: Optional[pulumi.Input[_builtins.str]] = None,
-            monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None) -> 'Monitor':
+            datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            marketplace_subscription_status: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

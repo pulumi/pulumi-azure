@@ -165,23 +165,23 @@ export interface UserState {
     /**
      * The identity provider type for the Mongo Cluster User. The only possible value is `MicrosoftEntraID`. Changing this forces a new resource to be created.
      */
-    identityProviderType?: pulumi.Input<string>;
+    identityProviderType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Mongo Cluster where the User should exist. Changing this forces a new resource to be created.
      */
-    mongoClusterId?: pulumi.Input<string>;
+    mongoClusterId?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the Entra ID User or Service Principal. Changing this forces a new resource to be created.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The principal type for the Mongo Cluster User. Possible values are `user` and `servicePrincipal`. Changing this forces a new resource to be created.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * One or more `role` blocks as defined below. Changing this forces a new resource to be created.
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.mongocluster.UserRole>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.mongocluster.UserRole>[] | undefined>;
 }
 
 /**

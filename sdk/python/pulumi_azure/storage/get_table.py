@@ -124,8 +124,8 @@ def get_table(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
-def get_table_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                     storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                     storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Use this data source to access information about an existing Storage Table.

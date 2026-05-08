@@ -193,39 +193,39 @@ export interface SubscriptionCostManagementExportState {
     /**
      * Is the cost management export active? Default is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * A `exportDataOptions` block as defined below.
      */
-    exportDataOptions?: pulumi.Input<inputs.core.SubscriptionCostManagementExportExportDataOptions>;
+    exportDataOptions?: pulumi.Input<inputs.core.SubscriptionCostManagementExportExportDataOptions | undefined>;
     /**
      * A `exportDataStorageLocation` block as defined below.
      */
-    exportDataStorageLocation?: pulumi.Input<inputs.core.SubscriptionCostManagementExportExportDataStorageLocation>;
+    exportDataStorageLocation?: pulumi.Input<inputs.core.SubscriptionCostManagementExportExportDataStorageLocation | undefined>;
     /**
      * Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
-    fileFormat?: pulumi.Input<string>;
+    fileFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The date the export will stop capturing information.
      */
-    recurrencePeriodEndDate?: pulumi.Input<string>;
+    recurrencePeriodEndDate?: pulumi.Input<string | undefined>;
     /**
      * The date the export will start capturing information.
      */
-    recurrencePeriodStartDate?: pulumi.Input<string>;
+    recurrencePeriodStartDate?: pulumi.Input<string | undefined>;
     /**
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      */
-    recurrenceType?: pulumi.Input<string>;
+    recurrenceType?: pulumi.Input<string | undefined>;
     /**
      * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface SubscriptionCostManagementExportArgs {
     /**
      * Is the cost management export active? Default is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * A `exportDataOptions` block as defined below.
      */
@@ -247,11 +247,11 @@ export interface SubscriptionCostManagementExportArgs {
     /**
      * Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
-    fileFormat?: pulumi.Input<string>;
+    fileFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The date the export will stop capturing information.
      */

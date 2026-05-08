@@ -318,57 +318,57 @@ export interface VirtualNetworkPeeringState {
     /**
      * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      */
-    allowForwardedTraffic?: pulumi.Input<boolean>;
+    allowForwardedTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      */
-    allowGatewayTransit?: pulumi.Input<boolean>;
+    allowGatewayTransit?: pulumi.Input<boolean | undefined>;
     /**
      * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      */
-    allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+    allowVirtualNetworkAccess?: pulumi.Input<boolean | undefined>;
     /**
      * A list of local Subnet names that are Subnet peered with remote Virtual Network.
      */
-    localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    localSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
      */
-    onlyIpv6PeeringEnabled?: pulumi.Input<boolean>;
+    onlyIpv6PeeringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    peerCompleteVirtualNetworksEnabled?: pulumi.Input<boolean>;
+    peerCompleteVirtualNetworksEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
      */
-    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      */
-    remoteVirtualNetworkId?: pulumi.Input<string>;
+    remoteVirtualNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      *
      * > **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
-    useRemoteGateways?: pulumi.Input<boolean>;
+    useRemoteGateways?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -378,35 +378,35 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      */
-    allowForwardedTraffic?: pulumi.Input<boolean>;
+    allowForwardedTraffic?: pulumi.Input<boolean | undefined>;
     /**
      * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      */
-    allowGatewayTransit?: pulumi.Input<boolean>;
+    allowGatewayTransit?: pulumi.Input<boolean | undefined>;
     /**
      * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      */
-    allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+    allowVirtualNetworkAccess?: pulumi.Input<boolean | undefined>;
     /**
      * A list of local Subnet names that are Subnet peered with remote Virtual Network.
      */
-    localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    localSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
      */
-    onlyIpv6PeeringEnabled?: pulumi.Input<boolean>;
+    onlyIpv6PeeringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    peerCompleteVirtualNetworksEnabled?: pulumi.Input<boolean>;
+    peerCompleteVirtualNetworksEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
      */
-    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      */
@@ -418,13 +418,13 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      *
      * > **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
-    useRemoteGateways?: pulumi.Input<boolean>;
+    useRemoteGateways?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */

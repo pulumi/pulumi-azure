@@ -168,35 +168,35 @@ export interface ChannelDirectLineSpeechState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Cognitive Account this Bot Channel should be associated with.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * The access key to access the Cognitive Service.
      */
-    cognitiveServiceAccessKey?: pulumi.Input<string>;
+    cognitiveServiceAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Cognitive Service resource exists.
      */
-    cognitiveServiceLocation?: pulumi.Input<string>;
+    cognitiveServiceLocation?: pulumi.Input<string | undefined>;
     /**
      * The custom speech model id for the Direct Line Speech Channel.
      */
-    customSpeechModelId?: pulumi.Input<string>;
+    customSpeechModelId?: pulumi.Input<string | undefined>;
     /**
      * The custom voice deployment id for the Direct Line Speech Channel.
      */
-    customVoiceDeploymentId?: pulumi.Input<string>;
+    customVoiceDeploymentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -210,7 +210,7 @@ export interface ChannelDirectLineSpeechArgs {
     /**
      * The ID of the Cognitive Account this Bot Channel should be associated with.
      */
-    cognitiveAccountId?: pulumi.Input<string>;
+    cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
      * The access key to access the Cognitive Service.
      */
@@ -222,15 +222,15 @@ export interface ChannelDirectLineSpeechArgs {
     /**
      * The custom speech model id for the Direct Line Speech Channel.
      */
-    customSpeechModelId?: pulumi.Input<string>;
+    customSpeechModelId?: pulumi.Input<string | undefined>;
     /**
      * The custom voice deployment id for the Direct Line Speech Channel.
      */
-    customVoiceDeploymentId?: pulumi.Input<string>;
+    customVoiceDeploymentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
      */

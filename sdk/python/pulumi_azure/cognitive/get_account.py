@@ -434,9 +434,9 @@ def get_account(name: Optional[_builtins.str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         storages=pulumi.get(__ret__, 'storages'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Cognitive Services Account.

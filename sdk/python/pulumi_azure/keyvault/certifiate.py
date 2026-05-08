@@ -22,10 +22,10 @@ __all__ = ['CertifiateArgs', 'Certifiate']
 class CertifiateArgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[_builtins.str],
-                 certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
-                 certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 certificate: pulumi.Input[Optional['CertifiateCertificateArgs']] = None,
+                 certificate_policy: pulumi.Input[Optional['CertifiateCertificatePolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certifiate resource.
 
@@ -61,19 +61,19 @@ class CertifiateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertifiateCertificateArgs']]:
+    def certificate(self) -> pulumi.Input[Optional['CertifiateCertificateArgs']]:
         """
         A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertifiateCertificateArgs']]):
+    def certificate(self, value: pulumi.Input[Optional['CertifiateCertificateArgs']]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePolicy")
-    def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]:
+    def certificate_policy(self) -> pulumi.Input[Optional['CertifiateCertificatePolicyArgs']]:
         """
         A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
 
@@ -82,52 +82,52 @@ class CertifiateArgs:
         return pulumi.get(self, "certificate_policy")
 
     @certificate_policy.setter
-    def certificate_policy(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]):
+    def certificate_policy(self, value: pulumi.Input[Optional['CertifiateCertificatePolicyArgs']]):
         pulumi.set(self, "certificate_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CertifiateState:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
-                 certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]] = None,
-                 certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 versionless_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate: pulumi.Input[Optional['CertifiateCertificateArgs']] = None,
+                 certificate_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]] = None,
+                 certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_policy: pulumi.Input[Optional['CertifiateCertificatePolicyArgs']] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_manager_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 versionless_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certifiate resources.
 
@@ -182,55 +182,55 @@ class _CertifiateState:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertifiateCertificateArgs']]:
+    def certificate(self) -> pulumi.Input[Optional['CertifiateCertificateArgs']]:
         """
         A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertifiateCertificateArgs']]):
+    def certificate(self, value: pulumi.Input[Optional['CertifiateCertificateArgs']]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAttributes")
-    def certificate_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]]:
+    def certificate_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]]:
         """
         A `certificate_attribute` block as defined below.
         """
         return pulumi.get(self, "certificate_attributes")
 
     @certificate_attributes.setter
-    def certificate_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]]):
+    def certificate_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]]):
         pulumi.set(self, "certificate_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateData")
-    def certificate_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The raw Key Vault Certificate data represented as a hexadecimal string.
         """
         return pulumi.get(self, "certificate_data")
 
     @certificate_data.setter
-    def certificate_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_data", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateDataBase64")
-    def certificate_data_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_data_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 encoded Key Vault Certificate data.
         """
         return pulumi.get(self, "certificate_data_base64")
 
     @certificate_data_base64.setter
-    def certificate_data_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_data_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_data_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePolicy")
-    def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]:
+    def certificate_policy(self) -> pulumi.Input[Optional['CertifiateCertificatePolicyArgs']]:
         """
         A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
 
@@ -239,127 +239,127 @@ class _CertifiateState:
         return pulumi.get(self, "certificate_policy")
 
     @certificate_policy.setter
-    def certificate_policy(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]):
+    def certificate_policy(self, value: pulumi.Input[Optional['CertifiateCertificatePolicyArgs']]):
         pulumi.set(self, "certificate_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
-    def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
         """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
-    def resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerVersionlessId")
-    def resource_manager_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
         """
         return pulumi.get(self, "resource_manager_versionless_id")
 
     @resource_manager_versionless_id.setter
-    def resource_manager_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_versionless_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Key Vault Secret.
         """
         return pulumi.get(self, "secret_id")
 
     @secret_id.setter
-    def secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the Key Vault Certificate.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="versionlessId")
-    def versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base ID of the Key Vault Certificate.
         """
         return pulumi.get(self, "versionless_id")
 
     @versionless_id.setter
-    def versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versionless_id", value)
 
     @_builtins.property
     @pulumi.getter(name="versionlessSecretId")
-    def versionless_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versionless_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base ID of the Key Vault Secret.
         """
         return pulumi.get(self, "versionless_secret_id")
 
     @versionless_secret_id.setter
-    def versionless_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versionless_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versionless_secret_id", value)
 
 
@@ -374,11 +374,11 @@ class Certifiate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
-                 certificate_policy: Optional[pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
+                 certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Key Vault Certificate.
@@ -807,11 +807,11 @@ class Certifiate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
-                 certificate_policy: Optional[pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
-                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
+                 certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
+                 key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Certifiate is deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -849,21 +849,21 @@ class Certifiate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate: Optional[pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
-            certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertifiateCertificateAttributeArgs', 'CertifiateCertificateAttributeArgsDict']]]]] = None,
-            certificate_data: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_data_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_policy: Optional[pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
-            key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_manager_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            versionless_secret_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Certifiate':
+            certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
+            certificate_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertifiateCertificateAttributeArgs', 'CertifiateCertificateAttributeArgsDict']]]]] = None,
+            certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
+            key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            versionless_secret_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Certifiate':
         """
         Get an existing Certifiate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

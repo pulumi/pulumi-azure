@@ -201,55 +201,55 @@ export interface ExadataInfrastructureState {
     /**
      * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    computeCount?: pulumi.Input<number>;
+    computeCount?: pulumi.Input<number | undefined>;
     /**
      * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    customerContacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    databaseServerType?: pulumi.Input<string>;
+    databaseServerType?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.oracle.ExadataInfrastructureMaintenanceWindow>[]>;
+    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.oracle.ExadataInfrastructureMaintenanceWindow>[] | undefined>;
     /**
      * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    shape?: pulumi.Input<string>;
+    shape?: pulumi.Input<string | undefined>;
     /**
      * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    storageCount?: pulumi.Input<number>;
+    storageCount?: pulumi.Input<number | undefined>;
     /**
      * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    storageServerType?: pulumi.Input<string>;
+    storageServerType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -263,11 +263,11 @@ export interface ExadataInfrastructureArgs {
     /**
      * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    customerContacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    databaseServerType?: pulumi.Input<string>;
+    databaseServerType?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
@@ -275,15 +275,15 @@ export interface ExadataInfrastructureArgs {
     /**
      * The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.oracle.ExadataInfrastructureMaintenanceWindow>[]>;
+    maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.oracle.ExadataInfrastructureMaintenanceWindow>[] | undefined>;
     /**
      * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
@@ -299,11 +299,11 @@ export interface ExadataInfrastructureArgs {
     /**
      * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    storageServerType?: pulumi.Input<string>;
+    storageServerType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */

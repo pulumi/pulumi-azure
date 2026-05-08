@@ -160,35 +160,35 @@ export interface GroupPolicyRemediationState {
     /**
      * The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      */
-    failurePercentage?: pulumi.Input<number>;
+    failurePercentage?: pulumi.Input<number | undefined>;
     /**
      * A list of the resource locations that will be remediated.
      */
-    locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    locationFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Management Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
      */
-    managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Policy Remediation. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
      */
-    parallelDeployments?: pulumi.Input<number>;
+    parallelDeployments?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Policy Assignment that should be remediated.
      */
-    policyAssignmentId?: pulumi.Input<string>;
+    policyAssignmentId?: pulumi.Input<string | undefined>;
     /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string | undefined>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
-    resourceCount?: pulumi.Input<number>;
+    resourceCount?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -198,11 +198,11 @@ export interface GroupPolicyRemediationArgs {
     /**
      * The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      */
-    failurePercentage?: pulumi.Input<number>;
+    failurePercentage?: pulumi.Input<number | undefined>;
     /**
      * A list of the resource locations that will be remediated.
      */
-    locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    locationFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Management Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
      */
@@ -210,11 +210,11 @@ export interface GroupPolicyRemediationArgs {
     /**
      * The name of the Policy Remediation. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
      */
-    parallelDeployments?: pulumi.Input<number>;
+    parallelDeployments?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Policy Assignment that should be remediated.
      */
@@ -222,9 +222,9 @@ export interface GroupPolicyRemediationArgs {
     /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string | undefined>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
-    resourceCount?: pulumi.Input<number>;
+    resourceCount?: pulumi.Input<number | undefined>;
 }

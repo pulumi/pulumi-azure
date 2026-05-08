@@ -214,13 +214,13 @@ export interface DiagnosticSettingState {
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      */
-    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[] | undefined>;
     /**
      * One or more `enabledMetric` blocks as defined below.
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
      *
@@ -228,51 +228,51 @@ export interface DiagnosticSettingState {
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      *
      * > **NOTE:** If this isn't specified then the default Event Hub will be used.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      *
      * > **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      */
-    logAnalyticsDestinationType?: pulumi.Input<string>;
+    logAnalyticsDestinationType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[] | undefined>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    partnerSolutionId?: pulumi.Input<string>;
+    partnerSolutionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account where logs should be sent. 
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,13 +284,13 @@ export interface DiagnosticSettingArgs {
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      */
-    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[] | undefined>;
     /**
      * One or more `enabledMetric` blocks as defined below.
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
      *
@@ -298,47 +298,47 @@ export interface DiagnosticSettingArgs {
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      *
      * > **NOTE:** If this isn't specified then the default Event Hub will be used.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      *
      * > **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      */
-    logAnalyticsDestinationType?: pulumi.Input<string>;
+    logAnalyticsDestinationType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[] | undefined>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    partnerSolutionId?: pulumi.Input<string>;
+    partnerSolutionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account where logs should be sent. 
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      */

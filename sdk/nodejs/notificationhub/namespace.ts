@@ -167,43 +167,43 @@ export interface NamespaceState {
     /**
      * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      */
-    namespaceType?: pulumi.Input<string>;
+    namespaceType?: pulumi.Input<string | undefined>;
     /**
      * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
-    replicationRegion?: pulumi.Input<string>;
+    replicationRegion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ServiceBus Endpoint for this Notification Hub Namespace.
      */
-    servicebusEndpoint?: pulumi.Input<string>;
+    servicebusEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    zoneRedundancyEnabled?: pulumi.Input<boolean>;
+    zoneRedundancyEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -213,15 +213,15 @@ export interface NamespaceArgs {
     /**
      * Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      */
@@ -229,7 +229,7 @@ export interface NamespaceArgs {
     /**
      * The allowed Replication Region for the Notification Hub Namespace. Possible values are `Default`, `None`, `AustraliaEast`, `BrazilSouth`, `NorthEurope`, `SouthAfricaNorth`, `SouthEastAsia`, `WestUs2`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
-    replicationRegion?: pulumi.Input<string>;
+    replicationRegion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
@@ -241,9 +241,9 @@ export interface NamespaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is Zone Redundancy Enabled for the Notification Hub Namespace. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    zoneRedundancyEnabled?: pulumi.Input<boolean>;
+    zoneRedundancyEnabled?: pulumi.Input<boolean | undefined>;
 }

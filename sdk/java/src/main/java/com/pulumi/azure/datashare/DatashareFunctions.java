@@ -44,8 +44,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -93,8 +93,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -142,8 +142,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -191,8 +191,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -240,8 +240,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -289,8 +289,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -338,8 +338,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -387,8 +387,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -436,8 +436,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -485,8 +485,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -534,8 +534,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -583,8 +583,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -632,8 +632,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -681,8 +681,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -730,8 +730,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -779,8 +779,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -828,8 +828,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -877,8 +877,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -926,8 +926,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -975,8 +975,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1024,8 +1024,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1073,8 +1073,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1122,8 +1122,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1171,8 +1171,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1220,8 +1220,8 @@ public final class DatashareFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1270,8 +1270,8 @@ public final class DatashareFunctions {
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1325,8 +1325,8 @@ public final class DatashareFunctions {
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1380,8 +1380,8 @@ public final class DatashareFunctions {
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1435,8 +1435,8 @@ public final class DatashareFunctions {
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1490,8 +1490,8 @@ public final class DatashareFunctions {
      * import com.pulumi.azure.datashare.DatashareFunctions;
      * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

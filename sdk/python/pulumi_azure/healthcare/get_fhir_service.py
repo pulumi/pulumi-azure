@@ -208,9 +208,9 @@ def get_fhir_service(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_fhir_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                            workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fhir_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).

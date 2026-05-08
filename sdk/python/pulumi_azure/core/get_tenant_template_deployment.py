@@ -99,7 +99,7 @@ def get_tenant_template_deployment(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         output_content=pulumi.get(__ret__, 'output_content'))
-def get_tenant_template_deployment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tenant_template_deployment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Tenant Template Deployment.

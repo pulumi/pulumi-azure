@@ -173,51 +173,51 @@ export interface ShareFileState {
     /**
      * Sets the file’s Content-Disposition header.
      */
-    contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string | undefined>;
     /**
      * Specifies which content encodings have been applied to the file.
      */
-    contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string | undefined>;
     /**
      * The length in bytes of the file content
      */
-    contentLength?: pulumi.Input<number>;
+    contentLength?: pulumi.Input<number | undefined>;
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      *
      * > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
      */
-    contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string | undefined>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of metadata to assign to this file.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      *
      * > **Note:** The file specified with `source` can not be empty.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
-    storageShareId?: pulumi.Input<string>;
+    storageShareId?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareUrl?: pulumi.Input<string>;
+    storageShareUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,45 +227,45 @@ export interface ShareFileArgs {
     /**
      * Sets the file’s Content-Disposition header.
      */
-    contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string | undefined>;
     /**
      * Specifies which content encodings have been applied to the file.
      */
-    contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string | undefined>;
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      *
      * > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
      */
-    contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string | undefined>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of metadata to assign to this file.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      *
      * > **Note:** The file specified with `source` can not be empty.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
      */
-    storageShareId?: pulumi.Input<string>;
+    storageShareId?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareUrl?: pulumi.Input<string>;
+    storageShareUrl?: pulumi.Input<string | undefined>;
 }

@@ -226,39 +226,39 @@ export interface CustomerManagedKeyState {
     /**
      * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
      */
-    federatedIdentityClientId?: pulumi.Input<string>;
+    federatedIdentityClientId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Key.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyVaultUri?: pulumi.Input<string>;
+    keyVaultUri?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a user assigned identity.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -268,31 +268,31 @@ export interface CustomerManagedKeyArgs {
     /**
      * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
      */
-    federatedIdentityClientId?: pulumi.Input<string>;
+    federatedIdentityClientId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Key.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyVaultUri?: pulumi.Input<string>;
+    keyVaultUri?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
      */
-    managedHsmKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
@@ -300,5 +300,5 @@ export interface CustomerManagedKeyArgs {
     /**
      * The ID of a user assigned identity.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }

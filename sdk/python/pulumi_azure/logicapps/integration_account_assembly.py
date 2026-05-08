@@ -22,11 +22,11 @@ class IntegrationAccountAssemblyArgs:
                  assembly_name: pulumi.Input[_builtins.str],
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assembly_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_link_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 assembly_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_link_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAssembly resource.
 
@@ -91,76 +91,76 @@ class IntegrationAccountAssemblyArgs:
 
     @_builtins.property
     @pulumi.getter(name="assemblyVersion")
-    def assembly_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assembly_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
         """
         return pulumi.get(self, "assembly_version")
 
     @assembly_version.setter
-    def assembly_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assembly_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assembly_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="contentLinkUri")
-    def content_link_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_link_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content link URI of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "content_link_uri")
 
     @content_link_uri.setter
-    def content_link_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_link_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_link_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _IntegrationAccountAssemblyState:
     def __init__(__self__, *,
-                 assembly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assembly_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_link_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 assembly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assembly_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_link_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountAssembly resources.
 
@@ -192,98 +192,98 @@ class _IntegrationAccountAssemblyState:
 
     @_builtins.property
     @pulumi.getter(name="assemblyName")
-    def assembly_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assembly_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "assembly_name")
 
     @assembly_name.setter
-    def assembly_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assembly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assembly_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assemblyVersion")
-    def assembly_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assembly_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
         """
         return pulumi.get(self, "assembly_version")
 
     @assembly_version.setter
-    def assembly_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assembly_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assembly_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="contentLinkUri")
-    def content_link_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_link_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content link URI of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "content_link_uri")
 
     @content_link_uri.setter
-    def content_link_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_link_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_link_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "integration_account_name")
 
     @integration_account_name.setter
-    def integration_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata of the Logic App Integration Account Assembly.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -293,14 +293,14 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assembly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assembly_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_link_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 assembly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assembly_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_link_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Logic App Integration Account Assembly.
@@ -418,14 +418,14 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assembly_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assembly_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_link_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 assembly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assembly_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_link_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,14 +459,14 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assembly_name: Optional[pulumi.Input[_builtins.str]] = None,
-            assembly_version: Optional[pulumi.Input[_builtins.str]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            content_link_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationAccountAssembly':
+            assembly_name: pulumi.Input[Optional[_builtins.str]] = None,
+            assembly_version: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            content_link_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAccountAssembly':
         """
         Get an existing IntegrationAccountAssembly resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

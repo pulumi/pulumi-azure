@@ -21,7 +21,7 @@ class JobScheduleArgs:
     def __init__(__self__, *,
                  start_mode: pulumi.Input[_builtins.str],
                  stream_analytics_job_id: pulumi.Input[_builtins.str],
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobSchedule resource.
 
@@ -64,24 +64,24 @@ class JobScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
 
 @pulumi.input_type
 class _JobScheduleState:
     def __init__(__self__, *,
-                 last_output_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 last_output_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobSchedule resources.
 
@@ -103,19 +103,19 @@ class _JobScheduleState:
 
     @_builtins.property
     @pulumi.getter(name="lastOutputTime")
-    def last_output_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_output_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time at which the Stream Analytics job last produced an output.
         """
         return pulumi.get(self, "last_output_time")
 
     @last_output_time.setter
-    def last_output_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_output_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_output_time", value)
 
     @_builtins.property
     @pulumi.getter(name="startMode")
-    def start_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
 
@@ -124,31 +124,31 @@ class _JobScheduleState:
         return pulumi.get(self, "start_mode")
 
     @start_mode.setter
-    def start_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobId")
-    def stream_analytics_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_id")
 
     @stream_analytics_job_id.setter
-    def stream_analytics_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
@@ -158,9 +158,9 @@ class JobSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 start_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Job Schedule.
@@ -393,9 +393,9 @@ class JobSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 start_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -423,10 +423,10 @@ class JobSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            last_output_time: Optional[pulumi.Input[_builtins.str]] = None,
-            start_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'JobSchedule':
+            last_output_time: pulumi.Input[Optional[_builtins.str]] = None,
+            start_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'JobSchedule':
         """
         Get an existing JobSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

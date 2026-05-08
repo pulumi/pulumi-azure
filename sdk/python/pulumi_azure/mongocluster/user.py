@@ -105,11 +105,11 @@ class UserArgs:
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['UserRoleArgs']]]] = None):
+                 identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input['UserRoleArgs']]]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -132,62 +132,62 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
-    def identity_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity provider type for the Mongo Cluster User. The only possible value is `MicrosoftEntraID`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_provider_type")
 
     @identity_provider_type.setter
-    def identity_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoClusterId")
-    def mongo_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mongo_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Mongo Cluster where the User should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mongo_cluster_id")
 
     @mongo_cluster_id.setter
-    def mongo_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mongo_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mongo_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Object ID of the Entra ID User or Service Principal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal type for the Mongo Cluster User. Possible values are `user` and `servicePrincipal`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserRoleArgs']]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserRoleArgs']]]]:
         """
         One or more `role` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserRoleArgs']]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserRoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
 
@@ -197,11 +197,11 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None,
+                 identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Mongo Cluster User.
@@ -342,11 +342,11 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None,
+                 identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -381,11 +381,11 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None) -> 'User':
+            identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

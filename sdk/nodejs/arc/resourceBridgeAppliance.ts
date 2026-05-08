@@ -166,35 +166,35 @@ export interface ResourceBridgeApplianceState {
     /**
      * Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
      */
-    distro?: pulumi.Input<string>;
+    distro?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    identity?: pulumi.Input<inputs.arc.ResourceBridgeApplianceIdentity>;
+    identity?: pulumi.Input<inputs.arc.ResourceBridgeApplianceIdentity | undefined>;
     /**
      * The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
      */
-    infrastructureProvider?: pulumi.Input<string>;
+    infrastructureProvider?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      */
-    publicKeyBase64?: pulumi.Input<string>;
+    publicKeyBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -216,15 +216,15 @@ export interface ResourceBridgeApplianceArgs {
     /**
      * The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      */
-    publicKeyBase64?: pulumi.Input<string>;
+    publicKeyBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
      */
@@ -232,5 +232,5 @@ export interface ResourceBridgeApplianceArgs {
     /**
      * A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -223,51 +223,51 @@ export interface GalleryApplicationVersionState {
     /**
      * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
      */
-    configFile?: pulumi.Input<string>;
+    configFile?: pulumi.Input<string | undefined>;
     /**
      * Should the Gallery Application reports health. Defaults to `false`.
      */
-    enableHealthCheck?: pulumi.Input<boolean>;
+    enableHealthCheck?: pulumi.Input<boolean | undefined>;
     /**
      * The end of life date in RFC3339 format of the Gallery Application Version.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    excludeFromLatest?: pulumi.Input<boolean>;
+    excludeFromLatest?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Gallery Application. Changing this forces a new resource to be created.
      */
-    galleryApplicationId?: pulumi.Input<string>;
+    galleryApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `manageAction` block as defined below.
      */
-    manageAction?: pulumi.Input<inputs.compute.GalleryApplicationVersionManageAction>;
+    manageAction?: pulumi.Input<inputs.compute.GalleryApplicationVersionManageAction | undefined>;
     /**
      * The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
      */
-    packageFile?: pulumi.Input<string>;
+    packageFile?: pulumi.Input<string | undefined>;
     /**
      * A `source` block as defined below.
      */
-    source?: pulumi.Input<inputs.compute.GalleryApplicationVersionSource>;
+    source?: pulumi.Input<inputs.compute.GalleryApplicationVersionSource | undefined>;
     /**
      * A mapping of tags to assign to the Gallery Application Version.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `targetRegion` blocks as defined below.
      */
-    targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.GalleryApplicationVersionTargetRegion>[]>;
+    targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.GalleryApplicationVersionTargetRegion>[] | undefined>;
 }
 
 /**
@@ -277,19 +277,19 @@ export interface GalleryApplicationVersionArgs {
     /**
      * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
      */
-    configFile?: pulumi.Input<string>;
+    configFile?: pulumi.Input<string | undefined>;
     /**
      * Should the Gallery Application reports health. Defaults to `false`.
      */
-    enableHealthCheck?: pulumi.Input<boolean>;
+    enableHealthCheck?: pulumi.Input<boolean | undefined>;
     /**
      * The end of life date in RFC3339 format of the Gallery Application Version.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    excludeFromLatest?: pulumi.Input<boolean>;
+    excludeFromLatest?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Gallery Application. Changing this forces a new resource to be created.
      */
@@ -297,7 +297,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `manageAction` block as defined below.
      */
@@ -305,11 +305,11 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
      */
-    packageFile?: pulumi.Input<string>;
+    packageFile?: pulumi.Input<string | undefined>;
     /**
      * A `source` block as defined below.
      */
@@ -317,7 +317,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * A mapping of tags to assign to the Gallery Application Version.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `targetRegion` blocks as defined below.
      */

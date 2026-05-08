@@ -73,9 +73,9 @@ class SlotVirtualNetworkSwiftConnectionArgs:
 @pulumi.input_type
 class _SlotVirtualNetworkSwiftConnectionState:
     def __init__(__self__, *,
-                 app_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlotVirtualNetworkSwiftConnection resources.
 
@@ -92,38 +92,38 @@ class _SlotVirtualNetworkSwiftConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceId")
-    def app_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "app_service_id")
 
     @app_service_id.setter
-    def app_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="slotName")
-    def slot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "slot_name")
 
     @slot_name.setter
-    def slot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -133,9 +133,9 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an App Service Slot's Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
@@ -290,9 +290,9 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,9 +321,9 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            slot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SlotVirtualNetworkSwiftConnection':
+            app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            slot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SlotVirtualNetworkSwiftConnection':
         """
         Get an existing SlotVirtualNetworkSwiftConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -224,43 +224,43 @@ export interface PointToPointVpnGatewayState {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    connectionConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>[]>;
+    connectionConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>[] | undefined>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    routingPreferenceInternetEnabled?: pulumi.Input<boolean>;
+    routingPreferenceInternetEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
-    scaleUnit?: pulumi.Input<number>;
+    scaleUnit?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
-    vpnServerConfigurationId?: pulumi.Input<string>;
+    vpnServerConfigurationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -274,15 +274,15 @@ export interface PointToPointVpnGatewayArgs {
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
@@ -290,7 +290,7 @@ export interface PointToPointVpnGatewayArgs {
     /**
      * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    routingPreferenceInternetEnabled?: pulumi.Input<boolean>;
+    routingPreferenceInternetEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
@@ -298,7 +298,7 @@ export interface PointToPointVpnGatewayArgs {
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */

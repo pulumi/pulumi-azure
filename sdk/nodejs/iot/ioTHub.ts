@@ -330,151 +330,151 @@ export class IoTHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IoTHub resources.
  */
 export interface IoTHubState {
-    cloudToDevice?: pulumi.Input<inputs.iot.IoTHubCloudToDevice>;
+    cloudToDevice?: pulumi.Input<inputs.iot.IoTHubCloudToDevice | undefined>;
     /**
      * An `endpoint` block as defined below.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
-    enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[] | undefined>;
+    enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[] | undefined>;
     /**
      * The EventHub compatible endpoint for events data
      */
-    eventHubEventsEndpoint?: pulumi.Input<string>;
+    eventHubEventsEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The EventHub namespace for events data
      */
-    eventHubEventsNamespace?: pulumi.Input<string>;
+    eventHubEventsNamespace?: pulumi.Input<string | undefined>;
     /**
      * The EventHub compatible path for events data
      */
-    eventHubEventsPath?: pulumi.Input<string>;
+    eventHubEventsPath?: pulumi.Input<string | undefined>;
     /**
      * The EventHub compatible endpoint for operational data
      */
-    eventHubOperationsEndpoint?: pulumi.Input<string>;
+    eventHubOperationsEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The EventHub compatible path for operational data
      */
-    eventHubOperationsPath?: pulumi.Input<string>;
+    eventHubOperationsPath?: pulumi.Input<string | undefined>;
     /**
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      */
-    eventHubPartitionCount?: pulumi.Input<number>;
+    eventHubPartitionCount?: pulumi.Input<number | undefined>;
     /**
      * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      */
-    eventHubRetentionInDays?: pulumi.Input<number>;
+    eventHubRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      *
      * > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
      */
-    fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
+    fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute | undefined>;
     /**
      * A `fileUpload` block as defined below.
      */
-    fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
+    fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload | undefined>;
     /**
      * The hostname of the IotHub Resource.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
+    identity?: pulumi.Input<inputs.iot.IoTHubIdentity | undefined>;
     /**
      * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
-    minTlsVersion?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
+    minTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkRuleSet` block as defined below.
      */
-    networkRuleSets?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSet>[]>;
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    networkRuleSets?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSet>[] | undefined>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
-    routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
+    routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[] | undefined>;
     /**
      * One or more `sharedAccessPolicy` blocks as defined below.
      */
-    sharedAccessPolicies?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubSharedAccessPolicy>[]>;
+    sharedAccessPolicies?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubSharedAccessPolicy>[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.iot.IoTHubSku>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    type?: pulumi.Input<string>;
+    sku?: pulumi.Input<inputs.iot.IoTHubSku | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a IoTHub resource.
  */
 export interface IoTHubArgs {
-    cloudToDevice?: pulumi.Input<inputs.iot.IoTHubCloudToDevice>;
+    cloudToDevice?: pulumi.Input<inputs.iot.IoTHubCloudToDevice | undefined>;
     /**
      * An `endpoint` block as defined below.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
-    enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[] | undefined>;
+    enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[] | undefined>;
     /**
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      */
-    eventHubPartitionCount?: pulumi.Input<number>;
+    eventHubPartitionCount?: pulumi.Input<number | undefined>;
     /**
      * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      */
-    eventHubRetentionInDays?: pulumi.Input<number>;
+    eventHubRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      *
      * > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
      */
-    fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
+    fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute | undefined>;
     /**
      * A `fileUpload` block as defined below.
      */
-    fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
+    fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
+    identity?: pulumi.Input<inputs.iot.IoTHubIdentity | undefined>;
     /**
      * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
-    minTlsVersion?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
+    minTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkRuleSet` block as defined below.
      */
-    networkRuleSets?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSet>[]>;
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    networkRuleSets?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubNetworkRuleSet>[] | undefined>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
     sku: pulumi.Input<inputs.iot.IoTHubSku>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

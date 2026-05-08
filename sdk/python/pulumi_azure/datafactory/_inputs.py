@@ -236,7 +236,7 @@ class CredentialServicePrincipalServicePrincipalKeyArgsDict(TypedDict):
     """
     The name of the Secret in the Key Vault.
     """
-    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    secret_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the Secret in the Key Vault.
     """
@@ -246,7 +246,7 @@ class CredentialServicePrincipalServicePrincipalKeyArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str],
-                 secret_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 secret_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] linked_service_name: The name of the Linked Service to use for the Service Principal Key.
         :param pulumi.Input[_builtins.str] secret_name: The name of the Secret in the Key Vault.
@@ -283,14 +283,14 @@ class CredentialServicePrincipalServicePrincipalKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Secret in the Key Vault.
         """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_version", value)
 
 
@@ -299,7 +299,7 @@ class CustomDatasetLinkedServiceArgsDict(TypedDict):
     """
     The name of the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -308,7 +308,7 @@ class CustomDatasetLinkedServiceArgsDict(TypedDict):
 class CustomDatasetLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -331,14 +331,14 @@ class CustomDatasetLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -347,27 +347,27 @@ class DataFlowSinkArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input['DataFlowSinkDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['DataFlowSinkDatasetArgs']]]
     """
     A `dataset` block as defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input['DataFlowSinkFlowletArgsDict']]
+    flowlet: NotRequired[pulumi.Input[Optional['DataFlowSinkFlowletArgs']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input['DataFlowSinkLinkedServiceArgsDict']]
+    linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkLinkedServiceArgs']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgsDict']]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkRejectedLinkedServiceArgs']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgsDict']]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkSchemaLinkedServiceArgs']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -376,12 +376,12 @@ class DataFlowSinkArgsDict(TypedDict):
 class DataFlowSinkArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset: Optional[pulumi.Input['DataFlowSinkDatasetArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowSinkFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']] = None):
+                 dataset: pulumi.Input[Optional['DataFlowSinkDatasetArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flowlet: pulumi.Input[Optional['DataFlowSinkFlowletArgs']] = None,
+                 linked_service: pulumi.Input[Optional['DataFlowSinkLinkedServiceArgs']] = None,
+                 rejected_linked_service: pulumi.Input[Optional['DataFlowSinkRejectedLinkedServiceArgs']] = None,
+                 schema_linked_service: pulumi.Input[Optional['DataFlowSinkSchemaLinkedServiceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Flow Source.
         :param pulumi.Input['DataFlowSinkDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -419,74 +419,74 @@ class DataFlowSinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['DataFlowSinkDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['DataFlowSinkDatasetArgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['DataFlowSinkDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['DataFlowSinkDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Flow Source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['DataFlowSinkFlowletArgs']]:
+    def flowlet(self) -> pulumi.Input[Optional['DataFlowSinkFlowletArgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['DataFlowSinkFlowletArgs']]):
+    def flowlet(self, value: pulumi.Input[Optional['DataFlowSinkFlowletArgs']]):
         pulumi.set(self, "flowlet", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']]:
+    def linked_service(self) -> pulumi.Input[Optional['DataFlowSinkLinkedServiceArgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']]):
+    def linked_service(self, value: pulumi.Input[Optional['DataFlowSinkLinkedServiceArgs']]):
         pulumi.set(self, "linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> pulumi.Input[Optional['DataFlowSinkRejectedLinkedServiceArgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: pulumi.Input[Optional['DataFlowSinkRejectedLinkedServiceArgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> pulumi.Input[Optional['DataFlowSinkSchemaLinkedServiceArgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: pulumi.Input[Optional['DataFlowSinkSchemaLinkedServiceArgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
@@ -495,7 +495,7 @@ class DataFlowSinkDatasetArgsDict(TypedDict):
     """
     The name for the Data Factory Dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory dataset.
     """
@@ -504,7 +504,7 @@ class DataFlowSinkDatasetArgsDict(TypedDict):
 class DataFlowSinkDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory dataset.
@@ -527,14 +527,14 @@ class DataFlowSinkDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -543,11 +543,11 @@ class DataFlowSinkFlowletArgsDict(TypedDict):
     """
     The name for the Data Factory Flowlet.
     """
-    dataset_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Flowlet.
     """
@@ -556,8 +556,8 @@ class DataFlowSinkFlowletArgsDict(TypedDict):
 class DataFlowSinkFlowletArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dataset_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Flowlet.
         :param pulumi.Input[_builtins.str] dataset_parameters: Specifies the reference data flow parameters from dataset.
@@ -583,26 +583,26 @@ class DataFlowSinkFlowletArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetParameters")
-    def dataset_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
 
     @dataset_parameters.setter
-    def dataset_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -611,7 +611,7 @@ class DataFlowSinkLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -620,7 +620,7 @@ class DataFlowSinkLinkedServiceArgsDict(TypedDict):
 class DataFlowSinkLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -643,14 +643,14 @@ class DataFlowSinkLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -659,7 +659,7 @@ class DataFlowSinkRejectedLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -668,7 +668,7 @@ class DataFlowSinkRejectedLinkedServiceArgsDict(TypedDict):
 class DataFlowSinkRejectedLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -691,14 +691,14 @@ class DataFlowSinkRejectedLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -707,7 +707,7 @@ class DataFlowSinkSchemaLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -716,7 +716,7 @@ class DataFlowSinkSchemaLinkedServiceArgsDict(TypedDict):
 class DataFlowSinkSchemaLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -739,14 +739,14 @@ class DataFlowSinkSchemaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -755,27 +755,27 @@ class DataFlowSourceArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input['DataFlowSourceDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['DataFlowSourceDatasetArgs']]]
     """
     A `dataset` block as defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input['DataFlowSourceFlowletArgsDict']]
+    flowlet: NotRequired[pulumi.Input[Optional['DataFlowSourceFlowletArgs']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input['DataFlowSourceLinkedServiceArgsDict']]
+    linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceLinkedServiceArgs']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgsDict']]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceRejectedLinkedServiceArgs']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgsDict']]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceSchemaLinkedServiceArgs']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -784,12 +784,12 @@ class DataFlowSourceArgsDict(TypedDict):
 class DataFlowSourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset: Optional[pulumi.Input['DataFlowSourceDatasetArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowSourceFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']] = None):
+                 dataset: pulumi.Input[Optional['DataFlowSourceDatasetArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flowlet: pulumi.Input[Optional['DataFlowSourceFlowletArgs']] = None,
+                 linked_service: pulumi.Input[Optional['DataFlowSourceLinkedServiceArgs']] = None,
+                 rejected_linked_service: pulumi.Input[Optional['DataFlowSourceRejectedLinkedServiceArgs']] = None,
+                 schema_linked_service: pulumi.Input[Optional['DataFlowSourceSchemaLinkedServiceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Flow Source.
         :param pulumi.Input['DataFlowSourceDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -827,74 +827,74 @@ class DataFlowSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['DataFlowSourceDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['DataFlowSourceDatasetArgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['DataFlowSourceDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['DataFlowSourceDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Flow Source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['DataFlowSourceFlowletArgs']]:
+    def flowlet(self) -> pulumi.Input[Optional['DataFlowSourceFlowletArgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['DataFlowSourceFlowletArgs']]):
+    def flowlet(self, value: pulumi.Input[Optional['DataFlowSourceFlowletArgs']]):
         pulumi.set(self, "flowlet", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']]:
+    def linked_service(self) -> pulumi.Input[Optional['DataFlowSourceLinkedServiceArgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']]):
+    def linked_service(self, value: pulumi.Input[Optional['DataFlowSourceLinkedServiceArgs']]):
         pulumi.set(self, "linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> pulumi.Input[Optional['DataFlowSourceRejectedLinkedServiceArgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: pulumi.Input[Optional['DataFlowSourceRejectedLinkedServiceArgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> pulumi.Input[Optional['DataFlowSourceSchemaLinkedServiceArgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: pulumi.Input[Optional['DataFlowSourceSchemaLinkedServiceArgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
@@ -903,7 +903,7 @@ class DataFlowSourceDatasetArgsDict(TypedDict):
     """
     The name for the Data Factory Dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory dataset.
     """
@@ -912,7 +912,7 @@ class DataFlowSourceDatasetArgsDict(TypedDict):
 class DataFlowSourceDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory dataset.
@@ -935,14 +935,14 @@ class DataFlowSourceDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -951,11 +951,11 @@ class DataFlowSourceFlowletArgsDict(TypedDict):
     """
     The name for the Data Factory Flowlet.
     """
-    dataset_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Flowlet.
     """
@@ -964,8 +964,8 @@ class DataFlowSourceFlowletArgsDict(TypedDict):
 class DataFlowSourceFlowletArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dataset_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Flowlet.
         :param pulumi.Input[_builtins.str] dataset_parameters: Specifies the reference data flow parameters from dataset.
@@ -991,26 +991,26 @@ class DataFlowSourceFlowletArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetParameters")
-    def dataset_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
 
     @dataset_parameters.setter
-    def dataset_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1019,7 +1019,7 @@ class DataFlowSourceLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -1028,7 +1028,7 @@ class DataFlowSourceLinkedServiceArgsDict(TypedDict):
 class DataFlowSourceLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -1051,14 +1051,14 @@ class DataFlowSourceLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1067,7 +1067,7 @@ class DataFlowSourceRejectedLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -1076,7 +1076,7 @@ class DataFlowSourceRejectedLinkedServiceArgsDict(TypedDict):
 class DataFlowSourceRejectedLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -1099,14 +1099,14 @@ class DataFlowSourceRejectedLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1115,7 +1115,7 @@ class DataFlowSourceSchemaLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -1124,7 +1124,7 @@ class DataFlowSourceSchemaLinkedServiceArgsDict(TypedDict):
 class DataFlowSourceSchemaLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -1147,14 +1147,14 @@ class DataFlowSourceSchemaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1163,19 +1163,19 @@ class DataFlowTransformationArgsDict(TypedDict):
     """
     The name for the Data Flow transformation.
     """
-    dataset: NotRequired[pulumi.Input['DataFlowTransformationDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['DataFlowTransformationDatasetArgs']]]
     """
     A `dataset` block as defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for the Data Flow transformation.
     """
-    flowlet: NotRequired[pulumi.Input['DataFlowTransformationFlowletArgsDict']]
+    flowlet: NotRequired[pulumi.Input[Optional['DataFlowTransformationFlowletArgs']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input['DataFlowTransformationLinkedServiceArgsDict']]
+    linked_service: NotRequired[pulumi.Input[Optional['DataFlowTransformationLinkedServiceArgs']]]
     """
     A `linked_service` block as defined below.
     """
@@ -1184,10 +1184,10 @@ class DataFlowTransformationArgsDict(TypedDict):
 class DataFlowTransformationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset: Optional[pulumi.Input['DataFlowTransformationDatasetArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowTransformationFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']] = None):
+                 dataset: pulumi.Input[Optional['DataFlowTransformationDatasetArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flowlet: pulumi.Input[Optional['DataFlowTransformationFlowletArgs']] = None,
+                 linked_service: pulumi.Input[Optional['DataFlowTransformationLinkedServiceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Flow transformation.
         :param pulumi.Input['DataFlowTransformationDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -1219,50 +1219,50 @@ class DataFlowTransformationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['DataFlowTransformationDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['DataFlowTransformationDatasetArgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['DataFlowTransformationDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['DataFlowTransformationDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Flow transformation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['DataFlowTransformationFlowletArgs']]:
+    def flowlet(self) -> pulumi.Input[Optional['DataFlowTransformationFlowletArgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['DataFlowTransformationFlowletArgs']]):
+    def flowlet(self, value: pulumi.Input[Optional['DataFlowTransformationFlowletArgs']]):
         pulumi.set(self, "flowlet", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']]:
+    def linked_service(self) -> pulumi.Input[Optional['DataFlowTransformationLinkedServiceArgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']]):
+    def linked_service(self, value: pulumi.Input[Optional['DataFlowTransformationLinkedServiceArgs']]):
         pulumi.set(self, "linked_service", value)
 
 
@@ -1271,7 +1271,7 @@ class DataFlowTransformationDatasetArgsDict(TypedDict):
     """
     The name for the Data Factory Dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory dataset.
     """
@@ -1280,7 +1280,7 @@ class DataFlowTransformationDatasetArgsDict(TypedDict):
 class DataFlowTransformationDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory dataset.
@@ -1303,14 +1303,14 @@ class DataFlowTransformationDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1319,11 +1319,11 @@ class DataFlowTransformationFlowletArgsDict(TypedDict):
     """
     The name for the Data Factory Flowlet.
     """
-    dataset_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Flowlet.
     """
@@ -1332,8 +1332,8 @@ class DataFlowTransformationFlowletArgsDict(TypedDict):
 class DataFlowTransformationFlowletArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dataset_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Flowlet.
         :param pulumi.Input[_builtins.str] dataset_parameters: Specifies the reference data flow parameters from dataset.
@@ -1359,26 +1359,26 @@ class DataFlowTransformationFlowletArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetParameters")
-    def dataset_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
 
     @dataset_parameters.setter
-    def dataset_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1387,7 +1387,7 @@ class DataFlowTransformationLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -1396,7 +1396,7 @@ class DataFlowTransformationLinkedServiceArgsDict(TypedDict):
 class DataFlowTransformationLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -1419,14 +1419,14 @@ class DataFlowTransformationLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1435,11 +1435,11 @@ class DatasetAzureBlobSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -1448,8 +1448,8 @@ class DatasetAzureBlobSchemaColumnArgsDict(TypedDict):
 class DatasetAzureBlobSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -1475,26 +1475,26 @@ class DatasetAzureBlobSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1503,11 +1503,11 @@ class DatasetAzureSqlTableSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -1516,8 +1516,8 @@ class DatasetAzureSqlTableSchemaColumnArgsDict(TypedDict):
 class DatasetAzureSqlTableSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -1543,26 +1543,26 @@ class DatasetAzureSqlTableSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1571,23 +1571,23 @@ class DatasetBinaryAzureBlobStorageLocationArgsDict(TypedDict):
     """
     The container on the Azure Blob Storage Account hosting the file.
     """
-    dynamic_container_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_container_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the file in the blob container.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path to the file in the blob container.
     """
@@ -1596,11 +1596,11 @@ class DatasetBinaryAzureBlobStorageLocationArgsDict(TypedDict):
 class DatasetBinaryAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[_builtins.str],
-                 dynamic_container_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_container_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[_builtins.bool] dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
@@ -1635,62 +1635,62 @@ class DatasetBinaryAzureBlobStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicContainerEnabled")
-    def dynamic_container_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_container_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_container_enabled")
 
     @dynamic_container_enabled.setter
-    def dynamic_container_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_container_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_container_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the file in the blob container.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path to the file in the blob container.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -1699,7 +1699,7 @@ class DatasetBinaryCompressionArgsDict(TypedDict):
     """
     The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
     """
-    level: NotRequired[pulumi.Input[_builtins.str]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The level of compression. Possible values are `Fastest` and `Optimal`.
     """
@@ -1708,7 +1708,7 @@ class DatasetBinaryCompressionArgsDict(TypedDict):
 class DatasetBinaryCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 level: Optional[pulumi.Input[_builtins.str]] = None):
+                 level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         :param pulumi.Input[_builtins.str] level: The level of compression. Possible values are `Fastest` and `Optimal`.
@@ -1731,14 +1731,14 @@ class DatasetBinaryCompressionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The level of compression. Possible values are `Fastest` and `Optimal`.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "level", value)
 
 
@@ -1755,11 +1755,11 @@ class DatasetBinaryHttpServerLocationArgsDict(TypedDict):
     """
     The base URL to the web server hosting the file.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
@@ -1770,8 +1770,8 @@ class DatasetBinaryHttpServerLocationArgs:
                  filename: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
                  relative_url: pulumi.Input[_builtins.str],
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] filename: The filename of the file on the web server.
         :param pulumi.Input[_builtins.str] path: The folder path to the file on the web server.
@@ -1825,26 +1825,26 @@ class DatasetBinaryHttpServerLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
@@ -1857,11 +1857,11 @@ class DatasetBinarySftpServerLocationArgsDict(TypedDict):
     """
     The folder path to the file on the SFTP server.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
@@ -1871,8 +1871,8 @@ class DatasetBinarySftpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] filename: The filename of the file on the SFTP server.
         :param pulumi.Input[_builtins.str] path: The folder path to the file on the SFTP server.
@@ -1912,26 +1912,26 @@ class DatasetBinarySftpServerLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
@@ -1940,11 +1940,11 @@ class DatasetCosmosDBApiSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -1953,8 +1953,8 @@ class DatasetCosmosDBApiSchemaColumnArgsDict(TypedDict):
 class DatasetCosmosDBApiSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -1980,51 +1980,51 @@ class DatasetCosmosDBApiSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class DatasetDelimitedTextAzureBlobFsLocationArgsDict(TypedDict):
-    dynamic_file_system_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_file_system_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    file_system: NotRequired[pulumi.Input[_builtins.str]]
+    file_system: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the file.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path to the file.
     """
@@ -2032,12 +2032,12 @@ class DatasetDelimitedTextAzureBlobFsLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetDelimitedTextAzureBlobFsLocationArgs:
     def __init__(__self__, *,
-                 dynamic_file_system_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_file_system_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] dynamic_file_system_enabled: Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2061,74 +2061,74 @@ class DatasetDelimitedTextAzureBlobFsLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFileSystemEnabled")
-    def dynamic_file_system_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_file_system_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_file_system_enabled")
 
     @dynamic_file_system_enabled.setter
-    def dynamic_file_system_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_file_system_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_file_system_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path to the file.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -2137,23 +2137,23 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgsDict(TypedDict):
     """
     The container on the Azure Blob Storage Account hosting the file.
     """
-    dynamic_container_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_container_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the file.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path to the file. This can be an empty string.
     """
@@ -2162,11 +2162,11 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgsDict(TypedDict):
 class DatasetDelimitedTextAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[_builtins.str],
-                 dynamic_container_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_container_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[_builtins.bool] dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2201,62 +2201,62 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicContainerEnabled")
-    def dynamic_container_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_container_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_container_enabled")
 
     @dynamic_container_enabled.setter
-    def dynamic_container_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_container_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_container_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path to the file. This can be an empty string.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -2273,11 +2273,11 @@ class DatasetDelimitedTextHttpServerLocationArgsDict(TypedDict):
     """
     The base URL to the web server hosting the file.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
@@ -2288,8 +2288,8 @@ class DatasetDelimitedTextHttpServerLocationArgs:
                  filename: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
                  relative_url: pulumi.Input[_builtins.str],
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] filename: The filename of the file on the web server.
         :param pulumi.Input[_builtins.str] path: The folder path to the file on the web server.
@@ -2343,26 +2343,26 @@ class DatasetDelimitedTextHttpServerLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
@@ -2371,11 +2371,11 @@ class DatasetDelimitedTextSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -2384,8 +2384,8 @@ class DatasetDelimitedTextSchemaColumnArgsDict(TypedDict):
 class DatasetDelimitedTextSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -2411,26 +2411,26 @@ class DatasetDelimitedTextSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -2439,11 +2439,11 @@ class DatasetHttpSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -2452,8 +2452,8 @@ class DatasetHttpSchemaColumnArgsDict(TypedDict):
 class DatasetHttpSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -2479,26 +2479,26 @@ class DatasetHttpSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -2515,15 +2515,15 @@ class DatasetJsonAzureBlobStorageLocationArgsDict(TypedDict):
     """
     The folder path to the file on the web server.
     """
-    dynamic_container_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_container_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
@@ -2534,9 +2534,9 @@ class DatasetJsonAzureBlobStorageLocationArgs:
                  container: pulumi.Input[_builtins.str],
                  filename: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
-                 dynamic_container_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dynamic_container_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[_builtins.str] filename: The filename of the file on the web server.
@@ -2593,38 +2593,38 @@ class DatasetJsonAzureBlobStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicContainerEnabled")
-    def dynamic_container_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_container_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_container_enabled")
 
     @dynamic_container_enabled.setter
-    def dynamic_container_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_container_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_container_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
@@ -2641,11 +2641,11 @@ class DatasetJsonHttpServerLocationArgsDict(TypedDict):
     """
     The base URL to the web server hosting the file.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
@@ -2656,8 +2656,8 @@ class DatasetJsonHttpServerLocationArgs:
                  filename: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
                  relative_url: pulumi.Input[_builtins.str],
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] filename: The filename of the file on the web server.
         :param pulumi.Input[_builtins.str] path: The folder path to the file on the web server.
@@ -2711,26 +2711,26 @@ class DatasetJsonHttpServerLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
@@ -2739,11 +2739,11 @@ class DatasetJsonSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -2752,8 +2752,8 @@ class DatasetJsonSchemaColumnArgsDict(TypedDict):
 class DatasetJsonSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -2779,26 +2779,26 @@ class DatasetJsonSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -2807,11 +2807,11 @@ class DatasetMysqlSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -2820,8 +2820,8 @@ class DatasetMysqlSchemaColumnArgsDict(TypedDict):
 class DatasetMysqlSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -2847,51 +2847,51 @@ class DatasetMysqlSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class DatasetParquetAzureBlobFsLocationArgsDict(TypedDict):
-    dynamic_file_system_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_file_system_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    file_system: NotRequired[pulumi.Input[_builtins.str]]
+    file_system: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The container on the Azure Data Lake Storage Account hosting the file.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the file on the Azure Data Lake Storage Account.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path to the file on the Azure Data Lake Storage Account.
     """
@@ -2899,12 +2899,12 @@ class DatasetParquetAzureBlobFsLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DatasetParquetAzureBlobFsLocationArgs:
     def __init__(__self__, *,
-                 dynamic_file_system_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_file_system_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] dynamic_file_system_enabled: Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2928,74 +2928,74 @@ class DatasetParquetAzureBlobFsLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFileSystemEnabled")
-    def dynamic_file_system_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_file_system_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_file_system_enabled")
 
     @dynamic_file_system_enabled.setter
-    def dynamic_file_system_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_file_system_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_file_system_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The container on the Azure Data Lake Storage Account hosting the file.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the file on the Azure Data Lake Storage Account.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path to the file on the Azure Data Lake Storage Account.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -3004,23 +3004,23 @@ class DatasetParquetAzureBlobStorageLocationArgsDict(TypedDict):
     """
     The container on the Azure Blob Storage Account hosting the file.
     """
-    dynamic_container_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_container_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    filename: NotRequired[pulumi.Input[_builtins.str]]
+    filename: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filename of the file on the Azure Blob Storage Account.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path to the file on the Azure Blob Storage Account.
     """
@@ -3029,11 +3029,11 @@ class DatasetParquetAzureBlobStorageLocationArgsDict(TypedDict):
 class DatasetParquetAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[_builtins.str],
-                 dynamic_container_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_container_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container: The container on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[_builtins.bool] dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3068,62 +3068,62 @@ class DatasetParquetAzureBlobStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicContainerEnabled")
-    def dynamic_container_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_container_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_container_enabled")
 
     @dynamic_container_enabled.setter
-    def dynamic_container_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_container_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_container_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filename of the file on the Azure Blob Storage Account.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path to the file on the Azure Blob Storage Account.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -3136,15 +3136,15 @@ class DatasetParquetHttpServerLocationArgsDict(TypedDict):
     """
     The base URL to the web server hosting the file.
     """
-    dynamic_filename_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_filename_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    dynamic_path_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dynamic_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path to the file on the web server.
     """
@@ -3154,9 +3154,9 @@ class DatasetParquetHttpServerLocationArgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[_builtins.str],
                  relative_url: pulumi.Input[_builtins.str],
-                 dynamic_filename_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_path_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_filename_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] filename: The filename of the file on the web server.
         :param pulumi.Input[_builtins.str] relative_url: The base URL to the web server hosting the file.
@@ -3199,38 +3199,38 @@ class DatasetParquetHttpServerLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicFilenameEnabled")
-    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_filename_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_filename_enabled")
 
     @dynamic_filename_enabled.setter
-    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_filename_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_filename_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicPathEnabled")
-    def dynamic_path_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         return pulumi.get(self, "dynamic_path_enabled")
 
     @dynamic_path_enabled.setter
-    def dynamic_path_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_path_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path to the file on the web server.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -3239,11 +3239,11 @@ class DatasetParquetSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -3252,8 +3252,8 @@ class DatasetParquetSchemaColumnArgsDict(TypedDict):
 class DatasetParquetSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -3279,26 +3279,26 @@ class DatasetParquetSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -3307,11 +3307,11 @@ class DatasetPostgresqlSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -3320,8 +3320,8 @@ class DatasetPostgresqlSchemaColumnArgsDict(TypedDict):
 class DatasetPostgresqlSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -3347,26 +3347,26 @@ class DatasetPostgresqlSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -3375,15 +3375,15 @@ class DatasetSnowflakeSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    precision: NotRequired[pulumi.Input[_builtins.int]]
+    precision: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The total number of digits allowed.
     """
-    scale: NotRequired[pulumi.Input[_builtins.int]]
+    scale: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of digits allowed to the right of the decimal point.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
     """
@@ -3392,9 +3392,9 @@ class DatasetSnowflakeSchemaColumnArgsDict(TypedDict):
 class DatasetSnowflakeSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 precision: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 precision: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.int] precision: The total number of digits allowed.
@@ -3423,38 +3423,38 @@ class DatasetSnowflakeSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def precision(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def precision(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The total number of digits allowed.
         """
         return pulumi.get(self, "precision")
 
     @precision.setter
-    def precision(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def precision(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "precision", value)
 
     @_builtins.property
     @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of digits allowed to the right of the decimal point.
         """
         return pulumi.get(self, "scale")
 
     @scale.setter
-    def scale(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -3463,11 +3463,11 @@ class DatasetSqlServerTableSchemaColumnArgsDict(TypedDict):
     """
     The name of the column.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the column.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
@@ -3476,8 +3476,8 @@ class DatasetSqlServerTableSchemaColumnArgsDict(TypedDict):
 class DatasetSqlServerTableSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column.
         :param pulumi.Input[_builtins.str] description: The description of the column.
@@ -3503,26 +3503,26 @@ class DatasetSqlServerTableSchemaColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the column.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -3543,11 +3543,11 @@ class FactoryGithubConfigurationArgsDict(TypedDict):
     """
     Specifies the root folder within the repository. Set to `/` for the top level.
     """
-    git_url: NotRequired[pulumi.Input[_builtins.str]]
+    git_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
     """
-    publishing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    publishing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is automated publishing enabled? Defaults to `true`.
 
@@ -3561,8 +3561,8 @@ class FactoryGithubConfigurationArgs:
                  branch_name: pulumi.Input[_builtins.str],
                  repository_name: pulumi.Input[_builtins.str],
                  root_folder: pulumi.Input[_builtins.str],
-                 git_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 publishing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 git_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 publishing_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: Specifies the GitHub account name.
         :param pulumi.Input[_builtins.str] branch_name: Specifies the branch of the repository to get code from.
@@ -3632,19 +3632,19 @@ class FactoryGithubConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="gitUrl")
-    def git_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         """
         return pulumi.get(self, "git_url")
 
     @git_url.setter
-    def git_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_url", value)
 
     @_builtins.property
     @pulumi.getter(name="publishingEnabled")
-    def publishing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publishing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is automated publishing enabled? Defaults to `true`.
 
@@ -3653,7 +3653,7 @@ class FactoryGithubConfigurationArgs:
         return pulumi.get(self, "publishing_enabled")
 
     @publishing_enabled.setter
-    def publishing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publishing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publishing_enabled", value)
 
 
@@ -3734,17 +3734,17 @@ class FactoryIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -3753,9 +3753,9 @@ class FactoryIdentityArgsDict(TypedDict):
 class FactoryIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
@@ -3786,7 +3786,7 @@ class FactoryIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 
@@ -3795,31 +3795,31 @@ class FactoryIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -3848,7 +3848,7 @@ class FactoryVstsConfigurationArgsDict(TypedDict):
     """
     Specifies the Tenant ID associated with the VSTS account.
     """
-    publishing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    publishing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is automated publishing enabled? Defaults to `true`.
     """
@@ -3862,7 +3862,7 @@ class FactoryVstsConfigurationArgs:
                  repository_name: pulumi.Input[_builtins.str],
                  root_folder: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 publishing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 publishing_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: Specifies the VSTS account name.
         :param pulumi.Input[_builtins.str] branch_name: Specifies the branch of the repository to get code from.
@@ -3955,14 +3955,14 @@ class FactoryVstsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="publishingEnabled")
-    def publishing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publishing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is automated publishing enabled? Defaults to `true`.
         """
         return pulumi.get(self, "publishing_enabled")
 
     @publishing_enabled.setter
-    def publishing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publishing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publishing_enabled", value)
 
 
@@ -3971,27 +3971,27 @@ class FlowletDataFlowSinkArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input['FlowletDataFlowSinkDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkDatasetArgs']]]
     """
     A `dataset` block as defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input['FlowletDataFlowSinkFlowletArgsDict']]
+    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkFlowletArgs']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgsDict']]
+    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkLinkedServiceArgs']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgsDict']]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkRejectedLinkedServiceArgs']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgsDict']]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkSchemaLinkedServiceArgs']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -4000,12 +4000,12 @@ class FlowletDataFlowSinkArgsDict(TypedDict):
 class FlowletDataFlowSinkArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flowlet: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']] = None):
+                 dataset: pulumi.Input[Optional['FlowletDataFlowSinkDatasetArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flowlet: pulumi.Input[Optional['FlowletDataFlowSinkFlowletArgs']] = None,
+                 linked_service: pulumi.Input[Optional['FlowletDataFlowSinkLinkedServiceArgs']] = None,
+                 rejected_linked_service: pulumi.Input[Optional['FlowletDataFlowSinkRejectedLinkedServiceArgs']] = None,
+                 schema_linked_service: pulumi.Input[Optional['FlowletDataFlowSinkSchemaLinkedServiceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Flow Source.
         :param pulumi.Input['FlowletDataFlowSinkDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -4043,74 +4043,74 @@ class FlowletDataFlowSinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['FlowletDataFlowSinkDatasetArgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['FlowletDataFlowSinkDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Flow Source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']]:
+    def flowlet(self) -> pulumi.Input[Optional['FlowletDataFlowSinkFlowletArgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']]):
+    def flowlet(self, value: pulumi.Input[Optional['FlowletDataFlowSinkFlowletArgs']]):
         pulumi.set(self, "flowlet", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']]:
+    def linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowSinkLinkedServiceArgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']]):
+    def linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowSinkLinkedServiceArgs']]):
         pulumi.set(self, "linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowSinkRejectedLinkedServiceArgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowSinkRejectedLinkedServiceArgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowSinkSchemaLinkedServiceArgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowSinkSchemaLinkedServiceArgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
@@ -4119,7 +4119,7 @@ class FlowletDataFlowSinkDatasetArgsDict(TypedDict):
     """
     The name for the Data Factory Dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory dataset.
     """
@@ -4128,7 +4128,7 @@ class FlowletDataFlowSinkDatasetArgsDict(TypedDict):
 class FlowletDataFlowSinkDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory dataset.
@@ -4151,14 +4151,14 @@ class FlowletDataFlowSinkDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4167,11 +4167,11 @@ class FlowletDataFlowSinkFlowletArgsDict(TypedDict):
     """
     The name for the Data Factory Flowlet.
     """
-    dataset_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Flowlet.
     """
@@ -4180,8 +4180,8 @@ class FlowletDataFlowSinkFlowletArgsDict(TypedDict):
 class FlowletDataFlowSinkFlowletArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dataset_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Flowlet.
         :param pulumi.Input[_builtins.str] dataset_parameters: Specifies the reference data flow parameters from dataset.
@@ -4207,26 +4207,26 @@ class FlowletDataFlowSinkFlowletArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetParameters")
-    def dataset_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
 
     @dataset_parameters.setter
-    def dataset_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4235,7 +4235,7 @@ class FlowletDataFlowSinkLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -4244,7 +4244,7 @@ class FlowletDataFlowSinkLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowSinkLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -4267,14 +4267,14 @@ class FlowletDataFlowSinkLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4283,7 +4283,7 @@ class FlowletDataFlowSinkRejectedLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -4292,7 +4292,7 @@ class FlowletDataFlowSinkRejectedLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowSinkRejectedLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -4315,14 +4315,14 @@ class FlowletDataFlowSinkRejectedLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4331,7 +4331,7 @@ class FlowletDataFlowSinkSchemaLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -4340,7 +4340,7 @@ class FlowletDataFlowSinkSchemaLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowSinkSchemaLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -4363,14 +4363,14 @@ class FlowletDataFlowSinkSchemaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4379,27 +4379,27 @@ class FlowletDataFlowSourceArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input['FlowletDataFlowSourceDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceDatasetArgs']]]
     """
     A `dataset` block as defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input['FlowletDataFlowSourceFlowletArgsDict']]
+    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceFlowletArgs']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgsDict']]
+    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceLinkedServiceArgs']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgsDict']]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceRejectedLinkedServiceArgs']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgsDict']]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceSchemaLinkedServiceArgs']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -4408,12 +4408,12 @@ class FlowletDataFlowSourceArgsDict(TypedDict):
 class FlowletDataFlowSourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flowlet: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']] = None):
+                 dataset: pulumi.Input[Optional['FlowletDataFlowSourceDatasetArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flowlet: pulumi.Input[Optional['FlowletDataFlowSourceFlowletArgs']] = None,
+                 linked_service: pulumi.Input[Optional['FlowletDataFlowSourceLinkedServiceArgs']] = None,
+                 rejected_linked_service: pulumi.Input[Optional['FlowletDataFlowSourceRejectedLinkedServiceArgs']] = None,
+                 schema_linked_service: pulumi.Input[Optional['FlowletDataFlowSourceSchemaLinkedServiceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Flow Source.
         :param pulumi.Input['FlowletDataFlowSourceDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -4451,74 +4451,74 @@ class FlowletDataFlowSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['FlowletDataFlowSourceDatasetArgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['FlowletDataFlowSourceDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Flow Source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']]:
+    def flowlet(self) -> pulumi.Input[Optional['FlowletDataFlowSourceFlowletArgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']]):
+    def flowlet(self, value: pulumi.Input[Optional['FlowletDataFlowSourceFlowletArgs']]):
         pulumi.set(self, "flowlet", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']]:
+    def linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowSourceLinkedServiceArgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']]):
+    def linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowSourceLinkedServiceArgs']]):
         pulumi.set(self, "linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowSourceRejectedLinkedServiceArgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowSourceRejectedLinkedServiceArgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowSourceSchemaLinkedServiceArgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowSourceSchemaLinkedServiceArgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
@@ -4527,7 +4527,7 @@ class FlowletDataFlowSourceDatasetArgsDict(TypedDict):
     """
     The name for the Data Factory Dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory dataset.
     """
@@ -4536,7 +4536,7 @@ class FlowletDataFlowSourceDatasetArgsDict(TypedDict):
 class FlowletDataFlowSourceDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory dataset.
@@ -4559,14 +4559,14 @@ class FlowletDataFlowSourceDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4575,11 +4575,11 @@ class FlowletDataFlowSourceFlowletArgsDict(TypedDict):
     """
     The name for the Data Factory Flowlet.
     """
-    dataset_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Flowlet.
     """
@@ -4588,8 +4588,8 @@ class FlowletDataFlowSourceFlowletArgsDict(TypedDict):
 class FlowletDataFlowSourceFlowletArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dataset_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Flowlet.
         :param pulumi.Input[_builtins.str] dataset_parameters: Specifies the reference data flow parameters from dataset.
@@ -4615,26 +4615,26 @@ class FlowletDataFlowSourceFlowletArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetParameters")
-    def dataset_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
 
     @dataset_parameters.setter
-    def dataset_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4643,7 +4643,7 @@ class FlowletDataFlowSourceLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -4652,7 +4652,7 @@ class FlowletDataFlowSourceLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowSourceLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -4675,14 +4675,14 @@ class FlowletDataFlowSourceLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4691,7 +4691,7 @@ class FlowletDataFlowSourceRejectedLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -4700,7 +4700,7 @@ class FlowletDataFlowSourceRejectedLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowSourceRejectedLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -4723,14 +4723,14 @@ class FlowletDataFlowSourceRejectedLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4739,7 +4739,7 @@ class FlowletDataFlowSourceSchemaLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service with schema.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -4748,7 +4748,7 @@ class FlowletDataFlowSourceSchemaLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowSourceSchemaLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -4771,14 +4771,14 @@ class FlowletDataFlowSourceSchemaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4787,19 +4787,19 @@ class FlowletDataFlowTransformationArgsDict(TypedDict):
     """
     The name for the Data Flow transformation.
     """
-    dataset: NotRequired[pulumi.Input['FlowletDataFlowTransformationDatasetArgsDict']]
+    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationDatasetArgs']]]
     """
     A `dataset` block as defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for the Data Flow transformation.
     """
-    flowlet: NotRequired[pulumi.Input['FlowletDataFlowTransformationFlowletArgsDict']]
+    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationFlowletArgs']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgsDict']]
+    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationLinkedServiceArgs']]]
     """
     A `linked_service` block as defined below.
     """
@@ -4808,10 +4808,10 @@ class FlowletDataFlowTransformationArgsDict(TypedDict):
 class FlowletDataFlowTransformationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 flowlet: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']] = None):
+                 dataset: pulumi.Input[Optional['FlowletDataFlowTransformationDatasetArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 flowlet: pulumi.Input[Optional['FlowletDataFlowTransformationFlowletArgs']] = None,
+                 linked_service: pulumi.Input[Optional['FlowletDataFlowTransformationLinkedServiceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Flow transformation.
         :param pulumi.Input['FlowletDataFlowTransformationDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -4843,50 +4843,50 @@ class FlowletDataFlowTransformationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']]:
+    def dataset(self) -> pulumi.Input[Optional['FlowletDataFlowTransformationDatasetArgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']]):
+    def dataset(self, value: pulumi.Input[Optional['FlowletDataFlowTransformationDatasetArgs']]):
         pulumi.set(self, "dataset", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Flow transformation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']]:
+    def flowlet(self) -> pulumi.Input[Optional['FlowletDataFlowTransformationFlowletArgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']]):
+    def flowlet(self, value: pulumi.Input[Optional['FlowletDataFlowTransformationFlowletArgs']]):
         pulumi.set(self, "flowlet", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']]:
+    def linked_service(self) -> pulumi.Input[Optional['FlowletDataFlowTransformationLinkedServiceArgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']]):
+    def linked_service(self, value: pulumi.Input[Optional['FlowletDataFlowTransformationLinkedServiceArgs']]):
         pulumi.set(self, "linked_service", value)
 
 
@@ -4895,7 +4895,7 @@ class FlowletDataFlowTransformationDatasetArgsDict(TypedDict):
     """
     The name for the Data Factory Dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory dataset.
     """
@@ -4904,7 +4904,7 @@ class FlowletDataFlowTransformationDatasetArgsDict(TypedDict):
 class FlowletDataFlowTransformationDatasetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory dataset.
@@ -4927,14 +4927,14 @@ class FlowletDataFlowTransformationDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -4943,11 +4943,11 @@ class FlowletDataFlowTransformationFlowletArgsDict(TypedDict):
     """
     The name for the Data Factory Flowlet.
     """
-    dataset_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    dataset_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reference data flow parameters from dataset.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Flowlet.
     """
@@ -4956,8 +4956,8 @@ class FlowletDataFlowTransformationFlowletArgsDict(TypedDict):
 class FlowletDataFlowTransformationFlowletArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 dataset_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dataset_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Flowlet.
         :param pulumi.Input[_builtins.str] dataset_parameters: Specifies the reference data flow parameters from dataset.
@@ -4983,26 +4983,26 @@ class FlowletDataFlowTransformationFlowletArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetParameters")
-    def dataset_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
 
     @dataset_parameters.setter
-    def dataset_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -5011,7 +5011,7 @@ class FlowletDataFlowTransformationLinkedServiceArgsDict(TypedDict):
     """
     The name for the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Data Factory Linked Service.
     """
@@ -5020,7 +5020,7 @@ class FlowletDataFlowTransformationLinkedServiceArgsDict(TypedDict):
 class FlowletDataFlowTransformationLinkedServiceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
@@ -5043,14 +5043,14 @@ class FlowletDataFlowTransformationLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -5099,23 +5099,23 @@ class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
     """
     The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
     """
-    administrator_login: NotRequired[pulumi.Input[_builtins.str]]
+    administrator_login: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Administrator login name for the SQL Server.
     """
-    administrator_password: NotRequired[pulumi.Input[_builtins.str]]
+    administrator_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Administrator login password for the SQL Server.
     """
-    dual_standby_pair_name: NotRequired[pulumi.Input[_builtins.str]]
+    dual_standby_pair_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
     """
-    elastic_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    elastic_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of SQL elastic pool where the database will be created for the SSIS catalog. Mutually exclusive with `pricing_tier`.
     """
-    pricing_tier: NotRequired[pulumi.Input[_builtins.str]]
+    pricing_tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`. Mutually exclusive with `elastic_pool_name`.
     """
@@ -5124,11 +5124,11 @@ class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
 class IntegrationRuntimeSsisCatalogInfoArgs:
     def __init__(__self__, *,
                  server_endpoint: pulumi.Input[_builtins.str],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 dual_standby_pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 dual_standby_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param pulumi.Input[_builtins.str] administrator_login: Administrator login name for the SQL Server.
@@ -5163,71 +5163,71 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Administrator login name for the SQL Server.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Administrator login password for the SQL Server.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
-    def administrator_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_password", value)
 
     @_builtins.property
     @pulumi.getter(name="dualStandbyPairName")
-    def dual_standby_pair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dual_standby_pair_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
         """
         return pulumi.get(self, "dual_standby_pair_name")
 
     @dual_standby_pair_name.setter
-    def dual_standby_pair_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dual_standby_pair_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dual_standby_pair_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elastic_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of SQL elastic pool where the database will be created for the SSIS catalog. Mutually exclusive with `pricing_tier`.
         """
         return pulumi.get(self, "elastic_pool_name")
 
     @elastic_pool_name.setter
-    def elastic_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elastic_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elastic_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingTier")
-    def pricing_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pricing_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`. Mutually exclusive with `elastic_pool_name`.
         """
         return pulumi.get(self, "pricing_tier")
 
     @pricing_tier.setter
-    def pricing_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pricing_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pricing_tier", value)
 
 
 class IntegrationRuntimeSsisCopyComputeScaleArgsDict(TypedDict):
-    data_integration_unit: NotRequired[pulumi.Input[_builtins.int]]
+    data_integration_unit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
     """
-    time_to_live: NotRequired[pulumi.Input[_builtins.int]]
+    time_to_live: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
     """
@@ -5235,8 +5235,8 @@ class IntegrationRuntimeSsisCopyComputeScaleArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeSsisCopyComputeScaleArgs:
     def __init__(__self__, *,
-                 data_integration_unit: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.int]] = None):
+                 data_integration_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] data_integration_unit: Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
         :param pulumi.Input[_builtins.int] time_to_live: Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
@@ -5248,26 +5248,26 @@ class IntegrationRuntimeSsisCopyComputeScaleArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataIntegrationUnit")
-    def data_integration_unit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_integration_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
         """
         return pulumi.get(self, "data_integration_unit")
 
     @data_integration_unit.setter
-    def data_integration_unit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_integration_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_integration_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live", value)
 
 
@@ -5319,19 +5319,19 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
 
 
 class IntegrationRuntimeSsisExpressCustomSetupArgsDict(TypedDict):
-    command_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict']]]]
+    command_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]]
     """
     One or more `command_key` blocks as defined below.
     """
-    components: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict']]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]]
     """
     One or more `component` blocks as defined below.
     """
-    environment: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    environment: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The Environment Variables for the Azure-SSIS Integration Runtime.
     """
-    powershell_version: NotRequired[pulumi.Input[_builtins.str]]
+    powershell_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 
@@ -5341,10 +5341,10 @@ class IntegrationRuntimeSsisExpressCustomSetupArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressCustomSetupArgs:
     def __init__(__self__, *,
-                 command_keys: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 powershell_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 command_keys: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 powershell_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]] command_keys: One or more `command_key` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]] components: One or more `component` blocks as defined below.
@@ -5364,43 +5364,43 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
 
     @_builtins.property
     @pulumi.getter(name="commandKeys")
-    def command_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]:
+    def command_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]:
         """
         One or more `command_key` blocks as defined below.
         """
         return pulumi.get(self, "command_keys")
 
     @command_keys.setter
-    def command_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]):
+    def command_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]):
         pulumi.set(self, "command_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]:
         """
         One or more `component` blocks as defined below.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The Environment Variables for the Azure-SSIS Integration Runtime.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="powershellVersion")
-    def powershell_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def powershell_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 
@@ -5409,7 +5409,7 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
         return pulumi.get(self, "powershell_version")
 
     @powershell_version.setter
-    def powershell_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def powershell_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "powershell_version", value)
 
 
@@ -5422,11 +5422,11 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict(TypedDict):
     """
     The username for the target device.
     """
-    key_vault_password: NotRequired[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict']]
+    key_vault_password: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]]
     """
     A `key_vault_secret_reference` block as defined below.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password for the target device.
     """
@@ -5436,8 +5436,8 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
     def __init__(__self__, *,
                  target_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 key_vault_password: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_password: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] target_name: The target computer or domain name.
         :param pulumi.Input[_builtins.str] user_name: The username for the target device.
@@ -5477,26 +5477,26 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]:
         """
         A `key_vault_secret_reference` block as defined below.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the target device.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
@@ -5506,11 +5506,11 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict
     """
     Specifies the secret name in Azure Key Vault.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Key Vault Data Factory Linked Service.
     """
-    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    secret_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the secret version in Azure Key Vault.
     """
@@ -5520,8 +5520,8 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 secret_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 secret_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] secret_name: Specifies the secret name in Azure Key Vault.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
@@ -5557,26 +5557,26 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the secret version in Azure Key Vault.
         """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_version", value)
 
 
@@ -5585,11 +5585,11 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict(TypedDict):
     """
     The Component Name installed for the Azure-SSIS Integration Runtime.
     """
-    key_vault_license: NotRequired[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict']]
+    key_vault_license: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]]
     """
     A `key_vault_secret_reference` block as defined below.
     """
-    license: NotRequired[pulumi.Input[_builtins.str]]
+    license: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The license used for the Component.
     """
@@ -5598,8 +5598,8 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict(TypedDict):
 class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 key_vault_license: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']] = None,
-                 license: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_license: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']] = None,
+                 license: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Component Name installed for the Azure-SSIS Integration Runtime.
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs'] key_vault_license: A `key_vault_secret_reference` block as defined below.
@@ -5625,26 +5625,26 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultLicense")
-    def key_vault_license(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]:
+    def key_vault_license(self) -> pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]:
         """
         A `key_vault_secret_reference` block as defined below.
         """
         return pulumi.get(self, "key_vault_license")
 
     @key_vault_license.setter
-    def key_vault_license(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]):
+    def key_vault_license(self, value: pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]):
         pulumi.set(self, "key_vault_license", value)
 
     @_builtins.property
     @pulumi.getter
-    def license(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The license used for the Component.
         """
         return pulumi.get(self, "license")
 
     @license.setter
-    def license(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license", value)
 
 
@@ -5654,11 +5654,11 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict(T
     """
     Specifies the secret name in Azure Key Vault.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the Key Vault Data Factory Linked Service.
     """
-    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    secret_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the secret version in Azure Key Vault.
     """
@@ -5668,8 +5668,8 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 secret_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 secret_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] secret_name: Specifies the secret name in Azure Key Vault.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
@@ -5705,26 +5705,26 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the secret version in Azure Key Vault.
         """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_version", value)
 
 
@@ -5804,15 +5804,15 @@ class IntegrationRuntimeSsisPackageStoreArgs:
 
 
 class IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict(TypedDict):
-    number_of_external_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_external_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
     """
-    number_of_pipeline_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_pipeline_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
     """
-    time_to_live: NotRequired[pulumi.Input[_builtins.int]]
+    time_to_live: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
     """
@@ -5820,9 +5820,9 @@ class IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeSsisPipelineExternalComputeScaleArgs:
     def __init__(__self__, *,
-                 number_of_external_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_pipeline_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_to_live: Optional[pulumi.Input[_builtins.int]] = None):
+                 number_of_external_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_pipeline_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_to_live: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_external_nodes: Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
         :param pulumi.Input[_builtins.int] number_of_pipeline_nodes: Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
@@ -5837,38 +5837,38 @@ class IntegrationRuntimeSsisPipelineExternalComputeScaleArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfExternalNodes")
-    def number_of_external_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_external_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
         """
         return pulumi.get(self, "number_of_external_nodes")
 
     @number_of_external_nodes.setter
-    def number_of_external_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_external_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_external_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfPipelineNodes")
-    def number_of_pipeline_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_pipeline_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
         """
         return pulumi.get(self, "number_of_pipeline_nodes")
 
     @number_of_pipeline_nodes.setter
-    def number_of_pipeline_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_pipeline_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_pipeline_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live", value)
 
 
@@ -5881,7 +5881,7 @@ class IntegrationRuntimeSsisProxyArgsDict(TypedDict):
     """
     Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
     """
@@ -5891,7 +5891,7 @@ class IntegrationRuntimeSsisProxyArgs:
     def __init__(__self__, *,
                  self_hosted_integration_runtime_name: pulumi.Input[_builtins.str],
                  staging_storage_linked_service_name: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] self_hosted_integration_runtime_name: Name of Self Hosted Integration Runtime as a proxy.
         :param pulumi.Input[_builtins.str] staging_storage_linked_service_name: Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
@@ -5928,33 +5928,33 @@ class IntegrationRuntimeSsisProxyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
 class IntegrationRuntimeSsisVnetIntegrationArgsDict(TypedDict):
-    public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    public_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 
     > **Note:** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
     """
-    subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
     """
-    vnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    vnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
     """
@@ -5962,10 +5962,10 @@ class IntegrationRuntimeSsisVnetIntegrationArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationRuntimeSsisVnetIntegrationArgs:
     def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 public_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         :param pulumi.Input[_builtins.str] subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
@@ -5985,19 +5985,19 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicIps")
-    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         """
         return pulumi.get(self, "public_ips")
 
     @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 
@@ -6006,31 +6006,31 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetName")
-    def subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
         return pulumi.get(self, "subnet_name")
 
     @subnet_name.setter
-    def subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetId")
-    def vnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
         return pulumi.get(self, "vnet_id")
 
     @vnet_id.setter
-    def vnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_id", value)
 
 
@@ -6039,7 +6039,7 @@ class LinkedCustomServiceIntegrationRuntimeArgsDict(TypedDict):
     """
     The integration runtime reference to associate with the Data Factory Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the integration runtime.
     """
@@ -6048,7 +6048,7 @@ class LinkedCustomServiceIntegrationRuntimeArgsDict(TypedDict):
 class LinkedCustomServiceIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the integration runtime.
@@ -6071,14 +6071,14 @@ class LinkedCustomServiceIntegrationRuntimeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the integration runtime.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -6216,11 +6216,11 @@ class LinkedServiceAzureDatabricksInstancePoolArgsDict(TypedDict):
     """
     Identifier of the instance pool within the linked ADB instance.
     """
-    max_number_of_workers: NotRequired[pulumi.Input[_builtins.int]]
+    max_number_of_workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
     """
-    min_number_of_workers: NotRequired[pulumi.Input[_builtins.int]]
+    min_number_of_workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of worker nodes. Defaults to `1`.
     """
@@ -6230,8 +6230,8 @@ class LinkedServiceAzureDatabricksInstancePoolArgs:
     def __init__(__self__, *,
                  cluster_version: pulumi.Input[_builtins.str],
                  instance_pool_id: pulumi.Input[_builtins.str],
-                 max_number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_number_of_workers: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_version: Spark version of a the cluster.
         :param pulumi.Input[_builtins.str] instance_pool_id: Identifier of the instance pool within the linked ADB instance.
@@ -6271,26 +6271,26 @@ class LinkedServiceAzureDatabricksInstancePoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxNumberOfWorkers")
-    def max_number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
         """
         return pulumi.get(self, "max_number_of_workers")
 
     @max_number_of_workers.setter
-    def max_number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="minNumberOfWorkers")
-    def min_number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of worker nodes. Defaults to `1`.
         """
         return pulumi.get(self, "min_number_of_workers")
 
     @min_number_of_workers.setter
-    def min_number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_number_of_workers", value)
 
 
@@ -6350,35 +6350,35 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgsDict(TypedDict):
     """
     Node type for the new cluster.
     """
-    custom_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    custom_tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Tags for the cluster resource.
     """
-    driver_node_type: NotRequired[pulumi.Input[_builtins.str]]
+    driver_node_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Driver node type for the cluster.
     """
-    init_scripts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    init_scripts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     User defined initialization scripts for the cluster.
     """
-    log_destination: NotRequired[pulumi.Input[_builtins.str]]
+    log_destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location to deliver Spark driver, worker, and event logs.
     """
-    max_number_of_workers: NotRequired[pulumi.Input[_builtins.int]]
+    max_number_of_workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum number of worker nodes. It should be between 1 and 25000.
     """
-    min_number_of_workers: NotRequired[pulumi.Input[_builtins.int]]
+    min_number_of_workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
     """
-    spark_config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    spark_config: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     User-specified Spark configuration variables key-value pairs.
     """
-    spark_environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    spark_environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     User-specified Spark environment variables key-value pairs.
     """
@@ -6388,14 +6388,14 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgs:
     def __init__(__self__, *,
                  cluster_version: pulumi.Input[_builtins.str],
                  node_type: pulumi.Input[_builtins.str],
-                 custom_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 driver_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 init_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 spark_config: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 spark_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 driver_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 init_scripts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 spark_config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 spark_environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_version: Spark version of a the cluster.
         :param pulumi.Input[_builtins.str] node_type: Node type for the new cluster.
@@ -6453,98 +6453,98 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="customTags")
-    def custom_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags for the cluster resource.
         """
         return pulumi.get(self, "custom_tags")
 
     @custom_tags.setter
-    def custom_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="driverNodeType")
-    def driver_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def driver_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Driver node type for the cluster.
         """
         return pulumi.get(self, "driver_node_type")
 
     @driver_node_type.setter
-    def driver_node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def driver_node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "driver_node_type", value)
 
     @_builtins.property
     @pulumi.getter(name="initScripts")
-    def init_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def init_scripts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User defined initialization scripts for the cluster.
         """
         return pulumi.get(self, "init_scripts")
 
     @init_scripts.setter
-    def init_scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def init_scripts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "init_scripts", value)
 
     @_builtins.property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location to deliver Spark driver, worker, and event logs.
         """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
-    def log_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="maxNumberOfWorkers")
-    def max_number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of worker nodes. It should be between 1 and 25000.
         """
         return pulumi.get(self, "max_number_of_workers")
 
     @max_number_of_workers.setter
-    def max_number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="minNumberOfWorkers")
-    def min_number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
         """
         return pulumi.get(self, "min_number_of_workers")
 
     @min_number_of_workers.setter
-    def min_number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkConfig")
-    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def spark_config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-specified Spark configuration variables key-value pairs.
         """
         return pulumi.get(self, "spark_config")
 
     @spark_config.setter
-    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def spark_config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "spark_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sparkEnvironmentVariables")
-    def spark_environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def spark_environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-specified Spark environment variables key-value pairs.
         """
         return pulumi.get(self, "spark_environment_variables")
 
     @spark_environment_variables.setter
-    def spark_environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def spark_environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "spark_environment_variables", value)
 
 
@@ -7258,7 +7258,7 @@ class TriggerBlobEventPipelineArgsDict(TypedDict):
     """
     The Data Factory Pipeline name that the trigger will act on.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The Data Factory Pipeline parameters that the trigger will act on.
     """
@@ -7267,7 +7267,7 @@ class TriggerBlobEventPipelineArgsDict(TypedDict):
 class TriggerBlobEventPipelineArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
@@ -7290,14 +7290,14 @@ class TriggerBlobEventPipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The Data Factory Pipeline parameters that the trigger will act on.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -7306,7 +7306,7 @@ class TriggerCustomEventPipelineArgsDict(TypedDict):
     """
     The Data Factory Pipeline name that the trigger will act on.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The Data Factory Pipeline parameters that the trigger will act on.
     """
@@ -7315,7 +7315,7 @@ class TriggerCustomEventPipelineArgsDict(TypedDict):
 class TriggerCustomEventPipelineArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
@@ -7338,14 +7338,14 @@ class TriggerCustomEventPipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The Data Factory Pipeline parameters that the trigger will act on.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -7354,7 +7354,7 @@ class TriggerSchedulePipelineArgsDict(TypedDict):
     """
     Reference pipeline name.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The pipeline parameters that the trigger will act upon.
     """
@@ -7363,7 +7363,7 @@ class TriggerSchedulePipelineArgsDict(TypedDict):
 class TriggerSchedulePipelineArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Reference pipeline name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The pipeline parameters that the trigger will act upon.
@@ -7386,35 +7386,35 @@ class TriggerSchedulePipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The pipeline parameters that the trigger will act upon.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
 class TriggerScheduleScheduleArgsDict(TypedDict):
-    days_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    days_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
     """
-    days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
     """
-    hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hours: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Hours of the day on which the trigger is scheduled.
     """
-    minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    minutes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Minutes of the hour on which the trigger is scheduled.
     """
-    monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgsDict']]]]
+    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]]
     """
     A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
     """
@@ -7422,11 +7422,11 @@ class TriggerScheduleScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class TriggerScheduleScheduleArgs:
     def __init__(__self__, *,
-                 days_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hours: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 minutes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]] = None):
+                 days_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 days_of_weeks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hours: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 minutes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 monthlies: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] days_of_months: Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
@@ -7447,62 +7447,62 @@ class TriggerScheduleScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfMonths")
-    def days_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def days_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
         """
         return pulumi.get(self, "days_of_months")
 
     @days_of_months.setter
-    def days_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def days_of_months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "days_of_months", value)
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeeks")
-    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def days_of_weeks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
         """
         return pulumi.get(self, "days_of_weeks")
 
     @days_of_weeks.setter
-    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def days_of_weeks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "days_of_weeks", value)
 
     @_builtins.property
     @pulumi.getter
-    def hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Hours of the day on which the trigger is scheduled.
         """
         return pulumi.get(self, "hours")
 
     @hours.setter
-    def hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hours(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def minutes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Minutes of the hour on which the trigger is scheduled.
         """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
-    def minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def minutes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]:
+    def monthlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]:
         """
         A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         return pulumi.get(self, "monthlies")
 
     @monthlies.setter
-    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]):
+    def monthlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]):
         pulumi.set(self, "monthlies", value)
 
 
@@ -7511,7 +7511,7 @@ class TriggerScheduleScheduleMonthlyArgsDict(TypedDict):
     """
     The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
     """
-    week: NotRequired[pulumi.Input[_builtins.int]]
+    week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
     """
@@ -7520,7 +7520,7 @@ class TriggerScheduleScheduleMonthlyArgsDict(TypedDict):
 class TriggerScheduleScheduleMonthlyArgs:
     def __init__(__self__, *,
                  weekday: pulumi.Input[_builtins.str],
-                 week: Optional[pulumi.Input[_builtins.int]] = None):
+                 week: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] weekday: The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
         :param pulumi.Input[_builtins.int] week: The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
@@ -7543,14 +7543,14 @@ class TriggerScheduleScheduleMonthlyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
         """
         return pulumi.get(self, "week")
 
     @week.setter
-    def week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "week", value)
 
 
@@ -7559,7 +7559,7 @@ class TriggerTumblingWindowPipelineArgsDict(TypedDict):
     """
     The Data Factory Pipeline name that the trigger will act on.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The Data Factory Pipeline parameters that the trigger will act on.
     """
@@ -7568,7 +7568,7 @@ class TriggerTumblingWindowPipelineArgsDict(TypedDict):
 class TriggerTumblingWindowPipelineArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
@@ -7591,14 +7591,14 @@ class TriggerTumblingWindowPipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The Data Factory Pipeline parameters that the trigger will act on.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -7607,7 +7607,7 @@ class TriggerTumblingWindowRetryArgsDict(TypedDict):
     """
     The maximum retry attempts if the pipeline run failed.
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
     """
@@ -7616,7 +7616,7 @@ class TriggerTumblingWindowRetryArgsDict(TypedDict):
 class TriggerTumblingWindowRetryArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[_builtins.int],
-                 interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] count: The maximum retry attempts if the pipeline run failed.
         :param pulumi.Input[_builtins.int] interval: The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
@@ -7639,27 +7639,27 @@ class TriggerTumblingWindowRetryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
 
 class TriggerTumblingWindowTriggerDependencyArgsDict(TypedDict):
-    offset: NotRequired[pulumi.Input[_builtins.str]]
+    offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
     """
-    size: NotRequired[pulumi.Input[_builtins.str]]
+    size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
     """
-    trigger_name: NotRequired[pulumi.Input[_builtins.str]]
+    trigger_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The dependency trigger name. If not specified, it will use self dependency.
     """
@@ -7667,9 +7667,9 @@ class TriggerTumblingWindowTriggerDependencyArgsDict(TypedDict):
 @pulumi.input_type
 class TriggerTumblingWindowTriggerDependencyArgs:
     def __init__(__self__, *,
-                 offset: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 offset: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] offset: The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
         :param pulumi.Input[_builtins.str] size: The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
@@ -7684,38 +7684,38 @@ class TriggerTumblingWindowTriggerDependencyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
         """
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offset", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The dependency trigger name. If not specified, it will use self dependency.
         """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter
-    def trigger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_name", value)
 
 

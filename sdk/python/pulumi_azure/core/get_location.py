@@ -110,7 +110,7 @@ def get_location(location: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         zone_mappings=pulumi.get(__ret__, 'zone_mappings'))
-def get_location_output(location: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_output(location: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     Use this data source to access information of a specific physical location.

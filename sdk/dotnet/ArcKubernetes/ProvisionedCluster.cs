@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleGroup = new AzureAD.Index.Group("example", new()
+    ///     var exampleGroup = new AzureAD.Group("example", new()
     ///     {
     ///         DisplayName = "example-adg",
     ///         Owners = new[]

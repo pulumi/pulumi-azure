@@ -21,7 +21,7 @@ class AssignmentVirtualMachineScaleSetArgs:
     def __init__(__self__, *,
                  maintenance_configuration_id: pulumi.Input[_builtins.str],
                  virtual_machine_scale_set_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssignmentVirtualMachineScaleSet resource.
 
@@ -60,23 +60,23 @@ class AssignmentVirtualMachineScaleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _AssignmentVirtualMachineScaleSetState:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssignmentVirtualMachineScaleSet resources.
 
@@ -93,38 +93,38 @@ class _AssignmentVirtualMachineScaleSetState:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineScaleSetId")
-    def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
     @virtual_machine_scale_set_id.setter
-    def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
 
@@ -134,9 +134,9 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a maintenance assignment to a virtual machine scale set.
@@ -459,9 +459,9 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,9 +488,9 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AssignmentVirtualMachineScaleSet':
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AssignmentVirtualMachineScaleSet':
         """
         Get an existing AssignmentVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

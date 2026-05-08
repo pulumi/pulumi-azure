@@ -29,8 +29,8 @@ public final class OperationalinsightsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -78,8 +78,8 @@ public final class OperationalinsightsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class OperationalinsightsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -176,8 +176,8 @@ public final class OperationalinsightsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -225,8 +225,8 @@ public final class OperationalinsightsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

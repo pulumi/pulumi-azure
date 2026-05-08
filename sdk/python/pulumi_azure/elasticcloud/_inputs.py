@@ -26,19 +26,19 @@ __all__ = [
 ]
 
 class ElasticsearchLogsArgsDict(TypedDict):
-    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgsDict']]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]]
     """
     A list of `filtering_tag` blocks as defined above.
     """
-    send_activity_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_activity_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
     """
-    send_azuread_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_azuread_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
     """
-    send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_subscription_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
     """
@@ -46,10 +46,10 @@ class ElasticsearchLogsArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticsearchLogsArgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]] = None,
-                 send_activity_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_azuread_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_subscription_logs: Optional[pulumi.Input[_builtins.bool]] = None):
+                 filtering_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]] = None,
+                 send_activity_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_azuread_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_subscription_logs: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]] filtering_tags: A list of `filtering_tag` blocks as defined above.
         :param pulumi.Input[_builtins.bool] send_activity_logs: Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
@@ -67,50 +67,50 @@ class ElasticsearchLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]:
+    def filtering_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]:
         """
         A list of `filtering_tag` blocks as defined above.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]):
+    def filtering_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="sendActivityLogs")
-    def send_activity_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_activity_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         """
         return pulumi.get(self, "send_activity_logs")
 
     @send_activity_logs.setter
-    def send_activity_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_activity_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_activity_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="sendAzureadLogs")
-    def send_azuread_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_azuread_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         """
         return pulumi.get(self, "send_azuread_logs")
 
     @send_azuread_logs.setter
-    def send_azuread_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_azuread_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_azuread_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="sendSubscriptionLogs")
-    def send_subscription_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_subscription_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         """
         return pulumi.get(self, "send_subscription_logs")
 
     @send_subscription_logs.setter
-    def send_subscription_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_subscription_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_subscription_logs", value)
 
 

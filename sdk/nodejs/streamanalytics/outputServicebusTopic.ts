@@ -210,49 +210,49 @@ export interface OutputServicebusTopicState {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of property columns to add to the Service Bus Topic output.
      */
-    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `serialization` block as defined below.
      */
-    serialization?: pulumi.Input<inputs.streamanalytics.OutputServicebusTopicSerialization>;
+    serialization?: pulumi.Input<inputs.streamanalytics.OutputServicebusTopicSerialization | undefined>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
      */
-    servicebusNamespace?: pulumi.Input<string>;
+    servicebusNamespace?: pulumi.Input<string | undefined>;
     /**
      * The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      */
-    sharedAccessPolicyKey?: pulumi.Input<string>;
+    sharedAccessPolicyKey?: pulumi.Input<string | undefined>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      */
-    sharedAccessPolicyName?: pulumi.Input<string>;
+    sharedAccessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      *
      * > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      */
-    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Service Bus Topic.
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -262,15 +262,15 @@ export interface OutputServicebusTopicArgs {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    authenticationMode?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of property columns to add to the Service Bus Topic output.
      */
-    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -286,11 +286,11 @@ export interface OutputServicebusTopicArgs {
     /**
      * The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      */
-    sharedAccessPolicyKey?: pulumi.Input<string>;
+    sharedAccessPolicyKey?: pulumi.Input<string | undefined>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      */
-    sharedAccessPolicyName?: pulumi.Input<string>;
+    sharedAccessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
@@ -300,7 +300,7 @@ export interface OutputServicebusTopicArgs {
      *
      * > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      */
-    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Service Bus Topic.
      */

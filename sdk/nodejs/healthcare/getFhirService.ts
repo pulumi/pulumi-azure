@@ -106,7 +106,7 @@ export interface GetFhirServiceOutputArgs {
     /**
      * The map of tags assigned to the Healthcare FHIR Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
      */

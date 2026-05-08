@@ -59,8 +59,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -108,8 +108,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -157,8 +157,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -206,8 +206,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -255,8 +255,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -304,8 +304,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -352,8 +352,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -400,8 +400,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -448,8 +448,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -496,8 +496,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -544,8 +544,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -594,8 +594,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -644,8 +644,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -694,8 +694,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -744,8 +744,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -794,8 +794,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -844,8 +844,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -894,8 +894,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -944,8 +944,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -994,8 +994,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1044,8 +1044,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1094,8 +1094,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1144,8 +1144,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1194,8 +1194,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1244,8 +1244,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1294,8 +1294,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1346,8 +1346,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1398,8 +1398,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1450,8 +1450,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1502,8 +1502,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1554,8 +1554,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1610,8 +1610,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1666,8 +1666,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1722,8 +1722,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1778,8 +1778,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1834,8 +1834,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1885,8 +1885,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1936,8 +1936,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1987,8 +1987,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2038,8 +2038,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2089,8 +2089,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupOracleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2139,8 +2139,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupOracleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2189,8 +2189,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupOracleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2239,8 +2239,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupOracleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2289,8 +2289,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupOracleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2339,8 +2339,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2389,8 +2389,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2439,8 +2439,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2489,8 +2489,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2539,8 +2539,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2589,8 +2589,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2638,8 +2638,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2687,8 +2687,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2736,8 +2736,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2785,8 +2785,8 @@ public final class NetappFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
      * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

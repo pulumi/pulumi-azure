@@ -142,39 +142,39 @@ export interface CustomLocationState {
     /**
      * An `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationAuthentication>;
+    authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationAuthentication | undefined>;
     /**
      * Specifies the list of Cluster Extension IDs.
      */
-    clusterExtensionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    clusterExtensionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the display name of the Custom Location.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the host resource ID. Changing this forces a new resource to be created.
      */
-    hostResourceId?: pulumi.Input<string>;
+    hostResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      */
-    hostType?: pulumi.Input<string>;
+    hostType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Custom Location should exist. Changing this forces a new Custom Location to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface CustomLocationArgs {
     /**
      * An `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationAuthentication>;
+    authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationAuthentication | undefined>;
     /**
      * Specifies the list of Cluster Extension IDs.
      */
@@ -192,7 +192,7 @@ export interface CustomLocationArgs {
     /**
      * Specifies the display name of the Custom Location.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the host resource ID. Changing this forces a new resource to be created.
      */
@@ -200,15 +200,15 @@ export interface CustomLocationArgs {
     /**
      * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
      */
-    hostType?: pulumi.Input<string>;
+    hostType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
      */

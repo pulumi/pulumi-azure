@@ -60,8 +60,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -98,8 +98,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -174,8 +174,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -212,8 +212,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -250,8 +250,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -288,8 +288,8 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -407,8 +407,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -447,8 +447,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -527,8 +527,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -567,8 +567,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -607,8 +607,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -647,8 +647,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -687,8 +687,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -727,8 +727,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -768,8 +768,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -809,8 +809,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -850,8 +850,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -891,8 +891,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -934,8 +934,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -981,8 +981,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1028,8 +1028,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1075,8 +1075,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1122,8 +1122,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1216,8 +1216,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1256,8 +1256,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1296,8 +1296,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1336,8 +1336,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1376,8 +1376,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1416,8 +1416,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1456,8 +1456,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1498,8 +1498,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1544,8 +1544,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1590,8 +1590,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1636,8 +1636,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1682,8 +1682,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetSubscriptionTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1726,8 +1726,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1767,8 +1767,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1808,8 +1808,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1849,8 +1849,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1890,8 +1890,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1931,8 +1931,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1972,8 +1972,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2013,8 +2013,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2063,8 +2063,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2113,8 +2113,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2163,8 +2163,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2213,8 +2213,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2265,8 +2265,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2311,8 +2311,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2357,8 +2357,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2403,8 +2403,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2449,8 +2449,8 @@ public final class CoreFunctions {
      * import com.pulumi.azure.core.inputs.GetTenantTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2495,8 +2495,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2552,8 +2552,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2609,8 +2609,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2666,8 +2666,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2723,8 +2723,8 @@ public final class CoreFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

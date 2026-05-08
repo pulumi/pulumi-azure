@@ -211,77 +211,77 @@ export interface WorkflowState {
     /**
      * A `accessControl` block as defined below.
      */
-    accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl>;
+    accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl | undefined>;
     /**
      * The Access Endpoint for the Logic App Workflow.
      */
-    accessEndpoint?: pulumi.Input<string>;
+    accessEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The list of access endpoint IP addresses of connector.
      */
-    connectorEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    connectorEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of outgoing IP addresses of connector.
      */
-    connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is the Logic App Workflow enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity>;
+    identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity | undefined>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      */
-    integrationServiceEnvironmentId?: pulumi.Input<string>;
+    integrationServiceEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the integration account linked by this Logic App Workflow.
      */
-    logicAppIntegrationAccountId?: pulumi.Input<string>;
+    logicAppIntegrationAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of Key-Value pairs.
      *
      * > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The list of access endpoint IP addresses of workflow.
      */
-    workflowEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    workflowEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of outgoing IP addresses of workflow.
      */
-    workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
      */
-    workflowParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    workflowParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
-    workflowSchema?: pulumi.Input<string>;
+    workflowSchema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
      */
-    workflowVersion?: pulumi.Input<string>;
+    workflowVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -291,37 +291,37 @@ export interface WorkflowArgs {
     /**
      * A `accessControl` block as defined below.
      */
-    accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl>;
+    accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl | undefined>;
     /**
      * Is the Logic App Workflow enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity>;
+    identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity | undefined>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      */
-    integrationServiceEnvironmentId?: pulumi.Input<string>;
+    integrationServiceEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the integration account linked by this Logic App Workflow.
      */
-    logicAppIntegrationAccountId?: pulumi.Input<string>;
+    logicAppIntegrationAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of Key-Value pairs.
      *
      * > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */
@@ -329,17 +329,17 @@ export interface WorkflowArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
      */
-    workflowParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    workflowParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
-    workflowSchema?: pulumi.Input<string>;
+    workflowSchema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
      */
-    workflowVersion?: pulumi.Input<string>;
+    workflowVersion?: pulumi.Input<string | undefined>;
 }

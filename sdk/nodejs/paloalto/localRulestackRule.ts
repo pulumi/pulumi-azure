@@ -248,83 +248,83 @@ export interface LocalRulestackRuleState {
     /**
      * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Applications.
      */
-    applications?: pulumi.Input<pulumi.Input<string>[]>;
+    applications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * A `category` block as defined below.
      */
-    category?: pulumi.Input<inputs.paloalto.LocalRulestackRuleCategory>;
+    category?: pulumi.Input<inputs.paloalto.LocalRulestackRuleCategory | undefined>;
     /**
      * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      */
-    decryptionRuleType?: pulumi.Input<string>;
+    decryptionRuleType?: pulumi.Input<string | undefined>;
     /**
      * The description for the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * One or more `destination` blocks as defined below.
      */
-    destination?: pulumi.Input<inputs.paloalto.LocalRulestackRuleDestination>;
+    destination?: pulumi.Input<inputs.paloalto.LocalRulestackRuleDestination | undefined>;
     /**
      * Should this Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the certificate for inbound inspection. Only valid when `decryptionRuleType` is set to `SSLInboundInspection`.
      */
-    inspectionCertificateId?: pulumi.Input<string>;
+    inspectionCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Should Logging be enabled? Defaults to `false`.
      */
-    loggingEnabled?: pulumi.Input<boolean>;
+    loggingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack Rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should the inverse of the Destination configuration be used. Defaults to `false`.
      */
-    negateDestination?: pulumi.Input<boolean>;
+    negateDestination?: pulumi.Input<boolean | undefined>;
     /**
      * Should the inverse of the Source configuration be used. Defaults to `false`.
      */
-    negateSource?: pulumi.Input<boolean>;
+    negateSource?: pulumi.Input<boolean | undefined>;
     /**
      * The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      *
      * > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`.
      *
      * > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
      */
-    protocolPorts?: pulumi.Input<pulumi.Input<string>[]>;
+    protocolPorts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      */
-    rulestackId?: pulumi.Input<string>;
+    rulestackId?: pulumi.Input<string | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    source?: pulumi.Input<inputs.paloalto.LocalRulestackRuleSource>;
+    source?: pulumi.Input<inputs.paloalto.LocalRulestackRuleSource | undefined>;
     /**
      * A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -342,19 +342,19 @@ export interface LocalRulestackRuleArgs {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * A `category` block as defined below.
      */
-    category?: pulumi.Input<inputs.paloalto.LocalRulestackRuleCategory>;
+    category?: pulumi.Input<inputs.paloalto.LocalRulestackRuleCategory | undefined>;
     /**
      * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      */
-    decryptionRuleType?: pulumi.Input<string>;
+    decryptionRuleType?: pulumi.Input<string | undefined>;
     /**
      * The description for the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * One or more `destination` blocks as defined below.
      */
@@ -362,27 +362,27 @@ export interface LocalRulestackRuleArgs {
     /**
      * Should this Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the certificate for inbound inspection. Only valid when `decryptionRuleType` is set to `SSLInboundInspection`.
      */
-    inspectionCertificateId?: pulumi.Input<string>;
+    inspectionCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Should Logging be enabled? Defaults to `false`.
      */
-    loggingEnabled?: pulumi.Input<boolean>;
+    loggingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack Rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should the inverse of the Destination configuration be used. Defaults to `false`.
      */
-    negateDestination?: pulumi.Input<boolean>;
+    negateDestination?: pulumi.Input<boolean | undefined>;
     /**
      * Should the inverse of the Source configuration be used. Defaults to `false`.
      */
-    negateSource?: pulumi.Input<boolean>;
+    negateSource?: pulumi.Input<boolean | undefined>;
     /**
      * The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      *
@@ -394,11 +394,11 @@ export interface LocalRulestackRuleArgs {
      *
      * > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
      */
-    protocolPorts?: pulumi.Input<pulumi.Input<string>[]>;
+    protocolPorts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      */
@@ -410,5 +410,5 @@ export interface LocalRulestackRuleArgs {
     /**
      * A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

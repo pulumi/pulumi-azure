@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute
     ///         Name = "example",
     ///         ResourceGroupName = "example",
     ///         Location = "West Europe",
-    ///         PublicKey = Std.Index.File.Invoke(new()
+    ///         PublicKey = Std.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

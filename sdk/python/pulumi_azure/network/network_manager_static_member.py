@@ -21,7 +21,7 @@ class NetworkManagerStaticMemberArgs:
     def __init__(__self__, *,
                  network_group_id: pulumi.Input[_builtins.str],
                  target_virtual_network_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerStaticMember resource.
 
@@ -64,24 +64,24 @@ class NetworkManagerStaticMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerStaticMemberState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerStaticMember resources.
 
@@ -103,43 +103,43 @@ class _NetworkManagerStaticMemberState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkGroupId")
-    def network_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         """
         return pulumi.get(self, "network_group_id")
 
     @network_group_id.setter
-    def network_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the Network Manager Static Member.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVirtualNetworkId")
-    def target_virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
 
@@ -148,7 +148,7 @@ class _NetworkManagerStaticMemberState:
         return pulumi.get(self, "target_virtual_network_id")
 
     @target_virtual_network_id.setter
-    def target_virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_virtual_network_id", value)
 
 
@@ -158,9 +158,9 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Static Member.
@@ -303,9 +303,9 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,10 +333,10 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            target_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerStaticMember':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerStaticMember':
         """
         Get an existing NetworkManagerStaticMember resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

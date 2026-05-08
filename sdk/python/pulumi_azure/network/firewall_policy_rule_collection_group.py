@@ -23,10 +23,10 @@ class FirewallPolicyRuleCollectionGroupArgs:
     def __init__(__self__, *,
                  firewall_policy_id: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None):
+                 application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
+                 network_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicyRuleCollectionGroup resource.
 
@@ -74,62 +74,62 @@ class FirewallPolicyRuleCollectionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationRuleCollections")
-    def application_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]:
+    def application_rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]:
         """
         One or more `application_rule_collection` blocks as defined below.
         """
         return pulumi.get(self, "application_rule_collections")
 
     @application_rule_collections.setter
-    def application_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]):
+    def application_rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]):
         pulumi.set(self, "application_rule_collections", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="natRuleCollections")
-    def nat_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]:
+    def nat_rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]:
         """
         One or more `nat_rule_collection` blocks as defined below.
         """
         return pulumi.get(self, "nat_rule_collections")
 
     @nat_rule_collections.setter
-    def nat_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]):
+    def nat_rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]):
         pulumi.set(self, "nat_rule_collections", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleCollections")
-    def network_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]:
+    def network_rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]:
         """
         One or more `network_rule_collection` blocks as defined below.
         """
         return pulumi.get(self, "network_rule_collections")
 
     @network_rule_collections.setter
-    def network_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]):
+    def network_rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]):
         pulumi.set(self, "network_rule_collections", value)
 
 
 @pulumi.input_type
 class _FirewallPolicyRuleCollectionGroupState:
     def __init__(__self__, *,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None):
+                 application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
+                 network_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FirewallPolicyRuleCollectionGroup resources.
 
@@ -155,74 +155,74 @@ class _FirewallPolicyRuleCollectionGroupState:
 
     @_builtins.property
     @pulumi.getter(name="applicationRuleCollections")
-    def application_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]:
+    def application_rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]:
         """
         One or more `application_rule_collection` blocks as defined below.
         """
         return pulumi.get(self, "application_rule_collections")
 
     @application_rule_collections.setter
-    def application_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]):
+    def application_rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]):
         pulumi.set(self, "application_rule_collections", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyId")
-    def firewall_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "firewall_policy_id")
 
     @firewall_policy_id.setter
-    def firewall_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="natRuleCollections")
-    def nat_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]:
+    def nat_rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]:
         """
         One or more `nat_rule_collection` blocks as defined below.
         """
         return pulumi.get(self, "nat_rule_collections")
 
     @nat_rule_collections.setter
-    def nat_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]):
+    def nat_rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]):
         pulumi.set(self, "nat_rule_collections", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleCollections")
-    def network_rule_collections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]:
+    def network_rule_collections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]:
         """
         One or more `network_rule_collection` blocks as defined below.
         """
         return pulumi.get(self, "network_rule_collections")
 
     @network_rule_collections.setter
-    def network_rule_collections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]):
+    def network_rule_collections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]):
         pulumi.set(self, "network_rule_collections", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
 
@@ -232,12 +232,12 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
+                 network_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Firewall Policy Rule Collection Group.
@@ -467,12 +467,12 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
+                 network_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -502,12 +502,12 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
-            firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
-            network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None) -> 'FirewallPolicyRuleCollectionGroup':
+            application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
+            firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
+            network_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None) -> 'FirewallPolicyRuleCollectionGroup':
         """
         Get an existing FirewallPolicyRuleCollectionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

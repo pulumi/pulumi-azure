@@ -38,7 +38,7 @@ class ApplicationPlanArgsDict(TypedDict):
     """
     Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
     """
-    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    promotion_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 
@@ -52,7 +52,7 @@ class ApplicationPlanArgs:
                  product: pulumi.Input[_builtins.str],
                  publisher: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 promotion_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 promotion_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] product: Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
@@ -119,7 +119,7 @@ class ApplicationPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def promotion_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 
@@ -128,7 +128,7 @@ class ApplicationPlanArgs:
         return pulumi.get(self, "promotion_code")
 
     @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def promotion_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "promotion_code", value)
 
 

@@ -25,11 +25,11 @@ class ProfileArgs:
                  monitor_config: pulumi.Input['ProfileMonitorConfigArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  traffic_routing_method: pulumi.Input[_builtins.str],
-                 max_return: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 max_return: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Profile resource.
 
@@ -122,7 +122,7 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxReturn")
-    def max_return(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_return(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 
@@ -131,71 +131,71 @@ class ProfileArgs:
         return pulumi.get(self, "max_return")
 
     @max_return.setter
-    def max_return(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_return(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_return", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileStatus")
-    def profile_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "profile_status")
 
     @profile_status.setter
-    def profile_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficViewEnabled")
-    def traffic_view_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def traffic_view_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         return pulumi.get(self, "traffic_view_enabled")
 
     @traffic_view_enabled.setter
-    def traffic_view_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def traffic_view_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "traffic_view_enabled", value)
 
 
 @pulumi.input_type
 class _ProfileState:
     def __init__(__self__, *,
-                 dns_config: Optional[pulumi.Input['ProfileDnsConfigArgs']] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_return: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor_config: Optional[pulumi.Input['ProfileMonitorConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dns_config: pulumi.Input[Optional['ProfileDnsConfigArgs']] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_return: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor_config: pulumi.Input[Optional['ProfileMonitorConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_routing_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Profile resources.
 
@@ -241,31 +241,31 @@ class _ProfileState:
 
     @_builtins.property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional[pulumi.Input['ProfileDnsConfigArgs']]:
+    def dns_config(self) -> pulumi.Input[Optional['ProfileDnsConfigArgs']]:
         """
         This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         """
         return pulumi.get(self, "dns_config")
 
     @dns_config.setter
-    def dns_config(self, value: Optional[pulumi.Input['ProfileDnsConfigArgs']]):
+    def dns_config(self, value: pulumi.Input[Optional['ProfileDnsConfigArgs']]):
         pulumi.set(self, "dns_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the created Profile.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="maxReturn")
-    def max_return(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_return(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 
@@ -274,72 +274,72 @@ class _ProfileState:
         return pulumi.get(self, "max_return")
 
     @max_return.setter
-    def max_return(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_return(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_return", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorConfig")
-    def monitor_config(self) -> Optional[pulumi.Input['ProfileMonitorConfigArgs']]:
+    def monitor_config(self) -> pulumi.Input[Optional['ProfileMonitorConfigArgs']]:
         """
         This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         """
         return pulumi.get(self, "monitor_config")
 
     @monitor_config.setter
-    def monitor_config(self, value: Optional[pulumi.Input['ProfileMonitorConfigArgs']]):
+    def monitor_config(self, value: pulumi.Input[Optional['ProfileMonitorConfigArgs']]):
         pulumi.set(self, "monitor_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileStatus")
-    def profile_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "profile_status")
 
     @profile_status.setter
-    def profile_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_status", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficRoutingMethod")
-    def traffic_routing_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_routing_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         * `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -352,19 +352,19 @@ class _ProfileState:
         return pulumi.get(self, "traffic_routing_method")
 
     @traffic_routing_method.setter
-    def traffic_routing_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_routing_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_routing_method", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficViewEnabled")
-    def traffic_view_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def traffic_view_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         return pulumi.get(self, "traffic_view_enabled")
 
     @traffic_view_enabled.setter
-    def traffic_view_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def traffic_view_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "traffic_view_enabled", value)
 
 
@@ -379,15 +379,15 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: Optional[pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
-                 max_return: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor_config: Optional[pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_config: pulumi.Input[Optional[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
+                 max_return: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor_config: pulumi.Input[Optional[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_routing_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
@@ -540,15 +540,15 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: Optional[pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
-                 max_return: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor_config: Optional[pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_config: pulumi.Input[Optional[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
+                 max_return: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor_config: pulumi.Input[Optional[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_routing_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         pulumi.log.warn("""Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -587,16 +587,16 @@ class Profile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_config: Optional[pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            max_return: Optional[pulumi.Input[_builtins.int]] = None,
-            monitor_config: Optional[pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_status: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            traffic_routing_method: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Profile':
+            dns_config: pulumi.Input[Optional[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_return: pulumi.Input[Optional[_builtins.int]] = None,
+            monitor_config: pulumi.Input[Optional[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_status: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            traffic_routing_method: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Profile':
         """
         Get an existing Profile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -170,9 +170,9 @@ def get_database(cluster_name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         size=pulumi.get(__ret__, 'size'),
         soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'))
-def get_database_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Use this data source to access information about an existing Kusto Database

@@ -206,41 +206,41 @@ export interface AutomationState {
     /**
      * One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[] | undefined>;
     /**
      * Specifies the description for the Security Center Automation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      *
      * > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[] | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -254,21 +254,21 @@ export interface AutomationArgs {
     /**
      * Specifies the description for the Security Center Automation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      *
      * > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
@@ -284,5 +284,5 @@ export interface AutomationArgs {
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

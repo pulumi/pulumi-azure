@@ -25,11 +25,11 @@ class NetworkConnectionMonitorArgs:
                  network_watcher_id: pulumi.Input[_builtins.str],
                  test_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]],
                  test_groups: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_workspace_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkConnectionMonitor resource.
 
@@ -108,77 +108,77 @@ class NetworkConnectionMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Network Connection Monitor.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="outputWorkspaceResourceIds")
-    def output_workspace_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def output_workspace_resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         """
         return pulumi.get(self, "output_workspace_resource_ids")
 
     @output_workspace_resource_ids.setter
-    def output_workspace_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def output_workspace_resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "output_workspace_resource_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Network Connection Monitor.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NetworkConnectionMonitorState:
     def __init__(__self__, *,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None):
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_workspace_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]] = None,
+                 test_groups: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None):
         """
         Input properties used for looking up and filtering NetworkConnectionMonitor resources.
 
@@ -213,110 +213,110 @@ class _NetworkConnectionMonitorState:
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]]:
         """
         A `endpoint` block as defined below.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkWatcherId")
-    def network_watcher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_watcher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Watcher. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_watcher_id")
 
     @network_watcher_id.setter
-    def network_watcher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_watcher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_watcher_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Network Connection Monitor.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="outputWorkspaceResourceIds")
-    def output_workspace_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def output_workspace_resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         """
         return pulumi.get(self, "output_workspace_resource_ids")
 
     @output_workspace_resource_ids.setter
-    def output_workspace_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def output_workspace_resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "output_workspace_resource_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Network Connection Monitor.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="testConfigurations")
-    def test_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]]:
+    def test_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]]:
         """
         A `test_configuration` block as defined below.
         """
         return pulumi.get(self, "test_configurations")
 
     @test_configurations.setter
-    def test_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]]):
+    def test_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]]):
         pulumi.set(self, "test_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="testGroups")
-    def test_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]]:
+    def test_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]]:
         """
         A `test_group` block as defined below.
         """
         return pulumi.get(self, "test_groups")
 
     @test_groups.setter
-    def test_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]]):
+    def test_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]]):
         pulumi.set(self, "test_groups", value)
 
 
@@ -326,15 +326,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_workspace_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Network Connection Monitor.
@@ -631,15 +631,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_workspace_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -676,15 +676,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_watcher_id: Optional[pulumi.Input[_builtins.str]] = None,
-            notes: Optional[pulumi.Input[_builtins.str]] = None,
-            output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
-            test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None) -> 'NetworkConnectionMonitor':
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_watcher_id: pulumi.Input[Optional[_builtins.str]] = None,
+            notes: pulumi.Input[Optional[_builtins.str]] = None,
+            output_workspace_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            test_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+            test_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None) -> 'NetworkConnectionMonitor':
         """
         Get an existing NetworkConnectionMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -180,60 +180,60 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnServerConfiguration resources.
  */
 export interface VpnServerConfigurationState {
-    azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[]>;
-    clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[]>;
-    clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRootCertificate>[]>;
+    azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[] | undefined>;
+    clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[] | undefined>;
+    clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRootCertificate>[] | undefined>;
     /**
      * A `ipsecPolicy` block as defined below.
      */
-    ipsecPolicy?: pulumi.Input<inputs.network.VpnServerConfigurationIpsecPolicy>;
+    ipsecPolicy?: pulumi.Input<inputs.network.VpnServerConfigurationIpsecPolicy | undefined>;
     /**
      * The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
+    name?: pulumi.Input<string | undefined>;
+    radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius | undefined>;
     /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      */
-    vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      */
-    vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    vpnProtocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a VpnServerConfiguration resource.
  */
 export interface VpnServerConfigurationArgs {
-    azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[]>;
-    clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[]>;
-    clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRootCertificate>[]>;
+    azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[] | undefined>;
+    clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[] | undefined>;
+    clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRootCertificate>[] | undefined>;
     /**
      * A `ipsecPolicy` block as defined below.
      */
-    ipsecPolicy?: pulumi.Input<inputs.network.VpnServerConfigurationIpsecPolicy>;
+    ipsecPolicy?: pulumi.Input<inputs.network.VpnServerConfigurationIpsecPolicy | undefined>;
     /**
      * The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
-    radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius>;
+    name?: pulumi.Input<string | undefined>;
+    radius?: pulumi.Input<inputs.network.VpnServerConfigurationRadius | undefined>;
     /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
@@ -241,7 +241,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      */
@@ -249,5 +249,5 @@ export interface VpnServerConfigurationArgs {
     /**
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      */
-    vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    vpnProtocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

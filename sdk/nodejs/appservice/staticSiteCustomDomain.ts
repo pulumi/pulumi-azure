@@ -170,19 +170,19 @@ export interface StaticSiteCustomDomainState {
     /**
      * The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
      */
-    staticSiteId?: pulumi.Input<string>;
+    staticSiteId?: pulumi.Input<string | undefined>;
     /**
      * Token to be used with `dns-txt-token` validation.
      */
-    validationToken?: pulumi.Input<string>;
+    validationToken?: pulumi.Input<string | undefined>;
     /**
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      */
-    validationType?: pulumi.Input<string>;
+    validationType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,5 +200,5 @@ export interface StaticSiteCustomDomainArgs {
     /**
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      */
-    validationType?: pulumi.Input<string>;
+    validationType?: pulumi.Input<string | undefined>;
 }

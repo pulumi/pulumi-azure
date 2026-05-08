@@ -171,8 +171,8 @@ def get_failover_group(name: Optional[_builtins.str] = None,
         readonly_endpoint_failover_policy_enabled=pulumi.get(__ret__, 'readonly_endpoint_failover_policy_enabled'),
         server_id=pulumi.get(__ret__, 'server_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_failover_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              server_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_failover_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              server_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFailoverGroupResult]:
     """
     Use this data source to access information about an existing Microsoft Azure SQL Failover Group.

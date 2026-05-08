@@ -844,8 +844,8 @@ def get_autonomous_database(name: Optional[_builtins.str] = None,
         used_data_storage_size_in_gbs=pulumi.get(__ret__, 'used_data_storage_size_in_gbs'),
         used_data_storage_size_in_tbs=pulumi.get(__ret__, 'used_data_storage_size_in_tbs'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-def get_autonomous_database_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_autonomous_database_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutonomousDatabaseResult]:
     """
     Use this data source to access information about an existing Autonomous Database.

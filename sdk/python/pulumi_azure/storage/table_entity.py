@@ -88,10 +88,10 @@ class TableEntityArgs:
 @pulumi.input_type
 class _TableEntityState:
     def __init__(__self__, *,
-                 entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_table_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 entity: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_table_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableEntity resources.
 
@@ -111,50 +111,50 @@ class _TableEntityState:
 
     @_builtins.property
     @pulumi.getter
-    def entity(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def entity(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         """
         return pulumi.get(self, "entity")
 
     @entity.setter
-    def entity(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def entity(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entity", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key")
 
     @partition_key.setter
-    def partition_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key", value)
 
     @_builtins.property
     @pulumi.getter(name="rowKey")
-    def row_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def row_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "row_key")
 
     @row_key.setter
-    def row_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def row_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "row_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageTableId")
-    def storage_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Storage Share ID in which this file will be placed into.
         """
         return pulumi.get(self, "storage_table_id")
 
     @storage_table_id.setter
-    def storage_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_table_id", value)
 
 
@@ -164,10 +164,10 @@ class TableEntity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 entity: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Entity within a Table in an Azure Storage Account.
@@ -275,10 +275,10 @@ class TableEntity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 entity: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -310,10 +310,10 @@ class TableEntity(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-            row_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_table_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TableEntity':
+            entity: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+            row_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableEntity':
         """
         Get an existing TableEntity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

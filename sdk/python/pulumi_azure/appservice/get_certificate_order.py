@@ -320,8 +320,8 @@ def get_certificate_order(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         validity_in_years=pulumi.get(__ret__, 'validity_in_years'))
-def get_certificate_order_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_order_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateOrderResult]:
     """
     Use this data source to access information about an existing App Service Certificate Order.

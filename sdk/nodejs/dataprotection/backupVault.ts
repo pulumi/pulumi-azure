@@ -185,53 +185,53 @@ export interface BackupVaultState {
      *
      * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      */
-    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
+    crossRegionRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      */
-    datastoreType?: pulumi.Input<string>;
+    datastoreType?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
+    identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity | undefined>;
     /**
      * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      */
-    immutability?: pulumi.Input<string>;
+    immutability?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      */
-    redundancy?: pulumi.Input<string>;
+    redundancy?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
      *
      * > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      */
-    retentionDurationInDays?: pulumi.Input<number>;
+    retentionDurationInDays?: pulumi.Input<number | undefined>;
     /**
      * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      *
      * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      */
-    softDelete?: pulumi.Input<string>;
+    softDelete?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Backup Vault.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -243,7 +243,7 @@ export interface BackupVaultArgs {
      *
      * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      */
-    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
+    crossRegionRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      *
@@ -253,19 +253,19 @@ export interface BackupVaultArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
+    identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity | undefined>;
     /**
      * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
      */
-    immutability?: pulumi.Input<string>;
+    immutability?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      */
@@ -279,15 +279,15 @@ export interface BackupVaultArgs {
      *
      * > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      */
-    retentionDurationInDays?: pulumi.Input<number>;
+    retentionDurationInDays?: pulumi.Input<number | undefined>;
     /**
      * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      *
      * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      */
-    softDelete?: pulumi.Input<string>;
+    softDelete?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Backup Vault.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

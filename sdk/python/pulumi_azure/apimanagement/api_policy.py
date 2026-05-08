@@ -22,8 +22,8 @@ class ApiPolicyArgs:
                  api_management_name: pulumi.Input[_builtins.str],
                  api_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiPolicy resource.
 
@@ -79,37 +79,37 @@ class ApiPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML Content for this Policy as a string.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A link to a Policy XML Document, which must be publicly available.
         """
         return pulumi.get(self, "xml_link")
 
     @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_link", value)
 
 
 @pulumi.input_type
 class _ApiPolicyState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiPolicy resources.
 
@@ -132,62 +132,62 @@ class _ApiPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_name")
 
     @api_name.setter
-    def api_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML Content for this Policy as a string.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A link to a Policy XML Document, which must be publicly available.
         """
         return pulumi.get(self, "xml_link")
 
     @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_link", value)
 
 
@@ -197,11 +197,11 @@ class ApiPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management API Policy
@@ -314,11 +314,11 @@ class ApiPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,11 +349,11 @@ class ApiPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            api_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_link: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiPolicy':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            api_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_link: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiPolicy':
         """
         Get an existing ApiPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

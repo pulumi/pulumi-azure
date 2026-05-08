@@ -161,31 +161,31 @@ export interface AadDiagnosticSettingState {
     /**
      * One or more `enabledLog` blocks as defined below.
      */
-    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingEnabledLog>[]>;
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingEnabledLog>[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
      * > **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
-    eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,29 +195,29 @@ export interface AadDiagnosticSettingArgs {
     /**
      * One or more `enabledLog` blocks as defined below.
      */
-    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingEnabledLog>[]>;
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingEnabledLog>[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
      * > **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
-    eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }

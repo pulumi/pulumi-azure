@@ -124,9 +124,9 @@ def get_table_entity(partition_key: Optional[_builtins.str] = None,
         partition_key=pulumi.get(__ret__, 'partition_key'),
         row_key=pulumi.get(__ret__, 'row_key'),
         storage_table_id=pulumi.get(__ret__, 'storage_table_id'))
-def get_table_entity_output(partition_key: Optional[pulumi.Input[_builtins.str]] = None,
-                            row_key: Optional[pulumi.Input[_builtins.str]] = None,
-                            storage_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_entity_output(partition_key: pulumi.Input[Optional[_builtins.str]] = None,
+                            row_key: pulumi.Input[Optional[_builtins.str]] = None,
+                            storage_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableEntityResult]:
     """
     Use this data source to access information about an existing Storage Table Entity.

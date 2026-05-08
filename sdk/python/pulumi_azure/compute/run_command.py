@@ -23,17 +23,17 @@ class RunCommandArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['RunCommandSourceArgs'],
                  virtual_machine_id: pulumi.Input[_builtins.str],
-                 error_blob_managed_identity: Optional[pulumi.Input['RunCommandErrorBlobManagedIdentityArgs']] = None,
-                 error_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input['RunCommandOutputBlobManagedIdentityArgs']] = None,
-                 output_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandParameterArgs']]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]] = None,
-                 run_as_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 error_blob_managed_identity: pulumi.Input[Optional['RunCommandErrorBlobManagedIdentityArgs']] = None,
+                 error_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_blob_managed_identity: pulumi.Input[Optional['RunCommandOutputBlobManagedIdentityArgs']] = None,
+                 output_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandParameterArgs']]]] = None,
+                 protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]] = None,
+                 run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunCommand resource.
 
@@ -102,154 +102,154 @@ class RunCommandArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorBlobManagedIdentity")
-    def error_blob_managed_identity(self) -> Optional[pulumi.Input['RunCommandErrorBlobManagedIdentityArgs']]:
+    def error_blob_managed_identity(self) -> pulumi.Input[Optional['RunCommandErrorBlobManagedIdentityArgs']]:
         """
         An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         """
         return pulumi.get(self, "error_blob_managed_identity")
 
     @error_blob_managed_identity.setter
-    def error_blob_managed_identity(self, value: Optional[pulumi.Input['RunCommandErrorBlobManagedIdentityArgs']]):
+    def error_blob_managed_identity(self, value: pulumi.Input[Optional['RunCommandErrorBlobManagedIdentityArgs']]):
         pulumi.set(self, "error_blob_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="errorBlobUri")
-    def error_blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure storage blob where script error stream will be uploaded.
         """
         return pulumi.get(self, "error_blob_uri")
 
     @error_blob_uri.setter
-    def error_blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_blob_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputBlobManagedIdentity")
-    def output_blob_managed_identity(self) -> Optional[pulumi.Input['RunCommandOutputBlobManagedIdentityArgs']]:
+    def output_blob_managed_identity(self) -> pulumi.Input[Optional['RunCommandOutputBlobManagedIdentityArgs']]:
         """
         An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         """
         return pulumi.get(self, "output_blob_managed_identity")
 
     @output_blob_managed_identity.setter
-    def output_blob_managed_identity(self, value: Optional[pulumi.Input['RunCommandOutputBlobManagedIdentityArgs']]):
+    def output_blob_managed_identity(self, value: pulumi.Input[Optional['RunCommandOutputBlobManagedIdentityArgs']]):
         pulumi.set(self, "output_blob_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="outputBlobUri")
-    def output_blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
         """
         return pulumi.get(self, "output_blob_uri")
 
     @output_blob_uri.setter
-    def output_blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_blob_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandParameterArgs']]]]:
         """
         A list of `parameter` blocks as defined below. The parameters used by the script.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedParameters")
-    def protected_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]:
+    def protected_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]:
         """
         A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
         """
         return pulumi.get(self, "protected_parameters")
 
     @protected_parameters.setter
-    def protected_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]):
+    def protected_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]):
         pulumi.set(self, "protected_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsPassword")
-    def run_as_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_as_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user account password on the VM when executing the Virtual Machine Run Command.
         """
         return pulumi.get(self, "run_as_password")
 
     @run_as_password.setter
-    def run_as_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_as_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_password", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsUser")
-    def run_as_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_as_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user account on the VM when executing the Virtual Machine Run Command.
         """
         return pulumi.get(self, "run_as_user")
 
     @run_as_user.setter
-    def run_as_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_as_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Virtual Machine Run Command.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RunCommandState:
     def __init__(__self__, *,
-                 error_blob_managed_identity: Optional[pulumi.Input['RunCommandErrorBlobManagedIdentityArgs']] = None,
-                 error_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_views: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInstanceViewArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input['RunCommandOutputBlobManagedIdentityArgs']] = None,
-                 output_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandParameterArgs']]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]] = None,
-                 run_as_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input['RunCommandSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 error_blob_managed_identity: pulumi.Input[Optional['RunCommandErrorBlobManagedIdentityArgs']] = None,
+                 error_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_views: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandInstanceViewArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_blob_managed_identity: pulumi.Input[Optional['RunCommandOutputBlobManagedIdentityArgs']] = None,
+                 output_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandParameterArgs']]]] = None,
+                 protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]] = None,
+                 run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional['RunCommandSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RunCommand resources.
 
@@ -298,167 +298,167 @@ class _RunCommandState:
 
     @_builtins.property
     @pulumi.getter(name="errorBlobManagedIdentity")
-    def error_blob_managed_identity(self) -> Optional[pulumi.Input['RunCommandErrorBlobManagedIdentityArgs']]:
+    def error_blob_managed_identity(self) -> pulumi.Input[Optional['RunCommandErrorBlobManagedIdentityArgs']]:
         """
         An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         """
         return pulumi.get(self, "error_blob_managed_identity")
 
     @error_blob_managed_identity.setter
-    def error_blob_managed_identity(self, value: Optional[pulumi.Input['RunCommandErrorBlobManagedIdentityArgs']]):
+    def error_blob_managed_identity(self, value: pulumi.Input[Optional['RunCommandErrorBlobManagedIdentityArgs']]):
         pulumi.set(self, "error_blob_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="errorBlobUri")
-    def error_blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure storage blob where script error stream will be uploaded.
         """
         return pulumi.get(self, "error_blob_uri")
 
     @error_blob_uri.setter
-    def error_blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_blob_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceViews")
-    def instance_views(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInstanceViewArgs']]]]:
+    def instance_views(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandInstanceViewArgs']]]]:
         return pulumi.get(self, "instance_views")
 
     @instance_views.setter
-    def instance_views(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInstanceViewArgs']]]]):
+    def instance_views(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandInstanceViewArgs']]]]):
         pulumi.set(self, "instance_views", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputBlobManagedIdentity")
-    def output_blob_managed_identity(self) -> Optional[pulumi.Input['RunCommandOutputBlobManagedIdentityArgs']]:
+    def output_blob_managed_identity(self) -> pulumi.Input[Optional['RunCommandOutputBlobManagedIdentityArgs']]:
         """
         An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         """
         return pulumi.get(self, "output_blob_managed_identity")
 
     @output_blob_managed_identity.setter
-    def output_blob_managed_identity(self, value: Optional[pulumi.Input['RunCommandOutputBlobManagedIdentityArgs']]):
+    def output_blob_managed_identity(self, value: pulumi.Input[Optional['RunCommandOutputBlobManagedIdentityArgs']]):
         pulumi.set(self, "output_blob_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="outputBlobUri")
-    def output_blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
         """
         return pulumi.get(self, "output_blob_uri")
 
     @output_blob_uri.setter
-    def output_blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_blob_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandParameterArgs']]]]:
         """
         A list of `parameter` blocks as defined below. The parameters used by the script.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedParameters")
-    def protected_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]:
+    def protected_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]:
         """
         A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
         """
         return pulumi.get(self, "protected_parameters")
 
     @protected_parameters.setter
-    def protected_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]):
+    def protected_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandProtectedParameterArgs']]]]):
         pulumi.set(self, "protected_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsPassword")
-    def run_as_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_as_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user account password on the VM when executing the Virtual Machine Run Command.
         """
         return pulumi.get(self, "run_as_password")
 
     @run_as_password.setter
-    def run_as_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_as_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_password", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsUser")
-    def run_as_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_as_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user account on the VM when executing the Virtual Machine Run Command.
         """
         return pulumi.get(self, "run_as_user")
 
     @run_as_user.setter
-    def run_as_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_as_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RunCommandSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['RunCommandSourceArgs']]:
         """
         A `source` block as defined below. The source of the run command script.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RunCommandSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['RunCommandSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Virtual Machine Run Command.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
 
@@ -468,19 +468,19 @@ class RunCommand(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
-                 error_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
-                 output_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
-                 run_as_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 error_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
+                 error_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
+                 output_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
+                 protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
+                 run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Machine Run Command.
@@ -935,19 +935,19 @@ class RunCommand(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
-                 error_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
-                 output_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
-                 run_as_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 error_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
+                 error_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
+                 output_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
+                 protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
+                 run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -987,20 +987,20 @@ class RunCommand(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
-            error_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_views: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInstanceViewArgs', 'RunCommandInstanceViewArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
-            output_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
-            protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
-            run_as_password: Optional[pulumi.Input[_builtins.str]] = None,
-            run_as_user: Optional[pulumi.Input[_builtins.str]] = None,
-            source: Optional[pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RunCommand':
+            error_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
+            error_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_views: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandInstanceViewArgs', 'RunCommandInstanceViewArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_blob_managed_identity: pulumi.Input[Optional[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
+            output_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
+            protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
+            run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
+            run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RunCommand':
         """
         Get an existing RunCommand resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

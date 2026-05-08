@@ -253,49 +253,49 @@ export interface CertificateState {
     /**
      * The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The base-64 encoded certificate data, which must be a PFX file.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * The Expiration Date of this Certificate, formatted as an RFC3339 string.
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      *
      * > **Note:** If not specified, will use System Assigned identity of the API Management Service.
      */
-    keyVaultIdentityClientId?: pulumi.Input<string>;
+    keyVaultIdentityClientId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      *
      * > **Note:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password used for this certificate.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      *
      * > **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Subject of this Certificate.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * The Thumbprint of this Certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -309,27 +309,27 @@ export interface CertificateArgs {
     /**
      * The base-64 encoded certificate data, which must be a PFX file.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      *
      * > **Note:** If not specified, will use System Assigned identity of the API Management Service.
      */
-    keyVaultIdentityClientId?: pulumi.Input<string>;
+    keyVaultIdentityClientId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      *
      * > **Note:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password used for this certificate.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      *

@@ -431,149 +431,149 @@ export interface LinuxFunctionAppState {
      *
      * > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppBackup>;
+    backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppBackup | undefined>;
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      *
      * > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      */
-    builtinLoggingEnabled?: pulumi.Input<boolean>;
+    builtinLoggingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the function app use Client Certificates.
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppConnectionString>[] | undefined>;
     /**
      * Should the settings for linking the Function App to storage be suppressed.
      */
-    contentShareForceDisabled?: pulumi.Input<boolean>;
+    contentShareForceDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      */
-    dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number | undefined>;
     /**
      * The default hostname of the Linux Function App.
      */
-    defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string | undefined>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The runtime version associated with the Function App. Defaults to `~4`.
      */
-    functionsExtensionVersion?: pulumi.Input<string>;
+    functionsExtensionVersion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the App Service Environment used by Function App.
      */
-    hostingEnvironmentId?: pulumi.Input<string>;
+    hostingEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.LinuxFunctionAppIdentity>;
+    identity?: pulumi.Input<inputs.appservice.LinuxFunctionAppIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The Kind value for this Linux Function App.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
      */
-    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
      */
-    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the App Service Plan within which to create this Function App.
      */
-    servicePlanId?: pulumi.Input<string>;
+    servicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteCredential>[] | undefined>;
     /**
      * A `stickySettings` block as defined below.
      */
-    stickySettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppStickySettings>;
+    stickySettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppStickySettings | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The backend storage account name which will be used by this Function App.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppStorageAccount>[] | undefined>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
@@ -581,21 +581,21 @@ export interface LinuxFunctionAppState {
      *
      * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
-    storageKeyVaultSecretId?: pulumi.Input<string>;
+    storageKeyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
      * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
-    storageUsesManagedIdentity?: pulumi.Input<boolean>;
+    storageUsesManagedIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Linux Function App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -603,25 +603,25 @@ export interface LinuxFunctionAppState {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
      *
      * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
-    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    vnetImagePullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      *
      * > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -641,85 +641,85 @@ export interface LinuxFunctionAppArgs {
      *
      * > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppBackup>;
+    backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppBackup | undefined>;
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      *
      * > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      */
-    builtinLoggingEnabled?: pulumi.Input<boolean>;
+    builtinLoggingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the function app use Client Certificates.
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppConnectionString>[] | undefined>;
     /**
      * Should the settings for linking the Function App to storage be suppressed.
      */
-    contentShareForceDisabled?: pulumi.Input<boolean>;
+    contentShareForceDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      */
-    dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number | undefined>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The runtime version associated with the Function App. Defaults to `~4`.
      */
-    functionsExtensionVersion?: pulumi.Input<string>;
+    functionsExtensionVersion?: pulumi.Input<string | undefined>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.LinuxFunctionAppIdentity>;
+    identity?: pulumi.Input<inputs.appservice.LinuxFunctionAppIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      */
@@ -735,19 +735,19 @@ export interface LinuxFunctionAppArgs {
     /**
      * A `stickySettings` block as defined below.
      */
-    stickySettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppStickySettings>;
+    stickySettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppStickySettings | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The backend storage account name which will be used by this Function App.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppStorageAccount>[] | undefined>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
@@ -755,21 +755,21 @@ export interface LinuxFunctionAppArgs {
      *
      * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
-    storageKeyVaultSecretId?: pulumi.Input<string>;
+    storageKeyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
      * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
-    storageUsesManagedIdentity?: pulumi.Input<boolean>;
+    storageUsesManagedIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Linux Function App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -777,23 +777,23 @@ export interface LinuxFunctionAppArgs {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
      *
      * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
-    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    vnetImagePullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      *
      * > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }

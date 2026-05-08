@@ -20,7 +20,7 @@ __all__ = ['LogAnalyticsWorkspaceOnboardingArgs', 'LogAnalyticsWorkspaceOnboardi
 class LogAnalyticsWorkspaceOnboardingArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[_builtins.str],
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
 
@@ -49,7 +49,7 @@ class LogAnalyticsWorkspaceOnboardingArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -60,15 +60,15 @@ class LogAnalyticsWorkspaceOnboardingArgs:
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
 
 @pulumi.input_type
 class _LogAnalyticsWorkspaceOnboardingState:
     def __init__(__self__, *,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogAnalyticsWorkspaceOnboarding resources.
 
@@ -86,7 +86,7 @@ class _LogAnalyticsWorkspaceOnboardingState:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -97,19 +97,19 @@ class _LogAnalyticsWorkspaceOnboardingState:
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -119,8 +119,8 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Security Insights Sentinel Onboarding.
@@ -228,8 +228,8 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,8 +253,8 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LogAnalyticsWorkspaceOnboarding':
+            customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogAnalyticsWorkspaceOnboarding':
         """
         Get an existing LogAnalyticsWorkspaceOnboarding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

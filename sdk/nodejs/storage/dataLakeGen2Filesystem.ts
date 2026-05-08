@@ -151,33 +151,33 @@ export interface DataLakeGen2FilesystemState {
     /**
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
-    aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
+    aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[] | undefined>;
     /**
      * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
      */
-    defaultEncryptionScope?: pulumi.Input<string>;
+    defaultEncryptionScope?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      *
      * > **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,29 +187,29 @@ export interface DataLakeGen2FilesystemArgs {
     /**
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
-    aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
+    aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[] | undefined>;
     /**
      * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
      */
-    defaultEncryptionScope?: pulumi.Input<string>;
+    defaultEncryptionScope?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      *
      * > **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Management
     ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
-    ///     var exampleUuid = new Random.Index.Uuid("example");
+    ///     var exampleUuid = new Random.Uuid("example");
     /// 
     ///     var examplePrivateLinkAssociation = new Azure.Management.PrivateLinkAssociation("example", new()
     ///     {

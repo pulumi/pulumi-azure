@@ -218,73 +218,73 @@ export interface AIServicesState {
      *
      * > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      */
-    customSubdomainName?: pulumi.Input<string>;
+    customSubdomainName?: pulumi.Input<string | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      */
-    customerManagedKey?: pulumi.Input<inputs.cognitive.AIServicesCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.cognitive.AIServicesCustomerManagedKey | undefined>;
     /**
      * The endpoint used to connect to the AI Services Account.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * List of FQDNs allowed for the AI Services Account.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cognitive.AIServicesIdentity>;
+    identity?: pulumi.Input<inputs.cognitive.AIServicesIdentity | undefined>;
     /**
      * Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
-    networkAcls?: pulumi.Input<inputs.cognitive.AIServicesNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.cognitive.AIServicesNetworkAcls | undefined>;
     /**
      * Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
      */
-    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean | undefined>;
     /**
      * A primary access key which can be used to connect to the AI Services Account.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the AI Services Account is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key which can be used to connect to the AI Services Account.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU Name for this AI Services Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
      *
      * > **Note:** SKU `DC0` is the commitment tier for AI Services Account containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A `storage` block as defined below.
      */
-    storages?: pulumi.Input<pulumi.Input<inputs.cognitive.AIServicesStorage>[]>;
+    storages?: pulumi.Input<pulumi.Input<inputs.cognitive.AIServicesStorage>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -296,43 +296,43 @@ export interface AIServicesArgs {
      *
      * > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      */
-    customSubdomainName?: pulumi.Input<string>;
+    customSubdomainName?: pulumi.Input<string | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      */
-    customerManagedKey?: pulumi.Input<inputs.cognitive.AIServicesCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.cognitive.AIServicesCustomerManagedKey | undefined>;
     /**
      * List of FQDNs allowed for the AI Services Account.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.cognitive.AIServicesIdentity>;
+    identity?: pulumi.Input<inputs.cognitive.AIServicesIdentity | undefined>;
     /**
      * Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
      */
-    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
-    networkAcls?: pulumi.Input<inputs.cognitive.AIServicesNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.cognitive.AIServicesNetworkAcls | undefined>;
     /**
      * Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
      */
-    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean | undefined>;
     /**
      * Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the AI Services Account is created. Changing this forces a new resource to be created.
      */
@@ -346,9 +346,9 @@ export interface AIServicesArgs {
     /**
      * A `storage` block as defined below.
      */
-    storages?: pulumi.Input<pulumi.Input<inputs.cognitive.AIServicesStorage>[]>;
+    storages?: pulumi.Input<pulumi.Input<inputs.cognitive.AIServicesStorage>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -156,27 +156,27 @@ export interface IntegrationAccountBatchConfigurationState {
     /**
      * The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
      */
-    batchGroupName?: pulumi.Input<string>;
+    batchGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
      */
-    releaseCriteria?: pulumi.Input<inputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria>;
+    releaseCriteria?: pulumi.Input<inputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,11 +194,11 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
      */

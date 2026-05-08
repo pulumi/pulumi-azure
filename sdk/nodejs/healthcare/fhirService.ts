@@ -223,59 +223,59 @@ export interface FhirServiceState {
     /**
      * A list of the access policies of the service instance.
      */
-    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `authentication` block as defined below.
      */
-    authentication?: pulumi.Input<inputs.healthcare.FhirServiceAuthentication>;
+    authentication?: pulumi.Input<inputs.healthcare.FhirServiceAuthentication | undefined>;
     /**
      * Specifies the name of the storage account which the operation configuration information is exported to.
      */
-    configurationExportStorageAccountName?: pulumi.Input<string>;
+    configurationExportStorageAccountName?: pulumi.Input<string | undefined>;
     /**
      * A list of azure container registry settings used for convert data operation of the service instance.
      */
-    containerRegistryLoginServerUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    containerRegistryLoginServerUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    cors?: pulumi.Input<inputs.healthcare.FhirServiceCors>;
+    cors?: pulumi.Input<inputs.healthcare.FhirServiceCors | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.FhirServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.FhirServiceIdentity | undefined>;
     /**
      * Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      */
-    ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
+    ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[] | undefined>;
     /**
      * Whether public networks access is enabled.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Healthcare FHIR Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -285,7 +285,7 @@ export interface FhirServiceArgs {
     /**
      * A list of the access policies of the service instance.
      */
-    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `authentication` block as defined below.
      */
@@ -293,35 +293,35 @@ export interface FhirServiceArgs {
     /**
      * Specifies the name of the storage account which the operation configuration information is exported to.
      */
-    configurationExportStorageAccountName?: pulumi.Input<string>;
+    configurationExportStorageAccountName?: pulumi.Input<string | undefined>;
     /**
      * A list of azure container registry settings used for convert data operation of the service instance.
      */
-    containerRegistryLoginServerUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    containerRegistryLoginServerUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    cors?: pulumi.Input<inputs.healthcare.FhirServiceCors>;
+    cors?: pulumi.Input<inputs.healthcare.FhirServiceCors | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.FhirServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.FhirServiceIdentity | undefined>;
     /**
      * Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      */
-    ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
+    ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[] | undefined>;
     /**
      * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
      */
@@ -329,7 +329,7 @@ export interface FhirServiceArgs {
     /**
      * A mapping of tags to assign to the Healthcare FHIR Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      */

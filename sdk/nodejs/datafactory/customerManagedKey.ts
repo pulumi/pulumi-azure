@@ -191,15 +191,15 @@ export interface CustomerManagedKeyState {
     /**
      * The ID the of the Customer Managed Key to associate with the Data Factory.
      */
-    customerManagedKeyId?: pulumi.Input<string>;
+    customerManagedKeyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Data Factory Resource the Customer Managed Key will be associated with. Changing this forces a new resource to be created.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The User Assigned Identity ID that will be used to access Key Vaults that contain the encryption keys.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -217,5 +217,5 @@ export interface CustomerManagedKeyArgs {
     /**
      * The User Assigned Identity ID that will be used to access Key Vaults that contain the encryption keys.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }

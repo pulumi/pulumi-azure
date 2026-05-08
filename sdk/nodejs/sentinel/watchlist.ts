@@ -155,31 +155,31 @@ export interface WatchlistState {
     /**
      * The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    defaultDuration?: pulumi.Input<string>;
+    defaultDuration?: pulumi.Input<string | undefined>;
     /**
      * The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
      */
-    itemSearchKey?: pulumi.Input<string>;
+    itemSearchKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,11 +189,11 @@ export interface WatchlistArgs {
     /**
      * The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    defaultDuration?: pulumi.Input<string>;
+    defaultDuration?: pulumi.Input<string | undefined>;
     /**
      * The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
@@ -205,7 +205,7 @@ export interface WatchlistArgs {
     /**
      * Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
      */
@@ -213,5 +213,5 @@ export interface WatchlistArgs {
     /**
      * The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

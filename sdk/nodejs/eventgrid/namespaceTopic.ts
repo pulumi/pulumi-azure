@@ -122,15 +122,15 @@ export interface NamespaceTopicState {
     /**
      * Event retention for the namespace topic expressed in days. Defaults to `7`.
      */
-    eventRetentionInDays?: pulumi.Input<number>;
+    eventRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Event Grid Namespace. Changing this forces a new resource to be created.
      */
-    eventgridNamespaceId?: pulumi.Input<string>;
+    eventgridNamespaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Event Grid Namespace Topic. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface NamespaceTopicArgs {
     /**
      * Event retention for the namespace topic expressed in days. Defaults to `7`.
      */
-    eventRetentionInDays?: pulumi.Input<number>;
+    eventRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Event Grid Namespace. Changing this forces a new resource to be created.
      */
@@ -148,5 +148,5 @@ export interface NamespaceTopicArgs {
     /**
      * The name which should be used for this Event Grid Namespace Topic. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -22,10 +22,10 @@ __all__ = ['SpringCloudConfigurationServiceArgs', 'SpringCloudConfigurationServi
 class SpringCloudConfigurationServiceArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None):
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a SpringCloudConfigurationService resource.
 
@@ -59,61 +59,61 @@ class SpringCloudConfigurationServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         """
         return pulumi.get(self, "generation")
 
     @generation.setter
-    def generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshIntervalInSeconds")
-    def refresh_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how often to check repository updates. Minimum value is 0.
         """
         return pulumi.get(self, "refresh_interval_in_seconds")
 
     @refresh_interval_in_seconds.setter
-    def refresh_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
         """
         One or more `repository` blocks as defined below.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]):
         pulumi.set(self, "repositories", value)
 
 
 @pulumi.input_type
 class _SpringCloudConfigurationServiceState:
     def __init__(__self__, *,
-                 generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConfigurationService resources.
 
@@ -136,62 +136,62 @@ class _SpringCloudConfigurationServiceState:
 
     @_builtins.property
     @pulumi.getter
-    def generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         """
         return pulumi.get(self, "generation")
 
     @generation.setter
-    def generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshIntervalInSeconds")
-    def refresh_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how often to check repository updates. Minimum value is 0.
         """
         return pulumi.get(self, "refresh_interval_in_seconds")
 
     @refresh_interval_in_seconds.setter
-    def refresh_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
         """
         One or more `repository` blocks as defined below.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
@@ -201,11 +201,11 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Spring Cloud Configuration Service.
@@ -346,11 +346,11 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,11 +377,11 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            generation: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudConfigurationService':
+            generation: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudConfigurationService':
         """
         Get an existing SpringCloudConfigurationService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

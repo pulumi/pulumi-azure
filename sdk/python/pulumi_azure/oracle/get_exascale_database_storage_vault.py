@@ -262,8 +262,8 @@ def get_exascale_database_storage_vault(name: Optional[_builtins.str] = None,
         time_zone=pulumi.get(__ret__, 'time_zone'),
         virtual_machine_cluster_count=pulumi.get(__ret__, 'virtual_machine_cluster_count'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_exascale_database_storage_vault_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_exascale_database_storage_vault_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExascaleDatabaseStorageVaultResult]:
     """
     Use this data source to access information about an existing Exadata Database Storage Vault

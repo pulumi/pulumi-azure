@@ -20,13 +20,13 @@ __all__ = ['SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs',
 class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_requests_per_second: Optional[pulumi.Input[_builtins.int]] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_requests_per_second: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SpringCloudApplicationInsightsApplicationPerformanceMonitoring resource.
 
@@ -69,100 +69,100 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instrumentation key used to push data to Application Insights.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleInstance")
-    def role_instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cloud role instance.
         """
         return pulumi.get(self, "role_instance")
 
     @role_instance.setter
-    def role_instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cloud role name used to label the component on the application map.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the percentage for fixed-percentage sampling.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRequestsPerSecond")
-    def sampling_requests_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_requests_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of requests per second for the rate-limited sampling.
         """
         return pulumi.get(self, "sampling_requests_per_second")
 
     @sampling_requests_per_second.setter
-    def sampling_requests_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_requests_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_requests_per_second", value)
 
 
 @pulumi.input_type
 class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
     def __init__(__self__, *,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_requests_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_requests_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApplicationInsightsApplicationPerformanceMonitoring resources.
 
@@ -194,98 +194,98 @@ class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instrumentation key used to push data to Application Insights.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleInstance")
-    def role_instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cloud role instance.
         """
         return pulumi.get(self, "role_instance")
 
     @role_instance.setter
-    def role_instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_instance", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cloud role name used to label the component on the application map.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the percentage for fixed-percentage sampling.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRequestsPerSecond")
-    def sampling_requests_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_requests_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of requests per second for the rate-limited sampling.
         """
         return pulumi.get(self, "sampling_requests_per_second")
 
     @sampling_requests_per_second.setter
-    def sampling_requests_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_requests_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_requests_per_second", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
@@ -295,14 +295,14 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_requests_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_requests_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
@@ -442,14 +442,14 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_requests_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_requests_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -479,14 +479,14 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            role_instance: Optional[pulumi.Input[_builtins.str]] = None,
-            role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-            sampling_requests_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudApplicationInsightsApplicationPerformanceMonitoring':
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_instance: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            sampling_requests_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudApplicationInsightsApplicationPerformanceMonitoring':
         """
         Get an existing SpringCloudApplicationInsightsApplicationPerformanceMonitoring resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

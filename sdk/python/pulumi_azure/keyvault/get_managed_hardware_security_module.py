@@ -209,8 +209,8 @@ def get_managed_hardware_security_module(name: Optional[_builtins.str] = None,
         soft_delete_retention_days=pulumi.get(__ret__, 'soft_delete_retention_days'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-def get_managed_hardware_security_module_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_hardware_security_module_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleResult]:
     """
     Use this data source to access information about an existing Key Vault Managed Hardware Security Module.

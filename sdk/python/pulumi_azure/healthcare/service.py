@@ -22,18 +22,18 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
-                 configuration_export_storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
-                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']] = None,
+                 configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional['ServiceCorsConfigurationArgs']] = None,
+                 cosmosdb_key_vault_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional['ServiceIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -95,55 +95,55 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
-    def access_policy_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def access_policy_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
         """
         return pulumi.get(self, "access_policy_object_ids")
 
     @access_policy_object_ids.setter
-    def access_policy_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def access_policy_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "access_policy_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']]:
         """
         An `authentication_configuration` block as defined below.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationExportStorageAccountName")
-    def configuration_export_storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_export_storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage account which the operation configuration information is exported to.
         """
         return pulumi.get(self, "configuration_export_storage_account_name")
 
     @configuration_export_storage_account_name.setter
-    def configuration_export_storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_export_storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_export_storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ServiceCorsConfigurationArgs']]:
+    def cors_configuration(self) -> pulumi.Input[Optional['ServiceCorsConfigurationArgs']]:
         """
         A `cors_configuration` block as defined below.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ServiceCorsConfigurationArgs']]):
+    def cors_configuration(self, value: pulumi.Input[Optional['ServiceCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbKeyVaultKeyVersionlessId")
-    def cosmosdb_key_vault_key_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_key_vault_key_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 
@@ -152,48 +152,48 @@ class ServiceArgs:
         return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
 
     @cosmosdb_key_vault_key_versionless_id.setter
-    def cosmosdb_key_vault_key_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_key_vault_key_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_key_vault_key_versionless_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbThroughput")
-    def cosmosdb_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cosmosdb_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         """
         return pulumi.get(self, "cosmosdb_throughput")
 
     @cosmosdb_throughput.setter
-    def cosmosdb_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cosmosdb_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cosmosdb_throughput", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 
@@ -202,62 +202,62 @@ class ServiceArgs:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
-                 configuration_export_storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
-                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']] = None,
+                 configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional['ServiceCorsConfigurationArgs']] = None,
+                 cosmosdb_key_vault_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional['ServiceIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -308,55 +308,55 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
-    def access_policy_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def access_policy_object_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
         """
         return pulumi.get(self, "access_policy_object_ids")
 
     @access_policy_object_ids.setter
-    def access_policy_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def access_policy_object_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "access_policy_object_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']]:
         """
         An `authentication_configuration` block as defined below.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationExportStorageAccountName")
-    def configuration_export_storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_export_storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage account which the operation configuration information is exported to.
         """
         return pulumi.get(self, "configuration_export_storage_account_name")
 
     @configuration_export_storage_account_name.setter
-    def configuration_export_storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_export_storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_export_storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ServiceCorsConfigurationArgs']]:
+    def cors_configuration(self) -> pulumi.Input[Optional['ServiceCorsConfigurationArgs']]:
         """
         A `cors_configuration` block as defined below.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ServiceCorsConfigurationArgs']]):
+    def cors_configuration(self, value: pulumi.Input[Optional['ServiceCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbKeyVaultKeyVersionlessId")
-    def cosmosdb_key_vault_key_versionless_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_key_vault_key_versionless_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 
@@ -365,48 +365,48 @@ class _ServiceState:
         return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
 
     @cosmosdb_key_vault_key_versionless_id.setter
-    def cosmosdb_key_vault_key_versionless_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_key_vault_key_versionless_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_key_vault_key_versionless_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbThroughput")
-    def cosmosdb_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cosmosdb_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         """
         return pulumi.get(self, "cosmosdb_throughput")
 
     @cosmosdb_throughput.setter
-    def cosmosdb_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cosmosdb_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cosmosdb_throughput", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServiceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 
@@ -415,55 +415,55 @@ class _ServiceState:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -473,19 +473,19 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
-                 configuration_export_storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
-                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
+                 configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
+                 cosmosdb_key_vault_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Healthcare Service.
@@ -656,19 +656,19 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_configuration: Optional[pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
-                 configuration_export_storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
-                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cosmosdb_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_configuration: pulumi.Input[Optional[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
+                 configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
+                 cosmosdb_key_vault_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cosmosdb_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -703,19 +703,19 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            authentication_configuration: Optional[pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
-            configuration_export_storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cors_configuration: Optional[pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
-            cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cosmosdb_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-            identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Service':
+            access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_configuration: pulumi.Input[Optional[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']]] = None,
+            configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_configuration: pulumi.Input[Optional[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']]] = None,
+            cosmosdb_key_vault_key_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cosmosdb_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

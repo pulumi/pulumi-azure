@@ -20,15 +20,15 @@ __all__ = ['LocalRulestackArgs', 'LocalRulestack']
 class LocalRulestackArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 anti_spyware_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 anti_virus_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_blocking_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_filtering_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None):
+                 anti_spyware_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 anti_virus_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_blocking_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_filtering_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_profile: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalRulestack resource.
 
@@ -77,126 +77,126 @@ class LocalRulestackArgs:
 
     @_builtins.property
     @pulumi.getter(name="antiSpywareProfile")
-    def anti_spyware_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anti_spyware_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_spyware_profile")
 
     @anti_spyware_profile.setter
-    def anti_spyware_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anti_spyware_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anti_spyware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="antiVirusProfile")
-    def anti_virus_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anti_virus_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_virus_profile")
 
     @anti_virus_profile.setter
-    def anti_virus_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anti_virus_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anti_virus_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for this Local Rulestack.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSubscription")
-    def dns_subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "dns_subscription")
 
     @dns_subscription.setter
-    def dns_subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="fileBlockingProfile")
-    def file_blocking_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_blocking_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "file_blocking_profile")
 
     @file_blocking_profile.setter
-    def file_blocking_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_blocking_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_blocking_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="urlFilteringProfile")
-    def url_filtering_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_filtering_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "url_filtering_profile")
 
     @url_filtering_profile.setter
-    def url_filtering_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_filtering_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_filtering_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityProfile")
-    def vulnerability_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vulnerability_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "vulnerability_profile")
 
     @vulnerability_profile.setter
-    def vulnerability_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vulnerability_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vulnerability_profile", value)
 
 
 @pulumi.input_type
 class _LocalRulestackState:
     def __init__(__self__, *,
-                 anti_spyware_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 anti_virus_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_blocking_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_filtering_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None):
+                 anti_spyware_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 anti_virus_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_blocking_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_filtering_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_profile: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRulestack resources.
 
@@ -234,122 +234,122 @@ class _LocalRulestackState:
 
     @_builtins.property
     @pulumi.getter(name="antiSpywareProfile")
-    def anti_spyware_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anti_spyware_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_spyware_profile")
 
     @anti_spyware_profile.setter
-    def anti_spyware_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anti_spyware_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anti_spyware_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="antiVirusProfile")
-    def anti_virus_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anti_virus_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_virus_profile")
 
     @anti_virus_profile.setter
-    def anti_virus_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anti_virus_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anti_virus_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for this Local Rulestack.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSubscription")
-    def dns_subscription(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_subscription(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "dns_subscription")
 
     @dns_subscription.setter
-    def dns_subscription(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_subscription(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="fileBlockingProfile")
-    def file_blocking_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_blocking_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "file_blocking_profile")
 
     @file_blocking_profile.setter
-    def file_blocking_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_blocking_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_blocking_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="urlFilteringProfile")
-    def url_filtering_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_filtering_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "url_filtering_profile")
 
     @url_filtering_profile.setter
-    def url_filtering_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_filtering_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_filtering_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityProfile")
-    def vulnerability_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vulnerability_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "vulnerability_profile")
 
     @vulnerability_profile.setter
-    def vulnerability_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vulnerability_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vulnerability_profile", value)
 
 
@@ -359,16 +359,16 @@ class LocalRulestack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anti_spyware_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 anti_virus_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_blocking_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_filtering_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None,
+                 anti_spyware_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 anti_virus_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_blocking_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_filtering_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Palo Alto Networks Rulestack.
@@ -472,16 +472,16 @@ class LocalRulestack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anti_spyware_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 anti_virus_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_blocking_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_filtering_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None,
+                 anti_spyware_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 anti_virus_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_blocking_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_filtering_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 vulnerability_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,16 +513,16 @@ class LocalRulestack(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            anti_spyware_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            anti_virus_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_subscription: Optional[pulumi.Input[_builtins.str]] = None,
-            file_blocking_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            url_filtering_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocalRulestack':
+            anti_spyware_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            anti_virus_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_subscription: pulumi.Input[Optional[_builtins.str]] = None,
+            file_blocking_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url_filtering_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            vulnerability_profile: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocalRulestack':
         """
         Get an existing LocalRulestack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

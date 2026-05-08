@@ -48,27 +48,27 @@ class CacheAccessPolicyAccessRuleArgsDict(TypedDict):
 
     > **Note:** Each `access_rule` should set a unique `scope`.
     """
-    anonymous_gid: NotRequired[pulumi.Input[_builtins.int]]
+    anonymous_gid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The anonymous GID used when `root_squash_enabled` is `true`.
     """
-    anonymous_uid: NotRequired[pulumi.Input[_builtins.int]]
+    anonymous_uid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The anonymous UID used when `root_squash_enabled` is `true`.
     """
-    filter: NotRequired[pulumi.Input[_builtins.str]]
+    filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
     """
-    root_squash_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    root_squash_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
     """
-    submount_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    submount_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether allow access to subdirectories under the root export?
     """
-    suid_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    suid_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
     """
@@ -78,12 +78,12 @@ class CacheAccessPolicyAccessRuleArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 anonymous_gid: Optional[pulumi.Input[_builtins.int]] = None,
-                 anonymous_uid: Optional[pulumi.Input[_builtins.int]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 submount_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suid_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 anonymous_gid: pulumi.Input[Optional[_builtins.int]] = None,
+                 anonymous_uid: pulumi.Input[Optional[_builtins.int]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 submount_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suid_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
         :param pulumi.Input[_builtins.str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
@@ -139,74 +139,74 @@ class CacheAccessPolicyAccessRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="anonymousGid")
-    def anonymous_gid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anonymous_gid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The anonymous GID used when `root_squash_enabled` is `true`.
         """
         return pulumi.get(self, "anonymous_gid")
 
     @anonymous_gid.setter
-    def anonymous_gid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anonymous_gid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anonymous_gid", value)
 
     @_builtins.property
     @pulumi.getter(name="anonymousUid")
-    def anonymous_uid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anonymous_uid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The anonymous UID used when `root_squash_enabled` is `true`.
         """
         return pulumi.get(self, "anonymous_uid")
 
     @anonymous_uid.setter
-    def anonymous_uid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anonymous_uid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anonymous_uid", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquashEnabled")
-    def root_squash_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def root_squash_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
         """
         return pulumi.get(self, "root_squash_enabled")
 
     @root_squash_enabled.setter
-    def root_squash_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def root_squash_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "root_squash_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="submountAccessEnabled")
-    def submount_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def submount_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether allow access to subdirectories under the root export?
         """
         return pulumi.get(self, "submount_access_enabled")
 
     @submount_access_enabled.setter
-    def submount_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def submount_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "submount_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="suidEnabled")
-    def suid_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suid_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         """
         return pulumi.get(self, "suid_enabled")
 
     @suid_enabled.setter
-    def suid_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suid_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suid_enabled", value)
 
 
@@ -249,27 +249,27 @@ class CacheDefaultAccessPolicyAccessRuleArgsDict(TypedDict):
 
     > **Note:** Each `access_rule` should set a unique `scope`.
     """
-    anonymous_gid: NotRequired[pulumi.Input[_builtins.int]]
+    anonymous_gid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The anonymous GID used when `root_squash_enabled` is `true`.
     """
-    anonymous_uid: NotRequired[pulumi.Input[_builtins.int]]
+    anonymous_uid: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The anonymous UID used when `root_squash_enabled` is `true`.
     """
-    filter: NotRequired[pulumi.Input[_builtins.str]]
+    filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
     """
-    root_squash_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    root_squash_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
     """
-    submount_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    submount_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether allow access to subdirectories under the root export?
     """
-    suid_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    suid_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
     """
@@ -279,12 +279,12 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 anonymous_gid: Optional[pulumi.Input[_builtins.int]] = None,
-                 anonymous_uid: Optional[pulumi.Input[_builtins.int]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 submount_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 suid_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 anonymous_gid: pulumi.Input[Optional[_builtins.int]] = None,
+                 anonymous_uid: pulumi.Input[Optional[_builtins.int]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 submount_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 suid_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
         :param pulumi.Input[_builtins.str] scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
@@ -340,74 +340,74 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="anonymousGid")
-    def anonymous_gid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anonymous_gid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The anonymous GID used when `root_squash_enabled` is `true`.
         """
         return pulumi.get(self, "anonymous_gid")
 
     @anonymous_gid.setter
-    def anonymous_gid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anonymous_gid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anonymous_gid", value)
 
     @_builtins.property
     @pulumi.getter(name="anonymousUid")
-    def anonymous_uid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anonymous_uid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The anonymous UID used when `root_squash_enabled` is `true`.
         """
         return pulumi.get(self, "anonymous_uid")
 
     @anonymous_uid.setter
-    def anonymous_uid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anonymous_uid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anonymous_uid", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquashEnabled")
-    def root_squash_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def root_squash_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
         """
         return pulumi.get(self, "root_squash_enabled")
 
     @root_squash_enabled.setter
-    def root_squash_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def root_squash_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "root_squash_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="submountAccessEnabled")
-    def submount_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def submount_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether allow access to subdirectories under the root export?
         """
         return pulumi.get(self, "submount_access_enabled")
 
     @submount_access_enabled.setter
-    def submount_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def submount_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "submount_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="suidEnabled")
-    def suid_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def suid_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         """
         return pulumi.get(self, "suid_enabled")
 
     @suid_enabled.setter
-    def suid_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def suid_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "suid_enabled", value)
 
 
@@ -436,7 +436,7 @@ class CacheDirectoryActiveDirectoryArgsDict(TypedDict):
     """
     The username of the Active Directory domain administrator.
     """
-    dns_secondary_ip: NotRequired[pulumi.Input[_builtins.str]]
+    dns_secondary_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
     """
@@ -450,7 +450,7 @@ class CacheDirectoryActiveDirectoryArgs:
                  domain_netbios_name: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 dns_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_secondary_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cache_netbios_name: The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
         :param pulumi.Input[_builtins.str] dns_primary_ip: The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
@@ -543,14 +543,14 @@ class CacheDirectoryActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsSecondaryIp")
-    def dns_secondary_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_secondary_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
         """
         return pulumi.get(self, "dns_secondary_ip")
 
     @dns_secondary_ip.setter
-    def dns_secondary_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_secondary_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_secondary_ip", value)
 
 
@@ -610,19 +610,19 @@ class CacheDirectoryLdapArgsDict(TypedDict):
     """
     The FQDN or IP address of the LDAP server.
     """
-    bind: NotRequired[pulumi.Input['CacheDirectoryLdapBindArgsDict']]
+    bind: NotRequired[pulumi.Input[Optional['CacheDirectoryLdapBindArgs']]]
     """
     A `bind` block as defined above.
     """
-    certificate_validation_uri: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_validation_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the CA certificate to validate the LDAP secure connection.
     """
-    download_certificate_automatically: NotRequired[pulumi.Input[_builtins.bool]]
+    download_certificate_automatically: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
     """
-    encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the LDAP connection should be encrypted?
     """
@@ -632,10 +632,10 @@ class CacheDirectoryLdapArgs:
     def __init__(__self__, *,
                  base_dn: pulumi.Input[_builtins.str],
                  server: pulumi.Input[_builtins.str],
-                 bind: Optional[pulumi.Input['CacheDirectoryLdapBindArgs']] = None,
-                 certificate_validation_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 download_certificate_automatically: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
+                 bind: pulumi.Input[Optional['CacheDirectoryLdapBindArgs']] = None,
+                 certificate_validation_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 download_certificate_automatically: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] base_dn: The base distinguished name (DN) for the LDAP domain.
         :param pulumi.Input[_builtins.str] server: The FQDN or IP address of the LDAP server.
@@ -681,50 +681,50 @@ class CacheDirectoryLdapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bind(self) -> Optional[pulumi.Input['CacheDirectoryLdapBindArgs']]:
+    def bind(self) -> pulumi.Input[Optional['CacheDirectoryLdapBindArgs']]:
         """
         A `bind` block as defined above.
         """
         return pulumi.get(self, "bind")
 
     @bind.setter
-    def bind(self, value: Optional[pulumi.Input['CacheDirectoryLdapBindArgs']]):
+    def bind(self, value: pulumi.Input[Optional['CacheDirectoryLdapBindArgs']]):
         pulumi.set(self, "bind", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateValidationUri")
-    def certificate_validation_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_validation_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the CA certificate to validate the LDAP secure connection.
         """
         return pulumi.get(self, "certificate_validation_uri")
 
     @certificate_validation_uri.setter
-    def certificate_validation_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_validation_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_validation_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadCertificateAutomatically")
-    def download_certificate_automatically(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def download_certificate_automatically(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
         """
         return pulumi.get(self, "download_certificate_automatically")
 
     @download_certificate_automatically.setter
-    def download_certificate_automatically(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def download_certificate_automatically(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "download_certificate_automatically", value)
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the LDAP connection should be encrypted?
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypted", value)
 
 
@@ -780,7 +780,7 @@ class CacheDnsArgsDict(TypedDict):
     """
     A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
     """
-    search_domain: NotRequired[pulumi.Input[_builtins.str]]
+    search_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DNS search domain for the HPC Cache.
     """
@@ -789,7 +789,7 @@ class CacheDnsArgsDict(TypedDict):
 class CacheDnsArgs:
     def __init__(__self__, *,
                  servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 search_domain: Optional[pulumi.Input[_builtins.str]] = None):
+                 search_domain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] servers: A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
         :param pulumi.Input[_builtins.str] search_domain: The DNS search domain for the HPC Cache.
@@ -812,14 +812,14 @@ class CacheDnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="searchDomain")
-    def search_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS search domain for the HPC Cache.
         """
         return pulumi.get(self, "search_domain")
 
     @search_domain.setter
-    def search_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_domain", value)
 
 
@@ -828,17 +828,17 @@ class CacheIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -847,9 +847,9 @@ class CacheIdentityArgsDict(TypedDict):
 class CacheIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
@@ -880,7 +880,7 @@ class CacheIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 
@@ -889,31 +889,31 @@ class CacheIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -926,11 +926,11 @@ class CacheNfsTargetNamespaceJunctionArgsDict(TypedDict):
     """
     The NFS export of this NFS target within the HPC Cache NFS Target.
     """
-    access_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    access_policy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the access policy applied to this target. Defaults to `default`.
     """
-    target_path: NotRequired[pulumi.Input[_builtins.str]]
+    target_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
     """
@@ -940,8 +940,8 @@ class CacheNfsTargetNamespaceJunctionArgs:
     def __init__(__self__, *,
                  namespace_path: pulumi.Input[_builtins.str],
                  nfs_export: pulumi.Input[_builtins.str],
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] namespace_path: The client-facing file path of this NFS target within the HPC Cache NFS Target.
         :param pulumi.Input[_builtins.str] nfs_export: The NFS export of this NFS target within the HPC Cache NFS Target.
@@ -981,26 +981,26 @@ class CacheNfsTargetNamespaceJunctionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPath")
-    def target_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
         """
         return pulumi.get(self, "target_path")
 
     @target_path.setter
-    def target_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_path", value)
 
 

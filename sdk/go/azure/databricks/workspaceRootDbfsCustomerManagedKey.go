@@ -102,7 +102,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			databricks, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
+//			databricks2, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
 //					return &storageAccountIdentities[0].TenantId, nil
@@ -131,7 +131,7 @@ import (
 //				WorkspaceId:   exampleWorkspace.ID(),
 //				KeyVaultKeyId: exampleKey.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				databricks,
+//				databricks2,
 //			}))
 //			if err != nil {
 //				return err

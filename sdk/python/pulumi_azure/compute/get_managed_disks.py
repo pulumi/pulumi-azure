@@ -105,7 +105,7 @@ def get_managed_disks(resource_group_name: Optional[_builtins.str] = None,
         disks=pulumi.get(__ret__, 'disks'),
         id=pulumi.get(__ret__, 'id'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_managed_disks_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_disks_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDisksResult]:
     """
     Use this data source to access information about an existing Managed Disk.

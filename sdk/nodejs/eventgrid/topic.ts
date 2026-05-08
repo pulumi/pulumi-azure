@@ -194,59 +194,59 @@ export interface TopicState {
     /**
      * The Endpoint associated with the EventGrid Topic.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventgrid.TopicIdentity>;
+    identity?: pulumi.Input<inputs.eventgrid.TopicIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.TopicInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.TopicInboundIpRule>[] | undefined>;
     /**
      * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingDefaultValues?: pulumi.Input<inputs.eventgrid.TopicInputMappingDefaultValues>;
+    inputMappingDefaultValues?: pulumi.Input<inputs.eventgrid.TopicInputMappingDefaultValues | undefined>;
     /**
      * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingFields?: pulumi.Input<inputs.eventgrid.TopicInputMappingFields>;
+    inputMappingFields?: pulumi.Input<inputs.eventgrid.TopicInputMappingFields | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    inputSchema?: pulumi.Input<string>;
+    inputSchema?: pulumi.Input<string | undefined>;
     /**
      * Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Primary Shared Access Key associated with the EventGrid Topic.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -256,39 +256,39 @@ export interface TopicArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventgrid.TopicIdentity>;
+    identity?: pulumi.Input<inputs.eventgrid.TopicIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.TopicInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.TopicInboundIpRule>[] | undefined>;
     /**
      * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingDefaultValues?: pulumi.Input<inputs.eventgrid.TopicInputMappingDefaultValues>;
+    inputMappingDefaultValues?: pulumi.Input<inputs.eventgrid.TopicInputMappingDefaultValues | undefined>;
     /**
      * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
-    inputMappingFields?: pulumi.Input<inputs.eventgrid.TopicInputMappingFields>;
+    inputMappingFields?: pulumi.Input<inputs.eventgrid.TopicInputMappingFields | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    inputSchema?: pulumi.Input<string>;
+    inputSchema?: pulumi.Input<string | undefined>;
     /**
      * Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
@@ -296,5 +296,5 @@ export interface TopicArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

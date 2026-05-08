@@ -139,9 +139,9 @@ def get_public_configurations(location: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         recur_every=pulumi.get(__ret__, 'recur_every'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_public_configurations_output(location: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     recur_every: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     scope: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_public_configurations_output(location: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     recur_every: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     scope: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicConfigurationsResult]:
     """
     Use this data source to access information about existing Public Maintenance Configurations.

@@ -26,7 +26,7 @@ class ChannelFacebookArgs:
                  facebook_application_secret: pulumi.Input[_builtins.str],
                  pages: pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelFacebook resource.
 
@@ -107,26 +107,26 @@ class ChannelFacebookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _ChannelFacebookState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_application_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelFacebook resources.
 
@@ -152,74 +152,74 @@ class _ChannelFacebookState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="facebookApplicationId")
-    def facebook_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facebook_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Facebook Application ID for the Facebook Channel.
         """
         return pulumi.get(self, "facebook_application_id")
 
     @facebook_application_id.setter
-    def facebook_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facebook_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facebook_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="facebookApplicationSecret")
-    def facebook_application_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facebook_application_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Facebook Application Secret for the Facebook Channel.
         """
         return pulumi.get(self, "facebook_application_secret")
 
     @facebook_application_secret.setter
-    def facebook_application_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facebook_application_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facebook_application_secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]]:
+    def pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]]:
         """
         One or more `page` blocks as defined below.
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]]):
+    def pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -229,12 +229,12 @@ class ChannelFacebook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_application_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Facebook integration for a Bot Channel
@@ -350,12 +350,12 @@ class ChannelFacebook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 facebook_application_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,12 +393,12 @@ class ChannelFacebook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            facebook_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            facebook_application_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelFacebook':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelFacebook':
         """
         Get an existing ChannelFacebook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

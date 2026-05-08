@@ -23,21 +23,21 @@ class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
-                 connection_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_network_restriction_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 azuread_administrator: pulumi.Input[Optional['ServerAzureadAdministratorArgs']] = None,
+                 connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ServerIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_network_restriction_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -130,67 +130,67 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
-    def administrator_login_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def administrator_login_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         """
         return pulumi.get(self, "administrator_login_password_wo_version")
 
     @administrator_login_password_wo_version.setter
-    def administrator_login_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def administrator_login_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "administrator_login_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="azureadAdministrator")
-    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArgs']]:
+    def azuread_administrator(self) -> pulumi.Input[Optional['ServerAzureadAdministratorArgs']]:
         """
         An `azuread_administrator` block as defined below.
         """
         return pulumi.get(self, "azuread_administrator")
 
     @azuread_administrator.setter
-    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArgs']]):
+    def azuread_administrator(self, value: pulumi.Input[Optional['ServerAzureadAdministratorArgs']]):
         pulumi.set(self, "azuread_administrator", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionPolicy")
-    def connection_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         """
         return pulumi.get(self, "connection_policy")
 
     @connection_policy.setter
-    def connection_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="expressVulnerabilityAssessmentEnabled")
-    def express_vulnerability_assessment_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def express_vulnerability_assessment_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
 
@@ -199,36 +199,36 @@ class ServerArgs:
         return pulumi.get(self, "express_vulnerability_assessment_enabled")
 
     @express_vulnerability_assessment_enabled.setter
-    def express_vulnerability_assessment_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def express_vulnerability_assessment_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "express_vulnerability_assessment_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 
@@ -239,72 +239,72 @@ class ServerArgs:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundNetworkRestrictionEnabled")
-    def outbound_network_restriction_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_network_restriction_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether outbound network traffic is restricted for this server. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_restriction_enabled")
 
     @outbound_network_restriction_enabled.setter
-    def outbound_network_restriction_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_network_restriction_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_network_restriction_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
-    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @primary_user_assigned_identity_id.setter
-    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
-    def transparent_data_encryption_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent_data_encryption_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 
@@ -317,32 +317,32 @@ class ServerArgs:
         return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
     @transparent_data_encryption_key_vault_key_id.setter
-    def transparent_data_encryption_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent_data_encryption_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_data_encryption_key_vault_key_id", value)
 
 
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
-                 connection_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_network_restriction_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restorable_dropped_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 azuread_administrator: pulumi.Input[Optional['ServerAzureadAdministratorArgs']] = None,
+                 connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ServerIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_network_restriction_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restorable_dropped_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
 
@@ -419,67 +419,67 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
-    def administrator_login_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def administrator_login_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         """
         return pulumi.get(self, "administrator_login_password_wo_version")
 
     @administrator_login_password_wo_version.setter
-    def administrator_login_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def administrator_login_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "administrator_login_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="azureadAdministrator")
-    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArgs']]:
+    def azuread_administrator(self) -> pulumi.Input[Optional['ServerAzureadAdministratorArgs']]:
         """
         An `azuread_administrator` block as defined below.
         """
         return pulumi.get(self, "azuread_administrator")
 
     @azuread_administrator.setter
-    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArgs']]):
+    def azuread_administrator(self, value: pulumi.Input[Optional['ServerAzureadAdministratorArgs']]):
         pulumi.set(self, "azuread_administrator", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionPolicy")
-    def connection_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         """
         return pulumi.get(self, "connection_policy")
 
     @connection_policy.setter
-    def connection_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="expressVulnerabilityAssessmentEnabled")
-    def express_vulnerability_assessment_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def express_vulnerability_assessment_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
 
@@ -488,48 +488,48 @@ class _ServerState:
         return pulumi.get(self, "express_vulnerability_assessment_enabled")
 
     @express_vulnerability_assessment_enabled.setter
-    def express_vulnerability_assessment_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def express_vulnerability_assessment_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "express_vulnerability_assessment_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
     @fully_qualified_domain_name.setter
-    def fully_qualified_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 
@@ -540,96 +540,96 @@ class _ServerState:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundNetworkRestrictionEnabled")
-    def outbound_network_restriction_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_network_restriction_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether outbound network traffic is restricted for this server. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_restriction_enabled")
 
     @outbound_network_restriction_enabled.setter
-    def outbound_network_restriction_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_network_restriction_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_network_restriction_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")
-    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @primary_user_assigned_identity_id.setter
-    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="restorableDroppedDatabaseIds")
-    def restorable_dropped_database_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def restorable_dropped_database_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of dropped restorable database IDs on the server.
         """
         return pulumi.get(self, "restorable_dropped_database_ids")
 
     @restorable_dropped_database_ids.setter
-    def restorable_dropped_database_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def restorable_dropped_database_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "restorable_dropped_database_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
-    def transparent_data_encryption_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent_data_encryption_key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 
@@ -642,19 +642,19 @@ class _ServerState:
         return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
     @transparent_data_encryption_key_vault_key_id.setter
-    def transparent_data_encryption_key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent_data_encryption_key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_data_encryption_key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -664,23 +664,23 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
-                 connection_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_network_restriction_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
+                 connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_network_restriction_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Azure Database Server.
@@ -983,23 +983,23 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
-                 connection_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_vulnerability_assessment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_network_restriction_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
+                 connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_network_restriction_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1046,25 +1046,25 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-            azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
-            connection_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            express_vulnerability_assessment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_network_restriction_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            restorable_dropped_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Server':
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
+            connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_network_restriction_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restorable_dropped_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transparent_data_encryption_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

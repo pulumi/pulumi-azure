@@ -149,15 +149,15 @@ export interface RoutingIntentState {
     /**
      * The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `routingPolicy` blocks as defined below.
      */
-    routingPolicies?: pulumi.Input<pulumi.Input<inputs.network.RoutingIntentRoutingPolicy>[]>;
+    routingPolicies?: pulumi.Input<pulumi.Input<inputs.network.RoutingIntentRoutingPolicy>[] | undefined>;
     /**
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface RoutingIntentArgs {
     /**
      * The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `routingPolicy` blocks as defined below.
      */

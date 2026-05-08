@@ -217,69 +217,69 @@ export interface RegistryTaskState {
     /**
      * The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
      */
-    agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * A `agentSetting` block as defined below.
      *
      * > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
-    agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting>;
+    agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting | undefined>;
     /**
      * A `baseImageTrigger` block as defined below.
      */
-    baseImageTrigger?: pulumi.Input<inputs.containerservice.RegistryTaskBaseImageTrigger>;
+    baseImageTrigger?: pulumi.Input<inputs.containerservice.RegistryTaskBaseImageTrigger | undefined>;
     /**
      * The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * A `dockerStep` block as defined below.
      */
-    dockerStep?: pulumi.Input<inputs.containerservice.RegistryTaskDockerStep>;
+    dockerStep?: pulumi.Input<inputs.containerservice.RegistryTaskDockerStep | undefined>;
     /**
      * Should this Container Registry Task be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `encodedStep` block as defined below.
      */
-    encodedStep?: pulumi.Input<inputs.containerservice.RegistryTaskEncodedStep>;
+    encodedStep?: pulumi.Input<inputs.containerservice.RegistryTaskEncodedStep | undefined>;
     /**
      * A `fileStep` block as defined below.
      *
      * > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
-    fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
+    fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerservice.RegistryTaskIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryTaskIdentity | undefined>;
     /**
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      */
-    isSystemTask?: pulumi.Input<boolean>;
-    logTemplate?: pulumi.Input<string>;
+    isSystemTask?: pulumi.Input<boolean | undefined>;
+    logTemplate?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `platform` block as defined below.
      *
      * > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
-    platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
-    registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential>;
+    platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform | undefined>;
+    registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential | undefined>;
     /**
      * One or more `sourceTrigger` blocks as defined below.
      */
-    sourceTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskSourceTrigger>[]>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeoutInSeconds?: pulumi.Input<number>;
+    sourceTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskSourceTrigger>[] | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * One or more `timerTrigger` blocks as defined below.
      */
-    timerTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskTimerTrigger>[]>;
+    timerTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskTimerTrigger>[] | undefined>;
 }
 
 /**
@@ -289,17 +289,17 @@ export interface RegistryTaskArgs {
     /**
      * The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
      */
-    agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * A `agentSetting` block as defined below.
      *
      * > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
-    agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting>;
+    agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting | undefined>;
     /**
      * A `baseImageTrigger` block as defined below.
      */
-    baseImageTrigger?: pulumi.Input<inputs.containerservice.RegistryTaskBaseImageTrigger>;
+    baseImageTrigger?: pulumi.Input<inputs.containerservice.RegistryTaskBaseImageTrigger | undefined>;
     /**
      * The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
      */
@@ -307,49 +307,49 @@ export interface RegistryTaskArgs {
     /**
      * A `dockerStep` block as defined below.
      */
-    dockerStep?: pulumi.Input<inputs.containerservice.RegistryTaskDockerStep>;
+    dockerStep?: pulumi.Input<inputs.containerservice.RegistryTaskDockerStep | undefined>;
     /**
      * Should this Container Registry Task be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `encodedStep` block as defined below.
      */
-    encodedStep?: pulumi.Input<inputs.containerservice.RegistryTaskEncodedStep>;
+    encodedStep?: pulumi.Input<inputs.containerservice.RegistryTaskEncodedStep | undefined>;
     /**
      * A `fileStep` block as defined below.
      *
      * > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
-    fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
+    fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerservice.RegistryTaskIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryTaskIdentity | undefined>;
     /**
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      */
-    isSystemTask?: pulumi.Input<boolean>;
-    logTemplate?: pulumi.Input<string>;
+    isSystemTask?: pulumi.Input<boolean | undefined>;
+    logTemplate?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `platform` block as defined below.
      *
      * > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
-    platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
-    registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential>;
+    platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform | undefined>;
+    registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential | undefined>;
     /**
      * One or more `sourceTrigger` blocks as defined below.
      */
-    sourceTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskSourceTrigger>[]>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeoutInSeconds?: pulumi.Input<number>;
+    sourceTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskSourceTrigger>[] | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * One or more `timerTrigger` blocks as defined below.
      */
-    timerTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskTimerTrigger>[]>;
+    timerTriggers?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskTimerTrigger>[] | undefined>;
 }

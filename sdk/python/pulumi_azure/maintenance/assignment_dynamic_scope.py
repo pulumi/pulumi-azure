@@ -23,7 +23,7 @@ class AssignmentDynamicScopeArgs:
     def __init__(__self__, *,
                  filter: pulumi.Input['AssignmentDynamicScopeFilterArgs'],
                  maintenance_configuration_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssignmentDynamicScope resource.
 
@@ -64,7 +64,7 @@ class AssignmentDynamicScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
 
@@ -73,16 +73,16 @@ class AssignmentDynamicScopeArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AssignmentDynamicScopeState:
     def __init__(__self__, *,
-                 filter: Optional[pulumi.Input['AssignmentDynamicScopeFilterArgs']] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 filter: pulumi.Input[Optional['AssignmentDynamicScopeFilterArgs']] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssignmentDynamicScope resources.
 
@@ -101,31 +101,31 @@ class _AssignmentDynamicScopeState:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['AssignmentDynamicScopeFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['AssignmentDynamicScopeFilterArgs']]:
         """
         A `filter` block as defined below.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['AssignmentDynamicScopeFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['AssignmentDynamicScopeFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
         """
         return pulumi.get(self, "maintenance_configuration_id")
 
     @maintenance_configuration_id.setter
-    def maintenance_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
 
@@ -134,7 +134,7 @@ class _AssignmentDynamicScopeState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -144,9 +144,9 @@ class AssignmentDynamicScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: Optional[pulumi.Input[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Dynamic Maintenance Assignment.
@@ -205,9 +205,9 @@ class AssignmentDynamicScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: Optional[pulumi.Input[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']]] = None,
-                 maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']]] = None,
+                 maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,9 +234,9 @@ class AssignmentDynamicScope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filter: Optional[pulumi.Input[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']]] = None,
-            maintenance_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'AssignmentDynamicScope':
+            filter: pulumi.Input[Optional[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']]] = None,
+            maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'AssignmentDynamicScope':
         """
         Get an existing AssignmentDynamicScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

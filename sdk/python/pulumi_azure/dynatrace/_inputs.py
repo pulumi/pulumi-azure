@@ -96,15 +96,15 @@ class MonitorIdentityArgsDict(TypedDict):
     """
     The type of identity used for the resource. Only possible value is `SystemAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MonitorIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of identity used for the resource. Only possible value is `SystemAssigned`.
         """
@@ -128,20 +128,20 @@ class MonitorIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -150,15 +150,15 @@ class MonitorPlanArgsDict(TypedDict):
     """
     Plan id as published by Dynatrace.
     """
-    billing_cycle: NotRequired[pulumi.Input[_builtins.str]]
+    billing_cycle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
     """
-    effective_date: NotRequired[pulumi.Input[_builtins.str]]
+    effective_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date when plan was applied.
     """
-    usage_type: NotRequired[pulumi.Input[_builtins.str]]
+    usage_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Different usage type. Possible values are `PAYG` and `COMMITTED`.
     """
@@ -167,9 +167,9 @@ class MonitorPlanArgsDict(TypedDict):
 class MonitorPlanArgs:
     def __init__(__self__, *,
                  plan: pulumi.Input[_builtins.str],
-                 billing_cycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 effective_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 billing_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 effective_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] plan: Plan id as published by Dynatrace.
         :param pulumi.Input[_builtins.str] billing_cycle: Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
@@ -198,38 +198,38 @@ class MonitorPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingCycle")
-    def billing_cycle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_cycle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
         """
         return pulumi.get(self, "billing_cycle")
 
     @billing_cycle.setter
-    def billing_cycle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_cycle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_cycle", value)
 
     @_builtins.property
     @pulumi.getter(name="effectiveDate")
-    def effective_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def effective_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date when plan was applied.
         """
         return pulumi.get(self, "effective_date")
 
     @effective_date.setter
-    def effective_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def effective_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "effective_date", value)
 
     @_builtins.property
     @pulumi.getter(name="usageType")
-    def usage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Different usage type. Possible values are `PAYG` and `COMMITTED`.
         """
         return pulumi.get(self, "usage_type")
 
     @usage_type.setter
-    def usage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_type", value)
 
 
@@ -246,11 +246,11 @@ class MonitorUserArgsDict(TypedDict):
     """
     Last name of the user.
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Country of the user.
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     phone number of the user by Dynatrace for contacting them if needed.
     """
@@ -261,8 +261,8 @@ class MonitorUserArgs:
                  email: pulumi.Input[_builtins.str],
                  first_name: pulumi.Input[_builtins.str],
                  last_name: pulumi.Input[_builtins.str],
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] email: Email of the user used by Dynatrace for contacting them if needed.
         :param pulumi.Input[_builtins.str] first_name: First name of the user.
@@ -316,43 +316,43 @@ class MonitorUserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of the user.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         phone number of the user by Dynatrace for contacting them if needed.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
 
 class TagRulesLogRuleArgsDict(TypedDict):
-    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgsDict']]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]]]
     """
     Filtering tag for the log rule. A `filtering_tag` block as defined below.
     """
-    send_activity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    send_activity_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Send Activity logs. The default value is `false`.
     """
-    send_azure_active_directory_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    send_azure_active_directory_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Send Azure Active Directory logs. The default value is `false`.
     """
-    send_subscription_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    send_subscription_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Send Subscription logs. The default value is `false`.
     """
@@ -360,10 +360,10 @@ class TagRulesLogRuleArgsDict(TypedDict):
 @pulumi.input_type
 class TagRulesLogRuleArgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]] = None,
-                 send_activity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_azure_active_directory_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_subscription_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 filtering_tags: pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]] = None,
+                 send_activity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_azure_active_directory_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_subscription_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]] filtering_tags: Filtering tag for the log rule. A `filtering_tag` block as defined below.
         :param pulumi.Input[_builtins.bool] send_activity_logs_enabled: Send Activity logs. The default value is `false`.
@@ -381,50 +381,50 @@ class TagRulesLogRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]]:
+    def filtering_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]]:
         """
         Filtering tag for the log rule. A `filtering_tag` block as defined below.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]]):
+    def filtering_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="sendActivityLogsEnabled")
-    def send_activity_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_activity_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send Activity logs. The default value is `false`.
         """
         return pulumi.get(self, "send_activity_logs_enabled")
 
     @send_activity_logs_enabled.setter
-    def send_activity_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_activity_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_activity_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendAzureActiveDirectoryLogsEnabled")
-    def send_azure_active_directory_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_azure_active_directory_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send Azure Active Directory logs. The default value is `false`.
         """
         return pulumi.get(self, "send_azure_active_directory_logs_enabled")
 
     @send_azure_active_directory_logs_enabled.setter
-    def send_azure_active_directory_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_azure_active_directory_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_azure_active_directory_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendSubscriptionLogsEnabled")
-    def send_subscription_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_subscription_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send Subscription logs. The default value is `false`.
         """
         return pulumi.get(self, "send_subscription_logs_enabled")
 
     @send_subscription_logs_enabled.setter
-    def send_subscription_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_subscription_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_subscription_logs_enabled", value)
 
 
@@ -495,11 +495,11 @@ class TagRulesLogRuleFilteringTagArgs:
 
 
 class TagRulesMetricRuleArgsDict(TypedDict):
-    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgsDict']]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]]]
     """
     Filtering tag for the metric rule. A `filtering_tag` block as defined below.
     """
-    sending_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    sending_metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If sending metrics is enabled. The default value is `false`.
     """
@@ -507,8 +507,8 @@ class TagRulesMetricRuleArgsDict(TypedDict):
 @pulumi.input_type
 class TagRulesMetricRuleArgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]] = None,
-                 sending_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 filtering_tags: pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]] = None,
+                 sending_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]] filtering_tags: Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         :param pulumi.Input[_builtins.bool] sending_metrics_enabled: If sending metrics is enabled. The default value is `false`.
@@ -520,26 +520,26 @@ class TagRulesMetricRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]]:
+    def filtering_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]]:
         """
         Filtering tag for the metric rule. A `filtering_tag` block as defined below.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]]):
+    def filtering_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="sendingMetricsEnabled")
-    def sending_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sending_metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If sending metrics is enabled. The default value is `false`.
         """
         return pulumi.get(self, "sending_metrics_enabled")
 
     @sending_metrics_enabled.setter
-    def sending_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sending_metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sending_metrics_enabled", value)
 
 

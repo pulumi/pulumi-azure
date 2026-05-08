@@ -207,59 +207,59 @@ export interface ScheduledActionState {
     /**
      * UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
      */
-    dayOfMonth?: pulumi.Input<number>;
+    dayOfMonth?: pulumi.Input<number | undefined>;
     /**
      * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      */
-    daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+    daysOfWeeks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User visible input name of the Cost Management Scheduled Action.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      */
-    emailAddressSender?: pulumi.Input<string>;
+    emailAddressSender?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of email addresses that will receive the Scheduled Action.
      */
-    emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Subject of the email. Length is limited to 70 characters.
      */
-    emailSubject?: pulumi.Input<string>;
+    emailSubject?: pulumi.Input<string | undefined>;
     /**
      * The end date and time of the Scheduled Action (UTC).
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeksOfMonth` and `daysOfWeek` or `dayOfMonth` to be specified. Value `Weekly` requires `daysOfWeek` to be specified.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
      */
-    hourOfDay?: pulumi.Input<number>;
+    hourOfDay?: pulumi.Input<number | undefined>;
     /**
      * Message to be added in the email. Length is limited to 250 characters.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The start date and time of the Scheduled Action (UTC).
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      */
-    viewId?: pulumi.Input<string>;
+    viewId?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      */
-    weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
+    weeksOfMonths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -269,11 +269,11 @@ export interface ScheduledActionArgs {
     /**
      * UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
      */
-    dayOfMonth?: pulumi.Input<number>;
+    dayOfMonth?: pulumi.Input<number | undefined>;
     /**
      * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      */
-    daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+    daysOfWeeks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User visible input name of the Cost Management Scheduled Action.
      */
@@ -301,15 +301,15 @@ export interface ScheduledActionArgs {
     /**
      * UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
      */
-    hourOfDay?: pulumi.Input<number>;
+    hourOfDay?: pulumi.Input<number | undefined>;
     /**
      * Message to be added in the email. Length is limited to 250 characters.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The start date and time of the Scheduled Action (UTC).
      */
@@ -321,5 +321,5 @@ export interface ScheduledActionArgs {
     /**
      * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      */
-    weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
+    weeksOfMonths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

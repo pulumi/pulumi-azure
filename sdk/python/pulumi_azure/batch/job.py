@@ -20,11 +20,11 @@ __all__ = ['JobArgs', 'Job']
 class JobArgs:
     def __init__(__self__, *,
                  batch_pool_id: pulumi.Input[_builtins.str],
-                 common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None):
+                 common_environment_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_retry_maximum: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Job resource.
 
@@ -61,74 +61,74 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter(name="commonEnvironmentProperties")
-    def common_environment_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def common_environment_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "common_environment_properties")
 
     @common_environment_properties.setter
-    def common_environment_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def common_environment_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "common_environment_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="taskRetryMaximum")
-    def task_retry_maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def task_retry_maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         return pulumi.get(self, "task_retry_maximum")
 
     @task_retry_maximum.setter
-    def task_retry_maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def task_retry_maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "task_retry_maximum", value)
 
 
 @pulumi.input_type
 class _JobState:
     def __init__(__self__, *,
-                 batch_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None):
+                 batch_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 common_environment_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_retry_maximum: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Job resources.
 
@@ -154,74 +154,74 @@ class _JobState:
 
     @_builtins.property
     @pulumi.getter(name="batchPoolId")
-    def batch_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def batch_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "batch_pool_id")
 
     @batch_pool_id.setter
-    def batch_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def batch_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "batch_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="commonEnvironmentProperties")
-    def common_environment_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def common_environment_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "common_environment_properties")
 
     @common_environment_properties.setter
-    def common_environment_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def common_environment_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "common_environment_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="taskRetryMaximum")
-    def task_retry_maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def task_retry_maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         return pulumi.get(self, "task_retry_maximum")
 
     @task_retry_maximum.setter
-    def task_retry_maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def task_retry_maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "task_retry_maximum", value)
 
 
@@ -231,12 +231,12 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None,
+                 batch_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 common_environment_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_retry_maximum: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Batch Job.
@@ -358,12 +358,12 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None,
+                 batch_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 common_environment_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_retry_maximum: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,12 +391,12 @@ class Job(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            batch_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None) -> 'Job':
+            batch_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            common_environment_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            task_retry_maximum: pulumi.Input[Optional[_builtins.int]] = None) -> 'Job':
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

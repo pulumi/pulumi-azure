@@ -267,101 +267,101 @@ export interface AlertRuleScheduledState {
     /**
      * An `alertDetailsOverride` block as defined below.
      */
-    alertDetailsOverrides?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverride>[]>;
+    alertDetailsOverrides?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverride>[] | undefined>;
     /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string | undefined>;
     /**
      * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      */
-    alertRuleTemplateVersion?: pulumi.Input<string>;
+    alertRuleTemplateVersion?: pulumi.Input<string | undefined>;
     /**
      * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
      */
-    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of this Sentinel Scheduled Alert Rule.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of `entityMapping` blocks as defined below.
      */
-    entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMapping>[]>;
+    entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMapping>[] | undefined>;
     /**
      * A `eventGrouping` block as defined below.
      */
-    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
+    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping | undefined>;
     /**
      * A `incident` block as defined below.
      */
-    incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident>;
+    incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query of this Sentinel Scheduled Alert Rule.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
      */
-    queryFrequency?: pulumi.Input<string>;
+    queryFrequency?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      *
      * > **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      */
-    queryPeriod?: pulumi.Input<string>;
+    queryPeriod?: pulumi.Input<string | undefined>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
      * > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
      */
-    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
+    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[] | undefined>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      *
      * > **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      */
-    suppressionDuration?: pulumi.Input<string>;
+    suppressionDuration?: pulumi.Input<string | undefined>;
     /**
      * Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
      */
-    suppressionEnabled?: pulumi.Input<boolean>;
+    suppressionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
      */
-    tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of techniques of attacks by which to classify the rule.
      */
-    techniques?: pulumi.Input<pulumi.Input<string>[]>;
+    techniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      */
-    triggerOperator?: pulumi.Input<string>;
+    triggerOperator?: pulumi.Input<string | undefined>;
     /**
      * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      */
-    triggerThreshold?: pulumi.Input<number>;
+    triggerThreshold?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -371,23 +371,23 @@ export interface AlertRuleScheduledArgs {
     /**
      * An `alertDetailsOverride` block as defined below.
      */
-    alertDetailsOverrides?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverride>[]>;
+    alertDetailsOverrides?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledAlertDetailsOverride>[] | undefined>;
     /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string | undefined>;
     /**
      * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      */
-    alertRuleTemplateVersion?: pulumi.Input<string>;
+    alertRuleTemplateVersion?: pulumi.Input<string | undefined>;
     /**
      * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
      */
-    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of this Sentinel Scheduled Alert Rule.
      */
@@ -395,19 +395,19 @@ export interface AlertRuleScheduledArgs {
     /**
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of `entityMapping` blocks as defined below.
      */
-    entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMapping>[]>;
+    entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMapping>[] | undefined>;
     /**
      * A `eventGrouping` block as defined below.
      */
-    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
+    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping | undefined>;
     /**
      * A `incident` block as defined below.
      */
-    incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident>;
+    incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
@@ -415,7 +415,7 @@ export interface AlertRuleScheduledArgs {
     /**
      * The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query of this Sentinel Scheduled Alert Rule.
      */
@@ -423,19 +423,19 @@ export interface AlertRuleScheduledArgs {
     /**
      * The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
      */
-    queryFrequency?: pulumi.Input<string>;
+    queryFrequency?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      *
      * > **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      */
-    queryPeriod?: pulumi.Input<string>;
+    queryPeriod?: pulumi.Input<string | undefined>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
      * > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
      */
-    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
+    sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[] | undefined>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
@@ -445,25 +445,25 @@ export interface AlertRuleScheduledArgs {
      *
      * > **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      */
-    suppressionDuration?: pulumi.Input<string>;
+    suppressionDuration?: pulumi.Input<string | undefined>;
     /**
      * Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
      */
-    suppressionEnabled?: pulumi.Input<boolean>;
+    suppressionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
      */
-    tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of techniques of attacks by which to classify the rule.
      */
-    techniques?: pulumi.Input<pulumi.Input<string>[]>;
+    techniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      */
-    triggerOperator?: pulumi.Input<string>;
+    triggerOperator?: pulumi.Input<string | undefined>;
     /**
      * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      */
-    triggerThreshold?: pulumi.Input<number>;
+    triggerThreshold?: pulumi.Input<number | undefined>;
 }

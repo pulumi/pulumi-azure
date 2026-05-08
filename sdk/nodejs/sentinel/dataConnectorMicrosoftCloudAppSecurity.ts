@@ -134,27 +134,27 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
     /**
      * Should the alerts be enabled? Defaults to `true`.
      */
-    alertsEnabled?: pulumi.Input<boolean>;
+    alertsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      *
      * > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
-    discoveryLogsEnabled?: pulumi.Input<boolean>;
+    discoveryLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,13 +164,13 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     /**
      * Should the alerts be enabled? Defaults to `true`.
      */
-    alertsEnabled?: pulumi.Input<boolean>;
+    alertsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      *
      * > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
-    discoveryLogsEnabled?: pulumi.Input<boolean>;
+    discoveryLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
@@ -178,11 +178,11 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     /**
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

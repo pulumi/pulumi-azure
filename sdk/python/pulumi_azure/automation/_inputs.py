@@ -76,8 +76,8 @@ class AccountEncryptionArgsDict(TypedDict):
     """
     The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
     """
-    key_source: NotRequired[pulumi.Input[_builtins.str]]
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
     """
@@ -86,8 +86,8 @@ class AccountEncryptionArgsDict(TypedDict):
 class AccountEncryptionArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[_builtins.str],
-                 key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
@@ -116,23 +116,23 @@ class AccountEncryptionArgs:
     @_builtins.property
     @pulumi.getter(name="keySource")
     @_utilities.deprecated("""`encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block""")
-    def key_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -141,17 +141,17 @@ class AccountIdentityArgsDict(TypedDict):
     """
     The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The ID of the User Assigned Identity which should be assigned to this Automation Account.
 
     > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -160,9 +160,9 @@ class AccountIdentityArgsDict(TypedDict):
 class AccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: The ID of the User Assigned Identity which should be assigned to this Automation Account.
@@ -193,7 +193,7 @@ class AccountIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ID of the User Assigned Identity which should be assigned to this Automation Account.
 
@@ -202,40 +202,40 @@ class AccountIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class AccountPrivateEndpointConnectionArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Automation Account.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the Automation Account. Changing this forces a new resource to be created.
     """
@@ -243,8 +243,8 @@ class AccountPrivateEndpointConnectionArgsDict(TypedDict):
 @pulumi.input_type
 class AccountPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Automation Account.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
@@ -256,26 +256,26 @@ class AccountPrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Automation Account.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -288,11 +288,11 @@ class ConnectionTypeFieldArgsDict(TypedDict):
     """
     The type of the connection field definition.
     """
-    is_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    is_encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to set the isEncrypted flag of the connection field definition.
     """
-    is_optional: NotRequired[pulumi.Input[_builtins.bool]]
+    is_optional: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to set the isOptional flag of the connection field definition.
     """
@@ -302,8 +302,8 @@ class ConnectionTypeFieldArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 is_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_optional: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_optional: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this connection field definition.
         :param pulumi.Input[_builtins.str] type: The type of the connection field definition.
@@ -343,26 +343,26 @@ class ConnectionTypeFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="isEncrypted")
-    def is_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to set the isEncrypted flag of the connection field definition.
         """
         return pulumi.get(self, "is_encrypted")
 
     @is_encrypted.setter
-    def is_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="isOptional")
-    def is_optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to set the isOptional flag of the connection field definition.
         """
         return pulumi.get(self, "is_optional")
 
     @is_optional.setter
-    def is_optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_optional", value)
 
 
@@ -371,7 +371,7 @@ class ModuleModuleLinkArgsDict(TypedDict):
     """
     The URI of the module content (zip or nupkg).
     """
-    hash: NotRequired[pulumi.Input['ModuleModuleLinkHashArgsDict']]
+    hash: NotRequired[pulumi.Input[Optional['ModuleModuleLinkHashArgs']]]
     """
     A `hash` block as defined below.
     """
@@ -380,7 +380,7 @@ class ModuleModuleLinkArgsDict(TypedDict):
 class ModuleModuleLinkArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 hash: Optional[pulumi.Input['ModuleModuleLinkHashArgs']] = None):
+                 hash: pulumi.Input[Optional['ModuleModuleLinkHashArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] uri: The URI of the module content (zip or nupkg).
         :param pulumi.Input['ModuleModuleLinkHashArgs'] hash: A `hash` block as defined below.
@@ -403,14 +403,14 @@ class ModuleModuleLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['ModuleModuleLinkHashArgs']]:
+    def hash(self) -> pulumi.Input[Optional['ModuleModuleLinkHashArgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['ModuleModuleLinkHashArgs']]):
+    def hash(self, value: pulumi.Input[Optional['ModuleModuleLinkHashArgs']]):
         pulumi.set(self, "hash", value)
 
 
@@ -466,7 +466,7 @@ class Powershell72ModuleModuleLinkArgsDict(TypedDict):
     """
     The URI of the module content (zip or nupkg).
     """
-    hash: NotRequired[pulumi.Input['Powershell72ModuleModuleLinkHashArgsDict']]
+    hash: NotRequired[pulumi.Input[Optional['Powershell72ModuleModuleLinkHashArgs']]]
     """
     A `hash` block as defined below.
     """
@@ -475,7 +475,7 @@ class Powershell72ModuleModuleLinkArgsDict(TypedDict):
 class Powershell72ModuleModuleLinkArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 hash: Optional[pulumi.Input['Powershell72ModuleModuleLinkHashArgs']] = None):
+                 hash: pulumi.Input[Optional['Powershell72ModuleModuleLinkHashArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] uri: The URI of the module content (zip or nupkg).
         :param pulumi.Input['Powershell72ModuleModuleLinkHashArgs'] hash: A `hash` block as defined below.
@@ -498,14 +498,14 @@ class Powershell72ModuleModuleLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['Powershell72ModuleModuleLinkHashArgs']]:
+    def hash(self) -> pulumi.Input[Optional['Powershell72ModuleModuleLinkHashArgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['Powershell72ModuleModuleLinkHashArgs']]):
+    def hash(self, value: pulumi.Input[Optional['Powershell72ModuleModuleLinkHashArgs']]):
         pulumi.set(self, "hash", value)
 
 
@@ -557,21 +557,21 @@ class Powershell72ModuleModuleLinkHashArgs:
 
 
 class RunBookDraftArgsDict(TypedDict):
-    content_link: NotRequired[pulumi.Input['RunBookDraftContentLinkArgsDict']]
+    content_link: NotRequired[pulumi.Input[Optional['RunBookDraftContentLinkArgs']]]
     """
     A `publish_content_link` block as defined above.
     """
-    creation_time: NotRequired[pulumi.Input[_builtins.str]]
-    edit_mode_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    creation_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    edit_mode_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the draft in edit mode.
     """
-    last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
-    output_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    last_modified_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    output_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the output types of the runbook.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]]
     """
     A list of `parameters` block as defined below.
     """
@@ -579,12 +579,12 @@ class RunBookDraftArgsDict(TypedDict):
 @pulumi.input_type
 class RunBookDraftArgs:
     def __init__(__self__, *,
-                 content_link: Optional[pulumi.Input['RunBookDraftContentLinkArgs']] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 edit_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]] = None):
+                 content_link: pulumi.Input[Optional['RunBookDraftContentLinkArgs']] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 edit_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]] = None):
         """
         :param pulumi.Input['RunBookDraftContentLinkArgs'] content_link: A `publish_content_link` block as defined above.
         :param pulumi.Input[_builtins.bool] edit_mode_enabled: Whether the draft in edit mode.
@@ -606,68 +606,68 @@ class RunBookDraftArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> Optional[pulumi.Input['RunBookDraftContentLinkArgs']]:
+    def content_link(self) -> pulumi.Input[Optional['RunBookDraftContentLinkArgs']]:
         """
         A `publish_content_link` block as defined above.
         """
         return pulumi.get(self, "content_link")
 
     @content_link.setter
-    def content_link(self, value: Optional[pulumi.Input['RunBookDraftContentLinkArgs']]):
+    def content_link(self, value: pulumi.Input[Optional['RunBookDraftContentLinkArgs']]):
         pulumi.set(self, "content_link", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="editModeEnabled")
-    def edit_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def edit_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the draft in edit mode.
         """
         return pulumi.get(self, "edit_mode_enabled")
 
     @edit_mode_enabled.setter
-    def edit_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def edit_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "edit_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
-    def last_modified_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_time", value)
 
     @_builtins.property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def output_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the output types of the runbook.
         """
         return pulumi.get(self, "output_types")
 
     @output_types.setter
-    def output_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def output_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "output_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]:
         """
         A list of `parameters` block as defined below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -676,11 +676,11 @@ class RunBookDraftContentLinkArgsDict(TypedDict):
     """
     The URI of the runbook content.
     """
-    hash: NotRequired[pulumi.Input['RunBookDraftContentLinkHashArgsDict']]
+    hash: NotRequired[pulumi.Input[Optional['RunBookDraftContentLinkHashArgs']]]
     """
     A `hash` block as defined below.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the version of the content
     """
@@ -689,8 +689,8 @@ class RunBookDraftContentLinkArgsDict(TypedDict):
 class RunBookDraftContentLinkArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 hash: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 hash: pulumi.Input[Optional['RunBookDraftContentLinkHashArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] uri: The URI of the runbook content.
         :param pulumi.Input['RunBookDraftContentLinkHashArgs'] hash: A `hash` block as defined below.
@@ -716,26 +716,26 @@ class RunBookDraftContentLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]:
+    def hash(self) -> pulumi.Input[Optional['RunBookDraftContentLinkHashArgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]):
+    def hash(self, value: pulumi.Input[Optional['RunBookDraftContentLinkHashArgs']]):
         pulumi.set(self, "hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the content
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -795,15 +795,15 @@ class RunBookDraftParameterArgsDict(TypedDict):
     """
     Specifies the type of this parameter.
     """
-    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default value of the parameter.
     """
-    mandatory: NotRequired[pulumi.Input[_builtins.bool]]
+    mandatory: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether this parameter is mandatory.
     """
-    position: NotRequired[pulumi.Input[_builtins.int]]
+    position: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the position of the parameter.
     """
@@ -813,9 +813,9 @@ class RunBookDraftParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The name of the parameter.
         :param pulumi.Input[_builtins.str] type: Specifies the type of this parameter.
@@ -858,38 +858,38 @@ class RunBookDraftParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default value of the parameter.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def mandatory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mandatory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this parameter is mandatory.
         """
         return pulumi.get(self, "mandatory")
 
     @mandatory.setter
-    def mandatory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mandatory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mandatory", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the position of the parameter.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "position", value)
 
 
@@ -898,17 +898,17 @@ class RunBookJobScheduleArgsDict(TypedDict):
     """
     The name of the Schedule.
     """
-    job_schedule_id: NotRequired[pulumi.Input[_builtins.str]]
+    job_schedule_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The UUID of automation runbook job schedule ID.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
 
     > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
     """
-    run_on: NotRequired[pulumi.Input[_builtins.str]]
+    run_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a Hybrid Worker Group the Runbook will be executed on.
     """
@@ -917,9 +917,9 @@ class RunBookJobScheduleArgsDict(TypedDict):
 class RunBookJobScheduleArgs:
     def __init__(__self__, *,
                  schedule_name: pulumi.Input[_builtins.str],
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] schedule_name: The name of the Schedule.
         :param pulumi.Input[_builtins.str] job_schedule_id: The UUID of automation runbook job schedule ID.
@@ -950,19 +950,19 @@ class RunBookJobScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobScheduleId")
-    def job_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID of automation runbook job schedule ID.
         """
         return pulumi.get(self, "job_schedule_id")
 
     @job_schedule_id.setter
-    def job_schedule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
 
@@ -971,19 +971,19 @@ class RunBookJobScheduleArgs:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="runOn")
-    def run_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Hybrid Worker Group the Runbook will be executed on.
         """
         return pulumi.get(self, "run_on")
 
     @run_on.setter
-    def run_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_on", value)
 
 
@@ -992,11 +992,11 @@ class RunBookPublishContentLinkArgsDict(TypedDict):
     """
     The URI of the runbook content.
     """
-    hash: NotRequired[pulumi.Input['RunBookPublishContentLinkHashArgsDict']]
+    hash: NotRequired[pulumi.Input[Optional['RunBookPublishContentLinkHashArgs']]]
     """
     A `hash` block as defined below.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the version of the content
     """
@@ -1005,8 +1005,8 @@ class RunBookPublishContentLinkArgsDict(TypedDict):
 class RunBookPublishContentLinkArgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[_builtins.str],
-                 hash: Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 hash: pulumi.Input[Optional['RunBookPublishContentLinkHashArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] uri: The URI of the runbook content.
         :param pulumi.Input['RunBookPublishContentLinkHashArgs'] hash: A `hash` block as defined below.
@@ -1032,26 +1032,26 @@ class RunBookPublishContentLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']]:
+    def hash(self) -> pulumi.Input[Optional['RunBookPublishContentLinkHashArgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']]):
+    def hash(self, value: pulumi.Input[Optional['RunBookPublishContentLinkHashArgs']]):
         pulumi.set(self, "hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the content
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1154,15 +1154,15 @@ class SoftwareUpdateConfigurationLinuxArgsDict(TypedDict):
     """
     Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
     """
-    excluded_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of packages to excluded from the Software Update Configuration.
     """
-    included_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of packages to included from the Software Update Configuration.
     """
-    reboot: NotRequired[pulumi.Input[_builtins.str]]
+    reboot: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
     """
@@ -1171,9 +1171,9 @@ class SoftwareUpdateConfigurationLinuxArgsDict(TypedDict):
 class SoftwareUpdateConfigurationLinuxArgs:
     def __init__(__self__, *,
                  classifications_includeds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 excluded_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reboot: Optional[pulumi.Input[_builtins.str]] = None):
+                 excluded_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reboot: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifications_includeds: Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_packages: Specifies a list of packages to excluded from the Software Update Configuration.
@@ -1202,47 +1202,47 @@ class SoftwareUpdateConfigurationLinuxArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedPackages")
-    def excluded_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of packages to excluded from the Software Update Configuration.
         """
         return pulumi.get(self, "excluded_packages")
 
     @excluded_packages.setter
-    def excluded_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_packages", value)
 
     @_builtins.property
     @pulumi.getter(name="includedPackages")
-    def included_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of packages to included from the Software Update Configuration.
         """
         return pulumi.get(self, "included_packages")
 
     @included_packages.setter
-    def included_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_packages", value)
 
     @_builtins.property
     @pulumi.getter
-    def reboot(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reboot(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
         return pulumi.get(self, "reboot")
 
     @reboot.setter
-    def reboot(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reboot(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reboot", value)
 
 
 class SoftwareUpdateConfigurationPostTaskArgsDict(TypedDict):
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies a map of parameters for the task.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the runbook for the post task.
     """
@@ -1250,8 +1250,8 @@ class SoftwareUpdateConfigurationPostTaskArgsDict(TypedDict):
 @pulumi.input_type
 class SoftwareUpdateConfigurationPostTaskArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Specifies a map of parameters for the task.
         :param pulumi.Input[_builtins.str] source: The name of the runbook for the post task.
@@ -1263,35 +1263,35 @@ class SoftwareUpdateConfigurationPostTaskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of parameters for the task.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the runbook for the post task.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
 class SoftwareUpdateConfigurationPreTaskArgsDict(TypedDict):
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies a map of parameters for the task.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the runbook for the pre task.
     """
@@ -1299,8 +1299,8 @@ class SoftwareUpdateConfigurationPreTaskArgsDict(TypedDict):
 @pulumi.input_type
 class SoftwareUpdateConfigurationPreTaskArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Specifies a map of parameters for the task.
         :param pulumi.Input[_builtins.str] source: The name of the runbook for the pre task.
@@ -1312,26 +1312,26 @@ class SoftwareUpdateConfigurationPreTaskArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a map of parameters for the task.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the runbook for the pre task.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1340,54 +1340,54 @@ class SoftwareUpdateConfigurationScheduleArgsDict(TypedDict):
     """
     The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
     """
-    advanced_month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    advanced_month_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
     """
-    advanced_week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    advanced_week_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
     """
-    creation_time: NotRequired[pulumi.Input[_builtins.str]]
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    creation_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for this Schedule.
     """
-    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end time of the schedule.
     """
-    expiry_time_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    expiry_time_offset_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The time offset in minutes for the expiry time.
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
     """
-    is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the schedule is enabled. Defaults to `true`.
     """
-    last_modified_time: NotRequired[pulumi.Input[_builtins.str]]
-    monthly_occurrence: NotRequired[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgsDict']]
+    last_modified_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    monthly_occurrence: NotRequired[pulumi.Input[Optional['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]]
     """
     List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
     """
-    next_run: NotRequired[pulumi.Input[_builtins.str]]
-    next_run_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    next_run: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    next_run_offset_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The time offset in minutes for the next run time.
     """
-    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
     """
-    start_time_offset_minutes: NotRequired[pulumi.Input[_builtins.float]]
+    start_time_offset_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The time offset in minutes for the start time.
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
     """
@@ -1396,21 +1396,21 @@ class SoftwareUpdateConfigurationScheduleArgsDict(TypedDict):
 class SoftwareUpdateConfigurationScheduleArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[_builtins.str],
-                 advanced_month_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 advanced_week_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiry_time_offset_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_occurrence: Optional[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']] = None,
-                 next_run: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_run_offset_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time_offset_minutes: Optional[pulumi.Input[_builtins.float]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 advanced_month_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 advanced_week_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiry_time_offset_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_occurrence: pulumi.Input[Optional['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']] = None,
+                 next_run: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_run_offset_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time_offset_minutes: pulumi.Input[Optional[_builtins.float]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] advanced_month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
@@ -1472,173 +1472,173 @@ class SoftwareUpdateConfigurationScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedMonthDays")
-    def advanced_month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def advanced_month_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
         """
         return pulumi.get(self, "advanced_month_days")
 
     @advanced_month_days.setter
-    def advanced_month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def advanced_month_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "advanced_month_days", value)
 
     @_builtins.property
     @pulumi.getter(name="advancedWeekDays")
-    def advanced_week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def advanced_week_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         """
         return pulumi.get(self, "advanced_week_days")
 
     @advanced_week_days.setter
-    def advanced_week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def advanced_week_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "advanced_week_days", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this Schedule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiry_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end time of the schedule.
         """
         return pulumi.get(self, "expiry_time")
 
     @expiry_time.setter
-    def expiry_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiry_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="expiryTimeOffsetMinutes")
-    def expiry_time_offset_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def expiry_time_offset_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The time offset in minutes for the expiry time.
         """
         return pulumi.get(self, "expiry_time_offset_minutes")
 
     @expiry_time_offset_minutes.setter
-    def expiry_time_offset_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def expiry_time_offset_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "expiry_time_offset_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the schedule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
-    def last_modified_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_time", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyOccurrence")
-    def monthly_occurrence(self) -> Optional[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]:
+    def monthly_occurrence(self) -> pulumi.Input[Optional['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]:
         """
         List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         """
         return pulumi.get(self, "monthly_occurrence")
 
     @monthly_occurrence.setter
-    def monthly_occurrence(self, value: Optional[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]):
+    def monthly_occurrence(self, value: pulumi.Input[Optional['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]):
         pulumi.set(self, "monthly_occurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="nextRun")
-    def next_run(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_run(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "next_run")
 
     @next_run.setter
-    def next_run(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_run(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_run", value)
 
     @_builtins.property
     @pulumi.getter(name="nextRunOffsetMinutes")
-    def next_run_offset_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def next_run_offset_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The time offset in minutes for the next run time.
         """
         return pulumi.get(self, "next_run_offset_minutes")
 
     @next_run_offset_minutes.setter
-    def next_run_offset_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def next_run_offset_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "next_run_offset_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimeOffsetMinutes")
-    def start_time_offset_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def start_time_offset_minutes(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The time offset in minutes for the start time.
         """
         return pulumi.get(self, "start_time_offset_minutes")
 
     @start_time_offset_minutes.setter
-    def start_time_offset_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def start_time_offset_minutes(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "start_time_offset_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -1690,11 +1690,11 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
 
 
 class SoftwareUpdateConfigurationTargetArgsDict(TypedDict):
-    azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgsDict']]]]
+    azure_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]]
     """
     One or more `azure_query` blocks as defined above.
     """
-    non_azure_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgsDict']]]]
+    non_azure_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]]
     """
     One or more `non_azure_query` blocks as defined above.
     """
@@ -1702,8 +1702,8 @@ class SoftwareUpdateConfigurationTargetArgsDict(TypedDict):
 @pulumi.input_type
 class SoftwareUpdateConfigurationTargetArgs:
     def __init__(__self__, *,
-                 azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]] = None,
-                 non_azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]] = None):
+                 azure_queries: pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]] = None,
+                 non_azure_queries: pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]] azure_queries: One or more `azure_query` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]] non_azure_queries: One or more `non_azure_query` blocks as defined above.
@@ -1715,43 +1715,43 @@ class SoftwareUpdateConfigurationTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureQueries")
-    def azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]:
+    def azure_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]:
         """
         One or more `azure_query` blocks as defined above.
         """
         return pulumi.get(self, "azure_queries")
 
     @azure_queries.setter
-    def azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]):
+    def azure_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]):
         pulumi.set(self, "azure_queries", value)
 
     @_builtins.property
     @pulumi.getter(name="nonAzureQueries")
-    def non_azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]:
+    def non_azure_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]:
         """
         One or more `non_azure_query` blocks as defined above.
         """
         return pulumi.get(self, "non_azure_queries")
 
     @non_azure_queries.setter
-    def non_azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]):
+    def non_azure_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]):
         pulumi.set(self, "non_azure_queries", value)
 
 
 class SoftwareUpdateConfigurationTargetAzureQueryArgsDict(TypedDict):
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of locations to scope the query to.
     """
-    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of Subscription or Resource Group ARM Ids to query.
     """
-    tag_filter: NotRequired[pulumi.Input[_builtins.str]]
+    tag_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]]
     """
     A mapping of tags used for query filter. One or more `tags` block as defined below.
     """
@@ -1759,10 +1759,10 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgsDict(TypedDict):
 @pulumi.input_type
 class SoftwareUpdateConfigurationTargetAzureQueryArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: Specifies a list of locations to scope the query to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
@@ -1780,50 +1780,50 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of locations to scope the query to.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Subscription or Resource Group ARM Ids to query.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="tagFilter")
-    def tag_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
         """
         return pulumi.get(self, "tag_filter")
 
     @tag_filter.setter
-    def tag_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]:
         """
         A mapping of tags used for query filter. One or more `tags` block as defined below.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -1875,11 +1875,11 @@ class SoftwareUpdateConfigurationTargetAzureQueryTagArgs:
 
 
 class SoftwareUpdateConfigurationTargetNonAzureQueryArgsDict(TypedDict):
-    function_alias: NotRequired[pulumi.Input[_builtins.str]]
+    function_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Log Analytics save search name.
     """
-    workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The workspace id for Log Analytics in which the saved search in.
     """
@@ -1887,8 +1887,8 @@ class SoftwareUpdateConfigurationTargetNonAzureQueryArgsDict(TypedDict):
 @pulumi.input_type
 class SoftwareUpdateConfigurationTargetNonAzureQueryArgs:
     def __init__(__self__, *,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] function_alias: Specifies the Log Analytics save search name.
         :param pulumi.Input[_builtins.str] workspace_id: The workspace id for Log Analytics in which the saved search in.
@@ -1900,26 +1900,26 @@ class SoftwareUpdateConfigurationTargetNonAzureQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Log Analytics save search name.
         """
         return pulumi.get(self, "function_alias")
 
     @function_alias.setter
-    def function_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace id for Log Analytics in which the saved search in.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -1928,15 +1928,15 @@ class SoftwareUpdateConfigurationWindowsArgsDict(TypedDict):
     """
     Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
     """
-    excluded_knowledge_base_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_knowledge_base_numbers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of knowledge base numbers excluded.
     """
-    included_knowledge_base_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_knowledge_base_numbers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of knowledge base numbers included.
     """
-    reboot: NotRequired[pulumi.Input[_builtins.str]]
+    reboot: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
     """
@@ -1945,9 +1945,9 @@ class SoftwareUpdateConfigurationWindowsArgsDict(TypedDict):
 class SoftwareUpdateConfigurationWindowsArgs:
     def __init__(__self__, *,
                  classifications_includeds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 excluded_knowledge_base_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_knowledge_base_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reboot: Optional[pulumi.Input[_builtins.str]] = None):
+                 excluded_knowledge_base_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_knowledge_base_numbers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reboot: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
@@ -1976,38 +1976,38 @@ class SoftwareUpdateConfigurationWindowsArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedKnowledgeBaseNumbers")
-    def excluded_knowledge_base_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_knowledge_base_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of knowledge base numbers excluded.
         """
         return pulumi.get(self, "excluded_knowledge_base_numbers")
 
     @excluded_knowledge_base_numbers.setter
-    def excluded_knowledge_base_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_knowledge_base_numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_knowledge_base_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="includedKnowledgeBaseNumbers")
-    def included_knowledge_base_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_knowledge_base_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of knowledge base numbers included.
         """
         return pulumi.get(self, "included_knowledge_base_numbers")
 
     @included_knowledge_base_numbers.setter
-    def included_knowledge_base_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_knowledge_base_numbers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_knowledge_base_numbers", value)
 
     @_builtins.property
     @pulumi.getter
-    def reboot(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reboot(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
         return pulumi.get(self, "reboot")
 
     @reboot.setter
-    def reboot(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reboot(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reboot", value)
 
 
@@ -2020,7 +2020,7 @@ class SourceControlSecurityArgsDict(TypedDict):
     """
     Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
     """
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The refresh token of specified rpeo.
     """
@@ -2030,7 +2030,7 @@ class SourceControlSecurityArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[_builtins.str],
                  token_type: pulumi.Input[_builtins.str],
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] token: The access token of specified repo.
         :param pulumi.Input[_builtins.str] token_type: Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
@@ -2067,14 +2067,14 @@ class SourceControlSecurityArgs:
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The refresh token of specified rpeo.
         """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
 

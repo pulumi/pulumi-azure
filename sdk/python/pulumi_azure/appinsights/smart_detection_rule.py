@@ -20,10 +20,10 @@ __all__ = ['SmartDetectionRuleArgs', 'SmartDetectionRule']
 class SmartDetectionRuleArgs:
     def __init__(__self__, *,
                  application_insights_id: pulumi.Input[_builtins.str],
-                 additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_email_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_emails_to_subscription_owners: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SmartDetectionRule resource.
 
@@ -59,7 +59,7 @@ class SmartDetectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalEmailRecipients")
-    def additional_email_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_email_recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
 
@@ -68,54 +68,54 @@ class SmartDetectionRuleArgs:
         return pulumi.get(self, "additional_email_recipients")
 
     @additional_email_recipients.setter
-    def additional_email_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_email_recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_email_recipients", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Potential memory leak detected`, `Potential security issue detected`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailsToSubscriptionOwners")
-    def send_emails_to_subscription_owners(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_emails_to_subscription_owners(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do emails get sent to subscription owners? Defaults to `true`.
         """
         return pulumi.get(self, "send_emails_to_subscription_owners")
 
     @send_emails_to_subscription_owners.setter
-    def send_emails_to_subscription_owners(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_emails_to_subscription_owners(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_emails_to_subscription_owners", value)
 
 
 @pulumi.input_type
 class _SmartDetectionRuleState:
     def __init__(__self__, *,
-                 additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_email_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_emails_to_subscription_owners: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SmartDetectionRule resources.
 
@@ -140,7 +140,7 @@ class _SmartDetectionRuleState:
 
     @_builtins.property
     @pulumi.getter(name="additionalEmailRecipients")
-    def additional_email_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def additional_email_recipients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
 
@@ -149,55 +149,55 @@ class _SmartDetectionRuleState:
         return pulumi.get(self, "additional_email_recipients")
 
     @additional_email_recipients.setter
-    def additional_email_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def additional_email_recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_email_recipients", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_insights_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_insights_id")
 
     @application_insights_id.setter
-    def application_insights_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_insights_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_insights_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Potential memory leak detected`, `Potential security issue detected`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailsToSubscriptionOwners")
-    def send_emails_to_subscription_owners(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_emails_to_subscription_owners(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do emails get sent to subscription owners? Defaults to `true`.
         """
         return pulumi.get(self, "send_emails_to_subscription_owners")
 
     @send_emails_to_subscription_owners.setter
-    def send_emails_to_subscription_owners(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_emails_to_subscription_owners(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_emails_to_subscription_owners", value)
 
 
@@ -207,11 +207,11 @@ class SmartDetectionRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_email_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_emails_to_subscription_owners: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an Application Insights Smart Detection Rule.
@@ -322,11 +322,11 @@ class SmartDetectionRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_email_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_emails_to_subscription_owners: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -353,11 +353,11 @@ class SmartDetectionRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            application_insights_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SmartDetectionRule':
+            additional_email_recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_emails_to_subscription_owners: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SmartDetectionRule':
         """
         Get an existing SmartDetectionRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

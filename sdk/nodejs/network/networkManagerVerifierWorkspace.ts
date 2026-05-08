@@ -144,23 +144,23 @@ export interface NetworkManagerVerifierWorkspaceState {
     /**
      * The Description of the Network Manager Verifier Workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Network Manager Verifier Workspace should exist. Changing this forces a new Network Manager Verifier Workspace to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager Verifier Workspace. Changing this forces a new Network Manager Verifier Workspace to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Manager. Changing this forces a new Network Manager Verifier Workspace to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager Verifier Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -170,15 +170,15 @@ export interface NetworkManagerVerifierWorkspaceArgs {
     /**
      * The Description of the Network Manager Verifier Workspace.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Network Manager Verifier Workspace should exist. Changing this forces a new Network Manager Verifier Workspace to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager Verifier Workspace. Changing this forces a new Network Manager Verifier Workspace to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Manager. Changing this forces a new Network Manager Verifier Workspace to be created.
      */
@@ -186,5 +186,5 @@ export interface NetworkManagerVerifierWorkspaceArgs {
     /**
      * A mapping of tags which should be assigned to the Network Manager Verifier Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

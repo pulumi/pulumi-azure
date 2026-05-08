@@ -161,23 +161,23 @@ export interface DatasetKustoClusterState {
     /**
      * The name of the Data Share Dataset.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Kusto Cluster to be shared with the receiver. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      */
-    kustoClusterId?: pulumi.Input<string>;
+    kustoClusterId?: pulumi.Input<string | undefined>;
     /**
      * The location of the Kusto Cluster.
      */
-    kustoClusterLocation?: pulumi.Input<string>;
+    kustoClusterLocation?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Share Kusto Cluster Dataset. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      */
-    shareId?: pulumi.Input<string>;
+    shareId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface DatasetKustoClusterArgs {
     /**
      * The name which should be used for this Data Share Kusto Cluster Dataset. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      */

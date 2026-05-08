@@ -24,16 +24,16 @@ class TrafficManagerNestedEndpointArgs:
                  minimum_child_endpoints: pulumi.Input[_builtins.int],
                  profile_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimum_required_child_endpoints_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficManagerNestedEndpoint resource.
 
@@ -117,141 +117,141 @@ class TrafficManagerNestedEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the endpoint enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
-    def endpoint_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_location", value)
 
     @_builtins.property
     @pulumi.getter(name="geoMappings")
-    def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
     @geo_mappings.setter
-    def geo_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumRequiredChildEndpointsIpv4")
-    def minimum_required_child_endpoints_ipv4(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_required_child_endpoints_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         """
         return pulumi.get(self, "minimum_required_child_endpoints_ipv4")
 
     @minimum_required_child_endpoints_ipv4.setter
-    def minimum_required_child_endpoints_ipv4(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_required_child_endpoints_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_required_child_endpoints_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumRequiredChildEndpointsIpv6")
-    def minimum_required_child_endpoints_ipv6(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_required_child_endpoints_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         """
         return pulumi.get(self, "minimum_required_child_endpoints_ipv6")
 
     @minimum_required_child_endpoints_ipv6.setter
-    def minimum_required_child_endpoints_ipv6(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_required_child_endpoints_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_required_child_endpoints_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the External Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
         """
         One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
 class _TrafficManagerNestedEndpointState:
     def __init__(__self__, *,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimum_child_endpoints: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimum_child_endpoints: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerNestedEndpoint resources.
 
@@ -300,55 +300,55 @@ class _TrafficManagerNestedEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the endpoint enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         """
         return pulumi.get(self, "endpoint_location")
 
     @endpoint_location.setter
-    def endpoint_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_location", value)
 
     @_builtins.property
     @pulumi.getter(name="geoMappings")
-    def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def geo_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
     @geo_mappings.setter
-    def geo_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def geo_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "geo_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumChildEndpoints")
-    def minimum_child_endpoints(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_child_endpoints(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 
@@ -357,103 +357,103 @@ class _TrafficManagerNestedEndpointState:
         return pulumi.get(self, "minimum_child_endpoints")
 
     @minimum_child_endpoints.setter
-    def minimum_child_endpoints(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_child_endpoints(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_child_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumRequiredChildEndpointsIpv4")
-    def minimum_required_child_endpoints_ipv4(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_required_child_endpoints_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         """
         return pulumi.get(self, "minimum_required_child_endpoints_ipv4")
 
     @minimum_required_child_endpoints_ipv4.setter
-    def minimum_required_child_endpoints_ipv4(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_required_child_endpoints_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_required_child_endpoints_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumRequiredChildEndpointsIpv6")
-    def minimum_required_child_endpoints_ipv6(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_required_child_endpoints_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         """
         return pulumi.get(self, "minimum_required_child_endpoints_ipv6")
 
     @minimum_required_child_endpoints_ipv6.setter
-    def minimum_required_child_endpoints_ipv6(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_required_child_endpoints_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_required_child_endpoints_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the External Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="profileId")
-    def profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
-    def profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
         """
         One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource id of an Azure resource to target.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -463,19 +463,19 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimum_child_endpoints: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointSubnetArgs', 'TrafficManagerNestedEndpointSubnetArgsDict']]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimum_child_endpoints: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointSubnetArgs', 'TrafficManagerNestedEndpointSubnetArgsDict']]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Nested Endpoint within a Traffic Manager Profile.
@@ -666,19 +666,19 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimum_child_endpoints: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointSubnetArgs', 'TrafficManagerNestedEndpointSubnetArgsDict']]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimum_child_endpoints: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_required_child_endpoints_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointSubnetArgs', 'TrafficManagerNestedEndpointSubnetArgsDict']]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -717,19 +717,19 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
-            geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            minimum_child_endpoints: Optional[pulumi.Input[_builtins.int]] = None,
-            minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-            minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointSubnetArgs', 'TrafficManagerNestedEndpointSubnetArgsDict']]]]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            weight: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrafficManagerNestedEndpoint':
+            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint_location: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            minimum_child_endpoints: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_required_child_endpoints_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_required_child_endpoints_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointSubnetArgs', 'TrafficManagerNestedEndpointSubnetArgsDict']]]]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weight: pulumi.Input[Optional[_builtins.int]] = None) -> 'TrafficManagerNestedEndpoint':
         """
         Get an existing TrafficManagerNestedEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -25,56 +25,56 @@ class WindowsVirtualMachineArgs:
                  os_disk: pulumi.Input['WindowsVirtualMachineOsDiskArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  size: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
-                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]] = None,
-                 hotpatching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_image_notification: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']] = None,
-                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reboot_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_capabilities: pulumi.Input[Optional['WindowsVirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_extension_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]] = None,
+                 hotpatching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['WindowsVirtualMachineIdentityArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_image_notification: pulumi.Input[Optional['WindowsVirtualMachineOsImageNotificationArgs']] = None,
+                 os_managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['WindowsVirtualMachinePlanArgs']] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reboot_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional['WindowsVirtualMachineTerminationNotificationArgs']] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsVirtualMachine resource.
 
@@ -329,31 +329,31 @@ class WindowsVirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['WindowsVirtualMachineAdditionalCapabilitiesArgs']]:
         """
         A `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['WindowsVirtualMachineAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalUnattendContents")
-    def additional_unattend_contents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]:
+    def additional_unattend_contents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]:
         """
         One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "additional_unattend_contents")
 
     @additional_unattend_contents.setter
-    def additional_unattend_contents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]):
+    def additional_unattend_contents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]):
         pulumi.set(self, "additional_unattend_contents", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
@@ -362,12 +362,12 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 
@@ -376,60 +376,60 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="allowExtensionOperations")
-    def allow_extension_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_extension_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "allow_extension_operations")
 
     @allow_extension_operations.setter
-    def allow_extension_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_extension_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_extension_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpdatesEnabled")
-    def automatic_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "automatic_updates_enabled")
 
     @automatic_updates_enabled.setter
-    def automatic_updates_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_updates_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetId")
-    def availability_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "availability_set_id")
 
     @availability_set_id.setter
-    def availability_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineBootDiagnosticsArgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: pulumi.Input[Optional['WindowsVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
-    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
 
@@ -438,12 +438,12 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
     @bypass_platform_safety_checks_on_user_schedule_enabled.setter
-    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_platform_safety_checks_on_user_schedule_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 
@@ -452,106 +452,106 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name")
 
     @computer_name.setter
-    def computer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostGroupId")
-    def dedicated_host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         """
         return pulumi.get(self, "dedicated_host_group_id")
 
     @dedicated_host_group_id.setter
-    def dedicated_host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_host_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostId")
-    def dedicated_host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_host_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
 
     @dedicated_host_id.setter
-    def dedicated_host_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_host_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_host_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskControllerType")
-    def disk_controller_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_controller_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         """
         return pulumi.get(self, "disk_controller_type")
 
     @disk_controller_type.setter
-    def disk_controller_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_controller_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_controller_type", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
     @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-    def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -560,24 +560,24 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
 
@@ -586,12 +586,12 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="hotpatchingEnabled")
-    def hotpatching_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hotpatching_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 
@@ -600,48 +600,48 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "hotpatching_enabled")
 
     @hotpatching_enabled.setter
-    def hotpatching_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hotpatching_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hotpatching_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WindowsVirtualMachineIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WindowsVirtualMachineIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_bid_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
 
@@ -650,36 +650,36 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "max_bid_price")
 
     @max_bid_price.setter
-    def max_bid_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_bid_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_bid_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osImageNotification")
-    def os_image_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]:
+    def os_image_notification(self) -> pulumi.Input[Optional['WindowsVirtualMachineOsImageNotificationArgs']]:
         """
         A `os_image_notification` block as defined below.
         """
         return pulumi.get(self, "os_image_notification")
 
     @os_image_notification.setter
-    def os_image_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]):
+    def os_image_notification(self, value: pulumi.Input[Optional['WindowsVirtualMachineOsImageNotificationArgs']]):
         pulumi.set(self, "os_image_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="osManagedDiskId")
-    def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_managed_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 
@@ -688,12 +688,12 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "os_managed_disk_id")
 
     @os_managed_disk_id.setter
-    def os_managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_managed_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
-    def patch_assessment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patch_assessment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
@@ -702,12 +702,12 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "patch_assessment_mode")
 
     @patch_assessment_mode.setter
-    def patch_assessment_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patch_assessment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patch_assessment_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
@@ -716,48 +716,48 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "patch_mode")
 
     @patch_mode.setter
-    def patch_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patch_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patch_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['WindowsVirtualMachinePlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['WindowsVirtualMachinePlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "platform_fault_domain")
 
     @platform_fault_domain.setter
-    def platform_fault_domain(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
@@ -766,24 +766,24 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
-    def provision_vm_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_vm_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_vm_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rebootSetting")
-    def reboot_setting(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reboot_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
 
@@ -792,36 +792,36 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "reboot_setting")
 
     @reboot_setting.setter
-    def reboot_setting(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reboot_setting(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reboot_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 
@@ -830,12 +830,12 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
-    def source_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> pulumi.Input[Optional['WindowsVirtualMachineSourceImageReferenceArgs']]:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
@@ -844,60 +844,60 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: pulumi.Input[Optional['WindowsVirtualMachineSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]:
+    def termination_notification(self) -> pulumi.Input[Optional['WindowsVirtualMachineTerminationNotificationArgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]):
+    def termination_notification(self, value: pulumi.Input[Optional['WindowsVirtualMachineTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded User Data which should be used for this Virtual Machine.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineScaleSetId")
-    def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
 
@@ -910,121 +910,121 @@ class WindowsVirtualMachineArgs:
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
     @virtual_machine_scale_set_id.setter
-    def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
     @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
-    def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vm_agent_platform_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "vm_agent_platform_updates_enabled")
 
     @vm_agent_platform_updates_enabled.setter
-    def vm_agent_platform_updates_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vm_agent_platform_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vm_agent_platform_updates_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
-    def vtpm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vtpm_enabled")
 
     @vtpm_enabled.setter
-    def vtpm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vtpm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vtpm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]:
+    def winrm_listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]:
         """
         One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "winrm_listeners")
 
     @winrm_listeners.setter
-    def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]):
+    def winrm_listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]):
         pulumi.set(self, "winrm_listeners", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type
 class _WindowsVirtualMachineState:
     def __init__(__self__, *,
-                 additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
-                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]] = None,
-                 hotpatching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk: Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']] = None,
-                 os_image_notification: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']] = None,
-                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reboot_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_capabilities: pulumi.Input[Optional['WindowsVirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_extension_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]] = None,
+                 hotpatching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['WindowsVirtualMachineIdentityArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk: pulumi.Input[Optional['WindowsVirtualMachineOsDiskArgs']] = None,
+                 os_image_notification: pulumi.Input[Optional['WindowsVirtualMachineOsImageNotificationArgs']] = None,
+                 os_managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional['WindowsVirtualMachinePlanArgs']] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reboot_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional['WindowsVirtualMachineTerminationNotificationArgs']] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsVirtualMachine resources.
 
@@ -1250,31 +1250,31 @@ class _WindowsVirtualMachineState:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['WindowsVirtualMachineAdditionalCapabilitiesArgs']]:
         """
         A `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['WindowsVirtualMachineAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalUnattendContents")
-    def additional_unattend_contents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]:
+    def additional_unattend_contents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]:
         """
         One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "additional_unattend_contents")
 
     @additional_unattend_contents.setter
-    def additional_unattend_contents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]):
+    def additional_unattend_contents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]):
         pulumi.set(self, "additional_unattend_contents", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
@@ -1283,12 +1283,12 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 
@@ -1297,60 +1297,60 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="allowExtensionOperations")
-    def allow_extension_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_extension_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "allow_extension_operations")
 
     @allow_extension_operations.setter
-    def allow_extension_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_extension_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_extension_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticUpdatesEnabled")
-    def automatic_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "automatic_updates_enabled")
 
     @automatic_updates_enabled.setter
-    def automatic_updates_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_updates_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetId")
-    def availability_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "availability_set_id")
 
     @availability_set_id.setter
-    def availability_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineBootDiagnosticsArgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: pulumi.Input[Optional['WindowsVirtualMachineBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
-    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
 
@@ -1359,12 +1359,12 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
     @bypass_platform_safety_checks_on_user_schedule_enabled.setter
-    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_platform_safety_checks_on_user_schedule_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_platform_safety_checks_on_user_schedule_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 
@@ -1373,106 +1373,106 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name")
 
     @computer_name.setter
-    def computer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostGroupId")
-    def dedicated_host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         """
         return pulumi.get(self, "dedicated_host_group_id")
 
     @dedicated_host_group_id.setter
-    def dedicated_host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_host_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostId")
-    def dedicated_host_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_host_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
 
     @dedicated_host_id.setter
-    def dedicated_host_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_host_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_host_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskControllerType")
-    def disk_controller_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_controller_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         """
         return pulumi.get(self, "disk_controller_type")
 
     @disk_controller_type.setter
-    def disk_controller_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_controller_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_controller_type", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
     @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-    def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -1481,24 +1481,24 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
 
@@ -1507,12 +1507,12 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="hotpatchingEnabled")
-    def hotpatching_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hotpatching_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 
@@ -1521,48 +1521,48 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "hotpatching_enabled")
 
     @hotpatching_enabled.setter
-    def hotpatching_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hotpatching_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hotpatching_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WindowsVirtualMachineIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WindowsVirtualMachineIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_bid_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
 
@@ -1571,60 +1571,60 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "max_bid_price")
 
     @max_bid_price.setter
-    def max_bid_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_bid_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_bid_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
-    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']]:
+    def os_disk(self) -> pulumi.Input[Optional['WindowsVirtualMachineOsDiskArgs']]:
         """
         An `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']]):
+    def os_disk(self, value: pulumi.Input[Optional['WindowsVirtualMachineOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="osImageNotification")
-    def os_image_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]:
+    def os_image_notification(self) -> pulumi.Input[Optional['WindowsVirtualMachineOsImageNotificationArgs']]:
         """
         A `os_image_notification` block as defined below.
         """
         return pulumi.get(self, "os_image_notification")
 
     @os_image_notification.setter
-    def os_image_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]):
+    def os_image_notification(self, value: pulumi.Input[Optional['WindowsVirtualMachineOsImageNotificationArgs']]):
         pulumi.set(self, "os_image_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="osManagedDiskId")
-    def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_managed_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine. Changing this forces a new resource to be created.
 
@@ -1633,12 +1633,12 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "os_managed_disk_id")
 
     @os_managed_disk_id.setter
-    def os_managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_managed_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
-    def patch_assessment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patch_assessment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
@@ -1647,12 +1647,12 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "patch_assessment_mode")
 
     @patch_assessment_mode.setter
-    def patch_assessment_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patch_assessment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patch_assessment_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
@@ -1661,72 +1661,72 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "patch_mode")
 
     @patch_mode.setter
-    def patch_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patch_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patch_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['WindowsVirtualMachinePlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['WindowsVirtualMachinePlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "platform_fault_domain")
 
     @platform_fault_domain.setter
-    def platform_fault_domain(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Private IP Address assigned to this Virtual Machine.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Private IP Addresses assigned to this Virtual Machine.
         """
         return pulumi.get(self, "private_ip_addresses")
 
     @private_ip_addresses.setter
-    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
@@ -1735,48 +1735,48 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
-    def provision_vm_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_vm_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_vm_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Public IP Address assigned to this Virtual Machine.
         """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
-    def public_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the Public IP Addresses assigned to this Virtual Machine.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="rebootSetting")
-    def reboot_setting(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reboot_setting(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
 
@@ -1785,60 +1785,60 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "reboot_setting")
 
     @reboot_setting.setter
-    def reboot_setting(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reboot_setting(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reboot_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 
@@ -1847,12 +1847,12 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
-    def source_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> pulumi.Input[Optional['WindowsVirtualMachineSourceImageReferenceArgs']]:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
@@ -1861,72 +1861,72 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: pulumi.Input[Optional['WindowsVirtualMachineSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]:
+    def termination_notification(self) -> pulumi.Input[Optional['WindowsVirtualMachineTerminationNotificationArgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs']]):
+    def termination_notification(self, value: pulumi.Input[Optional['WindowsVirtualMachineTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded User Data which should be used for this Virtual Machine.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A 128-bit identifier which uniquely identifies this Virtual Machine.
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineScaleSetId")
-    def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_scale_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
 
@@ -1939,56 +1939,56 @@ class _WindowsVirtualMachineState:
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
     @virtual_machine_scale_set_id.setter
-    def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_scale_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
     @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
-    def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vm_agent_platform_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "vm_agent_platform_updates_enabled")
 
     @vm_agent_platform_updates_enabled.setter
-    def vm_agent_platform_updates_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vm_agent_platform_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vm_agent_platform_updates_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
-    def vtpm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vtpm_enabled")
 
     @vtpm_enabled.setter
-    def vtpm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vtpm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vtpm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]:
+    def winrm_listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]:
         """
         One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "winrm_listeners")
 
     @winrm_listeners.setter
-    def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]):
+    def winrm_listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]):
         pulumi.set(self, "winrm_listeners", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -1998,60 +1998,60 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
-                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineGalleryApplicationArgs', 'WindowsVirtualMachineGalleryApplicationArgsDict']]]]] = None,
-                 hotpatching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['WindowsVirtualMachineIdentityArgs', 'WindowsVirtualMachineIdentityArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
-                 os_image_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
-                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reboot_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineSecretArgs', 'WindowsVirtualMachineSecretArgsDict']]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineSourceImageReferenceArgs', 'WindowsVirtualMachineSourceImageReferenceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineTerminationNotificationArgs', 'WindowsVirtualMachineTerminationNotificationArgsDict']]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_extension_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineGalleryApplicationArgs', 'WindowsVirtualMachineGalleryApplicationArgsDict']]]]] = None,
+                 hotpatching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['WindowsVirtualMachineIdentityArgs', 'WindowsVirtualMachineIdentityArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk: pulumi.Input[Optional[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
+                 os_image_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
+                 os_managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reboot_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineSecretArgs', 'WindowsVirtualMachineSecretArgsDict']]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional[Union['WindowsVirtualMachineSourceImageReferenceArgs', 'WindowsVirtualMachineSourceImageReferenceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineTerminationNotificationArgs', 'WindowsVirtualMachineTerminationNotificationArgsDict']]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Windows Virtual Machine.
@@ -2328,60 +2328,60 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
-                 bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineGalleryApplicationArgs', 'WindowsVirtualMachineGalleryApplicationArgsDict']]]]] = None,
-                 hotpatching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['WindowsVirtualMachineIdentityArgs', 'WindowsVirtualMachineIdentityArgsDict']]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
-                 os_image_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
-                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
-                 platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reboot_setting: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineSecretArgs', 'WindowsVirtualMachineSecretArgsDict']]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 size: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineSourceImageReferenceArgs', 'WindowsVirtualMachineSourceImageReferenceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineTerminationNotificationArgs', 'WindowsVirtualMachineTerminationNotificationArgsDict']]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_extension_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
+                 bypass_platform_safety_checks_on_user_schedule_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineGalleryApplicationArgs', 'WindowsVirtualMachineGalleryApplicationArgsDict']]]]] = None,
+                 hotpatching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['WindowsVirtualMachineIdentityArgs', 'WindowsVirtualMachineIdentityArgsDict']]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk: pulumi.Input[Optional[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
+                 os_image_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
+                 os_managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
+                 platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reboot_setting: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineSecretArgs', 'WindowsVirtualMachineSecretArgsDict']]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 size: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional[Union['WindowsVirtualMachineSourceImageReferenceArgs', 'WindowsVirtualMachineSourceImageReferenceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineTerminationNotificationArgs', 'WindowsVirtualMachineTerminationNotificationArgsDict']]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2470,65 +2470,65 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_capabilities: Optional[pulumi.Input[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
-            additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]]] = None,
-            admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-            automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
-            bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            computer_name: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-            dedicated_host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dedicated_host_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_controller_type: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineGalleryApplicationArgs', 'WindowsVirtualMachineGalleryApplicationArgsDict']]]]] = None,
-            hotpatching_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['WindowsVirtualMachineIdentityArgs', 'WindowsVirtualMachineIdentityArgsDict']]] = None,
-            license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
-            os_image_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
-            os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-            patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
-            platform_fault_domain: Optional[pulumi.Input[_builtins.int]] = None,
-            priority: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-            proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            reboot_setting: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineSecretArgs', 'WindowsVirtualMachineSecretArgsDict']]]]] = None,
-            secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            size: Optional[pulumi.Input[_builtins.str]] = None,
-            source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineSourceImageReferenceArgs', 'WindowsVirtualMachineSourceImageReferenceArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineTerminationNotificationArgs', 'WindowsVirtualMachineTerminationNotificationArgsDict']]] = None,
-            timezone: Optional[pulumi.Input[_builtins.str]] = None,
-            user_data: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vm_agent_platform_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'WindowsVirtualMachine':
+            additional_capabilities: pulumi.Input[Optional[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
+            additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_extension_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
+            bypass_platform_safety_checks_on_user_schedule_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            computer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+            dedicated_host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineGalleryApplicationArgs', 'WindowsVirtualMachineGalleryApplicationArgsDict']]]]] = None,
+            hotpatching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['WindowsVirtualMachineIdentityArgs', 'WindowsVirtualMachineIdentityArgsDict']]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            os_disk: pulumi.Input[Optional[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
+            os_image_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
+            os_managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            patch_assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
+            platform_fault_domain: pulumi.Input[Optional[_builtins.int]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reboot_setting: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineSecretArgs', 'WindowsVirtualMachineSecretArgsDict']]]]] = None,
+            secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            size: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_reference: pulumi.Input[Optional[Union['WindowsVirtualMachineSourceImageReferenceArgs', 'WindowsVirtualMachineSourceImageReferenceArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineTerminationNotificationArgs', 'WindowsVirtualMachineTerminationNotificationArgsDict']]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'WindowsVirtualMachine':
         """
         Get an existing WindowsVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

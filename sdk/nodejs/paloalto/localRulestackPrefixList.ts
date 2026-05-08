@@ -137,23 +137,23 @@ export interface LocalRulestackPrefixListState {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * The description for the Prefix List.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack Prefix List.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Prefixes.
      */
-    prefixLists?: pulumi.Input<pulumi.Input<string>[]>;
+    prefixLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created.
      */
-    rulestackId?: pulumi.Input<string>;
+    rulestackId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,15 +163,15 @@ export interface LocalRulestackPrefixListArgs {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * The description for the Prefix List.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack Prefix List.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Prefixes.
      */

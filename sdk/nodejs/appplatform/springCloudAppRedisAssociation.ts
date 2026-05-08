@@ -151,23 +151,23 @@ export interface SpringCloudAppRedisAssociationState {
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Redis Cache access key.
      */
-    redisAccessKey?: pulumi.Input<string>;
+    redisAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
      */
-    redisCacheId?: pulumi.Input<string>;
+    redisCacheId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
      */
-    springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string | undefined>;
     /**
      * Should SSL be used when connecting to Redis? Defaults to `true`.
      */
-    sslEnabled?: pulumi.Input<boolean>;
+    sslEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface SpringCloudAppRedisAssociationArgs {
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Redis Cache access key.
      */
@@ -193,5 +193,5 @@ export interface SpringCloudAppRedisAssociationArgs {
     /**
      * Should SSL be used when connecting to Redis? Defaults to `true`.
      */
-    sslEnabled?: pulumi.Input<boolean>;
+    sslEnabled?: pulumi.Input<boolean | undefined>;
 }

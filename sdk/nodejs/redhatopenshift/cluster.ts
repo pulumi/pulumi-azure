@@ -172,51 +172,51 @@ export interface ClusterState {
     /**
      * An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    apiServerProfile?: pulumi.Input<inputs.redhatopenshift.ClusterApiServerProfile>;
+    apiServerProfile?: pulumi.Input<inputs.redhatopenshift.ClusterApiServerProfile | undefined>;
     /**
      * A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterClusterProfile>;
+    clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterClusterProfile | undefined>;
     /**
      * The Red Hat OpenShift cluster console URL.
      */
-    consoleUrl?: pulumi.Input<string>;
+    consoleUrl?: pulumi.Input<string | undefined>;
     /**
      * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    ingressProfile?: pulumi.Input<inputs.redhatopenshift.ClusterIngressProfile>;
+    ingressProfile?: pulumi.Input<inputs.redhatopenshift.ClusterIngressProfile | undefined>;
     /**
      * The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    mainProfile?: pulumi.Input<inputs.redhatopenshift.ClusterMainProfile>;
+    mainProfile?: pulumi.Input<inputs.redhatopenshift.ClusterMainProfile | undefined>;
     /**
      * The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    networkProfile?: pulumi.Input<inputs.redhatopenshift.ClusterNetworkProfile>;
+    networkProfile?: pulumi.Input<inputs.redhatopenshift.ClusterNetworkProfile | undefined>;
     /**
      * Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `servicePrincipal` block as defined below.
      */
-    servicePrincipal?: pulumi.Input<inputs.redhatopenshift.ClusterServicePrincipal>;
+    servicePrincipal?: pulumi.Input<inputs.redhatopenshift.ClusterServicePrincipal | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    workerProfile?: pulumi.Input<inputs.redhatopenshift.ClusterWorkerProfile>;
+    workerProfile?: pulumi.Input<inputs.redhatopenshift.ClusterWorkerProfile | undefined>;
 }
 
 /**
@@ -238,7 +238,7 @@ export interface ClusterArgs {
     /**
      * The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      */
@@ -246,7 +246,7 @@ export interface ClusterArgs {
     /**
      * The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
@@ -262,7 +262,7 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      */

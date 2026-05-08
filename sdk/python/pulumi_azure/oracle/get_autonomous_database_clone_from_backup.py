@@ -896,8 +896,8 @@ def get_autonomous_database_clone_from_backup(name: Optional[_builtins.str] = No
         used_data_storage_size_in_gb=pulumi.get(__ret__, 'used_data_storage_size_in_gb'),
         used_data_storage_size_in_tb=pulumi.get(__ret__, 'used_data_storage_size_in_tb'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-def get_autonomous_database_clone_from_backup_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_autonomous_database_clone_from_backup_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutonomousDatabaseCloneFromBackupResult]:
     """
     Use this data source to access information about an existing autonomous database clone from backup.

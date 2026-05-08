@@ -25,24 +25,24 @@ class CacheArgs:
                  family: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 access_keys_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_ssl_port_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
-                 private_static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['CacheIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_ssl_port_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_schedules: pulumi.Input[Optional[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
+                 private_static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redis_configuration: pulumi.Input[Optional['CacheRedisConfigurationArgs']] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
 
@@ -170,43 +170,43 @@ class CacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKeysAuthenticationEnabled")
-    def access_keys_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_keys_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         """
         return pulumi.get(self, "access_keys_authentication_enabled")
 
     @access_keys_authentication_enabled.setter
-    def access_keys_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_keys_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_keys_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['CacheIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['CacheIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 
@@ -215,96 +215,96 @@ class CacheArgs:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nonSslPortEnabled")
-    def non_ssl_port_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_ssl_port_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the non-SSL port (6379) - disabled by default.
         """
         return pulumi.get(self, "non_ssl_port_enabled")
 
     @non_ssl_port_enabled.setter
-    def non_ssl_port_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_ssl_port_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_ssl_port_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
+    def patch_schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
         """
         A list of `patch_schedule` blocks as defined below.
         """
         return pulumi.get(self, "patch_schedules")
 
     @patch_schedules.setter
-    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
+    def patch_schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
         pulumi.set(self, "patch_schedules", value)
 
     @_builtins.property
     @pulumi.getter(name="privateStaticIpAddress")
-    def private_static_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_static_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_static_ip_address")
 
     @private_static_ip_address.setter
-    def private_static_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_static_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_static_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
+    def redis_configuration(self) -> pulumi.Input[Optional['CacheRedisConfigurationArgs']]:
         """
         A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 
     @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArgs']]):
+    def redis_configuration(self, value: pulumi.Input[Optional['CacheRedisConfigurationArgs']]):
         pulumi.set(self, "redis_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         """
         return pulumi.get(self, "redis_version")
 
     @redis_version.setter
-    def redis_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_version", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerMaster")
-    def replicas_per_master(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_master(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of replicas to create per master for this Redis Cache.
 
@@ -313,72 +313,72 @@ class CacheArgs:
         return pulumi.get(self, "replicas_per_master")
 
     @replicas_per_master.setter
-    def replicas_per_master(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_master(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_master", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerPrimary")
-    def replicas_per_primary(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_primary(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         """
         return pulumi.get(self, "replicas_per_primary")
 
     @replicas_per_primary.setter
-    def replicas_per_primary(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_primary(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_primary", value)
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shard_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantSettings")
-    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tenant_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tenant settings to assign to the resource.
         """
         return pulumi.get(self, "tenant_settings")
 
     @tenant_settings.setter
-    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tenant_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tenant_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
@@ -387,42 +387,42 @@ class CacheArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _CacheState:
     def __init__(__self__, *,
-                 access_keys_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_ssl_port_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['CacheIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_ssl_port_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_schedules: pulumi.Input[Optional[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redis_configuration: pulumi.Input[Optional['CacheRedisConfigurationArgs']] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
 
@@ -525,79 +525,79 @@ class _CacheState:
 
     @_builtins.property
     @pulumi.getter(name="accessKeysAuthenticationEnabled")
-    def access_keys_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_keys_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         """
         return pulumi.get(self, "access_keys_authentication_enabled")
 
     @access_keys_authentication_enabled.setter
-    def access_keys_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_keys_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_keys_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hostname of the Redis Instance
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['CacheIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['CacheIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 
@@ -606,132 +606,132 @@ class _CacheState:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nonSslPortEnabled")
-    def non_ssl_port_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def non_ssl_port_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the non-SSL port (6379) - disabled by default.
         """
         return pulumi.get(self, "non_ssl_port_enabled")
 
     @non_ssl_port_enabled.setter
-    def non_ssl_port_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def non_ssl_port_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "non_ssl_port_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
+    def patch_schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
         """
         A list of `patch_schedule` blocks as defined below.
         """
         return pulumi.get(self, "patch_schedules")
 
     @patch_schedules.setter
-    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
+    def patch_schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
         pulumi.set(self, "patch_schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The non-SSL Port of the Redis Instance
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Access Key for the Redis Instance
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string of the Redis Instance.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="privateStaticIpAddress")
-    def private_static_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_static_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_static_ip_address")
 
     @private_static_ip_address.setter
-    def private_static_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_static_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_static_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
+    def redis_configuration(self) -> pulumi.Input[Optional['CacheRedisConfigurationArgs']]:
         """
         A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 
     @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArgs']]):
+    def redis_configuration(self, value: pulumi.Input[Optional['CacheRedisConfigurationArgs']]):
         pulumi.set(self, "redis_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         """
         return pulumi.get(self, "redis_version")
 
     @redis_version.setter
-    def redis_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_version", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerMaster")
-    def replicas_per_master(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_master(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of replicas to create per master for this Redis Cache.
 
@@ -740,72 +740,72 @@ class _CacheState:
         return pulumi.get(self, "replicas_per_master")
 
     @replicas_per_master.setter
-    def replicas_per_master(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_master(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_master", value)
 
     @_builtins.property
     @pulumi.getter(name="replicasPerPrimary")
-    def replicas_per_primary(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replicas_per_primary(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         """
         return pulumi.get(self, "replicas_per_primary")
 
     @replicas_per_primary.setter
-    def replicas_per_primary(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replicas_per_primary(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replicas_per_primary", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Access Key for the Redis Instance
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string of the Redis Instance.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shard_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 
@@ -814,60 +814,60 @@ class _CacheState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ssl_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The SSL Port of the Redis Instance
         """
         return pulumi.get(self, "ssl_port")
 
     @ssl_port.setter
-    def ssl_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ssl_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ssl_port", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantSettings")
-    def tenant_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tenant_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tenant settings to assign to the resource.
         """
         return pulumi.get(self, "tenant_settings")
 
     @tenant_settings.setter
-    def tenant_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tenant_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tenant_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
@@ -876,7 +876,7 @@ class _CacheState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -886,28 +886,28 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_keys_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_ssl_port_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
-                 private_static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redis_configuration: Optional[pulumi.Input[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']]] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_ssl_port_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
+                 private_static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redis_configuration: pulumi.Input[Optional[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']]] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Redis Cache.
@@ -1063,28 +1063,28 @@ class Cache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_keys_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_ssl_port_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
-                 private_static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redis_configuration: Optional[pulumi.Input[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']]] = None,
-                 redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_ssl_port_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
+                 private_static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redis_configuration: pulumi.Input[Optional[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']]] = None,
+                 redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+                 replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1143,35 +1143,35 @@ class Cache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_keys_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            family: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            non_ssl_port_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            private_static_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            redis_configuration: Optional[pulumi.Input[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']]] = None,
-            redis_version: Optional[pulumi.Input[_builtins.str]] = None,
-            replicas_per_master: Optional[pulumi.Input[_builtins.int]] = None,
-            replicas_per_primary: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_port: Optional[pulumi.Input[_builtins.int]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cache':
+            access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            family: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_ssl_port_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            patch_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            private_static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            redis_configuration: pulumi.Input[Optional[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']]] = None,
+            redis_version: pulumi.Input[Optional[_builtins.str]] = None,
+            replicas_per_master: pulumi.Input[Optional[_builtins.int]] = None,
+            replicas_per_primary: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_port: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenant_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cache':
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

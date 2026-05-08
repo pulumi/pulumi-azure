@@ -110,11 +110,11 @@ export interface ResourceProviderFeatureRegistrationState {
     /**
      * Specifies the name of the feature to register. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Resource Provider name. Changing this forces a new resource to be created.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -124,7 +124,7 @@ export interface ResourceProviderFeatureRegistrationArgs {
     /**
      * Specifies the name of the feature to register. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Resource Provider name. Changing this forces a new resource to be created.
      */

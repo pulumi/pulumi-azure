@@ -98,8 +98,8 @@ def get_enrollment_account_scope(billing_account_name: Optional[_builtins.str] =
         billing_account_name=pulumi.get(__ret__, 'billing_account_name'),
         enrollment_account_name=pulumi.get(__ret__, 'enrollment_account_name'),
         id=pulumi.get(__ret__, 'id'))
-def get_enrollment_account_scope_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        enrollment_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_enrollment_account_scope_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        enrollment_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnrollmentAccountScopeResult]:
     """
     Use this data source to access information about an existing Enrollment Account Billing Scope.

@@ -430,51 +430,51 @@ export interface ThreeTierVirtualInstanceState {
     /**
      * The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
      */
-    appLocation?: pulumi.Input<string>;
+    appLocation?: pulumi.Input<string | undefined>;
     /**
      * The environment type for the SAP Three Tier Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceIdentity>;
+    identity?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The FQDN of the SAP system. Changing this forces a new resource to be created.
      */
-    sapFqdn?: pulumi.Input<string>;
+    sapFqdn?: pulumi.Input<string | undefined>;
     /**
      * The SAP Product type for the SAP Three Tier Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
      */
-    sapProduct?: pulumi.Input<string>;
+    sapProduct?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the SAP Three Tier Virtual Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    threeTierConfiguration?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfiguration>;
+    threeTierConfiguration?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceThreeTierConfiguration | undefined>;
 }
 
 /**
@@ -492,23 +492,23 @@ export interface ThreeTierVirtualInstanceArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceIdentity>;
+    identity?: pulumi.Input<inputs.workloadssap.ThreeTierVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
      */
@@ -524,7 +524,7 @@ export interface ThreeTierVirtualInstanceArgs {
     /**
      * A mapping of tags which should be assigned to the SAP Three Tier Virtual Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `threeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
      */

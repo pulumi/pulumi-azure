@@ -26,9 +26,9 @@ class TimeSeriesDatabaseConnectionArgs:
                  kusto_cluster_id: pulumi.Input[_builtins.str],
                  kusto_cluster_uri: pulumi.Input[_builtins.str],
                  kusto_database_name: pulumi.Input[_builtins.str],
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TimeSeriesDatabaseConnection resource.
 
@@ -143,54 +143,54 @@ class TimeSeriesDatabaseConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventhubConsumerGroupName")
-    def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
     @eventhub_consumer_group_name.setter
-    def eventhub_consumer_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_consumer_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoTableName")
-    def kusto_table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_table_name")
 
     @kusto_table_name.setter
-    def kusto_table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TimeSeriesDatabaseConnectionState:
     def __init__(__self__, *,
-                 digital_twins_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TimeSeriesDatabaseConnection resources.
 
@@ -228,122 +228,122 @@ class _TimeSeriesDatabaseConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="digitalTwinsId")
-    def digital_twins_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digital_twins_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Digital Twins. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "digital_twins_id")
 
     @digital_twins_id.setter
-    def digital_twins_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digital_twins_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digital_twins_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubConsumerGroupName")
-    def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
     @eventhub_consumer_group_name.setter
-    def eventhub_consumer_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_consumer_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event Hub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_name")
 
     @eventhub_name.setter
-    def eventhub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubNamespaceEndpointUri")
-    def eventhub_namespace_endpoint_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_namespace_endpoint_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the Event Hub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_namespace_endpoint_uri")
 
     @eventhub_namespace_endpoint_uri.setter
-    def eventhub_namespace_endpoint_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_namespace_endpoint_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_namespace_endpoint_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubNamespaceId")
-    def eventhub_namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub_namespace_id")
 
     @eventhub_namespace_id.setter
-    def eventhub_namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoClusterId")
-    def kusto_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_cluster_id")
 
     @kusto_cluster_id.setter
-    def kusto_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoClusterUri")
-    def kusto_cluster_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_cluster_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the Kusto Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_cluster_uri")
 
     @kusto_cluster_uri.setter
-    def kusto_cluster_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_cluster_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_cluster_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoDatabaseName")
-    def kusto_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Kusto Database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_database_name")
 
     @kusto_database_name.setter
-    def kusto_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoTableName")
-    def kusto_table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_table_name")
 
     @kusto_table_name.setter
-    def kusto_table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -353,16 +353,16 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 digital_twins_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Digital Twins Time Series Database Connection.
@@ -594,16 +594,16 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 digital_twins_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -647,16 +647,16 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            digital_twins_id: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_name: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_namespace_endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_cluster_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_table_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'TimeSeriesDatabaseConnection':
+            digital_twins_id: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_namespace_endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_cluster_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TimeSeriesDatabaseConnection':
         """
         Get an existing TimeSeriesDatabaseConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

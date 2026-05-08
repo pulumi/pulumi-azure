@@ -194,27 +194,27 @@ export interface FirewallNatRuleCollectionState {
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
      */
-    azureFirewallName?: pulumi.Input<string>;
+    azureFirewallName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallNatRuleCollectionRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallNatRuleCollectionRule>[] | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface FirewallNatRuleCollectionArgs {
     /**
      * Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */

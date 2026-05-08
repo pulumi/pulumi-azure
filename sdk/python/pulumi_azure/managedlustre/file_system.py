@@ -27,13 +27,13 @@ class FileSystemArgs:
                  storage_capacity_in_tb: pulumi.Input[_builtins.int],
                  subnet_id: pulumi.Input[_builtins.str],
                  zones: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
-                 hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
-                 identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash: Optional[pulumi.Input['FileSystemRootSquashArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 encryption_key: pulumi.Input[Optional['FileSystemEncryptionKeyArgs']] = None,
+                 hsm_setting: pulumi.Input[Optional['FileSystemHsmSettingArgs']] = None,
+                 identity: pulumi.Input[Optional['FileSystemIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash: pulumi.Input[Optional['FileSystemRootSquashArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
 
@@ -148,7 +148,7 @@ class FileSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]:
+    def encryption_key(self) -> pulumi.Input[Optional['FileSystemEncryptionKeyArgs']]:
         """
         An `encryption_key` block as defined below.
 
@@ -157,99 +157,99 @@ class FileSystemArgs:
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]):
+    def encryption_key(self, value: pulumi.Input[Optional['FileSystemEncryptionKeyArgs']]):
         pulumi.set(self, "encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmSetting")
-    def hsm_setting(self) -> Optional[pulumi.Input['FileSystemHsmSettingArgs']]:
+    def hsm_setting(self) -> pulumi.Input[Optional['FileSystemHsmSettingArgs']]:
         """
         A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hsm_setting")
 
     @hsm_setting.setter
-    def hsm_setting(self, value: Optional[pulumi.Input['FileSystemHsmSettingArgs']]):
+    def hsm_setting(self, value: pulumi.Input[Optional['FileSystemHsmSettingArgs']]):
         pulumi.set(self, "hsm_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FileSystemIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FileSystemIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FileSystemIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FileSystemIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquash")
-    def root_squash(self) -> Optional[pulumi.Input['FileSystemRootSquashArgs']]:
+    def root_squash(self) -> pulumi.Input[Optional['FileSystemRootSquashArgs']]:
         """
         A `root_squash` block as defined below.
         """
         return pulumi.get(self, "root_squash")
 
     @root_squash.setter
-    def root_squash(self, value: Optional[pulumi.Input['FileSystemRootSquashArgs']]):
+    def root_squash(self, value: pulumi.Input[Optional['FileSystemRootSquashArgs']]):
         pulumi.set(self, "root_squash", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FileSystemState:
     def __init__(__self__, *,
-                 encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
-                 hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
-                 identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']] = None,
-                 mgs_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash: Optional[pulumi.Input['FileSystemRootSquashArgs']] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 encryption_key: pulumi.Input[Optional['FileSystemEncryptionKeyArgs']] = None,
+                 hsm_setting: pulumi.Input[Optional['FileSystemHsmSettingArgs']] = None,
+                 identity: pulumi.Input[Optional['FileSystemIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['FileSystemMaintenanceWindowArgs']] = None,
+                 mgs_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash: pulumi.Input[Optional['FileSystemRootSquashArgs']] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FileSystem resources.
 
@@ -301,7 +301,7 @@ class _FileSystemState:
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]:
+    def encryption_key(self) -> pulumi.Input[Optional['FileSystemEncryptionKeyArgs']]:
         """
         An `encryption_key` block as defined below.
 
@@ -310,163 +310,163 @@ class _FileSystemState:
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]):
+    def encryption_key(self, value: pulumi.Input[Optional['FileSystemEncryptionKeyArgs']]):
         pulumi.set(self, "encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmSetting")
-    def hsm_setting(self) -> Optional[pulumi.Input['FileSystemHsmSettingArgs']]:
+    def hsm_setting(self) -> pulumi.Input[Optional['FileSystemHsmSettingArgs']]:
         """
         A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hsm_setting")
 
     @hsm_setting.setter
-    def hsm_setting(self, value: Optional[pulumi.Input['FileSystemHsmSettingArgs']]):
+    def hsm_setting(self, value: pulumi.Input[Optional['FileSystemHsmSettingArgs']]):
         pulumi.set(self, "hsm_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FileSystemIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FileSystemIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FileSystemIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FileSystemIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['FileSystemMaintenanceWindowArgs']]:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['FileSystemMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="mgsAddress")
-    def mgs_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgs_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address of Managed Lustre File System Services.
         """
         return pulumi.get(self, "mgs_address")
 
     @mgs_address.setter
-    def mgs_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgs_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgs_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquash")
-    def root_squash(self) -> Optional[pulumi.Input['FileSystemRootSquashArgs']]:
+    def root_squash(self) -> pulumi.Input[Optional['FileSystemRootSquashArgs']]:
         """
         A `root_squash` block as defined below.
         """
         return pulumi.get(self, "root_squash")
 
     @root_squash.setter
-    def root_squash(self, value: Optional[pulumi.Input['FileSystemRootSquashArgs']]):
+    def root_squash(self, value: pulumi.Input[Optional['FileSystemRootSquashArgs']]):
         pulumi.set(self, "root_squash", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacityInTb")
-    def storage_capacity_in_tb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity_in_tb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_capacity_in_tb")
 
     @storage_capacity_in_tb.setter
-    def storage_capacity_in_tb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity_in_tb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity_in_tb", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -476,19 +476,19 @@ class FileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
-                 hsm_setting: Optional[pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash: Optional[pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
+                 hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Managed Lustre File System.
@@ -633,19 +633,19 @@ class FileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
-                 hsm_setting: Optional[pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash: Optional[pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
+                 hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -691,20 +691,20 @@ class FileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            encryption_key: Optional[pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
-            hsm_setting: Optional[pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_window: Optional[pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
-            mgs_address: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            root_squash: Optional[pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_capacity_in_tb: Optional[pulumi.Input[_builtins.int]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FileSystem':
+            encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
+            hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
+            mgs_address: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FileSystem':
         """
         Get an existing FileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

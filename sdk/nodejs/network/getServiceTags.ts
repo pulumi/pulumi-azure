@@ -129,7 +129,7 @@ export interface GetServiceTagsOutputArgs {
     /**
      * Changes the scope of the service tags. Can be any value that is also valid for `location`. If this field is empty then all address prefixes are considered instead of only location specific ones.
      */
-    locationFilter?: pulumi.Input<string>;
+    locationFilter?: pulumi.Input<string | undefined>;
     /**
      * The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
      */

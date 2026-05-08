@@ -181,55 +181,55 @@ export interface ServerState {
     /**
      * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
-    customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey | undefined>;
     /**
      * The Fluid tenantId for this server.
      */
-    frsTenantId?: pulumi.Input<string>;
+    frsTenantId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.fluidrelay.ServerIdentity>;
+    identity?: pulumi.Input<inputs.fluidrelay.ServerIdentity | undefined>;
     /**
      * The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
-    ordererEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    ordererEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The primary key for this server.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary key for this server.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * An array of service endpoints for this Fluid Relay Server.
      */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
-    storageEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    storageEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
      */
-    storageSku?: pulumi.Input<string>;
+    storageSku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Fluid Relay Server.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -239,19 +239,19 @@ export interface ServerArgs {
     /**
      * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
-    customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.fluidrelay.ServerIdentity>;
+    identity?: pulumi.Input<inputs.fluidrelay.ServerIdentity | undefined>;
     /**
      * The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
@@ -259,9 +259,9 @@ export interface ServerArgs {
     /**
      * Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
      */
-    storageSku?: pulumi.Input<string>;
+    storageSku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Fluid Relay Server.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

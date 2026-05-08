@@ -200,8 +200,8 @@ def get_network_manager_ipam_pool(name: Optional[_builtins.str] = None,
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'),
         parent_pool_name=pulumi.get(__ret__, 'parent_pool_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_manager_ipam_pool_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_manager_ipam_pool_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkManagerIpamPoolResult]:
     """
     Use this data source to access information about an existing Network Manager IPAM Pool.

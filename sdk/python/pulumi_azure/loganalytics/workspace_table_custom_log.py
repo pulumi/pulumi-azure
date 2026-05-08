@@ -23,12 +23,12 @@ class WorkspaceTableCustomLogArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]],
                  workspace_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a WorkspaceTableCustomLog resource.
 
@@ -88,31 +88,31 @@ class WorkspaceTableCustomLogArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the table.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the table.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
 
@@ -121,12 +121,12 @@ class WorkspaceTableCustomLogArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
@@ -135,12 +135,12 @@ class WorkspaceTableCustomLogArgs:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's retention in days. Possible values range between `4` and `730`.
 
@@ -149,35 +149,35 @@ class WorkspaceTableCustomLogArgs:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRetentionInDays")
-    def total_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
         """
         return pulumi.get(self, "total_retention_in_days")
 
     @total_retention_in_days.setter
-    def total_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_retention_in_days", value)
 
 
 @pulumi.input_type
 class _WorkspaceTableCustomLogState:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 solutions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 standard_columns: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogStandardColumnArgs']]]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 solutions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 standard_columns: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceTableCustomLogStandardColumnArgs']]]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceTableCustomLog resources.
 
@@ -221,43 +221,43 @@ class _WorkspaceTableCustomLogState:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]]]:
         """
         One or more `column` blocks as defined below.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the table.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the table.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
 
@@ -266,12 +266,12 @@ class _WorkspaceTableCustomLogState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
@@ -280,12 +280,12 @@ class _WorkspaceTableCustomLogState:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's retention in days. Possible values range between `4` and `730`.
 
@@ -294,55 +294,55 @@ class _WorkspaceTableCustomLogState:
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def solutions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of solutions associated with the table.
         """
         return pulumi.get(self, "solutions")
 
     @solutions.setter
-    def solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def solutions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "solutions", value)
 
     @_builtins.property
     @pulumi.getter(name="standardColumns")
-    def standard_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogStandardColumnArgs']]]]:
+    def standard_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceTableCustomLogStandardColumnArgs']]]]:
         """
         One or more `standard_column` blocks as defined below.
         """
         return pulumi.get(self, "standard_columns")
 
     @standard_columns.setter
-    def standard_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogStandardColumnArgs']]]]):
+    def standard_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceTableCustomLogStandardColumnArgs']]]]):
         pulumi.set(self, "standard_columns", value)
 
     @_builtins.property
     @pulumi.getter(name="totalRetentionInDays")
-    def total_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
         """
         return pulumi.get(self, "total_retention_in_days")
 
     @total_retention_in_days.setter
-    def total_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object ID of the Log Analytics Workspace that contains the table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -352,14 +352,14 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Custom Log Table in a Log Analytics (formally Operational Insights) Workspace.
@@ -485,14 +485,14 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -526,16 +526,16 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            solutions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            standard_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogStandardColumnArgs', 'WorkspaceTableCustomLogStandardColumnArgsDict']]]]] = None,
-            total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceTableCustomLog':
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            solutions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            standard_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogStandardColumnArgs', 'WorkspaceTableCustomLogStandardColumnArgsDict']]]]] = None,
+            total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceTableCustomLog':
         """
         Get an existing WorkspaceTableCustomLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

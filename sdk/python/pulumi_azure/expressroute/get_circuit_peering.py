@@ -252,9 +252,9 @@ def get_circuit_peering(express_route_circuit_name: Optional[_builtins.str] = No
         secondary_peer_address_prefix=pulumi.get(__ret__, 'secondary_peer_address_prefix'),
         shared_key=pulumi.get(__ret__, 'shared_key'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-def get_circuit_peering_output(express_route_circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               peering_type: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_circuit_peering_output(express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               peering_type: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCircuitPeeringResult]:
     """
     Use this data source to access information about an existing ExpressRoute Circuit Peering.

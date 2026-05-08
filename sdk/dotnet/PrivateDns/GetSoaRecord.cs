@@ -26,7 +26,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azurerm.Index.PrivateDnsSoaRecord("example", new()
+        ///     var example = new Azurerm.PrivateDnsSoaRecord("example", new()
         ///     {
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azurerm.Index.PrivateDnsSoaRecord("example", new()
+        ///     var example = new Azurerm.PrivateDnsSoaRecord("example", new()
         ///     {
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azurerm.Index.PrivateDnsSoaRecord("example", new()
+        ///     var example = new Azurerm.PrivateDnsSoaRecord("example", new()
         ///     {
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",

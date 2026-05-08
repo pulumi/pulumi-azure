@@ -22,27 +22,27 @@ __all__ = ['MongoClusterArgs', 'MongoCluster']
 class MongoClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compute_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['MongoClusterCustomerManagedKeyArgs']] = None,
-                 data_api_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['MongoClusterIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preview_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input['MongoClusterRestoreArgs']] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']] = None,
+                 data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['MongoClusterIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional['MongoClusterRestoreArgs']] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MongoCluster resource.
 
@@ -135,79 +135,79 @@ class MongoClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `administrator_username` for the MongoDB Cluster.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
-    def administrator_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorUsername")
-    def administrator_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_username")
 
     @administrator_username.setter
-    def administrator_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_username", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
-    def authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         """
         return pulumi.get(self, "authentication_methods")
 
     @authentication_methods.setter
-    def authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="computeTier")
-    def compute_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         """
         return pulumi.get(self, "compute_tier")
 
     @compute_tier.setter
-    def compute_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['MongoClusterCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['MongoClusterCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dataApiModeEnabled")
-    def data_api_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_api_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
 
@@ -216,24 +216,24 @@ class MongoClusterArgs:
         return pulumi.get(self, "data_api_mode_enabled")
 
     @data_api_mode_enabled.setter
-    def data_api_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_api_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_api_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityMode")
-    def high_availability_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def high_availability_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         """
         return pulumi.get(self, "high_availability_mode")
 
     @high_availability_mode.setter
-    def high_availability_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def high_availability_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "high_availability_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MongoClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MongoClusterIdentityArgs']]:
         """
         An `identity` block as detailed below.
 
@@ -242,60 +242,60 @@ class MongoClusterArgs:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MongoClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MongoClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="previewFeatures")
-    def preview_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def preview_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "preview_features")
 
     @preview_features.setter
-    def preview_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def preview_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preview_features", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input['MongoClusterRestoreArgs']]:
+    def restore(self) -> pulumi.Input[Optional['MongoClusterRestoreArgs']]:
         """
         A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 
@@ -304,84 +304,84 @@ class MongoClusterArgs:
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input['MongoClusterRestoreArgs']]):
+    def restore(self, value: pulumi.Input[Optional['MongoClusterRestoreArgs']]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shard_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLocation")
-    def source_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_location")
 
     @source_location.setter
-    def source_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_location", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceServerId")
-    def source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_server_id")
 
     @source_server_id.setter
-    def source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSizeInGb")
-    def storage_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the data disk space for the MongoDB Cluster.
         """
         return pulumi.get(self, "storage_size_in_gb")
 
     @storage_size_in_gb.setter
-    def storage_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the MongoDB Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 
@@ -390,36 +390,36 @@ class MongoClusterArgs:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _MongoClusterState:
     def __init__(__self__, *,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compute_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['MongoClusterCustomerManagedKeyArgs']] = None,
-                 data_api_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['MongoClusterIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preview_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input['MongoClusterRestoreArgs']] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']] = None,
+                 data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['MongoClusterIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional['MongoClusterRestoreArgs']] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MongoCluster resources.
 
@@ -504,91 +504,91 @@ class _MongoClusterState:
 
     @_builtins.property
     @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `administrator_username` for the MongoDB Cluster.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
-    def administrator_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorUsername")
-    def administrator_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_username")
 
     @administrator_username.setter
-    def administrator_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_username", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
-    def authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         """
         return pulumi.get(self, "authentication_methods")
 
     @authentication_methods.setter
-    def authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="computeTier")
-    def compute_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         """
         return pulumi.get(self, "compute_tier")
 
     @compute_tier.setter
-    def compute_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]:
         """
         One or more `connection_strings` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['MongoClusterCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['MongoClusterCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['MongoClusterCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dataApiModeEnabled")
-    def data_api_mode_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def data_api_mode_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
 
@@ -597,24 +597,24 @@ class _MongoClusterState:
         return pulumi.get(self, "data_api_mode_enabled")
 
     @data_api_mode_enabled.setter
-    def data_api_mode_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def data_api_mode_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "data_api_mode_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityMode")
-    def high_availability_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def high_availability_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         """
         return pulumi.get(self, "high_availability_mode")
 
     @high_availability_mode.setter
-    def high_availability_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def high_availability_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "high_availability_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['MongoClusterIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['MongoClusterIdentityArgs']]:
         """
         An `identity` block as detailed below.
 
@@ -623,72 +623,72 @@ class _MongoClusterState:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['MongoClusterIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['MongoClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="previewFeatures")
-    def preview_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def preview_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "preview_features")
 
     @preview_features.setter
-    def preview_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def preview_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preview_features", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input['MongoClusterRestoreArgs']]:
+    def restore(self) -> pulumi.Input[Optional['MongoClusterRestoreArgs']]:
         """
         A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
 
@@ -697,84 +697,84 @@ class _MongoClusterState:
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input['MongoClusterRestoreArgs']]):
+    def restore(self, value: pulumi.Input[Optional['MongoClusterRestoreArgs']]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shard_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceLocation")
-    def source_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_location")
 
     @source_location.setter
-    def source_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_location", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceServerId")
-    def source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_server_id")
 
     @source_server_id.setter
-    def source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSizeInGb")
-    def storage_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the data disk space for the MongoDB Cluster.
         """
         return pulumi.get(self, "storage_size_in_gb")
 
     @storage_size_in_gb.setter
-    def storage_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the MongoDB Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 
@@ -783,7 +783,7 @@ class _MongoClusterState:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -798,28 +798,28 @@ class MongoCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compute_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
-                 data_api_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preview_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
+                 data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MongoDB Cluster using vCore Architecture.
@@ -957,28 +957,28 @@ class MongoCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compute_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
-                 data_api_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preview_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
+                 data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""MongoCluster is deprecated: azure.cosmosdb/mongocluster.MongoCluster has been deprecated in favor of azure.mongocluster/mongocluster.MongoCluster""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1028,29 +1028,29 @@ class MongoCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_username: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            compute_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]]] = None,
-            create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
-            data_api_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            high_availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            preview_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            restore: Optional[pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
-            shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-            source_location: Optional[pulumi.Input[_builtins.str]] = None,
-            source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'MongoCluster':
+            administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
+            data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
+            shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+            source_location: pulumi.Input[Optional[_builtins.str]] = None,
+            source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'MongoCluster':
         """
         Get an existing MongoCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

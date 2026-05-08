@@ -25,12 +25,12 @@ class PrivateCloudArgs:
                  network_subnet_cidr: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 internet_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateCloud resource.
 
@@ -115,7 +115,7 @@ class PrivateCloudArgs:
 
     @_builtins.property
     @pulumi.getter(name="internetConnectionEnabled")
-    def internet_connection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_connection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
         > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
@@ -123,92 +123,92 @@ class PrivateCloudArgs:
         return pulumi.get(self, "internet_connection_enabled")
 
     @internet_connection_enabled.setter
-    def internet_connection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_connection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_connection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nsxtPassword")
-    def nsxt_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nsxt_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "nsxt_password")
 
     @nsxt_password.setter
-    def nsxt_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nsxt_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsxt_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vcenterPassword")
-    def vcenter_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vcenter_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "vcenter_password")
 
     @vcenter_password.setter
-    def vcenter_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vcenter_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vcenter_password", value)
 
 
 @pulumi.input_type
 class _PrivateCloudState:
     def __init__(__self__, *,
-                 circuits: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]] = None,
-                 hcx_cloud_manager_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 internet_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']] = None,
-                 management_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_manager_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 vcsa_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 vmotion_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 circuits: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]] = None,
+                 hcx_cloud_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_cluster: pulumi.Input[Optional['PrivateCloudManagementClusterArgs']] = None,
+                 management_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcsa_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmotion_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateCloud resources.
 
@@ -275,31 +275,31 @@ class _PrivateCloudState:
 
     @_builtins.property
     @pulumi.getter
-    def circuits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]:
+    def circuits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]:
         """
         A `circuit` block as defined below.
         """
         return pulumi.get(self, "circuits")
 
     @circuits.setter
-    def circuits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]):
+    def circuits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]):
         pulumi.set(self, "circuits", value)
 
     @_builtins.property
     @pulumi.getter(name="hcxCloudManagerEndpoint")
-    def hcx_cloud_manager_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hcx_cloud_manager_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint for the VMware HCX Cloud Manager.
         """
         return pulumi.get(self, "hcx_cloud_manager_endpoint")
 
     @hcx_cloud_manager_endpoint.setter
-    def hcx_cloud_manager_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hcx_cloud_manager_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hcx_cloud_manager_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="internetConnectionEnabled")
-    def internet_connection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_connection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
         > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
@@ -307,24 +307,24 @@ class _PrivateCloudState:
         return pulumi.get(self, "internet_connection_enabled")
 
     @internet_connection_enabled.setter
-    def internet_connection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_connection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_connection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementCluster")
-    def management_cluster(self) -> Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]:
+    def management_cluster(self) -> pulumi.Input[Optional['PrivateCloudManagementClusterArgs']]:
         """
         A `management_cluster` block as defined below.
         > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
@@ -332,175 +332,175 @@ class _PrivateCloudState:
         return pulumi.get(self, "management_cluster")
 
     @management_cluster.setter
-    def management_cluster(self, value: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]):
+    def management_cluster(self, value: pulumi.Input[Optional['PrivateCloudManagementClusterArgs']]):
         pulumi.set(self, "management_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="managementSubnetCidr")
-    def management_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network used to access VMware vCenter Server and NSX Manager.
         """
         return pulumi.get(self, "management_subnet_cidr")
 
     @management_subnet_cidr.setter
-    def management_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSubnetCidr")
-    def network_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "network_subnet_cidr")
 
     @network_subnet_cidr.setter
-    def network_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="nsxtCertificateThumbprint")
-    def nsxt_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nsxt_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint of the VMware NSX Manager SSL certificate.
         """
         return pulumi.get(self, "nsxt_certificate_thumbprint")
 
     @nsxt_certificate_thumbprint.setter
-    def nsxt_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nsxt_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsxt_certificate_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="nsxtManagerEndpoint")
-    def nsxt_manager_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nsxt_manager_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint for the VMware NSX Manager.
         """
         return pulumi.get(self, "nsxt_manager_endpoint")
 
     @nsxt_manager_endpoint.setter
-    def nsxt_manager_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nsxt_manager_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsxt_manager_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="nsxtPassword")
-    def nsxt_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nsxt_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "nsxt_password")
 
     @nsxt_password.setter
-    def nsxt_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nsxt_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsxt_password", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningSubnetCidr")
-    def provisioning_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network which is used for virtual machine cold migration, cloning, and snapshot migration.
         """
         return pulumi.get(self, "provisioning_subnet_cidr")
 
     @provisioning_subnet_cidr.setter
-    def provisioning_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_subnet_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vcenterCertificateThumbprint")
-    def vcenter_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vcenter_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint of the VMware vCenter Server SSL certificate.
         """
         return pulumi.get(self, "vcenter_certificate_thumbprint")
 
     @vcenter_certificate_thumbprint.setter
-    def vcenter_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vcenter_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vcenter_certificate_thumbprint", value)
 
     @_builtins.property
     @pulumi.getter(name="vcenterPassword")
-    def vcenter_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vcenter_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         """
         return pulumi.get(self, "vcenter_password")
 
     @vcenter_password.setter
-    def vcenter_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vcenter_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vcenter_password", value)
 
     @_builtins.property
     @pulumi.getter(name="vcsaEndpoint")
-    def vcsa_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vcsa_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint for VMware vCenter Server Appliance.
         """
         return pulumi.get(self, "vcsa_endpoint")
 
     @vcsa_endpoint.setter
-    def vcsa_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vcsa_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vcsa_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="vmotionSubnetCidr")
-    def vmotion_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vmotion_subnet_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network which is used for live migration of virtual machines.
         """
         return pulumi.get(self, "vmotion_subnet_cidr")
 
     @vmotion_subnet_cidr.setter
-    def vmotion_subnet_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vmotion_subnet_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vmotion_subnet_cidr", value)
 
 
@@ -510,16 +510,16 @@ class PrivateCloud(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_cluster: Optional[pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure VMware Solution Private Cloud.
@@ -645,16 +645,16 @@ class PrivateCloud(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_cluster: Optional[pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -703,25 +703,25 @@ class PrivateCloud(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            circuits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict']]]]] = None,
-            hcx_cloud_manager_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            internet_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            management_cluster: Optional[pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
-            management_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            nsxt_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-            nsxt_manager_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            nsxt_password: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vcenter_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None,
-            vcenter_password: Optional[pulumi.Input[_builtins.str]] = None,
-            vcsa_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            vmotion_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrivateCloud':
+            circuits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict']]]]] = None,
+            hcx_cloud_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
+            management_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            nsxt_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            nsxt_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vcenter_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None,
+            vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
+            vcsa_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            vmotion_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrivateCloud':
         """
         Get an existing PrivateCloud resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

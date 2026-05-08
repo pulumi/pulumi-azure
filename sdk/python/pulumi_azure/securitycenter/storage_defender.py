@@ -20,11 +20,11 @@ __all__ = ['StorageDefenderArgs', 'StorageDefender']
 class StorageDefenderArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 malware_scanning_on_upload_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_subscription_settings_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scan_results_event_grid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_data_discovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 malware_scanning_on_upload_cap_gb_per_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 malware_scanning_on_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_subscription_settings_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scan_results_event_grid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_data_discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StorageDefender resource.
 
@@ -61,74 +61,74 @@ class StorageDefenderArgs:
 
     @_builtins.property
     @pulumi.getter(name="malwareScanningOnUploadCapGbPerMonth")
-    def malware_scanning_on_upload_cap_gb_per_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def malware_scanning_on_upload_cap_gb_per_month(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         """
         return pulumi.get(self, "malware_scanning_on_upload_cap_gb_per_month")
 
     @malware_scanning_on_upload_cap_gb_per_month.setter
-    def malware_scanning_on_upload_cap_gb_per_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def malware_scanning_on_upload_cap_gb_per_month(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "malware_scanning_on_upload_cap_gb_per_month", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareScanningOnUploadEnabled")
-    def malware_scanning_on_upload_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def malware_scanning_on_upload_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether On Upload malware scanning should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "malware_scanning_on_upload_enabled")
 
     @malware_scanning_on_upload_enabled.setter
-    def malware_scanning_on_upload_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def malware_scanning_on_upload_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "malware_scanning_on_upload_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideSubscriptionSettingsEnabled")
-    def override_subscription_settings_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_subscription_settings_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
         """
         return pulumi.get(self, "override_subscription_settings_enabled")
 
     @override_subscription_settings_enabled.setter
-    def override_subscription_settings_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_subscription_settings_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_subscription_settings_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="scanResultsEventGridTopicId")
-    def scan_results_event_grid_topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scan_results_event_grid_topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         """
         return pulumi.get(self, "scan_results_event_grid_topic_id")
 
     @scan_results_event_grid_topic_id.setter
-    def scan_results_event_grid_topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scan_results_event_grid_topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scan_results_event_grid_topic_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveDataDiscoveryEnabled")
-    def sensitive_data_discovery_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sensitive_data_discovery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "sensitive_data_discovery_enabled")
 
     @sensitive_data_discovery_enabled.setter
-    def sensitive_data_discovery_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sensitive_data_discovery_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sensitive_data_discovery_enabled", value)
 
 
 @pulumi.input_type
 class _StorageDefenderState:
     def __init__(__self__, *,
-                 malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 malware_scanning_on_upload_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_subscription_settings_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scan_results_event_grid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_data_discovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 malware_scanning_on_upload_cap_gb_per_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 malware_scanning_on_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_subscription_settings_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scan_results_event_grid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_data_discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageDefender resources.
 
@@ -154,74 +154,74 @@ class _StorageDefenderState:
 
     @_builtins.property
     @pulumi.getter(name="malwareScanningOnUploadCapGbPerMonth")
-    def malware_scanning_on_upload_cap_gb_per_month(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def malware_scanning_on_upload_cap_gb_per_month(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         """
         return pulumi.get(self, "malware_scanning_on_upload_cap_gb_per_month")
 
     @malware_scanning_on_upload_cap_gb_per_month.setter
-    def malware_scanning_on_upload_cap_gb_per_month(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def malware_scanning_on_upload_cap_gb_per_month(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "malware_scanning_on_upload_cap_gb_per_month", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareScanningOnUploadEnabled")
-    def malware_scanning_on_upload_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def malware_scanning_on_upload_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether On Upload malware scanning should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "malware_scanning_on_upload_enabled")
 
     @malware_scanning_on_upload_enabled.setter
-    def malware_scanning_on_upload_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def malware_scanning_on_upload_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "malware_scanning_on_upload_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideSubscriptionSettingsEnabled")
-    def override_subscription_settings_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_subscription_settings_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
         """
         return pulumi.get(self, "override_subscription_settings_enabled")
 
     @override_subscription_settings_enabled.setter
-    def override_subscription_settings_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_subscription_settings_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_subscription_settings_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="scanResultsEventGridTopicId")
-    def scan_results_event_grid_topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scan_results_event_grid_topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         """
         return pulumi.get(self, "scan_results_event_grid_topic_id")
 
     @scan_results_event_grid_topic_id.setter
-    def scan_results_event_grid_topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scan_results_event_grid_topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scan_results_event_grid_topic_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveDataDiscoveryEnabled")
-    def sensitive_data_discovery_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sensitive_data_discovery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "sensitive_data_discovery_enabled")
 
     @sensitive_data_discovery_enabled.setter
-    def sensitive_data_discovery_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sensitive_data_discovery_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sensitive_data_discovery_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -231,12 +231,12 @@ class StorageDefender(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 malware_scanning_on_upload_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_subscription_settings_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scan_results_event_grid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_data_discovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 malware_scanning_on_upload_cap_gb_per_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 malware_scanning_on_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_subscription_settings_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scan_results_event_grid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_data_discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Defender for Storage.
@@ -342,12 +342,12 @@ class StorageDefender(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[_builtins.int]] = None,
-                 malware_scanning_on_upload_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 override_subscription_settings_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scan_results_event_grid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_data_discovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 malware_scanning_on_upload_cap_gb_per_month: pulumi.Input[Optional[_builtins.int]] = None,
+                 malware_scanning_on_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 override_subscription_settings_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scan_results_event_grid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_data_discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,12 +375,12 @@ class StorageDefender(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[_builtins.int]] = None,
-            malware_scanning_on_upload_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            override_subscription_settings_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            scan_results_event_grid_topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sensitive_data_discovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'StorageDefender':
+            malware_scanning_on_upload_cap_gb_per_month: pulumi.Input[Optional[_builtins.int]] = None,
+            malware_scanning_on_upload_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            override_subscription_settings_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            scan_results_event_grid_topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_data_discovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'StorageDefender':
         """
         Get an existing StorageDefender resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

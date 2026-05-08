@@ -116,15 +116,15 @@ export interface GetPublicIPsOutputArgs {
     /**
      * The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
      */
-    allocationType?: pulumi.Input<string>;
+    allocationType?: pulumi.Input<string | undefined>;
     /**
      * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
      */
-    attachmentStatus?: pulumi.Input<string>;
+    attachmentStatus?: pulumi.Input<string | undefined>;
     /**
      * A prefix match used for the IP Addresses `name` field, case sensitive.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the resource group.
      */

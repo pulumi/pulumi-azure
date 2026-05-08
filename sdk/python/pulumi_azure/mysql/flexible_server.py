@@ -22,29 +22,29 @@ __all__ = ['FlexibleServerArgs', 'FlexibleServer']
 class FlexibleServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
-                 delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']] = None,
-                 identity: Optional[pulumi.Input['FlexibleServerIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_restore_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input['FlexibleServerStorageArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['FlexibleServerCustomerManagedKeyArgs']] = None,
+                 delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability: pulumi.Input[Optional['FlexibleServerHighAvailabilityArgs']] = None,
+                 identity: pulumi.Input[Optional['FlexibleServerIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['FlexibleServerMaintenanceWindowArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional['FlexibleServerStorageArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServer resource.
 
@@ -159,31 +159,31 @@ class FlexibleServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `administrator_login` for the MySQL Flexible Server.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
-    def administrator_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorPasswordWoVersion")
-    def administrator_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def administrator_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
 
@@ -192,24 +192,24 @@ class FlexibleServerArgs:
         return pulumi.get(self, "administrator_password_wo_version")
 
     @administrator_password_wo_version.setter
-    def administrator_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def administrator_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "administrator_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
@@ -222,12 +222,12 @@ class FlexibleServerArgs:
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['FlexibleServerCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below.
 
@@ -236,108 +236,108 @@ class FlexibleServerArgs:
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['FlexibleServerCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedSubnetId")
-    def delegated_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "delegated_subnet_id")
 
     @delegated_subnet_id.setter
-    def delegated_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="geoRedundantBackupEnabled")
-    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geo_redundant_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "geo_redundant_backup_enabled")
 
     @geo_redundant_backup_enabled.setter
-    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geo_redundant_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geo_redundant_backup_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailability")
-    def high_availability(self) -> Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']]:
+    def high_availability(self) -> pulumi.Input[Optional['FlexibleServerHighAvailabilityArgs']]:
         """
         A `high_availability` block as defined below.
         """
         return pulumi.get(self, "high_availability")
 
     @high_availability.setter
-    def high_availability(self, value: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']]):
+    def high_availability(self, value: pulumi.Input[Optional['FlexibleServerHighAvailabilityArgs']]):
         pulumi.set(self, "high_availability", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FlexibleServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FlexibleServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FlexibleServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FlexibleServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['FlexibleServerMaintenanceWindowArgs']]:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['FlexibleServerMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRestoreTimeInUtc")
-    def point_in_time_restore_time_in_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def point_in_time_restore_time_in_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "point_in_time_restore_time_in_utc")
 
     @point_in_time_restore_time_in_utc.setter
-    def point_in_time_restore_time_in_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def point_in_time_restore_time_in_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "point_in_time_restore_time_in_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneId")
-    def private_dns_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 
@@ -346,12 +346,12 @@ class FlexibleServerArgs:
         return pulumi.get(self, "private_dns_zone_id")
 
     @private_dns_zone_id.setter
-    def private_dns_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
 
@@ -360,12 +360,12 @@ class FlexibleServerArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationRole")
-    def replication_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replication role. Possible value is `None`.
 
@@ -374,12 +374,12 @@ class FlexibleServerArgs:
         return pulumi.get(self, "replication_role")
 
     @replication_role.setter
-    def replication_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_role", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Name for the MySQL Flexible Server.
 
@@ -388,12 +388,12 @@ class FlexibleServerArgs:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceServerId")
-    def source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
@@ -402,48 +402,48 @@ class FlexibleServerArgs:
         return pulumi.get(self, "source_server_id")
 
     @source_server_id.setter
-    def source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['FlexibleServerStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['FlexibleServerStorageArgs']]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['FlexibleServerStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['FlexibleServerStorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the MySQL Flexible Server.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 
@@ -454,40 +454,40 @@ class FlexibleServerArgs:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type
 class _FlexibleServerState:
     def __init__(__self__, *,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
-                 delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']] = None,
-                 identity: Optional[pulumi.Input['FlexibleServerIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_restore_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replica_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 replication_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input['FlexibleServerStorageArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['FlexibleServerCustomerManagedKeyArgs']] = None,
+                 delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability: pulumi.Input[Optional['FlexibleServerHighAvailabilityArgs']] = None,
+                 identity: pulumi.Input[Optional['FlexibleServerIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional['FlexibleServerMaintenanceWindowArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replica_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 replication_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional['FlexibleServerStorageArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServer resources.
 
@@ -599,31 +599,31 @@ class _FlexibleServerState:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorPassword")
-    def administrator_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `administrator_login` for the MySQL Flexible Server.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
-    def administrator_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorPasswordWoVersion")
-    def administrator_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def administrator_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
 
@@ -632,24 +632,24 @@ class _FlexibleServerState:
         return pulumi.get(self, "administrator_password_wo_version")
 
     @administrator_password_wo_version.setter
-    def administrator_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def administrator_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "administrator_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
@@ -662,12 +662,12 @@ class _FlexibleServerState:
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['FlexibleServerCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as defined below.
 
@@ -676,120 +676,120 @@ class _FlexibleServerState:
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['FlexibleServerCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedSubnetId")
-    def delegated_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "delegated_subnet_id")
 
     @delegated_subnet_id.setter
-    def delegated_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the MySQL Flexible Server.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="geoRedundantBackupEnabled")
-    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geo_redundant_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "geo_redundant_backup_enabled")
 
     @geo_redundant_backup_enabled.setter
-    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geo_redundant_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geo_redundant_backup_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailability")
-    def high_availability(self) -> Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']]:
+    def high_availability(self) -> pulumi.Input[Optional['FlexibleServerHighAvailabilityArgs']]:
         """
         A `high_availability` block as defined below.
         """
         return pulumi.get(self, "high_availability")
 
     @high_availability.setter
-    def high_availability(self, value: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']]):
+    def high_availability(self, value: pulumi.Input[Optional['FlexibleServerHighAvailabilityArgs']]):
         pulumi.set(self, "high_availability", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FlexibleServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FlexibleServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FlexibleServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FlexibleServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> pulumi.Input[Optional['FlexibleServerMaintenanceWindowArgs']]:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: pulumi.Input[Optional['FlexibleServerMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRestoreTimeInUtc")
-    def point_in_time_restore_time_in_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def point_in_time_restore_time_in_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "point_in_time_restore_time_in_utc")
 
     @point_in_time_restore_time_in_utc.setter
-    def point_in_time_restore_time_in_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def point_in_time_restore_time_in_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "point_in_time_restore_time_in_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsZoneId")
-    def private_dns_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 
@@ -798,12 +798,12 @@ class _FlexibleServerState:
         return pulumi.get(self, "private_dns_zone_id")
 
     @private_dns_zone_id.setter
-    def private_dns_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
 
@@ -812,33 +812,33 @@ class _FlexibleServerState:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of replicas that a primary MySQL Flexible Server can have.
         """
         return pulumi.get(self, "replica_capacity")
 
     @replica_capacity.setter
-    def replica_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationRole")
-    def replication_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replication role. Possible value is `None`.
 
@@ -847,24 +847,24 @@ class _FlexibleServerState:
         return pulumi.get(self, "replication_role")
 
     @replication_role.setter
-    def replication_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_role", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU Name for the MySQL Flexible Server.
 
@@ -873,12 +873,12 @@ class _FlexibleServerState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceServerId")
-    def source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 
@@ -887,48 +887,48 @@ class _FlexibleServerState:
         return pulumi.get(self, "source_server_id")
 
     @source_server_id.setter
-    def source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['FlexibleServerStorageArgs']]:
+    def storage(self) -> pulumi.Input[Optional['FlexibleServerStorageArgs']]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['FlexibleServerStorageArgs']]):
+    def storage(self, value: pulumi.Input[Optional['FlexibleServerStorageArgs']]):
         pulumi.set(self, "storage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the MySQL Flexible Server.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 
@@ -939,7 +939,7 @@ class _FlexibleServerState:
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -949,30 +949,30 @@ class FlexibleServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
-                 delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability: Optional[pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_restore_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+                 delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MySQL Flexible Server.
@@ -1180,30 +1180,30 @@ class FlexibleServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
-                 delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 high_availability: Optional[pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_window: Optional[pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_restore_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage: Optional[pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+                 delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1254,33 +1254,33 @@ class FlexibleServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_password: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-            backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
-            delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            high_availability: Optional[pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_window: Optional[pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            point_in_time_restore_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-            private_dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            replica_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            replication_role: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage: Optional[pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'FlexibleServer':
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+            delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            replica_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            replication_role: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlexibleServer':
         """
         Get an existing FlexibleServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

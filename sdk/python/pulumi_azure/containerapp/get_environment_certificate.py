@@ -184,8 +184,8 @@ def get_environment_certificate(container_app_environment_id: Optional[_builtins
         subject_name=pulumi.get(__ret__, 'subject_name'),
         tags=pulumi.get(__ret__, 'tags'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'))
-def get_environment_certificate_output(container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_certificate_output(container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentCertificateResult]:
     """
     Use this data source to access information about an existing Container App Environment Certificate.

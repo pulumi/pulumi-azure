@@ -23,7 +23,7 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
                  managed_instance_id: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None):
+                 azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedInstanceActiveDirectoryAdministrator resource.
 
@@ -90,25 +90,25 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureadAuthenticationOnly")
-    def azuread_authentication_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azuread_authentication_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
         return pulumi.get(self, "azuread_authentication_only")
 
     @azuread_authentication_only.setter
-    def azuread_authentication_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azuread_authentication_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azuread_authentication_only", value)
 
 
 @pulumi.input_type
 class _ManagedInstanceActiveDirectoryAdministratorState:
     def __init__(__self__, *,
-                 azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceActiveDirectoryAdministrator resources.
 
@@ -131,62 +131,62 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
 
     @_builtins.property
     @pulumi.getter(name="azureadAuthenticationOnly")
-    def azuread_authentication_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def azuread_authentication_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
         return pulumi.get(self, "azuread_authentication_only")
 
     @azuread_authentication_only.setter
-    def azuread_authentication_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def azuread_authentication_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "azuread_authentication_only", value)
 
     @_builtins.property
     @pulumi.getter(name="loginUsername")
-    def login_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login name of the principal to set as the Managed Instance Administrator.
         """
         return pulumi.get(self, "login_username")
 
     @login_username.setter
-    def login_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_username", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceId")
-    def managed_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_instance_id")
 
     @managed_instance_id.setter
-    def managed_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Object ID of the principal to set as the Managed Instance Administrator.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory Tenant ID.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -196,11 +196,11 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allows you to set a user, group or service principal as the AAD Administrator for an Azure SQL Managed Instance.
@@ -371,11 +371,11 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 login_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,11 +410,11 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            login_username: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedInstanceActiveDirectoryAdministrator':
+            azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            login_username: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedInstanceActiveDirectoryAdministrator':
         """
         Get an existing ManagedInstanceActiveDirectoryAdministrator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

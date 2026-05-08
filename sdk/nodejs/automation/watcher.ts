@@ -208,47 +208,47 @@ export interface WatcherState {
     /**
      * The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
      */
-    automationAccountId?: pulumi.Input<string>;
+    automationAccountId?: pulumi.Input<string | undefined>;
     /**
      * A description of this Automation Watcher.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A string of etag assigned to this Automation Watcher.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Specify the frequency at which the watcher is invoked.
      */
-    executionFrequencyInSeconds?: pulumi.Input<number>;
+    executionFrequencyInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
      */
-    scriptName?: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
      */
-    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specify the name of the Hybrid work group the watcher will run on.
      */
-    scriptRunOn?: pulumi.Input<string>;
+    scriptRunOn?: pulumi.Input<string | undefined>;
     /**
      * The current status of the Automation Watcher.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Automation Watcher.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -262,11 +262,11 @@ export interface WatcherArgs {
     /**
      * A description of this Automation Watcher.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A string of etag assigned to this Automation Watcher.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Specify the frequency at which the watcher is invoked.
      */
@@ -274,11 +274,11 @@ export interface WatcherArgs {
     /**
      * The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
      */
@@ -286,7 +286,7 @@ export interface WatcherArgs {
     /**
      * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
      */
-    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specify the name of the Hybrid work group the watcher will run on.
      */
@@ -294,5 +294,5 @@ export interface WatcherArgs {
     /**
      * A mapping of tags which should be assigned to the Automation Watcher.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

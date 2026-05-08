@@ -169,31 +169,31 @@ export interface SharedPrivateLinkResourceState {
     /**
      * Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      *
      * > **Note:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
      */
-    subresourceName?: pulumi.Input<string>;
+    subresourceName?: pulumi.Input<string | undefined>;
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
      * > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
      */
-    webPubsubId?: pulumi.Input<string>;
+    webPubsubId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -203,11 +203,11 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      *

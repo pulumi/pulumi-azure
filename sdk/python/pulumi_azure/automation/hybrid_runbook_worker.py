@@ -103,16 +103,16 @@ class HybridRunbookWorkerArgs:
 @pulumi.input_type
 class _HybridRunbookWorkerState:
     def __init__(__self__, *,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_seen_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_seen_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HybridRunbookWorker resources.
 
@@ -150,122 +150,122 @@ class _HybridRunbookWorkerState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_account_name")
 
     @automation_account_name.setter
-    def automation_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of assigned machine.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="lastSeenDateTime")
-    def last_seen_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_seen_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last Heartbeat from the Worker.
         """
         return pulumi.get(self, "last_seen_date_time")
 
     @last_seen_date_time.setter
-    def last_seen_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_seen_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_seen_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationDateTime")
-    def registration_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registration_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The registration time of the worker machine.
         """
         return pulumi.get(self, "registration_date_time")
 
     @registration_date_time.setter
-    def registration_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registration_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmResourceId")
-    def vm_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vm_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "vm_resource_id")
 
     @vm_resource_id.setter
-    def vm_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vm_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vm_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workerGroupName")
-    def worker_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HybridWorker Group. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "worker_group_name")
 
     @worker_group_name.setter
-    def worker_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workerId")
-    def worker_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "worker_id")
 
     @worker_id.setter
-    def worker_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workerName")
-    def worker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of HybridWorker.
         """
         return pulumi.get(self, "worker_name")
 
     @worker_name.setter
-    def worker_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
         """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_type", value)
 
 
@@ -275,11 +275,11 @@ class HybridRunbookWorker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Automation Hybrid Runbook Worker.
@@ -476,11 +476,11 @@ class HybridRunbookWorker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -520,16 +520,16 @@ class HybridRunbookWorker(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ip: Optional[pulumi.Input[_builtins.str]] = None,
-            last_seen_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            registration_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            vm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            worker_id: Optional[pulumi.Input[_builtins.str]] = None,
-            worker_name: Optional[pulumi.Input[_builtins.str]] = None,
-            worker_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'HybridRunbookWorker':
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            last_seen_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_id: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_name: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'HybridRunbookWorker':
         """
         Get an existing HybridRunbookWorker resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

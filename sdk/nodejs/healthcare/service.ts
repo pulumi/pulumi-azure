@@ -212,59 +212,59 @@ export interface ServiceState {
     /**
      * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
      */
-    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration | undefined>;
     /**
      * Specifies the name of the storage account which the operation configuration information is exported to.
      */
-    configurationExportStorageAccountName?: pulumi.Input<string>;
+    configurationExportStorageAccountName?: pulumi.Input<string | undefined>;
     /**
      * A `corsConfiguration` block as defined below.
      */
-    corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
+    corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration | undefined>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      *
      * > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
-    cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
+    cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
-    cosmosdbThroughput?: pulumi.Input<number>;
+    cosmosdbThroughput?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.ServiceIdentity | undefined>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      *
      * > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -274,51 +274,51 @@ export interface ServiceArgs {
     /**
      * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
      */
-    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration | undefined>;
     /**
      * Specifies the name of the storage account which the operation configuration information is exported to.
      */
-    configurationExportStorageAccountName?: pulumi.Input<string>;
+    configurationExportStorageAccountName?: pulumi.Input<string | undefined>;
     /**
      * A `corsConfiguration` block as defined below.
      */
-    corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
+    corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration | undefined>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      *
      * > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
-    cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
+    cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
-    cosmosdbThroughput?: pulumi.Input<number>;
+    cosmosdbThroughput?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.ServiceIdentity | undefined>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      *
      * > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      */
@@ -326,5 +326,5 @@ export interface ServiceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

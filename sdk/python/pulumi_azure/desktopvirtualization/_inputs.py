@@ -26,21 +26,21 @@ __all__ = [
 ]
 
 class HostPoolScheduledAgentUpdatesArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
 
     > **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
     """
-    schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgsDict']]]]
+    schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]]
     """
     A `schedule` block as defined below. A maximum of two blocks can be added.
     """
-    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
     """
-    use_session_host_timezone: NotRequired[pulumi.Input[_builtins.bool]]
+    use_session_host_timezone: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
     """
@@ -48,10 +48,10 @@ class HostPoolScheduledAgentUpdatesArgsDict(TypedDict):
 @pulumi.input_type
 class HostPoolScheduledAgentUpdatesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_session_host_timezone: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_session_host_timezone: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
                
@@ -71,7 +71,7 @@ class HostPoolScheduledAgentUpdatesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
 
@@ -80,43 +80,43 @@ class HostPoolScheduledAgentUpdatesArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]:
         """
         A `schedule` block as defined below. A maximum of two blocks can be added.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="useSessionHostTimezone")
-    def use_session_host_timezone(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_session_host_timezone(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
         """
         return pulumi.get(self, "use_session_host_timezone")
 
     @use_session_host_timezone.setter
-    def use_session_host_timezone(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_session_host_timezone(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_session_host_timezone", value)
 
 
@@ -279,11 +279,11 @@ class ScalingPlanScheduleArgsDict(TypedDict):
     """
     The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
     """
-    ramp_up_capacity_threshold_percent: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_up_capacity_threshold_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
     """
-    ramp_up_minimum_hosts_percent: NotRequired[pulumi.Input[_builtins.int]]
+    ramp_up_minimum_hosts_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
     """
@@ -307,8 +307,8 @@ class ScalingPlanScheduleArgs:
                  ramp_down_wait_time_minutes: pulumi.Input[_builtins.int],
                  ramp_up_load_balancing_algorithm: pulumi.Input[_builtins.str],
                  ramp_up_start_time: pulumi.Input[_builtins.str],
-                 ramp_up_capacity_threshold_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 ramp_up_minimum_hosts_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 ramp_up_capacity_threshold_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 ramp_up_minimum_hosts_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
         :param pulumi.Input[_builtins.str] name: The name of the schedule.
@@ -544,26 +544,26 @@ class ScalingPlanScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="rampUpCapacityThresholdPercent")
-    def ramp_up_capacity_threshold_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_capacity_threshold_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
         """
         return pulumi.get(self, "ramp_up_capacity_threshold_percent")
 
     @ramp_up_capacity_threshold_percent.setter
-    def ramp_up_capacity_threshold_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_capacity_threshold_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_capacity_threshold_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="rampUpMinimumHostsPercent")
-    def ramp_up_minimum_hosts_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ramp_up_minimum_hosts_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
         """
         return pulumi.get(self, "ramp_up_minimum_hosts_percent")
 
     @ramp_up_minimum_hosts_percent.setter
-    def ramp_up_minimum_hosts_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ramp_up_minimum_hosts_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ramp_up_minimum_hosts_percent", value)
 
 

@@ -175,19 +175,19 @@ export interface LockState {
      *
      * > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    lockLevel?: pulumi.Input<string>;
+    lockLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -203,11 +203,11 @@ export interface LockArgs {
     /**
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
      */

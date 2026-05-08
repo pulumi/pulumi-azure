@@ -43,7 +43,7 @@ class RegistryTaskScheduleRunNowArgs:
 @pulumi.input_type
 class _RegistryTaskScheduleRunNowState:
     def __init__(__self__, *,
-                 container_registry_task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_registry_task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryTaskScheduleRunNow resources.
 
@@ -54,14 +54,14 @@ class _RegistryTaskScheduleRunNowState:
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryTaskId")
-    def container_registry_task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
         """
         return pulumi.get(self, "container_registry_task_id")
 
     @container_registry_task_id.setter
-    def container_registry_task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_task_id", value)
 
 
@@ -71,7 +71,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_task_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_task_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Runs a Container Registry Task Schedule.
@@ -178,7 +178,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_task_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_task_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -201,7 +201,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_registry_task_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RegistryTaskScheduleRunNow':
+            container_registry_task_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RegistryTaskScheduleRunNow':
         """
         Get an existing RegistryTaskScheduleRunNow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

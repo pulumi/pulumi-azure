@@ -205,9 +205,9 @@ def get_configuration_key(configuration_store_id: Optional[_builtins.str] = None
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'),
         vault_key_reference=pulumi.get(__ret__, 'vault_key_reference'))
-def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                                 label: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_configuration_key_output(configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                                 label: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationKeyResult]:
     """
     Use this data source to access information about an existing Azure App Configuration Key.

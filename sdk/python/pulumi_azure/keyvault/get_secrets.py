@@ -96,7 +96,7 @@ def get_secrets(key_vault_id: Optional[_builtins.str] = None,
     import pulumi_std as std
 
     example = azure.keyvault.get_secrets(key_vault_id=existing["id"])
-    example_get_secret = {__key: azure.keyvault.get_secret(name=__key,
+    example_get_secret = {str(__key): azure.keyvault.get_secret(name=str(__key),
         key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
@@ -115,7 +115,7 @@ def get_secrets(key_vault_id: Optional[_builtins.str] = None,
         key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
         names=pulumi.get(__ret__, 'names'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_secrets_output(key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_secrets_output(key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
@@ -128,7 +128,7 @@ def get_secrets_output(key_vault_id: Optional[pulumi.Input[_builtins.str]] = Non
     import pulumi_std as std
 
     example = azure.keyvault.get_secrets(key_vault_id=existing["id"])
-    example_get_secret = {__key: azure.keyvault.get_secret(name=__key,
+    example_get_secret = {str(__key): azure.keyvault.get_secret(name=str(__key),
         key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 

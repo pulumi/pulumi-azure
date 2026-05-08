@@ -22,12 +22,12 @@ class ManagedHardwareSecurityModuleKeyArgs:
                  key_opts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  key_type: pulumi.Input[_builtins.str],
                  managed_hsm_id: pulumi.Input[_builtins.str],
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleKey resource.
 
@@ -97,55 +97,55 @@ class ManagedHardwareSecurityModuleKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "curve")
 
     @curve.setter
-    def curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curve", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 
@@ -154,35 +154,35 @@ class ManagedHardwareSecurityModuleKeyArgs:
         return pulumi.get(self, "not_before_date")
 
     @not_before_date.setter
-    def not_before_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ManagedHardwareSecurityModuleKeyState:
     def __init__(__self__, *,
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 versioned_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 versioned_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleKey resources.
 
@@ -222,91 +222,91 @@ class _ManagedHardwareSecurityModuleKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def curve(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def curve(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "curve")
 
     @curve.setter
-    def curve(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def curve(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "curve", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="keyOpts")
-    def key_opts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def key_opts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "key_opts")
 
     @key_opts.setter
-    def key_opts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def key_opts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "key_opts", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmId")
-    def managed_hsm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_hsm_id")
 
     @managed_hsm_id.setter
-    def managed_hsm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 
@@ -315,31 +315,31 @@ class _ManagedHardwareSecurityModuleKeyState:
         return pulumi.get(self, "not_before_date")
 
     @not_before_date.setter
-    def not_before_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="versionedId")
-    def versioned_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versioned_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The versioned Key Vault Secret Managed Hardware Security Module Key ID.
         """
         return pulumi.get(self, "versioned_id")
 
     @versioned_id.setter
-    def versioned_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versioned_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versioned_id", value)
 
 
@@ -349,15 +349,15 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Key Vault Managed Hardware Security Module Key.
@@ -534,15 +534,15 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 curve: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 curve: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -578,16 +578,16 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            curve: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-            key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            key_size: Optional[pulumi.Input[_builtins.int]] = None,
-            key_type: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_hsm_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            not_before_date: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            versioned_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleKey':
+            curve: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            key_opts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_size: pulumi.Input[Optional[_builtins.int]] = None,
+            key_type: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            versioned_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleKey':
         """
         Get an existing ManagedHardwareSecurityModuleKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

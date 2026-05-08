@@ -299,8 +299,8 @@ def get_virtual_network_gateway(name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         vpn_client_configurations=pulumi.get(__ret__, 'vpn_client_configurations'),
         vpn_type=pulumi.get(__ret__, 'vpn_type'))
-def get_virtual_network_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_gateway_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
     """
     Use this data source to access information about an existing Virtual Network Gateway.

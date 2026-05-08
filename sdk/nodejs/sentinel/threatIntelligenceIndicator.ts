@@ -288,115 +288,115 @@ export interface ThreatIntelligenceIndicatorState {
     /**
      * Confidence levels of the Threat Intelligence Indicator.
      */
-    confidence?: pulumi.Input<number>;
+    confidence?: pulumi.Input<number | undefined>;
     /**
      * The creator of the Threat Intelligence Indicator.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The date of this Threat Intelligence Indicator created.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * Whether the Threat Intelligence entity is defanged?
      */
-    defanged?: pulumi.Input<boolean>;
+    defanged?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the Threat Intelligence Indicator.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Threat Intelligence Indicator.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The extension config of the Threat Intelligence Indicator in JSON format.
      */
-    extension?: pulumi.Input<string>;
+    extension?: pulumi.Input<string | undefined>;
     /**
      * The external ID of the Threat Intelligence Indicator.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * the External last updated time in UTC.
      */
-    externalLastUpdatedTimeUtc?: pulumi.Input<string>;
+    externalLastUpdatedTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * One or more `externalReference` blocks as defined below.
      */
-    externalReferences?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorExternalReference>[]>;
+    externalReferences?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorExternalReference>[] | undefined>;
     /**
      * One or more `granularMarking` blocks as defined below.
      */
-    granularMarkings?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorGranularMarking>[]>;
+    granularMarkings?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorGranularMarking>[] | undefined>;
     /**
      * The guid of this Sentinel Threat Intelligence Indicator.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * A list of indicator types of this Threat Intelligence Indicator.
      */
-    indicatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    indicatorTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `killChainPhase` blocks as defined below.
      */
-    killChainPhases?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorKillChainPhase>[]>;
+    killChainPhases?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorKillChainPhase>[] | undefined>;
     /**
      * The language of the Threat Intelligence Indicator.
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * The last updated time of the Threat Intelligence Indicator in UTC.
      */
-    lastUpdatedTimeUtc?: pulumi.Input<string>;
+    lastUpdatedTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Threat Intelligence marking references.
      */
-    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[]>;
+    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `parsedPattern` block as defined below.
      */
-    parsedPatterns?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorParsedPattern>[]>;
+    parsedPatterns?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorParsedPattern>[] | undefined>;
     /**
      * The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
      */
-    patternType?: pulumi.Input<string>;
+    patternType?: pulumi.Input<string | undefined>;
     /**
      * The version of a Threat Intelligence entity.
      */
-    patternVersion?: pulumi.Input<string>;
+    patternVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether the Threat Intelligence entity revoked.
      */
-    revoked?: pulumi.Input<boolean>;
+    revoked?: pulumi.Input<boolean | undefined>;
     /**
      * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of tags of the Threat Intelligence Indicator.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of threat types of this Threat Intelligence Indicator.
      */
-    threatTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    threatTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The start of validate date in RFC3339.
      */
-    validateFromUtc?: pulumi.Input<string>;
+    validateFromUtc?: pulumi.Input<string | undefined>;
     /**
      * The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
      */
-    validateUntilUtc?: pulumi.Input<string>;
+    validateUntilUtc?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -406,15 +406,15 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Confidence levels of the Threat Intelligence Indicator.
      */
-    confidence?: pulumi.Input<number>;
+    confidence?: pulumi.Input<number | undefined>;
     /**
      * The creator of the Threat Intelligence Indicator.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The description of the Threat Intelligence Indicator.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Threat Intelligence Indicator.
      */
@@ -422,27 +422,27 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * The extension config of the Threat Intelligence Indicator in JSON format.
      */
-    extension?: pulumi.Input<string>;
+    extension?: pulumi.Input<string | undefined>;
     /**
      * One or more `externalReference` blocks as defined below.
      */
-    externalReferences?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorExternalReference>[]>;
+    externalReferences?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorExternalReference>[] | undefined>;
     /**
      * One or more `granularMarking` blocks as defined below.
      */
-    granularMarkings?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorGranularMarking>[]>;
+    granularMarkings?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorGranularMarking>[] | undefined>;
     /**
      * One or more `killChainPhase` blocks as defined below.
      */
-    killChainPhases?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorKillChainPhase>[]>;
+    killChainPhases?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorKillChainPhase>[] | undefined>;
     /**
      * The language of the Threat Intelligence Indicator.
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Threat Intelligence marking references.
      */
-    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[]>;
+    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      */
@@ -454,11 +454,11 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * The version of a Threat Intelligence entity.
      */
-    patternVersion?: pulumi.Input<string>;
+    patternVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether the Threat Intelligence entity revoked.
      */
-    revoked?: pulumi.Input<boolean>;
+    revoked?: pulumi.Input<boolean | undefined>;
     /**
      * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
@@ -466,11 +466,11 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Specifies a list of tags of the Threat Intelligence Indicator.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of threat types of this Threat Intelligence Indicator.
      */
-    threatTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    threatTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The start of validate date in RFC3339.
      */
@@ -478,7 +478,7 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
      */
-    validateUntilUtc?: pulumi.Input<string>;
+    validateUntilUtc?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
      */

@@ -147,27 +147,27 @@ export interface ArcMachineState {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.arcmachine.ArcMachineIdentity>;
+    identity?: pulumi.Input<inputs.arcmachine.ArcMachineIdentity | undefined>;
     /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Arc machine. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Arc Machine.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface ArcMachineArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.arcmachine.ArcMachineIdentity>;
+    identity?: pulumi.Input<inputs.arcmachine.ArcMachineIdentity | undefined>;
     /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
      */
@@ -185,11 +185,11 @@ export interface ArcMachineArgs {
     /**
      * The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Arc machine. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
@@ -197,5 +197,5 @@ export interface ArcMachineArgs {
     /**
      * A mapping of tags to assign to the Arc Machine.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

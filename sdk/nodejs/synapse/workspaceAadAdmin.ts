@@ -186,19 +186,19 @@ export interface WorkspaceAadAdminState {
     /**
      * The login name of the Azure AD Administrator of this Synapse Workspace.
      */
-    login?: pulumi.Input<string>;
+    login?: pulumi.Input<string | undefined>;
     /**
      * The object id of the Azure AD Administrator of this Synapse Workspace.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The tenant id of the Azure AD Administrator of this Synapse Workspace.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**

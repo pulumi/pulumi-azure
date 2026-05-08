@@ -320,62 +320,62 @@ export interface ServiceState {
     /**
      * A unique ID for the managed domain deployment.
      */
-    deploymentId?: pulumi.Input<string>;
+    deploymentId?: pulumi.Input<string | undefined>;
     /**
      * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
      */
-    domainConfigurationType?: pulumi.Input<string>;
+    domainConfigurationType?: pulumi.Input<string | undefined>;
     /**
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
      */
-    filteredSyncEnabled?: pulumi.Input<boolean>;
+    filteredSyncEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      */
-    initialReplicaSet?: pulumi.Input<inputs.domainservices.ServiceInitialReplicaSet>;
+    initialReplicaSet?: pulumi.Input<inputs.domainservices.ServiceInitialReplicaSet | undefined>;
     /**
      * The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `notifications` block as defined below.
      */
-    notifications?: pulumi.Input<inputs.domainservices.ServiceNotifications>;
+    notifications?: pulumi.Input<inputs.domainservices.ServiceNotifications | undefined>;
     /**
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Azure resource ID for the domain service.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * A `secureLdap` block as defined below.
      */
-    secureLdap?: pulumi.Input<inputs.domainservices.ServiceSecureLdap>;
+    secureLdap?: pulumi.Input<inputs.domainservices.ServiceSecureLdap | undefined>;
     /**
      * A `security` block as defined below.
      */
-    security?: pulumi.Input<inputs.domainservices.ServiceSecurity>;
+    security?: pulumi.Input<inputs.domainservices.ServiceSecurity | undefined>;
     /**
      * The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
      */
-    sku?: pulumi.Input<string>;
-    syncOwner?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
+    syncOwner?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tenantId?: pulumi.Input<string>;
-    version?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tenantId?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -385,7 +385,7 @@ export interface ServiceArgs {
     /**
      * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
      */
-    domainConfigurationType?: pulumi.Input<string>;
+    domainConfigurationType?: pulumi.Input<string | undefined>;
     /**
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      */
@@ -393,7 +393,7 @@ export interface ServiceArgs {
     /**
      * Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
      */
-    filteredSyncEnabled?: pulumi.Input<boolean>;
+    filteredSyncEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      */
@@ -401,15 +401,15 @@ export interface ServiceArgs {
     /**
      * The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `notifications` block as defined below.
      */
-    notifications?: pulumi.Input<inputs.domainservices.ServiceNotifications>;
+    notifications?: pulumi.Input<inputs.domainservices.ServiceNotifications | undefined>;
     /**
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      */
@@ -417,11 +417,11 @@ export interface ServiceArgs {
     /**
      * A `secureLdap` block as defined below.
      */
-    secureLdap?: pulumi.Input<inputs.domainservices.ServiceSecureLdap>;
+    secureLdap?: pulumi.Input<inputs.domainservices.ServiceSecureLdap | undefined>;
     /**
      * A `security` block as defined below.
      */
-    security?: pulumi.Input<inputs.domainservices.ServiceSecurity>;
+    security?: pulumi.Input<inputs.domainservices.ServiceSecurity | undefined>;
     /**
      * The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
      */
@@ -429,5 +429,5 @@ export interface ServiceArgs {
     /**
      * A mapping of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

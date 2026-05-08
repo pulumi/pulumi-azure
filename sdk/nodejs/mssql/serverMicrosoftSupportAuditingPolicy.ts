@@ -244,29 +244,29 @@ export interface ServerMicrosoftSupportAuditingPolicyState {
     /**
      * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
      */
-    blobStorageEndpoint?: pulumi.Input<string>;
+    blobStorageEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subscription containing the Storage Account.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -276,17 +276,17 @@ export interface ServerMicrosoftSupportAuditingPolicyArgs {
     /**
      * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
      */
-    blobStorageEndpoint?: pulumi.Input<string>;
+    blobStorageEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
@@ -294,9 +294,9 @@ export interface ServerMicrosoftSupportAuditingPolicyArgs {
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subscription containing the Storage Account.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
 }

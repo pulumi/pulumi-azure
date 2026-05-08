@@ -24,12 +24,12 @@ class AutoscaleSettingArgs:
                  profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
-                 predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional['AutoscaleSettingNotificationArgs']] = None,
+                 predictive: pulumi.Input[Optional['AutoscaleSettingPredictiveArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutoscaleSetting resource.
 
@@ -97,89 +97,89 @@ class AutoscaleSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AutoScale Setting. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notification(self) -> Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]:
+    def notification(self) -> pulumi.Input[Optional['AutoscaleSettingNotificationArgs']]:
         """
         Specifies a `notification` block as defined below.
         """
         return pulumi.get(self, "notification")
 
     @notification.setter
-    def notification(self, value: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]):
+    def notification(self, value: pulumi.Input[Optional['AutoscaleSettingNotificationArgs']]):
         pulumi.set(self, "notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def predictive(self) -> Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]:
+    def predictive(self) -> pulumi.Input[Optional['AutoscaleSettingPredictiveArgs']]:
         """
         A `predictive` block as defined below.
         """
         return pulumi.get(self, "predictive")
 
     @predictive.setter
-    def predictive(self, value: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]):
+    def predictive(self, value: pulumi.Input[Optional['AutoscaleSettingPredictiveArgs']]):
         pulumi.set(self, "predictive", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AutoscaleSettingState:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
-                 predictive: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional['AutoscaleSettingNotificationArgs']] = None,
+                 predictive: pulumi.Input[Optional['AutoscaleSettingPredictiveArgs']] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutoscaleSetting resources.
 
@@ -214,110 +214,110 @@ class _AutoscaleSettingState:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AutoScale Setting. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notification(self) -> Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]:
+    def notification(self) -> pulumi.Input[Optional['AutoscaleSettingNotificationArgs']]:
         """
         Specifies a `notification` block as defined below.
         """
         return pulumi.get(self, "notification")
 
     @notification.setter
-    def notification(self, value: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]):
+    def notification(self, value: pulumi.Input[Optional['AutoscaleSettingNotificationArgs']]):
         pulumi.set(self, "notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def predictive(self) -> Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]:
+    def predictive(self) -> pulumi.Input[Optional['AutoscaleSettingPredictiveArgs']]:
         """
         A `predictive` block as defined below.
         """
         return pulumi.get(self, "predictive")
 
     @predictive.setter
-    def predictive(self, value: Optional[pulumi.Input['AutoscaleSettingPredictiveArgs']]):
+    def predictive(self, value: pulumi.Input[Optional['AutoscaleSettingPredictiveArgs']]):
         pulumi.set(self, "predictive", value)
 
     @_builtins.property
     @pulumi.getter
-    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]:
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]:
         """
         Specifies one or more (up to 20) `profile` blocks as defined below.
         """
         return pulumi.get(self, "profiles")
 
     @profiles.setter
-    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]):
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]):
         pulumi.set(self, "profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
 
@@ -327,15 +327,15 @@ class AutoscaleSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
-                 predictive: Optional[pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
+                 predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
@@ -412,7 +412,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 75,
+                            "threshold": float(75),
                             "metric_namespace": "microsoft.compute/virtualmachinescalesets",
                             "dimensions": [{
                                 "name": "AppName",
@@ -436,7 +436,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 25,
+                            "threshold": float(25),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -532,7 +532,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -550,7 +550,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -652,7 +652,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -670,7 +670,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -804,7 +804,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 75,
+                            "threshold": float(75),
                             "metric_namespace": "microsoft.compute/virtualmachinescalesets",
                             "dimensions": [{
                                 "name": "AppName",
@@ -828,7 +828,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 25,
+                            "threshold": float(25),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -924,7 +924,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -942,7 +942,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -1044,7 +1044,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -1062,7 +1062,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -1118,15 +1118,15 @@ class AutoscaleSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
-                 predictive: Optional[pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
+                 predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1161,15 +1161,15 @@ class AutoscaleSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification: Optional[pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
-            predictive: Optional[pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
-            profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutoscaleSetting':
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
+            predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
+            profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutoscaleSetting':
         """
         Get an existing AutoscaleSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

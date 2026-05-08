@@ -190,11 +190,11 @@ export interface ServerKeyState {
     /**
      * The URL to a Key Vault Key.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
 }
 
 /**

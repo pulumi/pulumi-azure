@@ -24,7 +24,7 @@ class CustomLocationAuthenticationArgsDict(TypedDict):
     """
     Specifies the value of authentication.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the type of authentication.
     """
@@ -33,7 +33,7 @@ class CustomLocationAuthenticationArgsDict(TypedDict):
 class CustomLocationAuthenticationArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] value: Specifies the value of authentication.
         :param pulumi.Input[_builtins.str] type: Specifies the type of authentication.
@@ -56,14 +56,14 @@ class CustomLocationAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of authentication.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

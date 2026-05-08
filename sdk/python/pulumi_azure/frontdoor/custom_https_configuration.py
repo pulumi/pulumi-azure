@@ -23,7 +23,7 @@ class CustomHttpsConfigurationArgs:
     def __init__(__self__, *,
                  custom_https_provisioning_enabled: pulumi.Input[_builtins.bool],
                  frontend_endpoint_id: pulumi.Input[_builtins.str],
-                 custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None):
+                 custom_https_configuration: pulumi.Input[Optional['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None):
         """
         The set of arguments for constructing a CustomHttpsConfiguration resource.
 
@@ -62,23 +62,23 @@ class CustomHttpsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHttpsConfiguration")
-    def custom_https_configuration(self) -> Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
+    def custom_https_configuration(self) -> pulumi.Input[Optional['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
         """
         A `custom_https_configuration` block as defined above.
         """
         return pulumi.get(self, "custom_https_configuration")
 
     @custom_https_configuration.setter
-    def custom_https_configuration(self, value: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]):
+    def custom_https_configuration(self, value: pulumi.Input[Optional['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]):
         pulumi.set(self, "custom_https_configuration", value)
 
 
 @pulumi.input_type
 class _CustomHttpsConfigurationState:
     def __init__(__self__, *,
-                 custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
-                 custom_https_provisioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_https_configuration: pulumi.Input[Optional['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
+                 custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomHttpsConfiguration resources.
 
@@ -95,38 +95,38 @@ class _CustomHttpsConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="customHttpsConfiguration")
-    def custom_https_configuration(self) -> Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
+    def custom_https_configuration(self) -> pulumi.Input[Optional['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
         """
         A `custom_https_configuration` block as defined above.
         """
         return pulumi.get(self, "custom_https_configuration")
 
     @custom_https_configuration.setter
-    def custom_https_configuration(self, value: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]):
+    def custom_https_configuration(self, value: pulumi.Input[Optional['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]):
         pulumi.set(self, "custom_https_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="customHttpsProvisioningEnabled")
-    def custom_https_provisioning_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_https_provisioning_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         """
         return pulumi.get(self, "custom_https_provisioning_enabled")
 
     @custom_https_provisioning_enabled.setter
-    def custom_https_provisioning_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_https_provisioning_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_https_provisioning_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendEndpointId")
-    def frontend_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "frontend_endpoint_id")
 
     @frontend_endpoint_id.setter
-    def frontend_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_endpoint_id", value)
 
 
@@ -136,9 +136,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_https_configuration: Optional[pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
-                 custom_https_provisioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
+                 custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Note:** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -349,9 +349,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_https_configuration: Optional[pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
-                 custom_https_provisioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontend_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
+                 custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -378,9 +378,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_https_configuration: Optional[pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
-            custom_https_provisioning_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            frontend_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomHttpsConfiguration':
+            custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
+            custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomHttpsConfiguration':
         """
         Get an existing CustomHttpsConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

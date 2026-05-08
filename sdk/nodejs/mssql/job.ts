@@ -142,15 +142,15 @@ export interface JobState {
     /**
      * The description of the Elastic Job.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job to be created.
      */
-    jobAgentId?: pulumi.Input<string>;
+    jobAgentId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Elastic Job. Changing this forces a new Elastic Job to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,7 +160,7 @@ export interface JobArgs {
     /**
      * The description of the Elastic Job.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job to be created.
      */
@@ -168,5 +168,5 @@ export interface JobArgs {
     /**
      * The name which should be used for this Elastic Job. Changing this forces a new Elastic Job to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

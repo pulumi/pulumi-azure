@@ -350,143 +350,143 @@ export interface WindowsWebAppSlotState {
     /**
      * The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
      */
-    appServiceId?: pulumi.Input<string>;
+    appServiceId?: pulumi.Input<string | undefined>;
     /**
      * A map of key-value pairs of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.WindowsWebAppSlotBackup>;
+    backup?: pulumi.Input<inputs.appservice.WindowsWebAppSlotBackup | undefined>;
     /**
      * Should Client Affinity be enabled?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should Client Certificates be enabled?
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotConnectionString>[] | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The default hostname of the Windows Web App Slot.
      */
-    defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string | undefined>;
     /**
      * Should the Windows Web App Slot be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the App Service Environment used by App Service Slot.
      */
-    hostingEnvironmentId?: pulumi.Input<string>;
+    hostingEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.WindowsWebAppSlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.WindowsWebAppSlotIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The Kind value for this Windows Web App Slot.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogs>;
+    logs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogs | undefined>;
     /**
      * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
      *
      * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
      */
-    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A list of possible outbound ip address.
      */
-    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      *
      * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      */
-    servicePlanId?: pulumi.Input<string>;
+    servicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteCredential>[] | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotStorageAccount>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether traffic for the image pull should be routed over the virtual network.
      *
      * > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
      */
-    virtualNetworkImagePullEnabled?: pulumi.Input<boolean>;
+    virtualNetworkImagePullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -494,17 +494,17 @@ export interface WindowsWebAppSlotState {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -518,79 +518,79 @@ export interface WindowsWebAppSlotArgs {
     /**
      * A map of key-value pairs of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.WindowsWebAppSlotBackup>;
+    backup?: pulumi.Input<inputs.appservice.WindowsWebAppSlotBackup | undefined>;
     /**
      * Should Client Affinity be enabled?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should Client Certificates be enabled?
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotConnectionString>[] | undefined>;
     /**
      * Should the Windows Web App Slot be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.WindowsWebAppSlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.WindowsWebAppSlotIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogs>;
+    logs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogs | undefined>;
     /**
      * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
      *
      * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      *
      * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      */
-    servicePlanId?: pulumi.Input<string>;
+    servicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
@@ -600,21 +600,21 @@ export interface WindowsWebAppSlotArgs {
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotStorageAccount>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether traffic for the image pull should be routed over the virtual network.
      *
      * > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
      */
-    virtualNetworkImagePullEnabled?: pulumi.Input<boolean>;
+    virtualNetworkImagePullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -622,15 +622,15 @@ export interface WindowsWebAppSlotArgs {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }

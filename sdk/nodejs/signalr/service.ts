@@ -292,115 +292,115 @@ export interface ServiceState {
     /**
      * Whether to enable AAD auth? Defaults to `true`.
      */
-    aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
-    connectivityLogsEnabled?: pulumi.Input<boolean>;
+    connectivityLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `cors` block as documented below.
      */
-    cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[] | undefined>;
     /**
      * The FQDN of the SignalR service.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
      */
-    httpRequestLogsEnabled?: pulumi.Input<boolean>;
+    httpRequestLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.signalr.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.signalr.ServiceIdentity | undefined>;
     /**
      * The publicly accessible IP of the SignalR service.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * A `liveTrace` block as defined below.
      */
-    liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace>;
+    liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace | undefined>;
     /**
      * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
-    liveTraceEnabled?: pulumi.Input<boolean>;
+    liveTraceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable local auth? Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
-    messagingLogsEnabled?: pulumi.Input<boolean>;
+    messagingLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary access key for the SignalR service.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string for the SignalR service.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable public network access? Defaults to `true`.
      *
      * > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
-    publicPort?: pulumi.Input<number>;
+    publicPort?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key for the SignalR service.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string for the SignalR service.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The publicly accessible port of the SignalR service which is designed for customer server side use.
      */
-    serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies the client connection timeout. Defaults to `30`.
      */
-    serverlessConnectionTimeoutInSeconds?: pulumi.Input<number>;
+    serverlessConnectionTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
-    serviceMode?: pulumi.Input<string>;
+    serviceMode?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as documented below.
      */
-    sku?: pulumi.Input<inputs.signalr.ServiceSku>;
+    sku?: pulumi.Input<inputs.signalr.ServiceSku | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      *
      * > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      */
-    tlsClientCertEnabled?: pulumi.Input<boolean>;
+    tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
-    upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
+    upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[] | undefined>;
 }
 
 /**
@@ -410,53 +410,53 @@ export interface ServiceArgs {
     /**
      * Whether to enable AAD auth? Defaults to `true`.
      */
-    aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
-    connectivityLogsEnabled?: pulumi.Input<boolean>;
+    connectivityLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `cors` block as documented below.
      */
-    cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[] | undefined>;
     /**
      * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
      */
-    httpRequestLogsEnabled?: pulumi.Input<boolean>;
+    httpRequestLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.signalr.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.signalr.ServiceIdentity | undefined>;
     /**
      * A `liveTrace` block as defined below.
      */
-    liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace>;
+    liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace | undefined>;
     /**
      * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
-    liveTraceEnabled?: pulumi.Input<boolean>;
+    liveTraceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable local auth? Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
-    messagingLogsEnabled?: pulumi.Input<boolean>;
+    messagingLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable public network access? Defaults to `true`.
      *
      * > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
@@ -464,11 +464,11 @@ export interface ServiceArgs {
     /**
      * Specifies the client connection timeout. Defaults to `30`.
      */
-    serverlessConnectionTimeoutInSeconds?: pulumi.Input<number>;
+    serverlessConnectionTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
-    serviceMode?: pulumi.Input<string>;
+    serviceMode?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as documented below.
      */
@@ -476,15 +476,15 @@ export interface ServiceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      *
      * > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      */
-    tlsClientCertEnabled?: pulumi.Input<boolean>;
+    tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
-    upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
+    upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[] | undefined>;
 }

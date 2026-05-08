@@ -24,8 +24,8 @@ class IntegrationAccountPartnerArgs:
                  business_identities: pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]],
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountPartner resource.
 
@@ -81,37 +81,37 @@ class IntegrationAccountPartnerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _IntegrationAccountPartnerState:
     def __init__(__self__, *,
-                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 business_identities: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountPartner resources.
 
@@ -134,62 +134,62 @@ class _IntegrationAccountPartnerState:
 
     @_builtins.property
     @pulumi.getter(name="businessIdentities")
-    def business_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]]:
+    def business_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]]:
         """
         A `business_identity` block as documented below.
         """
         return pulumi.get(self, "business_identities")
 
     @business_identities.setter
-    def business_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]]):
+    def business_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]]]):
         pulumi.set(self, "business_identities", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         """
         return pulumi.get(self, "integration_account_name")
 
     @integration_account_name.setter
-    def integration_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -199,11 +199,11 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 business_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Logic App Integration Account Partner.
@@ -320,11 +320,11 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 business_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,11 +355,11 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
-            integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationAccountPartner':
+            business_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAccountPartner':
         """
         Get an existing IntegrationAccountPartner resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

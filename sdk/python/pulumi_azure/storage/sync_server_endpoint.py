@@ -22,12 +22,12 @@ class SyncServerEndpointArgs:
                  registered_server_id: pulumi.Input[_builtins.str],
                  server_local_path: pulumi.Input[_builtins.str],
                  storage_sync_group_id: pulumi.Input[_builtins.str],
-                 cloud_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_download_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_cache_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 cloud_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_download_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_cache_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SyncServerEndpoint resource.
 
@@ -99,89 +99,89 @@ class SyncServerEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudTieringEnabled")
-    def cloud_tiering_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cloud_tiering_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Cloud Tiering Enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cloud_tiering_enabled")
 
     @cloud_tiering_enabled.setter
-    def cloud_tiering_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cloud_tiering_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cloud_tiering_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="initialDownloadPolicy")
-    def initial_download_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_download_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_download_policy")
 
     @initial_download_policy.setter
-    def initial_download_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_download_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_download_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="localCacheMode")
-    def local_cache_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_cache_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
         """
         return pulumi.get(self, "local_cache_mode")
 
     @local_cache_mode.setter
-    def local_cache_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_cache_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_cache_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tierFilesOlderThanDays")
-    def tier_files_older_than_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_files_older_than_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Files older than the specified age will be tiered to the cloud.
         """
         return pulumi.get(self, "tier_files_older_than_days")
 
     @tier_files_older_than_days.setter
-    def tier_files_older_than_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_files_older_than_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_files_older_than_days", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_free_space_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         What percentage of free space on the volume should be preserved? Defaults to `20`.
         """
         return pulumi.get(self, "volume_free_space_percent")
 
     @volume_free_space_percent.setter
-    def volume_free_space_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_free_space_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_free_space_percent", value)
 
 
 @pulumi.input_type
 class _SyncServerEndpointState:
     def __init__(__self__, *,
-                 cloud_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_download_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_cache_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registered_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 cloud_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_download_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_cache_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SyncServerEndpoint resources.
 
@@ -218,55 +218,55 @@ class _SyncServerEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="cloudTieringEnabled")
-    def cloud_tiering_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cloud_tiering_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Cloud Tiering Enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cloud_tiering_enabled")
 
     @cloud_tiering_enabled.setter
-    def cloud_tiering_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cloud_tiering_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cloud_tiering_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="initialDownloadPolicy")
-    def initial_download_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_download_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_download_policy")
 
     @initial_download_policy.setter
-    def initial_download_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_download_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_download_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="localCacheMode")
-    def local_cache_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_cache_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
         """
         return pulumi.get(self, "local_cache_mode")
 
     @local_cache_mode.setter
-    def local_cache_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_cache_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_cache_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="registeredServerId")
-    def registered_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registered_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 
@@ -275,55 +275,55 @@ class _SyncServerEndpointState:
         return pulumi.get(self, "registered_server_id")
 
     @registered_server_id.setter
-    def registered_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registered_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registered_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverLocalPath")
-    def server_local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_local_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
         """
         return pulumi.get(self, "server_local_path")
 
     @server_local_path.setter
-    def server_local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_local_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_local_path", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSyncGroupId")
-    def storage_sync_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sync_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
         """
         return pulumi.get(self, "storage_sync_group_id")
 
     @storage_sync_group_id.setter
-    def storage_sync_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sync_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sync_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tierFilesOlderThanDays")
-    def tier_files_older_than_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tier_files_older_than_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Files older than the specified age will be tiered to the cloud.
         """
         return pulumi.get(self, "tier_files_older_than_days")
 
     @tier_files_older_than_days.setter
-    def tier_files_older_than_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tier_files_older_than_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tier_files_older_than_days", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_free_space_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         What percentage of free space on the volume should be preserved? Defaults to `20`.
         """
         return pulumi.get(self, "volume_free_space_percent")
 
     @volume_free_space_percent.setter
-    def volume_free_space_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_free_space_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_free_space_percent", value)
 
 
@@ -333,15 +333,15 @@ class SyncServerEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_download_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_cache_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registered_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 cloud_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_download_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_cache_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Storage Sync Server Endpoint.
@@ -508,15 +508,15 @@ class SyncServerEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_download_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_cache_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registered_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 cloud_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_download_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_cache_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -551,15 +551,15 @@ class SyncServerEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloud_tiering_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            initial_download_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            local_cache_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            registered_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            server_local_path: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tier_files_older_than_days: Optional[pulumi.Input[_builtins.int]] = None,
-            volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None) -> 'SyncServerEndpoint':
+            cloud_tiering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            initial_download_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            local_cache_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            registered_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_local_path: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_sync_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tier_files_older_than_days: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_free_space_percent: pulumi.Input[Optional[_builtins.int]] = None) -> 'SyncServerEndpoint':
         """
         Get an existing SyncServerEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

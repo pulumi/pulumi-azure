@@ -43,7 +43,7 @@ class AutoProvisioningArgs:
 @pulumi.input_type
 class _AutoProvisioningState:
     def __init__(__self__, *,
-                 auto_provision: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_provision: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutoProvisioning resources.
 
@@ -54,14 +54,14 @@ class _AutoProvisioningState:
 
     @_builtins.property
     @pulumi.getter(name="autoProvision")
-    def auto_provision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_provision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
         return pulumi.get(self, "auto_provision")
 
     @auto_provision.setter
-    def auto_provision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_provision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_provision", value)
 
 
@@ -71,7 +71,7 @@ class AutoProvisioning(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables or disables the Security Center Auto Provisioning feature for the subscription
@@ -148,7 +148,7 @@ class AutoProvisioning(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,7 +171,7 @@ class AutoProvisioning(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_provision: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutoProvisioning':
+            auto_provision: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutoProvisioning':
         """
         Get an existing AutoProvisioning resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

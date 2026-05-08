@@ -82,7 +82,7 @@ export interface GetEncryptedValueOutputArgs {
     /**
      * The Base64 URL Encoded Encrypted Data which should be decrypted into `plainTextValue`.
      */
-    encryptedData?: pulumi.Input<string>;
+    encryptedData?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
      */
@@ -92,5 +92,5 @@ export interface GetEncryptedValueOutputArgs {
      *
      * > **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
      */
-    plainTextValue?: pulumi.Input<string>;
+    plainTextValue?: pulumi.Input<string | undefined>;
 }

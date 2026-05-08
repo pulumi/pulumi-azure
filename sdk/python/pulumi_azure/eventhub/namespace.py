@@ -23,17 +23,17 @@ class NamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
-                 identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']] = None,
-                 premium_messaging_partitions: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 customer_managed_key: pulumi.Input[Optional['NamespaceCustomerManagedKeyArgs']] = None,
+                 identity: pulumi.Input[Optional['NamespaceIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional['NamespaceNetworkRuleSetArgs']] = None,
+                 premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
 
@@ -108,67 +108,67 @@ class NamespaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['NamespaceCustomerManagedKeyArgs']]:
         """
         An `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['NamespaceCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['NamespaceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['NamespaceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['NamespaceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['NamespaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
@@ -177,36 +177,36 @@ class NamespaceArgs:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']]:
+    def network_rule_set(self) -> pulumi.Input[Optional['NamespaceNetworkRuleSetArgs']]:
         """
         An `network_rule_set` block as defined below.
         """
         return pulumi.get(self, "network_rule_set")
 
     @network_rule_set.setter
-    def network_rule_set(self, value: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']]):
+    def network_rule_set(self, value: pulumi.Input[Optional['NamespaceNetworkRuleSetArgs']]):
         pulumi.set(self, "network_rule_set", value)
 
     @_builtins.property
     @pulumi.getter(name="premiumMessagingPartitions")
-    def premium_messaging_partitions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def premium_messaging_partitions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 
@@ -215,55 +215,55 @@ class NamespaceArgs:
         return pulumi.get(self, "premium_messaging_partitions")
 
     @premium_messaging_partitions.setter
-    def premium_messaging_partitions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def premium_messaging_partitions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "premium_messaging_partitions", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NamespaceState:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
-                 default_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']] = None,
-                 premium_messaging_partitions: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 customer_managed_key: pulumi.Input[Optional['NamespaceCustomerManagedKeyArgs']] = None,
+                 default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['NamespaceIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional['NamespaceNetworkRuleSetArgs']] = None,
+                 premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
 
@@ -330,127 +330,127 @@ class _NamespaceState:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['NamespaceCustomerManagedKeyArgs']]:
         """
         An `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['NamespaceCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPrimaryConnectionString")
-    def default_primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_connection_string")
 
     @default_primary_connection_string.setter
-    def default_primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPrimaryKey")
-    def default_primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_key")
 
     @default_primary_key.setter
-    def default_primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSecondaryConnectionString")
-    def default_secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_connection_string")
 
     @default_secondary_connection_string.setter
-    def default_secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSecondaryKey")
-    def default_secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_key")
 
     @default_secondary_key.setter
-    def default_secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_secondary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to access the Service Bus Namespace.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['NamespaceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['NamespaceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['NamespaceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['NamespaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
@@ -459,36 +459,36 @@ class _NamespaceState:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']]:
+    def network_rule_set(self) -> pulumi.Input[Optional['NamespaceNetworkRuleSetArgs']]:
         """
         An `network_rule_set` block as defined below.
         """
         return pulumi.get(self, "network_rule_set")
 
     @network_rule_set.setter
-    def network_rule_set(self, value: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']]):
+    def network_rule_set(self, value: pulumi.Input[Optional['NamespaceNetworkRuleSetArgs']]):
         pulumi.set(self, "network_rule_set", value)
 
     @_builtins.property
     @pulumi.getter(name="premiumMessagingPartitions")
-    def premium_messaging_partitions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def premium_messaging_partitions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 
@@ -497,24 +497,24 @@ class _NamespaceState:
         return pulumi.get(self, "premium_messaging_partitions")
 
     @premium_messaging_partitions.setter
-    def premium_messaging_partitions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def premium_messaging_partitions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "premium_messaging_partitions", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to Changing this forces a new resource to be created.
         create the namespace.
@@ -522,31 +522,31 @@ class _NamespaceState:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -561,19 +561,19 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
-                 premium_messaging_partitions: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
+                 premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a ServiceBus Namespace.
@@ -693,19 +693,19 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rule_set: Optional[pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
-                 premium_messaging_partitions: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
+                 premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -750,24 +750,24 @@ class Namespace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
-            default_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            default_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            default_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            default_secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
-            local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rule_set: Optional[pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
-            premium_messaging_partitions: Optional[pulumi.Input[_builtins.int]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Namespace':
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
+            default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
+            premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

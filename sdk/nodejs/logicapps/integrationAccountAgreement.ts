@@ -221,43 +221,43 @@ export interface IntegrationAccountAgreementState {
     /**
      * The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
      */
-    agreementType?: pulumi.Input<string>;
+    agreementType?: pulumi.Input<string | undefined>;
     /**
      * The content of the Logic App Integration Account Agreement.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * A `guestIdentity` block as documented below.
      */
-    guestIdentity?: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementGuestIdentity>;
+    guestIdentity?: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementGuestIdentity | undefined>;
     /**
      * The name of the guest Logic App Integration Account Partner.
      */
-    guestPartnerName?: pulumi.Input<string>;
+    guestPartnerName?: pulumi.Input<string | undefined>;
     /**
      * A `hostIdentity` block as documented below.
      */
-    hostIdentity?: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementHostIdentity>;
+    hostIdentity?: pulumi.Input<inputs.logicapps.IntegrationAccountAgreementHostIdentity | undefined>;
     /**
      * The name of the host Logic App Integration Account Partner.
      */
-    hostPartnerName?: pulumi.Input<string>;
+    hostPartnerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The metadata of the Logic App Integration Account Agreement.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -295,11 +295,11 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The metadata of the Logic App Integration Account Agreement.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
      */

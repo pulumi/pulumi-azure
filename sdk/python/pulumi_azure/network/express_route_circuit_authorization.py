@@ -21,7 +21,7 @@ class ExpressRouteCircuitAuthorizationArgs:
     def __init__(__self__, *,
                  express_route_circuit_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
 
@@ -60,25 +60,25 @@ class ExpressRouteCircuitAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ExpressRouteCircuitAuthorizationState:
     def __init__(__self__, *,
-                 authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_use_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_route_circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_use_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuitAuthorization resources.
 
@@ -101,62 +101,62 @@ class _ExpressRouteCircuitAuthorizationState:
 
     @_builtins.property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Authorization Key.
         """
         return pulumi.get(self, "authorization_key")
 
     @authorization_key.setter
-    def authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationUseStatus")
-    def authorization_use_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_use_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization use status.
         """
         return pulumi.get(self, "authorization_use_status")
 
     @authorization_use_status.setter
-    def authorization_use_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_use_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_use_status", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitName")
-    def express_route_circuit_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def express_route_circuit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_circuit_name")
 
     @express_route_circuit_name.setter
-    def express_route_circuit_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def express_route_circuit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_circuit_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -166,9 +166,9 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 express_route_circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an ExpressRoute Circuit Authorization.
@@ -295,9 +295,9 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 express_route_circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -328,11 +328,11 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-            authorization_use_status: Optional[pulumi.Input[_builtins.str]] = None,
-            express_route_circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExpressRouteCircuitAuthorization':
+            authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_use_status: pulumi.Input[Optional[_builtins.str]] = None,
+            express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExpressRouteCircuitAuthorization':
         """
         Get an existing ExpressRouteCircuitAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -179,15 +179,15 @@ export interface FrontdoorSecurityPolicyState {
     /**
      * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      */
-    cdnFrontdoorProfileId?: pulumi.Input<string>;
+    cdnFrontdoorProfileId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `securityPolicies` block as defined below.
      */
-    securityPolicies?: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
+    securityPolicies?: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPolicies | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface FrontdoorSecurityPolicyArgs {
     /**
      * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `securityPolicies` block as defined below.
      */

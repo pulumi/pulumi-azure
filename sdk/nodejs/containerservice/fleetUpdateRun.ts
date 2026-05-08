@@ -174,23 +174,23 @@ export interface FleetUpdateRunState {
     /**
      * The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      */
-    fleetUpdateStrategyId?: pulumi.Input<string>;
+    fleetUpdateStrategyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
      */
-    kubernetesFleetManagerId?: pulumi.Input<string>;
+    kubernetesFleetManagerId?: pulumi.Input<string | undefined>;
     /**
      * A `managedClusterUpdate` block as defined below.
      */
-    managedClusterUpdate?: pulumi.Input<inputs.containerservice.FleetUpdateRunManagedClusterUpdate>;
+    managedClusterUpdate?: pulumi.Input<inputs.containerservice.FleetUpdateRunManagedClusterUpdate | undefined>;
     /**
      * The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateRunStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateRunStage>[] | undefined>;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface FleetUpdateRunArgs {
     /**
      * The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      */
-    fleetUpdateStrategyId?: pulumi.Input<string>;
+    fleetUpdateStrategyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
      */
@@ -212,9 +212,9 @@ export interface FleetUpdateRunArgs {
     /**
      * The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateRunStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateRunStage>[] | undefined>;
 }

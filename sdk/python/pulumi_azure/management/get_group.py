@@ -184,8 +184,8 @@ def get_group(display_name: Optional[_builtins.str] = None,
         parent_management_group_id=pulumi.get(__ret__, 'parent_management_group_id'),
         subscription_ids=pulumi.get(__ret__, 'subscription_ids'),
         tenant_scoped_id=pulumi.get(__ret__, 'tenant_scoped_id'))
-def get_group_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_group_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to access information about an existing Management Group.

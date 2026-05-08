@@ -541,66 +541,66 @@ export interface LinuxVirtualMachineState {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
+    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[] | undefined>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
-    allowExtensionOperations?: pulumi.Input<boolean>;
+    allowExtensionOperations?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    availabilitySetId?: pulumi.Input<string>;
+    availabilitySetId?: pulumi.Input<string | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
     /**
      * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      *
      * > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
      */
-    bypassPlatformSafetyChecksOnUserScheduleEnabled?: pulumi.Input<boolean>;
+    bypassPlatformSafetyChecksOnUserScheduleEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
-    capacityReservationGroupId?: pulumi.Input<string>;
+    capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
-    computerName?: pulumi.Input<string>;
+    computerName?: pulumi.Input<string | undefined>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
      */
-    customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
      */
-    dedicatedHostGroupId?: pulumi.Input<string>;
+    dedicatedHostGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
-    dedicatedHostId?: pulumi.Input<string>;
+    dedicatedHostId?: pulumi.Input<string | undefined>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
@@ -608,175 +608,175 @@ export interface LinuxVirtualMachineState {
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
-    disablePasswordAuthentication?: pulumi.Input<boolean>;
+    disablePasswordAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
      */
-    diskControllerType?: pulumi.Input<string>;
+    diskControllerType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
-    evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
-    extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
      *
      * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
-    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[]>;
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
+    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity | undefined>;
     /**
      * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      *
      * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
-    maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number | undefined>;
     /**
      * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
-    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `osDisk` block as defined below.
      */
-    osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
+    osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk | undefined>;
     /**
      * A `osImageNotification` block as defined below.
      */
-    osImageNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsImageNotification>;
+    osImageNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsImageNotification | undefined>;
     /**
      * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      */
-    osManagedDiskId?: pulumi.Input<string>;
+    osManagedDiskId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
      * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
-    patchAssessmentMode?: pulumi.Input<string>;
+    patchAssessmentMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      *
      * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
-    patchMode?: pulumi.Input<string>;
+    patchMode?: pulumi.Input<string | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan>;
+    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan | undefined>;
     /**
      * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
      */
-    platformFaultDomain?: pulumi.Input<number>;
+    platformFaultDomain?: pulumi.Input<number | undefined>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The Primary Private IP Address assigned to this Virtual Machine.
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
     /**
      * A list of Private IP Addresses assigned to this Virtual Machine.
      */
-    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
-    provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The Primary Public IP Address assigned to this Virtual Machine.
      */
-    publicIpAddress?: pulumi.Input<string>;
+    publicIpAddress?: pulumi.Input<string | undefined>;
     /**
      * A list of the Public IP Addresses assigned to this Virtual Machine.
      */
-    publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      *
      * > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
      */
-    rebootSetting?: pulumi.Input<string>;
+    rebootSetting?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecret>[] | undefined>;
     /**
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    secureBootEnabled?: pulumi.Input<boolean>;
+    secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
-    size?: pulumi.Input<string>;
+    size?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineSourceImageReference | undefined>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `terminationNotification` block as defined below.
      */
-    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineTerminationNotification>;
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineTerminationNotification | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
-    virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      *
@@ -786,21 +786,21 @@ export interface LinuxVirtualMachineState {
      *
      * > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      */
-    virtualMachineScaleSetId?: pulumi.Input<string>;
+    virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      *
      * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
-    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean>;
+    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    vtpmEnabled?: pulumi.Input<boolean>;
+    vtpmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -810,66 +810,66 @@ export interface LinuxVirtualMachineArgs {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
+    adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[] | undefined>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
-    allowExtensionOperations?: pulumi.Input<boolean>;
+    allowExtensionOperations?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    availabilitySetId?: pulumi.Input<string>;
+    availabilitySetId?: pulumi.Input<string | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
     /**
      * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      *
      * > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
      */
-    bypassPlatformSafetyChecksOnUserScheduleEnabled?: pulumi.Input<boolean>;
+    bypassPlatformSafetyChecksOnUserScheduleEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
-    capacityReservationGroupId?: pulumi.Input<string>;
+    capacityReservationGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
-    computerName?: pulumi.Input<string>;
+    computerName?: pulumi.Input<string | undefined>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
      */
-    customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
      */
-    dedicatedHostGroupId?: pulumi.Input<string>;
+    dedicatedHostGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
-    dedicatedHostId?: pulumi.Input<string>;
+    dedicatedHostId?: pulumi.Input<string | undefined>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
@@ -877,57 +877,57 @@ export interface LinuxVirtualMachineArgs {
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
-    disablePasswordAuthentication?: pulumi.Input<boolean>;
+    disablePasswordAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
      */
-    diskControllerType?: pulumi.Input<string>;
+    diskControllerType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
-    evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
-    extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
      *
      * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
-    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[]>;
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity>;
+    identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineIdentity | undefined>;
     /**
      * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      *
      * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
-    maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number | undefined>;
     /**
      * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
@@ -939,53 +939,53 @@ export interface LinuxVirtualMachineArgs {
     /**
      * A `osImageNotification` block as defined below.
      */
-    osImageNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsImageNotification>;
+    osImageNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsImageNotification | undefined>;
     /**
      * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
      */
-    osManagedDiskId?: pulumi.Input<string>;
+    osManagedDiskId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
      * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
-    patchAssessmentMode?: pulumi.Input<string>;
+    patchAssessmentMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      *
      * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
-    patchMode?: pulumi.Input<string>;
+    patchMode?: pulumi.Input<string | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan>;
+    plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan | undefined>;
     /**
      * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
      */
-    platformFaultDomain?: pulumi.Input<number>;
+    platformFaultDomain?: pulumi.Input<number | undefined>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
-    provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
-    proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      *
      * > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
      */
-    rebootSetting?: pulumi.Input<string>;
+    rebootSetting?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
@@ -993,11 +993,11 @@ export interface LinuxVirtualMachineArgs {
     /**
      * One or more `secret` blocks as defined below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecret>[] | undefined>;
     /**
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    secureBootEnabled?: pulumi.Input<boolean>;
+    secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
@@ -1007,25 +1007,25 @@ export interface LinuxVirtualMachineArgs {
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineSourceImageReference | undefined>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `terminationNotification` block as defined below.
      */
-    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineTerminationNotification>;
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineTerminationNotification | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      *
@@ -1035,19 +1035,19 @@ export interface LinuxVirtualMachineArgs {
      *
      * > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      */
-    virtualMachineScaleSetId?: pulumi.Input<string>;
+    virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      *
      * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
-    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean>;
+    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    vtpmEnabled?: pulumi.Input<boolean>;
+    vtpmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

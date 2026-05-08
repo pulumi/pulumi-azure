@@ -193,35 +193,35 @@ export interface BackupInstanceDiskState {
     /**
      * The ID of the Backup Policy.
      */
-    backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
      */
-    diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The protection state of the Backup Instance Disk.
      */
-    protectionState?: pulumi.Input<string>;
+    protectionState?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      */
-    snapshotResourceGroupName?: pulumi.Input<string>;
+    snapshotResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
      */
-    snapshotSubscriptionId?: pulumi.Input<string>;
+    snapshotSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
-    vaultId?: pulumi.Input<string>;
+    vaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -239,11 +239,11 @@ export interface BackupInstanceDiskArgs {
     /**
      * The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      */
@@ -251,7 +251,7 @@ export interface BackupInstanceDiskArgs {
     /**
      * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
      */
-    snapshotSubscriptionId?: pulumi.Input<string>;
+    snapshotSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */

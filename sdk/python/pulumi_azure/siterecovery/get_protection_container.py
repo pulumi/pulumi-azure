@@ -132,10 +132,10 @@ def get_protection_container(name: Optional[_builtins.str] = None,
         recovery_fabric_name=pulumi.get(__ret__, 'recovery_fabric_name'),
         recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_protection_container_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    recovery_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    recovery_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_protection_container_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionContainerResult]:
     """
     Use this data source to access information about an existing site recovery services protection container.

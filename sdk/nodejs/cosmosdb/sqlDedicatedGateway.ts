@@ -137,15 +137,15 @@ export interface SqlDedicatedGatewayState {
     /**
      * The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
      */
-    cosmosdbAccountId?: pulumi.Input<string>;
+    cosmosdbAccountId?: pulumi.Input<string | undefined>;
     /**
      * The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      */
-    instanceSize?: pulumi.Input<string>;
+    instanceSize?: pulumi.Input<string | undefined>;
 }
 
 /**

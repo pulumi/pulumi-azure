@@ -75,11 +75,11 @@ class ObjectReplicationArgs:
 @pulumi.input_type
 class _ObjectReplicationState:
     def __init__(__self__, *,
-                 destination_object_replication_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
-                 source_object_replication_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
+                 source_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectReplication resources.
 
@@ -102,62 +102,62 @@ class _ObjectReplicationState:
 
     @_builtins.property
     @pulumi.getter(name="destinationObjectReplicationId")
-    def destination_object_replication_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_object_replication_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Object Replication in the destination storage account.
         """
         return pulumi.get(self, "destination_object_replication_id")
 
     @destination_object_replication_id.setter
-    def destination_object_replication_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_object_replication_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_object_replication_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationStorageAccountId")
-    def destination_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         """
         return pulumi.get(self, "destination_storage_account_id")
 
     @destination_storage_account_id.setter
-    def destination_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]]:
         """
         One or more `rules` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceObjectReplicationId")
-    def source_object_replication_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_object_replication_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Object Replication in the source storage account.
         """
         return pulumi.get(self, "source_object_replication_id")
 
     @source_object_replication_id.setter
-    def source_object_replication_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_object_replication_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_object_replication_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceStorageAccountId")
-    def source_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
         return pulumi.get(self, "source_storage_account_id")
 
     @source_storage_account_id.setter
-    def source_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_storage_account_id", value)
 
 
@@ -167,9 +167,9 @@ class ObjectReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
-                 source_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
+                 source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Object Replication.
@@ -334,9 +334,9 @@ class ObjectReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
-                 source_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
+                 source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -367,11 +367,11 @@ class ObjectReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_object_replication_id: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
-            source_object_replication_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ObjectReplication':
+            destination_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
+            source_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObjectReplication':
         """
         Get an existing ObjectReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

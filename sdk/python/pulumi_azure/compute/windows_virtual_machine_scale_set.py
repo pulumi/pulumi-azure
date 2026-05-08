@@ -28,56 +28,56 @@ class WindowsVirtualMachineScaleSetArgs:
                  os_disk: pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
-                 boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
-                 scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
-                 spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
+                 boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional['WindowsVirtualMachineScaleSetPlanArgs']] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
+                 scale_in: pulumi.Input[Optional['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
+                 spot_restore: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WindowsVirtualMachineScaleSet resource.
 
@@ -369,31 +369,31 @@ class WindowsVirtualMachineScaleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
         """
         An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalUnattendContents")
-    def additional_unattend_contents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]:
+    def additional_unattend_contents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]:
         """
         One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "additional_unattend_contents")
 
     @additional_unattend_contents.setter
-    def additional_unattend_contents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]):
+    def additional_unattend_contents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]):
         pulumi.set(self, "additional_unattend_contents", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticInstanceRepair")
-    def automatic_instance_repair(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
+    def automatic_instance_repair(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
         An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 
@@ -402,36 +402,36 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "automatic_instance_repair")
 
     @automatic_instance_repair.setter
-    def automatic_instance_repair(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
+    def automatic_instance_repair(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
         pulumi.set(self, "automatic_instance_repair", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticOsUpgradePolicy")
-    def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
+    def automatic_os_upgrade_policy(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
         An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
     @automatic_os_upgrade_policy.setter
-    def automatic_os_upgrade_policy(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
+    def automatic_os_upgrade_policy(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
         pulumi.set(self, "automatic_os_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 
@@ -442,24 +442,24 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computerNamePrefix")
-    def computer_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
-    def computer_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 
@@ -468,72 +468,72 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="doNotRunExtensionsOnOverprovisionedMachines")
-    def do_not_run_extensions_on_overprovisioned_machines(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_run_extensions_on_overprovisioned_machines(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_machines")
 
     @do_not_run_extensions_on_overprovisioned_machines.setter
-    def do_not_run_extensions_on_overprovisioned_machines(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_run_extensions_on_overprovisioned_machines(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_run_extensions_on_overprovisioned_machines", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -542,12 +542,12 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def extension_operations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 
@@ -556,108 +556,108 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "extension_operations_enabled")
 
     @extension_operations_enabled.setter
-    def extension_operations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def extension_operations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "extension_operations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]:
         """
         One or more `extension` blocks as defined below
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeId")
-    def health_probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_probe_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "health_probe_id")
 
     @health_probe_id.setter
-    def health_probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_probe_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_probe_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_bid_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
 
@@ -666,36 +666,36 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "max_bid_price")
 
     @max_bid_price.setter
-    def max_bid_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_bid_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_bid_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def overprovision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overprovision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         """
         return pulumi.get(self, "overprovision")
 
     @overprovision.setter
-    def overprovision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overprovision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overprovision", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
 
@@ -704,24 +704,24 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 
@@ -730,36 +730,36 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
-    def provision_vm_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_vm_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_vm_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmCreationEnabled")
-    def resilient_vm_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
 
@@ -768,12 +768,12 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
     @resilient_vm_creation_enabled.setter
-    def resilient_vm_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_creation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmDeletionEnabled")
-    def resilient_vm_deletion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
 
@@ -782,72 +782,72 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 
     @resilient_vm_deletion_enabled.setter
-    def resilient_vm_deletion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_deletion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_deletion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
+    def rolling_upgrade_policy(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @rolling_upgrade_policy.setter
-    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
+    def rolling_upgrade_policy(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleIn")
-    def scale_in(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]:
+    def scale_in(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetScaleInArgs']]:
         """
         A `scale_in` block as defined below.
         """
         return pulumi.get(self, "scale_in")
 
     @scale_in.setter
-    def scale_in(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]):
+    def scale_in(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetScaleInArgs']]):
         pulumi.set(self, "scale_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_placement_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         """
         return pulumi.get(self, "single_placement_group")
 
     @single_placement_group.setter
-    def single_placement_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_placement_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 
@@ -856,12 +856,12 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
-    def source_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]:
         """
         A `source_image_reference` block as defined below.
 
@@ -870,60 +870,60 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="spotRestore")
-    def spot_restore(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]:
+    def spot_restore(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetSpotRestoreArgs']]:
         """
         A `spot_restore` block as defined below.
         """
         return pulumi.get(self, "spot_restore")
 
     @spot_restore.setter
-    def spot_restore(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]):
+    def spot_restore(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSpotRestoreArgs']]):
         pulumi.set(self, "spot_restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]:
+    def termination_notification(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]):
+    def termination_notification(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 
@@ -932,48 +932,48 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
-    def upgrade_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
-    def vtpm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vtpm_enabled")
 
     @vtpm_enabled.setter
-    def vtpm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vtpm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vtpm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]:
+    def winrm_listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]:
         """
         One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "winrm_listeners")
 
     @winrm_listeners.setter
-    def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]):
+    def winrm_listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]):
         pulumi.set(self, "winrm_listeners", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneBalance")
-    def zone_balance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_balance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -982,12 +982,12 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "zone_balance")
 
     @zone_balance.setter
-    def zone_balance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_balance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_balance", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
 
@@ -996,71 +996,71 @@ class WindowsVirtualMachineScaleSetArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _WindowsVirtualMachineScaleSetState:
     def __init__(__self__, *,
-                 additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
-                 boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
-                 os_disk: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs']] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
-                 scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
-                 spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 unique_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
+                 boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
+                 os_disk: pulumi.Input[Optional['WindowsVirtualMachineScaleSetOsDiskArgs']] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional['WindowsVirtualMachineScaleSetPlanArgs']] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
+                 scale_in: pulumi.Input[Optional['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
+                 spot_restore: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering WindowsVirtualMachineScaleSet resources.
 
@@ -1276,55 +1276,55 @@ class _WindowsVirtualMachineScaleSetState:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
         """
         An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalUnattendContents")
-    def additional_unattend_contents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]:
+    def additional_unattend_contents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]:
         """
         One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "additional_unattend_contents")
 
     @additional_unattend_contents.setter
-    def additional_unattend_contents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]):
+    def additional_unattend_contents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]):
         pulumi.set(self, "additional_unattend_contents", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticInstanceRepair")
-    def automatic_instance_repair(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
+    def automatic_instance_repair(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
         An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 
@@ -1333,36 +1333,36 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "automatic_instance_repair")
 
     @automatic_instance_repair.setter
-    def automatic_instance_repair(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
+    def automatic_instance_repair(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
         pulumi.set(self, "automatic_instance_repair", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticOsUpgradePolicy")
-    def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
+    def automatic_os_upgrade_policy(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
         An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
     @automatic_os_upgrade_policy.setter
-    def automatic_os_upgrade_policy(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
+    def automatic_os_upgrade_policy(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
         pulumi.set(self, "automatic_os_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 
@@ -1373,24 +1373,24 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computerNamePrefix")
-    def computer_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
-    def computer_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 
@@ -1399,72 +1399,72 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="doNotRunExtensionsOnOverprovisionedMachines")
-    def do_not_run_extensions_on_overprovisioned_machines(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_run_extensions_on_overprovisioned_machines(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_machines")
 
     @do_not_run_extensions_on_overprovisioned_machines.setter
-    def do_not_run_extensions_on_overprovisioned_machines(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_run_extensions_on_overprovisioned_machines(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_run_extensions_on_overprovisioned_machines", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -1473,12 +1473,12 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def extension_operations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 
@@ -1487,84 +1487,84 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "extension_operations_enabled")
 
     @extension_operations_enabled.setter
-    def extension_operations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def extension_operations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "extension_operations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]:
         """
         One or more `extension` blocks as defined below
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeId")
-    def health_probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_probe_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "health_probe_id")
 
     @health_probe_id.setter
-    def health_probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_probe_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_probe_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of Virtual Machines in the Scale Set.
 
@@ -1573,36 +1573,36 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/en-gb/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_bid_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
 
@@ -1611,60 +1611,60 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "max_bid_price")
 
     @max_bid_price.setter
-    def max_bid_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_bid_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_bid_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs']]:
+    def os_disk(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetOsDiskArgs']]:
         """
         An `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs']]):
+    def os_disk(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
     @_builtins.property
     @pulumi.getter
-    def overprovision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overprovision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         """
         return pulumi.get(self, "overprovision")
 
     @overprovision.setter
-    def overprovision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overprovision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overprovision", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
 
@@ -1673,24 +1673,24 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 
@@ -1699,36 +1699,36 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
-    def provision_vm_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_vm_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_vm_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmCreationEnabled")
-    def resilient_vm_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
 
@@ -1737,12 +1737,12 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
     @resilient_vm_creation_enabled.setter
-    def resilient_vm_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_creation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmDeletionEnabled")
-    def resilient_vm_deletion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
 
@@ -1751,96 +1751,96 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 
     @resilient_vm_deletion_enabled.setter
-    def resilient_vm_deletion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_deletion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_deletion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
+    def rolling_upgrade_policy(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @rolling_upgrade_policy.setter
-    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
+    def rolling_upgrade_policy(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleIn")
-    def scale_in(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]:
+    def scale_in(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetScaleInArgs']]:
         """
         A `scale_in` block as defined below.
         """
         return pulumi.get(self, "scale_in")
 
     @scale_in.setter
-    def scale_in(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]):
+    def scale_in(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetScaleInArgs']]):
         pulumi.set(self, "scale_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_placement_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         """
         return pulumi.get(self, "single_placement_group")
 
     @single_placement_group.setter
-    def single_placement_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_placement_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_placement_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 
@@ -1849,12 +1849,12 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
-    def source_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]:
         """
         A `source_image_reference` block as defined below.
 
@@ -1863,72 +1863,72 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="spotRestore")
-    def spot_restore(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]:
+    def spot_restore(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetSpotRestoreArgs']]:
         """
         A `spot_restore` block as defined below.
         """
         return pulumi.get(self, "spot_restore")
 
     @spot_restore.setter
-    def spot_restore(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]):
+    def spot_restore(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetSpotRestoreArgs']]):
         pulumi.set(self, "spot_restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]:
+    def termination_notification(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]):
+    def termination_notification(self, value: pulumi.Input[Optional['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Unique ID for this Windows Virtual Machine Scale Set.
         """
         return pulumi.get(self, "unique_id")
 
     @unique_id.setter
-    def unique_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique_id", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 
@@ -1937,48 +1937,48 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
-    def upgrade_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
-    def vtpm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vtpm_enabled")
 
     @vtpm_enabled.setter
-    def vtpm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vtpm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vtpm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]:
+    def winrm_listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]:
         """
         One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "winrm_listeners")
 
     @winrm_listeners.setter
-    def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]):
+    def winrm_listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]):
         pulumi.set(self, "winrm_listeners", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneBalance")
-    def zone_balance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_balance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -1987,12 +1987,12 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "zone_balance")
 
     @zone_balance.setter
-    def zone_balance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_balance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_balance", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
 
@@ -2001,7 +2001,7 @@ class _WindowsVirtualMachineScaleSetState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -2011,63 +2011,63 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs', 'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgsDict']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']]] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetNetworkInterfaceArgs', 'WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
-                 os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetOsDiskArgs', 'WindowsVirtualMachineScaleSetOsDiskArgsDict']]] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetPlanArgs', 'WindowsVirtualMachineScaleSetPlanArgsDict']]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
-                 scale_in: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
-                 spot_restore: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs', 'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgsDict']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+                 boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']]] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetNetworkInterfaceArgs', 'WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+                 os_disk: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetOsDiskArgs', 'WindowsVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetPlanArgs', 'WindowsVirtualMachineScaleSetPlanArgsDict']]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
+                 scale_in: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
+                 spot_restore: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Windows Virtual Machine Scale Set.
@@ -2344,63 +2344,63 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
-                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs', 'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgsDict']]]]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']]] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetNetworkInterfaceArgs', 'WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
-                 os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetOsDiskArgs', 'WindowsVirtualMachineScaleSetOsDiskArgsDict']]] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetPlanArgs', 'WindowsVirtualMachineScaleSetPlanArgsDict']]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
-                 scale_in: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
-                 spot_restore: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+                 additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs', 'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgsDict']]]]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+                 boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']]] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetNetworkInterfaceArgs', 'WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+                 os_disk: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetOsDiskArgs', 'WindowsVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetPlanArgs', 'WindowsVirtualMachineScaleSetPlanArgsDict']]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
+                 scale_in: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
+                 spot_restore: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2494,64 +2494,64 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_capabilities: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
-            additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs', 'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgsDict']]]]] = None,
-            admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic_instance_repair: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
-            automatic_os_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
-            boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
-            capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
-            do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_automatic_updates: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
-            extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
-            health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-            host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']]] = None,
-            instances: Optional[pulumi.Input[_builtins.int]] = None,
-            license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetNetworkInterfaceArgs', 'WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
-            os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetOsDiskArgs', 'WindowsVirtualMachineScaleSetOsDiskArgsDict']]] = None,
-            overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-            plan: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetPlanArgs', 'WindowsVirtualMachineScaleSetPlanArgsDict']]] = None,
-            platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-            priority: Optional[pulumi.Input[_builtins.str]] = None,
-            provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-            proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rolling_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
-            scale_in: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
-            secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
-            spot_restore: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
-            timezone: Optional[pulumi.Input[_builtins.str]] = None,
-            unique_id: Optional[pulumi.Input[_builtins.str]] = None,
-            upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            user_data: Optional[pulumi.Input[_builtins.str]] = None,
-            vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]]] = None,
-            zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'WindowsVirtualMachineScaleSet':
+            additional_capabilities: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+            additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs', 'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgsDict']]]]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+            automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+            boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
+            capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
+            do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
+            extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
+            health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+            host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']]] = None,
+            instances: pulumi.Input[Optional[_builtins.int]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetNetworkInterfaceArgs', 'WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+            os_disk: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetOsDiskArgs', 'WindowsVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+            overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+            plan: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetPlanArgs', 'WindowsVirtualMachineScaleSetPlanArgsDict']]] = None,
+            platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rolling_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
+            scale_in: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
+            secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_reference: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
+            spot_restore: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_notification: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+            upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]]] = None,
+            zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'WindowsVirtualMachineScaleSet':
         """
         Get an existing WindowsVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

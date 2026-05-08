@@ -142,9 +142,9 @@ def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountId
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']]]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(identity: pulumi.Input[Optional[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']]]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Uses this data source to access information about an existing NetApp Account.

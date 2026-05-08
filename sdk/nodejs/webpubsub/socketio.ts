@@ -249,99 +249,99 @@ export interface SocketioState {
     /**
      * Whether Azure Active Directory authentication is enabled. Defaults to `true`.
      */
-    aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The publicly accessible IP address of the Web PubSub Service.
      */
-    externalIp?: pulumi.Input<string>;
+    externalIp?: pulumi.Input<string | undefined>;
     /**
      * The FQDN of the Web PubSub Service.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.webpubsub.SocketioIdentity>;
+    identity?: pulumi.Input<inputs.webpubsub.SocketioIdentity | undefined>;
     /**
      * Whether the connectivity log category for live trace is enabled. Defaults to `true`.
      */
-    liveTraceConnectivityLogsEnabled?: pulumi.Input<boolean>;
+    liveTraceConnectivityLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the live trace tool is enabled. Defaults to `true`.
      */
-    liveTraceEnabled?: pulumi.Input<boolean>;
+    liveTraceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
      */
-    liveTraceHttpRequestLogsEnabled?: pulumi.Input<boolean>;
+    liveTraceHttpRequestLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the messaging log category for live trace is enabled. Defaults to `true`.
      */
-    liveTraceMessagingLogsEnabled?: pulumi.Input<boolean>;
+    liveTraceMessagingLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether local authentication using an access key is enabled. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary access key for the Web PubSub Service.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string for the Web PubSub Service.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      *
      * > **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The publicly accessible port for client-side usage of the Web PubSub Service.
      */
-    publicPort?: pulumi.Input<number>;
+    publicPort?: pulumi.Input<number | undefined>;
     /**
      * The name of the Resource Group where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key for the Web PubSub Service.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string for the Web PubSub Service.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The publicly accessible port for server-side usage of the Web PubSub Service.
      */
-    serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number | undefined>;
     /**
      * The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
      */
-    serviceMode?: pulumi.Input<string>;
+    serviceMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `sku` blocks as defined below.
      */
-    sku?: pulumi.Input<inputs.webpubsub.SocketioSku>;
+    sku?: pulumi.Input<inputs.webpubsub.SocketioSku | undefined>;
     /**
      * A mapping of tags which should be assigned to the Web PubSub Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      *
      * > **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      */
-    tlsClientCertEnabled?: pulumi.Input<boolean>;
+    tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -351,45 +351,45 @@ export interface SocketioArgs {
     /**
      * Whether Azure Active Directory authentication is enabled. Defaults to `true`.
      */
-    aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.webpubsub.SocketioIdentity>;
+    identity?: pulumi.Input<inputs.webpubsub.SocketioIdentity | undefined>;
     /**
      * Whether the connectivity log category for live trace is enabled. Defaults to `true`.
      */
-    liveTraceConnectivityLogsEnabled?: pulumi.Input<boolean>;
+    liveTraceConnectivityLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the live trace tool is enabled. Defaults to `true`.
      */
-    liveTraceEnabled?: pulumi.Input<boolean>;
+    liveTraceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
      */
-    liveTraceHttpRequestLogsEnabled?: pulumi.Input<boolean>;
+    liveTraceHttpRequestLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the messaging log category for live trace is enabled. Defaults to `true`.
      */
-    liveTraceMessagingLogsEnabled?: pulumi.Input<boolean>;
+    liveTraceMessagingLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether local authentication using an access key is enabled. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      *
      * > **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
      */
@@ -397,7 +397,7 @@ export interface SocketioArgs {
     /**
      * The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
      */
-    serviceMode?: pulumi.Input<string>;
+    serviceMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `sku` blocks as defined below.
      */
@@ -405,11 +405,11 @@ export interface SocketioArgs {
     /**
      * A mapping of tags which should be assigned to the Web PubSub Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      *
      * > **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      */
-    tlsClientCertEnabled?: pulumi.Input<boolean>;
+    tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
 }

@@ -365,65 +365,65 @@ export interface CertificateState {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      */
-    certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate>;
+    certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate | undefined>;
     /**
      * A `certificateAttribute` block as defined below.
      */
-    certificateAttributes?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateCertificateAttribute>[]>;
+    certificateAttributes?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateCertificateAttribute>[] | undefined>;
     /**
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
-    certificateData?: pulumi.Input<string>;
+    certificateData?: pulumi.Input<string | undefined>;
     /**
      * The Base64 encoded Key Vault Certificate data.
      */
-    certificateDataBase64?: pulumi.Input<string>;
+    certificateDataBase64?: pulumi.Input<string | undefined>;
     /**
      * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
      * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
-    certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
+    certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy | undefined>;
     /**
      * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
      */
-    resourceManagerId?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string | undefined>;
     /**
      * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
      */
-    resourceManagerVersionlessId?: pulumi.Input<string>;
+    resourceManagerVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated Key Vault Secret.
      */
-    secretId?: pulumi.Input<string>;
+    secretId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
     /**
      * The current version of the Key Vault Certificate.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The Base ID of the Key Vault Certificate.
      */
-    versionlessId?: pulumi.Input<string>;
+    versionlessId?: pulumi.Input<string | undefined>;
     /**
      * The Base ID of the Key Vault Secret.
      */
-    versionlessSecretId?: pulumi.Input<string>;
+    versionlessSecretId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -433,13 +433,13 @@ export interface CertificateArgs {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      */
-    certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate>;
+    certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate | undefined>;
     /**
      * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
      * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
-    certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
+    certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy | undefined>;
     /**
      * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      */
@@ -447,9 +447,9 @@ export interface CertificateArgs {
     /**
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

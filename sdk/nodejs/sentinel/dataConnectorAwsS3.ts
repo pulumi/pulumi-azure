@@ -140,23 +140,23 @@ export interface DataConnectorAwsS3State {
     /**
      * The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
      */
-    awsRoleArn?: pulumi.Input<string>;
+    awsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the Log Analytics table that will store the ingested data.
      */
-    destinationTable?: pulumi.Input<string>;
+    destinationTable?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
      */
-    sqsUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    sqsUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface DataConnectorAwsS3Args {
     /**
      * The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
      */

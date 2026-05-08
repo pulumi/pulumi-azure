@@ -22,18 +22,18 @@ __all__ = ['ConfigurationFeatureArgs', 'ConfigurationFeature']
 class ConfigurationFeatureArgs:
     def __init__(__self__, *,
                  configuration_store_id: pulumi.Input[_builtins.str],
-                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
+                 custom_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage_filter_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targeting_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
+                 timewindow_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationFeature resource.
 
@@ -90,162 +90,162 @@ class ConfigurationFeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="customFilters")
-    def custom_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]:
+    def custom_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]:
         """
         A `custom_filter` block as defined below.
         """
         return pulumi.get(self, "custom_filters")
 
     @custom_filters.setter
-    def custom_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]):
+    def custom_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]):
         pulumi.set(self, "custom_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the App Configuration Feature.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The status of the App Configuration Feature. By default, this is set to false.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this App Configuration Feature be Locked to prevent changes?
         """
         return pulumi.get(self, "locked")
 
     @locked.setter
-    def locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "locked", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="percentageFilterValue")
-    def percentage_filter_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percentage_filter_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A number representing the value of the percentage required to enable this feature.
         """
         return pulumi.get(self, "percentage_filter_value")
 
     @percentage_filter_value.setter
-    def percentage_filter_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percentage_filter_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percentage_filter_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetingFilters")
-    def targeting_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]:
+    def targeting_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]:
         """
         A `targeting_filter` block as defined below.
         """
         return pulumi.get(self, "targeting_filters")
 
     @targeting_filters.setter
-    def targeting_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]):
+    def targeting_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]):
         pulumi.set(self, "targeting_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="timewindowFilters")
-    def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
+    def timewindow_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
         """
         A `timewindow_filter` block as defined below.
         """
         return pulumi.get(self, "timewindow_filters")
 
     @timewindow_filters.setter
-    def timewindow_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]):
+    def timewindow_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]):
         pulumi.set(self, "timewindow_filters", value)
 
 
 @pulumi.input_type
 class _ConfigurationFeatureState:
     def __init__(__self__, *,
-                 configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
+                 configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage_filter_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targeting_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
+                 timewindow_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationFeature resources.
 
@@ -291,155 +291,155 @@ class _ConfigurationFeatureState:
 
     @_builtins.property
     @pulumi.getter(name="configurationStoreId")
-    def configuration_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "configuration_store_id")
 
     @configuration_store_id.setter
-    def configuration_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_store_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customFilters")
-    def custom_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]:
+    def custom_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]:
         """
         A `custom_filter` block as defined below.
         """
         return pulumi.get(self, "custom_filters")
 
     @custom_filters.setter
-    def custom_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]):
+    def custom_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]):
         pulumi.set(self, "custom_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the App Configuration Feature.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The status of the App Configuration Feature. By default, this is set to false.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this App Configuration Feature be Locked to prevent changes?
         """
         return pulumi.get(self, "locked")
 
     @locked.setter
-    def locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "locked", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="percentageFilterValue")
-    def percentage_filter_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def percentage_filter_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A number representing the value of the percentage required to enable this feature.
         """
         return pulumi.get(self, "percentage_filter_value")
 
     @percentage_filter_value.setter
-    def percentage_filter_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def percentage_filter_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "percentage_filter_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetingFilters")
-    def targeting_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]:
+    def targeting_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]:
         """
         A `targeting_filter` block as defined below.
         """
         return pulumi.get(self, "targeting_filters")
 
     @targeting_filters.setter
-    def targeting_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]):
+    def targeting_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]):
         pulumi.set(self, "targeting_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="timewindowFilters")
-    def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
+    def timewindow_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
         """
         A `timewindow_filter` block as defined below.
         """
         return pulumi.get(self, "timewindow_filters")
 
     @timewindow_filters.setter
-    def timewindow_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]):
+    def timewindow_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]):
         pulumi.set(self, "timewindow_filters", value)
 
 
@@ -449,19 +449,19 @@ class ConfigurationFeature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict']]]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict']]]]] = None,
+                 configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage_filter_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targeting_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict']]]]] = None,
+                 timewindow_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Azure App Configuration Feature.
@@ -591,19 +591,19 @@ class ConfigurationFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict']]]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict']]]]] = None,
+                 configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 percentage_filter_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targeting_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict']]]]] = None,
+                 timewindow_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -638,19 +638,19 @@ class ConfigurationFeature(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            locked: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            percentage_filter_value: Optional[pulumi.Input[_builtins.float]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict']]]]] = None,
-            timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict']]]]] = None) -> 'ConfigurationFeature':
+            configuration_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            percentage_filter_value: pulumi.Input[Optional[_builtins.float]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            targeting_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTargetingFilterArgs', 'ConfigurationFeatureTargetingFilterArgsDict']]]]] = None,
+            timewindow_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationFeatureTimewindowFilterArgs', 'ConfigurationFeatureTimewindowFilterArgsDict']]]]] = None) -> 'ConfigurationFeature':
         """
         Get an existing ConfigurationFeature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

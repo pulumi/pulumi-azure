@@ -88,9 +88,9 @@ export interface GetSubscriptionsOutputArgs {
     /**
      * A case-insensitive value which must be contained within the `displayName` field, used to filter the results
      */
-    displayNameContains?: pulumi.Input<string>;
+    displayNameContains?: pulumi.Input<string | undefined>;
     /**
      * A case-insensitive prefix which can be used to filter on the `displayName` field
      */
-    displayNamePrefix?: pulumi.Input<string>;
+    displayNamePrefix?: pulumi.Input<string | undefined>;
 }

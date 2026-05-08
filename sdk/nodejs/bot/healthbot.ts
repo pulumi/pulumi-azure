@@ -141,29 +141,29 @@ export interface HealthbotState {
     /**
      * The management portal url.
      */
-    botManagementPortalUrl?: pulumi.Input<string>;
+    botManagementPortalUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
      *
      * > **Note:** Downgrading to `F0` forces a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -173,11 +173,11 @@ export interface HealthbotArgs {
     /**
      * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
      */
@@ -191,5 +191,5 @@ export interface HealthbotArgs {
     /**
      * A mapping of tags which should be assigned to the service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

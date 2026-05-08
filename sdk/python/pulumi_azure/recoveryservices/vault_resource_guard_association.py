@@ -58,8 +58,8 @@ class VaultResourceGuardAssociationArgs:
 @pulumi.input_type
 class _VaultResourceGuardAssociationState:
     def __init__(__self__, *,
-                 resource_guard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_guard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
 
@@ -73,26 +73,26 @@ class _VaultResourceGuardAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="resourceGuardId")
-    def resource_guard_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_guard_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_guard_id")
 
     @resource_guard_id.setter
-    def resource_guard_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_guard_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_guard_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultId")
-    def vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vault_id")
 
     @vault_id.setter
-    def vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_id", value)
 
 
@@ -102,8 +102,8 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_guard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_guard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an association of a Resource Guard and Recovery Services Vault.
@@ -203,8 +203,8 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_guard_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_guard_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,8 +230,8 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            resource_guard_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VaultResourceGuardAssociation':
+            resource_guard_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VaultResourceGuardAssociation':
         """
         Get an existing VaultResourceGuardAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -342,35 +342,35 @@ export interface ReplicationRecoveryPlanState {
     /**
      * An `azureToAzureSettings` block as defined below.
      */
-    azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
+    azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
     /**
      * One or more `bootRecoveryGroup` blocks as defined below.
      */
-    bootRecoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup>[]>;
+    bootRecoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup>[] | undefined>;
     /**
      * One `failoverRecoveryGroup` block as defined below.
      */
-    failoverRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
+    failoverRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup | undefined>;
     /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    recoveryVaultId?: pulumi.Input<string>;
+    recoveryVaultId?: pulumi.Input<string | undefined>;
     /**
      * One `shutdownRecoveryGroup` block as defined below.
      */
-    shutdownRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
+    shutdownRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup | undefined>;
     /**
      * ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
      */
-    sourceRecoveryFabricId?: pulumi.Input<string>;
+    sourceRecoveryFabricId?: pulumi.Input<string | undefined>;
     /**
      * ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
      */
-    targetRecoveryFabricId?: pulumi.Input<string>;
+    targetRecoveryFabricId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -380,7 +380,7 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * An `azureToAzureSettings` block as defined below.
      */
-    azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
+    azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
     /**
      * One or more `bootRecoveryGroup` blocks as defined below.
      */
@@ -392,7 +392,7 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */

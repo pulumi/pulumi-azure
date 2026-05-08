@@ -23,10 +23,10 @@ class CosmosdbDataConnectionArgs:
                  kusto_database_id: pulumi.Input[_builtins.str],
                  managed_identity_id: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CosmosdbDataConnection resource.
 
@@ -102,64 +102,64 @@ class CosmosdbDataConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
-    def mapping_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "mapping_rule_name")
 
     @mapping_rule_name.setter
-    def mapping_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalStartDate")
-    def retrieval_start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retrieval_start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "retrieval_start_date")
 
     @retrieval_start_date.setter
-    def retrieval_start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retrieval_start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retrieval_start_date", value)
 
 
 @pulumi.input_type
 class _CosmosdbDataConnectionState:
     def __init__(__self__, *,
-                 cosmosdb_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cosmosdb_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CosmosdbDataConnection resources.
 
@@ -191,98 +191,98 @@ class _CosmosdbDataConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="cosmosdbContainerId")
-    def cosmosdb_container_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmosdb_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "cosmosdb_container_id")
 
     @cosmosdb_container_id.setter
-    def cosmosdb_container_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmosdb_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmosdb_container_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoDatabaseId")
-    def kusto_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "kusto_database_id")
 
     @kusto_database_id.setter
-    def kusto_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_database_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedIdentityId")
-    def managed_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "managed_identity_id")
 
     @managed_identity_id.setter
-    def managed_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingRuleName")
-    def mapping_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "mapping_rule_name")
 
     @mapping_rule_name.setter
-    def mapping_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retrievalStartDate")
-    def retrieval_start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retrieval_start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "retrieval_start_date")
 
     @retrieval_start_date.setter
-    def retrieval_start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retrieval_start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retrieval_start_date", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -292,14 +292,14 @@ class CosmosdbDataConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cosmosdb_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cosmosdb_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Kusto / Cosmos Database Data Connection.
@@ -551,14 +551,14 @@ class CosmosdbDataConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cosmosdb_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cosmosdb_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -594,14 +594,14 @@ class CosmosdbDataConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cosmosdb_container_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            mapping_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None,
-            table_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CosmosdbDataConnection':
+            cosmosdb_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CosmosdbDataConnection':
         """
         Get an existing CosmosdbDataConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

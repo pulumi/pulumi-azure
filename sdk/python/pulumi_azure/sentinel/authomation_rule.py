@@ -24,15 +24,15 @@ class AuthomationRuleArgs:
                  display_name: pulumi.Input[_builtins.str],
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
-                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]] = None,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers_when: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]] = None,
+                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
+                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers_when: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthomationRule resource.
 
@@ -111,31 +111,31 @@ class AuthomationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionIncidentTasks")
-    def action_incident_tasks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]:
+    def action_incident_tasks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]:
         """
         One or more `action_incident_task` blocks as defined below.
         """
         return pulumi.get(self, "action_incident_tasks")
 
     @action_incident_tasks.setter
-    def action_incident_tasks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]):
+    def action_incident_tasks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]):
         pulumi.set(self, "action_incident_tasks", value)
 
     @_builtins.property
     @pulumi.getter(name="actionIncidents")
-    def action_incidents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]:
+    def action_incidents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]:
         """
         One or more `action_incident` blocks as defined below.
         """
         return pulumi.get(self, "action_incidents")
 
     @action_incidents.setter
-    def action_incidents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]):
+    def action_incidents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]):
         pulumi.set(self, "action_incidents", value)
 
     @_builtins.property
     @pulumi.getter(name="actionPlaybooks")
-    def action_playbooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]:
+    def action_playbooks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]:
         """
         One or more `action_playbook` blocks as defined below.
 
@@ -144,97 +144,97 @@ class AuthomationRuleArgs:
         return pulumi.get(self, "action_playbooks")
 
     @action_playbooks.setter
-    def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
+    def action_playbooks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
         pulumi.set(self, "action_playbooks", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionJson")
-    def condition_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         """
         return pulumi.get(self, "condition_json")
 
     @condition_json.setter
-    def condition_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="triggersOn")
-    def triggers_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def triggers_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
         """
         return pulumi.get(self, "triggers_on")
 
     @triggers_on.setter
-    def triggers_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def triggers_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "triggers_on", value)
 
     @_builtins.property
     @pulumi.getter(name="triggersWhen")
-    def triggers_when(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def triggers_when(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
         return pulumi.get(self, "triggers_when")
 
     @triggers_when.setter
-    def triggers_when(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def triggers_when(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "triggers_when", value)
 
 
 @pulumi.input_type
 class _AuthomationRuleState:
     def __init__(__self__, *,
-                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]] = None,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 triggers_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers_when: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]] = None,
+                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
+                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 triggers_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers_when: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthomationRule resources.
 
@@ -280,31 +280,31 @@ class _AuthomationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="actionIncidentTasks")
-    def action_incident_tasks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]:
+    def action_incident_tasks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]:
         """
         One or more `action_incident_task` blocks as defined below.
         """
         return pulumi.get(self, "action_incident_tasks")
 
     @action_incident_tasks.setter
-    def action_incident_tasks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]):
+    def action_incident_tasks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentTaskArgs']]]]):
         pulumi.set(self, "action_incident_tasks", value)
 
     @_builtins.property
     @pulumi.getter(name="actionIncidents")
-    def action_incidents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]:
+    def action_incidents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]:
         """
         One or more `action_incident` blocks as defined below.
         """
         return pulumi.get(self, "action_incidents")
 
     @action_incidents.setter
-    def action_incidents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]):
+    def action_incidents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]):
         pulumi.set(self, "action_incidents", value)
 
     @_builtins.property
     @pulumi.getter(name="actionPlaybooks")
-    def action_playbooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]:
+    def action_playbooks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]:
         """
         One or more `action_playbook` blocks as defined below.
 
@@ -313,115 +313,115 @@ class _AuthomationRuleState:
         return pulumi.get(self, "action_playbooks")
 
     @action_playbooks.setter
-    def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
+    def action_playbooks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
         pulumi.set(self, "action_playbooks", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionJson")
-    def condition_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         """
         return pulumi.get(self, "condition_json")
 
     @condition_json.setter
-    def condition_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_json", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name which should be used for this Sentinel Automation Rule.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
-    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_analytics_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="triggersOn")
-    def triggers_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def triggers_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
         """
         return pulumi.get(self, "triggers_on")
 
     @triggers_on.setter
-    def triggers_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def triggers_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "triggers_on", value)
 
     @_builtins.property
     @pulumi.getter(name="triggersWhen")
-    def triggers_when(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def triggers_when(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
         return pulumi.get(self, "triggers_when")
 
     @triggers_when.setter
-    def triggers_when(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def triggers_when(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "triggers_when", value)
 
 
@@ -436,18 +436,18 @@ class AuthomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict']]]]] = None,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 triggers_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers_when: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict']]]]] = None,
+                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
+                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 triggers_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers_when: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Sentinel Automation Rule.
@@ -577,18 +577,18 @@ class AuthomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict']]]]] = None,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 triggers_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers_when: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict']]]]] = None,
+                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
+                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 triggers_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers_when: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""AuthomationRule is deprecated: azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -627,18 +627,18 @@ class AuthomationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict']]]]] = None,
-            action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
-            action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
-            condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            expiration: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            triggers_on: Optional[pulumi.Input[_builtins.str]] = None,
-            triggers_when: Optional[pulumi.Input[_builtins.str]] = None) -> 'AuthomationRule':
+            action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentTaskArgs', 'AuthomationRuleActionIncidentTaskArgsDict']]]]] = None,
+            action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
+            action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
+            condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            triggers_on: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers_when: pulumi.Input[Optional[_builtins.str]] = None) -> 'AuthomationRule':
         """
         Get an existing AuthomationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

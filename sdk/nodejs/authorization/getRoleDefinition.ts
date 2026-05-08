@@ -159,15 +159,15 @@ export interface GetRoleDefinitionOutputArgs {
      *
      * > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Role Definition as a UUID/GUID.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      *
      * > **Note:** One of `name` or `roleDefinitionId` must be specified.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }

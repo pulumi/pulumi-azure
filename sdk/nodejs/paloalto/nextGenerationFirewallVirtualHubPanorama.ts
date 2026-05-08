@@ -206,46 +206,46 @@ export interface NextGenerationFirewallVirtualHubPanoramaState {
     /**
      * One or more `destinationNat` blocks as defined below.
      */
-    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat>[]>;
+    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat>[] | undefined>;
     /**
      * A `dnsSettings` block as defined below.
      */
-    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings>;
+    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings | undefined>;
     /**
      * The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      */
-    marketplaceOfferId?: pulumi.Input<string>;
+    marketplaceOfferId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below.
      */
-    networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaNetworkProfile>;
+    networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaNetworkProfile | undefined>;
     /**
      * The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
      */
-    panoramaBase64Config?: pulumi.Input<string>;
-    panoramas?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaPanorama>[]>;
+    panoramaBase64Config?: pulumi.Input<string | undefined>;
+    panoramas?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaPanorama>[] | undefined>;
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      *
      * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -255,23 +255,23 @@ export interface NextGenerationFirewallVirtualHubPanoramaArgs {
     /**
      * One or more `destinationNat` blocks as defined below.
      */
-    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat>[]>;
+    destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat>[] | undefined>;
     /**
      * A `dnsSettings` block as defined below.
      */
-    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings>;
+    dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings | undefined>;
     /**
      * The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      */
-    marketplaceOfferId?: pulumi.Input<string>;
+    marketplaceOfferId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkProfile` block as defined below.
      */
@@ -285,7 +285,7 @@ export interface NextGenerationFirewallVirtualHubPanoramaArgs {
      *
      * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
-    planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
      */
@@ -293,5 +293,5 @@ export interface NextGenerationFirewallVirtualHubPanoramaArgs {
     /**
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

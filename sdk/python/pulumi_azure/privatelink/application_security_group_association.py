@@ -58,8 +58,8 @@ class ApplicationSecurityGroupAssociationArgs:
 @pulumi.input_type
 class _ApplicationSecurityGroupAssociationState:
     def __init__(__self__, *,
-                 application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationSecurityGroupAssociation resources.
 
@@ -73,26 +73,26 @@ class _ApplicationSecurityGroupAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="applicationSecurityGroupId")
-    def application_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of application security group to associate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_security_group_id")
 
     @application_security_group_id.setter
-    def application_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointId")
-    def private_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of private endpoint to associate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_endpoint_id")
 
     @private_endpoint_id.setter
-    def private_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_id", value)
 
 
@@ -102,8 +102,8 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an association between Private Endpoint and Application Security Group.
@@ -319,8 +319,8 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,8 +346,8 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApplicationSecurityGroupAssociation':
+            application_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApplicationSecurityGroupAssociation':
         """
         Get an existing ApplicationSecurityGroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -76,8 +76,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.AAAARecord;
      * import com.pulumi.azure.privatedns.AAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -128,8 +128,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.AAAARecord;
      * import com.pulumi.azure.privatedns.AAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -180,8 +180,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.AAAARecord;
      * import com.pulumi.azure.privatedns.AAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -232,8 +232,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.AAAARecord;
      * import com.pulumi.azure.privatedns.AAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -284,8 +284,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.AAAARecord;
      * import com.pulumi.azure.privatedns.AAAARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -336,8 +336,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -388,8 +388,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -440,8 +440,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -492,8 +492,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -544,8 +544,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -596,8 +596,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.CnameRecord;
      * import com.pulumi.azure.privatedns.CnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -648,8 +648,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.CnameRecord;
      * import com.pulumi.azure.privatedns.CnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -700,8 +700,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.CnameRecord;
      * import com.pulumi.azure.privatedns.CnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -752,8 +752,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.CnameRecord;
      * import com.pulumi.azure.privatedns.CnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -804,8 +804,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.CnameRecord;
      * import com.pulumi.azure.privatedns.CnameRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -854,8 +854,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -896,8 +896,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -938,8 +938,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -980,8 +980,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1022,8 +1022,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1066,8 +1066,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.MxRecord;
      * import com.pulumi.azure.privatedns.MxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1118,8 +1118,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.MxRecord;
      * import com.pulumi.azure.privatedns.MxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1170,8 +1170,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.MxRecord;
      * import com.pulumi.azure.privatedns.MxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1222,8 +1222,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.MxRecord;
      * import com.pulumi.azure.privatedns.MxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1274,8 +1274,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.MxRecord;
      * import com.pulumi.azure.privatedns.MxRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1326,8 +1326,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PTRRecord;
      * import com.pulumi.azure.privatedns.PTRRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1378,8 +1378,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PTRRecord;
      * import com.pulumi.azure.privatedns.PTRRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1430,8 +1430,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PTRRecord;
      * import com.pulumi.azure.privatedns.PTRRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1482,8 +1482,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PTRRecord;
      * import com.pulumi.azure.privatedns.PTRRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1534,8 +1534,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PTRRecord;
      * import com.pulumi.azure.privatedns.PTRRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1584,8 +1584,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1632,8 +1632,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1680,8 +1680,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1728,8 +1728,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1776,8 +1776,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1824,8 +1824,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1872,8 +1872,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1920,8 +1920,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1968,8 +1968,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2016,8 +2016,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2064,8 +2064,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2112,8 +2112,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2160,8 +2160,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2208,8 +2208,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2256,8 +2256,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2304,8 +2304,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2352,8 +2352,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2400,8 +2400,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2448,8 +2448,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2496,8 +2496,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2544,8 +2544,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2592,8 +2592,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2640,8 +2640,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2688,8 +2688,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2736,8 +2736,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2784,8 +2784,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2832,8 +2832,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2880,8 +2880,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2928,8 +2928,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2976,8 +2976,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3026,8 +3026,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.PrivateDnsSoaRecord;
      * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3077,8 +3077,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.PrivateDnsSoaRecord;
      * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3128,8 +3128,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.PrivateDnsSoaRecord;
      * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3179,8 +3179,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.PrivateDnsSoaRecord;
      * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3230,8 +3230,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.PrivateDnsSoaRecord;
      * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3281,8 +3281,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.SRVRecord;
      * import com.pulumi.azure.privatedns.SRVRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3333,8 +3333,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.SRVRecord;
      * import com.pulumi.azure.privatedns.SRVRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3385,8 +3385,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.SRVRecord;
      * import com.pulumi.azure.privatedns.SRVRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3437,8 +3437,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.SRVRecord;
      * import com.pulumi.azure.privatedns.SRVRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3489,8 +3489,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.SRVRecord;
      * import com.pulumi.azure.privatedns.SRVRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3541,8 +3541,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.TxtRecord;
      * import com.pulumi.azure.privatedns.TxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3593,8 +3593,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.TxtRecord;
      * import com.pulumi.azure.privatedns.TxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3645,8 +3645,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.TxtRecord;
      * import com.pulumi.azure.privatedns.TxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3697,8 +3697,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.TxtRecord;
      * import com.pulumi.azure.privatedns.TxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3749,8 +3749,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.TxtRecord;
      * import com.pulumi.azure.privatedns.TxtRecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3799,8 +3799,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3849,8 +3849,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3899,8 +3899,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3949,8 +3949,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3999,8 +3999,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
      * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

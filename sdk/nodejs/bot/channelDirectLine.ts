@@ -136,19 +136,19 @@ export interface ChannelDirectLineState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
-    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelDirectLineSite>[]>;
+    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelDirectLineSite>[] | undefined>;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface ChannelDirectLineArgs {
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */

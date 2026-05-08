@@ -27,20 +27,20 @@ class HBaseClusterArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input['HBaseClusterRolesArgs'],
                  tier: pulumi.Input[_builtins.str],
-                 compute_isolation: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
-                 extension: Optional[pulumi.Input['HBaseClusterExtensionArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input['HBaseClusterMetastoresArgs']] = None,
-                 monitor: Optional[pulumi.Input['HBaseClusterMonitorArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['HBaseClusterNetworkArgs']] = None,
-                 private_link_configuration: Optional[pulumi.Input['HBaseClusterPrivateLinkConfigurationArgs']] = None,
-                 security_profile: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']] = None,
-                 storage_account_gen2: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 compute_isolation: pulumi.Input[Optional['HBaseClusterComputeIsolationArgs']] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
+                 extension: pulumi.Input[Optional['HBaseClusterExtensionArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional['HBaseClusterMetastoresArgs']] = None,
+                 monitor: pulumi.Input[Optional['HBaseClusterMonitorArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['HBaseClusterNetworkArgs']] = None,
+                 private_link_configuration: pulumi.Input[Optional['HBaseClusterPrivateLinkConfigurationArgs']] = None,
+                 security_profile: pulumi.Input[Optional['HBaseClusterSecurityProfileArgs']] = None,
+                 storage_account_gen2: pulumi.Input[Optional['HBaseClusterStorageAccountGen2Args']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HBaseCluster resource.
 
@@ -176,163 +176,163 @@ class HBaseClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolation")
-    def compute_isolation(self) -> Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]:
+    def compute_isolation(self) -> pulumi.Input[Optional['HBaseClusterComputeIsolationArgs']]:
         """
         A `compute_isolation` block as defined below.
         """
         return pulumi.get(self, "compute_isolation")
 
     @compute_isolation.setter
-    def compute_isolation(self, value: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]):
+    def compute_isolation(self, value: pulumi.Input[Optional['HBaseClusterComputeIsolationArgs']]):
         pulumi.set(self, "compute_isolation", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptions")
-    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]:
+    def disk_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
         """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
-    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]):
+    def disk_encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input['HBaseClusterExtensionArgs']]:
+    def extension(self) -> pulumi.Input[Optional['HBaseClusterExtensionArgs']]:
         """
         An `extension` block as defined below.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input['HBaseClusterExtensionArgs']]):
+    def extension(self, value: pulumi.Input[Optional['HBaseClusterExtensionArgs']]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def metastores(self) -> Optional[pulumi.Input['HBaseClusterMetastoresArgs']]:
+    def metastores(self) -> pulumi.Input[Optional['HBaseClusterMetastoresArgs']]:
         """
         A `metastores` block as defined below.
         """
         return pulumi.get(self, "metastores")
 
     @metastores.setter
-    def metastores(self, value: Optional[pulumi.Input['HBaseClusterMetastoresArgs']]):
+    def metastores(self, value: pulumi.Input[Optional['HBaseClusterMetastoresArgs']]):
         pulumi.set(self, "metastores", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['HBaseClusterMonitorArgs']]:
+    def monitor(self) -> pulumi.Input[Optional['HBaseClusterMonitorArgs']]:
         """
         A `monitor` block as defined below.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['HBaseClusterMonitorArgs']]):
+    def monitor(self, value: pulumi.Input[Optional['HBaseClusterMonitorArgs']]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['HBaseClusterNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['HBaseClusterNetworkArgs']]:
         """
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['HBaseClusterNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['HBaseClusterNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfiguration")
-    def private_link_configuration(self) -> Optional[pulumi.Input['HBaseClusterPrivateLinkConfigurationArgs']]:
+    def private_link_configuration(self) -> pulumi.Input[Optional['HBaseClusterPrivateLinkConfigurationArgs']]:
         """
         A `private_link_configuration` block as defined below.
         """
         return pulumi.get(self, "private_link_configuration")
 
     @private_link_configuration.setter
-    def private_link_configuration(self, value: Optional[pulumi.Input['HBaseClusterPrivateLinkConfigurationArgs']]):
+    def private_link_configuration(self, value: pulumi.Input[Optional['HBaseClusterPrivateLinkConfigurationArgs']]):
         pulumi.set(self, "private_link_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['HBaseClusterSecurityProfileArgs']]:
         """
         A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['HBaseClusterSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']]:
+    def storage_account_gen2(self) -> pulumi.Input[Optional['HBaseClusterStorageAccountGen2Args']]:
         """
         A `storage_account_gen2` block as defined below.
         """
         return pulumi.get(self, "storage_account_gen2")
 
     @storage_account_gen2.setter
-    def storage_account_gen2(self, value: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']]):
+    def storage_account_gen2(self, value: pulumi.Input[Optional['HBaseClusterStorageAccountGen2Args']]):
         pulumi.set(self, "storage_account_gen2", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]:
         """
         One or more `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Tags which should be assigned to this HDInsight HBase Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
@@ -341,35 +341,35 @@ class HBaseClusterArgs:
         return pulumi.get(self, "tls_min_version")
 
     @tls_min_version.setter
-    def tls_min_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_min_version", value)
 
 
 @pulumi.input_type
 class _HBaseClusterState:
     def __init__(__self__, *,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input['HBaseClusterComponentVersionArgs']] = None,
-                 compute_isolation: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
-                 extension: Optional[pulumi.Input['HBaseClusterExtensionArgs']] = None,
-                 gateway: Optional[pulumi.Input['HBaseClusterGatewayArgs']] = None,
-                 https_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input['HBaseClusterMetastoresArgs']] = None,
-                 monitor: Optional[pulumi.Input['HBaseClusterMonitorArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['HBaseClusterNetworkArgs']] = None,
-                 private_link_configuration: Optional[pulumi.Input['HBaseClusterPrivateLinkConfigurationArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input['HBaseClusterRolesArgs']] = None,
-                 security_profile: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']] = None,
-                 ssh_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_gen2: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional['HBaseClusterComponentVersionArgs']] = None,
+                 compute_isolation: pulumi.Input[Optional['HBaseClusterComputeIsolationArgs']] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]] = None,
+                 extension: pulumi.Input[Optional['HBaseClusterExtensionArgs']] = None,
+                 gateway: pulumi.Input[Optional['HBaseClusterGatewayArgs']] = None,
+                 https_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional['HBaseClusterMetastoresArgs']] = None,
+                 monitor: pulumi.Input[Optional['HBaseClusterMonitorArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['HBaseClusterNetworkArgs']] = None,
+                 private_link_configuration: pulumi.Input[Optional['HBaseClusterPrivateLinkConfigurationArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional['HBaseClusterRolesArgs']] = None,
+                 security_profile: pulumi.Input[Optional['HBaseClusterSecurityProfileArgs']] = None,
+                 ssh_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_gen2: pulumi.Input[Optional['HBaseClusterStorageAccountGen2Args']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HBaseCluster resources.
 
@@ -445,259 +445,259 @@ class _HBaseClusterState:
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_version")
 
     @cluster_version.setter
-    def cluster_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_version", value)
 
     @_builtins.property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> Optional[pulumi.Input['HBaseClusterComponentVersionArgs']]:
+    def component_version(self) -> pulumi.Input[Optional['HBaseClusterComponentVersionArgs']]:
         """
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: Optional[pulumi.Input['HBaseClusterComponentVersionArgs']]):
+    def component_version(self, value: pulumi.Input[Optional['HBaseClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
 
     @_builtins.property
     @pulumi.getter(name="computeIsolation")
-    def compute_isolation(self) -> Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]:
+    def compute_isolation(self) -> pulumi.Input[Optional['HBaseClusterComputeIsolationArgs']]:
         """
         A `compute_isolation` block as defined below.
         """
         return pulumi.get(self, "compute_isolation")
 
     @compute_isolation.setter
-    def compute_isolation(self, value: Optional[pulumi.Input['HBaseClusterComputeIsolationArgs']]):
+    def compute_isolation(self, value: pulumi.Input[Optional['HBaseClusterComputeIsolationArgs']]):
         pulumi.set(self, "compute_isolation", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptions")
-    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]:
+    def disk_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
         """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
-    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]):
+    def disk_encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterDiskEncryptionArgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input['HBaseClusterExtensionArgs']]:
+    def extension(self) -> pulumi.Input[Optional['HBaseClusterExtensionArgs']]:
         """
         An `extension` block as defined below.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input['HBaseClusterExtensionArgs']]):
+    def extension(self, value: pulumi.Input[Optional['HBaseClusterExtensionArgs']]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input['HBaseClusterGatewayArgs']]:
+    def gateway(self) -> pulumi.Input[Optional['HBaseClusterGatewayArgs']]:
         """
         A `gateway` block as defined below.
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input['HBaseClusterGatewayArgs']]):
+    def gateway(self, value: pulumi.Input[Optional['HBaseClusterGatewayArgs']]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsEndpoint")
-    def https_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
         """
         return pulumi.get(self, "https_endpoint")
 
     @https_endpoint.setter
-    def https_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def metastores(self) -> Optional[pulumi.Input['HBaseClusterMetastoresArgs']]:
+    def metastores(self) -> pulumi.Input[Optional['HBaseClusterMetastoresArgs']]:
         """
         A `metastores` block as defined below.
         """
         return pulumi.get(self, "metastores")
 
     @metastores.setter
-    def metastores(self, value: Optional[pulumi.Input['HBaseClusterMetastoresArgs']]):
+    def metastores(self, value: pulumi.Input[Optional['HBaseClusterMetastoresArgs']]):
         pulumi.set(self, "metastores", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['HBaseClusterMonitorArgs']]:
+    def monitor(self) -> pulumi.Input[Optional['HBaseClusterMonitorArgs']]:
         """
         A `monitor` block as defined below.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['HBaseClusterMonitorArgs']]):
+    def monitor(self, value: pulumi.Input[Optional['HBaseClusterMonitorArgs']]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['HBaseClusterNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['HBaseClusterNetworkArgs']]:
         """
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['HBaseClusterNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['HBaseClusterNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfiguration")
-    def private_link_configuration(self) -> Optional[pulumi.Input['HBaseClusterPrivateLinkConfigurationArgs']]:
+    def private_link_configuration(self) -> pulumi.Input[Optional['HBaseClusterPrivateLinkConfigurationArgs']]:
         """
         A `private_link_configuration` block as defined below.
         """
         return pulumi.get(self, "private_link_configuration")
 
     @private_link_configuration.setter
-    def private_link_configuration(self, value: Optional[pulumi.Input['HBaseClusterPrivateLinkConfigurationArgs']]):
+    def private_link_configuration(self, value: pulumi.Input[Optional['HBaseClusterPrivateLinkConfigurationArgs']]):
         pulumi.set(self, "private_link_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input['HBaseClusterRolesArgs']]:
+    def roles(self) -> pulumi.Input[Optional['HBaseClusterRolesArgs']]:
         """
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input['HBaseClusterRolesArgs']]):
+    def roles(self, value: pulumi.Input[Optional['HBaseClusterRolesArgs']]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['HBaseClusterSecurityProfileArgs']]:
         """
         A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['HBaseClusterSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="sshEndpoint")
-    def ssh_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
         """
         return pulumi.get(self, "ssh_endpoint")
 
     @ssh_endpoint.setter
-    def ssh_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']]:
+    def storage_account_gen2(self) -> pulumi.Input[Optional['HBaseClusterStorageAccountGen2Args']]:
         """
         A `storage_account_gen2` block as defined below.
         """
         return pulumi.get(self, "storage_account_gen2")
 
     @storage_account_gen2.setter
-    def storage_account_gen2(self, value: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']]):
+    def storage_account_gen2(self, value: pulumi.Input[Optional['HBaseClusterStorageAccountGen2Args']]):
         pulumi.set(self, "storage_account_gen2", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]:
         """
         One or more `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Tags which should be assigned to this HDInsight HBase Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
@@ -706,7 +706,7 @@ class _HBaseClusterState:
         return pulumi.get(self, "tls_min_version")
 
     @tls_min_version.setter
-    def tls_min_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_min_version", value)
 
 
@@ -716,26 +716,26 @@ class HBaseCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
-                 compute_isolation: Optional[pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
-                 extension: Optional[pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
-                 monitor: Optional[pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: pulumi.Input[Optional[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
+                 extension: pulumi.Input[Optional[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: pulumi.Input[Optional[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: pulumi.Input[Optional[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a HDInsight HBase Cluster.
@@ -935,26 +935,26 @@ class HBaseCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
-                 compute_isolation: Optional[pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
-                 extension: Optional[pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
-                 monitor: Optional[pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: pulumi.Input[Optional[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
+                 extension: pulumi.Input[Optional[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: pulumi.Input[Optional[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: pulumi.Input[Optional[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1008,28 +1008,28 @@ class HBaseCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-            component_version: Optional[pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
-            compute_isolation: Optional[pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
-            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
-            extension: Optional[pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
-            gateway: Optional[pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
-            https_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            metastores: Optional[pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
-            monitor: Optional[pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network: Optional[pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
-            private_link_configuration: Optional[pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            roles: Optional[pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
-            security_profile: Optional[pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
-            ssh_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_gen2: Optional[pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tier: Optional[pulumi.Input[_builtins.str]] = None,
-            tls_min_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'HBaseCluster':
+            cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+            component_version: pulumi.Input[Optional[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
+            compute_isolation: pulumi.Input[Optional[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
+            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
+            extension: pulumi.Input[Optional[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
+            gateway: pulumi.Input[Optional[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
+            https_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metastores: pulumi.Input[Optional[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
+            monitor: pulumi.Input[Optional[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
+            private_link_configuration: pulumi.Input[Optional[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
+            security_profile: pulumi.Input[Optional[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
+            ssh_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_gen2: pulumi.Input[Optional[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_min_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'HBaseCluster':
         """
         Get an existing HBaseCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

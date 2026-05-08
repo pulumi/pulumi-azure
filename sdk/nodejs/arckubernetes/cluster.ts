@@ -199,55 +199,55 @@ export interface ClusterState {
     /**
      * Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    agentPublicKeyCertificate?: pulumi.Input<string>;
+    agentPublicKeyCertificate?: pulumi.Input<string | undefined>;
     /**
      * Version of the agent running on the cluster resource.
      */
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * The distribution running on this Arc Kubernetes Cluster.
      */
-    distribution?: pulumi.Input<string>;
+    distribution?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    identity?: pulumi.Input<inputs.arckubernetes.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.arckubernetes.ClusterIdentity | undefined>;
     /**
      * The infrastructure on which the Arc Kubernetes Cluster is running on.
      */
-    infrastructure?: pulumi.Input<string>;
+    infrastructure?: pulumi.Input<string | undefined>;
     /**
      * The Kubernetes version of the cluster resource.
      */
-    kubernetesVersion?: pulumi.Input<string>;
+    kubernetesVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The cluster offering.
      */
-    offering?: pulumi.Input<string>;
+    offering?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Number of CPU cores present in the cluster resource.
      */
-    totalCoreCount?: pulumi.Input<number>;
+    totalCoreCount?: pulumi.Input<number | undefined>;
     /**
      * Number of nodes present in the cluster resource.
      */
-    totalNodeCount?: pulumi.Input<number>;
+    totalNodeCount?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -265,11 +265,11 @@ export interface ClusterArgs {
     /**
      * Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
@@ -277,5 +277,5 @@ export interface ClusterArgs {
     /**
      * A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

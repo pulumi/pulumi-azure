@@ -220,57 +220,57 @@ export interface SoftwareUpdateConfigurationState {
     /**
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    automationAccountId?: pulumi.Input<string>;
+    automationAccountId?: pulumi.Input<string | undefined>;
     /**
      * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      */
-    duration?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
     /**
      * The Error code when failed.
      */
-    errorCode?: pulumi.Input<string>;
+    errorCode?: pulumi.Input<string | undefined>;
     /**
      * The Error message indicating why the operation failed.
      */
-    errorMessage?: pulumi.Input<string>;
+    errorMessage?: pulumi.Input<string | undefined>;
     /**
      * A `linux` block as defined below.
      */
-    linux?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>;
+    linux?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux | undefined>;
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of names of non-Azure machines for the software update configuration.
      */
-    nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `postTask` blocks as defined below.
      */
-    postTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>;
+    postTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask | undefined>;
     /**
      * A `preTask` blocks as defined below.
      */
-    preTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>;
+    preTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask | undefined>;
     /**
      * A `schedule` blocks as defined below.
      */
-    schedule?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>;
+    schedule?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule | undefined>;
     /**
      * A `target` blocks as defined below.
      */
-    target?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTarget>;
+    target?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTarget | undefined>;
     /**
      * Specifies a list of Azure Resource IDs of azure virtual machines.
      */
-    virtualMachineIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualMachineIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `windows` block as defined below.
      *
      * > **Note:** One of `linux` or `windows` must be specified.
      */
-    windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
+    windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
 }
 
 /**
@@ -284,27 +284,27 @@ export interface SoftwareUpdateConfigurationArgs {
     /**
      * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      */
-    duration?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
     /**
      * A `linux` block as defined below.
      */
-    linux?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>;
+    linux?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux | undefined>;
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of names of non-Azure machines for the software update configuration.
      */
-    nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `postTask` blocks as defined below.
      */
-    postTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>;
+    postTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask | undefined>;
     /**
      * A `preTask` blocks as defined below.
      */
-    preTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>;
+    preTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask | undefined>;
     /**
      * A `schedule` blocks as defined below.
      */
@@ -312,15 +312,15 @@ export interface SoftwareUpdateConfigurationArgs {
     /**
      * A `target` blocks as defined below.
      */
-    target?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTarget>;
+    target?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTarget | undefined>;
     /**
      * Specifies a list of Azure Resource IDs of azure virtual machines.
      */
-    virtualMachineIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualMachineIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `windows` block as defined below.
      *
      * > **Note:** One of `linux` or `windows` must be specified.
      */
-    windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
+    windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
 }

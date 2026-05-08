@@ -27,20 +27,20 @@ class ScheduledQueryRulesAlertV2Args:
                  scopes: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[_builtins.int],
                  window_duration: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
-                 auto_mitigation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_actions_after_alert_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_time_range_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_query_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 action: pulumi.Input[Optional['ScheduledQueryRulesAlertV2ActionArgs']] = None,
+                 auto_mitigation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_actions_after_alert_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_time_range_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_alerts_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScheduledQueryRulesAlertV2 resource.
 
@@ -186,91 +186,91 @@ class ScheduledQueryRulesAlertV2Args:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['ScheduledQueryRulesAlertV2ActionArgs']]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['ScheduledQueryRulesAlertV2ActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMitigationEnabled")
-    def auto_mitigation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_mitigation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         """
         return pulumi.get(self, "auto_mitigation_enabled")
 
     @auto_mitigation_enabled.setter
-    def auto_mitigation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_mitigation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_mitigation_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the scheduled query rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the display name of the alert rule.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ScheduledQueryRulesAlertV2IdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ScheduledQueryRulesAlertV2IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="muteActionsAfterAlertDuration")
-    def mute_actions_after_alert_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mute_actions_after_alert_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 
@@ -279,24 +279,24 @@ class ScheduledQueryRulesAlertV2Args:
         return pulumi.get(self, "mute_actions_after_alert_duration")
 
     @mute_actions_after_alert_duration.setter
-    def mute_actions_after_alert_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mute_actions_after_alert_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mute_actions_after_alert_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTimeRangeOverride")
-    def query_time_range_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_time_range_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 
@@ -305,84 +305,84 @@ class ScheduledQueryRulesAlertV2Args:
         return pulumi.get(self, "query_time_range_override")
 
     @query_time_range_override.setter
-    def query_time_range_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_time_range_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_time_range_override", value)
 
     @_builtins.property
     @pulumi.getter(name="skipQueryValidation")
-    def skip_query_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_query_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         """
         return pulumi.get(self, "skip_query_validation")
 
     @skip_query_validation.setter
-    def skip_query_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_query_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_query_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceTypes")
-    def target_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
         """
         return pulumi.get(self, "target_resource_types")
 
     @target_resource_types.setter
-    def target_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_resource_types", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceAlertsStorageEnabled")
-    def workspace_alerts_storage_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def workspace_alerts_storage_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
         """
         return pulumi.get(self, "workspace_alerts_storage_enabled")
 
     @workspace_alerts_storage_enabled.setter
-    def workspace_alerts_storage_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def workspace_alerts_storage_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "workspace_alerts_storage_enabled", value)
 
 
 @pulumi.input_type
 class _ScheduledQueryRulesAlertV2State:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
-                 auto_mitigation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 created_with_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
-                 is_a_legacy_log_analytics_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_workspace_alerts_storage_configured: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_actions_after_alert_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_time_range_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_query_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 window_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 action: pulumi.Input[Optional['ScheduledQueryRulesAlertV2ActionArgs']] = None,
+                 auto_mitigation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 created_with_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
+                 is_a_legacy_log_analytics_rule: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_workspace_alerts_storage_configured: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_actions_after_alert_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_time_range_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 window_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_alerts_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScheduledQueryRulesAlertV2 resources.
 
@@ -467,91 +467,91 @@ class _ScheduledQueryRulesAlertV2State:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['ScheduledQueryRulesAlertV2ActionArgs']]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['ScheduledQueryRulesAlertV2ActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMitigationEnabled")
-    def auto_mitigation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_mitigation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         """
         return pulumi.get(self, "auto_mitigation_enabled")
 
     @auto_mitigation_enabled.setter
-    def auto_mitigation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_mitigation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_mitigation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="createdWithApiVersion")
-    def created_with_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_with_api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The api-version used when creating this alert rule.
         """
         return pulumi.get(self, "created_with_api_version")
 
     @created_with_api_version.setter
-    def created_with_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_with_api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_with_api_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]]:
+    def criterias(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]]:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]]):
+    def criterias(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]]):
         pulumi.set(self, "criterias", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the scheduled query rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the display name of the alert rule.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def evaluation_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 
@@ -562,60 +562,60 @@ class _ScheduledQueryRulesAlertV2State:
         return pulumi.get(self, "evaluation_frequency")
 
     @evaluation_frequency.setter
-    def evaluation_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def evaluation_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "evaluation_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ScheduledQueryRulesAlertV2IdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ScheduledQueryRulesAlertV2IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="isALegacyLogAnalyticsRule")
-    def is_a_legacy_log_analytics_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_a_legacy_log_analytics_rule(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if this alert rule is a legacy Log Analytic Rule.
         """
         return pulumi.get(self, "is_a_legacy_log_analytics_rule")
 
     @is_a_legacy_log_analytics_rule.setter
-    def is_a_legacy_log_analytics_rule(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_a_legacy_log_analytics_rule(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_a_legacy_log_analytics_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="isWorkspaceAlertsStorageConfigured")
-    def is_workspace_alerts_storage_configured(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_workspace_alerts_storage_configured(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
         """
         return pulumi.get(self, "is_workspace_alerts_storage_configured")
 
     @is_workspace_alerts_storage_configured.setter
-    def is_workspace_alerts_storage_configured(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_workspace_alerts_storage_configured(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_workspace_alerts_storage_configured", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="muteActionsAfterAlertDuration")
-    def mute_actions_after_alert_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mute_actions_after_alert_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 
@@ -624,24 +624,24 @@ class _ScheduledQueryRulesAlertV2State:
         return pulumi.get(self, "mute_actions_after_alert_duration")
 
     @mute_actions_after_alert_duration.setter
-    def mute_actions_after_alert_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mute_actions_after_alert_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mute_actions_after_alert_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTimeRangeOverride")
-    def query_time_range_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_time_range_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 
@@ -650,103 +650,103 @@ class _ScheduledQueryRulesAlertV2State:
         return pulumi.get(self, "query_time_range_override")
 
     @query_time_range_override.setter
-    def query_time_range_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_time_range_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_time_range_override", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scopes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scopes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter(name="skipQueryValidation")
-    def skip_query_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_query_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         """
         return pulumi.get(self, "skip_query_validation")
 
     @skip_query_validation.setter
-    def skip_query_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_query_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_query_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceTypes")
-    def target_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
         """
         return pulumi.get(self, "target_resource_types")
 
     @target_resource_types.setter
-    def target_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_resource_types", value)
 
     @_builtins.property
     @pulumi.getter(name="windowDuration")
-    def window_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def window_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
         """
         return pulumi.get(self, "window_duration")
 
     @window_duration.setter
-    def window_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def window_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "window_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceAlertsStorageEnabled")
-    def workspace_alerts_storage_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def workspace_alerts_storage_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
         """
         return pulumi.get(self, "workspace_alerts_storage_enabled")
 
     @workspace_alerts_storage_enabled.setter
-    def workspace_alerts_storage_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def workspace_alerts_storage_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "workspace_alerts_storage_enabled", value)
 
 
@@ -756,26 +756,26 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
-                 auto_mitigation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_actions_after_alert_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_time_range_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_query_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 window_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 action: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
+                 auto_mitigation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_actions_after_alert_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_time_range_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 window_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_alerts_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
@@ -1025,26 +1025,26 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
-                 auto_mitigation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_actions_after_alert_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_time_range_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_query_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 window_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 action: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
+                 auto_mitigation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_actions_after_alert_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_time_range_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 window_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_alerts_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1099,29 +1099,29 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
-            auto_mitigation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            created_with_api_version: Optional[pulumi.Input[_builtins.str]] = None,
-            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
-            is_a_legacy_log_analytics_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_workspace_alerts_storage_configured: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            mute_actions_after_alert_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_time_range_override: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[_builtins.str]] = None,
-            severity: Optional[pulumi.Input[_builtins.int]] = None,
-            skip_query_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            window_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ScheduledQueryRulesAlertV2':
+            action: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
+            auto_mitigation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_with_api_version: pulumi.Input[Optional[_builtins.str]] = None,
+            criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
+            is_a_legacy_log_analytics_rule: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_workspace_alerts_storage_configured: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            mute_actions_after_alert_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_time_range_override: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[_builtins.str]] = None,
+            severity: pulumi.Input[Optional[_builtins.int]] = None,
+            skip_query_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            window_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_alerts_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ScheduledQueryRulesAlertV2':
         """
         Get an existing ScheduledQueryRulesAlertV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

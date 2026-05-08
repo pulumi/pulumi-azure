@@ -109,5 +109,5 @@ export interface GetIotHubOutputArgs {
     /**
      * A mapping of tags which should be assigned to the IoTHub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

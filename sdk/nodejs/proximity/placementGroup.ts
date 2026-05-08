@@ -144,29 +144,29 @@ export interface PlacementGroupState {
      *
      * > **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      */
-    allowedVmSizes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedVmSizes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      *
      * > **Note:** `allowedVmSizes` must be set when `zone` is specified.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,15 +178,15 @@ export interface PlacementGroupArgs {
      *
      * > **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      */
-    allowedVmSizes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedVmSizes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
@@ -194,11 +194,11 @@ export interface PlacementGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      *
      * > **Note:** `allowedVmSizes` must be set when `zone` is specified.
      */
-    zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string | undefined>;
 }

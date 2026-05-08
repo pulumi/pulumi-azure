@@ -210,8 +210,8 @@ def get_snapshot(name: Optional[_builtins.str] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         time_created=pulumi.get(__ret__, 'time_created'),
         trusted_launch_enabled=pulumi.get(__ret__, 'trusted_launch_enabled'))
-def get_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_snapshot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Use this data source to access information about an existing Snapshot.

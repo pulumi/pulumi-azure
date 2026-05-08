@@ -38,8 +38,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -86,8 +86,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -134,8 +134,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -230,8 +230,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -376,8 +376,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -425,8 +425,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -474,8 +474,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetDpsSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -523,8 +523,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -565,8 +565,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -607,8 +607,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -649,8 +649,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -691,8 +691,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetIotHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -733,8 +733,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -775,8 +775,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -859,8 +859,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -901,8 +901,8 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.iot.IotFunctions;
      * import com.pulumi.azure.iot.inputs.GetSharedAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

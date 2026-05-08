@@ -23,11 +23,11 @@ class FrontdoorProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']] = None,
-                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['FrontdoorProfileIdentityArgs']] = None,
+                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorProfile resource.
 
@@ -80,19 +80,19 @@ class FrontdoorProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FrontdoorProfileIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FrontdoorProfileIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="logScrubbingRules")
-    def log_scrubbing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]:
+    def log_scrubbing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]:
         """
         One or more `log_scrubbing_rule` blocks as defined below.
 
@@ -101,57 +101,57 @@ class FrontdoorProfileArgs:
         return pulumi.get(self, "log_scrubbing_rules")
 
     @log_scrubbing_rules.setter
-    def log_scrubbing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]):
+    def log_scrubbing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]):
         pulumi.set(self, "log_scrubbing_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTimeoutSeconds")
-    def response_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def response_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
         """
         return pulumi.get(self, "response_timeout_seconds")
 
     @response_timeout_seconds.setter
-    def response_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def response_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "response_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FrontdoorProfileState:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']] = None,
-                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_guid: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['FrontdoorProfileIdentityArgs']] = None,
+                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorProfile resources.
 
@@ -185,19 +185,19 @@ class _FrontdoorProfileState:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['FrontdoorProfileIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['FrontdoorProfileIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="logScrubbingRules")
-    def log_scrubbing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]:
+    def log_scrubbing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]:
         """
         One or more `log_scrubbing_rule` blocks as defined below.
 
@@ -206,79 +206,79 @@ class _FrontdoorProfileState:
         return pulumi.get(self, "log_scrubbing_rules")
 
     @log_scrubbing_rules.setter
-    def log_scrubbing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]):
+    def log_scrubbing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]):
         pulumi.set(self, "log_scrubbing_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
         """
         return pulumi.get(self, "resource_guid")
 
     @resource_guid.setter
-    def resource_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTimeoutSeconds")
-    def response_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def response_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
         """
         return pulumi.get(self, "response_timeout_seconds")
 
     @response_timeout_seconds.setter
-    def response_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def response_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "response_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -288,13 +288,13 @@ class FrontdoorProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
-                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
+                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
@@ -427,13 +427,13 @@ class FrontdoorProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
-                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
+                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -465,14 +465,14 @@ class FrontdoorProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
-            log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_guid: Optional[pulumi.Input[_builtins.str]] = None,
-            response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorProfile':
+            identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
+            log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_guid: pulumi.Input[Optional[_builtins.str]] = None,
+            response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'FrontdoorProfile':
         """
         Get an existing FrontdoorProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

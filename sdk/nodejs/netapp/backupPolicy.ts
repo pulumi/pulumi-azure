@@ -165,41 +165,41 @@ export interface BackupPolicyState {
     /**
      * The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
      */
-    dailyBackupsToKeep?: pulumi.Input<number>;
+    dailyBackupsToKeep?: pulumi.Input<number | undefined>;
     /**
      * Whether the Backup Policy is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      *
      * > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      */
-    monthlyBackupsToKeep?: pulumi.Input<number>;
+    monthlyBackupsToKeep?: pulumi.Input<number | undefined>;
     /**
      * The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      */
-    weeklyBackupsToKeep?: pulumi.Input<number>;
+    weeklyBackupsToKeep?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -213,25 +213,25 @@ export interface BackupPolicyArgs {
     /**
      * Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
      */
-    dailyBackupsToKeep?: pulumi.Input<number>;
+    dailyBackupsToKeep?: pulumi.Input<number | undefined>;
     /**
      * Whether the Backup Policy is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      *
      * > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      */
-    monthlyBackupsToKeep?: pulumi.Input<number>;
+    monthlyBackupsToKeep?: pulumi.Input<number | undefined>;
     /**
      * The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
      */
@@ -239,9 +239,9 @@ export interface BackupPolicyArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      */
-    weeklyBackupsToKeep?: pulumi.Input<number>;
+    weeklyBackupsToKeep?: pulumi.Input<number | undefined>;
 }

@@ -23,11 +23,11 @@ class VirtualNetworkPeeringArgs:
                  remote_virtual_network_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 allow_forwarded_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_gateway_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_virtual_network_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkPeering resource.
 
@@ -112,55 +112,55 @@ class VirtualNetworkPeeringArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowForwardedTraffic")
-    def allow_forwarded_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_forwarded_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
         """
         return pulumi.get(self, "allow_forwarded_traffic")
 
     @allow_forwarded_traffic.setter
-    def allow_forwarded_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_forwarded_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_forwarded_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="allowGatewayTransit")
-    def allow_gateway_transit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_gateway_transit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
         """
         return pulumi.get(self, "allow_gateway_transit")
 
     @allow_gateway_transit.setter
-    def allow_gateway_transit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_gateway_transit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_gateway_transit", value)
 
     @_builtins.property
     @pulumi.getter(name="allowVirtualNetworkAccess")
-    def allow_virtual_network_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_virtual_network_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
         """
         return pulumi.get(self, "allow_virtual_network_access")
 
     @allow_virtual_network_access.setter
-    def allow_virtual_network_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_virtual_network_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_virtual_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="useRemoteGateways")
-    def use_remote_gateways(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_remote_gateways(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
 
@@ -169,24 +169,24 @@ class VirtualNetworkPeeringArgs:
         return pulumi.get(self, "use_remote_gateways")
 
     @use_remote_gateways.setter
-    def use_remote_gateways(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_remote_gateways(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_remote_gateways", value)
 
 
 @pulumi.input_type
 class _VirtualNetworkPeeringState:
     def __init__(__self__, *,
-                 address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_forwarded_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_gateway_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_virtual_network_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 remote_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkPeering resources.
 
@@ -233,79 +233,79 @@ class _VirtualNetworkPeeringState:
 
     @_builtins.property
     @pulumi.getter(name="addressSpacePrefixes")
-    def address_space_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_space_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_space_prefixes")
 
     @address_space_prefixes.setter
-    def address_space_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_space_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_space_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="allowForwardedTraffic")
-    def allow_forwarded_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_forwarded_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
         """
         return pulumi.get(self, "allow_forwarded_traffic")
 
     @allow_forwarded_traffic.setter
-    def allow_forwarded_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_forwarded_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_forwarded_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="allowGatewayTransit")
-    def allow_gateway_transit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_gateway_transit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
         """
         return pulumi.get(self, "allow_gateway_transit")
 
     @allow_gateway_transit.setter
-    def allow_gateway_transit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_gateway_transit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_gateway_transit", value)
 
     @_builtins.property
     @pulumi.getter(name="allowVirtualNetworkAccess")
-    def allow_virtual_network_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_virtual_network_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
         """
         return pulumi.get(self, "allow_virtual_network_access")
 
     @allow_virtual_network_access.setter
-    def allow_virtual_network_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_virtual_network_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_virtual_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAddressSpacePrefixes")
-    def remote_address_space_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def remote_address_space_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "remote_address_space_prefixes")
 
     @remote_address_space_prefixes.setter
-    def remote_address_space_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def remote_address_space_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "remote_address_space_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteVirtualNetworkId")
-    def remote_virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the remote virtual network. Changing this forces a new resource to be created.
 
@@ -314,24 +314,24 @@ class _VirtualNetworkPeeringState:
         return pulumi.get(self, "remote_virtual_network_id")
 
     @remote_virtual_network_id.setter
-    def remote_virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="useRemoteGateways")
-    def use_remote_gateways(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_remote_gateways(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
 
@@ -340,12 +340,12 @@ class _VirtualNetworkPeeringState:
         return pulumi.get(self, "use_remote_gateways")
 
     @use_remote_gateways.setter
-    def use_remote_gateways(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_remote_gateways(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_remote_gateways", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the internal Virtual Network used by the DataBricks Workspace.
 
@@ -354,19 +354,19 @@ class _VirtualNetworkPeeringState:
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -376,15 +376,15 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_forwarded_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_gateway_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_virtual_network_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 remote_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Databricks Virtual Network Peering
@@ -529,15 +529,15 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_forwarded_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_gateway_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_virtual_network_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 remote_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -576,17 +576,17 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            allow_forwarded_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_gateway_transit: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_virtual_network_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            remote_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None,
-            virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualNetworkPeering':
+            address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_address_space_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            remote_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualNetworkPeering':
         """
         Get an existing VirtualNetworkPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

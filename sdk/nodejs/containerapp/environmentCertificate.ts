@@ -275,51 +275,51 @@ export interface EnvironmentCertificateState {
      *
      * > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
-    certificateBlobBase64?: pulumi.Input<string>;
+    certificateBlobBase64?: pulumi.Input<string | undefined>;
     /**
      * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
-    certificateKeyVault?: pulumi.Input<inputs.containerapp.EnvironmentCertificateCertificateKeyVault>;
+    certificateKeyVault?: pulumi.Input<inputs.containerapp.EnvironmentCertificateCertificateKeyVault | undefined>;
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** required if `certificateBlobBase64` is specified.
      */
-    certificatePassword?: pulumi.Input<string>;
+    certificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The expiration date for the Certificate.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The date of issue for the Certificate.
      */
-    issueDate?: pulumi.Input<string>;
+    issueDate?: pulumi.Input<string | undefined>;
     /**
      * The Certificate Issuer.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Subject Name for the Certificate.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Thumbprint of the Certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -331,19 +331,19 @@ export interface EnvironmentCertificateArgs {
      *
      * > **Note:** One of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
-    certificateBlobBase64?: pulumi.Input<string>;
+    certificateBlobBase64?: pulumi.Input<string | undefined>;
     /**
      * A `certificateKeyVault` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** one of `certificateBlobBase64` and `certificateKeyVault` must be set.
      */
-    certificateKeyVault?: pulumi.Input<inputs.containerapp.EnvironmentCertificateCertificateKeyVault>;
+    certificateKeyVault?: pulumi.Input<inputs.containerapp.EnvironmentCertificateCertificateKeyVault | undefined>;
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** required if `certificateBlobBase64` is specified.
      */
-    certificatePassword?: pulumi.Input<string>;
+    certificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
      */
@@ -351,9 +351,9 @@ export interface EnvironmentCertificateArgs {
     /**
      * The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

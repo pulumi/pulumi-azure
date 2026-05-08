@@ -203,43 +203,43 @@ export interface OutputTableState {
     /**
      * The number of records for a batch operation. Must be between `1` and `100`.
      */
-    batchSize?: pulumi.Input<number>;
+    batchSize?: pulumi.Input<number | undefined>;
     /**
      * A list of the column names to be removed from output event entities.
      */
-    columnsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
+    columnsToRemoves?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the output column that contains the partition key.
      */
-    partitionKey?: pulumi.Input<string>;
+    partitionKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the output column that contains the row key.
      */
-    rowKey?: pulumi.Input<string>;
+    rowKey?: pulumi.Input<string | undefined>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
     /**
      * The name of the table where the stream should be output to.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -253,11 +253,11 @@ export interface OutputTableArgs {
     /**
      * A list of the column names to be removed from output event entities.
      */
-    columnsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
+    columnsToRemoves?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the output column that contains the partition key.
      */

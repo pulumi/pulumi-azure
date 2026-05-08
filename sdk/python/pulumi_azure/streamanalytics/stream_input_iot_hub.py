@@ -29,7 +29,7 @@ class StreamInputIotHubArgs:
                  shared_access_policy_key: pulumi.Input[_builtins.str],
                  shared_access_policy_name: pulumi.Input[_builtins.str],
                  stream_analytics_job_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamInputIotHub resource.
 
@@ -152,29 +152,29 @@ class StreamInputIotHubArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _StreamInputIotHubState:
     def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input['StreamInputIotHubSerializationArgs']] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional['StreamInputIotHubSerializationArgs']] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamInputIotHub resources.
 
@@ -209,110 +209,110 @@ class _StreamInputIotHubState:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="eventhubConsumerGroupName")
-    def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventhub_consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
     @eventhub_consumer_group_name.setter
-    def eventhub_consumer_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventhub_consumer_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventhub_consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubNamespace")
-    def iothub_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or the URI of the IoT Hub.
         """
         return pulumi.get(self, "iothub_namespace")
 
     @iothub_namespace.setter
-    def iothub_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input['StreamInputIotHubSerializationArgs']]:
+    def serialization(self) -> pulumi.Input[Optional['StreamInputIotHubSerializationArgs']]:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input['StreamInputIotHubSerializationArgs']]):
+    def serialization(self, value: pulumi.Input[Optional['StreamInputIotHubSerializationArgs']]):
         pulumi.set(self, "serialization", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_access_policy_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shared_access_policy_key")
 
     @shared_access_policy_key.setter
-    def shared_access_policy_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_access_policy_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_access_policy_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
         return pulumi.get(self, "shared_access_policy_name")
 
     @shared_access_policy_name.setter
-    def shared_access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_analytics_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
 
     @stream_analytics_job_name.setter
-    def stream_analytics_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_analytics_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
 
@@ -322,15 +322,15 @@ class StreamInputIotHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Stream Input IoTHub.
@@ -471,15 +471,15 @@ class StreamInputIotHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serialization: Optional[pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
-                 shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
+                 shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -526,15 +526,15 @@ class StreamInputIotHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            eventhub_consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            iothub_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            serialization: Optional[pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
-            shared_access_policy_key: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'StreamInputIotHub':
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            eventhub_consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
+            shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'StreamInputIotHub':
         """
         Get an existing StreamInputIotHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

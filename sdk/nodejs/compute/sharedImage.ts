@@ -299,119 +299,119 @@ export interface SharedImageState {
     /**
      * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      */
-    acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
+    acceleratedNetworkSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
      */
-    architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string | undefined>;
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
-    confidentialVmEnabled?: pulumi.Input<boolean>;
+    confidentialVmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
      */
-    confidentialVmSupported?: pulumi.Input<boolean>;
+    confidentialVmSupported?: pulumi.Input<boolean | undefined>;
     /**
      * A description of this Shared Image.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
      */
-    diskControllerTypeNvmeEnabled?: pulumi.Input<boolean>;
+    diskControllerTypeNvmeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      */
-    diskTypesNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    diskTypesNotAlloweds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The end of life date in RFC3339 format of the Image.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
-    eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
-    galleryName?: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
      */
-    hibernationEnabled?: pulumi.Input<boolean>;
+    hibernationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    hyperVGeneration?: pulumi.Input<string>;
+    hyperVGeneration?: pulumi.Input<string | undefined>;
     /**
      * An `identifier` block as defined below.
      */
-    identifier?: pulumi.Input<inputs.compute.SharedImageIdentifier>;
+    identifier?: pulumi.Input<inputs.compute.SharedImageIdentifier | undefined>;
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maximum memory in GB recommended for the Image.
      */
-    maxRecommendedMemoryInGb?: pulumi.Input<number>;
+    maxRecommendedMemoryInGb?: pulumi.Input<number | undefined>;
     /**
      * Maximum count of vCPUs recommended for the Image.
      */
-    maxRecommendedVcpuCount?: pulumi.Input<number>;
+    maxRecommendedVcpuCount?: pulumi.Input<number | undefined>;
     /**
      * Minimum memory in GB recommended for the Image.
      */
-    minRecommendedMemoryInGb?: pulumi.Input<number>;
+    minRecommendedMemoryInGb?: pulumi.Input<number | undefined>;
     /**
      * Minimum count of vCPUs recommended for the Image.
      */
-    minRecommendedVcpuCount?: pulumi.Input<number>;
+    minRecommendedVcpuCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string | undefined>;
     /**
      * The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
      */
-    privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string | undefined>;
     /**
      * A `purchasePlan` block as defined below.
      */
-    purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
+    purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan | undefined>;
     /**
      * The URI containing the Release Notes associated with this Shared Image.
      */
-    releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      *
      * !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      */
-    specialized?: pulumi.Input<boolean>;
+    specialized?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
-    trustedLaunchEnabled?: pulumi.Input<boolean>;
+    trustedLaunchEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
      */
-    trustedLaunchSupported?: pulumi.Input<boolean>;
+    trustedLaunchSupported?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -421,41 +421,41 @@ export interface SharedImageArgs {
     /**
      * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      */
-    acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
+    acceleratedNetworkSupportEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
      */
-    architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string | undefined>;
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
-    confidentialVmEnabled?: pulumi.Input<boolean>;
+    confidentialVmEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
      */
-    confidentialVmSupported?: pulumi.Input<boolean>;
+    confidentialVmSupported?: pulumi.Input<boolean | undefined>;
     /**
      * A description of this Shared Image.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
      */
-    diskControllerTypeNvmeEnabled?: pulumi.Input<boolean>;
+    diskControllerTypeNvmeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      */
-    diskTypesNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
+    diskTypesNotAlloweds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The end of life date in RFC3339 format of the Image.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
-    eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
@@ -463,11 +463,11 @@ export interface SharedImageArgs {
     /**
      * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
      */
-    hibernationEnabled?: pulumi.Input<boolean>;
+    hibernationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    hyperVGeneration?: pulumi.Input<string>;
+    hyperVGeneration?: pulumi.Input<string | undefined>;
     /**
      * An `identifier` block as defined below.
      */
@@ -475,27 +475,27 @@ export interface SharedImageArgs {
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maximum memory in GB recommended for the Image.
      */
-    maxRecommendedMemoryInGb?: pulumi.Input<number>;
+    maxRecommendedMemoryInGb?: pulumi.Input<number | undefined>;
     /**
      * Maximum count of vCPUs recommended for the Image.
      */
-    maxRecommendedVcpuCount?: pulumi.Input<number>;
+    maxRecommendedVcpuCount?: pulumi.Input<number | undefined>;
     /**
      * Minimum memory in GB recommended for the Image.
      */
-    minRecommendedMemoryInGb?: pulumi.Input<number>;
+    minRecommendedMemoryInGb?: pulumi.Input<number | undefined>;
     /**
      * Minimum count of vCPUs recommended for the Image.
      */
-    minRecommendedVcpuCount?: pulumi.Input<number>;
+    minRecommendedVcpuCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
@@ -503,15 +503,15 @@ export interface SharedImageArgs {
     /**
      * The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
      */
-    privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string | undefined>;
     /**
      * A `purchasePlan` block as defined below.
      */
-    purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
+    purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan | undefined>;
     /**
      * The URI containing the Release Notes associated with this Shared Image.
      */
-    releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
@@ -521,17 +521,17 @@ export interface SharedImageArgs {
      *
      * !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      */
-    specialized?: pulumi.Input<boolean>;
+    specialized?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
-    trustedLaunchEnabled?: pulumi.Input<boolean>;
+    trustedLaunchEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
      */
-    trustedLaunchSupported?: pulumi.Input<boolean>;
+    trustedLaunchSupported?: pulumi.Input<boolean | undefined>;
 }

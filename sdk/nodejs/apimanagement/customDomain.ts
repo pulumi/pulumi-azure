@@ -203,27 +203,27 @@ export interface CustomDomainState {
     /**
      * The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * One or more `developerPortal` blocks as defined below.
      */
-    developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
+    developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[] | undefined>;
     /**
      * One or more `gateway` blocks as defined below.
      */
-    gateways?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainGateway>[]>;
+    gateways?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainGateway>[] | undefined>;
     /**
      * One or more `management` blocks as defined below.
      */
-    managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
+    managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[] | undefined>;
     /**
      * One or more `portal` blocks as defined below.
      */
-    portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
+    portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[] | undefined>;
     /**
      * One or more `scm` blocks as defined below.
      */
-    scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[]>;
+    scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[] | undefined>;
 }
 
 /**
@@ -237,21 +237,21 @@ export interface CustomDomainArgs {
     /**
      * One or more `developerPortal` blocks as defined below.
      */
-    developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
+    developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[] | undefined>;
     /**
      * One or more `gateway` blocks as defined below.
      */
-    gateways?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainGateway>[]>;
+    gateways?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainGateway>[] | undefined>;
     /**
      * One or more `management` blocks as defined below.
      */
-    managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
+    managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[] | undefined>;
     /**
      * One or more `portal` blocks as defined below.
      */
-    portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
+    portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[] | undefined>;
     /**
      * One or more `scm` blocks as defined below.
      */
-    scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[]>;
+    scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[] | undefined>;
 }

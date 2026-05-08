@@ -140,15 +140,15 @@ export interface NotificationRecipientUserState {
     /**
      * The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The Notification Name to be received. Changing this forces a new API Management Notification Recipient User to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
      */
-    notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string | undefined>;
     /**
      * The recipient user ID. Changing this forces a new API Management Notification Recipient User to be created.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**

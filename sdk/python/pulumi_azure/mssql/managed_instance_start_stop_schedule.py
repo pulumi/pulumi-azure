@@ -23,8 +23,8 @@ class ManagedInstanceStartStopScheduleArgs:
     def __init__(__self__, *,
                  managed_instance_id: pulumi.Input[_builtins.str],
                  schedules: pulumi.Input[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceStartStopSchedule resource.
 
@@ -66,38 +66,38 @@ class ManagedInstanceStartStopScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the schedule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="timezoneId")
-    def timezone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone of the schedule. Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone_id")
 
     @timezone_id.setter
-    def timezone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone_id", value)
 
 
 @pulumi.input_type
 class _ManagedInstanceStartStopScheduleState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_execution_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_run_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_run_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceStartStopSchedule resources.
 
@@ -123,74 +123,74 @@ class _ManagedInstanceStartStopScheduleState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the schedule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceId")
-    def managed_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
         """
         return pulumi.get(self, "managed_instance_id")
 
     @managed_instance_id.setter
-    def managed_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nextExecutionTime")
-    def next_execution_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_execution_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the next action will be executed in the corresponding schedule time zone.
         """
         return pulumi.get(self, "next_execution_time")
 
     @next_execution_time.setter
-    def next_execution_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_execution_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_execution_time", value)
 
     @_builtins.property
     @pulumi.getter(name="nextRunAction")
-    def next_run_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_run_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Next action to be executed (Start or Stop).
         """
         return pulumi.get(self, "next_run_action")
 
     @next_run_action.setter
-    def next_run_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_run_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_run_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]]]:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter(name="timezoneId")
-    def timezone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone of the schedule. Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone_id")
 
     @timezone_id.setter
-    def timezone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone_id", value)
 
 
@@ -200,10 +200,10 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Start Stop Schedules for an MS SQL Managed Instance.
@@ -643,10 +643,10 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
-                 timezone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
+                 timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -676,12 +676,12 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            next_execution_time: Optional[pulumi.Input[_builtins.str]] = None,
-            next_run_action: Optional[pulumi.Input[_builtins.str]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
-            timezone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedInstanceStartStopSchedule':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            next_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
+            next_run_action: pulumi.Input[Optional[_builtins.str]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
+            timezone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedInstanceStartStopSchedule':
         """
         Get an existing ManagedInstanceStartStopSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

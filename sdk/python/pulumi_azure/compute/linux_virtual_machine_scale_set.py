@@ -26,55 +26,55 @@ class LinuxVirtualMachineScaleSetArgs:
                  os_disk: pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
-                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]] = None,
-                 disable_password_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input['LinuxVirtualMachineScaleSetPlanArgs']] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
-                 scale_in: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
-                 spot_restore: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
+                 boot_diagnostics: pulumi.Input[Optional['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]] = None,
+                 disable_password_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['LinuxVirtualMachineScaleSetIdentityArgs']] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional['LinuxVirtualMachineScaleSetPlanArgs']] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
+                 scale_in: pulumi.Input[Optional['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
+                 spot_restore: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSpotRestoreArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinuxVirtualMachineScaleSet resource.
 
@@ -343,19 +343,19 @@ class LinuxVirtualMachineScaleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
         """
         An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
@@ -366,12 +366,12 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]:
+    def admin_ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]:
         """
         One or more `admin_ssh_key` blocks as defined below.
 
@@ -380,12 +380,12 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "admin_ssh_keys")
 
     @admin_ssh_keys.setter
-    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]):
+    def admin_ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]):
         pulumi.set(self, "admin_ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticInstanceRepair")
-    def automatic_instance_repair(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
+    def automatic_instance_repair(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
         An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 
@@ -394,36 +394,36 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "automatic_instance_repair")
 
     @automatic_instance_repair.setter
-    def automatic_instance_repair(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
+    def automatic_instance_repair(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
         pulumi.set(self, "automatic_instance_repair", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticOsUpgradePolicy")
-    def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
+    def automatic_os_upgrade_policy(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
         An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
     @automatic_os_upgrade_policy.setter
-    def automatic_os_upgrade_policy(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
+    def automatic_os_upgrade_policy(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
         pulumi.set(self, "automatic_os_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 
@@ -434,24 +434,24 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computerNamePrefix")
-    def computer_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
-    def computer_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 
@@ -460,24 +460,24 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="disablePasswordAuthentication")
-    def disable_password_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_password_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
@@ -488,48 +488,48 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "disable_password_authentication")
 
     @disable_password_authentication.setter
-    def disable_password_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_password_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_password_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="doNotRunExtensionsOnOverprovisionedMachines")
-    def do_not_run_extensions_on_overprovisioned_machines(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_run_extensions_on_overprovisioned_machines(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_machines")
 
     @do_not_run_extensions_on_overprovisioned_machines.setter
-    def do_not_run_extensions_on_overprovisioned_machines(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_run_extensions_on_overprovisioned_machines(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_run_extensions_on_overprovisioned_machines", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine Scale Set should exist. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -538,12 +538,12 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def extension_operations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
 
@@ -552,84 +552,84 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "extension_operations_enabled")
 
     @extension_operations_enabled.setter
-    def extension_operations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def extension_operations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "extension_operations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]:
         """
         One or more `extension` blocks as defined below
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeId")
-    def health_probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_probe_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "health_probe_id")
 
     @health_probe_id.setter
-    def health_probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_probe_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_probe_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of Virtual Machines in the Scale Set. Defaults to `0`.
 
@@ -638,24 +638,24 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_bid_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
 
@@ -664,36 +664,36 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "max_bid_price")
 
     @max_bid_price.setter
-    def max_bid_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_bid_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_bid_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def overprovision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overprovision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         """
         return pulumi.get(self, "overprovision")
 
     @overprovision.setter
-    def overprovision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overprovision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overprovision", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
 
@@ -702,24 +702,24 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 
@@ -728,36 +728,36 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
-    def provision_vm_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_vm_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_vm_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmCreationEnabled")
-    def resilient_vm_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
 
@@ -766,12 +766,12 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
     @resilient_vm_creation_enabled.setter
-    def resilient_vm_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_creation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmDeletionEnabled")
-    def resilient_vm_deletion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
 
@@ -780,72 +780,72 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 
     @resilient_vm_deletion_enabled.setter
-    def resilient_vm_deletion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_deletion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_deletion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
+    def rolling_upgrade_policy(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @rolling_upgrade_policy.setter
-    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
+    def rolling_upgrade_policy(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleIn")
-    def scale_in(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']]:
+    def scale_in(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetScaleInArgs']]:
         """
         A `scale_in` block as defined below.
         """
         return pulumi.get(self, "scale_in")
 
     @scale_in.setter
-    def scale_in(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']]):
+    def scale_in(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetScaleInArgs']]):
         pulumi.set(self, "scale_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_placement_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         """
         return pulumi.get(self, "single_placement_group")
 
     @single_placement_group.setter
-    def single_placement_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_placement_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 
@@ -854,12 +854,12 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
-    def source_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]:
         """
         A `source_image_reference` block as defined below.
 
@@ -868,48 +868,48 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="spotRestore")
-    def spot_restore(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']]:
+    def spot_restore(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetSpotRestoreArgs']]:
         """
         A `spot_restore` block as defined below.
         """
         return pulumi.get(self, "spot_restore")
 
     @spot_restore.setter
-    def spot_restore(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']]):
+    def spot_restore(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSpotRestoreArgs']]):
         pulumi.set(self, "spot_restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]:
+    def termination_notification(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]):
+    def termination_notification(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 
@@ -918,36 +918,36 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
-    def upgrade_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
-    def vtpm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vtpm_enabled")
 
     @vtpm_enabled.setter
-    def vtpm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vtpm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vtpm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneBalance")
-    def zone_balance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_balance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -956,12 +956,12 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "zone_balance")
 
     @zone_balance.setter
-    def zone_balance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_balance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_balance", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
 
@@ -970,68 +970,68 @@ class LinuxVirtualMachineScaleSetArgs:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _LinuxVirtualMachineScaleSetState:
     def __init__(__self__, *,
-                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
-                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]] = None,
-                 disable_password_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
-                 os_disk: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs']] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input['LinuxVirtualMachineScaleSetPlanArgs']] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
-                 scale_in: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
-                 spot_restore: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
-                 unique_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_capabilities: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
+                 boot_diagnostics: pulumi.Input[Optional['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]] = None,
+                 disable_password_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['LinuxVirtualMachineScaleSetIdentityArgs']] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] = None,
+                 os_disk: pulumi.Input[Optional['LinuxVirtualMachineScaleSetOsDiskArgs']] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional['LinuxVirtualMachineScaleSetPlanArgs']] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
+                 scale_in: pulumi.Input[Optional['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
+                 spot_restore: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSpotRestoreArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
+                 unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LinuxVirtualMachineScaleSet resources.
 
@@ -1248,19 +1248,19 @@ class _LinuxVirtualMachineScaleSetState:
 
     @_builtins.property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
         """
         An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
@@ -1271,12 +1271,12 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]:
+    def admin_ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]:
         """
         One or more `admin_ssh_key` blocks as defined below.
 
@@ -1285,24 +1285,24 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "admin_ssh_keys")
 
     @admin_ssh_keys.setter
-    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]):
+    def admin_ssh_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]):
         pulumi.set(self, "admin_ssh_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticInstanceRepair")
-    def automatic_instance_repair(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
+    def automatic_instance_repair(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
         An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 
@@ -1311,36 +1311,36 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "automatic_instance_repair")
 
     @automatic_instance_repair.setter
-    def automatic_instance_repair(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
+    def automatic_instance_repair(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]):
         pulumi.set(self, "automatic_instance_repair", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticOsUpgradePolicy")
-    def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
+    def automatic_os_upgrade_policy(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
         An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
     @automatic_os_upgrade_policy.setter
-    def automatic_os_upgrade_policy(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
+    def automatic_os_upgrade_policy(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]):
         pulumi.set(self, "automatic_os_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_reservation_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 
@@ -1351,24 +1351,24 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @capacity_reservation_group_id.setter
-    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_reservation_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computerNamePrefix")
-    def computer_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def computer_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
-    def computer_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def computer_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 
@@ -1377,24 +1377,24 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="disablePasswordAuthentication")
-    def disable_password_authentication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_password_authentication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
@@ -1405,48 +1405,48 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "disable_password_authentication")
 
     @disable_password_authentication.setter
-    def disable_password_authentication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_password_authentication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_password_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="doNotRunExtensionsOnOverprovisionedMachines")
-    def do_not_run_extensions_on_overprovisioned_machines(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def do_not_run_extensions_on_overprovisioned_machines(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_machines")
 
     @do_not_run_extensions_on_overprovisioned_machines.setter
-    def do_not_run_extensions_on_overprovisioned_machines(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def do_not_run_extensions_on_overprovisioned_machines(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "do_not_run_extensions_on_overprovisioned_machines", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeZone")
-    def edge_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine Scale Set should exist. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "edge_zone")
 
     @edge_zone.setter
-    def edge_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
@@ -1455,12 +1455,12 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def extension_operations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
 
@@ -1469,84 +1469,84 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "extension_operations_enabled")
 
     @extension_operations_enabled.setter
-    def extension_operations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def extension_operations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "extension_operations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]:
         """
         One or more `extension` blocks as defined below
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extensions_time_budget(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
     @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extensions_time_budget(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extensions_time_budget", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeId")
-    def health_probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_probe_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "health_probe_id")
 
     @health_probe_id.setter
-    def health_probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_probe_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_probe_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostGroupId")
-    def host_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
-    def host_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of Virtual Machines in the Scale Set. Defaults to `0`.
 
@@ -1555,24 +1555,24 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_bid_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
 
@@ -1581,60 +1581,60 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "max_bid_price")
 
     @max_bid_price.setter
-    def max_bid_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_bid_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_bid_price", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` blocks as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs']]:
+    def os_disk(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetOsDiskArgs']]:
         """
         An `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs']]):
+    def os_disk(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
 
     @_builtins.property
     @pulumi.getter
-    def overprovision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overprovision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         """
         return pulumi.get(self, "overprovision")
 
     @overprovision.setter
-    def overprovision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overprovision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overprovision", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetPlanArgs']]:
+    def plan(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetPlanArgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
 
@@ -1643,24 +1643,24 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetPlanArgs']]):
+    def plan(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetPlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def platform_fault_domain_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "platform_fault_domain_count")
 
     @platform_fault_domain_count.setter
-    def platform_fault_domain_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def platform_fault_domain_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "platform_fault_domain_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 
@@ -1669,36 +1669,36 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
-    def provision_vm_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def provision_vm_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "provision_vm_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmCreationEnabled")
-    def resilient_vm_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_creation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM creation be enabled? When enabled, the service will attempt to create VMs in alternative fault domains or zones if the primary location fails during creation. Defaults to `false`.
 
@@ -1707,12 +1707,12 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "resilient_vm_creation_enabled")
 
     @resilient_vm_creation_enabled.setter
-    def resilient_vm_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_creation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_creation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resilientVmDeletionEnabled")
-    def resilient_vm_deletion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resilient_vm_deletion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
 
@@ -1721,96 +1721,96 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "resilient_vm_deletion_enabled")
 
     @resilient_vm_deletion_enabled.setter
-    def resilient_vm_deletion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resilient_vm_deletion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resilient_vm_deletion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
+    def rolling_upgrade_policy(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @rolling_upgrade_policy.setter
-    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
+    def rolling_upgrade_policy(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleIn")
-    def scale_in(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']]:
+    def scale_in(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetScaleInArgs']]:
         """
         A `scale_in` block as defined below.
         """
         return pulumi.get(self, "scale_in")
 
     @scale_in.setter
-    def scale_in(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']]):
+    def scale_in(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetScaleInArgs']]):
         pulumi.set(self, "scale_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="secureBootEnabled")
-    def secure_boot_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_boot_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_boot_enabled")
 
     @secure_boot_enabled.setter
-    def secure_boot_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_boot_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_placement_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         """
         return pulumi.get(self, "single_placement_group")
 
     @single_placement_group.setter
-    def single_placement_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_placement_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_placement_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 
@@ -1819,12 +1819,12 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
-    def source_image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]:
         """
         A `source_image_reference` block as defined below.
 
@@ -1833,60 +1833,60 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="spotRestore")
-    def spot_restore(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']]:
+    def spot_restore(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetSpotRestoreArgs']]:
         """
         A `spot_restore` block as defined below.
         """
         return pulumi.get(self, "spot_restore")
 
     @spot_restore.setter
-    def spot_restore(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']]):
+    def spot_restore(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetSpotRestoreArgs']]):
         pulumi.set(self, "spot_restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]:
+    def termination_notification(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]):
+    def termination_notification(self, value: pulumi.Input[Optional['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Unique ID for this Linux Virtual Machine Scale Set.
         """
         return pulumi.get(self, "unique_id")
 
     @unique_id.setter
-    def unique_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique_id", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 
@@ -1895,36 +1895,36 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
-    def upgrade_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
-    def vtpm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vtpm_enabled")
 
     @vtpm_enabled.setter
-    def vtpm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vtpm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vtpm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneBalance")
-    def zone_balance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_balance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -1933,12 +1933,12 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "zone_balance")
 
     @zone_balance.setter
-    def zone_balance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_balance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_balance", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
 
@@ -1947,7 +1947,7 @@ class _LinuxVirtualMachineScaleSetState:
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -1957,60 +1957,60 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdminSshKeyArgs', 'LinuxVirtualMachineScaleSetAdminSshKeyArgsDict']]]]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetBootDiagnosticsArgs', 'LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
-                 disable_password_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']]] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetNetworkInterfaceArgs', 'LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
-                 os_disk: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetOsDiskArgs', 'LinuxVirtualMachineScaleSetOsDiskArgsDict']]] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetPlanArgs', 'LinuxVirtualMachineScaleSetPlanArgsDict']]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
-                 scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
-                 spot_restore: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdminSshKeyArgs', 'LinuxVirtualMachineScaleSetAdminSshKeyArgsDict']]]]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+                 boot_diagnostics: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetBootDiagnosticsArgs', 'LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
+                 disable_password_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']]] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetNetworkInterfaceArgs', 'LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+                 os_disk: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetOsDiskArgs', 'LinuxVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetPlanArgs', 'LinuxVirtualMachineScaleSetPlanArgsDict']]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
+                 scale_in: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
+                 spot_restore: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Linux Virtual Machine Scale Set.
@@ -2288,60 +2288,60 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdminSshKeyArgs', 'LinuxVirtualMachineScaleSetAdminSshKeyArgsDict']]]]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
-                 automatic_os_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetBootDiagnosticsArgs', 'LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
-                 capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
-                 disable_password_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
-                 health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']]] = None,
-                 instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetNetworkInterfaceArgs', 'LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
-                 os_disk: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetOsDiskArgs', 'LinuxVirtualMachineScaleSetOsDiskArgsDict']]] = None,
-                 overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 plan: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetPlanArgs', 'LinuxVirtualMachineScaleSetPlanArgsDict']]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
-                 scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
-                 secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
-                 spot_restore: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
-                 upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 additional_capabilities: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdminSshKeyArgs', 'LinuxVirtualMachineScaleSetAdminSshKeyArgsDict']]]]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_instance_repair: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+                 automatic_os_upgrade_policy: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+                 boot_diagnostics: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetBootDiagnosticsArgs', 'LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
+                 capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
+                 disable_password_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
+                 extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
+                 health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']]] = None,
+                 instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetNetworkInterfaceArgs', 'LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+                 os_disk: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetOsDiskArgs', 'LinuxVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+                 overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 plan: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetPlanArgs', 'LinuxVirtualMachineScaleSetPlanArgsDict']]] = None,
+                 platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rolling_upgrade_policy: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
+                 scale_in: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
+                 secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
+                 spot_restore: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_notification: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+                 upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2428,61 +2428,61 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_capabilities: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
-            admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdminSshKeyArgs', 'LinuxVirtualMachineScaleSetAdminSshKeyArgsDict']]]]] = None,
-            admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic_instance_repair: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
-            automatic_os_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
-            boot_diagnostics: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetBootDiagnosticsArgs', 'LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
-            capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            computer_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_data: Optional[pulumi.Input[_builtins.str]] = None,
-            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
-            disable_password_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-            do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[_builtins.bool]] = None,
-            edge_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            extension_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
-            extensions_time_budget: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
-            health_probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-            host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']]] = None,
-            instances: Optional[pulumi.Input[_builtins.int]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetNetworkInterfaceArgs', 'LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
-            os_disk: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetOsDiskArgs', 'LinuxVirtualMachineScaleSetOsDiskArgsDict']]] = None,
-            overprovision: Optional[pulumi.Input[_builtins.bool]] = None,
-            plan: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetPlanArgs', 'LinuxVirtualMachineScaleSetPlanArgsDict']]] = None,
-            platform_fault_domain_count: Optional[pulumi.Input[_builtins.int]] = None,
-            priority: Optional[pulumi.Input[_builtins.str]] = None,
-            provision_vm_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-            proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resilient_vm_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resilient_vm_deletion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
-            scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
-            secure_boot_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            single_placement_group: Optional[pulumi.Input[_builtins.bool]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            source_image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
-            spot_restore: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            termination_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
-            unique_id: Optional[pulumi.Input[_builtins.str]] = None,
-            upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            user_data: Optional[pulumi.Input[_builtins.str]] = None,
-            vtpm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            zone_balance: Optional[pulumi.Input[_builtins.bool]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LinuxVirtualMachineScaleSet':
+            additional_capabilities: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetAdminSshKeyArgs', 'LinuxVirtualMachineScaleSetAdminSshKeyArgsDict']]]]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_instance_repair: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+            automatic_os_upgrade_policy: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+            boot_diagnostics: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetBootDiagnosticsArgs', 'LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
+            capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_data: pulumi.Input[Optional[_builtins.str]] = None,
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
+            disable_password_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+            do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
+            extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_applications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
+            health_probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+            host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']]] = None,
+            instances: pulumi.Input[Optional[_builtins.int]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_bid_price: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetNetworkInterfaceArgs', 'LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+            os_disk: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetOsDiskArgs', 'LinuxVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+            overprovision: pulumi.Input[Optional[_builtins.bool]] = None,
+            plan: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetPlanArgs', 'LinuxVirtualMachineScaleSetPlanArgsDict']]] = None,
+            platform_fault_domain_count: pulumi.Input[Optional[_builtins.int]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            provision_vm_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resilient_vm_creation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resilient_vm_deletion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rolling_upgrade_policy: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
+            scale_in: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
+            secure_boot_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            single_placement_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_image_reference: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
+            spot_restore: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_notification: pulumi.Input[Optional[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+            unique_id: pulumi.Input[Optional[_builtins.str]] = None,
+            upgrade_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zone_balance: pulumi.Input[Optional[_builtins.bool]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LinuxVirtualMachineScaleSet':
         """
         Get an existing LinuxVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

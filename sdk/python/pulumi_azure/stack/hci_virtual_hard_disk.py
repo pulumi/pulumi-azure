@@ -22,16 +22,16 @@ class HciVirtualHardDiskArgs:
                  custom_location_id: pulumi.Input[_builtins.str],
                  disk_size_in_gb: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 block_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyperv_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 physical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 block_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciVirtualHardDisk resource.
 
@@ -113,103 +113,103 @@ class HciVirtualHardDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockSizeInBytes")
-    def block_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "block_size_in_bytes")
 
     @block_size_in_bytes.setter
-    def block_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="diskFileFormat")
-    def disk_file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "disk_file_format")
 
     @disk_file_format.setter
-    def disk_file_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_file_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicEnabled")
-    def dynamic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "dynamic_enabled")
 
     @dynamic_enabled.setter
-    def dynamic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hypervGeneration")
-    def hyperv_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyperv_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hypervisor generation of the Azure Stack HCI Virtual Hard Disk. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "hyperv_generation")
 
     @hyperv_generation.setter
-    def hyperv_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyperv_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyperv_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalSectorInBytes")
-    def logical_sector_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def logical_sector_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The logical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "logical_sector_in_bytes")
 
     @logical_sector_in_bytes.setter
-    def logical_sector_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def logical_sector_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "logical_sector_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Stack HCI Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="physicalSectorInBytes")
-    def physical_sector_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def physical_sector_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The physical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "physical_sector_in_bytes")
 
     @physical_sector_in_bytes.setter
-    def physical_sector_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def physical_sector_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "physical_sector_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="storagePathId")
-    def storage_path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_path_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
 
@@ -218,38 +218,38 @@ class HciVirtualHardDiskArgs:
         return pulumi.get(self, "storage_path_id")
 
     @storage_path_id.setter
-    def storage_path_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_path_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_path_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Stack HCI Virtual Hard Disk.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _HciVirtualHardDiskState:
     def __init__(__self__, *,
-                 block_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 dynamic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyperv_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 physical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 block_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 dynamic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HciVirtualHardDisk resources.
 
@@ -298,139 +298,139 @@ class _HciVirtualHardDiskState:
 
     @_builtins.property
     @pulumi.getter(name="blockSizeInBytes")
-    def block_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "block_size_in_bytes")
 
     @block_size_in_bytes.setter
-    def block_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="customLocationId")
-    def custom_location_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "custom_location_id")
 
     @custom_location_id.setter
-    def custom_location_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_location_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_location_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskFileFormat")
-    def disk_file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "disk_file_format")
 
     @disk_file_format.setter
-    def disk_file_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_file_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSizeInGb")
-    def disk_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the disk in GB. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "disk_size_in_gb")
 
     @disk_size_in_gb.setter
-    def disk_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicEnabled")
-    def dynamic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "dynamic_enabled")
 
     @dynamic_enabled.setter
-    def dynamic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hypervGeneration")
-    def hyperv_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyperv_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hypervisor generation of the Azure Stack HCI Virtual Hard Disk. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "hyperv_generation")
 
     @hyperv_generation.setter
-    def hyperv_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyperv_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyperv_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logicalSectorInBytes")
-    def logical_sector_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def logical_sector_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The logical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "logical_sector_in_bytes")
 
     @logical_sector_in_bytes.setter
-    def logical_sector_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def logical_sector_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "logical_sector_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Stack HCI Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="physicalSectorInBytes")
-    def physical_sector_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def physical_sector_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The physical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "physical_sector_in_bytes")
 
     @physical_sector_in_bytes.setter
-    def physical_sector_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def physical_sector_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "physical_sector_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storagePathId")
-    def storage_path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_path_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
 
@@ -439,19 +439,19 @@ class _HciVirtualHardDiskState:
         return pulumi.get(self, "storage_path_id")
 
     @storage_path_id.setter
-    def storage_path_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_path_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_path_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Azure Stack HCI Virtual Hard Disk.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -461,19 +461,19 @@ class HciVirtualHardDisk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 dynamic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyperv_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 physical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 block_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 dynamic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Stack HCI Virtual Hard Disk.
@@ -612,19 +612,19 @@ class HciVirtualHardDisk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 dynamic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyperv_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 physical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 block_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 dynamic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -663,19 +663,19 @@ class HciVirtualHardDisk(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            block_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            custom_location_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_file_format: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            dynamic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hyperv_generation: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            physical_sector_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'HciVirtualHardDisk':
+            block_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            dynamic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            physical_sector_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'HciVirtualHardDisk':
         """
         Get an existing HciVirtualHardDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

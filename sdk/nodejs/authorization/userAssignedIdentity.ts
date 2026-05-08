@@ -155,35 +155,35 @@ export interface UserAssignedIdentityState {
     /**
      * The ID of the app associated with the Identity.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
      */
-    isolationScope?: pulumi.Input<string>;
+    isolationScope?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Principal object associated with the created Identity.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the User Assigned Identity.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Tenant which the Identity belongs to.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,15 +193,15 @@ export interface UserAssignedIdentityArgs {
     /**
      * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
      */
-    isolationScope?: pulumi.Input<string>;
+    isolationScope?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
@@ -209,5 +209,5 @@ export interface UserAssignedIdentityArgs {
     /**
      * A mapping of tags which should be assigned to the User Assigned Identity.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

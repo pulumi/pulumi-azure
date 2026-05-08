@@ -165,35 +165,35 @@ export interface OutputPowerbiState {
     /**
      * The name of the Power BI dataset.
      */
-    dataset?: pulumi.Input<string>;
+    dataset?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Power BI group, this must be a valid UUID.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobId?: pulumi.Input<string>;
+    streamAnalyticsJobId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Power BI table under the specified dataset.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
     /**
      * The user display name of the user that was used to obtain the refresh token.
      */
-    tokenUserDisplayName?: pulumi.Input<string>;
+    tokenUserDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The user principal name (UPN) of the user that was used to obtain the refresh token.
      */
-    tokenUserPrincipalName?: pulumi.Input<string>;
+    tokenUserPrincipalName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface OutputPowerbiArgs {
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
@@ -227,9 +227,9 @@ export interface OutputPowerbiArgs {
     /**
      * The user display name of the user that was used to obtain the refresh token.
      */
-    tokenUserDisplayName?: pulumi.Input<string>;
+    tokenUserDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The user principal name (UPN) of the user that was used to obtain the refresh token.
      */
-    tokenUserPrincipalName?: pulumi.Input<string>;
+    tokenUserPrincipalName?: pulumi.Input<string | undefined>;
 }

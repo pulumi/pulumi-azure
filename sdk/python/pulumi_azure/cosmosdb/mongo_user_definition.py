@@ -22,7 +22,7 @@ class MongoUserDefinitionArgs:
                  cosmos_mongo_database_id: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MongoUserDefinition resource.
 
@@ -77,7 +77,7 @@ class MongoUserDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="inheritedRoleNames")
-    def inherited_role_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inherited_role_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Mongo Roles that are inherited to the Mongo User Definition.
 
@@ -86,17 +86,17 @@ class MongoUserDefinitionArgs:
         return pulumi.get(self, "inherited_role_names")
 
     @inherited_role_names.setter
-    def inherited_role_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inherited_role_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inherited_role_names", value)
 
 
 @pulumi.input_type
 class _MongoUserDefinitionState:
     def __init__(__self__, *,
-                 cosmos_mongo_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 cosmos_mongo_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MongoUserDefinition resources.
 
@@ -118,19 +118,19 @@ class _MongoUserDefinitionState:
 
     @_builtins.property
     @pulumi.getter(name="cosmosMongoDatabaseId")
-    def cosmos_mongo_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cosmos_mongo_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Mongo DB. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cosmos_mongo_database_id")
 
     @cosmos_mongo_database_id.setter
-    def cosmos_mongo_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cosmos_mongo_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cosmos_mongo_database_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritedRoleNames")
-    def inherited_role_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inherited_role_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Mongo Roles that are inherited to the Mongo User Definition.
 
@@ -139,31 +139,31 @@ class _MongoUserDefinitionState:
         return pulumi.get(self, "inherited_role_names")
 
     @inherited_role_names.setter
-    def inherited_role_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inherited_role_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inherited_role_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the Mongo User Definition.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username for the Mongo User Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -173,10 +173,10 @@ class MongoUserDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cosmos_mongo_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 cosmos_mongo_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Cosmos DB Mongo User Definition.
@@ -326,10 +326,10 @@ class MongoUserDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cosmos_mongo_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 cosmos_mongo_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,10 +361,10 @@ class MongoUserDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cosmos_mongo_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-            inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'MongoUserDefinition':
+            cosmos_mongo_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'MongoUserDefinition':
         """
         Get an existing MongoUserDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

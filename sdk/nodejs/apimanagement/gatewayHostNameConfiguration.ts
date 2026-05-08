@@ -196,39 +196,39 @@ export interface GatewayHostNameConfigurationState {
     /**
      * The ID of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The certificate ID to be used for TLS connection establishment.
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Gateway. Changing this forces a new resource to be created.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * The host name to use for the API Management Gateway Host Name Configuration.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * Whether HTTP/2.0 is supported. Defaults to `true`.
      */
-    http2Enabled?: pulumi.Input<boolean>;
+    http2Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the API Management Gateway requests a client certificate.
      */
-    requestClientCertificateEnabled?: pulumi.Input<boolean>;
+    requestClientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether TLS 1.0 is supported.
      */
-    tls10Enabled?: pulumi.Input<boolean>;
+    tls10Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether TLS 1.1 is supported.
      */
-    tls11Enabled?: pulumi.Input<boolean>;
+    tls11Enabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -254,21 +254,21 @@ export interface GatewayHostNameConfigurationArgs {
     /**
      * Whether HTTP/2.0 is supported. Defaults to `true`.
      */
-    http2Enabled?: pulumi.Input<boolean>;
+    http2Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the API Management Gateway requests a client certificate.
      */
-    requestClientCertificateEnabled?: pulumi.Input<boolean>;
+    requestClientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether TLS 1.0 is supported.
      */
-    tls10Enabled?: pulumi.Input<boolean>;
+    tls10Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether TLS 1.1 is supported.
      */
-    tls11Enabled?: pulumi.Input<boolean>;
+    tls11Enabled?: pulumi.Input<boolean | undefined>;
 }

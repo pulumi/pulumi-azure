@@ -230,8 +230,8 @@ def get_dicom_service(name: Optional[_builtins.str] = None,
         storages=pulumi.get(__ret__, 'storages'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_dicom_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                             workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dicom_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                             workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Use this data source to access information about an existing Healthcare DICOM Service

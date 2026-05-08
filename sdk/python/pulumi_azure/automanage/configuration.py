@@ -22,18 +22,18 @@ __all__ = ['ConfigurationArgs', 'Configuration']
 class ConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
-                 automation_account_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
-                 backup: Optional[pulumi.Input['ConfigurationBackupArgs']] = None,
-                 boot_diagnostics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 defender_for_cloud_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 guest_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_change_alert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 antimalware: pulumi.Input[Optional['ConfigurationAntimalwareArgs']] = None,
+                 automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_security_baseline: pulumi.Input[Optional['ConfigurationAzureSecurityBaselineArgs']] = None,
+                 backup: pulumi.Input[Optional['ConfigurationBackupArgs']] = None,
+                 boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_change_alert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
 
@@ -90,162 +90,162 @@ class ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def antimalware(self) -> Optional[pulumi.Input['ConfigurationAntimalwareArgs']]:
+    def antimalware(self) -> pulumi.Input[Optional['ConfigurationAntimalwareArgs']]:
         """
         A `antimalware` block as defined below.
         """
         return pulumi.get(self, "antimalware")
 
     @antimalware.setter
-    def antimalware(self, value: Optional[pulumi.Input['ConfigurationAntimalwareArgs']]):
+    def antimalware(self, value: pulumi.Input[Optional['ConfigurationAntimalwareArgs']]):
         pulumi.set(self, "antimalware", value)
 
     @_builtins.property
     @pulumi.getter(name="automationAccountEnabled")
-    def automation_account_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automation_account_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the automation account is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "automation_account_enabled")
 
     @automation_account_enabled.setter
-    def automation_account_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automation_account_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automation_account_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="azureSecurityBaseline")
-    def azure_security_baseline(self) -> Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]:
+    def azure_security_baseline(self) -> pulumi.Input[Optional['ConfigurationAzureSecurityBaselineArgs']]:
         """
         A `azure_security_baseline` block as defined below.
         """
         return pulumi.get(self, "azure_security_baseline")
 
     @azure_security_baseline.setter
-    def azure_security_baseline(self, value: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]):
+    def azure_security_baseline(self, value: pulumi.Input[Optional['ConfigurationAzureSecurityBaselineArgs']]):
         pulumi.set(self, "azure_security_baseline", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['ConfigurationBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['ConfigurationBackupArgs']]:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['ConfigurationBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['ConfigurationBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnosticsEnabled")
-    def boot_diagnostics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def boot_diagnostics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the boot diagnostics are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "boot_diagnostics_enabled")
 
     @boot_diagnostics_enabled.setter
-    def boot_diagnostics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def boot_diagnostics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "boot_diagnostics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defenderForCloudEnabled")
-    def defender_for_cloud_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def defender_for_cloud_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the defender for cloud is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "defender_for_cloud_enabled")
 
     @defender_for_cloud_enabled.setter
-    def defender_for_cloud_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def defender_for_cloud_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "defender_for_cloud_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="guestConfigurationEnabled")
-    def guest_configuration_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def guest_configuration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the guest configuration is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "guest_configuration_enabled")
 
     @guest_configuration_enabled.setter
-    def guest_configuration_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def guest_configuration_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "guest_configuration_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsEnabled")
-    def log_analytics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_analytics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether log analytics are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "log_analytics_enabled")
 
     @log_analytics_enabled.setter
-    def log_analytics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_analytics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_analytics_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="statusChangeAlertEnabled")
-    def status_change_alert_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def status_change_alert_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the status change alert is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "status_change_alert_enabled")
 
     @status_change_alert_enabled.setter
-    def status_change_alert_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def status_change_alert_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "status_change_alert_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ConfigurationState:
     def __init__(__self__, *,
-                 antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
-                 automation_account_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
-                 backup: Optional[pulumi.Input['ConfigurationBackupArgs']] = None,
-                 boot_diagnostics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 defender_for_cloud_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 guest_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_change_alert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 antimalware: pulumi.Input[Optional['ConfigurationAntimalwareArgs']] = None,
+                 automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_security_baseline: pulumi.Input[Optional['ConfigurationAzureSecurityBaselineArgs']] = None,
+                 backup: pulumi.Input[Optional['ConfigurationBackupArgs']] = None,
+                 boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_change_alert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
 
@@ -291,155 +291,155 @@ class _ConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def antimalware(self) -> Optional[pulumi.Input['ConfigurationAntimalwareArgs']]:
+    def antimalware(self) -> pulumi.Input[Optional['ConfigurationAntimalwareArgs']]:
         """
         A `antimalware` block as defined below.
         """
         return pulumi.get(self, "antimalware")
 
     @antimalware.setter
-    def antimalware(self, value: Optional[pulumi.Input['ConfigurationAntimalwareArgs']]):
+    def antimalware(self, value: pulumi.Input[Optional['ConfigurationAntimalwareArgs']]):
         pulumi.set(self, "antimalware", value)
 
     @_builtins.property
     @pulumi.getter(name="automationAccountEnabled")
-    def automation_account_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automation_account_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the automation account is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "automation_account_enabled")
 
     @automation_account_enabled.setter
-    def automation_account_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automation_account_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automation_account_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="azureSecurityBaseline")
-    def azure_security_baseline(self) -> Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]:
+    def azure_security_baseline(self) -> pulumi.Input[Optional['ConfigurationAzureSecurityBaselineArgs']]:
         """
         A `azure_security_baseline` block as defined below.
         """
         return pulumi.get(self, "azure_security_baseline")
 
     @azure_security_baseline.setter
-    def azure_security_baseline(self, value: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]):
+    def azure_security_baseline(self, value: pulumi.Input[Optional['ConfigurationAzureSecurityBaselineArgs']]):
         pulumi.set(self, "azure_security_baseline", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['ConfigurationBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['ConfigurationBackupArgs']]:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['ConfigurationBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['ConfigurationBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="bootDiagnosticsEnabled")
-    def boot_diagnostics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def boot_diagnostics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the boot diagnostics are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "boot_diagnostics_enabled")
 
     @boot_diagnostics_enabled.setter
-    def boot_diagnostics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def boot_diagnostics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "boot_diagnostics_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defenderForCloudEnabled")
-    def defender_for_cloud_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def defender_for_cloud_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the defender for cloud is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "defender_for_cloud_enabled")
 
     @defender_for_cloud_enabled.setter
-    def defender_for_cloud_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def defender_for_cloud_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "defender_for_cloud_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="guestConfigurationEnabled")
-    def guest_configuration_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def guest_configuration_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the guest configuration is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "guest_configuration_enabled")
 
     @guest_configuration_enabled.setter
-    def guest_configuration_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def guest_configuration_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "guest_configuration_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsEnabled")
-    def log_analytics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_analytics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether log analytics are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "log_analytics_enabled")
 
     @log_analytics_enabled.setter
-    def log_analytics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_analytics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_analytics_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="statusChangeAlertEnabled")
-    def status_change_alert_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def status_change_alert_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the status change alert is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "status_change_alert_enabled")
 
     @status_change_alert_enabled.setter
-    def status_change_alert_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def status_change_alert_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "status_change_alert_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -449,19 +449,19 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: Optional[pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
-                 automation_account_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
-                 backup: Optional[pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
-                 boot_diagnostics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 defender_for_cloud_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 guest_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_change_alert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
+                 automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
+                 backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
+                 boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_change_alert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Automanage Configuration.
@@ -677,19 +677,19 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: Optional[pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
-                 automation_account_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
-                 backup: Optional[pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
-                 boot_diagnostics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 defender_for_cloud_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 guest_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_analytics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_change_alert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
+                 automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
+                 backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
+                 boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_analytics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_change_alert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -724,19 +724,19 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            antimalware: Optional[pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
-            automation_account_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            azure_security_baseline: Optional[pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
-            backup: Optional[pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
-            boot_diagnostics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            defender_for_cloud_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            guest_configuration_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            log_analytics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            status_change_alert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Configuration':
+            antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
+            automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
+            backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
+            boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            log_analytics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status_change_alert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Configuration':
         """
         Get an existing Configuration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

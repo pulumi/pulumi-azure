@@ -23,14 +23,14 @@ class ConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 in_guest_user_patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
+                 in_guest_user_patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 install_patches: pulumi.Input[Optional['ConfigurationInstallPatchesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 window: pulumi.Input[Optional['ConfigurationWindowArgs']] = None):
         """
         The set of arguments for constructing a Configuration resource.
 
@@ -92,19 +92,19 @@ class ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inGuestUserPatchMode")
-    def in_guest_user_patch_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def in_guest_user_patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
         """
         return pulumi.get(self, "in_guest_user_patch_mode")
 
     @in_guest_user_patch_mode.setter
-    def in_guest_user_patch_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def in_guest_user_patch_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "in_guest_user_patch_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="installPatches")
-    def install_patches(self) -> Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]:
+    def install_patches(self) -> pulumi.Input[Optional['ConfigurationInstallPatchesArgs']]:
         """
         An `install_patches` block as defined below.
 
@@ -113,95 +113,95 @@ class ConfigurationArgs:
         return pulumi.get(self, "install_patches")
 
     @install_patches.setter
-    def install_patches(self, value: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]):
+    def install_patches(self, value: pulumi.Input[Optional['ConfigurationInstallPatchesArgs']]):
         pulumi.set(self, "install_patches", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of properties to assign to the resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. The key could not contain upper case letter.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
     @_builtins.property
     @pulumi.getter
-    def window(self) -> Optional[pulumi.Input['ConfigurationWindowArgs']]:
+    def window(self) -> pulumi.Input[Optional['ConfigurationWindowArgs']]:
         """
         A `window` block as defined below.
         """
         return pulumi.get(self, "window")
 
     @window.setter
-    def window(self, value: Optional[pulumi.Input['ConfigurationWindowArgs']]):
+    def window(self, value: pulumi.Input[Optional['ConfigurationWindowArgs']]):
         pulumi.set(self, "window", value)
 
 
 @pulumi.input_type
 class _ConfigurationState:
     def __init__(__self__, *,
-                 in_guest_user_patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
+                 in_guest_user_patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 install_patches: pulumi.Input[Optional['ConfigurationInstallPatchesArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 window: pulumi.Input[Optional['ConfigurationWindowArgs']] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
 
@@ -241,19 +241,19 @@ class _ConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="inGuestUserPatchMode")
-    def in_guest_user_patch_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def in_guest_user_patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
         """
         return pulumi.get(self, "in_guest_user_patch_mode")
 
     @in_guest_user_patch_mode.setter
-    def in_guest_user_patch_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def in_guest_user_patch_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "in_guest_user_patch_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="installPatches")
-    def install_patches(self) -> Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]:
+    def install_patches(self) -> pulumi.Input[Optional['ConfigurationInstallPatchesArgs']]:
         """
         An `install_patches` block as defined below.
 
@@ -262,103 +262,103 @@ class _ConfigurationState:
         return pulumi.get(self, "install_patches")
 
     @install_patches.setter
-    def install_patches(self, value: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']]):
+    def install_patches(self, value: pulumi.Input[Optional['ConfigurationInstallPatchesArgs']]):
         pulumi.set(self, "install_patches", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of properties to assign to the resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. The key could not contain upper case letter.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
     @_builtins.property
     @pulumi.getter
-    def window(self) -> Optional[pulumi.Input['ConfigurationWindowArgs']]:
+    def window(self) -> pulumi.Input[Optional['ConfigurationWindowArgs']]:
         """
         A `window` block as defined below.
         """
         return pulumi.get(self, "window")
 
     @window.setter
-    def window(self, value: Optional[pulumi.Input['ConfigurationWindowArgs']]):
+    def window(self, value: pulumi.Input[Optional['ConfigurationWindowArgs']]):
         pulumi.set(self, "window", value)
 
 
@@ -368,16 +368,16 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 in_guest_user_patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 install_patches: Optional[pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 window: Optional[pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None,
+                 in_guest_user_patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 install_patches: pulumi.Input[Optional[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 window: pulumi.Input[Optional[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None,
                  __props__=None):
         """
         Manages a maintenance configuration.
@@ -491,16 +491,16 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 in_guest_user_patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 install_patches: Optional[pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 window: Optional[pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None,
+                 in_guest_user_patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 install_patches: pulumi.Input[Optional[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 window: pulumi.Input[Optional[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -534,16 +534,16 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            in_guest_user_patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            install_patches: Optional[pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            visibility: Optional[pulumi.Input[_builtins.str]] = None,
-            window: Optional[pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None) -> 'Configuration':
+            in_guest_user_patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            install_patches: pulumi.Input[Optional[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            window: pulumi.Input[Optional[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None) -> 'Configuration':
         """
         Get an existing Configuration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

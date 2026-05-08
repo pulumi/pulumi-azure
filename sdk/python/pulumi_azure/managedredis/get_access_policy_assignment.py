@@ -121,9 +121,9 @@ def get_access_policy_assignment(managed_redis_name: Optional[_builtins.str] = N
         managed_redis_name=pulumi.get(__ret__, 'managed_redis_name'),
         object_id=pulumi.get(__ret__, 'object_id'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_access_policy_assignment_output(managed_redis_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_policy_assignment_output(managed_redis_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyAssignmentResult]:
     """
     Use this data source to access information about an existing Managed Redis Access Policy Assignment.

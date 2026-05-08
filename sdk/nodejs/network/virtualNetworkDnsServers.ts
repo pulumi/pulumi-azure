@@ -127,11 +127,11 @@ export interface VirtualNetworkDnsServersState {
     /**
      * List of IP addresses of DNS servers
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -141,7 +141,7 @@ export interface VirtualNetworkDnsServersArgs {
     /**
      * List of IP addresses of DNS servers
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */

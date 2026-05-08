@@ -134,11 +134,11 @@ export interface WorkspaceApplicationGroupAssociationState {
     /**
      * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
-    applicationGroupId?: pulumi.Input<string>;
+    applicationGroupId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**

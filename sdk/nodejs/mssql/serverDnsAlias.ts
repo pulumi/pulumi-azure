@@ -124,15 +124,15 @@ export interface ServerDnsAliasState {
     /**
      * The fully qualified DNS record for alias.
      */
-    dnsRecord?: pulumi.Input<string>;
+    dnsRecord?: pulumi.Input<string | undefined>;
     /**
      * The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
      */
-    mssqlServerId?: pulumi.Input<string>;
+    mssqlServerId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,5 +146,5 @@ export interface ServerDnsAliasArgs {
     /**
      * The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

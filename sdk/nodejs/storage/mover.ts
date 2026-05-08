@@ -133,23 +133,23 @@ export interface MoverState {
     /**
      * A description for the Storage Mover.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover. Changing this forces a new Storage Mover to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Storage Mover.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -159,15 +159,15 @@ export interface MoverArgs {
     /**
      * A description for the Storage Mover.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover. Changing this forces a new Storage Mover to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
      */
@@ -175,5 +175,5 @@ export interface MoverArgs {
     /**
      * A mapping of tags which should be assigned to the Storage Mover.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

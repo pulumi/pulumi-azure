@@ -146,23 +146,23 @@ export interface CreatorState {
     /**
      * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
      */
-    mapsAccountId?: pulumi.Input<string>;
+    mapsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Maps Creator. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The storage units to be allocated. Integer values from 1 to 100, inclusive.
      */
-    storageUnits?: pulumi.Input<number>;
+    storageUnits?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Maps Creator.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -172,7 +172,7 @@ export interface CreatorArgs {
     /**
      * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
      */
@@ -180,7 +180,7 @@ export interface CreatorArgs {
     /**
      * The name of the Azure Maps Creator. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The storage units to be allocated. Integer values from 1 to 100, inclusive.
      */
@@ -188,5 +188,5 @@ export interface CreatorArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Maps Creator.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

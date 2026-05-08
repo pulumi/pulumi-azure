@@ -25,11 +25,11 @@ class CustomLocationArgs:
                  host_resource_id: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication: Optional[pulumi.Input['CustomLocationAuthenticationArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['CustomLocationAuthenticationArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomLocation resource.
 
@@ -108,77 +108,77 @@ class CustomLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['CustomLocationAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['CustomLocationAuthenticationArgs']]:
         """
         An `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['CustomLocationAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['CustomLocationAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the display name of the Custom Location.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostType")
-    def host_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_type")
 
     @host_type.setter
-    def host_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CustomLocationState:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['CustomLocationAuthenticationArgs']] = None,
-                 cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['CustomLocationAuthenticationArgs']] = None,
+                 cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomLocation resources.
 
@@ -213,110 +213,110 @@ class _CustomLocationState:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['CustomLocationAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['CustomLocationAuthenticationArgs']]:
         """
         An `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['CustomLocationAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['CustomLocationAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterExtensionIds")
-    def cluster_extension_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_extension_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of Cluster Extension IDs.
         """
         return pulumi.get(self, "cluster_extension_ids")
 
     @cluster_extension_ids.setter
-    def cluster_extension_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_extension_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_extension_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the display name of the Custom Location.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostResourceId")
-    def host_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host resource ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_resource_id")
 
     @host_resource_id.setter
-    def host_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostType")
-    def host_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_type")
 
     @host_type.setter
-    def host_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -326,15 +326,15 @@ class CustomLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
-                 cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
+                 cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Custom Location within an Extended Location.
@@ -397,15 +397,15 @@ class CustomLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
-                 cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
+                 cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,15 +442,15 @@ class CustomLocation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
-            cluster_extension_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            host_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            host_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomLocation':
+            authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
+            cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            host_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomLocation':
         """
         Get an existing CustomLocation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -138,9 +138,9 @@ def get_frontdoor_secret(name: Optional[_builtins.str] = None,
         profile_name=pulumi.get(__ret__, 'profile_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_frontdoor_secret_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_frontdoor_secret_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorSecretResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Secret.

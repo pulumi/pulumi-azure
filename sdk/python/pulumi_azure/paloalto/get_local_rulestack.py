@@ -235,8 +235,8 @@ def get_local_rulestack(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         url_filtering_profile=pulumi.get(__ret__, 'url_filtering_profile'),
         vulnerability_profile=pulumi.get(__ret__, 'vulnerability_profile'))
-def get_local_rulestack_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_rulestack_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRulestackResult]:
     """
     Use this data source to access information about an existing Palo Alto Networks Rulestack.

@@ -138,21 +138,21 @@ export interface NetworkManagerNetworkGroupState {
     /**
      * A description of the Network Manager Network Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
      *
      * > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
      */
-    memberType?: pulumi.Input<string>;
+    memberType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,17 +162,17 @@ export interface NetworkManagerNetworkGroupArgs {
     /**
      * A description of the Network Manager Network Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
      *
      * > **Note:** `memberType` can be set to `Subnet` only if the parent Network Manager has `Routing` included in its `scopeAccesses`.
      */
-    memberType?: pulumi.Input<string>;
+    memberType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
      */

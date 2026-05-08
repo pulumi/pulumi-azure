@@ -183,15 +183,15 @@ export interface CustomHttpsConfigurationState {
     /**
      * A `customHttpsConfiguration` block as defined above.
      */
-    customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration>;
+    customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration | undefined>;
     /**
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      */
-    customHttpsProvisioningEnabled?: pulumi.Input<boolean>;
+    customHttpsProvisioningEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
      */
-    frontendEndpointId?: pulumi.Input<string>;
+    frontendEndpointId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface CustomHttpsConfigurationArgs {
     /**
      * A `customHttpsConfiguration` block as defined above.
      */
-    customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration>;
+    customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration | undefined>;
     /**
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      */

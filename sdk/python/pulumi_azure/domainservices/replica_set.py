@@ -21,7 +21,7 @@ class ReplicaSetArgs:
     def __init__(__self__, *,
                  domain_service_id: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicaSet resource.
 
@@ -60,26 +60,26 @@ class ReplicaSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _ReplicaSetState:
     def __init__(__self__, *,
-                 domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_controller_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicaSet resources.
 
@@ -105,74 +105,74 @@ class _ReplicaSetState:
 
     @_builtins.property
     @pulumi.getter(name="domainControllerIpAddresses")
-    def domain_controller_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domain_controller_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
         """
         return pulumi.get(self, "domain_controller_ip_addresses")
 
     @domain_controller_ip_addresses.setter
-    def domain_controller_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domain_controller_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain_controller_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="domainServiceId")
-    def domain_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "domain_service_id")
 
     @domain_service_id.setter
-    def domain_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIpAddress")
-    def external_access_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_access_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publicly routable IP address for the domain controllers in this Replica Set.
         """
         return pulumi.get(self, "external_access_ip_address")
 
     @external_access_ip_address.setter
-    def external_access_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_access_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_access_ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceStatus")
-    def service_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current service status for the replica set.
         """
         return pulumi.get(self, "service_status")
 
     @service_status.setter
-    def service_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_status", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -182,9 +182,9 @@ class ReplicaSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Replica Set for an Active Directory Domain Service.
@@ -683,9 +683,9 @@ class ReplicaSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -715,12 +715,12 @@ class ReplicaSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            domain_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            external_access_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            service_status: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReplicaSet':
+            domain_controller_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            domain_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            external_access_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            service_status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReplicaSet':
         """
         Get an existing ReplicaSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

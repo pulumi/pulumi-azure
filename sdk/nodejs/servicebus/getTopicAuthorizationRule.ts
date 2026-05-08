@@ -155,15 +155,15 @@ export interface GetTopicAuthorizationRuleOutputArgs {
     /**
      * The name of the ServiceBus Namespace.
      */
-    namespaceName?: pulumi.Input<string>;
-    queueName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
+    queueName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the ServiceBus Namespace exists.
      */
-    resourceGroupName?: pulumi.Input<string>;
-    topicId?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
+    topicId?: pulumi.Input<string | undefined>;
     /**
      * The name of the ServiceBus Topic.
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

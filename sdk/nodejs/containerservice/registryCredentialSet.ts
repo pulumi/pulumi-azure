@@ -226,23 +226,23 @@ export interface RegistryCredentialSetState {
     /**
      * A `authenticationCredentials` block as defined below.
      */
-    authenticationCredentials?: pulumi.Input<inputs.containerservice.RegistryCredentialSetAuthenticationCredentials>;
+    authenticationCredentials?: pulumi.Input<inputs.containerservice.RegistryCredentialSetAuthenticationCredentials | undefined>;
     /**
      * The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.containerservice.RegistryCredentialSetIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryCredentialSetIdentity | undefined>;
     /**
      * The login server for the Credential Set. Changing this forces a new Container Registry Credential Set to be created.
      */
-    loginServer?: pulumi.Input<string>;
+    loginServer?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -268,5 +268,5 @@ export interface RegistryCredentialSetArgs {
     /**
      * The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

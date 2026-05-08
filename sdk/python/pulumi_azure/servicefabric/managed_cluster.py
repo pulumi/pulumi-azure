@@ -25,20 +25,20 @@ class ManagedClusterArgs:
                  http_gateway_port: pulumi.Input[_builtins.int],
                  lb_rules: pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']] = None,
-                 backup_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_wave: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['ManagedClusterAuthenticationArgs']] = None,
+                 backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_wave: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedCluster resource.
 
@@ -144,194 +144,194 @@ class ManagedClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['ManagedClusterAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['ManagedClusterAuthenticationArgs']]:
         """
         Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['ManagedClusterAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="backupServiceEnabled")
-    def backup_service_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backup_service_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, backup service is enabled.
         """
         return pulumi.get(self, "backup_service_enabled")
 
     @backup_service_enabled.setter
-    def backup_service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backup_service_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backup_service_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="customFabricSettings")
-    def custom_fabric_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]:
+    def custom_fabric_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]:
         """
         One or more `custom_fabric_setting` blocks as defined below.
         """
         return pulumi.get(self, "custom_fabric_settings")
 
     @custom_fabric_settings.setter
-    def custom_fabric_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]):
+    def custom_fabric_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]):
         pulumi.set(self, "custom_fabric_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hostname for the cluster. If unset the cluster's name will be used..
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceEnabled")
-    def dns_service_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_service_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, DNS service is enabled.
         """
         return pulumi.get(self, "dns_service_enabled")
 
     @dns_service_enabled.setter
-    def dns_service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_service_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_service_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]:
+    def node_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]:
         """
         One or more `node_type` blocks as defined below.
         """
         return pulumi.get(self, "node_types")
 
     @node_types.setter
-    def node_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]):
+    def node_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]):
         pulumi.set(self, "node_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Administrator password for the VMs that will be created as part of this cluster.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Resource Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeWave")
-    def upgrade_wave(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_wave(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         """
         return pulumi.get(self, "upgrade_wave")
 
     @upgrade_wave.setter
-    def upgrade_wave(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_wave(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_wave", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Administrator password for the VMs that will be created as part of this cluster.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _ManagedClusterState:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']] = None,
-                 backup_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_gateway_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_wave: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['ManagedClusterAuthenticationArgs']] = None,
+                 backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_wave: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedCluster resources.
 
@@ -393,218 +393,218 @@ class _ManagedClusterState:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['ManagedClusterAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['ManagedClusterAuthenticationArgs']]:
         """
         Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['ManagedClusterAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="backupServiceEnabled")
-    def backup_service_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backup_service_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, backup service is enabled.
         """
         return pulumi.get(self, "backup_service_enabled")
 
     @backup_service_enabled.setter
-    def backup_service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backup_service_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backup_service_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientConnectionPort")
-    def client_connection_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_connection_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port to use when connecting to the cluster.
         """
         return pulumi.get(self, "client_connection_port")
 
     @client_connection_port.setter
-    def client_connection_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_connection_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_connection_port", value)
 
     @_builtins.property
     @pulumi.getter(name="customFabricSettings")
-    def custom_fabric_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]:
+    def custom_fabric_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]:
         """
         One or more `custom_fabric_setting` blocks as defined below.
         """
         return pulumi.get(self, "custom_fabric_settings")
 
     @custom_fabric_settings.setter
-    def custom_fabric_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]):
+    def custom_fabric_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]]):
         pulumi.set(self, "custom_fabric_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hostname for the cluster. If unset the cluster's name will be used..
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceEnabled")
-    def dns_service_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_service_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, DNS service is enabled.
         """
         return pulumi.get(self, "dns_service_enabled")
 
     @dns_service_enabled.setter
-    def dns_service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_service_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_service_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpGatewayPort")
-    def http_gateway_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_gateway_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
         """
         return pulumi.get(self, "http_gateway_port")
 
     @http_gateway_port.setter
-    def http_gateway_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_gateway_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_gateway_port", value)
 
     @_builtins.property
     @pulumi.getter(name="lbRules")
-    def lb_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]]:
+    def lb_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]]:
         """
         One or more `lb_rule` blocks as defined below.
         """
         return pulumi.get(self, "lb_rules")
 
     @lb_rules.setter
-    def lb_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]]):
+    def lb_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]]):
         pulumi.set(self, "lb_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]:
+    def node_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]:
         """
         One or more `node_type` blocks as defined below.
         """
         return pulumi.get(self, "node_types")
 
     @node_types.setter
-    def node_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]):
+    def node_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]]):
         pulumi.set(self, "node_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Administrator password for the VMs that will be created as part of this cluster.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Resource Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeWave")
-    def upgrade_wave(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_wave(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         """
         return pulumi.get(self, "upgrade_wave")
 
     @upgrade_wave.setter
-    def upgrade_wave(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_wave(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_wave", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Administrator password for the VMs that will be created as part of this cluster.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -614,24 +614,24 @@ class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
-                 backup_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_gateway_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_wave: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
+                 backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_wave: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Resource Group.
@@ -781,24 +781,24 @@ class ManagedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
-                 backup_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_gateway_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_wave: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
+                 backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upgrade_wave: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -846,24 +846,24 @@ class ManagedCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
-            backup_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_connection_port: Optional[pulumi.Input[_builtins.int]] = None,
-            custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            http_gateway_port: Optional[pulumi.Input[_builtins.int]] = None,
-            lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            upgrade_wave: Optional[pulumi.Input[_builtins.str]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedCluster':
+            authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
+            backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
+            custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
+            lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upgrade_wave: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedCluster':
         """
         Get an existing ManagedCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

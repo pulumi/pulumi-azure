@@ -214,5 +214,5 @@ export interface GetAccountOutputArgs {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

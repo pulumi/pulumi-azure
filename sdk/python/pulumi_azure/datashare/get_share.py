@@ -163,8 +163,8 @@ def get_share(account_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         snapshot_schedules=pulumi.get(__ret__, 'snapshot_schedules'),
         terms=pulumi.get(__ret__, 'terms'))
-def get_share_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_share_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """
     Use this data source to access information about an existing Data Share.

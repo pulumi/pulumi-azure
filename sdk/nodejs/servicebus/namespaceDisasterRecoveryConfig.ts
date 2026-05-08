@@ -176,35 +176,35 @@ export interface NamespaceDisasterRecoveryConfigState {
     /**
      * The Shared access policies used to access the connection string for the alias.
      */
-    aliasAuthorizationRuleId?: pulumi.Input<string>;
+    aliasAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    defaultPrimaryKey?: pulumi.Input<string>;
+    defaultPrimaryKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    defaultSecondaryKey?: pulumi.Input<string>;
+    defaultSecondaryKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Bus Namespace to replicate to.
      */
-    partnerNamespaceId?: pulumi.Input<string>;
+    partnerNamespaceId?: pulumi.Input<string | undefined>;
     /**
      * The alias Primary Connection String for the ServiceBus Namespace.
      */
-    primaryConnectionStringAlias?: pulumi.Input<string>;
+    primaryConnectionStringAlias?: pulumi.Input<string | undefined>;
     /**
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      */
-    primaryNamespaceId?: pulumi.Input<string>;
+    primaryNamespaceId?: pulumi.Input<string | undefined>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    secondaryConnectionStringAlias?: pulumi.Input<string>;
+    secondaryConnectionStringAlias?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -214,11 +214,11 @@ export interface NamespaceDisasterRecoveryConfigArgs {
     /**
      * The Shared access policies used to access the connection string for the alias.
      */
-    aliasAuthorizationRuleId?: pulumi.Input<string>;
+    aliasAuthorizationRuleId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Bus Namespace to replicate to.
      */

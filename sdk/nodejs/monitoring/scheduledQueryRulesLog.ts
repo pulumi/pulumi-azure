@@ -211,39 +211,39 @@ export interface ScheduledQueryRulesLogState {
     /**
      * A list of IDs of Resources referred into query.
      */
-    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
-    criteria?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
+    criteria?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria | undefined>;
     /**
      * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
-    dataSourceId?: pulumi.Input<string>;
+    dataSourceId?: pulumi.Input<string | undefined>;
     /**
      * The description of the scheduled query rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this scheduled query rule is enabled. Default is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -253,7 +253,7 @@ export interface ScheduledQueryRulesLogArgs {
     /**
      * A list of IDs of Resources referred into query.
      */
-    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
@@ -265,19 +265,19 @@ export interface ScheduledQueryRulesLogArgs {
     /**
      * The description of the scheduled query rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether this scheduled query rule is enabled. Default is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
@@ -285,5 +285,5 @@ export interface ScheduledQueryRulesLogArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

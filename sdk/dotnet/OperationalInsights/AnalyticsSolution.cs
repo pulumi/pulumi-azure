@@ -29,7 +29,7 @@ namespace Pulumi.Azure.OperationalInsights
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var workspace = new Random.Index.Id("workspace", new()
+    ///     var workspace = new Random.Id("workspace", new()
     ///     {
     ///         Keepers = 
     ///         {

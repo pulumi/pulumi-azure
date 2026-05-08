@@ -470,7 +470,7 @@ export interface GetAccountOutputArgs {
     /**
      * The minimum supported TLS version for this storage account.
      */
-    minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Storage Account
      */
@@ -478,5 +478,5 @@ export interface GetAccountOutputArgs {
     /**
      * Specifies the name of the resource group the Storage Account is located in.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }

@@ -242,86 +242,86 @@ export interface ServiceState {
     /**
      * Whether to enable AAD auth? Defaults to `true`.
      */
-    aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
      *
      * > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * The publicly accessible IP of the Web PubSub service.
      */
-    externalIp?: pulumi.Input<string>;
+    externalIp?: pulumi.Input<string | undefined>;
     /**
      * The FQDN of the Web PubSub service.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.webpubsub.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.webpubsub.ServiceIdentity | undefined>;
     /**
      * A `liveTrace` block as defined below.
      */
-    liveTrace?: pulumi.Input<inputs.webpubsub.ServiceLiveTrace>;
+    liveTrace?: pulumi.Input<inputs.webpubsub.ServiceLiveTrace | undefined>;
     /**
      * Whether to enable local auth? Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Web PubSub service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary access key for the Web PubSub service.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string for the Web PubSub service.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable public network access? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The publicly accessible port of the Web PubSub service which is designed for browser/client use.
      */
-    publicPort?: pulumi.Input<number>;
+    publicPort?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key for the Web PubSub service.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string for the Web PubSub service.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The publicly accessible port of the Web PubSub service which is designed for customer server side use.
      */
-    serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      */
-    tlsClientCertEnabled?: pulumi.Input<boolean>;
-    version?: pulumi.Input<string>;
+    tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -331,37 +331,37 @@ export interface ServiceArgs {
     /**
      * Whether to enable AAD auth? Defaults to `true`.
      */
-    aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
      *
      * > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.webpubsub.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.webpubsub.ServiceIdentity | undefined>;
     /**
      * A `liveTrace` block as defined below.
      */
-    liveTrace?: pulumi.Input<inputs.webpubsub.ServiceLiveTrace>;
+    liveTrace?: pulumi.Input<inputs.webpubsub.ServiceLiveTrace | undefined>;
     /**
      * Whether to enable local auth? Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Web PubSub service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable public network access? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      */
@@ -373,9 +373,9 @@ export interface ServiceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      */
-    tlsClientCertEnabled?: pulumi.Input<boolean>;
+    tlsClientCertEnabled?: pulumi.Input<boolean | undefined>;
 }

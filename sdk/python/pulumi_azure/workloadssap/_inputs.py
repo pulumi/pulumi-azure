@@ -202,19 +202,19 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgsDict(TypedDict):
     """
     A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
     """
-    database_type: NotRequired[pulumi.Input[_builtins.str]]
+    database_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
     """
-    disk_volume_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict']]]]
+    disk_volume_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]]]
     """
     One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
     """
-    secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    secondary_ip_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    virtual_machine_resource_names: NotRequired[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict']]
+    virtual_machine_resource_names: NotRequired[pulumi.Input[Optional['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']]]
     """
     A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
     """
@@ -225,10 +225,10 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgs:
                  app_resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  virtual_machine_configuration: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs'],
-                 database_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]] = None,
-                 secondary_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_machine_resource_names: Optional[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']] = None):
+                 database_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]] = None,
+                 secondary_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_machine_resource_names: pulumi.Input[Optional['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] app_resource_group_name: The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
                
@@ -292,50 +292,50 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseType")
-    def database_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_type")
 
     @database_type.setter
-    def database_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskVolumeConfigurations")
-    def disk_volume_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]]:
+    def disk_volume_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]]:
         """
         One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_volume_configurations")
 
     @disk_volume_configurations.setter
-    def disk_volume_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]]):
+    def disk_volume_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]]):
         pulumi.set(self, "disk_volume_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpEnabled")
-    def secondary_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secondary_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secondary_ip_enabled")
 
     @secondary_ip_enabled.setter
-    def secondary_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secondary_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secondary_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineResourceNames")
-    def virtual_machine_resource_names(self) -> Optional[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']]:
+    def virtual_machine_resource_names(self) -> pulumi.Input[Optional['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']]:
         """
         A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_resource_names")
 
     @virtual_machine_resource_names.setter
-    def virtual_machine_resource_names(self, value: Optional[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']]):
+    def virtual_machine_resource_names(self, value: pulumi.Input[Optional['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']]):
         pulumi.set(self, "virtual_machine_resource_names", value)
 
 
@@ -642,23 +642,23 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurat
 
 
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict']]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]]]
     """
     (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_interface_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    os_disk_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
     """
-    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_machine_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
     """
@@ -666,11 +666,11 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNa
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]] data_disks: (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] host_name: The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
@@ -691,62 +691,62 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNa
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]]:
         """
         (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceNames")
-    def network_interface_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_names")
 
     @network_interface_names.setter
-    def network_interface_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_names", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskName")
-    def os_disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_name")
 
     @os_disk_name.setter
-    def os_disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_name")
 
     @virtual_machine_name.setter
-    def virtual_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_name", value)
 
 
@@ -863,19 +863,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgsDict(TypedDict):
     """
     A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
     """
-    high_availability_type: NotRequired[pulumi.Input[_builtins.str]]
+    high_availability_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
     """
-    resource_names: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict']]
+    resource_names: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']]]
     """
     A `resource_names` block as defined below. Changing this forces a new resource to be created.
     """
-    secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    secondary_ip_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    transport_create_and_mount: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict']]
+    transport_create_and_mount: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']]]
     """
     A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
 
@@ -891,10 +891,10 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
                  application_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs'],
                  central_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs'],
                  database_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs'],
-                 high_availability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_names: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']] = None,
-                 secondary_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transport_create_and_mount: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']] = None):
+                 high_availability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_names: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']] = None,
+                 secondary_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transport_create_and_mount: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] app_resource_group_name: The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
                
@@ -976,43 +976,43 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityType")
-    def high_availability_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def high_availability_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "high_availability_type")
 
     @high_availability_type.setter
-    def high_availability_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def high_availability_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "high_availability_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceNames")
-    def resource_names(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']]:
+    def resource_names(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']]:
         """
         A `resource_names` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_names")
 
     @resource_names.setter
-    def resource_names(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']]):
+    def resource_names(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']]):
         pulumi.set(self, "resource_names", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpEnabled")
-    def secondary_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secondary_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secondary_ip_enabled")
 
     @secondary_ip_enabled.setter
-    def secondary_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secondary_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secondary_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="transportCreateAndMount")
-    def transport_create_and_mount(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']]:
+    def transport_create_and_mount(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']]:
         """
         A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
 
@@ -1023,7 +1023,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
         return pulumi.get(self, "transport_create_and_mount")
 
     @transport_create_and_mount.setter
-    def transport_create_and_mount(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']]):
+    def transport_create_and_mount(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']]):
         pulumi.set(self, "transport_create_and_mount", value)
 
 
@@ -1606,11 +1606,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationA
     """
     A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
     """
-    database_type: NotRequired[pulumi.Input[_builtins.str]]
+    database_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
     """
-    disk_volume_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict']]]]
+    disk_volume_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]]]
     """
     One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -1621,8 +1621,8 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationA
                  instance_count: pulumi.Input[_builtins.int],
                  subnet_id: pulumi.Input[_builtins.str],
                  virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs'],
-                 database_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]] = None):
+                 database_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for the Database Server. Possible values are at least `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet for the Database Server. Changing this forces a new resource to be created.
@@ -1676,26 +1676,26 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationA
 
     @_builtins.property
     @pulumi.getter(name="databaseType")
-    def database_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_type")
 
     @database_type.setter
-    def database_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskVolumeConfigurations")
-    def disk_volume_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]]:
+    def disk_volume_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]]:
         """
         One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_volume_configurations")
 
     @disk_volume_configurations.setter
-    def disk_volume_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]]):
+    def disk_volume_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]]):
         pulumi.set(self, "disk_volume_configurations", value)
 
 
@@ -2002,19 +2002,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationV
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict(TypedDict):
-    application_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict']]
+    application_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']]]
     """
     An `application_server` block as defined below. Changing this forces a new resource to be created.
     """
-    central_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict']]
+    central_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']]]
     """
     A `central_server` block as defined below. Changing this forces a new resource to be created.
     """
-    database_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict']]
+    database_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']]]
     """
     A `database_server` block as defined below. Changing this forces a new resource to be created.
     """
-    shared_storage: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict']]
+    shared_storage: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']]]
     """
     A `shared_storage` block as defined below. Changing this forces a new resource to be created.
     """
@@ -2022,10 +2022,10 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict(TypedD
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs:
     def __init__(__self__, *,
-                 application_server: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']] = None,
-                 central_server: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']] = None,
-                 database_server: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']] = None,
-                 shared_storage: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']] = None):
+                 application_server: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']] = None,
+                 central_server: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']] = None,
+                 database_server: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']] = None,
+                 shared_storage: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']] = None):
         """
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs'] application_server: An `application_server` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs'] central_server: A `central_server` block as defined below. Changing this forces a new resource to be created.
@@ -2043,59 +2043,59 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationServer")
-    def application_server(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']]:
+    def application_server(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']]:
         """
         An `application_server` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_server")
 
     @application_server.setter
-    def application_server(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']]):
+    def application_server(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']]):
         pulumi.set(self, "application_server", value)
 
     @_builtins.property
     @pulumi.getter(name="centralServer")
-    def central_server(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']]:
+    def central_server(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']]:
         """
         A `central_server` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "central_server")
 
     @central_server.setter
-    def central_server(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']]):
+    def central_server(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']]):
         pulumi.set(self, "central_server", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseServer")
-    def database_server(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']]:
+    def database_server(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']]:
         """
         A `database_server` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_server")
 
     @database_server.setter
-    def database_server(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']]):
+    def database_server(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']]):
         pulumi.set(self, "database_server", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedStorage")
-    def shared_storage(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']]:
+    def shared_storage(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']]:
         """
         A `shared_storage` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "shared_storage")
 
     @shared_storage.setter
-    def shared_storage(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']]):
+    def shared_storage(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']]):
         pulumi.set(self, "shared_storage", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict(TypedDict):
-    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    availability_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name for the availability set. Changing this forces a new resource to be created.
     """
-    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict']]]]
+    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]]]
     """
     One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2103,8 +2103,8 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs:
     def __init__(__self__, *,
-                 availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]] = None):
+                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] availability_set_name: The full name for the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]] virtual_machines: One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
@@ -2116,47 +2116,47 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name for the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "availability_set_name")
 
     @availability_set_name.setter
-    def availability_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]]:
+    def virtual_machines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]]:
         """
         One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]]):
+    def virtual_machines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]]):
         pulumi.set(self, "virtual_machines", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict']]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]]]
     """
     One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_interface_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    os_disk_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
     """
-    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_machine_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
     """
@@ -2164,11 +2164,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] host_name: The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
@@ -2189,62 +2189,62 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceNames")
-    def network_interface_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_names")
 
     @network_interface_names.setter
-    def network_interface_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_names", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskName")
-    def os_disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_name")
 
     @os_disk_name.setter
-    def os_disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_name")
 
     @virtual_machine_name.setter
-    def virtual_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_name", value)
 
 
@@ -2308,15 +2308,15 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict(TypedDict):
-    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    availability_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name for the availability set. Changing this forces a new resource to be created.
     """
-    load_balancer: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict']]
+    load_balancer: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']]]
     """
     A `load_balancer` block as defined below. Changing this forces a new resource to be created.
     """
-    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict']]]]
+    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]]]
     """
     One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2324,9 +2324,9 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerAr
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs:
     def __init__(__self__, *,
-                 availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]] = None):
+                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] availability_set_name: The full name for the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs'] load_balancer: A `load_balancer` block as defined below. Changing this forces a new resource to be created.
@@ -2341,55 +2341,55 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerAr
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name for the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "availability_set_name")
 
     @availability_set_name.setter
-    def availability_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancer")
-    def load_balancer(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']]:
+    def load_balancer(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']]:
         """
         A `load_balancer` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer")
 
     @load_balancer.setter
-    def load_balancer(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']]):
+    def load_balancer(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']]):
         pulumi.set(self, "load_balancer", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]]:
+    def virtual_machines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]]:
         """
         One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]]):
+    def virtual_machines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]]):
         pulumi.set(self, "virtual_machines", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict(TypedDict):
-    backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    backend_pool_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
     """
-    frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    frontend_ip_configuration_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
     """
-    health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    health_probe_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Health Probe names. Changing this forces a new resource to be created.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full resource name of the Load Balancer. Changing this forces a new resource to be created.
     """
@@ -2397,10 +2397,10 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLo
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs:
     def __init__(__self__, *,
-                 backend_pool_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 frontend_ip_configuration_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 health_probe_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_pool_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 frontend_ip_configuration_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 health_probe_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_pool_names: A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_ip_configuration_names: A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
@@ -2418,71 +2418,71 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLo
 
     @_builtins.property
     @pulumi.getter(name="backendPoolNames")
-    def backend_pool_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backend_pool_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_pool_names")
 
     @backend_pool_names.setter
-    def backend_pool_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backend_pool_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backend_pool_names", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationNames")
-    def frontend_ip_configuration_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def frontend_ip_configuration_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "frontend_ip_configuration_names")
 
     @frontend_ip_configuration_names.setter
-    def frontend_ip_configuration_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def frontend_ip_configuration_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "frontend_ip_configuration_names", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeNames")
-    def health_probe_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def health_probe_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Health Probe names. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "health_probe_names")
 
     @health_probe_names.setter
-    def health_probe_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def health_probe_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "health_probe_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full resource name of the Load Balancer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict']]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]]]
     """
     One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_interface_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    os_disk_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
     """
-    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_machine_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
     """
@@ -2490,11 +2490,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] host_name: The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
@@ -2515,62 +2515,62 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceNames")
-    def network_interface_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_names")
 
     @network_interface_names.setter
-    def network_interface_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_names", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskName")
-    def os_disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_name")
 
     @os_disk_name.setter
-    def os_disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_name")
 
     @virtual_machine_name.setter
-    def virtual_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_name", value)
 
 
@@ -2634,15 +2634,15 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict(TypedDict):
-    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    availability_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name for the availability set. Changing this forces a new resource to be created.
     """
-    load_balancer: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict']]
+    load_balancer: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']]]
     """
     A `load_balancer` block as defined below. Changing this forces a new resource to be created.
     """
-    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict']]]]
+    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]]]
     """
     One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2650,9 +2650,9 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerA
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs:
     def __init__(__self__, *,
-                 availability_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']] = None,
-                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]] = None):
+                 availability_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']] = None,
+                 virtual_machines: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] availability_set_name: The full name for the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs'] load_balancer: A `load_balancer` block as defined below. Changing this forces a new resource to be created.
@@ -2667,55 +2667,55 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerA
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name for the availability set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "availability_set_name")
 
     @availability_set_name.setter
-    def availability_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancer")
-    def load_balancer(self) -> Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']]:
+    def load_balancer(self) -> pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']]:
         """
         A `load_balancer` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer")
 
     @load_balancer.setter
-    def load_balancer(self, value: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']]):
+    def load_balancer(self, value: pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']]):
         pulumi.set(self, "load_balancer", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]]:
+    def virtual_machines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]]:
         """
         One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]]):
+    def virtual_machines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]]):
         pulumi.set(self, "virtual_machines", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict(TypedDict):
-    backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    backend_pool_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
     """
-    frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    frontend_ip_configuration_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
     """
-    health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    health_probe_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Health Probe names. Changing this forces a new resource to be created.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full resource name of the Load Balancer. Changing this forces a new resource to be created.
     """
@@ -2723,10 +2723,10 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerL
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs:
     def __init__(__self__, *,
-                 backend_pool_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 frontend_ip_configuration_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 health_probe_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_pool_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 frontend_ip_configuration_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 health_probe_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_pool_names: A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_ip_configuration_names: A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
@@ -2744,71 +2744,71 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerL
 
     @_builtins.property
     @pulumi.getter(name="backendPoolNames")
-    def backend_pool_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backend_pool_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_pool_names")
 
     @backend_pool_names.setter
-    def backend_pool_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backend_pool_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backend_pool_names", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationNames")
-    def frontend_ip_configuration_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def frontend_ip_configuration_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "frontend_ip_configuration_names")
 
     @frontend_ip_configuration_names.setter
-    def frontend_ip_configuration_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def frontend_ip_configuration_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "frontend_ip_configuration_names", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbeNames")
-    def health_probe_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def health_probe_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Health Probe names. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "health_probe_names")
 
     @health_probe_names.setter
-    def health_probe_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def health_probe_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "health_probe_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full resource name of the Load Balancer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict']]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]]]
     """
     One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_interface_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
     """
-    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    os_disk_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
     """
-    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_machine_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
     """
@@ -2816,11 +2816,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_disk_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_disk_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] host_name: The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
@@ -2841,62 +2841,62 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
 
     @_builtins.property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]]:
+    def data_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]]:
         """
         One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]]):
+    def data_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceNames")
-    def network_interface_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_names")
 
     @network_interface_names.setter
-    def network_interface_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_names", value)
 
     @_builtins.property
     @pulumi.getter(name="osDiskName")
-    def os_disk_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_disk_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_name")
 
     @os_disk_name.setter
-    def os_disk_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_disk_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_disk_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_name")
 
     @virtual_machine_name.setter
-    def virtual_machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_name", value)
 
 
@@ -2960,11 +2960,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict(TypedDict):
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of the Shared Storage Account. Changing this forces a new resource to be created.
     """
-    private_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
     """
@@ -2972,8 +2972,8 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageAr
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: The full name of the Shared Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_name: The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
@@ -2985,35 +2985,35 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageAr
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the Shared Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_endpoint_name")
 
     @private_endpoint_name.setter
-    def private_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_name", value)
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict(TypedDict):
-    resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
     """
-    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    storage_account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
     """
@@ -3021,8 +3021,8 @@ class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsD
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs:
     def __init__(__self__, *,
-                 resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_group_id: The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
@@ -3034,26 +3034,26 @@ class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupId")
-    def resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_id")
 
     @resource_group_id.setter
-    def resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 

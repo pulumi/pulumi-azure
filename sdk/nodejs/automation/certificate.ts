@@ -161,31 +161,31 @@ export interface CertificateState {
     /**
      * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * Base64 encoded value of the certificate. Changing this forces a new resource to be created.
      */
-    base64?: pulumi.Input<string>;
+    base64?: pulumi.Input<string | undefined>;
     /**
      * The description of this Automation Certificate.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The is exportable flag of the certificate.
      */
-    exportable?: pulumi.Input<boolean>;
+    exportable?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The thumbprint for the certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -203,15 +203,15 @@ export interface CertificateArgs {
     /**
      * The description of this Automation Certificate.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The is exportable flag of the certificate.
      */
-    exportable?: pulumi.Input<boolean>;
+    exportable?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
      */

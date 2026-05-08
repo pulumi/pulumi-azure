@@ -23,12 +23,12 @@ class ProjectPoolArgs:
                  dev_center_attached_network_name: pulumi.Input[_builtins.str],
                  dev_center_project_id: pulumi.Input[_builtins.str],
                  local_administrator_enabled: pulumi.Input[_builtins.bool],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stop_on_disconnect_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProjectPool resource.
 
@@ -112,19 +112,19 @@ class ProjectPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedVirtualNetworkRegions")
-    def managed_virtual_network_regions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_virtual_network_regions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
 
@@ -133,71 +133,71 @@ class ProjectPoolArgs:
         return pulumi.get(self, "managed_virtual_network_regions")
 
     @managed_virtual_network_regions.setter
-    def managed_virtual_network_regions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_virtual_network_regions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_virtual_network_regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnEnabled")
-    def single_sign_on_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_sign_on_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "single_sign_on_enabled")
 
     @single_sign_on_enabled.setter
-    def single_sign_on_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_sign_on_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_sign_on_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="stopOnDisconnectGracePeriodMinutes")
-    def stop_on_disconnect_grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stop_on_disconnect_grace_period_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         """
         return pulumi.get(self, "stop_on_disconnect_grace_period_minutes")
 
     @stop_on_disconnect_grace_period_minutes.setter
-    def stop_on_disconnect_grace_period_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stop_on_disconnect_grace_period_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stop_on_disconnect_grace_period_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dev Center Project Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProjectPoolState:
     def __init__(__self__, *,
-                 dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_attached_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_attached_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_administrator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stop_on_disconnect_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProjectPool resources.
 
@@ -237,67 +237,67 @@ class _ProjectPoolState:
 
     @_builtins.property
     @pulumi.getter(name="devBoxDefinitionName")
-    def dev_box_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_box_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Dev Center Dev Box Definition.
         """
         return pulumi.get(self, "dev_box_definition_name")
 
     @dev_box_definition_name.setter
-    def dev_box_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_box_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_box_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterAttachedNetworkName")
-    def dev_center_attached_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_attached_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Dev Center Attached Network in parent Project of the Dev Center Project Pool.
         """
         return pulumi.get(self, "dev_center_attached_network_name")
 
     @dev_center_attached_network_name.setter
-    def dev_center_attached_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_attached_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_attached_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterProjectId")
-    def dev_center_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dev_center_project_id")
 
     @dev_center_project_id.setter
-    def dev_center_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="localAdministratorEnabled")
-    def local_administrator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_administrator_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         """
         return pulumi.get(self, "local_administrator_enabled")
 
     @local_administrator_enabled.setter
-    def local_administrator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_administrator_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_administrator_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedVirtualNetworkRegions")
-    def managed_virtual_network_regions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_virtual_network_regions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
 
@@ -306,55 +306,55 @@ class _ProjectPoolState:
         return pulumi.get(self, "managed_virtual_network_regions")
 
     @managed_virtual_network_regions.setter
-    def managed_virtual_network_regions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_virtual_network_regions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_virtual_network_regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnEnabled")
-    def single_sign_on_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def single_sign_on_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "single_sign_on_enabled")
 
     @single_sign_on_enabled.setter
-    def single_sign_on_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def single_sign_on_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_sign_on_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="stopOnDisconnectGracePeriodMinutes")
-    def stop_on_disconnect_grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stop_on_disconnect_grace_period_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         """
         return pulumi.get(self, "stop_on_disconnect_grace_period_minutes")
 
     @stop_on_disconnect_grace_period_minutes.setter
-    def stop_on_disconnect_grace_period_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stop_on_disconnect_grace_period_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stop_on_disconnect_grace_period_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dev Center Project Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -364,16 +364,16 @@ class ProjectPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_attached_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_attached_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_administrator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stop_on_disconnect_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Dev Center Project Pool.
@@ -563,16 +563,16 @@ class ProjectPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_attached_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_attached_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_administrator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_virtual_network_regions: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stop_on_disconnect_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -610,16 +610,16 @@ class ProjectPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dev_box_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dev_center_attached_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            local_administrator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ProjectPool':
+            dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_attached_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_administrator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_virtual_network_regions: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            stop_on_disconnect_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ProjectPool':
         """
         Get an existing ProjectPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

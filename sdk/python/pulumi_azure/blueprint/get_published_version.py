@@ -193,9 +193,9 @@ def get_published_version(blueprint_name: Optional[_builtins.str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_published_version_output(blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_published_version_output(blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 version: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishedVersionResult]:
     """
     Use this data source to access information about an existing Blueprint Published Version

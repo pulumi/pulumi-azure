@@ -23,11 +23,11 @@ class StandaloneGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['StandaloneGatewaySkuArgs'],
-                 backend_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandaloneGateway resource.
 
@@ -78,75 +78,75 @@ class StandaloneGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendSubnetId")
-    def backend_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_subnet_id")
 
     @backend_subnet_id.setter
-    def backend_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_type")
 
     @virtual_network_type.setter
-    def virtual_network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_type", value)
 
 
 @pulumi.input_type
 class _StandaloneGatewayState:
     def __init__(__self__, *,
-                 backend_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['StandaloneGatewaySkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['StandaloneGatewaySkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandaloneGateway resources.
 
@@ -175,86 +175,86 @@ class _StandaloneGatewayState:
 
     @_builtins.property
     @pulumi.getter(name="backendSubnetId")
-    def backend_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_subnet_id")
 
     @backend_subnet_id.setter
-    def backend_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['StandaloneGatewaySkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['StandaloneGatewaySkuArgs']]:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['StandaloneGatewaySkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['StandaloneGatewaySkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_type")
 
     @virtual_network_type.setter
-    def virtual_network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_type", value)
 
 
@@ -264,13 +264,13 @@ class StandaloneGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure API Management Standalone Gateway.
@@ -423,13 +423,13 @@ class StandaloneGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,13 +460,13 @@ class StandaloneGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'StandaloneGateway':
+            backend_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StandaloneGateway':
         """
         Get an existing StandaloneGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

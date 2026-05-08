@@ -207,61 +207,61 @@ export interface StandardWebTestState {
     /**
      * The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Should the WebTest be enabled?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
      *
      * > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      */
-    geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    geoLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `request` block as defined below.
      */
-    request?: pulumi.Input<inputs.appinsights.StandardWebTestRequest>;
+    request?: pulumi.Input<inputs.appinsights.StandardWebTestRequest | undefined>;
     /**
      * The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Should the retry on WebTest failure be enabled?
      */
-    retryEnabled?: pulumi.Input<boolean>;
+    retryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
-    syntheticMonitorId?: pulumi.Input<string>;
+    syntheticMonitorId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Insights Standard WebTest.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * A `validationRules` block as defined below.
      */
-    validationRules?: pulumi.Input<inputs.appinsights.StandardWebTestValidationRules>;
+    validationRules?: pulumi.Input<inputs.appinsights.StandardWebTestValidationRules | undefined>;
 }
 
 /**
@@ -275,15 +275,15 @@ export interface StandardWebTestArgs {
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Should the WebTest be enabled?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number | undefined>;
     /**
      * Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
      *
@@ -293,11 +293,11 @@ export interface StandardWebTestArgs {
     /**
      * The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `request` block as defined below.
      */
@@ -309,17 +309,17 @@ export interface StandardWebTestArgs {
     /**
      * Should the retry on WebTest failure be enabled?
      */
-    retryEnabled?: pulumi.Input<boolean>;
+    retryEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Insights Standard WebTest.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * A `validationRules` block as defined below.
      */
-    validationRules?: pulumi.Input<inputs.appinsights.StandardWebTestValidationRules>;
+    validationRules?: pulumi.Input<inputs.appinsights.StandardWebTestValidationRules | undefined>;
 }

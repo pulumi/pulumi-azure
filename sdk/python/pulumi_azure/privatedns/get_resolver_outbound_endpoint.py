@@ -143,8 +143,8 @@ def get_resolver_outbound_endpoint(name: Optional[_builtins.str] = None,
         private_dns_resolver_id=pulumi.get(__ret__, 'private_dns_resolver_id'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resolver_outbound_endpoint_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          private_dns_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_outbound_endpoint_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          private_dns_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverOutboundEndpointResult]:
     """
     Gets information about an existing Private DNS Resolver Outbound Endpoint.

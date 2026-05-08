@@ -192,59 +192,59 @@ export interface VirtualHubState {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
-    addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
      */
-    branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
+    branchToBranchTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the default Route Table in the Virtual Hub.
      */
-    defaultRouteTableId?: pulumi.Input<string>;
+    defaultRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
      */
-    hubRoutingPreference?: pulumi.Input<string>;
+    hubRoutingPreference?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `route` blocks as defined below.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[] | undefined>;
     /**
      * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual Hub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Autonomous System Number of the Virtual Hub BGP router.
      */
-    virtualRouterAsn?: pulumi.Input<number>;
+    virtualRouterAsn?: pulumi.Input<number | undefined>;
     /**
      * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      */
-    virtualRouterAutoScaleMinCapacity?: pulumi.Input<number>;
+    virtualRouterAutoScaleMinCapacity?: pulumi.Input<number | undefined>;
     /**
      * The IP addresses of the Virtual Hub BGP router.
      */
-    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    virtualWanId?: pulumi.Input<string>;
+    virtualWanId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,23 +254,23 @@ export interface VirtualHubArgs {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
-    addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
      */
-    branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
+    branchToBranchTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
      */
-    hubRoutingPreference?: pulumi.Input<string>;
+    hubRoutingPreference?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
@@ -278,21 +278,21 @@ export interface VirtualHubArgs {
     /**
      * One or more `route` blocks as defined below.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[] | undefined>;
     /**
      * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual Hub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      */
-    virtualRouterAutoScaleMinCapacity?: pulumi.Input<number>;
+    virtualRouterAutoScaleMinCapacity?: pulumi.Input<number | undefined>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    virtualWanId?: pulumi.Input<string>;
+    virtualWanId?: pulumi.Input<string | undefined>;
 }

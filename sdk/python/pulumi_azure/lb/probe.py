@@ -21,12 +21,12 @@ class ProbeArgs:
     def __init__(__self__, *,
                  loadbalancer_id: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Probe resource.
 
@@ -80,89 +80,89 @@ class ProbeArgs:
 
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfProbes")
-    def number_of_probes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_probes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         """
         return pulumi.get(self, "number_of_probes")
 
     @number_of_probes.setter
-    def number_of_probes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_probes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_probes", value)
 
     @_builtins.property
     @pulumi.getter(name="probeThreshold")
-    def probe_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         """
         return pulumi.get(self, "probe_threshold")
 
     @probe_threshold.setter
-    def probe_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="requestPath")
-    def request_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
         return pulumi.get(self, "request_path")
 
     @request_path.setter
-    def request_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_path", value)
 
 
 @pulumi.input_type
 class _ProbeState:
     def __init__(__self__, *,
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 load_balancer_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Probe resources.
 
@@ -196,107 +196,107 @@ class _ProbeState:
 
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerRules")
-    def load_balancer_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "load_balancer_rules")
 
     @load_balancer_rules.setter
-    def load_balancer_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loadbalancer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
     @loadbalancer_id.setter
-    def loadbalancer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loadbalancer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loadbalancer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfProbes")
-    def number_of_probes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_probes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         """
         return pulumi.get(self, "number_of_probes")
 
     @number_of_probes.setter
-    def number_of_probes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_probes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_probes", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="probeThreshold")
-    def probe_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         """
         return pulumi.get(self, "probe_threshold")
 
     @probe_threshold.setter
-    def probe_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="requestPath")
-    def request_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
         return pulumi.get(self, "request_path")
 
     @request_path.setter
-    def request_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_path", value)
 
 
@@ -306,14 +306,14 @@ class Probe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_path: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a LoadBalancer Probe Resource.
@@ -445,14 +445,14 @@ class Probe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_path: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,15 +485,15 @@ class Probe(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            probe_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            request_path: Optional[pulumi.Input[_builtins.str]] = None) -> 'Probe':
+            interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_probes: pulumi.Input[Optional[_builtins.int]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            probe_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            request_path: pulumi.Input[Optional[_builtins.str]] = None) -> 'Probe':
         """
         Get an existing Probe resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

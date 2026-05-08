@@ -377,131 +377,131 @@ export interface CloudVmClusterState {
     /**
      * The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    backupSubnetCidr?: pulumi.Input<string>;
+    backupSubnetCidr?: pulumi.Input<string | undefined>;
     /**
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
      */
-    cloudExadataInfrastructureId?: pulumi.Input<string>;
+    cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
      * The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    cpuCoreCount?: pulumi.Input<number>;
+    cpuCoreCount?: pulumi.Input<number | undefined>;
     /**
      * A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dataCollectionOptions?: pulumi.Input<inputs.oracle.CloudVmClusterDataCollectionOptions>;
+    dataCollectionOptions?: pulumi.Input<inputs.oracle.CloudVmClusterDataCollectionOptions | undefined>;
     /**
      * The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
      */
-    dataStoragePercentage?: pulumi.Input<number>;
+    dataStoragePercentage?: pulumi.Input<number | undefined>;
     /**
      * The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dataStorageSizeInTbs?: pulumi.Input<number>;
+    dataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    dbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dbServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * A `fileSystemConfiguration` block as defined below.
      */
-    fileSystemConfigurations?: pulumi.Input<pulumi.Input<inputs.oracle.CloudVmClusterFileSystemConfiguration>[]>;
+    fileSystemConfigurations?: pulumi.Input<pulumi.Input<inputs.oracle.CloudVmClusterFileSystemConfiguration>[] | undefined>;
     /**
      * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      */
-    giVersion?: pulumi.Input<string>;
+    giVersion?: pulumi.Input<string | undefined>;
     /**
      * The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * The hostname for the Cloud VM Cluster with suffix.
      */
-    hostnameActual?: pulumi.Input<string>;
+    hostnameActual?: pulumi.Input<string | undefined>;
     /**
      * The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    localBackupEnabled?: pulumi.Input<boolean>;
+    localBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      */
-    memorySizeInGbs?: pulumi.Input<number>;
+    memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
      */
-    ocid?: pulumi.Input<string>;
+    ocid?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
      */
-    scanListenerPortTcp?: pulumi.Input<number>;
+    scanListenerPortTcp?: pulumi.Input<number | undefined>;
     /**
      * The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
      */
-    scanListenerPortTcpSsl?: pulumi.Input<number>;
+    scanListenerPortTcpSsl?: pulumi.Input<number | undefined>;
     /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
      */
-    sparseDiskgroupEnabled?: pulumi.Input<boolean>;
+    sparseDiskgroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    sshPublicKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshPublicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207. Changing this forces a new resource to be created.
      */
-    systemVersion?: pulumi.Input<string>;
+    systemVersion?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Cloud VM Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -511,7 +511,7 @@ export interface CloudVmClusterArgs {
     /**
      * The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    backupSubnetCidr?: pulumi.Input<string>;
+    backupSubnetCidr?: pulumi.Input<string | undefined>;
     /**
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -519,7 +519,7 @@ export interface CloudVmClusterArgs {
     /**
      * The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -527,19 +527,19 @@ export interface CloudVmClusterArgs {
     /**
      * A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dataCollectionOptions?: pulumi.Input<inputs.oracle.CloudVmClusterDataCollectionOptions>;
+    dataCollectionOptions?: pulumi.Input<inputs.oracle.CloudVmClusterDataCollectionOptions | undefined>;
     /**
      * The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
      */
-    dataStoragePercentage?: pulumi.Input<number>;
+    dataStoragePercentage?: pulumi.Input<number | undefined>;
     /**
      * The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dataStorageSizeInTbs?: pulumi.Input<number>;
+    dataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      */
-    dbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    dbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -551,11 +551,11 @@ export interface CloudVmClusterArgs {
     /**
      * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * A `fileSystemConfiguration` block as defined below.
      */
-    fileSystemConfigurations?: pulumi.Input<pulumi.Input<inputs.oracle.CloudVmClusterFileSystemConfiguration>[]>;
+    fileSystemConfigurations?: pulumi.Input<pulumi.Input<inputs.oracle.CloudVmClusterFileSystemConfiguration>[] | undefined>;
     /**
      * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -571,19 +571,19 @@ export interface CloudVmClusterArgs {
     /**
      * If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    localBackupEnabled?: pulumi.Input<boolean>;
+    localBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      */
-    memorySizeInGbs?: pulumi.Input<number>;
+    memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -591,15 +591,15 @@ export interface CloudVmClusterArgs {
     /**
      * The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
      */
-    scanListenerPortTcp?: pulumi.Input<number>;
+    scanListenerPortTcp?: pulumi.Input<number | undefined>;
     /**
      * The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
      */
-    scanListenerPortTcpSsl?: pulumi.Input<number>;
+    scanListenerPortTcpSsl?: pulumi.Input<number | undefined>;
     /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
      */
-    sparseDiskgroupEnabled?: pulumi.Input<boolean>;
+    sparseDiskgroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -611,15 +611,15 @@ export interface CloudVmClusterArgs {
     /**
      * Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207. Changing this forces a new resource to be created.
      */
-    systemVersion?: pulumi.Input<string>;
+    systemVersion?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Cloud VM Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
@@ -627,5 +627,5 @@ export interface CloudVmClusterArgs {
     /**
      * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }

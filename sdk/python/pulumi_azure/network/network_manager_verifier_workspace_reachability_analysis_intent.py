@@ -25,8 +25,8 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs:
                  ip_traffic: pulumi.Input['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs'],
                  source_resource_id: pulumi.Input[_builtins.str],
                  verifier_workspace_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resource.
 
@@ -96,38 +96,38 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Manager Verifier Workspace Reachability Analysis Intent. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_traffic: Optional[pulumi.Input['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 verifier_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_traffic: pulumi.Input[Optional['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 verifier_workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resources.
 
@@ -153,74 +153,74 @@ class _NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationResourceId")
-    def destination_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the destination resource. The value can be the ID of either Public internet, Cosmos DB, Storage Account, SQL Server, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "destination_resource_id")
 
     @destination_resource_id.setter
-    def destination_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipTraffic")
-    def ip_traffic(self) -> Optional[pulumi.Input['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs']]:
+    def ip_traffic(self) -> pulumi.Input[Optional['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs']]:
         """
         An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "ip_traffic")
 
     @ip_traffic.setter
-    def ip_traffic(self, value: Optional[pulumi.Input['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs']]):
+    def ip_traffic(self, value: pulumi.Input[Optional['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs']]):
         pulumi.set(self, "ip_traffic", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Network Manager Verifier Workspace Reachability Analysis Intent. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source resource. The value can be the ID of either Public internet, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="verifierWorkspaceId")
-    def verifier_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verifier_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Network Manager Verifier Workspace. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         """
         return pulumi.get(self, "verifier_workspace_id")
 
     @verifier_workspace_id.setter
-    def verifier_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verifier_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verifier_workspace_id", value)
 
 
@@ -230,12 +230,12 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_traffic: Optional[pulumi.Input[Union['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs', 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 verifier_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_traffic: pulumi.Input[Optional[Union['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs', 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 verifier_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Verifier Workspace Reachability Analysis Intent.
@@ -455,12 +455,12 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_traffic: Optional[pulumi.Input[Union['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs', 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 verifier_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_traffic: pulumi.Input[Optional[Union['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs', 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 verifier_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,12 +494,12 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_traffic: Optional[pulumi.Input[Union['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs', 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            verifier_workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_traffic: pulumi.Input[Optional[Union['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs', 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verifier_workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent':
         """
         Get an existing NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

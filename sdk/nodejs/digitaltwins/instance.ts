@@ -140,27 +140,27 @@ export interface InstanceState {
     /**
      * The API endpoint to work with this Digital Twins instance.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity>;
+    identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity | undefined>;
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Digital Twins instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -170,15 +170,15 @@ export interface InstanceArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity>;
+    identity?: pulumi.Input<inputs.digitaltwins.InstanceIdentity | undefined>;
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
@@ -186,5 +186,5 @@ export interface InstanceArgs {
     /**
      * A mapping of tags which should be assigned to the Digital Twins instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

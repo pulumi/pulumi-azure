@@ -127,11 +127,11 @@ export interface ResourceProviderRegistrationState {
      *
      * > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
      */
-    features?: pulumi.Input<pulumi.Input<inputs.core.ResourceProviderRegistrationFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.core.ResourceProviderRegistrationFeature>[] | undefined>;
     /**
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -143,9 +143,9 @@ export interface ResourceProviderRegistrationArgs {
      *
      * > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
      */
-    features?: pulumi.Input<pulumi.Input<inputs.core.ResourceProviderRegistrationFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.core.ResourceProviderRegistrationFeature>[] | undefined>;
     /**
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

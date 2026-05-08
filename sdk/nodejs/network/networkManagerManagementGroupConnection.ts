@@ -159,23 +159,23 @@ export interface NetworkManagerManagementGroupConnectionState {
     /**
      * The Connection state of the Network Manager Management Group Connection.
      */
-    connectionState?: pulumi.Input<string>;
+    connectionState?: pulumi.Input<string | undefined>;
     /**
      * A description of the Network Manager Management Group Connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      */
-    managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface NetworkManagerManagementGroupConnectionArgs {
     /**
      * A description of the Network Manager Management Group Connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      */
@@ -193,7 +193,7 @@ export interface NetworkManagerManagementGroupConnectionArgs {
     /**
      * Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      */

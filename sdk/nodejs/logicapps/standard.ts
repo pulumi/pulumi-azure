@@ -373,103 +373,103 @@ export interface StandardState {
     /**
      * The ID of the App Service Plan within which to create this Logic App.
      */
-    appServicePlanId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      *
      * > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If `useExtensionBundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      */
-    bundleVersion?: pulumi.Input<string>;
+    bundleVersion?: pulumi.Input<string | undefined>;
     /**
      * Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * A `connectionString` block as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[] | undefined>;
     /**
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
      */
-    defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string | undefined>;
     /**
      * Is the Logic App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the Logic App only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.logicapps.StandardIdentity>;
+    identity?: pulumi.Input<inputs.logicapps.StandardIdentity | undefined>;
     /**
      * The Logic App kind.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Logic App. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      *
      * > **Note:** Setting this property will also set it in the Site Config.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
      */
-    scmPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    scmPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `siteConfig` object as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.logicapps.StandardSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.logicapps.StandardSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardSiteCredential>[] | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Logic App.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
      *
@@ -477,19 +477,19 @@ export interface StandardState {
      *
      * > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      */
-    storageAccountShareName?: pulumi.Input<string>;
+    storageAccountShareName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      */
-    useExtensionBundle?: pulumi.Input<boolean>;
+    useExtensionBundle?: pulumi.Input<boolean | undefined>;
     /**
      * The runtime version associated with the Logic App. Defaults to `~4`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -497,11 +497,11 @@ export interface StandardState {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
      */
-    vnetContentShareEnabled?: pulumi.Input<boolean>;
+    vnetContentShareEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -517,53 +517,53 @@ export interface StandardArgs {
      *
      * > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If `useExtensionBundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      */
-    bundleVersion?: pulumi.Input<string>;
+    bundleVersion?: pulumi.Input<string | undefined>;
     /**
      * Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * A `connectionString` block as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[] | undefined>;
     /**
      * Is the Logic App enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the Logic App only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.logicapps.StandardIdentity>;
+    identity?: pulumi.Input<inputs.logicapps.StandardIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Logic App. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      *
      * > **Note:** Setting this property will also set it in the Site Config.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
@@ -571,11 +571,11 @@ export interface StandardArgs {
     /**
      * Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
      */
-    scmPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    scmPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `siteConfig` object as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.logicapps.StandardSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.logicapps.StandardSiteConfig | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Logic App.
      */
@@ -591,19 +591,19 @@ export interface StandardArgs {
      *
      * > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      */
-    storageAccountShareName?: pulumi.Input<string>;
+    storageAccountShareName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      */
-    useExtensionBundle?: pulumi.Input<boolean>;
+    useExtensionBundle?: pulumi.Input<boolean | undefined>;
     /**
      * The runtime version associated with the Logic App. Defaults to `~4`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -611,9 +611,9 @@ export interface StandardArgs {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
      */
-    vnetContentShareEnabled?: pulumi.Input<boolean>;
+    vnetContentShareEnabled?: pulumi.Input<boolean | undefined>;
 }

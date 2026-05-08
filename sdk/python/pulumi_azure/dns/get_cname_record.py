@@ -186,9 +186,9 @@ def get_cname_record(name: Optional[_builtins.str] = None,
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone_name=pulumi.get(__ret__, 'zone_name'))
-def get_cname_record_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cname_record_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCnameRecordResult]:
     """
     Use this data source to access information about an existing DNS CNAME Record within Azure DNS.

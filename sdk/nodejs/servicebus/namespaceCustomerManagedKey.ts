@@ -197,15 +197,15 @@ export interface NamespaceCustomerManagedKeyState {
     /**
      * Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Service Bus namespace. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface NamespaceCustomerManagedKeyArgs {
     /**
      * Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      */

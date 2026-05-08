@@ -23,11 +23,11 @@ class WorkspaceNamedValueArgs:
     def __init__(__self__, *,
                  api_management_workspace_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional['WorkspaceNamedValueValueFromKeyVaultArgs']] = None):
         """
         The set of arguments for constructing a WorkspaceNamedValue resource.
 
@@ -84,19 +84,19 @@ class WorkspaceNamedValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Workspace Named Value. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the API Management Workspace Named Value is secret. Defaults to `false`.
 
@@ -105,24 +105,24 @@ class WorkspaceNamedValueArgs:
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to be applied to the API Management Workspace Named Value.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of this API Management Workspace Named Value.
 
@@ -131,12 +131,12 @@ class WorkspaceNamedValueArgs:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueFromKeyVault")
-    def value_from_key_vault(self) -> Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']]:
+    def value_from_key_vault(self) -> pulumi.Input[Optional['WorkspaceNamedValueValueFromKeyVaultArgs']]:
         """
         A `value_from_key_vault` block as defined below.
 
@@ -145,20 +145,20 @@ class WorkspaceNamedValueArgs:
         return pulumi.get(self, "value_from_key_vault")
 
     @value_from_key_vault.setter
-    def value_from_key_vault(self, value: Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']]):
+    def value_from_key_vault(self, value: pulumi.Input[Optional['WorkspaceNamedValueValueFromKeyVaultArgs']]):
         pulumi.set(self, "value_from_key_vault", value)
 
 
 @pulumi.input_type
 class _WorkspaceNamedValueState:
     def __init__(__self__, *,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']] = None):
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional['WorkspaceNamedValueValueFromKeyVaultArgs']] = None):
         """
         Input properties used for looking up and filtering WorkspaceNamedValue resources.
 
@@ -193,43 +193,43 @@ class _WorkspaceNamedValueState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
-    def api_management_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_workspace_id")
 
     @api_management_workspace_id.setter
-    def api_management_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this API Management Workspace Named Value.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Workspace Named Value. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the API Management Workspace Named Value is secret. Defaults to `false`.
 
@@ -238,24 +238,24 @@ class _WorkspaceNamedValueState:
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tags to be applied to the API Management Workspace Named Value.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of this API Management Workspace Named Value.
 
@@ -264,12 +264,12 @@ class _WorkspaceNamedValueState:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueFromKeyVault")
-    def value_from_key_vault(self) -> Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']]:
+    def value_from_key_vault(self) -> pulumi.Input[Optional['WorkspaceNamedValueValueFromKeyVaultArgs']]:
         """
         A `value_from_key_vault` block as defined below.
 
@@ -278,7 +278,7 @@ class _WorkspaceNamedValueState:
         return pulumi.get(self, "value_from_key_vault")
 
     @value_from_key_vault.setter
-    def value_from_key_vault(self, value: Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']]):
+    def value_from_key_vault(self, value: pulumi.Input[Optional['WorkspaceNamedValueValueFromKeyVaultArgs']]):
         pulumi.set(self, "value_from_key_vault", value)
 
 
@@ -288,13 +288,13 @@ class WorkspaceNamedValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None,
                  __props__=None):
         """
         Manages an API Management Workspace Named Value.
@@ -435,13 +435,13 @@ class WorkspaceNamedValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_from_key_vault: Optional[pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,13 +474,13 @@ class WorkspaceNamedValue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            secret: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_from_key_vault: Optional[pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None) -> 'WorkspaceNamedValue':
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None) -> 'WorkspaceNamedValue':
         """
         Get an existing WorkspaceNamedValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

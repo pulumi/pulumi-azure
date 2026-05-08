@@ -191,43 +191,43 @@ export interface PipelineState {
     /**
      * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
      */
-    activitiesJson?: pulumi.Input<string>;
+    activitiesJson?: pulumi.Input<string | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
      */
-    concurrency?: pulumi.Input<number>;
+    concurrency?: pulumi.Input<number | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Pipeline.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      */
-    moniterMetricsAfterDuration?: pulumi.Input<string>;
+    moniterMetricsAfterDuration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -237,15 +237,15 @@ export interface PipelineArgs {
     /**
      * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
      */
-    activitiesJson?: pulumi.Input<string>;
+    activitiesJson?: pulumi.Input<string | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
      */
-    concurrency?: pulumi.Input<number>;
+    concurrency?: pulumi.Input<number | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -253,25 +253,25 @@ export interface PipelineArgs {
     /**
      * The description for the Data Factory Pipeline.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
-    folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string | undefined>;
     /**
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      */
-    moniterMetricsAfterDuration?: pulumi.Input<string>;
+    moniterMetricsAfterDuration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

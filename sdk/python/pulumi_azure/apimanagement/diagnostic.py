@@ -25,16 +25,16 @@ class DiagnosticArgs:
                  api_management_name: pulumi.Input[_builtins.str],
                  identifier: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 always_log_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
-                 backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
-                 frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
-                 frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 verbosity: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_log_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backend_request: pulumi.Input[Optional['DiagnosticBackendRequestArgs']] = None,
+                 backend_response: pulumi.Input[Optional['DiagnosticBackendResponseArgs']] = None,
+                 frontend_request: pulumi.Input[Optional['DiagnosticFrontendRequestArgs']] = None,
+                 frontend_response: pulumi.Input[Optional['DiagnosticFrontendResponseArgs']] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 verbosity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Diagnostic resource.
 
@@ -128,142 +128,142 @@ class DiagnosticArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysLogErrors")
-    def always_log_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_log_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         """
         return pulumi.get(self, "always_log_errors")
 
     @always_log_errors.setter
-    def always_log_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_log_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_log_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="backendRequest")
-    def backend_request(self) -> Optional[pulumi.Input['DiagnosticBackendRequestArgs']]:
+    def backend_request(self) -> pulumi.Input[Optional['DiagnosticBackendRequestArgs']]:
         """
         A `backend_request` block as defined below.
         """
         return pulumi.get(self, "backend_request")
 
     @backend_request.setter
-    def backend_request(self, value: Optional[pulumi.Input['DiagnosticBackendRequestArgs']]):
+    def backend_request(self, value: pulumi.Input[Optional['DiagnosticBackendRequestArgs']]):
         pulumi.set(self, "backend_request", value)
 
     @_builtins.property
     @pulumi.getter(name="backendResponse")
-    def backend_response(self) -> Optional[pulumi.Input['DiagnosticBackendResponseArgs']]:
+    def backend_response(self) -> pulumi.Input[Optional['DiagnosticBackendResponseArgs']]:
         """
         A `backend_response` block as defined below.
         """
         return pulumi.get(self, "backend_response")
 
     @backend_response.setter
-    def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArgs']]):
+    def backend_response(self, value: pulumi.Input[Optional['DiagnosticBackendResponseArgs']]):
         pulumi.set(self, "backend_response", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendRequest")
-    def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]:
+    def frontend_request(self) -> pulumi.Input[Optional['DiagnosticFrontendRequestArgs']]:
         """
         A `frontend_request` block as defined below.
         """
         return pulumi.get(self, "frontend_request")
 
     @frontend_request.setter
-    def frontend_request(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]):
+    def frontend_request(self, value: pulumi.Input[Optional['DiagnosticFrontendRequestArgs']]):
         pulumi.set(self, "frontend_request", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendResponse")
-    def frontend_response(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]:
+    def frontend_response(self) -> pulumi.Input[Optional['DiagnosticFrontendResponseArgs']]:
         """
         A `frontend_response` block as defined below.
         """
         return pulumi.get(self, "frontend_response")
 
     @frontend_response.setter
-    def frontend_response(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]):
+    def frontend_response(self, value: pulumi.Input[Optional['DiagnosticFrontendResponseArgs']]):
         pulumi.set(self, "frontend_response", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCorrelationProtocol")
-    def http_correlation_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_correlation_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         """
         return pulumi.get(self, "http_correlation_protocol")
 
     @http_correlation_protocol.setter
-    def http_correlation_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_correlation_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_correlation_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="logClientIp")
-    def log_client_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_client_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Log client IP address.
         """
         return pulumi.get(self, "log_client_ip")
 
     @log_client_ip.setter
-    def log_client_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_client_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_client_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="operationNameFormat")
-    def operation_name_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         """
         return pulumi.get(self, "operation_name_format")
 
     @operation_name_format.setter
-    def operation_name_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name_format", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def verbosity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verbosity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         return pulumi.get(self, "verbosity")
 
     @verbosity.setter
-    def verbosity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verbosity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verbosity", value)
 
 
 @pulumi.input_type
 class _DiagnosticState:
     def __init__(__self__, *,
-                 always_log_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 api_management_logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
-                 backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
-                 frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
-                 frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 verbosity: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_log_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_request: pulumi.Input[Optional['DiagnosticBackendRequestArgs']] = None,
+                 backend_response: pulumi.Input[Optional['DiagnosticBackendResponseArgs']] = None,
+                 frontend_request: pulumi.Input[Optional['DiagnosticFrontendRequestArgs']] = None,
+                 frontend_response: pulumi.Input[Optional['DiagnosticFrontendResponseArgs']] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 verbosity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Diagnostic resources.
 
@@ -313,170 +313,170 @@ class _DiagnosticState:
 
     @_builtins.property
     @pulumi.getter(name="alwaysLogErrors")
-    def always_log_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_log_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         """
         return pulumi.get(self, "always_log_errors")
 
     @always_log_errors.setter
-    def always_log_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_log_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_log_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="apiManagementLoggerId")
-    def api_management_logger_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_logger_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the target API Management Logger where the API Management Diagnostic should be saved.
         """
         return pulumi.get(self, "api_management_logger_id")
 
     @api_management_logger_id.setter
-    def api_management_logger_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_logger_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_logger_id", value)
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backendRequest")
-    def backend_request(self) -> Optional[pulumi.Input['DiagnosticBackendRequestArgs']]:
+    def backend_request(self) -> pulumi.Input[Optional['DiagnosticBackendRequestArgs']]:
         """
         A `backend_request` block as defined below.
         """
         return pulumi.get(self, "backend_request")
 
     @backend_request.setter
-    def backend_request(self, value: Optional[pulumi.Input['DiagnosticBackendRequestArgs']]):
+    def backend_request(self, value: pulumi.Input[Optional['DiagnosticBackendRequestArgs']]):
         pulumi.set(self, "backend_request", value)
 
     @_builtins.property
     @pulumi.getter(name="backendResponse")
-    def backend_response(self) -> Optional[pulumi.Input['DiagnosticBackendResponseArgs']]:
+    def backend_response(self) -> pulumi.Input[Optional['DiagnosticBackendResponseArgs']]:
         """
         A `backend_response` block as defined below.
         """
         return pulumi.get(self, "backend_response")
 
     @backend_response.setter
-    def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArgs']]):
+    def backend_response(self, value: pulumi.Input[Optional['DiagnosticBackendResponseArgs']]):
         pulumi.set(self, "backend_response", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendRequest")
-    def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]:
+    def frontend_request(self) -> pulumi.Input[Optional['DiagnosticFrontendRequestArgs']]:
         """
         A `frontend_request` block as defined below.
         """
         return pulumi.get(self, "frontend_request")
 
     @frontend_request.setter
-    def frontend_request(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]):
+    def frontend_request(self, value: pulumi.Input[Optional['DiagnosticFrontendRequestArgs']]):
         pulumi.set(self, "frontend_request", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendResponse")
-    def frontend_response(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]:
+    def frontend_response(self) -> pulumi.Input[Optional['DiagnosticFrontendResponseArgs']]:
         """
         A `frontend_response` block as defined below.
         """
         return pulumi.get(self, "frontend_response")
 
     @frontend_response.setter
-    def frontend_response(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]):
+    def frontend_response(self, value: pulumi.Input[Optional['DiagnosticFrontendResponseArgs']]):
         pulumi.set(self, "frontend_response", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCorrelationProtocol")
-    def http_correlation_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_correlation_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         """
         return pulumi.get(self, "http_correlation_protocol")
 
     @http_correlation_protocol.setter
-    def http_correlation_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_correlation_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_correlation_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="logClientIp")
-    def log_client_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log_client_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Log client IP address.
         """
         return pulumi.get(self, "log_client_ip")
 
     @log_client_ip.setter
-    def log_client_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log_client_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log_client_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="operationNameFormat")
-    def operation_name_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         """
         return pulumi.get(self, "operation_name_format")
 
     @operation_name_format.setter
-    def operation_name_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name_format", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def verbosity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verbosity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
         return pulumi.get(self, "verbosity")
 
     @verbosity.setter
-    def verbosity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verbosity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verbosity", value)
 
 
@@ -486,20 +486,20 @@ class Diagnostic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_log_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 api_management_logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_request: Optional[pulumi.Input[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict']]] = None,
-                 backend_response: Optional[pulumi.Input[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict']]] = None,
-                 frontend_request: Optional[pulumi.Input[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict']]] = None,
-                 frontend_response: Optional[pulumi.Input[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict']]] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 verbosity: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_log_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_request: pulumi.Input[Optional[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict']]] = None,
+                 backend_response: pulumi.Input[Optional[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict']]] = None,
+                 frontend_request: pulumi.Input[Optional[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict']]] = None,
+                 frontend_response: pulumi.Input[Optional[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict']]] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 verbosity: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Management Service Diagnostic.
@@ -537,7 +537,7 @@ class Diagnostic(pulumi.CustomResource):
             resource_group_name=example.name,
             api_management_name=example_service.name,
             api_management_logger_id=example_logger.id,
-            sampling_percentage=5,
+            sampling_percentage=float(5),
             always_log_errors=True,
             log_client_ip=True,
             verbosity="verbose",
@@ -651,7 +651,7 @@ class Diagnostic(pulumi.CustomResource):
             resource_group_name=example.name,
             api_management_name=example_service.name,
             api_management_logger_id=example_logger.id,
-            sampling_percentage=5,
+            sampling_percentage=float(5),
             always_log_errors=True,
             log_client_ip=True,
             verbosity="verbose",
@@ -721,20 +721,20 @@ class Diagnostic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_log_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 api_management_logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_request: Optional[pulumi.Input[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict']]] = None,
-                 backend_response: Optional[pulumi.Input[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict']]] = None,
-                 frontend_request: Optional[pulumi.Input[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict']]] = None,
-                 frontend_response: Optional[pulumi.Input[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict']]] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 operation_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 verbosity: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_log_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_request: pulumi.Input[Optional[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict']]] = None,
+                 backend_response: pulumi.Input[Optional[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict']]] = None,
+                 frontend_request: pulumi.Input[Optional[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict']]] = None,
+                 frontend_response: pulumi.Input[Optional[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict']]] = None,
+                 http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 verbosity: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -776,20 +776,20 @@ class Diagnostic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_log_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-            api_management_logger_id: Optional[pulumi.Input[_builtins.str]] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            backend_request: Optional[pulumi.Input[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict']]] = None,
-            backend_response: Optional[pulumi.Input[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict']]] = None,
-            frontend_request: Optional[pulumi.Input[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict']]] = None,
-            frontend_response: Optional[pulumi.Input[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict']]] = None,
-            http_correlation_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            log_client_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-            operation_name_format: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-            verbosity: Optional[pulumi.Input[_builtins.str]] = None) -> 'Diagnostic':
+            always_log_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            backend_request: pulumi.Input[Optional[Union['DiagnosticBackendRequestArgs', 'DiagnosticBackendRequestArgsDict']]] = None,
+            backend_response: pulumi.Input[Optional[Union['DiagnosticBackendResponseArgs', 'DiagnosticBackendResponseArgsDict']]] = None,
+            frontend_request: pulumi.Input[Optional[Union['DiagnosticFrontendRequestArgs', 'DiagnosticFrontendRequestArgsDict']]] = None,
+            frontend_response: pulumi.Input[Optional[Union['DiagnosticFrontendResponseArgs', 'DiagnosticFrontendResponseArgsDict']]] = None,
+            http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            operation_name_format: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            verbosity: pulumi.Input[Optional[_builtins.str]] = None) -> 'Diagnostic':
         """
         Get an existing Diagnostic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

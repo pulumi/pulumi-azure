@@ -52,7 +52,7 @@ class FunctionJavaScriptUDFInputArgsDict(TypedDict):
     """
     The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
     """
-    configuration_parameter: NotRequired[pulumi.Input[_builtins.bool]]
+    configuration_parameter: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is this input parameter a configuration parameter? Defaults to `false`.
     """
@@ -61,7 +61,7 @@ class FunctionJavaScriptUDFInputArgsDict(TypedDict):
 class FunctionJavaScriptUDFInputArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 configuration_parameter: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration_parameter: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         :param pulumi.Input[_builtins.bool] configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
@@ -84,14 +84,14 @@ class FunctionJavaScriptUDFInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def configuration_parameter(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this input parameter a configuration parameter? Defaults to `false`.
         """
         return pulumi.get(self, "configuration_parameter")
 
     @configuration_parameter.setter
-    def configuration_parameter(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def configuration_parameter(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "configuration_parameter", value)
 
 
@@ -128,7 +128,7 @@ class FunctionJavascriptUdaInputArgsDict(TypedDict):
     """
     The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
     """
-    configuration_parameter: NotRequired[pulumi.Input[_builtins.bool]]
+    configuration_parameter: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is this input parameter a configuration parameter? Defaults to `false`.
     """
@@ -137,7 +137,7 @@ class FunctionJavascriptUdaInputArgsDict(TypedDict):
 class FunctionJavascriptUdaInputArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 configuration_parameter: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration_parameter: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         :param pulumi.Input[_builtins.bool] configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
@@ -160,14 +160,14 @@ class FunctionJavascriptUdaInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def configuration_parameter(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this input parameter a configuration parameter? Defaults to `false`.
         """
         return pulumi.get(self, "configuration_parameter")
 
     @configuration_parameter.setter
-    def configuration_parameter(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def configuration_parameter(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "configuration_parameter", value)
 
 
@@ -204,15 +204,15 @@ class JobIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identity id of the user assigned identity to use when type is `UserAssigned`
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -221,9 +221,9 @@ class JobIdentityArgsDict(TypedDict):
 class JobIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: The identity id of the user assigned identity to use when type is `UserAssigned`
@@ -252,38 +252,38 @@ class JobIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identity id of the user assigned identity to use when type is `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -292,11 +292,11 @@ class JobJobStorageAccountArgsDict(TypedDict):
     """
     The name of the Azure storage account.
     """
-    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    account_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account key for the Azure storage account.
     """
-    authentication_mode: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
     """
@@ -305,8 +305,8 @@ class JobJobStorageAccountArgsDict(TypedDict):
 class JobJobStorageAccountArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: The name of the Azure storage account.
         :param pulumi.Input[_builtins.str] account_key: The account key for the Azure storage account.
@@ -332,26 +332,26 @@ class JobJobStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account key for the Azure storage account.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_mode", value)
 
 
@@ -362,19 +362,19 @@ class OutputBlobSerializationArgsDict(TypedDict):
 
     > **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
     > **Note:** This is required when `type` is set to `Csv`.
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -385,9 +385,9 @@ class OutputBlobSerializationArgsDict(TypedDict):
 class OutputBlobSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
                
@@ -426,7 +426,7 @@ class OutputBlobSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -435,12 +435,12 @@ class OutputBlobSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -449,12 +449,12 @@ class OutputBlobSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -463,7 +463,7 @@ class OutputBlobSerializationArgs:
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
@@ -472,19 +472,19 @@ class OutputEventHubSerializationArgsDict(TypedDict):
     """
     The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
     > **Note:** This is required when `type` is set to `Csv`.
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -495,9 +495,9 @@ class OutputEventHubSerializationArgsDict(TypedDict):
 class OutputEventHubSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -532,7 +532,7 @@ class OutputEventHubSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -541,12 +541,12 @@ class OutputEventHubSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -555,12 +555,12 @@ class OutputEventHubSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -569,7 +569,7 @@ class OutputEventHubSerializationArgs:
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
@@ -578,19 +578,19 @@ class OutputServiceBusQueueSerializationArgsDict(TypedDict):
     """
     The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
     > **Note:** This is required when `type` is set to `Csv`.
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -601,9 +601,9 @@ class OutputServiceBusQueueSerializationArgsDict(TypedDict):
 class OutputServiceBusQueueSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -638,7 +638,7 @@ class OutputServiceBusQueueSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -647,12 +647,12 @@ class OutputServiceBusQueueSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -661,12 +661,12 @@ class OutputServiceBusQueueSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -675,7 +675,7 @@ class OutputServiceBusQueueSerializationArgs:
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
@@ -684,19 +684,19 @@ class OutputServicebusTopicSerializationArgsDict(TypedDict):
     """
     The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
     > **Note:** This is required when `type` is set to `Csv`.
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -707,9 +707,9 @@ class OutputServicebusTopicSerializationArgsDict(TypedDict):
 class OutputServicebusTopicSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -744,7 +744,7 @@ class OutputServicebusTopicSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -753,12 +753,12 @@ class OutputServicebusTopicSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -767,12 +767,12 @@ class OutputServicebusTopicSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
@@ -781,7 +781,7 @@ class OutputServicebusTopicSerializationArgs:
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
 
@@ -790,13 +790,13 @@ class ReferenceInputBlobSerializationArgsDict(TypedDict):
     """
     The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -807,8 +807,8 @@ class ReferenceInputBlobSerializationArgsDict(TypedDict):
 class ReferenceInputBlobSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -838,7 +838,7 @@ class ReferenceInputBlobSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -847,12 +847,12 @@ class ReferenceInputBlobSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -861,7 +861,7 @@ class ReferenceInputBlobSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
 
@@ -870,13 +870,13 @@ class StreamInputBlobSerializationArgsDict(TypedDict):
     """
     The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -887,8 +887,8 @@ class StreamInputBlobSerializationArgsDict(TypedDict):
 class StreamInputBlobSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -918,7 +918,7 @@ class StreamInputBlobSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -927,12 +927,12 @@ class StreamInputBlobSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -941,7 +941,7 @@ class StreamInputBlobSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
 
@@ -950,13 +950,13 @@ class StreamInputEventHubSerializationArgsDict(TypedDict):
     """
     The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -967,8 +967,8 @@ class StreamInputEventHubSerializationArgsDict(TypedDict):
 class StreamInputEventHubSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -998,7 +998,7 @@ class StreamInputEventHubSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -1007,12 +1007,12 @@ class StreamInputEventHubSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -1021,7 +1021,7 @@ class StreamInputEventHubSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
 
@@ -1030,13 +1030,13 @@ class StreamInputEventHubV2SerializationArgsDict(TypedDict):
     """
     The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -1047,8 +1047,8 @@ class StreamInputEventHubV2SerializationArgsDict(TypedDict):
 class StreamInputEventHubV2SerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1078,7 +1078,7 @@ class StreamInputEventHubV2SerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -1087,12 +1087,12 @@ class StreamInputEventHubV2SerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -1101,7 +1101,7 @@ class StreamInputEventHubV2SerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
 
@@ -1110,13 +1110,13 @@ class StreamInputIotHubSerializationArgsDict(TypedDict):
     """
     The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
     > **Note:** This is required when `type` is set to `Csv` or `Json`.
     """
-    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    field_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -1127,8 +1127,8 @@ class StreamInputIotHubSerializationArgsDict(TypedDict):
 class StreamInputIotHubSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[_builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1158,7 +1158,7 @@ class StreamInputIotHubSerializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
@@ -1167,12 +1167,12 @@ class StreamInputIotHubSerializationArgs:
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
@@ -1181,7 +1181,7 @@ class StreamInputIotHubSerializationArgs:
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
 

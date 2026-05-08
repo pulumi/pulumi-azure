@@ -212,71 +212,71 @@ export interface BlobState {
     /**
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
-    accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
     /**
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      */
-    cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string | undefined>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
-    contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string | undefined>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The encryption scope to use for this blob.
      */
-    encryptionScope?: pulumi.Input<string>;
+    encryptionScope?: pulumi.Input<string | undefined>;
     /**
      * A map of custom blob metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      */
-    parallelism?: pulumi.Input<number>;
+    parallelism?: pulumi.Input<number | undefined>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `size` is required if `sourceUri` is not set.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
-    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
-    sourceContent?: pulumi.Input<string>;
+    sourceContent?: pulumi.Input<string | undefined>;
     /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
-    sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      */
-    storageContainerName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string | undefined>;
     /**
      * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The URL of the blob
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -286,55 +286,55 @@ export interface BlobArgs {
     /**
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
-    accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
     /**
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      */
-    cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string | undefined>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
-    contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string | undefined>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The encryption scope to use for this blob.
      */
-    encryptionScope?: pulumi.Input<string>;
+    encryptionScope?: pulumi.Input<string | undefined>;
     /**
      * A map of custom blob metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      */
-    parallelism?: pulumi.Input<number>;
+    parallelism?: pulumi.Input<number | undefined>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `size` is required if `sourceUri` is not set.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
-    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
-    sourceContent?: pulumi.Input<string>;
+    sourceContent?: pulumi.Input<string | undefined>;
     /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
-    sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      */

@@ -199,53 +199,53 @@ export interface AuthomationRuleState {
     /**
      * One or more `actionIncidentTask` blocks as defined below.
      */
-    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncidentTask>[]>;
+    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncidentTask>[] | undefined>;
     /**
      * One or more `actionIncident` blocks as defined below.
      */
-    actionIncidents?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncident>[]>;
+    actionIncidents?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncident>[] | undefined>;
     /**
      * One or more `actionPlaybook` blocks as defined below.
      *
      * > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      */
-    actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionPlaybook>[]>;
+    actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionPlaybook>[] | undefined>;
     /**
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
-    conditionJson?: pulumi.Input<string>;
+    conditionJson?: pulumi.Input<string | undefined>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
      */
-    triggersOn?: pulumi.Input<string>;
+    triggersOn?: pulumi.Input<string | undefined>;
     /**
      * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
      */
-    triggersWhen?: pulumi.Input<string>;
+    triggersWhen?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,21 +255,21 @@ export interface AuthomationRuleArgs {
     /**
      * One or more `actionIncidentTask` blocks as defined below.
      */
-    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncidentTask>[]>;
+    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncidentTask>[] | undefined>;
     /**
      * One or more `actionIncident` blocks as defined below.
      */
-    actionIncidents?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncident>[]>;
+    actionIncidents?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncident>[] | undefined>;
     /**
      * One or more `actionPlaybook` blocks as defined below.
      *
      * > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      */
-    actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionPlaybook>[]>;
+    actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionPlaybook>[] | undefined>;
     /**
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
-    conditionJson?: pulumi.Input<string>;
+    conditionJson?: pulumi.Input<string | undefined>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */
@@ -277,11 +277,11 @@ export interface AuthomationRuleArgs {
     /**
      * Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
      */
@@ -289,7 +289,7 @@ export interface AuthomationRuleArgs {
     /**
      * The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      */
@@ -297,9 +297,9 @@ export interface AuthomationRuleArgs {
     /**
      * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
      */
-    triggersOn?: pulumi.Input<string>;
+    triggersOn?: pulumi.Input<string | undefined>;
     /**
      * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
      */
-    triggersWhen?: pulumi.Input<string>;
+    triggersWhen?: pulumi.Input<string | undefined>;
 }

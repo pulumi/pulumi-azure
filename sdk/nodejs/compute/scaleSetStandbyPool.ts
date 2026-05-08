@@ -169,31 +169,31 @@ export interface ScaleSetStandbyPoolState {
     /**
      * Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
      */
-    attachedVirtualMachineScaleSetId?: pulumi.Input<string>;
+    attachedVirtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * An `elasticityProfile` block as defined below.
      */
-    elasticityProfile?: pulumi.Input<inputs.compute.ScaleSetStandbyPoolElasticityProfile>;
+    elasticityProfile?: pulumi.Input<inputs.compute.ScaleSetStandbyPoolElasticityProfile | undefined>;
     /**
      * Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Standby Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      */
-    virtualMachineState?: pulumi.Input<string>;
+    virtualMachineState?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,11 +211,11 @@ export interface ScaleSetStandbyPoolArgs {
     /**
      * Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
      */
@@ -223,7 +223,7 @@ export interface ScaleSetStandbyPoolArgs {
     /**
      * A mapping of tags which should be assigned to the Standby Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the desired state of virtual machines in the pool. Possible values are `Deallocated`, `Hibernated` and `Running`.
      */

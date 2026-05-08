@@ -177,31 +177,31 @@ export interface EnvironmentStorageState {
     /**
      * The Storage Account Access Key.
      */
-    accessKey?: pulumi.Input<string>;
+    accessKey?: pulumi.Input<string | undefined>;
     /**
      * The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
      */
-    accessMode?: pulumi.Input<string>;
+    accessMode?: pulumi.Input<string | undefined>;
     /**
      * The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The name for this Container App Environment Storage. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
      */
-    nfsServerUrl?: pulumi.Input<string>;
+    nfsServerUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
      */
-    shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface EnvironmentStorageArgs {
     /**
      * The Storage Account Access Key.
      */
-    accessKey?: pulumi.Input<string>;
+    accessKey?: pulumi.Input<string | undefined>;
     /**
      * The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
      */
@@ -219,7 +219,7 @@ export interface EnvironmentStorageArgs {
     /**
      * The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
      */
@@ -227,11 +227,11 @@ export interface EnvironmentStorageArgs {
     /**
      * The name for this Container App Environment Storage. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
      */
-    nfsServerUrl?: pulumi.Input<string>;
+    nfsServerUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
      */

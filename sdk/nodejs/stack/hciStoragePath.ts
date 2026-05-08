@@ -146,27 +146,27 @@ export interface HciStoragePathState {
     /**
      * The ID of Custom Location where the Azure Stack HCI Storage Path should exist. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Storage Path should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Storage Path. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The file path on the disk to create the Storage Path. Changing this forces a new resource to be created.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Storage Path should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Storage Path.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -180,11 +180,11 @@ export interface HciStoragePathArgs {
     /**
      * The Azure Region where the Azure Stack HCI Storage Path should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Storage Path. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The file path on the disk to create the Storage Path. Changing this forces a new resource to be created.
      */
@@ -196,5 +196,5 @@ export interface HciStoragePathArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Storage Path.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

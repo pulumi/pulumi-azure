@@ -162,31 +162,31 @@ export interface WorkspaceApiVersionSetState {
     /**
      * Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
      */
-    apiManagementWorkspaceId?: pulumi.Input<string>;
+    apiManagementWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the API Management Workspace API Version Set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the display name of the API Management Workspace API Version Set.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API Management Workspace API Version Set. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the header to read from inbound requests to determine the API version.
      */
-    versionHeaderName?: pulumi.Input<string>;
+    versionHeaderName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the query string parameter to read from inbound requests to determine the API version.
      */
-    versionQueryName?: pulumi.Input<string>;
+    versionQueryName?: pulumi.Input<string | undefined>;
     /**
      * Specifies where in a request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      */
-    versioningScheme?: pulumi.Input<string>;
+    versioningScheme?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface WorkspaceApiVersionSetArgs {
     /**
      * Specifies the description of the API Management Workspace API Version Set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the display name of the API Management Workspace API Version Set.
      */
@@ -208,15 +208,15 @@ export interface WorkspaceApiVersionSetArgs {
     /**
      * Specifies the name of the API Management Workspace API Version Set. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the header to read from inbound requests to determine the API version.
      */
-    versionHeaderName?: pulumi.Input<string>;
+    versionHeaderName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the query string parameter to read from inbound requests to determine the API version.
      */
-    versionQueryName?: pulumi.Input<string>;
+    versionQueryName?: pulumi.Input<string | undefined>;
     /**
      * Specifies where in a request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      */

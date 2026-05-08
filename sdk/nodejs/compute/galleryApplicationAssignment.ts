@@ -182,23 +182,23 @@ export interface GalleryApplicationAssignmentState {
     /**
      * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      */
-    configurationBlobUri?: pulumi.Input<string>;
+    configurationBlobUri?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Gallery Application Version. Changing this forces a new resource to be created.
      */
-    galleryApplicationVersionId?: pulumi.Input<string>;
+    galleryApplicationVersionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface GalleryApplicationAssignmentArgs {
     /**
      * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      */
-    configurationBlobUri?: pulumi.Input<string>;
+    configurationBlobUri?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Gallery Application Version. Changing this forces a new resource to be created.
      */
@@ -216,11 +216,11 @@ export interface GalleryApplicationAssignmentArgs {
     /**
      * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */

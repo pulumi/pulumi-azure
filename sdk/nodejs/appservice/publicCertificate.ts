@@ -167,27 +167,27 @@ export interface PublicCertificateState {
     /**
      * The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
      */
-    appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
      */
-    blob?: pulumi.Input<string>;
+    blob?: pulumi.Input<string | undefined>;
     /**
      * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      */
-    certificateLocation?: pulumi.Input<string>;
+    certificateLocation?: pulumi.Input<string | undefined>;
     /**
      * The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The thumbprint of the public certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**

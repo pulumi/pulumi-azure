@@ -310,127 +310,127 @@ export interface CacheState {
     /**
      * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      */
-    accessKeysAuthenticationEnabled?: pulumi.Input<boolean>;
+    accessKeysAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
-    family?: pulumi.Input<string>;
+    family?: pulumi.Input<string | undefined>;
     /**
      * The Hostname of the Redis Instance
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.redis.CacheIdentity>;
+    identity?: pulumi.Input<inputs.redis.CacheIdentity | undefined>;
     /**
      * The location of the resource group. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      *
      * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enable the non-SSL port (6379) - disabled by default.
      */
-    nonSslPortEnabled?: pulumi.Input<boolean>;
+    nonSslPortEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */
-    patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[]>;
+    patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[] | undefined>;
     /**
      * The non-SSL Port of the Redis Instance
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The Primary Access Key for the Redis Instance
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string of the Redis Instance.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      */
-    privateStaticIpAddress?: pulumi.Input<string>;
+    privateStaticIpAddress?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
+    redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration | undefined>;
     /**
      * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      */
-    redisVersion?: pulumi.Input<string>;
+    redisVersion?: pulumi.Input<string | undefined>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
      *
      * > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      */
-    replicasPerMaster?: pulumi.Input<number>;
+    replicasPerMaster?: pulumi.Input<number | undefined>;
     /**
      * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      */
-    replicasPerPrimary?: pulumi.Input<number>;
+    replicasPerPrimary?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Secondary Access Key for the Redis Instance
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string of the Redis Instance.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */
-    shardCount?: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number | undefined>;
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The SSL Port of the Redis Instance
      */
-    sslPort?: pulumi.Input<number>;
+    sslPort?: pulumi.Input<number | undefined>;
     /**
      * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A mapping of tenant settings to assign to the resource.
      */
-    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
      * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -440,7 +440,7 @@ export interface CacheArgs {
     /**
      * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      */
-    accessKeysAuthenticationEnabled?: pulumi.Input<boolean>;
+    accessKeysAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
@@ -452,55 +452,55 @@ export interface CacheArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.redis.CacheIdentity>;
+    identity?: pulumi.Input<inputs.redis.CacheIdentity | undefined>;
     /**
      * The location of the resource group. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      *
      * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enable the non-SSL port (6379) - disabled by default.
      */
-    nonSslPortEnabled?: pulumi.Input<boolean>;
+    nonSslPortEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */
-    patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[]>;
+    patchSchedules?: pulumi.Input<pulumi.Input<inputs.redis.CachePatchSchedule>[] | undefined>;
     /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      */
-    privateStaticIpAddress?: pulumi.Input<string>;
+    privateStaticIpAddress?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
+    redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration | undefined>;
     /**
      * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      */
-    redisVersion?: pulumi.Input<string>;
+    redisVersion?: pulumi.Input<string | undefined>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
      *
      * > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      */
-    replicasPerMaster?: pulumi.Input<number>;
+    replicasPerMaster?: pulumi.Input<number | undefined>;
     /**
      * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      */
-    replicasPerPrimary?: pulumi.Input<number>;
+    replicasPerPrimary?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      */
@@ -508,7 +508,7 @@ export interface CacheArgs {
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */
-    shardCount?: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number | undefined>;
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      *
@@ -518,19 +518,19 @@ export interface CacheArgs {
     /**
      * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A mapping of tenant settings to assign to the resource.
      */
-    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
      * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

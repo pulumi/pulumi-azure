@@ -151,19 +151,19 @@ export interface MonitorTagRuleState {
     /**
      * The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
      */
-    datadogMonitorId?: pulumi.Input<string>;
+    datadogMonitorId?: pulumi.Input<string | undefined>;
     /**
      * A `log` block as defined below.
      */
-    logs?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleLog>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleLog>[] | undefined>;
     /**
      * A `metric` block as defined below.
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleMetric>[] | undefined>;
     /**
      * The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,13 +177,13 @@ export interface MonitorTagRuleArgs {
     /**
      * A `log` block as defined below.
      */
-    logs?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleLog>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleLog>[] | undefined>;
     /**
      * A `metric` block as defined below.
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleMetric>[] | undefined>;
     /**
      * The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

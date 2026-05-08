@@ -151,19 +151,19 @@ export interface ManagedDiskSasTokenState {
      * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
      * for additional details on the fields above.
      */
-    accessLevel?: pulumi.Input<string>;
+    accessLevel?: pulumi.Input<string | undefined>;
     /**
      * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
      */
-    durationInSeconds?: pulumi.Input<number>;
+    durationInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
      */
-    managedDiskId?: pulumi.Input<string>;
+    managedDiskId?: pulumi.Input<string | undefined>;
     /**
      * The computed Shared Access Signature (SAS) of the Managed Disk.
      */
-    sasUrl?: pulumi.Input<string>;
+    sasUrl?: pulumi.Input<string | undefined>;
 }
 
 /**

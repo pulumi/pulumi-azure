@@ -21,10 +21,10 @@ class SpringCloudCertificateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_private_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_private_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudCertificate resource.
 
@@ -72,63 +72,63 @@ class SpringCloudCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateContent")
-    def certificate_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of uploaded certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_content")
 
     @certificate_content.setter
-    def certificate_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_content", value)
 
     @_builtins.property
     @pulumi.getter(name="excludePrivateKey")
-    def exclude_private_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_private_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_private_key")
 
     @exclude_private_key.setter
-    def exclude_private_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_private_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultCertificateId")
-    def key_vault_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_certificate_id")
 
     @key_vault_certificate_id.setter
-    def key_vault_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudCertificateState:
     def __init__(__self__, *,
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_private_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_private_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudCertificate resources.
 
@@ -157,86 +157,86 @@ class _SpringCloudCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="certificateContent")
-    def certificate_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of uploaded certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_content")
 
     @certificate_content.setter
-    def certificate_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_content", value)
 
     @_builtins.property
     @pulumi.getter(name="excludePrivateKey")
-    def exclude_private_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_private_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_private_key")
 
     @exclude_private_key.setter
-    def exclude_private_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_private_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultCertificateId")
-    def key_vault_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_certificate_id")
 
     @key_vault_certificate_id.setter
-    def key_vault_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint of the Spring Cloud certificate.
         """
         return pulumi.get(self, "thumbprint")
 
     @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint", value)
 
 
@@ -246,12 +246,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_private_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_private_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Spring Cloud Certificate.
@@ -311,12 +311,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_private_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_private_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,13 +347,13 @@ class SpringCloudCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_content: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_private_key: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            thumbprint: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudCertificate':
+            certificate_content: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_private_key: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            thumbprint: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudCertificate':
         """
         Get an existing SpringCloudCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

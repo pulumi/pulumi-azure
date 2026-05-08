@@ -25,15 +25,15 @@ class BackendArgs:
                  protocol: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 circuit_breaker_rule: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']] = None,
-                 credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input['BackendProxyArgs']] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterArgs']] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls: Optional[pulumi.Input['BackendTlsArgs']] = None):
+                 circuit_breaker_rule: pulumi.Input[Optional['BackendCircuitBreakerRuleArgs']] = None,
+                 credentials: pulumi.Input[Optional['BackendCredentialsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional['BackendProxyArgs']] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_fabric_cluster: pulumi.Input[Optional['BackendServiceFabricClusterArgs']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls: pulumi.Input[Optional['BackendTlsArgs']] = None):
         """
         The set of arguments for constructing a Backend resource.
 
@@ -124,129 +124,129 @@ class BackendArgs:
 
     @_builtins.property
     @pulumi.getter(name="circuitBreakerRule")
-    def circuit_breaker_rule(self) -> Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]:
+    def circuit_breaker_rule(self) -> pulumi.Input[Optional['BackendCircuitBreakerRuleArgs']]:
         """
         A `circuit_breaker_rule` block as documented below.
         """
         return pulumi.get(self, "circuit_breaker_rule")
 
     @circuit_breaker_rule.setter
-    def circuit_breaker_rule(self, value: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]):
+    def circuit_breaker_rule(self, value: pulumi.Input[Optional['BackendCircuitBreakerRuleArgs']]):
         pulumi.set(self, "circuit_breaker_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['BackendCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['BackendCredentialsArgs']]:
         """
         A `credentials` block as documented below.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['BackendCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['BackendCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the backend.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management backend. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input['BackendProxyArgs']]:
+    def proxy(self) -> pulumi.Input[Optional['BackendProxyArgs']]:
         """
         A `proxy` block as documented below.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input['BackendProxyArgs']]):
+    def proxy(self, value: pulumi.Input[Optional['BackendProxyArgs']]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceFabricCluster")
-    def service_fabric_cluster(self) -> Optional[pulumi.Input['BackendServiceFabricClusterArgs']]:
+    def service_fabric_cluster(self) -> pulumi.Input[Optional['BackendServiceFabricClusterArgs']]:
         """
         A `service_fabric_cluster` block as documented below.
         """
         return pulumi.get(self, "service_fabric_cluster")
 
     @service_fabric_cluster.setter
-    def service_fabric_cluster(self, value: Optional[pulumi.Input['BackendServiceFabricClusterArgs']]):
+    def service_fabric_cluster(self, value: pulumi.Input[Optional['BackendServiceFabricClusterArgs']]):
         pulumi.set(self, "service_fabric_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the backend.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['BackendTlsArgs']]:
+    def tls(self) -> pulumi.Input[Optional['BackendTlsArgs']]:
         """
         A `tls` block as documented below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['BackendTlsArgs']]):
+    def tls(self, value: pulumi.Input[Optional['BackendTlsArgs']]):
         pulumi.set(self, "tls", value)
 
 
 @pulumi.input_type
 class _BackendState:
     def __init__(__self__, *,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 circuit_breaker_rule: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']] = None,
-                 credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input['BackendProxyArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterArgs']] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 circuit_breaker_rule: pulumi.Input[Optional['BackendCircuitBreakerRuleArgs']] = None,
+                 credentials: pulumi.Input[Optional['BackendCredentialsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional['BackendProxyArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_fabric_cluster: pulumi.Input[Optional['BackendServiceFabricClusterArgs']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls: pulumi.Input[Optional['BackendTlsArgs']] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Backend resources.
 
@@ -293,158 +293,158 @@ class _BackendState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
     @api_management_name.setter
-    def api_management_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_name", value)
 
     @_builtins.property
     @pulumi.getter(name="circuitBreakerRule")
-    def circuit_breaker_rule(self) -> Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]:
+    def circuit_breaker_rule(self) -> pulumi.Input[Optional['BackendCircuitBreakerRuleArgs']]:
         """
         A `circuit_breaker_rule` block as documented below.
         """
         return pulumi.get(self, "circuit_breaker_rule")
 
     @circuit_breaker_rule.setter
-    def circuit_breaker_rule(self, value: Optional[pulumi.Input['BackendCircuitBreakerRuleArgs']]):
+    def circuit_breaker_rule(self, value: pulumi.Input[Optional['BackendCircuitBreakerRuleArgs']]):
         pulumi.set(self, "circuit_breaker_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['BackendCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['BackendCredentialsArgs']]:
         """
         A `credentials` block as documented below.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['BackendCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['BackendCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the backend.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management backend. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol used by the backend host. Possible values are `http` or `soap`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input['BackendProxyArgs']]:
+    def proxy(self) -> pulumi.Input[Optional['BackendProxyArgs']]:
         """
         A `proxy` block as documented below.
         """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input['BackendProxyArgs']]):
+    def proxy(self, value: pulumi.Input[Optional['BackendProxyArgs']]):
         pulumi.set(self, "proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceFabricCluster")
-    def service_fabric_cluster(self) -> Optional[pulumi.Input['BackendServiceFabricClusterArgs']]:
+    def service_fabric_cluster(self) -> pulumi.Input[Optional['BackendServiceFabricClusterArgs']]:
         """
         A `service_fabric_cluster` block as documented below.
         """
         return pulumi.get(self, "service_fabric_cluster")
 
     @service_fabric_cluster.setter
-    def service_fabric_cluster(self, value: Optional[pulumi.Input['BackendServiceFabricClusterArgs']]):
+    def service_fabric_cluster(self, value: pulumi.Input[Optional['BackendServiceFabricClusterArgs']]):
         pulumi.set(self, "service_fabric_cluster", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The title of the backend.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['BackendTlsArgs']]:
+    def tls(self) -> pulumi.Input[Optional['BackendTlsArgs']]:
         """
         A `tls` block as documented below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['BackendTlsArgs']]):
+    def tls(self, value: pulumi.Input[Optional['BackendTlsArgs']]):
         pulumi.set(self, "tls", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -454,19 +454,19 @@ class Backend(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 circuit_breaker_rule: Optional[pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
-                 credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_fabric_cluster: Optional[pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls: Optional[pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 circuit_breaker_rule: pulumi.Input[Optional[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_fabric_cluster: pulumi.Input[Optional[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls: pulumi.Input[Optional[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a backend within an API Management Service.
@@ -591,19 +591,19 @@ class Backend(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 circuit_breaker_rule: Optional[pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
-                 credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy: Optional[pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_fabric_cluster: Optional[pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls: Optional[pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 circuit_breaker_rule: pulumi.Input[Optional[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy: pulumi.Input[Optional[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_fabric_cluster: pulumi.Input[Optional[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls: pulumi.Input[Optional[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -644,19 +644,19 @@ class Backend(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-            circuit_breaker_rule: Optional[pulumi.Input[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
-            credentials: Optional[pulumi.Input[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy: Optional[pulumi.Input[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_fabric_cluster: Optional[pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            tls: Optional[pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Backend':
+            api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+            circuit_breaker_rule: pulumi.Input[Optional[Union['BackendCircuitBreakerRuleArgs', 'BackendCircuitBreakerRuleArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['BackendCredentialsArgs', 'BackendCredentialsArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy: pulumi.Input[Optional[Union['BackendProxyArgs', 'BackendProxyArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_fabric_cluster: pulumi.Input[Optional[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            tls: pulumi.Input[Optional[Union['BackendTlsArgs', 'BackendTlsArgsDict']]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Backend':
         """
         Get an existing Backend resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -200,19 +200,19 @@ export interface ServiceCustomDomainState {
      *
      * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    signalrCustomCertificateId?: pulumi.Input<string>;
+    signalrCustomCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    signalrServiceId?: pulumi.Input<string>;
+    signalrServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface ServiceCustomDomainArgs {
     /**
      * Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */

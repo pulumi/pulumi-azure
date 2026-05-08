@@ -294,93 +294,93 @@ export interface HBaseClusterState {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string | undefined>;
     /**
      * A `componentVersion` block as defined below.
      */
-    componentVersion?: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
+    componentVersion?: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion | undefined>;
     /**
      * A `computeIsolation` block as defined below.
      */
-    computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation>;
+    computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation | undefined>;
     /**
      * One or more `diskEncryption` block as defined below.
      */
-    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[]>;
+    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[] | undefined>;
     /**
      * An `extension` block as defined below.
      */
-    extension?: pulumi.Input<inputs.hdinsight.HBaseClusterExtension>;
+    extension?: pulumi.Input<inputs.hdinsight.HBaseClusterExtension | undefined>;
     /**
      * A `gateway` block as defined below.
      */
-    gateway?: pulumi.Input<inputs.hdinsight.HBaseClusterGateway>;
+    gateway?: pulumi.Input<inputs.hdinsight.HBaseClusterGateway | undefined>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
      */
-    httpsEndpoint?: pulumi.Input<string>;
+    httpsEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `metastores` block as defined below.
      */
-    metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores | undefined>;
     /**
      * A `monitor` block as defined below.
      */
-    monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor | undefined>;
     /**
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `network` block as defined below.
      */
-    network?: pulumi.Input<inputs.hdinsight.HBaseClusterNetwork>;
+    network?: pulumi.Input<inputs.hdinsight.HBaseClusterNetwork | undefined>;
     /**
      * A `privateLinkConfiguration` block as defined below.
      */
-    privateLinkConfiguration?: pulumi.Input<inputs.hdinsight.HBaseClusterPrivateLinkConfiguration>;
+    privateLinkConfiguration?: pulumi.Input<inputs.hdinsight.HBaseClusterPrivateLinkConfiguration | undefined>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `roles` block as defined below.
      */
-    roles?: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
+    roles?: pulumi.Input<inputs.hdinsight.HBaseClusterRoles | undefined>;
     /**
      * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile>;
+    securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile | undefined>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      */
-    sshEndpoint?: pulumi.Input<string>;
+    sshEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2 | undefined>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      *
      * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    tlsMinVersion?: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -398,15 +398,15 @@ export interface HBaseClusterArgs {
     /**
      * A `computeIsolation` block as defined below.
      */
-    computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation>;
+    computeIsolation?: pulumi.Input<inputs.hdinsight.HBaseClusterComputeIsolation | undefined>;
     /**
      * One or more `diskEncryption` block as defined below.
      */
-    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[]>;
+    diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterDiskEncryption>[] | undefined>;
     /**
      * An `extension` block as defined below.
      */
-    extension?: pulumi.Input<inputs.hdinsight.HBaseClusterExtension>;
+    extension?: pulumi.Input<inputs.hdinsight.HBaseClusterExtension | undefined>;
     /**
      * A `gateway` block as defined below.
      */
@@ -414,27 +414,27 @@ export interface HBaseClusterArgs {
     /**
      * Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `metastores` block as defined below.
      */
-    metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores | undefined>;
     /**
      * A `monitor` block as defined below.
      */
-    monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor | undefined>;
     /**
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `network` block as defined below.
      */
-    network?: pulumi.Input<inputs.hdinsight.HBaseClusterNetwork>;
+    network?: pulumi.Input<inputs.hdinsight.HBaseClusterNetwork | undefined>;
     /**
      * A `privateLinkConfiguration` block as defined below.
      */
-    privateLinkConfiguration?: pulumi.Input<inputs.hdinsight.HBaseClusterPrivateLinkConfiguration>;
+    privateLinkConfiguration?: pulumi.Input<inputs.hdinsight.HBaseClusterPrivateLinkConfiguration | undefined>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -446,19 +446,19 @@ export interface HBaseClusterArgs {
     /**
      * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile>;
+    securityProfile?: pulumi.Input<inputs.hdinsight.HBaseClusterSecurityProfile | undefined>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2 | undefined>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -468,5 +468,5 @@ export interface HBaseClusterArgs {
      *
      * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    tlsMinVersion?: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string | undefined>;
 }

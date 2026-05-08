@@ -182,23 +182,23 @@ export interface EnrichmentState {
     /**
      * The list of endpoints which will be enriched.
      */
-    endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
+    endpointNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
      */
-    iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string | undefined>;
     /**
      * The key of the enrichment. Changing this forces a new resource to be created.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**

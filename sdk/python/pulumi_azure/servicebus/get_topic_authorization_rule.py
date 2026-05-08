@@ -265,12 +265,12 @@ def get_topic_authorization_rule(name: Optional[_builtins.str] = None,
         send=pulumi.get(__ret__, 'send'),
         topic_id=pulumi.get(__ret__, 'topic_id'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-def get_topic_authorization_rule_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        namespace_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        queue_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        topic_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        topic_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_topic_authorization_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        queue_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        topic_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        topic_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicAuthorizationRuleResult]:
     """
     Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.

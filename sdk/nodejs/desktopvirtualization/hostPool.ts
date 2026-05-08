@@ -225,76 +225,76 @@ export interface HostPoolState {
     /**
      * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      */
-    customRdpProperties?: pulumi.Input<string>;
+    customRdpProperties?: pulumi.Input<string | undefined>;
     /**
      * A description for the Virtual Desktop Host Pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A friendly name for the Virtual Desktop Host Pool.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
-    loadBalancerType?: pulumi.Input<string>;
+    loadBalancerType?: pulumi.Input<string | undefined>;
     /**
      * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      */
-    maximumSessionsAllowed?: pulumi.Input<number>;
+    maximumSessionsAllowed?: pulumi.Input<number | undefined>;
     /**
      * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      *
      * > **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      */
-    personalDesktopAssignmentType?: pulumi.Input<string>;
+    personalDesktopAssignmentType?: pulumi.Input<string | undefined>;
     /**
      * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      */
-    preferredAppGroupType?: pulumi.Input<string>;
+    preferredAppGroupType?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
      */
-    scheduledAgentUpdates?: pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdates>;
+    scheduledAgentUpdates?: pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdates | undefined>;
     /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      */
-    startVmOnConnect?: pulumi.Input<boolean>;
+    startVmOnConnect?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      */
-    validateEnvironment?: pulumi.Input<boolean>;
+    validateEnvironment?: pulumi.Input<boolean | undefined>;
     /**
      * A VM template for session hosts configuration within hostpool. This is a JSON string.
      */
-    vmTemplate?: pulumi.Input<string>;
+    vmTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -304,15 +304,15 @@ export interface HostPoolArgs {
     /**
      * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      */
-    customRdpProperties?: pulumi.Input<string>;
+    customRdpProperties?: pulumi.Input<string | undefined>;
     /**
      * A description for the Virtual Desktop Host Pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A friendly name for the Virtual Desktop Host Pool.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
@@ -322,30 +322,30 @@ export interface HostPoolArgs {
     /**
      * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      */
-    maximumSessionsAllowed?: pulumi.Input<number>;
+    maximumSessionsAllowed?: pulumi.Input<number | undefined>;
     /**
      * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      *
      * > **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      */
-    personalDesktopAssignmentType?: pulumi.Input<string>;
+    personalDesktopAssignmentType?: pulumi.Input<string | undefined>;
     /**
      * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      */
-    preferredAppGroupType?: pulumi.Input<string>;
+    preferredAppGroupType?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
@@ -353,15 +353,15 @@ export interface HostPoolArgs {
     /**
      * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
      */
-    scheduledAgentUpdates?: pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdates>;
+    scheduledAgentUpdates?: pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdates | undefined>;
     /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      */
-    startVmOnConnect?: pulumi.Input<boolean>;
+    startVmOnConnect?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
@@ -369,9 +369,9 @@ export interface HostPoolArgs {
     /**
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      */
-    validateEnvironment?: pulumi.Input<boolean>;
+    validateEnvironment?: pulumi.Input<boolean | undefined>;
     /**
      * A VM template for session hosts configuration within hostpool. This is a JSON string.
      */
-    vmTemplate?: pulumi.Input<string>;
+    vmTemplate?: pulumi.Input<string | undefined>;
 }

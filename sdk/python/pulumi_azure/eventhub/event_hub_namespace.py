@@ -23,18 +23,18 @@ class EventHubNamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 dedicated_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rulesets: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['EventHubNamespaceIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rulesets: pulumi.Input[Optional['EventHubNamespaceNetworkRulesetsArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventHubNamespace resource.
 
@@ -108,91 +108,91 @@ class EventHubNamespaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoInflateEnabled")
-    def auto_inflate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_inflate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Auto Inflate enabled for the EventHub Namespace?
         """
         return pulumi.get(self, "auto_inflate_enabled")
 
     @auto_inflate_enabled.setter
-    def auto_inflate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_inflate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_inflate_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedClusterId")
-    def dedicated_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dedicated_cluster_id")
 
     @dedicated_cluster_id.setter
-    def dedicated_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EventHubNamespaceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EventHubNamespaceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EventHubNamespaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_throughput_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         """
         return pulumi.get(self, "maximum_throughput_units")
 
     @maximum_throughput_units.setter
-    def maximum_throughput_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_throughput_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_throughput_units", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
@@ -201,81 +201,81 @@ class EventHubNamespaceArgs:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRulesets")
-    def network_rulesets(self) -> Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']]:
+    def network_rulesets(self) -> pulumi.Input[Optional['EventHubNamespaceNetworkRulesetsArgs']]:
         """
         A `network_rulesets` block as defined below.
         """
         return pulumi.get(self, "network_rulesets")
 
     @network_rulesets.setter
-    def network_rulesets(self, value: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']]):
+    def network_rulesets(self, value: pulumi.Input[Optional['EventHubNamespaceNetworkRulesetsArgs']]):
         pulumi.set(self, "network_rulesets", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EventHubNamespaceState:
     def __init__(__self__, *,
-                 auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 dedicated_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_primary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rulesets: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['EventHubNamespaceIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rulesets: pulumi.Input[Optional['EventHubNamespaceNetworkRulesetsArgs']] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventHubNamespace resources.
 
@@ -345,163 +345,163 @@ class _EventHubNamespaceState:
 
     @_builtins.property
     @pulumi.getter(name="autoInflateEnabled")
-    def auto_inflate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_inflate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Auto Inflate enabled for the EventHub Namespace?
         """
         return pulumi.get(self, "auto_inflate_enabled")
 
     @auto_inflate_enabled.setter
-    def auto_inflate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_inflate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_inflate_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedClusterId")
-    def dedicated_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dedicated_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dedicated_cluster_id")
 
     @dedicated_cluster_id.setter
-    def dedicated_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dedicated_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dedicated_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPrimaryConnectionString")
-    def default_primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_connection_string")
 
     @default_primary_connection_string.setter
-    def default_primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPrimaryConnectionStringAlias")
-    def default_primary_connection_string_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_primary_connection_string_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         """
         return pulumi.get(self, "default_primary_connection_string_alias")
 
     @default_primary_connection_string_alias.setter
-    def default_primary_connection_string_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_primary_connection_string_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_primary_connection_string_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPrimaryKey")
-    def default_primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_primary_key")
 
     @default_primary_key.setter
-    def default_primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSecondaryConnectionString")
-    def default_secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_connection_string")
 
     @default_secondary_connection_string.setter
-    def default_secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSecondaryConnectionStringAlias")
-    def default_secondary_connection_string_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_secondary_connection_string_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         """
         return pulumi.get(self, "default_secondary_connection_string_alias")
 
     @default_secondary_connection_string_alias.setter
-    def default_secondary_connection_string_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_secondary_connection_string_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_secondary_connection_string_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSecondaryKey")
-    def default_secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         return pulumi.get(self, "default_secondary_key")
 
     @default_secondary_key.setter
-    def default_secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_secondary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EventHubNamespaceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['EventHubNamespaceIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['EventHubNamespaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_throughput_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
         """
         return pulumi.get(self, "maximum_throughput_units")
 
     @maximum_throughput_units.setter
-    def maximum_throughput_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_throughput_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_throughput_units", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
@@ -510,79 +510,79 @@ class _EventHubNamespaceState:
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRulesets")
-    def network_rulesets(self) -> Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']]:
+    def network_rulesets(self) -> pulumi.Input[Optional['EventHubNamespaceNetworkRulesetsArgs']]:
         """
         A `network_rulesets` block as defined below.
         """
         return pulumi.get(self, "network_rulesets")
 
     @network_rulesets.setter
-    def network_rulesets(self, value: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']]):
+    def network_rulesets(self, value: pulumi.Input[Optional['EventHubNamespaceNetworkRulesetsArgs']]):
         pulumi.set(self, "network_rulesets", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -592,20 +592,20 @@ class EventHubNamespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 dedicated_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rulesets: Optional[pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an EventHub Namespace.
@@ -725,20 +725,20 @@ class EventHubNamespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 dedicated_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_rulesets: Optional[pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -784,26 +784,26 @@ class EventHubNamespace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_inflate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            dedicated_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            default_primary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            default_primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            default_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            default_secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            default_secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_throughput_units: Optional[pulumi.Input[_builtins.int]] = None,
-            minimum_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_rulesets: Optional[pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'EventHubNamespace':
+            auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'EventHubNamespace':
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

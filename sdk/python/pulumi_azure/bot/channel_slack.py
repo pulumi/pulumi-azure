@@ -24,9 +24,9 @@ class ChannelSlackArgs:
                  client_secret: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  verification_token: pulumi.Input[_builtins.str],
-                 landing_page_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_secret: Optional[pulumi.Input[_builtins.str]] = None):
+                 landing_page_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelSlack resource.
 
@@ -113,52 +113,52 @@ class ChannelSlackArgs:
 
     @_builtins.property
     @pulumi.getter(name="landingPageUrl")
-    def landing_page_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def landing_page_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Slack Landing Page URL.
         """
         return pulumi.get(self, "landing_page_url")
 
     @landing_page_url.setter
-    def landing_page_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def landing_page_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "landing_page_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="signingSecret")
-    def signing_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Signing Secret that will be used to sign the requests.
         """
         return pulumi.get(self, "signing_secret")
 
     @signing_secret.setter
-    def signing_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_secret", value)
 
 
 @pulumi.input_type
 class _ChannelSlackState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 landing_page_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 landing_page_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelSlack resources.
 
@@ -190,98 +190,98 @@ class _ChannelSlackState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client ID that will be used to authenticate with Slack.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Secret that will be used to authenticate with Slack.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="landingPageUrl")
-    def landing_page_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def landing_page_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Slack Landing Page URL.
         """
         return pulumi.get(self, "landing_page_url")
 
     @landing_page_url.setter
-    def landing_page_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def landing_page_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "landing_page_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="signingSecret")
-    def signing_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Signing Secret that will be used to sign the requests.
         """
         return pulumi.get(self, "signing_secret")
 
     @signing_secret.setter
-    def signing_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationToken")
-    def verification_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verification_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Verification Token that will be used to authenticate with Slack.
         """
         return pulumi.get(self, "verification_token")
 
     @verification_token.setter
-    def verification_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verification_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verification_token", value)
 
 
@@ -291,14 +291,14 @@ class ChannelSlack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 landing_page_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 landing_page_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Slack integration for a Bot Channel
@@ -410,14 +410,14 @@ class ChannelSlack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 landing_page_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 landing_page_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -457,14 +457,14 @@ class ChannelSlack(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            landing_page_url: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            verification_token: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelSlack':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            landing_page_url: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            verification_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelSlack':
         """
         Get an existing ChannelSlack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

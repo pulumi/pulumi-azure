@@ -32,8 +32,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -128,8 +128,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -176,8 +176,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -224,8 +224,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -272,8 +272,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -370,8 +370,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -419,8 +419,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -468,8 +468,8 @@ public final class KustoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.kusto.KustoFunctions;
      * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

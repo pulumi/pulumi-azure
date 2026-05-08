@@ -23,16 +23,16 @@ class LinkServiceArgs:
     def __init__(__self__, *,
                  nat_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_protocol_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkService resource.
 
@@ -102,113 +102,113 @@ class LinkServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoApprovalSubscriptionIds")
-    def auto_approval_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auto_approval_subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         """
         return pulumi.get(self, "auto_approval_subscription_ids")
 
     @auto_approval_subscription_ids.setter
-    def auto_approval_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auto_approval_subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_approval_subscription_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIpAddress")
-    def destination_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination IP address of the Private Link Service.
         """
         return pulumi.get(self, "destination_ip_address")
 
     @destination_ip_address.setter
-    def destination_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="enableProxyProtocol")
     @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_proxy_protocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_proxy_protocol")
 
     @enable_proxy_protocol.setter
-    def enable_proxy_protocol(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_proxy_protocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_proxy_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of FQDNs allowed for the Private Link Service.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
-    def load_balancer_frontend_ip_configuration_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_frontend_ip_configuration_ids")
 
     @load_balancer_frontend_ip_configuration_ids.setter
-    def load_balancer_frontend_ip_configuration_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_frontend_ip_configuration_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_frontend_ip_configuration_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyProtocolEnabled")
-    def proxy_protocol_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def proxy_protocol_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
         """
         return pulumi.get(self, "proxy_protocol_enabled")
 
     @proxy_protocol_enabled.setter
-    def proxy_protocol_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def proxy_protocol_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "proxy_protocol_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilitySubscriptionIds")
-    def visibility_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def visibility_subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 
@@ -217,26 +217,26 @@ class LinkServiceArgs:
         return pulumi.get(self, "visibility_subscription_ids")
 
     @visibility_subscription_ids.setter
-    def visibility_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def visibility_subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "visibility_subscription_ids", value)
 
 
 @pulumi.input_type
 class _LinkServiceState:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]] = None,
-                 proxy_protocol_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]] = None,
+                 proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LinkService resources.
 
@@ -287,149 +287,149 @@ class _LinkServiceState:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="autoApprovalSubscriptionIds")
-    def auto_approval_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auto_approval_subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         """
         return pulumi.get(self, "auto_approval_subscription_ids")
 
     @auto_approval_subscription_ids.setter
-    def auto_approval_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auto_approval_subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_approval_subscription_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIpAddress")
-    def destination_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination IP address of the Private Link Service.
         """
         return pulumi.get(self, "destination_ip_address")
 
     @destination_ip_address.setter
-    def destination_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="enableProxyProtocol")
     @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_proxy_protocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_proxy_protocol")
 
     @enable_proxy_protocol.setter
-    def enable_proxy_protocol(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_proxy_protocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_proxy_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of FQDNs allowed for the Private Link Service.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
-    def load_balancer_frontend_ip_configuration_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_frontend_ip_configuration_ids")
 
     @load_balancer_frontend_ip_configuration_ids.setter
-    def load_balancer_frontend_ip_configuration_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancer_frontend_ip_configuration_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancer_frontend_ip_configuration_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="natIpConfigurations")
-    def nat_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]]:
+    def nat_ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]]:
         """
         One or more (up to 8) `nat_ip_configuration` block as defined below.
         """
         return pulumi.get(self, "nat_ip_configurations")
 
     @nat_ip_configurations.setter
-    def nat_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]]):
+    def nat_ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]]):
         pulumi.set(self, "nat_ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyProtocolEnabled")
-    def proxy_protocol_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def proxy_protocol_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
         """
         return pulumi.get(self, "proxy_protocol_enabled")
 
     @proxy_protocol_enabled.setter
-    def proxy_protocol_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def proxy_protocol_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "proxy_protocol_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilitySubscriptionIds")
-    def visibility_subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def visibility_subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 
@@ -438,7 +438,7 @@ class _LinkServiceState:
         return pulumi.get(self, "visibility_subscription_ids")
 
     @visibility_subscription_ids.setter
-    def visibility_subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def visibility_subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "visibility_subscription_ids", value)
 
 
@@ -448,18 +448,18 @@ class LinkService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
-                 proxy_protocol_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
+                 proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Private Link Service.
@@ -660,18 +660,18 @@ class LinkService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
-                 proxy_protocol_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
+                 proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -708,19 +708,19 @@ class LinkService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            destination_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_proxy_protocol: Optional[pulumi.Input[_builtins.bool]] = None,
-            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
-            proxy_protocol_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LinkService':
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
+            proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            visibility_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LinkService':
         """
         Get an existing LinkService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

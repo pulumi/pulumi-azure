@@ -150,31 +150,31 @@ export interface TriggerHttpRequestState {
     /**
      * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      */
-    callbackUrl?: pulumi.Input<string>;
+    callbackUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    logicAppId?: pulumi.Input<string>;
+    logicAppId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Relative Path used for this Request.
      *
      * > **NOTE:** When `relativePath` is set a `method` must also be set.
      */
-    relativePath?: pulumi.Input<string>;
+    relativePath?: pulumi.Input<string | undefined>;
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,19 +188,19 @@ export interface TriggerHttpRequestArgs {
     /**
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Relative Path used for this Request.
      *
      * > **NOTE:** When `relativePath` is set a `method` must also be set.
      */
-    relativePath?: pulumi.Input<string>;
+    relativePath?: pulumi.Input<string | undefined>;
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      */

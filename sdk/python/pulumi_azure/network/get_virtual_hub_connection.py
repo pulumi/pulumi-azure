@@ -175,9 +175,9 @@ def get_virtual_hub_connection(name: Optional[_builtins.str] = None,
         routings=pulumi.get(__ret__, 'routings'),
         virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'),
         virtual_hub_name=pulumi.get(__ret__, 'virtual_hub_name'))
-def get_virtual_hub_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_hub_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubConnectionResult]:
     """
     Uses this data source to access information about an existing Virtual Hub Connection.

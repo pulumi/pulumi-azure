@@ -292,15 +292,15 @@ export interface NamespaceCustomerManagedKeyState {
     /**
      * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    eventhubNamespaceId?: pulumi.Input<string>;
+    eventhubNamespaceId?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The list of keys of Key Vault.
      */
-    keyVaultKeyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    keyVaultKeyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
      *
@@ -308,7 +308,7 @@ export interface NamespaceCustomerManagedKeyState {
      *
      * > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -322,7 +322,7 @@ export interface NamespaceCustomerManagedKeyArgs {
     /**
      * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The list of keys of Key Vault.
      */
@@ -334,5 +334,5 @@ export interface NamespaceCustomerManagedKeyArgs {
      *
      * > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }

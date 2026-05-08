@@ -108,5 +108,5 @@ export interface GetFirewallPolicyOutputArgs {
      * The name of the Resource Group where the Web Application Firewall Policy exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

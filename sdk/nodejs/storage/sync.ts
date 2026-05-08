@@ -138,27 +138,27 @@ export interface SyncState {
     /**
      * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      */
-    incomingTrafficPolicy?: pulumi.Input<string>;
+    incomingTrafficPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of registered servers owned by this Storage Sync.
      */
-    registeredServers?: pulumi.Input<pulumi.Input<string>[]>;
+    registeredServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Storage Sync.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -168,15 +168,15 @@ export interface SyncArgs {
     /**
      * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      */
-    incomingTrafficPolicy?: pulumi.Input<string>;
+    incomingTrafficPolicy?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
@@ -184,5 +184,5 @@ export interface SyncArgs {
     /**
      * A mapping of tags which should be assigned to the Storage Sync.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -140,19 +140,19 @@ export interface OrganizationState {
     /**
      * Custom `displayName` for the organization.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The application `id`. Changing this forces a new resource to be created.
      */
-    iotcentralApplicationId?: pulumi.Input<string>;
+    iotcentralApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the organization. Changing this forces a new resource to be created.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      */
-    parentOrganizationId?: pulumi.Input<string>;
+    parentOrganizationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -174,5 +174,5 @@ export interface OrganizationArgs {
     /**
      * The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      */
-    parentOrganizationId?: pulumi.Input<string>;
+    parentOrganizationId?: pulumi.Input<string | undefined>;
 }

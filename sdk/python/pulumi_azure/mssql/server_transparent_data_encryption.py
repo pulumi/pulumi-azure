@@ -20,9 +20,9 @@ __all__ = ['ServerTransparentDataEncryptionArgs', 'ServerTransparentDataEncrypti
 class ServerTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.str],
-                 auto_rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTransparentDataEncryption resource.
 
@@ -59,19 +59,19 @@ class ServerTransparentDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRotationEnabled")
-    def auto_rotation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_rotation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         """
         return pulumi.get(self, "auto_rotation_enabled")
 
     @auto_rotation_enabled.setter
-    def auto_rotation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_rotation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_rotation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 
@@ -82,27 +82,27 @@ class ServerTransparentDataEncryptionArgs:
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
     @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
 
 @pulumi.input_type
 class _ServerTransparentDataEncryptionState:
     def __init__(__self__, *,
-                 auto_rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
 
@@ -128,19 +128,19 @@ class _ServerTransparentDataEncryptionState:
 
     @_builtins.property
     @pulumi.getter(name="autoRotationEnabled")
-    def auto_rotation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_rotation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         """
         return pulumi.get(self, "auto_rotation_enabled")
 
     @auto_rotation_enabled.setter
-    def auto_rotation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_rotation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_rotation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 
@@ -151,29 +151,29 @@ class _ServerTransparentDataEncryptionState:
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
     @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
-    def server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_id", value)
 
 
@@ -183,10 +183,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the transparent data encryption configuration for a MSSQL Server
@@ -487,10 +487,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -516,10 +516,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            server_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerTransparentDataEncryption':
+            auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerTransparentDataEncryption':
         """
         Get an existing ServerTransparentDataEncryption resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

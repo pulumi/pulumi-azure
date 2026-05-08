@@ -122,7 +122,7 @@ class DomainIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 
@@ -130,11 +130,11 @@ class DomainIdentityArgsDict(TypedDict):
 
     > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -143,9 +143,9 @@ class DomainIdentityArgsDict(TypedDict):
 class DomainIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
@@ -178,7 +178,7 @@ class DomainIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 
@@ -189,31 +189,31 @@ class DomainIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -222,7 +222,7 @@ class DomainInboundIpRuleArgsDict(TypedDict):
     """
     The IP mask (CIDR) to match on.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
     """
@@ -231,7 +231,7 @@ class DomainInboundIpRuleArgsDict(TypedDict):
 class DomainInboundIpRuleArgs:
     def __init__(__self__, *,
                  ip_mask: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ip_mask: The IP mask (CIDR) to match on.
         :param pulumi.Input[_builtins.str] action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
@@ -254,27 +254,27 @@ class DomainInboundIpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
 
 class DomainInputMappingDefaultValuesArgsDict(TypedDict):
-    data_version: NotRequired[pulumi.Input[_builtins.str]]
+    data_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    event_type: NotRequired[pulumi.Input[_builtins.str]]
+    event_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    subject: NotRequired[pulumi.Input[_builtins.str]]
+    subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
@@ -282,9 +282,9 @@ class DomainInputMappingDefaultValuesArgsDict(TypedDict):
 @pulumi.input_type
 class DomainInputMappingDefaultValuesArgs:
     def __init__(__self__, *,
-                 data_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_version: Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] event_type: Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -299,63 +299,63 @@ class DomainInputMappingDefaultValuesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataVersion")
-    def data_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_version")
 
     @data_version.setter
-    def data_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_version", value)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
 
 class DomainInputMappingFieldsArgsDict(TypedDict):
-    data_version: NotRequired[pulumi.Input[_builtins.str]]
+    data_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    event_time: NotRequired[pulumi.Input[_builtins.str]]
+    event_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    event_type: NotRequired[pulumi.Input[_builtins.str]]
+    event_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    subject: NotRequired[pulumi.Input[_builtins.str]]
+    subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
@@ -363,12 +363,12 @@ class DomainInputMappingFieldsArgsDict(TypedDict):
 @pulumi.input_type
 class DomainInputMappingFieldsArgs:
     def __init__(__self__, *,
-                 data_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_version: Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] event_time: Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -392,74 +392,74 @@ class DomainInputMappingFieldsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataVersion")
-    def data_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_version")
 
     @data_version.setter
-    def data_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_version", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTime")
-    def event_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "event_time")
 
     @event_time.setter
-    def event_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_time", value)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
 
@@ -468,7 +468,7 @@ class EventGridTopicIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 
@@ -476,11 +476,11 @@ class EventGridTopicIdentityArgsDict(TypedDict):
 
     > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -489,9 +489,9 @@ class EventGridTopicIdentityArgsDict(TypedDict):
 class EventGridTopicIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
@@ -524,7 +524,7 @@ class EventGridTopicIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 
@@ -535,31 +535,31 @@ class EventGridTopicIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -568,7 +568,7 @@ class EventGridTopicInboundIpRuleArgsDict(TypedDict):
     """
     The IP mask (CIDR) to match on.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
     """
@@ -577,7 +577,7 @@ class EventGridTopicInboundIpRuleArgsDict(TypedDict):
 class EventGridTopicInboundIpRuleArgs:
     def __init__(__self__, *,
                  ip_mask: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ip_mask: The IP mask (CIDR) to match on.
         :param pulumi.Input[_builtins.str] action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
@@ -600,27 +600,27 @@ class EventGridTopicInboundIpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
 
 class EventGridTopicInputMappingDefaultValuesArgsDict(TypedDict):
-    data_version: NotRequired[pulumi.Input[_builtins.str]]
+    data_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    event_type: NotRequired[pulumi.Input[_builtins.str]]
+    event_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    subject: NotRequired[pulumi.Input[_builtins.str]]
+    subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
@@ -628,9 +628,9 @@ class EventGridTopicInputMappingDefaultValuesArgsDict(TypedDict):
 @pulumi.input_type
 class EventGridTopicInputMappingDefaultValuesArgs:
     def __init__(__self__, *,
-                 data_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_version: Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] event_type: Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -645,63 +645,63 @@ class EventGridTopicInputMappingDefaultValuesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataVersion")
-    def data_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_version")
 
     @data_version.setter
-    def data_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_version", value)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
 
 class EventGridTopicInputMappingFieldsArgsDict(TypedDict):
-    data_version: NotRequired[pulumi.Input[_builtins.str]]
+    data_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    event_time: NotRequired[pulumi.Input[_builtins.str]]
+    event_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    event_type: NotRequired[pulumi.Input[_builtins.str]]
+    event_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    subject: NotRequired[pulumi.Input[_builtins.str]]
+    subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
@@ -709,12 +709,12 @@ class EventGridTopicInputMappingFieldsArgsDict(TypedDict):
 @pulumi.input_type
 class EventGridTopicInputMappingFieldsArgs:
     def __init__(__self__, *,
-                 data_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_version: Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] event_time: Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -738,74 +738,74 @@ class EventGridTopicInputMappingFieldsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataVersion")
-    def data_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_version")
 
     @data_version.setter
-    def data_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_version", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTime")
-    def event_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "event_time")
 
     @event_time.setter
-    def event_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_time", value)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
 
@@ -822,15 +822,15 @@ class EventHubCaptureDescriptionArgsDict(TypedDict):
     """
     Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
     """
-    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
     """
-    size_limit_in_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    size_limit_in_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
     """
-    skip_empty_archives: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_empty_archives: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
     """
@@ -841,9 +841,9 @@ class EventHubCaptureDescriptionArgs:
                  destination: pulumi.Input['EventHubCaptureDescriptionDestinationArgs'],
                  enabled: pulumi.Input[_builtins.bool],
                  encoding: pulumi.Input[_builtins.str],
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 size_limit_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_empty_archives: Optional[pulumi.Input[_builtins.bool]] = None):
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 size_limit_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_empty_archives: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['EventHubCaptureDescriptionDestinationArgs'] destination: A `destination` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Specifies if the Capture Description is Enabled.
@@ -900,38 +900,38 @@ class EventHubCaptureDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeLimitInBytes")
-    def size_limit_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_limit_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000` bytes. Defaults to `314572800` bytes.
         """
         return pulumi.get(self, "size_limit_in_bytes")
 
     @size_limit_in_bytes.setter
-    def size_limit_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_limit_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_limit_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="skipEmptyArchives")
-    def skip_empty_archives(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_empty_archives(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
         """
         return pulumi.get(self, "skip_empty_archives")
 
     @skip_empty_archives.setter
-    def skip_empty_archives(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_empty_archives(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_empty_archives", value)
 
 
@@ -1031,7 +1031,7 @@ class EventHubNamespaceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 
@@ -1039,11 +1039,11 @@ class EventHubNamespaceIdentityArgsDict(TypedDict):
 
     > **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -1052,9 +1052,9 @@ class EventHubNamespaceIdentityArgsDict(TypedDict):
 class EventHubNamespaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
@@ -1087,7 +1087,7 @@ class EventHubNamespaceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
 
@@ -1098,31 +1098,31 @@ class EventHubNamespaceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1131,21 +1131,21 @@ class EventHubNamespaceNetworkRulesetsArgsDict(TypedDict):
     """
     The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]]
     """
     One or more `ip_rule` blocks as defined below.
     """
-    public_network_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    public_network_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is public network access enabled for the EventHub Namespace? Defaults to `true`.
 
     > **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
     """
-    trusted_service_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    trusted_service_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether Trusted Microsoft Services are allowed to bypass firewall.
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgsDict']]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]]]
     """
     One or more `virtual_network_rule` blocks as defined below.
     """
@@ -1154,10 +1154,10 @@ class EventHubNamespaceNetworkRulesetsArgsDict(TypedDict):
 class EventHubNamespaceNetworkRulesetsArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[_builtins.str],
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_service_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_service_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
@@ -1191,19 +1191,19 @@ class EventHubNamespaceNetworkRulesetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled for the EventHub Namespace? Defaults to `true`.
 
@@ -1212,31 +1212,31 @@ class EventHubNamespaceNetworkRulesetsArgs:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedServiceAccessEnabled")
-    def trusted_service_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_service_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Trusted Microsoft Services are allowed to bypass firewall.
         """
         return pulumi.get(self, "trusted_service_access_enabled")
 
     @trusted_service_access_enabled.setter
-    def trusted_service_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_service_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_service_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]]:
         """
         One or more `virtual_network_rule` blocks as defined below.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
@@ -1245,7 +1245,7 @@ class EventHubNamespaceNetworkRulesetsIpRuleArgsDict(TypedDict):
     """
     The IP mask to match on.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
     """
@@ -1254,7 +1254,7 @@ class EventHubNamespaceNetworkRulesetsIpRuleArgsDict(TypedDict):
 class EventHubNamespaceNetworkRulesetsIpRuleArgs:
     def __init__(__self__, *,
                  ip_mask: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ip_mask: The IP mask to match on.
         :param pulumi.Input[_builtins.str] action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
@@ -1277,14 +1277,14 @@ class EventHubNamespaceNetworkRulesetsIpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
 
@@ -1293,7 +1293,7 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgsDict(TypedDict):
     """
     The id of the subnet to match on.
     """
-    ignore_missing_virtual_network_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_missing_virtual_network_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Are missing virtual network service endpoints ignored?
     """
@@ -1302,7 +1302,7 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgsDict(TypedDict):
 class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 ignore_missing_virtual_network_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ignore_missing_virtual_network_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The id of the subnet to match on.
         :param pulumi.Input[_builtins.bool] ignore_missing_virtual_network_service_endpoint: Are missing virtual network service endpoints ignored?
@@ -1325,14 +1325,14 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVirtualNetworkServiceEndpoint")
-    def ignore_missing_virtual_network_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_virtual_network_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are missing virtual network service endpoints ignored?
         """
         return pulumi.get(self, "ignore_missing_virtual_network_service_endpoint")
 
     @ignore_missing_virtual_network_service_endpoint.setter
-    def ignore_missing_virtual_network_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_virtual_network_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_virtual_network_service_endpoint", value)
 
 
@@ -1341,11 +1341,11 @@ class EventHubRetentionDescriptionArgsDict(TypedDict):
     """
     Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
     """
-    retention_time_in_hours: NotRequired[pulumi.Input[_builtins.int]]
+    retention_time_in_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
     """
-    tombstone_retention_time_in_hours: NotRequired[pulumi.Input[_builtins.int]]
+    tombstone_retention_time_in_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
     """
@@ -1354,8 +1354,8 @@ class EventHubRetentionDescriptionArgsDict(TypedDict):
 class EventHubRetentionDescriptionArgs:
     def __init__(__self__, *,
                  cleanup_policy: pulumi.Input[_builtins.str],
-                 retention_time_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 tombstone_retention_time_in_hours: Optional[pulumi.Input[_builtins.int]] = None):
+                 retention_time_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 tombstone_retention_time_in_hours: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] cleanup_policy: Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_time_in_hours: Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
@@ -1381,105 +1381,105 @@ class EventHubRetentionDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="retentionTimeInHours")
-    def retention_time_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_time_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
         """
         return pulumi.get(self, "retention_time_in_hours")
 
     @retention_time_in_hours.setter
-    def retention_time_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_time_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_time_in_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="tombstoneRetentionTimeInHours")
-    def tombstone_retention_time_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tombstone_retention_time_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
         """
         return pulumi.get(self, "tombstone_retention_time_in_hours")
 
     @tombstone_retention_time_in_hours.setter
-    def tombstone_retention_time_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tombstone_retention_time_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tombstone_retention_time_in_hours", value)
 
 
 class EventSubscriptionAdvancedFilterArgsDict(TypedDict):
-    bool_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgsDict']]]]
+    bool_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]]
     """
     Compares a value of an event using a single boolean value.
     """
-    is_not_nulls: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgsDict']]]]
+    is_not_nulls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]]
     """
     Evaluates if a value of an event isn't NULL or undefined.
     """
-    is_null_or_undefineds: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgsDict']]]]
+    is_null_or_undefineds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]]
     """
     Evaluates if a value of an event is NULL or undefined.
 
     Each nested block consists of a key and a value(s) element.
     """
-    number_greater_than_or_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgsDict']]]]
+    number_greater_than_or_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_greater_thans: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgsDict']]]]
+    number_greater_thans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_in_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgsDict']]]]
+    number_in_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]]
     """
     Compares a value of an event using multiple floating point number ranges.
     """
-    number_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgsDict']]]]
+    number_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]]]
     """
     Compares a value of an event using multiple floating point numbers.
     """
-    number_less_than_or_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgsDict']]]]
+    number_less_than_or_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_less_thans: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgsDict']]]]
+    number_less_thans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_not_in_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgsDict']]]]
+    number_not_in_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]]
     """
     Compares a value of an event using multiple floating point number ranges.
     """
-    number_not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgsDict']]]]
+    number_not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]]]
     """
     Compares a value of an event using multiple floating point numbers.
     """
-    string_begins_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgsDict']]]]
+    string_begins_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_contains: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgsDict']]]]
+    string_contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgsDict']]]]
+    string_ends_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgsDict']]]]
+    string_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_begins_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgsDict']]]]
+    string_not_begins_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_contains: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgsDict']]]]
+    string_not_contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgsDict']]]]
+    string_not_ends_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgsDict']]]]
+    string_not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]]
     """
     Compares a value of an event using multiple string values.
     """
@@ -1487,25 +1487,25 @@ class EventSubscriptionAdvancedFilterArgsDict(TypedDict):
 @pulumi.input_type
 class EventSubscriptionAdvancedFilterArgs:
     def __init__(__self__, *,
-                 bool_equals: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]] = None,
-                 is_not_nulls: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]] = None,
-                 is_null_or_undefineds: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]] = None,
-                 number_greater_than_or_equals: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]] = None,
-                 number_greater_thans: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]] = None,
-                 number_in_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]] = None,
-                 number_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]] = None,
-                 number_less_than_or_equals: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]] = None,
-                 number_less_thans: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]] = None,
-                 number_not_in_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]] = None,
-                 number_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]] = None,
-                 string_begins_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]] = None,
-                 string_contains: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]] = None,
-                 string_ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]] = None,
-                 string_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]] = None,
-                 string_not_begins_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]] = None,
-                 string_not_contains: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]] = None,
-                 string_not_ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]] = None,
-                 string_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]] = None):
+                 bool_equals: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]] = None,
+                 is_not_nulls: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]] = None,
+                 is_null_or_undefineds: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]] = None,
+                 number_greater_than_or_equals: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]] = None,
+                 number_greater_thans: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]] = None,
+                 number_in_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]] = None,
+                 number_ins: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]] = None,
+                 number_less_than_or_equals: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]] = None,
+                 number_less_thans: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]] = None,
+                 number_not_in_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]] = None,
+                 number_not_ins: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]] = None,
+                 string_begins_withs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]] = None,
+                 string_contains: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]] = None,
+                 string_ends_withs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]] = None,
+                 string_ins: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]] = None,
+                 string_not_begins_withs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]] = None,
+                 string_not_contains: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]] = None,
+                 string_not_ends_withs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]] = None,
+                 string_not_ins: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]] bool_equals: Compares a value of an event using a single boolean value.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
@@ -1570,31 +1570,31 @@ class EventSubscriptionAdvancedFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="boolEquals")
-    def bool_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]:
+    def bool_equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]:
         """
         Compares a value of an event using a single boolean value.
         """
         return pulumi.get(self, "bool_equals")
 
     @bool_equals.setter
-    def bool_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]):
+    def bool_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]):
         pulumi.set(self, "bool_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="isNotNulls")
-    def is_not_nulls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]:
+    def is_not_nulls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]:
         """
         Evaluates if a value of an event isn't NULL or undefined.
         """
         return pulumi.get(self, "is_not_nulls")
 
     @is_not_nulls.setter
-    def is_not_nulls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]):
+    def is_not_nulls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]):
         pulumi.set(self, "is_not_nulls", value)
 
     @_builtins.property
     @pulumi.getter(name="isNullOrUndefineds")
-    def is_null_or_undefineds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]:
+    def is_null_or_undefineds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]:
         """
         Evaluates if a value of an event is NULL or undefined.
 
@@ -1603,199 +1603,199 @@ class EventSubscriptionAdvancedFilterArgs:
         return pulumi.get(self, "is_null_or_undefineds")
 
     @is_null_or_undefineds.setter
-    def is_null_or_undefineds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]):
+    def is_null_or_undefineds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]):
         pulumi.set(self, "is_null_or_undefineds", value)
 
     @_builtins.property
     @pulumi.getter(name="numberGreaterThanOrEquals")
-    def number_greater_than_or_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]]:
+    def number_greater_than_or_equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]]:
         """
         Compares a value of an event using a single floating point number.
         """
         return pulumi.get(self, "number_greater_than_or_equals")
 
     @number_greater_than_or_equals.setter
-    def number_greater_than_or_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]]):
+    def number_greater_than_or_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]]):
         pulumi.set(self, "number_greater_than_or_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="numberGreaterThans")
-    def number_greater_thans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]:
+    def number_greater_thans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]:
         """
         Compares a value of an event using a single floating point number.
         """
         return pulumi.get(self, "number_greater_thans")
 
     @number_greater_thans.setter
-    def number_greater_thans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]):
+    def number_greater_thans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]):
         pulumi.set(self, "number_greater_thans", value)
 
     @_builtins.property
     @pulumi.getter(name="numberInRanges")
-    def number_in_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]:
+    def number_in_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]:
         """
         Compares a value of an event using multiple floating point number ranges.
         """
         return pulumi.get(self, "number_in_ranges")
 
     @number_in_ranges.setter
-    def number_in_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]):
+    def number_in_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]):
         pulumi.set(self, "number_in_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="numberIns")
-    def number_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]]:
+    def number_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]]:
         """
         Compares a value of an event using multiple floating point numbers.
         """
         return pulumi.get(self, "number_ins")
 
     @number_ins.setter
-    def number_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]]):
+    def number_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]]):
         pulumi.set(self, "number_ins", value)
 
     @_builtins.property
     @pulumi.getter(name="numberLessThanOrEquals")
-    def number_less_than_or_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]]:
+    def number_less_than_or_equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]]:
         """
         Compares a value of an event using a single floating point number.
         """
         return pulumi.get(self, "number_less_than_or_equals")
 
     @number_less_than_or_equals.setter
-    def number_less_than_or_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]]):
+    def number_less_than_or_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]]):
         pulumi.set(self, "number_less_than_or_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="numberLessThans")
-    def number_less_thans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]:
+    def number_less_thans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]:
         """
         Compares a value of an event using a single floating point number.
         """
         return pulumi.get(self, "number_less_thans")
 
     @number_less_thans.setter
-    def number_less_thans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]):
+    def number_less_thans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]):
         pulumi.set(self, "number_less_thans", value)
 
     @_builtins.property
     @pulumi.getter(name="numberNotInRanges")
-    def number_not_in_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]:
+    def number_not_in_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]:
         """
         Compares a value of an event using multiple floating point number ranges.
         """
         return pulumi.get(self, "number_not_in_ranges")
 
     @number_not_in_ranges.setter
-    def number_not_in_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]):
+    def number_not_in_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]):
         pulumi.set(self, "number_not_in_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="numberNotIns")
-    def number_not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]]:
+    def number_not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]]:
         """
         Compares a value of an event using multiple floating point numbers.
         """
         return pulumi.get(self, "number_not_ins")
 
     @number_not_ins.setter
-    def number_not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]]):
+    def number_not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]]):
         pulumi.set(self, "number_not_ins", value)
 
     @_builtins.property
     @pulumi.getter(name="stringBeginsWiths")
-    def string_begins_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]]:
+    def string_begins_withs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_begins_withs")
 
     @string_begins_withs.setter
-    def string_begins_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]]):
+    def string_begins_withs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]]):
         pulumi.set(self, "string_begins_withs", value)
 
     @_builtins.property
     @pulumi.getter(name="stringContains")
-    def string_contains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]]:
+    def string_contains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_contains")
 
     @string_contains.setter
-    def string_contains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]]):
+    def string_contains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]]):
         pulumi.set(self, "string_contains", value)
 
     @_builtins.property
     @pulumi.getter(name="stringEndsWiths")
-    def string_ends_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]]:
+    def string_ends_withs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_ends_withs")
 
     @string_ends_withs.setter
-    def string_ends_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]]):
+    def string_ends_withs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]]):
         pulumi.set(self, "string_ends_withs", value)
 
     @_builtins.property
     @pulumi.getter(name="stringIns")
-    def string_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]]:
+    def string_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_ins")
 
     @string_ins.setter
-    def string_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]]):
+    def string_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]]):
         pulumi.set(self, "string_ins", value)
 
     @_builtins.property
     @pulumi.getter(name="stringNotBeginsWiths")
-    def string_not_begins_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]:
+    def string_not_begins_withs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_not_begins_withs")
 
     @string_not_begins_withs.setter
-    def string_not_begins_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]):
+    def string_not_begins_withs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]):
         pulumi.set(self, "string_not_begins_withs", value)
 
     @_builtins.property
     @pulumi.getter(name="stringNotContains")
-    def string_not_contains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]:
+    def string_not_contains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_not_contains")
 
     @string_not_contains.setter
-    def string_not_contains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]):
+    def string_not_contains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]):
         pulumi.set(self, "string_not_contains", value)
 
     @_builtins.property
     @pulumi.getter(name="stringNotEndsWiths")
-    def string_not_ends_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]:
+    def string_not_ends_withs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_not_ends_withs")
 
     @string_not_ends_withs.setter
-    def string_not_ends_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]):
+    def string_not_ends_withs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]):
         pulumi.set(self, "string_not_ends_withs", value)
 
     @_builtins.property
     @pulumi.getter(name="stringNotIns")
-    def string_not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]:
+    def string_not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]:
         """
         Compares a value of an event using multiple string values.
         """
         return pulumi.get(self, "string_not_ins")
 
     @string_not_ins.setter
-    def string_not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]):
+    def string_not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]):
         pulumi.set(self, "string_not_ins", value)
 
 
@@ -2696,11 +2696,11 @@ class EventSubscriptionAzureFunctionEndpointArgsDict(TypedDict):
     """
     Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
     """
-    max_events_per_batch: NotRequired[pulumi.Input[_builtins.int]]
+    max_events_per_batch: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of events per batch.
     """
-    preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[_builtins.int]]
+    preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Preferred batch size in Kilobytes.
     """
@@ -2709,8 +2709,8 @@ class EventSubscriptionAzureFunctionEndpointArgsDict(TypedDict):
 class EventSubscriptionAzureFunctionEndpointArgs:
     def __init__(__self__, *,
                  function_id: pulumi.Input[_builtins.str],
-                 max_events_per_batch: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_batch_size_in_kilobytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_events_per_batch: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_batch_size_in_kilobytes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] function_id: Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
         :param pulumi.Input[_builtins.int] max_events_per_batch: Maximum number of events per batch.
@@ -2736,26 +2736,26 @@ class EventSubscriptionAzureFunctionEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxEventsPerBatch")
-    def max_events_per_batch(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_events_per_batch(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of events per batch.
         """
         return pulumi.get(self, "max_events_per_batch")
 
     @max_events_per_batch.setter
-    def max_events_per_batch(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_events_per_batch(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_events_per_batch", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
-    def preferred_batch_size_in_kilobytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def preferred_batch_size_in_kilobytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Preferred batch size in Kilobytes.
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
     @preferred_batch_size_in_kilobytes.setter
-    def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def preferred_batch_size_in_kilobytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
 
 
@@ -2764,7 +2764,7 @@ class EventSubscriptionDeadLetterIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user identity associated with the resource.
     """
@@ -2773,7 +2773,7 @@ class EventSubscriptionDeadLetterIdentityArgsDict(TypedDict):
 class EventSubscriptionDeadLetterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[_builtins.str] user_assigned_identity: The user identity associated with the resource.
@@ -2796,14 +2796,14 @@ class EventSubscriptionDeadLetterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user identity associated with the resource.
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
@@ -2812,7 +2812,7 @@ class EventSubscriptionDeliveryIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
     """
-    user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user identity associated with the resource.
     """
@@ -2821,7 +2821,7 @@ class EventSubscriptionDeliveryIdentityArgsDict(TypedDict):
 class EventSubscriptionDeliveryIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
+                 user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[_builtins.str] user_assigned_identity: The user identity associated with the resource.
@@ -2844,14 +2844,14 @@ class EventSubscriptionDeliveryIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user identity associated with the resource.
         """
         return pulumi.get(self, "user_assigned_identity")
 
     @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity", value)
 
 
@@ -2864,15 +2864,15 @@ class EventSubscriptionDeliveryPropertyArgsDict(TypedDict):
     """
     Either `Static` or `Dynamic`
     """
-    secret: NotRequired[pulumi.Input[_builtins.bool]]
+    secret: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
     """
-    source_field: NotRequired[pulumi.Input[_builtins.str]]
+    source_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the `type` is `Static`, then provide the value to use
     """
@@ -2882,9 +2882,9 @@ class EventSubscriptionDeliveryPropertyArgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] header_name: The name of the header to send on to the destination
         :param pulumi.Input[_builtins.str] type: Either `Static` or `Dynamic`
@@ -2927,38 +2927,38 @@ class EventSubscriptionDeliveryPropertyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the `value` is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceField")
-    def source_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
         """
         return pulumi.get(self, "source_field")
 
     @source_field.setter
-    def source_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_field", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the `type` is `Static`, then provide the value to use
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -3065,7 +3065,7 @@ class EventSubscriptionStorageQueueEndpointArgsDict(TypedDict):
     """
     Specifies the id of the storage account id where the storage queue is located.
     """
-    queue_message_time_to_live_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    queue_message_time_to_live_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Storage queue message time to live in seconds.
     """
@@ -3075,7 +3075,7 @@ class EventSubscriptionStorageQueueEndpointArgs:
     def __init__(__self__, *,
                  queue_name: pulumi.Input[_builtins.str],
                  storage_account_id: pulumi.Input[_builtins.str],
-                 queue_message_time_to_live_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 queue_message_time_to_live_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] queue_name: Specifies the name of the storage queue where the Event Subscription will receive events.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the id of the storage account id where the storage queue is located.
@@ -3112,27 +3112,27 @@ class EventSubscriptionStorageQueueEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
-    def queue_message_time_to_live_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def queue_message_time_to_live_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Storage queue message time to live in seconds.
         """
         return pulumi.get(self, "queue_message_time_to_live_in_seconds")
 
     @queue_message_time_to_live_in_seconds.setter
-    def queue_message_time_to_live_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def queue_message_time_to_live_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "queue_message_time_to_live_in_seconds", value)
 
 
 class EventSubscriptionSubjectFilterArgsDict(TypedDict):
-    case_sensitive: NotRequired[pulumi.Input[_builtins.bool]]
+    case_sensitive: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
     """
-    subject_begins_with: NotRequired[pulumi.Input[_builtins.str]]
+    subject_begins_with: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string to filter events for an event subscription based on a resource path prefix.
     """
-    subject_ends_with: NotRequired[pulumi.Input[_builtins.str]]
+    subject_ends_with: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string to filter events for an event subscription based on a resource path suffix.
     """
@@ -3140,9 +3140,9 @@ class EventSubscriptionSubjectFilterArgsDict(TypedDict):
 @pulumi.input_type
 class EventSubscriptionSubjectFilterArgs:
     def __init__(__self__, *,
-                 case_sensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subject_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None):
+                 case_sensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subject_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_ends_with: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         :param pulumi.Input[_builtins.str] subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
@@ -3157,38 +3157,38 @@ class EventSubscriptionSubjectFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="caseSensitive")
-    def case_sensitive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def case_sensitive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         """
         return pulumi.get(self, "case_sensitive")
 
     @case_sensitive.setter
-    def case_sensitive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def case_sensitive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "case_sensitive", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectBeginsWith")
-    def subject_begins_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_begins_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string to filter events for an event subscription based on a resource path prefix.
         """
         return pulumi.get(self, "subject_begins_with")
 
     @subject_begins_with.setter
-    def subject_begins_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_begins_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_begins_with", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectEndsWith")
-    def subject_ends_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_ends_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string to filter events for an event subscription based on a resource path suffix.
         """
         return pulumi.get(self, "subject_ends_with")
 
     @subject_ends_with.setter
-    def subject_ends_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_ends_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_ends_with", value)
 
 
@@ -3197,23 +3197,23 @@ class EventSubscriptionWebhookEndpointArgsDict(TypedDict):
     """
     Specifies the url of the webhook where the Event Subscription will receive events.
     """
-    active_directory_app_id_or_uri: NotRequired[pulumi.Input[_builtins.str]]
+    active_directory_app_id_or_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
     """
-    active_directory_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    active_directory_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
     """
-    base_url: NotRequired[pulumi.Input[_builtins.str]]
+    base_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base url of the webhook where the Event Subscription will receive events.
     """
-    max_events_per_batch: NotRequired[pulumi.Input[_builtins.int]]
+    max_events_per_batch: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of events per batch.
     """
-    preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[_builtins.int]]
+    preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Preferred batch size in Kilobytes.
     """
@@ -3222,11 +3222,11 @@ class EventSubscriptionWebhookEndpointArgsDict(TypedDict):
 class EventSubscriptionWebhookEndpointArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 active_directory_app_id_or_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 active_directory_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_events_per_batch: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_batch_size_in_kilobytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 active_directory_app_id_or_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 active_directory_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_events_per_batch: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_batch_size_in_kilobytes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] url: Specifies the url of the webhook where the Event Subscription will receive events.
         :param pulumi.Input[_builtins.str] active_directory_app_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -3261,62 +3261,62 @@ class EventSubscriptionWebhookEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryAppIdOrUri")
-    def active_directory_app_id_or_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_app_id_or_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
         """
         return pulumi.get(self, "active_directory_app_id_or_uri")
 
     @active_directory_app_id_or_uri.setter
-    def active_directory_app_id_or_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_app_id_or_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_app_id_or_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryTenantId")
-    def active_directory_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
         """
         return pulumi.get(self, "active_directory_tenant_id")
 
     @active_directory_tenant_id.setter
-    def active_directory_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="baseUrl")
-    def base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base url of the webhook where the Event Subscription will receive events.
         """
         return pulumi.get(self, "base_url")
 
     @base_url.setter
-    def base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_url", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEventsPerBatch")
-    def max_events_per_batch(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_events_per_batch(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of events per batch.
         """
         return pulumi.get(self, "max_events_per_batch")
 
     @max_events_per_batch.setter
-    def max_events_per_batch(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_events_per_batch(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_events_per_batch", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
-    def preferred_batch_size_in_kilobytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def preferred_batch_size_in_kilobytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Preferred batch size in Kilobytes.
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
     @preferred_batch_size_in_kilobytes.setter
-    def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def preferred_batch_size_in_kilobytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
 
 
@@ -3329,7 +3329,7 @@ class NamespaceCustomerManagedKeyArgsDict(TypedDict):
     """
     The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
     """
-    infrastructure_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    infrastructure_encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
     """
@@ -3339,7 +3339,7 @@ class NamespaceCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  identity_id: pulumi.Input[_builtins.str],
                  key_vault_key_id: pulumi.Input[_builtins.str],
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] identity_id: The ID of the User Assigned Identity that has access to the key.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
@@ -3376,14 +3376,14 @@ class NamespaceCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
 
@@ -3392,17 +3392,17 @@ class NamespaceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
     """
@@ -3411,9 +3411,9 @@ class NamespaceIdentityArgsDict(TypedDict):
 class NamespaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
@@ -3444,7 +3444,7 @@ class NamespaceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
@@ -3453,54 +3453,54 @@ class NamespaceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class NamespaceNetworkRuleSetArgsDict(TypedDict):
-    default_action: NotRequired[pulumi.Input[_builtins.str]]
+    default_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
     """
-    network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgsDict']]]]
+    network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]]
     """
     One or more `network_rules` blocks as defined below.
     """
-    public_network_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    public_network_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 
     > **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
     """
-    trusted_services_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    trusted_services_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
     """
@@ -3508,11 +3508,11 @@ class NamespaceNetworkRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class NamespaceNetworkRuleSetArgs:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_services_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_services_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
@@ -3535,43 +3535,43 @@ class NamespaceNetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
+    def network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
         """
         One or more `network_rules` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
+    def network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 
@@ -3580,19 +3580,19 @@ class NamespaceNetworkRuleSetArgs:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedServicesAllowed")
-    def trusted_services_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_services_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
         return pulumi.get(self, "trusted_services_allowed")
 
     @trusted_services_allowed.setter
-    def trusted_services_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_services_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_services_allowed", value)
 
 
@@ -3601,7 +3601,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgsDict(TypedDict):
     """
     The Subnet ID which should be able to access this Service Bus Namespace.
     """
-    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
     """
@@ -3610,7 +3610,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgsDict(TypedDict):
 class NamespaceNetworkRuleSetNetworkRuleArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID which should be able to access this Service Bus Namespace.
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -3633,29 +3633,29 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 
 class SubscriptionClientScopedSubscriptionArgsDict(TypedDict):
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 
     > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
     """
-    is_client_scoped_subscription_durable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_client_scoped_subscription_durable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the client scoped subscription is durable. This property can only be controlled from the application side.
     """
-    is_client_scoped_subscription_shareable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_client_scoped_subscription_shareable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
     """
@@ -3663,9 +3663,9 @@ class SubscriptionClientScopedSubscriptionArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionClientScopedSubscriptionArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_client_scoped_subscription_durable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_client_scoped_subscription_shareable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_client_scoped_subscription_durable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_client_scoped_subscription_shareable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
                
@@ -3682,7 +3682,7 @@ class SubscriptionClientScopedSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 
@@ -3691,70 +3691,70 @@ class SubscriptionClientScopedSubscriptionArgs:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isClientScopedSubscriptionDurable")
-    def is_client_scoped_subscription_durable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_client_scoped_subscription_durable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         """
         return pulumi.get(self, "is_client_scoped_subscription_durable")
 
     @is_client_scoped_subscription_durable.setter
-    def is_client_scoped_subscription_durable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_client_scoped_subscription_durable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_client_scoped_subscription_durable", value)
 
     @_builtins.property
     @pulumi.getter(name="isClientScopedSubscriptionShareable")
-    def is_client_scoped_subscription_shareable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_client_scoped_subscription_shareable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_client_scoped_subscription_shareable")
 
     @is_client_scoped_subscription_shareable.setter
-    def is_client_scoped_subscription_shareable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_client_scoped_subscription_shareable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_client_scoped_subscription_shareable", value)
 
 
 class SubscriptionRuleCorrelationFilterArgsDict(TypedDict):
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Content type of the message.
     """
-    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    correlation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the correlation.
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application specific label.
     """
-    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the message.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 
     > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
     """
-    reply_to: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address of the queue to reply to.
     """
-    reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to_session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session identifier to reply to.
     """
-    session_id: NotRequired[pulumi.Input[_builtins.str]]
+    session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session identifier.
     """
-    to: NotRequired[pulumi.Input[_builtins.str]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address to send to.
     """
@@ -3762,15 +3762,15 @@ class SubscriptionRuleCorrelationFilterArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionRuleCorrelationFilterArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 correlation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 reply_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 reply_to_session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 to: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 correlation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 reply_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 reply_to_session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content_type: Content type of the message.
         :param pulumi.Input[_builtins.str] correlation_id: Identifier of the correlation.
@@ -3805,55 +3805,55 @@ class SubscriptionRuleCorrelationFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content type of the message.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="correlationId")
-    def correlation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def correlation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the correlation.
         """
         return pulumi.get(self, "correlation_id")
 
     @correlation_id.setter
-    def correlation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def correlation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "correlation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application specific label.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the message.
         """
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 
@@ -3862,55 +3862,55 @@ class SubscriptionRuleCorrelationFilterArgs:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="replyTo")
-    def reply_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reply_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the queue to reply to.
         """
         return pulumi.get(self, "reply_to")
 
     @reply_to.setter
-    def reply_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reply_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reply_to", value)
 
     @_builtins.property
     @pulumi.getter(name="replyToSessionId")
-    def reply_to_session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reply_to_session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session identifier to reply to.
         """
         return pulumi.get(self, "reply_to_session_id")
 
     @reply_to_session_id.setter
-    def reply_to_session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reply_to_session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reply_to_session_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionId")
-    def session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session identifier.
         """
         return pulumi.get(self, "session_id")
 
     @session_id.setter
-    def session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address to send to.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "to", value)
 
 

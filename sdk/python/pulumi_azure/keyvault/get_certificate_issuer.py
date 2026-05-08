@@ -153,8 +153,8 @@ def get_certificate_issuer(key_vault_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         org_id=pulumi.get(__ret__, 'org_id'),
         provider_name=pulumi.get(__ret__, 'provider_name'))
-def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_issuer_output(key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateIssuerResult]:
     """
     Use this data source to access information about an existing Key Vault Certificate Issuer.

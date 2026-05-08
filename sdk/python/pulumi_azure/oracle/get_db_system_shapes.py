@@ -121,8 +121,8 @@ def get_db_system_shapes(location: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         zone=pulumi.get(__ret__, 'zone'))
-def get_db_system_shapes_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                                zone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_db_system_shapes_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                                zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbSystemShapesResult]:
     """
     This data source provides the list of DB System Shapes in Oracle Cloud Infrastructure Database service.

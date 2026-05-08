@@ -129,7 +129,7 @@ export interface GetMxRecordOutputArgs {
     /**
      * The name of the Private DNS MX Record.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the Private DNS Zone (parent resource) exists.
      */

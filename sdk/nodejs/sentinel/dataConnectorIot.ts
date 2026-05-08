@@ -116,15 +116,15 @@ export interface DataConnectorIotState {
     /**
      * The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,9 +138,9 @@ export interface DataConnectorIotArgs {
     /**
      * The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

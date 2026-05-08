@@ -195,31 +195,31 @@ export interface BackupInstanceDataLakeStorageState {
     /**
      * The ID of the Backup Policy.
      */
-    backupPolicyDataLakeStorageId?: pulumi.Input<string>;
+    backupPolicyDataLakeStorageId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Data Lake Storage should exist. Changing this forces a new resource to be created.
      */
-    dataProtectionBackupVaultId?: pulumi.Input<string>;
+    dataProtectionBackupVaultId?: pulumi.Input<string | undefined>;
     /**
      * The location of the source Storage Account. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Instance Data Lake Storage. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The protection state of the Backup Instance Data Lake Storage.
      */
-    protectionState?: pulumi.Input<string>;
+    protectionState?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source Storage Account. The Storage Account must have Hierarchical Namespace enabled. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The names of the storage containers of the source Storage Account.
      */
-    storageContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    storageContainerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -237,11 +237,11 @@ export interface BackupInstanceDataLakeStorageArgs {
     /**
      * The location of the source Storage Account. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Instance Data Lake Storage. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source Storage Account. The Storage Account must have Hierarchical Namespace enabled. Changing this forces a new resource to be created.
      */

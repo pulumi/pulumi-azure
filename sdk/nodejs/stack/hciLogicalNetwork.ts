@@ -176,35 +176,35 @@ export interface HciLogicalNetworkState {
     /**
      * The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `subnet` block as defined below. Changing this forces a new resource to be created.
      */
-    subnet?: pulumi.Input<inputs.stack.HciLogicalNetworkSubnet>;
+    subnet?: pulumi.Input<inputs.stack.HciLogicalNetworkSubnet | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
      */
-    virtualSwitchName?: pulumi.Input<string>;
+    virtualSwitchName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -218,15 +218,15 @@ export interface HciLogicalNetworkArgs {
     /**
      * A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
@@ -238,7 +238,7 @@ export interface HciLogicalNetworkArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
      */

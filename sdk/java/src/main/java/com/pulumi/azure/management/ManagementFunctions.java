@@ -32,8 +32,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -128,8 +128,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -176,8 +176,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -224,8 +224,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -272,8 +272,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -320,8 +320,8 @@ public final class ManagementFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
      * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -370,8 +370,8 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -464,8 +464,8 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -511,8 +511,8 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class ManagementFunctions {
      * import com.pulumi.azure.management.inputs.GetGroupTemplateDeploymentArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

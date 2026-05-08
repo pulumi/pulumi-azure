@@ -22,7 +22,7 @@ class GatewayCertificateAuthorityArgs:
                  api_management_id: pulumi.Input[_builtins.str],
                  certificate_name: pulumi.Input[_builtins.str],
                  gateway_name: pulumi.Input[_builtins.str],
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None):
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GatewayCertificateAuthority resource.
 
@@ -75,24 +75,24 @@ class GatewayCertificateAuthorityArgs:
 
     @_builtins.property
     @pulumi.getter(name="isTrusted")
-    def is_trusted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_trusted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the API Management Gateway Certificate Authority is trusted.
         """
         return pulumi.get(self, "is_trusted")
 
     @is_trusted.setter
-    def is_trusted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_trusted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_trusted", value)
 
 
 @pulumi.input_type
 class _GatewayCertificateAuthorityState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GatewayCertificateAuthority resources.
 
@@ -112,50 +112,50 @@ class _GatewayCertificateAuthorityState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gateway_name")
 
     @gateway_name.setter
-    def gateway_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isTrusted")
-    def is_trusted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_trusted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the API Management Gateway Certificate Authority is trusted.
         """
         return pulumi.get(self, "is_trusted")
 
     @is_trusted.setter
-    def is_trusted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_trusted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_trusted", value)
 
 
@@ -165,10 +165,10 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an API Management Gateway Certificate Authority.
@@ -314,10 +314,10 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_trusted: Optional[pulumi.Input[_builtins.bool]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_trusted: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,10 +347,10 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-            is_trusted: Optional[pulumi.Input[_builtins.bool]] = None) -> 'GatewayCertificateAuthority':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_trusted: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GatewayCertificateAuthority':
         """
         Get an existing GatewayCertificateAuthority resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

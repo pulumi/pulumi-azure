@@ -109,7 +109,7 @@ export interface PortalTenantConfigurationState {
      *
      * > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      */
-    privateMarkdownStorageEnforced?: pulumi.Input<boolean>;
+    privateMarkdownStorageEnforced?: pulumi.Input<boolean | undefined>;
 }
 
 /**

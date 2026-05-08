@@ -180,35 +180,35 @@ export interface ProjectEnvironmentTypeState {
     /**
      * A list of roles to assign to the environment creator.
      */
-    creatorRoleAssignmentRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    creatorRoleAssignmentRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
      */
-    deploymentTargetId?: pulumi.Input<string>;
+    deploymentTargetId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
      */
-    devCenterProjectId?: pulumi.Input<string>;
+    devCenterProjectId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project Environment Type.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `userRoleAssignment` block as defined below.
      */
-    userRoleAssignments?: pulumi.Input<pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeUserRoleAssignment>[]>;
+    userRoleAssignments?: pulumi.Input<pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeUserRoleAssignment>[] | undefined>;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface ProjectEnvironmentTypeArgs {
     /**
      * A list of roles to assign to the environment creator.
      */
-    creatorRoleAssignmentRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    creatorRoleAssignmentRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
      */
@@ -234,17 +234,17 @@ export interface ProjectEnvironmentTypeArgs {
     /**
      * The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project Environment Type.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `userRoleAssignment` block as defined below.
      */
-    userRoleAssignments?: pulumi.Input<pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeUserRoleAssignment>[]>;
+    userRoleAssignments?: pulumi.Input<pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeUserRoleAssignment>[] | undefined>;
 }

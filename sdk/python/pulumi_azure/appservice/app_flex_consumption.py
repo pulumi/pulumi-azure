@@ -29,30 +29,30 @@ class AppFlexConsumptionArgs:
                  storage_authentication_type: pulumi.Input[_builtins.str],
                  storage_container_endpoint: pulumi.Input[_builtins.str],
                  storage_container_type: pulumi.Input[_builtins.str],
-                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']] = None,
-                 auth_settings_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']] = None,
-                 instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sticky_settings: Optional[pulumi.Input['AppFlexConsumptionStickySettingsArgs']] = None,
-                 storage_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsArgs']] = None,
+                 auth_settings_v2: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2Args']] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['AppFlexConsumptionIdentityArgs']] = None,
+                 instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sticky_settings: pulumi.Input[Optional['AppFlexConsumptionStickySettingsArgs']] = None,
+                 storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppFlexConsumption resource.
 
@@ -270,19 +270,19 @@ class AppFlexConsumptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysReadies")
-    def always_readies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]:
+    def always_readies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]:
         """
         One or more `always_ready` blocks as defined below.
         """
         return pulumi.get(self, "always_readies")
 
     @always_readies.setter
-    def always_readies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]):
+    def always_readies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]):
         pulumi.set(self, "always_readies", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
@@ -297,96 +297,96 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['AppFlexConsumptionAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettingsV2")
-    def auth_settings_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']]:
+    def auth_settings_v2(self) -> pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2Args']]:
         """
         An `auth_settings_v2` block as defined below.
         """
         return pulumi.get(self, "auth_settings_v2")
 
     @auth_settings_v2.setter
-    def auth_settings_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']]):
+    def auth_settings_v2(self, value: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2Args']]):
         pulumi.set(self, "auth_settings_v2", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateEnabled")
-    def client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the function app use Client Certificates.
         """
         return pulumi.get(self, "client_certificate_enabled")
 
     @client_certificate_enabled.setter
-    def client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateExclusionPaths")
-    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @client_certificate_exclusion_paths.setter
-    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_exclusion_paths(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateMode")
-    def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
     @client_certificate_mode.setter
-    def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]:
         """
         One or more `connection_string` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpConcurrency")
-    def http_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
 
@@ -395,108 +395,108 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "http_concurrency")
 
     @http_concurrency.setter
-    def http_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Https Connection enforced to the function app. Defaults to `false`
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AppFlexConsumptionIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AppFlexConsumptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMemoryInMb")
-    def instance_memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
     @instance_memory_in_mb.setter
-    def instance_memory_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_memory_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_memory_in_mb", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumInstanceCount")
-    def maximum_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         """
         return pulumi.get(self, "maximum_instance_count")
 
     @maximum_instance_count.setter
-    def maximum_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should public network access be enabled for the Function App. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="stickySettings")
-    def sticky_settings(self) -> Optional[pulumi.Input['AppFlexConsumptionStickySettingsArgs']]:
+    def sticky_settings(self) -> pulumi.Input[Optional['AppFlexConsumptionStickySettingsArgs']]:
         """
         A `sticky_settings` block as defined below.
         """
         return pulumi.get(self, "sticky_settings")
 
     @sticky_settings.setter
-    def sticky_settings(self, value: Optional[pulumi.Input['AppFlexConsumptionStickySettingsArgs']]):
+    def sticky_settings(self, value: pulumi.Input[Optional['AppFlexConsumptionStickySettingsArgs']]):
         pulumi.set(self, "sticky_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccessKey")
-    def storage_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key which will be used to access the backend storage account for the Function App.
 
@@ -505,12 +505,12 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "storage_access_key")
 
     @storage_access_key.setter
-    def storage_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageUserAssignedIdentityId")
-    def storage_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
 
@@ -519,24 +519,24 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "storage_user_assigned_identity_id")
 
     @storage_user_assigned_identity_id.setter
-    def storage_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Linux Function App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
@@ -547,12 +547,12 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
-    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
@@ -561,12 +561,12 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
     @webdeploy_publish_basic_authentication_enabled.setter
-    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def webdeploy_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zipDeployFile")
-    def zip_deploy_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_deploy_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 
@@ -575,54 +575,54 @@ class AppFlexConsumptionArgs:
         return pulumi.get(self, "zip_deploy_file")
 
     @zip_deploy_file.setter
-    def zip_deploy_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_deploy_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_deploy_file", value)
 
 
 @pulumi.input_type
 class _AppFlexConsumptionState:
     def __init__(__self__, *,
-                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']] = None,
-                 auth_settings_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]] = None,
-                 custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hosting_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']] = None,
-                 instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input['AppFlexConsumptionSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]]] = None,
-                 sticky_settings: Optional[pulumi.Input['AppFlexConsumptionStickySettingsArgs']] = None,
-                 storage_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsArgs']] = None,
+                 auth_settings_v2: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2Args']] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]] = None,
+                 custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['AppFlexConsumptionIdentityArgs']] = None,
+                 instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional['AppFlexConsumptionSiteConfigArgs']] = None,
+                 site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]]] = None,
+                 sticky_settings: pulumi.Input[Optional['AppFlexConsumptionStickySettingsArgs']] = None,
+                 storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppFlexConsumption resources.
 
@@ -777,19 +777,19 @@ class _AppFlexConsumptionState:
 
     @_builtins.property
     @pulumi.getter(name="alwaysReadies")
-    def always_readies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]:
+    def always_readies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]:
         """
         One or more `always_ready` blocks as defined below.
         """
         return pulumi.get(self, "always_readies")
 
     @always_readies.setter
-    def always_readies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]):
+    def always_readies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]]]):
         pulumi.set(self, "always_readies", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
@@ -804,132 +804,132 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['AppFlexConsumptionAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettingsV2")
-    def auth_settings_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']]:
+    def auth_settings_v2(self) -> pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2Args']]:
         """
         An `auth_settings_v2` block as defined below.
         """
         return pulumi.get(self, "auth_settings_v2")
 
     @auth_settings_v2.setter
-    def auth_settings_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2Args']]):
+    def auth_settings_v2(self, value: pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2Args']]):
         pulumi.set(self, "auth_settings_v2", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateEnabled")
-    def client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the function app use Client Certificates.
         """
         return pulumi.get(self, "client_certificate_enabled")
 
     @client_certificate_enabled.setter
-    def client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateExclusionPaths")
-    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @client_certificate_exclusion_paths.setter
-    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_exclusion_paths(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateMode")
-    def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
     @client_certificate_mode.setter
-    def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]:
         """
         One or more `connection_string` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainVerificationId")
-    def custom_domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @custom_domain_verification_id.setter
-    def custom_domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_verification_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultHostname")
-    def default_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default hostname of the Linux Function App.
         """
         return pulumi.get(self, "default_hostname")
 
     @default_hostname.setter
-    def default_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingEnvironmentId")
-    def hosting_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosting_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Environment used by Function App.
         """
         return pulumi.get(self, "hosting_environment_id")
 
     @hosting_environment_id.setter
-    def hosting_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosting_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosting_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="httpConcurrency")
-    def http_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
 
@@ -938,180 +938,180 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "http_concurrency")
 
     @http_concurrency.setter
-    def http_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Https Connection enforced to the function app. Defaults to `false`
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AppFlexConsumptionIdentityArgs']]:
         """
         A `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AppFlexConsumptionIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMemoryInMb")
-    def instance_memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
     @instance_memory_in_mb.setter
-    def instance_memory_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_memory_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_memory_in_mb", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kind value for this Linux Function App.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumInstanceCount")
-    def maximum_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
         """
         return pulumi.get(self, "maximum_instance_count")
 
     @maximum_instance_count.setter
-    def maximum_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddressLists")
-    def outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def outbound_ip_address_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         """
         return pulumi.get(self, "outbound_ip_address_lists")
 
     @outbound_ip_address_lists.setter
-    def outbound_ip_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def outbound_ip_address_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "outbound_ip_address_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
     @outbound_ip_addresses.setter
-    def outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddressLists")
-    def possible_outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def possible_outbound_ip_address_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         """
         return pulumi.get(self, "possible_outbound_ip_address_lists")
 
     @possible_outbound_ip_address_lists.setter
-    def possible_outbound_ip_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def possible_outbound_ip_address_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "possible_outbound_ip_address_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def possible_outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @possible_outbound_ip_addresses.setter
-    def possible_outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def possible_outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should public network access be enabled for the Function App. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeName")
-    def runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         """
         return pulumi.get(self, "runtime_name")
 
     @runtime_name.setter
-    def runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
 
@@ -1120,60 +1120,60 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePlanId")
-    def service_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         """
         return pulumi.get(self, "service_plan_id")
 
     @service_plan_id.setter
-    def service_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['AppFlexConsumptionSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['AppFlexConsumptionSiteConfigArgs']]:
         """
         A `site_config` block as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['AppFlexConsumptionSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['AppFlexConsumptionSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]]]:
+    def site_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]]]:
         """
         A `site_credential` block as defined below.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]]]):
+    def site_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="stickySettings")
-    def sticky_settings(self) -> Optional[pulumi.Input['AppFlexConsumptionStickySettingsArgs']]:
+    def sticky_settings(self) -> pulumi.Input[Optional['AppFlexConsumptionStickySettingsArgs']]:
         """
         A `sticky_settings` block as defined below.
         """
         return pulumi.get(self, "sticky_settings")
 
     @sticky_settings.setter
-    def sticky_settings(self, value: Optional[pulumi.Input['AppFlexConsumptionStickySettingsArgs']]):
+    def sticky_settings(self, value: pulumi.Input[Optional['AppFlexConsumptionStickySettingsArgs']]):
         pulumi.set(self, "sticky_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccessKey")
-    def storage_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key which will be used to access the backend storage account for the Function App.
 
@@ -1182,48 +1182,48 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "storage_access_key")
 
     @storage_access_key.setter
-    def storage_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAuthenticationType")
-    def storage_authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_authentication_type")
 
     @storage_authentication_type.setter
-    def storage_authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerEndpoint")
-    def storage_container_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backend storage container endpoint which will be used by this Function App.
         """
         return pulumi.get(self, "storage_container_endpoint")
 
     @storage_container_endpoint.setter
-    def storage_container_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="storageContainerType")
-    def storage_container_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_container_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage container type used for the Function App. The current supported type is `blobContainer`.
         """
         return pulumi.get(self, "storage_container_type")
 
     @storage_container_type.setter
-    def storage_container_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_container_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_container_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageUserAssignedIdentityId")
-    def storage_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
 
@@ -1232,24 +1232,24 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "storage_user_assigned_identity_id")
 
     @storage_user_assigned_identity_id.setter
-    def storage_user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_user_assigned_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Linux Function App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
@@ -1260,12 +1260,12 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
-    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
@@ -1274,12 +1274,12 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
     @webdeploy_publish_basic_authentication_enabled.setter
-    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def webdeploy_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zipDeployFile")
-    def zip_deploy_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_deploy_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Function App.
 
@@ -1288,7 +1288,7 @@ class _AppFlexConsumptionState:
         return pulumi.get(self, "zip_deploy_file")
 
     @zip_deploy_file.setter
-    def zip_deploy_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_deploy_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_deploy_file", value)
 
 
@@ -1298,38 +1298,38 @@ class AppFlexConsumption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
-                 instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
-                 sticky_settings: Optional[pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
-                 storage_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
+                 instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
+                 storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Function App Running on a Flex Consumption Plan.
@@ -1539,38 +1539,38 @@ class AppFlexConsumption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_readies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
-                 instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
-                 sticky_settings: Optional[pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
-                 storage_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_container_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
+                 instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
+                 storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1649,47 +1649,47 @@ class AppFlexConsumption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_readies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
-            app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: Optional[pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
-            client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-            client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
-            custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hosting_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-            https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
-            instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-            service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            site_config: Optional[pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict']]]]] = None,
-            sticky_settings: Optional[pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
-            storage_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_container_type: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None) -> 'AppFlexConsumption':
+            always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
+            instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict']]]]] = None,
+            sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
+            storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None) -> 'AppFlexConsumption':
         """
         Get an existing AppFlexConsumption resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

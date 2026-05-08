@@ -142,23 +142,23 @@ export interface ProductPolicyState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The XML Content for this Policy.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,9 +180,9 @@ export interface ProductPolicyArgs {
     /**
      * The XML Content for this Policy.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }

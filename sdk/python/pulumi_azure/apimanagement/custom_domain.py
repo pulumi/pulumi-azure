@@ -22,11 +22,11 @@ __all__ = ['CustomDomainArgs', 'CustomDomain']
 class CustomDomainArgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[_builtins.str],
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
+                 developer_portals: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
+                 managements: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
+                 portals: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
+                 scms: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
 
@@ -63,74 +63,74 @@ class CustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="developerPortals")
-    def developer_portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]:
+    def developer_portals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]:
         """
         One or more `developer_portal` blocks as defined below.
         """
         return pulumi.get(self, "developer_portals")
 
     @developer_portals.setter
-    def developer_portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]):
+    def developer_portals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]):
         pulumi.set(self, "developer_portals", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]:
+    def gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]:
         """
         One or more `gateway` blocks as defined below.
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
-    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]):
+    def gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]):
         pulumi.set(self, "gateways", value)
 
     @_builtins.property
     @pulumi.getter
-    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
+    def managements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
         """
         One or more `management` blocks as defined below.
         """
         return pulumi.get(self, "managements")
 
     @managements.setter
-    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]):
+    def managements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]):
         pulumi.set(self, "managements", value)
 
     @_builtins.property
     @pulumi.getter
-    def portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]:
+    def portals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]:
         """
         One or more `portal` blocks as defined below.
         """
         return pulumi.get(self, "portals")
 
     @portals.setter
-    def portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]):
+    def portals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]):
         pulumi.set(self, "portals", value)
 
     @_builtins.property
     @pulumi.getter
-    def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
+    def scms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
         """
         One or more `scm` blocks as defined below.
         """
         return pulumi.get(self, "scms")
 
     @scms.setter
-    def scms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]):
+    def scms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainScmArgs']]]]):
         pulumi.set(self, "scms", value)
 
 
 @pulumi.input_type
 class _CustomDomainState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_portals: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]] = None,
+                 managements: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
+                 portals: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
+                 scms: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
 
@@ -156,74 +156,74 @@ class _CustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter(name="developerPortals")
-    def developer_portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]:
+    def developer_portals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]:
         """
         One or more `developer_portal` blocks as defined below.
         """
         return pulumi.get(self, "developer_portals")
 
     @developer_portals.setter
-    def developer_portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]):
+    def developer_portals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]):
         pulumi.set(self, "developer_portals", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]:
+    def gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]:
         """
         One or more `gateway` blocks as defined below.
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
-    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]):
+    def gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainGatewayArgs']]]]):
         pulumi.set(self, "gateways", value)
 
     @_builtins.property
     @pulumi.getter
-    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
+    def managements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
         """
         One or more `management` blocks as defined below.
         """
         return pulumi.get(self, "managements")
 
     @managements.setter
-    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]):
+    def managements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]):
         pulumi.set(self, "managements", value)
 
     @_builtins.property
     @pulumi.getter
-    def portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]:
+    def portals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]:
         """
         One or more `portal` blocks as defined below.
         """
         return pulumi.get(self, "portals")
 
     @portals.setter
-    def portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]):
+    def portals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]):
         pulumi.set(self, "portals", value)
 
     @_builtins.property
     @pulumi.getter
-    def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
+    def scms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
         """
         One or more `scm` blocks as defined below.
         """
         return pulumi.get(self, "scms")
 
     @scms.setter
-    def scms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]):
+    def scms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainScmArgs']]]]):
         pulumi.set(self, "scms", value)
 
 
@@ -233,12 +233,12 @@ class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_portals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
+                 managements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
+                 portals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
+                 scms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a API Management Custom Domain.
@@ -462,12 +462,12 @@ class CustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_portals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
+                 managements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
+                 portals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
+                 scms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,12 +495,12 @@ class CustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
-            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
-            managements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
-            portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
-            scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None) -> 'CustomDomain':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_portals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
+            gateways: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
+            managements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
+            portals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
+            scms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None) -> 'CustomDomain':
         """
         Get an existing CustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

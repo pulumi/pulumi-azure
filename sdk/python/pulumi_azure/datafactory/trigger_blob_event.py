@@ -25,14 +25,14 @@ class TriggerBlobEventArgs:
                  events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]],
                  storage_account_id: pulumi.Input[_builtins.str],
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_path_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_path_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_empty_blobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_path_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_path_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_empty_blobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerBlobEvent resource.
 
@@ -122,55 +122,55 @@ class TriggerBlobEventArgs:
 
     @_builtins.property
     @pulumi.getter
-    def activated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         """
         return pulumi.get(self, "activated")
 
     @activated.setter
-    def activated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Blob Event Trigger.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Blob Event Trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="blobPathBeginsWith")
-    def blob_path_begins_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_path_begins_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that blob path starts with for trigger to fire.
         """
         return pulumi.get(self, "blob_path_begins_with")
 
     @blob_path_begins_with.setter
-    def blob_path_begins_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_path_begins_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_path_begins_with", value)
 
     @_builtins.property
     @pulumi.getter(name="blobPathEndsWith")
-    def blob_path_ends_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_path_ends_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that blob path ends with for trigger to fire.
 
@@ -179,61 +179,61 @@ class TriggerBlobEventArgs:
         return pulumi.get(self, "blob_path_ends_with")
 
     @blob_path_ends_with.setter
-    def blob_path_ends_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_path_ends_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_path_ends_with", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Blob Event Trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreEmptyBlobs")
-    def ignore_empty_blobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_empty_blobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         are blobs with zero bytes ignored?
         """
         return pulumi.get(self, "ignore_empty_blobs")
 
     @ignore_empty_blobs.setter
-    def ignore_empty_blobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_empty_blobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_empty_blobs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TriggerBlobEventState:
     def __init__(__self__, *,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_path_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_path_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignore_empty_blobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_path_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_path_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_empty_blobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipelines: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerBlobEvent resources.
 
@@ -279,55 +279,55 @@ class _TriggerBlobEventState:
 
     @_builtins.property
     @pulumi.getter
-    def activated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         """
         return pulumi.get(self, "activated")
 
     @activated.setter
-    def activated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Blob Event Trigger.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Blob Event Trigger.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="blobPathBeginsWith")
-    def blob_path_begins_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_path_begins_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that blob path starts with for trigger to fire.
         """
         return pulumi.get(self, "blob_path_begins_with")
 
     @blob_path_begins_with.setter
-    def blob_path_begins_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_path_begins_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_path_begins_with", value)
 
     @_builtins.property
     @pulumi.getter(name="blobPathEndsWith")
-    def blob_path_ends_with(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_path_ends_with(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pattern that blob path ends with for trigger to fire.
 
@@ -336,91 +336,91 @@ class _TriggerBlobEventState:
         return pulumi.get(self, "blob_path_ends_with")
 
     @blob_path_ends_with.setter
-    def blob_path_ends_with(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_path_ends_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_path_ends_with", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Blob Event Trigger.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreEmptyBlobs")
-    def ignore_empty_blobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_empty_blobs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         are blobs with zero bytes ignored?
         """
         return pulumi.get(self, "ignore_empty_blobs")
 
     @ignore_empty_blobs.setter
-    def ignore_empty_blobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_empty_blobs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_empty_blobs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]]:
+    def pipelines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]]:
         """
         One or more `pipeline` blocks as defined below.
         """
         return pulumi.get(self, "pipelines")
 
     @pipelines.setter
-    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]]):
+    def pipelines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]]):
         pulumi.set(self, "pipelines", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -430,18 +430,18 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_path_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_path_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignore_empty_blobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerBlobEventPipelineArgs', 'TriggerBlobEventPipelineArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_path_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_path_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_empty_blobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerBlobEventPipelineArgs', 'TriggerBlobEventPipelineArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Blob Event Trigger inside an Azure Data Factory.
@@ -607,18 +607,18 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blob_path_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_path_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignore_empty_blobs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerBlobEventPipelineArgs', 'TriggerBlobEventPipelineArgsDict']]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 activated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_path_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_path_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_empty_blobs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerBlobEventPipelineArgs', 'TriggerBlobEventPipelineArgsDict']]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -658,18 +658,18 @@ class TriggerBlobEvent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activated: Optional[pulumi.Input[_builtins.bool]] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blob_path_begins_with: Optional[pulumi.Input[_builtins.str]] = None,
-            blob_path_ends_with: Optional[pulumi.Input[_builtins.str]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ignore_empty_blobs: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerBlobEventPipelineArgs', 'TriggerBlobEventPipelineArgsDict']]]]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'TriggerBlobEvent':
+            activated: pulumi.Input[Optional[_builtins.bool]] = None,
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blob_path_begins_with: pulumi.Input[Optional[_builtins.str]] = None,
+            blob_path_ends_with: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ignore_empty_blobs: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerBlobEventPipelineArgs', 'TriggerBlobEventPipelineArgsDict']]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TriggerBlobEvent':
         """
         Get an existing TriggerBlobEvent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

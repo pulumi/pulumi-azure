@@ -356,139 +356,139 @@ export interface LinuxWebAppSlotState {
     /**
      * A `appMetadata`.
      */
-    appMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Linux Web App this Deployment Slot will be part of.
      */
-    appServiceId?: pulumi.Input<string>;
+    appServiceId?: pulumi.Input<string | undefined>;
     /**
      * A map of key-value pairs of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.LinuxWebAppSlotBackup>;
+    backup?: pulumi.Input<inputs.appservice.LinuxWebAppSlotBackup | undefined>;
     /**
      * Should Client Affinity be enabled?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should Client Certificates be enabled?
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotConnectionString>[] | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The default hostname of the Linux Web App.
      */
-    defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string | undefined>;
     /**
      * Should the Linux Web App be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the App Service Environment used by App Service Slot.
      */
-    hostingEnvironmentId?: pulumi.Input<string>;
+    hostingEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.LinuxWebAppSlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.LinuxWebAppSlotIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The Kind value for this Linux Web App.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogs>;
+    logs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogs | undefined>;
     /**
      * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      *
      * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
      */
-    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A `possibleOutboundIpAddressList`.
      */
-    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      *
      * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
      */
-    servicePlanId?: pulumi.Input<string>;
+    servicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteCredential>[] | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotStorageAccount>[] | undefined>;
     /**
      * A mapping of tags that should be assigned to the Linux Web App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -496,25 +496,25 @@ export interface LinuxWebAppSlotState {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
      *
      * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
-    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    vnetImagePullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -528,79 +528,79 @@ export interface LinuxWebAppSlotArgs {
     /**
      * A map of key-value pairs of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2>;
+    authSettingsV2?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.LinuxWebAppSlotBackup>;
+    backup?: pulumi.Input<inputs.appservice.LinuxWebAppSlotBackup | undefined>;
     /**
      * Should Client Affinity be enabled?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should Client Certificates be enabled?
      */
-    clientCertificateEnabled?: pulumi.Input<boolean>;
+    clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    clientCertificateExclusionPaths?: pulumi.Input<string>;
+    clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      */
-    clientCertificateMode?: pulumi.Input<string>;
+    clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotConnectionString>[] | undefined>;
     /**
      * Should the Linux Web App be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.LinuxWebAppSlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.LinuxWebAppSlotIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogs>;
+    logs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogs | undefined>;
     /**
      * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      *
      * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      *
      * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
      */
-    servicePlanId?: pulumi.Input<string>;
+    servicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
@@ -608,15 +608,15 @@ export interface LinuxWebAppSlotArgs {
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotStorageAccount>[] | undefined>;
     /**
      * A mapping of tags that should be assigned to the Linux Web App.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      *
@@ -624,23 +624,23 @@ export interface LinuxWebAppSlotArgs {
      *
      * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
      */
-    virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
      *
      * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
-    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    vnetImagePullEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      */
-    zipDeployFile?: pulumi.Input<string>;
+    zipDeployFile?: pulumi.Input<string | undefined>;
 }

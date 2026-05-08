@@ -160,27 +160,27 @@ export interface ChannelFacebookState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The Facebook Application ID for the Facebook Channel.
      */
-    facebookApplicationId?: pulumi.Input<string>;
+    facebookApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The Facebook Application Secret for the Facebook Channel.
      */
-    facebookApplicationSecret?: pulumi.Input<string>;
+    facebookApplicationSecret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `page` blocks as defined below.
      */
-    pages?: pulumi.Input<pulumi.Input<inputs.bot.ChannelFacebookPage>[]>;
+    pages?: pulumi.Input<pulumi.Input<inputs.bot.ChannelFacebookPage>[] | undefined>;
     /**
      * The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface ChannelFacebookArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `page` blocks as defined below.
      */

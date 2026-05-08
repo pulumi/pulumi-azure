@@ -24,13 +24,13 @@ class AssignmentArgs:
                  identity: pulumi.Input['AssignmentIdentityArgs'],
                  target_subscription_id: pulumi.Input[_builtins.str],
                  version_id: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_groups: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_groups: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assignment resource.
 
@@ -105,67 +105,67 @@ class AssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location of the Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="lockExcludeActions")
-    def lock_exclude_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def lock_exclude_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         """
         return pulumi.get(self, "lock_exclude_actions")
 
     @lock_exclude_actions.setter
-    def lock_exclude_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def lock_exclude_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "lock_exclude_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="lockExcludePrincipals")
-    def lock_exclude_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def lock_exclude_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         """
         return pulumi.get(self, "lock_exclude_principals")
 
     @lock_exclude_principals.setter
-    def lock_exclude_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def lock_exclude_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "lock_exclude_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="lockMode")
-    def lock_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         """
         return pulumi.get(self, "lock_mode")
 
     @lock_mode.setter
-    def lock_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         a JSON string to supply Blueprint Assignment parameter values.
 
@@ -174,12 +174,12 @@ class AssignmentArgs:
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_values", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_groups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         a JSON string to supply the Blueprint Resource Group information.
 
@@ -188,27 +188,27 @@ class AssignmentArgs:
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_groups(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_groups", value)
 
 
 @pulumi.input_type
 class _AssignmentState:
     def __init__(__self__, *,
-                 blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['AssignmentIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['AssignmentIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Assignment resources.
 
@@ -261,115 +261,115 @@ class _AssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="blueprintName")
-    def blueprint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blueprint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the blueprint assigned
         """
         return pulumi.get(self, "blueprint_name")
 
     @blueprint_name.setter
-    def blueprint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blueprint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blueprint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Description on the Blueprint
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the blueprint
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AssignmentIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AssignmentIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AssignmentIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location of the Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="lockExcludeActions")
-    def lock_exclude_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def lock_exclude_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         """
         return pulumi.get(self, "lock_exclude_actions")
 
     @lock_exclude_actions.setter
-    def lock_exclude_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def lock_exclude_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "lock_exclude_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="lockExcludePrincipals")
-    def lock_exclude_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def lock_exclude_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         """
         return pulumi.get(self, "lock_exclude_principals")
 
     @lock_exclude_principals.setter
-    def lock_exclude_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def lock_exclude_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "lock_exclude_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="lockMode")
-    def lock_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         """
         return pulumi.get(self, "lock_mode")
 
     @lock_mode.setter
-    def lock_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         a JSON string to supply Blueprint Assignment parameter values.
 
@@ -378,12 +378,12 @@ class _AssignmentState:
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_values", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_groups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         a JSON string to supply the Blueprint Resource Group information.
 
@@ -392,40 +392,40 @@ class _AssignmentState:
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_groups(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSubscriptionId")
-    def target_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_subscription_id")
 
     @target_subscription_id.setter
-    def target_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Published Version of the blueprint to be assigned.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
@@ -435,16 +435,16 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Blueprint Assignment resource
@@ -650,16 +650,16 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -699,20 +699,20 @@ class Assignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_groups: Optional[pulumi.Input[_builtins.str]] = None,
-            target_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            version_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Assignment':
+            blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_groups: pulumi.Input[Optional[_builtins.str]] = None,
+            target_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Assignment':
         """
         Get an existing Assignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

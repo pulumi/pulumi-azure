@@ -150,37 +150,37 @@ export interface ZoneState {
     /**
      * The maximum number of record sets that can be created in this Private DNS zone.
      */
-    maxNumberOfRecordSets?: pulumi.Input<number>;
+    maxNumberOfRecordSets?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone.
      */
-    maxNumberOfVirtualNetworkLinks?: pulumi.Input<number>;
+    maxNumberOfVirtualNetworkLinks?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
      */
-    maxNumberOfVirtualNetworkLinksWithRegistration?: pulumi.Input<number>;
+    maxNumberOfVirtualNetworkLinksWithRegistration?: pulumi.Input<number | undefined>;
     /**
      * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      *
      * > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The current number of record sets in this Private DNS zone.
      */
-    numberOfRecordSets?: pulumi.Input<number>;
+    numberOfRecordSets?: pulumi.Input<number | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface ZoneArgs {
      *
      * > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -200,9 +200,9 @@ export interface ZoneArgs {
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -175,27 +175,27 @@ export interface PolicyVMWorkloadState {
     /**
      * The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `protectionPolicy` blocks as defined below.
      */
-    protectionPolicies?: pulumi.Input<pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicy>[]>;
+    protectionPolicies?: pulumi.Input<pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicy>[] | undefined>;
     /**
      * The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `settings` block as defined below.
      */
-    settings?: pulumi.Input<inputs.backup.PolicyVMWorkloadSettings>;
+    settings?: pulumi.Input<inputs.backup.PolicyVMWorkloadSettings | undefined>;
     /**
      * The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
      */
-    workloadType?: pulumi.Input<string>;
+    workloadType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,7 +205,7 @@ export interface PolicyVMWorkloadArgs {
     /**
      * The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `protectionPolicy` blocks as defined below.
      */

@@ -136,17 +136,17 @@ export interface WorkspacePolicyState {
     /**
      * Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
      */
-    apiManagementWorkspaceId?: pulumi.Input<string>;
+    apiManagementWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the API Management Workspace Policy as an XML string.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * Specifies a publicly accessible URL to a policy XML document.
      *
      * > **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,11 +160,11 @@ export interface WorkspacePolicyArgs {
     /**
      * Specifies the API Management Workspace Policy as an XML string.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * Specifies a publicly accessible URL to a policy XML document.
      *
      * > **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }

@@ -290,10 +290,10 @@ def get_api(api_management_name: Optional[_builtins.str] = None,
         subscription_required=pulumi.get(__ret__, 'subscription_required'),
         version=pulumi.get(__ret__, 'version'),
         version_set_id=pulumi.get(__ret__, 'version_set_id'))
-def get_api_output(api_management_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   revision: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_output(api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   revision: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
     Use this data source to access information about an existing API Management API.

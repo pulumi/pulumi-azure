@@ -21,12 +21,12 @@ class AssessmentPolicyArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 implementation_effort: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_impact: Optional[pulumi.Input[_builtins.str]] = None):
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 implementation_effort: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_impact: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentPolicy resource.
 
@@ -80,89 +80,89 @@ class AssessmentPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "categories", value)
 
     @_builtins.property
     @pulumi.getter(name="implementationEffort")
-    def implementation_effort(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def implementation_effort(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
         return pulumi.get(self, "implementation_effort")
 
     @implementation_effort.setter
-    def implementation_effort(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def implementation_effort(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "implementation_effort", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationDescription")
-    def remediation_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remediation_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description which is used to mitigate the security issue.
         """
         return pulumi.get(self, "remediation_description")
 
     @remediation_description.setter
-    def remediation_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remediation_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def threats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
         """
         return pulumi.get(self, "threats")
 
     @threats.setter
-    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def threats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "threats", value)
 
     @_builtins.property
     @pulumi.getter(name="userImpact")
-    def user_impact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_impact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
         return pulumi.get(self, "user_impact")
 
     @user_impact.setter
-    def user_impact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_impact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_impact", value)
 
 
 @pulumi.input_type
 class _AssessmentPolicyState:
     def __init__(__self__, *,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 implementation_effort: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_impact: Optional[pulumi.Input[_builtins.str]] = None):
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 implementation_effort: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_impact: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentPolicy resources.
 
@@ -197,110 +197,110 @@ class _AssessmentPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         """
         return pulumi.get(self, "categories")
 
     @categories.setter
-    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Security Center Assessment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly display name of the Security Center Assessment.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="implementationEffort")
-    def implementation_effort(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def implementation_effort(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
         return pulumi.get(self, "implementation_effort")
 
     @implementation_effort.setter
-    def implementation_effort(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def implementation_effort(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "implementation_effort", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GUID as the name of the Security Center Assessment Policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationDescription")
-    def remediation_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remediation_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description which is used to mitigate the security issue.
         """
         return pulumi.get(self, "remediation_description")
 
     @remediation_description.setter
-    def remediation_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remediation_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def threats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
         """
         return pulumi.get(self, "threats")
 
     @threats.setter
-    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def threats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "threats", value)
 
     @_builtins.property
     @pulumi.getter(name="userImpact")
-    def user_impact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_impact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
         return pulumi.get(self, "user_impact")
 
     @user_impact.setter
-    def user_impact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_impact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_impact", value)
 
 
@@ -310,14 +310,14 @@ class AssessmentPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 implementation_effort: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_impact: Optional[pulumi.Input[_builtins.str]] = None,
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 implementation_effort: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_impact: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Security Center Assessment Metadata for Azure Security Center.
@@ -413,14 +413,14 @@ class AssessmentPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 implementation_effort: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_impact: Optional[pulumi.Input[_builtins.str]] = None,
+                 categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 implementation_effort: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 threats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_impact: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,15 +453,15 @@ class AssessmentPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            implementation_effort: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            remediation_description: Optional[pulumi.Input[_builtins.str]] = None,
-            severity: Optional[pulumi.Input[_builtins.str]] = None,
-            threats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            user_impact: Optional[pulumi.Input[_builtins.str]] = None) -> 'AssessmentPolicy':
+            categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            implementation_effort: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remediation_description: pulumi.Input[Optional[_builtins.str]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            threats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_impact: pulumi.Input[Optional[_builtins.str]] = None) -> 'AssessmentPolicy':
         """
         Get an existing AssessmentPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

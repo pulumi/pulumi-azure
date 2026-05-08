@@ -171,39 +171,39 @@ export interface ProjectState {
     /**
      * Description of the project. Changing this forces a new Dev Center Project to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
      */
-    devCenterId?: pulumi.Input<string>;
+    devCenterId?: pulumi.Input<string | undefined>;
     /**
      * The URI of the Dev Center resource this project is associated with.
      */
-    devCenterUri?: pulumi.Input<string>;
+    devCenterUri?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.devcenter.ProjectIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.ProjectIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
      */
-    maximumDevBoxesPerUser?: pulumi.Input<number>;
+    maximumDevBoxesPerUser?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface ProjectArgs {
     /**
      * Description of the project. Changing this forces a new Dev Center Project to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
      */
@@ -221,19 +221,19 @@ export interface ProjectArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.devcenter.ProjectIdentity>;
+    identity?: pulumi.Input<inputs.devcenter.ProjectIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
      */
-    maximumDevBoxesPerUser?: pulumi.Input<number>;
+    maximumDevBoxesPerUser?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
@@ -241,5 +241,5 @@ export interface ProjectArgs {
     /**
      * A mapping of tags which should be assigned to the Dev Center Project.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

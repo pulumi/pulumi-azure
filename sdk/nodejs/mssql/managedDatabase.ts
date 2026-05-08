@@ -164,27 +164,27 @@ export interface ManagedDatabaseState {
     /**
      * A `longTermRetentionPolicy` block as defined below.
      */
-    longTermRetentionPolicy?: pulumi.Input<inputs.mssql.ManagedDatabaseLongTermRetentionPolicy>;
+    longTermRetentionPolicy?: pulumi.Input<inputs.mssql.ManagedDatabaseLongTermRetentionPolicy | undefined>;
     /**
      * The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
      */
-    managedInstanceId?: pulumi.Input<string>;
+    managedInstanceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Managed Database to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      */
-    pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore>;
+    pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
-    shortTermRetentionDays?: pulumi.Input<number>;
+    shortTermRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface ManagedDatabaseArgs {
     /**
      * A `longTermRetentionPolicy` block as defined below.
      */
-    longTermRetentionPolicy?: pulumi.Input<inputs.mssql.ManagedDatabaseLongTermRetentionPolicy>;
+    longTermRetentionPolicy?: pulumi.Input<inputs.mssql.ManagedDatabaseLongTermRetentionPolicy | undefined>;
     /**
      * The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
      */
@@ -202,17 +202,17 @@ export interface ManagedDatabaseArgs {
     /**
      * The name of the Managed Database to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      */
-    pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore>;
+    pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
-    shortTermRetentionDays?: pulumi.Input<number>;
+    shortTermRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

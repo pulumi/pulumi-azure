@@ -179,41 +179,41 @@ export interface EnvironmentDaprComponentState {
     /**
      * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      */
-    componentType?: pulumi.Input<string>;
+    componentType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
      */
-    ignoreErrors?: pulumi.Input<boolean>;
+    ignoreErrors?: pulumi.Input<boolean | undefined>;
     /**
      * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      */
-    initTimeout?: pulumi.Input<string>;
+    initTimeout?: pulumi.Input<string | undefined>;
     /**
      * One or more `metadata` blocks as detailed below.
      */
-    metadatas?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentMetadata>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentMetadata>[] | undefined>;
     /**
      * The name for this Dapr component. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of scopes to which this component applies.
      *
      * > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `secret` block as detailed below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentSecret>[] | undefined>;
     /**
      * The version of the component.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -231,29 +231,29 @@ export interface EnvironmentDaprComponentArgs {
     /**
      * Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
      */
-    ignoreErrors?: pulumi.Input<boolean>;
+    ignoreErrors?: pulumi.Input<boolean | undefined>;
     /**
      * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      */
-    initTimeout?: pulumi.Input<string>;
+    initTimeout?: pulumi.Input<string | undefined>;
     /**
      * One or more `metadata` blocks as detailed below.
      */
-    metadatas?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentMetadata>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentMetadata>[] | undefined>;
     /**
      * The name for this Dapr component. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of scopes to which this component applies.
      *
      * > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `secret` block as detailed below.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentDaprComponentSecret>[] | undefined>;
     /**
      * The version of the component.
      */

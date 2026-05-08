@@ -131,8 +131,8 @@ def get_api_key(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         nginx_deployment_id=pulumi.get(__ret__, 'nginx_deployment_id'))
-def get_api_key_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_key_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Use this data source to access information about an existing NGINX Dataplane API Key.

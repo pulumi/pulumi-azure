@@ -206,11 +206,11 @@ export interface SubscriptionState {
     /**
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
-    billingScopeId?: pulumi.Input<string>;
+    billingScopeId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      *
@@ -218,23 +218,23 @@ export interface SubscriptionState {
      *
      * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Subscription. This is the Display Name in the portal.
      */
-    subscriptionName?: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Subscription.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Tenant to which the subscription belongs.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
-    workload?: pulumi.Input<string>;
+    workload?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -244,11 +244,11 @@ export interface SubscriptionArgs {
     /**
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
-    billingScopeId?: pulumi.Input<string>;
+    billingScopeId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      *
@@ -256,7 +256,7 @@ export interface SubscriptionArgs {
      *
      * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Subscription. This is the Display Name in the portal.
      */
@@ -264,9 +264,9 @@ export interface SubscriptionArgs {
     /**
      * A mapping of tags to assign to the Subscription.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
-    workload?: pulumi.Input<string>;
+    workload?: pulumi.Input<string | undefined>;
 }

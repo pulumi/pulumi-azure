@@ -169,37 +169,37 @@ export interface NamedValueState {
     /**
      * The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The display name of this API Management Named Value.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management Named Value. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
      *
      * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      */
-    secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean | undefined>;
     /**
      * A list of tags to be applied to the API Management Named Value.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value of this API Management Named Value.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      */
-    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault>;
+    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault | undefined>;
 }
 
 /**
@@ -217,7 +217,7 @@ export interface NamedValueArgs {
     /**
      * The name of the API Management Named Value. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
@@ -227,17 +227,17 @@ export interface NamedValueArgs {
      *
      * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      */
-    secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean | undefined>;
     /**
      * A list of tags to be applied to the API Management Named Value.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value of this API Management Named Value.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      */
-    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault>;
+    valueFromKeyVault?: pulumi.Input<inputs.apimanagement.NamedValueValueFromKeyVault | undefined>;
 }

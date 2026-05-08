@@ -24,28 +24,28 @@ class AccountArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 custom_question_answering_search_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_question_answering_search_service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_super_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_website_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
-                 network_injection: Optional[pulumi.Input['AccountNetworkInjectionArgs']] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_management_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 qna_runtime_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['AccountNetworkAclsArgs']] = None,
+                 network_injection: pulumi.Input[Optional['AccountNetworkInjectionArgs']] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -179,19 +179,19 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="customQuestionAnsweringSearchServiceId")
-    def custom_question_answering_search_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_question_answering_search_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         """
         return pulumi.get(self, "custom_question_answering_search_service_id")
 
     @custom_question_answering_search_service_id.setter
-    def custom_question_answering_search_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_question_answering_search_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_question_answering_search_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customQuestionAnsweringSearchServiceKey")
-    def custom_question_answering_search_service_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_question_answering_search_service_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `kind` is `TextAnalytics` this specifies the key of the Search service.
 
@@ -200,12 +200,12 @@ class AccountArgs:
         return pulumi.get(self, "custom_question_answering_search_service_key")
 
     @custom_question_answering_search_service_key.setter
-    def custom_question_answering_search_service_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_question_answering_search_service_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_question_answering_search_service_key", value)
 
     @_builtins.property
     @pulumi.getter(name="customSubdomainName")
-    def custom_subdomain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_subdomain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
 
@@ -214,120 +214,120 @@ class AccountArgs:
         return pulumi.get(self, "custom_subdomain_name")
 
     @custom_subdomain_name.setter
-    def custom_subdomain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_subdomain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_subdomain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as documented below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicThrottlingEnabled")
-    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_throttling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         """
         return pulumi.get(self, "dynamic_throttling_enabled")
 
     @dynamic_throttling_enabled.setter
-    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_throttling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of FQDNs allowed for the Cognitive Account.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorAadClientId")
-    def metrics_advisor_aad_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_aad_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metrics_advisor_aad_client_id")
 
     @metrics_advisor_aad_client_id.setter
-    def metrics_advisor_aad_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_aad_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_aad_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorAadTenantId")
-    def metrics_advisor_aad_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_aad_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metrics_advisor_aad_tenant_id")
 
     @metrics_advisor_aad_tenant_id.setter
-    def metrics_advisor_aad_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_aad_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_aad_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorSuperUserName")
-    def metrics_advisor_super_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_super_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metrics_advisor_super_user_name")
 
     @metrics_advisor_super_user_name.setter
-    def metrics_advisor_super_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_super_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_super_user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorWebsiteName")
-    def metrics_advisor_website_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_website_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 
@@ -336,149 +336,149 @@ class AccountArgs:
         return pulumi.get(self, "metrics_advisor_website_name")
 
     @metrics_advisor_website_name.setter
-    def metrics_advisor_website_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_website_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_website_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['AccountNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['AccountNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['AccountNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['AccountNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInjection")
-    def network_injection(self) -> Optional[pulumi.Input['AccountNetworkInjectionArgs']]:
+    def network_injection(self) -> pulumi.Input[Optional['AccountNetworkInjectionArgs']]:
         """
         A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
         """
         return pulumi.get(self, "network_injection")
 
     @network_injection.setter
-    def network_injection(self, value: Optional[pulumi.Input['AccountNetworkInjectionArgs']]):
+    def network_injection(self, value: pulumi.Input[Optional['AccountNetworkInjectionArgs']]):
         pulumi.set(self, "network_injection", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundNetworkAccessRestricted")
-    def outbound_network_access_restricted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_network_access_restricted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
     @outbound_network_access_restricted.setter
-    def outbound_network_access_restricted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_network_access_restricted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_network_access_restricted", value)
 
     @_builtins.property
     @pulumi.getter(name="projectManagementEnabled")
-    def project_management_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def project_management_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether project management is enabled. Can only be set to `true` when `kind` is set to `AIServices`. Once enabled, disabling `project_management_enabled` forces a new resource to be created unless `kind` is set to `OpenAI`. Defaults to `false`.
         """
         return pulumi.get(self, "project_management_enabled")
 
     @project_management_enabled.setter
-    def project_management_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def project_management_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "project_management_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="qnaRuntimeEndpoint")
-    def qna_runtime_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qna_runtime_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URL to link a QnAMaker cognitive account to a QnA runtime.
         """
         return pulumi.get(self, "qna_runtime_endpoint")
 
     @qna_runtime_endpoint.setter
-    def qna_runtime_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qna_runtime_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qna_runtime_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]:
+    def storages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountStorageArgs']]]]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 
     @storages.setter
-    def storages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]):
+    def storages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountStorageArgs']]]]):
         pulumi.set(self, "storages", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 custom_question_answering_search_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_question_answering_search_service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_super_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_website_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
-                 network_injection: Optional[pulumi.Input['AccountNetworkInjectionArgs']] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_management_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 qna_runtime_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['AccountNetworkAclsArgs']] = None,
+                 network_injection: pulumi.Input[Optional['AccountNetworkInjectionArgs']] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input['AccountStorageArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -582,19 +582,19 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="customQuestionAnsweringSearchServiceId")
-    def custom_question_answering_search_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_question_answering_search_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         """
         return pulumi.get(self, "custom_question_answering_search_service_id")
 
     @custom_question_answering_search_service_id.setter
-    def custom_question_answering_search_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_question_answering_search_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_question_answering_search_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customQuestionAnsweringSearchServiceKey")
-    def custom_question_answering_search_service_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_question_answering_search_service_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `kind` is `TextAnalytics` this specifies the key of the Search service.
 
@@ -603,12 +603,12 @@ class _AccountState:
         return pulumi.get(self, "custom_question_answering_search_service_key")
 
     @custom_question_answering_search_service_key.setter
-    def custom_question_answering_search_service_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_question_answering_search_service_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_question_answering_search_service_key", value)
 
     @_builtins.property
     @pulumi.getter(name="customSubdomainName")
-    def custom_subdomain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_subdomain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
 
@@ -617,72 +617,72 @@ class _AccountState:
         return pulumi.get(self, "custom_subdomain_name")
 
     @custom_subdomain_name.setter
-    def custom_subdomain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_subdomain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_subdomain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as documented below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['AccountCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicThrottlingEnabled")
-    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_throttling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         """
         return pulumi.get(self, "dynamic_throttling_enabled")
 
     @dynamic_throttling_enabled.setter
-    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_throttling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint used to connect to the Cognitive Service Account.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of FQDNs allowed for the Cognitive Account.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created except when upgrading the Cognitive Service Account from `OpenAI` to `AIServices` or rolling back from `AIServices` to `OpenAI`. More information on [upgrade and rollback scenario](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/upgrade-azure-openai?tabs=portal).
 
@@ -693,72 +693,72 @@ class _AccountState:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorAadClientId")
-    def metrics_advisor_aad_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_aad_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metrics_advisor_aad_client_id")
 
     @metrics_advisor_aad_client_id.setter
-    def metrics_advisor_aad_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_aad_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_aad_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorAadTenantId")
-    def metrics_advisor_aad_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_aad_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metrics_advisor_aad_tenant_id")
 
     @metrics_advisor_aad_tenant_id.setter
-    def metrics_advisor_aad_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_aad_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_aad_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorSuperUserName")
-    def metrics_advisor_super_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_super_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metrics_advisor_super_user_name")
 
     @metrics_advisor_super_user_name.setter
-    def metrics_advisor_super_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_super_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_super_user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsAdvisorWebsiteName")
-    def metrics_advisor_website_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics_advisor_website_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 
@@ -767,132 +767,132 @@ class _AccountState:
         return pulumi.get(self, "metrics_advisor_website_name")
 
     @metrics_advisor_website_name.setter
-    def metrics_advisor_website_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics_advisor_website_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics_advisor_website_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['AccountNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['AccountNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['AccountNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['AccountNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInjection")
-    def network_injection(self) -> Optional[pulumi.Input['AccountNetworkInjectionArgs']]:
+    def network_injection(self) -> pulumi.Input[Optional['AccountNetworkInjectionArgs']]:
         """
         A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
         """
         return pulumi.get(self, "network_injection")
 
     @network_injection.setter
-    def network_injection(self, value: Optional[pulumi.Input['AccountNetworkInjectionArgs']]):
+    def network_injection(self, value: pulumi.Input[Optional['AccountNetworkInjectionArgs']]):
         pulumi.set(self, "network_injection", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundNetworkAccessRestricted")
-    def outbound_network_access_restricted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_network_access_restricted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
     @outbound_network_access_restricted.setter
-    def outbound_network_access_restricted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_network_access_restricted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_network_access_restricted", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A primary access key which can be used to connect to the Cognitive Service Account.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="projectManagementEnabled")
-    def project_management_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def project_management_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether project management is enabled. Can only be set to `true` when `kind` is set to `AIServices`. Once enabled, disabling `project_management_enabled` forces a new resource to be created unless `kind` is set to `OpenAI`. Defaults to `false`.
         """
         return pulumi.get(self, "project_management_enabled")
 
     @project_management_enabled.setter
-    def project_management_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def project_management_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "project_management_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="qnaRuntimeEndpoint")
-    def qna_runtime_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qna_runtime_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URL to link a QnAMaker cognitive account to a QnA runtime.
         """
         return pulumi.get(self, "qna_runtime_endpoint")
 
     @qna_runtime_endpoint.setter
-    def qna_runtime_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qna_runtime_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qna_runtime_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key which can be used to connect to the Cognitive Service Account.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
 
@@ -901,31 +901,31 @@ class _AccountState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]:
+    def storages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountStorageArgs']]]]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 
     @storages.setter
-    def storages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]):
+    def storages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountStorageArgs']]]]):
         pulumi.set(self, "storages", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -935,31 +935,31 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_question_answering_search_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_question_answering_search_service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_super_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_website_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
-                 network_injection: Optional[pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_management_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 qna_runtime_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
+                 network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Cognitive Services Account.
@@ -1112,31 +1112,31 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_question_answering_search_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_question_answering_search_service_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_super_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics_advisor_website_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
-                 network_injection: Optional[pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_management_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 qna_runtime_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
+                 network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1192,34 +1192,34 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_question_answering_search_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_question_answering_search_service_key: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
-            dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            metrics_advisor_aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            metrics_advisor_aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            metrics_advisor_super_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metrics_advisor_website_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_acls: Optional[pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
-            network_injection: Optional[pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
-            outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            project_management_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            qna_runtime_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+            dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
+            network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
+            outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

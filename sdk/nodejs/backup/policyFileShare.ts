@@ -213,51 +213,51 @@ export interface PolicyFileShareState {
     /**
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
-    backup?: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
+    backup?: pulumi.Input<inputs.backup.PolicyFileShareBackup | undefined>;
     /**
      * The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
      *
      * > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
      */
-    backupTier?: pulumi.Input<string>;
+    backupTier?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below.
      */
-    retentionDaily?: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
+    retentionDaily?: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily | undefined>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
+    retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      */
-    retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
+    retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly | undefined>;
     /**
      * The number of days to retain the snapshots. Defaults to `0`.
      */
-    snapshotRetentionInDays?: pulumi.Input<number>;
+    snapshotRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      *
      * > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -273,11 +273,11 @@ export interface PolicyFileShareArgs {
      *
      * > **Note:** When `backupTier` is set to `vault-standard`, the `snapshotRetentionInDays` value must be less than the `retentionDaily` count.
      */
-    backupTier?: pulumi.Input<string>;
+    backupTier?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -293,23 +293,23 @@ export interface PolicyFileShareArgs {
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
+    retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      */
-    retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
+    retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly | undefined>;
     /**
      * The number of days to retain the snapshots. Defaults to `0`.
      */
-    snapshotRetentionInDays?: pulumi.Input<number>;
+    snapshotRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      *
      * > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

@@ -122,31 +122,31 @@ export interface SpringCloudCertificateState {
     /**
      * The content of uploaded certificate. Changing this forces a new resource to be created.
      */
-    certificateContent?: pulumi.Input<string>;
+    certificateContent?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      */
-    excludePrivateKey?: pulumi.Input<boolean>;
+    excludePrivateKey?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    keyVaultCertificateId?: pulumi.Input<string>;
+    keyVaultCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * The thumbprint of the Spring Cloud certificate.
      */
-    thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -156,19 +156,19 @@ export interface SpringCloudCertificateArgs {
     /**
      * The content of uploaded certificate. Changing this forces a new resource to be created.
      */
-    certificateContent?: pulumi.Input<string>;
+    certificateContent?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      */
-    excludePrivateKey?: pulumi.Input<boolean>;
+    excludePrivateKey?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    keyVaultCertificateId?: pulumi.Input<string>;
+    keyVaultCertificateId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */

@@ -187,31 +187,31 @@ export interface LinkedServerState {
     /**
      * The geo-replicated primary hostname for this linked server.
      */
-    geoReplicatedPrimaryHostName?: pulumi.Input<string>;
+    geoReplicatedPrimaryHostName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    linkedRedisCacheId?: pulumi.Input<string>;
+    linkedRedisCacheId?: pulumi.Input<string | undefined>;
     /**
      * The location of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    linkedRedisCacheLocation?: pulumi.Input<string>;
+    linkedRedisCacheLocation?: pulumi.Input<string | undefined>;
     /**
      * The name of the linked server.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      */
-    serverRole?: pulumi.Input<string>;
+    serverRole?: pulumi.Input<string | undefined>;
     /**
      * The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
      */
-    targetRedisCacheName?: pulumi.Input<string>;
+    targetRedisCacheName?: pulumi.Input<string | undefined>;
 }
 
 /**

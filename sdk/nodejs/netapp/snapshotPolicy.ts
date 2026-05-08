@@ -203,43 +203,43 @@ export interface SnapshotPolicyState {
     /**
      * The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
-    dailySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyDailySchedule>;
+    dailySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyDailySchedule | undefined>;
     /**
      * Defines that the NetApp Snapshot Policy is enabled or not.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
-    hourlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyHourlySchedule>;
+    hourlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyHourlySchedule | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
-    monthlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyMonthlySchedule>;
+    monthlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyMonthlySchedule | undefined>;
     /**
      * The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
-    weeklySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyWeeklySchedule>;
+    weeklySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyWeeklySchedule | undefined>;
 }
 
 /**
@@ -253,7 +253,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
-    dailySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyDailySchedule>;
+    dailySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyDailySchedule | undefined>;
     /**
      * Defines that the NetApp Snapshot Policy is enabled or not.
      */
@@ -261,19 +261,19 @@ export interface SnapshotPolicyArgs {
     /**
      * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
-    hourlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyHourlySchedule>;
+    hourlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyHourlySchedule | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
-    monthlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyMonthlySchedule>;
+    monthlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyMonthlySchedule | undefined>;
     /**
      * The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
@@ -281,9 +281,9 @@ export interface SnapshotPolicyArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
-    weeklySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyWeeklySchedule>;
+    weeklySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyWeeklySchedule | undefined>;
 }

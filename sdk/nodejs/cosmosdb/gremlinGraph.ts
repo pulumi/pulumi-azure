@@ -218,59 +218,59 @@ export interface GremlinGraphState {
     /**
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
      *
      * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy | undefined>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
      */
-    defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number | undefined>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
-    indexPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>;
+    indexPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy | undefined>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    partitionKeyPath?: pulumi.Input<string>;
+    partitionKeyPath?: pulumi.Input<string | undefined>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
-    partitionKeyVersion?: pulumi.Input<number>;
+    partitionKeyVersion?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[] | undefined>;
 }
 
 /**
@@ -286,17 +286,17 @@ export interface GremlinGraphArgs {
      *
      * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy | undefined>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -304,15 +304,15 @@ export interface GremlinGraphArgs {
     /**
      * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
      */
-    defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number | undefined>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
-    indexPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>;
+    indexPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy | undefined>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
@@ -320,7 +320,7 @@ export interface GremlinGraphArgs {
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
-    partitionKeyVersion?: pulumi.Input<number>;
+    partitionKeyVersion?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -328,9 +328,9 @@ export interface GremlinGraphArgs {
     /**
      * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[] | undefined>;
 }

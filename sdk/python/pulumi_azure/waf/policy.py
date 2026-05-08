@@ -23,11 +23,11 @@ class PolicyArgs:
     def __init__(__self__, *,
                  managed_rules: pulumi.Input['PolicyManagedRulesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional['PolicyPolicySettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -78,77 +78,77 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]:
+    def custom_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]:
         """
         One or more `custom_rules` blocks as defined below.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]):
+    def custom_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional[pulumi.Input['PolicyPolicySettingsArgs']]:
+    def policy_settings(self) -> pulumi.Input[Optional['PolicyPolicySettingsArgs']]:
         """
         A `policy_settings` block as defined below.
         """
         return pulumi.get(self, "policy_settings")
 
     @policy_settings.setter
-    def policy_settings(self, value: Optional[pulumi.Input['PolicyPolicySettingsArgs']]):
+    def policy_settings(self, value: pulumi.Input[Optional['PolicyPolicySettingsArgs']]):
         pulumi.set(self, "policy_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Web Application Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PolicyState:
     def __init__(__self__, *,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
-                 http_listener_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input['PolicyManagedRulesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_based_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
+                 http_listener_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional['PolicyManagedRulesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_based_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_settings: pulumi.Input[Optional['PolicyPolicySettingsArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
 
@@ -183,110 +183,110 @@ class _PolicyState:
 
     @_builtins.property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]:
+    def custom_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]:
         """
         One or more `custom_rules` blocks as defined below.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]):
+    def custom_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="httpListenerIds")
-    def http_listener_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def http_listener_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of HTTP Listener IDs from an `network.ApplicationGateway`.
         """
         return pulumi.get(self, "http_listener_ids")
 
     @http_listener_ids.setter
-    def http_listener_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def http_listener_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "http_listener_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[pulumi.Input['PolicyManagedRulesArgs']]:
+    def managed_rules(self) -> pulumi.Input[Optional['PolicyManagedRulesArgs']]:
         """
         A `managed_rules` blocks as defined below.
         """
         return pulumi.get(self, "managed_rules")
 
     @managed_rules.setter
-    def managed_rules(self, value: Optional[pulumi.Input['PolicyManagedRulesArgs']]):
+    def managed_rules(self, value: pulumi.Input[Optional['PolicyManagedRulesArgs']]):
         pulumi.set(self, "managed_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pathBasedRuleIds")
-    def path_based_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def path_based_rule_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of URL Path Map Path Rule IDs from an `network.ApplicationGateway`.
         """
         return pulumi.get(self, "path_based_rule_ids")
 
     @path_based_rule_ids.setter
-    def path_based_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def path_based_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "path_based_rule_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional[pulumi.Input['PolicyPolicySettingsArgs']]:
+    def policy_settings(self) -> pulumi.Input[Optional['PolicyPolicySettingsArgs']]:
         """
         A `policy_settings` block as defined below.
         """
         return pulumi.get(self, "policy_settings")
 
     @policy_settings.setter
-    def policy_settings(self, value: Optional[pulumi.Input['PolicyPolicySettingsArgs']]):
+    def policy_settings(self, value: pulumi.Input[Optional['PolicyPolicySettingsArgs']]):
         pulumi.set(self, "policy_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Web Application Firewall Policy.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -296,13 +296,13 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Azure Web Application Firewall Policy instance.
@@ -571,13 +571,13 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_rules: Optional[pulumi.Input[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_settings: Optional[pulumi.Input[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_rules: pulumi.Input[Optional[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_settings: pulumi.Input[Optional[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -610,15 +610,15 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict']]]]] = None,
-            http_listener_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_rules: Optional[pulumi.Input[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            path_based_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_settings: Optional[pulumi.Input[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Policy':
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyCustomRuleArgs', 'PolicyCustomRuleArgsDict']]]]] = None,
+            http_listener_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_rules: pulumi.Input[Optional[Union['PolicyManagedRulesArgs', 'PolicyManagedRulesArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path_based_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_settings: pulumi.Input[Optional[Union['PolicyPolicySettingsArgs', 'PolicyPolicySettingsArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

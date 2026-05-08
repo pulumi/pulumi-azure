@@ -48,7 +48,7 @@ class LinkedServiceIntegrationRuntimeArgsDict(TypedDict):
     """
     The integration runtime reference to associate with the Synapse Linked Service.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of parameters to associate with the integration runtime.
     """
@@ -57,7 +57,7 @@ class LinkedServiceIntegrationRuntimeArgsDict(TypedDict):
 class LinkedServiceIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The integration runtime reference to associate with the Synapse Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the integration runtime.
@@ -80,14 +80,14 @@ class LinkedServiceIntegrationRuntimeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the integration runtime.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -336,15 +336,15 @@ class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
 
 
 class SqlPoolVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
-    email_subscription_admins_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    email_subscription_admins_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies an array of email addresses to which the scan notification is sent.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
     """
@@ -352,9 +352,9 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
 @pulumi.input_type
 class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
     def __init__(__self__, *,
-                 email_subscription_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_subscription_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
@@ -369,38 +369,38 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailSubscriptionAdminsEnabled")
-    def email_subscription_admins_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_subscription_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         """
         return pulumi.get(self, "email_subscription_admins_enabled")
 
     @email_subscription_admins_enabled.setter
-    def email_subscription_admins_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_subscription_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_subscription_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -425,11 +425,11 @@ class WorkspaceAzureDevopsRepoArgsDict(TypedDict):
     """
     Specifies the root folder within the repository. Set to `/` for the top level.
     """
-    last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    last_commit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last commit ID.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     the ID of the tenant for the Azure DevOps account.
     """
@@ -442,8 +442,8 @@ class WorkspaceAzureDevopsRepoArgs:
                  project_name: pulumi.Input[_builtins.str],
                  repository_name: pulumi.Input[_builtins.str],
                  root_folder: pulumi.Input[_builtins.str],
-                 last_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 last_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: Specifies the Azure DevOps account name.
         :param pulumi.Input[_builtins.str] branch_name: Specifies the collaboration branch of the repository to get code from.
@@ -525,26 +525,26 @@ class WorkspaceAzureDevopsRepoArgs:
 
     @_builtins.property
     @pulumi.getter(name="lastCommitId")
-    def last_commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last commit ID.
         """
         return pulumi.get(self, "last_commit_id")
 
     @last_commit_id.setter
-    def last_commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_commit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the ID of the tenant for the Azure DevOps account.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -553,11 +553,11 @@ class WorkspaceCustomerManagedKeyArgsDict(TypedDict):
     """
     The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
     """
-    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
     """
@@ -566,8 +566,8 @@ class WorkspaceCustomerManagedKeyArgsDict(TypedDict):
 class WorkspaceCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  key_versionless_id: pulumi.Input[_builtins.str],
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
         :param pulumi.Input[_builtins.str] key_name: An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
@@ -593,26 +593,26 @@ class WorkspaceCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
@@ -633,13 +633,13 @@ class WorkspaceGithubRepoArgsDict(TypedDict):
     """
     Specifies the root folder within the repository. Set to `/` for the top level.
     """
-    git_url: NotRequired[pulumi.Input[_builtins.str]]
+    git_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 
     > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
     """
-    last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    last_commit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last commit ID.
     """
@@ -651,8 +651,8 @@ class WorkspaceGithubRepoArgs:
                  branch_name: pulumi.Input[_builtins.str],
                  repository_name: pulumi.Input[_builtins.str],
                  root_folder: pulumi.Input[_builtins.str],
-                 git_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_commit_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 git_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_commit_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_name: Specifies the GitHub account name.
         :param pulumi.Input[_builtins.str] branch_name: Specifies the collaboration branch of the repository to get code from.
@@ -722,7 +722,7 @@ class WorkspaceGithubRepoArgs:
 
     @_builtins.property
     @pulumi.getter(name="gitUrl")
-    def git_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def git_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 
@@ -731,19 +731,19 @@ class WorkspaceGithubRepoArgs:
         return pulumi.get(self, "git_url")
 
     @git_url.setter
-    def git_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def git_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "git_url", value)
 
     @_builtins.property
     @pulumi.getter(name="lastCommitId")
-    def last_commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last commit ID.
         """
         return pulumi.get(self, "last_commit_id")
 
     @last_commit_id.setter
-    def last_commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_commit_id", value)
 
 
@@ -752,17 +752,17 @@ class WorkspaceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
     """
@@ -771,9 +771,9 @@ class WorkspaceIdentityArgsDict(TypedDict):
 class WorkspaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
@@ -804,7 +804,7 @@ class WorkspaceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 
@@ -813,44 +813,44 @@ class WorkspaceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class WorkspaceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
-    email_subscription_admins_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    email_subscription_admins_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
     """
-    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies an array of email addresses to which the scan notification is sent.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
     """
@@ -858,9 +858,9 @@ class WorkspaceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
     def __init__(__self__, *,
-                 email_subscription_admins_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 email_subscription_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
@@ -875,38 +875,38 @@ class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailSubscriptionAdminsEnabled")
-    def email_subscription_admins_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_subscription_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         """
         return pulumi.get(self, "email_subscription_admins_enabled")
 
     @email_subscription_admins_enabled.setter
-    def email_subscription_admins_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_subscription_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_subscription_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 

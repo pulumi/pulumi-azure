@@ -22,10 +22,10 @@ class WorkspaceApiVersionSetArgs:
                  api_management_workspace_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  versioning_scheme: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_query_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceApiVersionSet resource.
 
@@ -87,63 +87,63 @@ class WorkspaceApiVersionSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the API Management Workspace API Version Set.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API Management Workspace API Version Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionHeaderName")
-    def version_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the header to read from inbound requests to determine the API version.
         """
         return pulumi.get(self, "version_header_name")
 
     @version_header_name.setter
-    def version_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionQueryName")
-    def version_query_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_query_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the query string parameter to read from inbound requests to determine the API version.
         """
         return pulumi.get(self, "version_query_name")
 
     @version_query_name.setter
-    def version_query_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_query_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_query_name", value)
 
 
 @pulumi.input_type
 class _WorkspaceApiVersionSetState:
     def __init__(__self__, *,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_scheme: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_scheme: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApiVersionSet resources.
 
@@ -172,86 +172,86 @@ class _WorkspaceApiVersionSetState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementWorkspaceId")
-    def api_management_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_workspace_id")
 
     @api_management_workspace_id.setter
-    def api_management_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the API Management Workspace API Version Set.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the display name of the API Management Workspace API Version Set.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API Management Workspace API Version Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionHeaderName")
-    def version_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the header to read from inbound requests to determine the API version.
         """
         return pulumi.get(self, "version_header_name")
 
     @version_header_name.setter
-    def version_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionQueryName")
-    def version_query_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_query_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the query string parameter to read from inbound requests to determine the API version.
         """
         return pulumi.get(self, "version_query_name")
 
     @version_query_name.setter
-    def version_query_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_query_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_query_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versioningScheme")
-    def versioning_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def versioning_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies where in a request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         """
         return pulumi.get(self, "versioning_scheme")
 
     @versioning_scheme.setter
-    def versioning_scheme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def versioning_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "versioning_scheme", value)
 
 
@@ -261,13 +261,13 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_scheme: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an API Version Set within an API Management Workspace.
@@ -394,13 +394,13 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_scheme: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -433,13 +433,13 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-            versioning_scheme: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceApiVersionSet':
+            api_management_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+            versioning_scheme: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceApiVersionSet':
         """
         Get an existing WorkspaceApiVersionSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

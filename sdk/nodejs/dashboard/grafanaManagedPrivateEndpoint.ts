@@ -177,39 +177,39 @@ export interface GrafanaManagedPrivateEndpointState {
     /**
      * The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    grafanaId?: pulumi.Input<string>;
+    grafanaId?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    privateLinkResourceId?: pulumi.Input<string>;
+    privateLinkResourceId?: pulumi.Input<string | undefined>;
     /**
      * The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    privateLinkResourceRegion?: pulumi.Input<string>;
+    privateLinkResourceRegion?: pulumi.Input<string | undefined>;
     /**
      * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
      */
-    privateLinkServiceUrl?: pulumi.Input<string>;
+    privateLinkServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * A message to provide in the request which will be seen by approvers.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -223,15 +223,15 @@ export interface GrafanaManagedPrivateEndpointArgs {
     /**
      * Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
@@ -239,17 +239,17 @@ export interface GrafanaManagedPrivateEndpointArgs {
     /**
      * The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    privateLinkResourceRegion?: pulumi.Input<string>;
+    privateLinkResourceRegion?: pulumi.Input<string | undefined>;
     /**
      * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
      */
-    privateLinkServiceUrl?: pulumi.Input<string>;
+    privateLinkServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * A message to provide in the request which will be seen by approvers.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

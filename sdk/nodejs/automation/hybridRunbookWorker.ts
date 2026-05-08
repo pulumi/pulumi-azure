@@ -226,43 +226,43 @@ export interface HybridRunbookWorkerState {
     /**
      * The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The IP address of assigned machine.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * Last Heartbeat from the Worker.
      */
-    lastSeenDateTime?: pulumi.Input<string>;
+    lastSeenDateTime?: pulumi.Input<string | undefined>;
     /**
      * The registration time of the worker machine.
      */
-    registrationDateTime?: pulumi.Input<string>;
+    registrationDateTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
      */
-    vmResourceId?: pulumi.Input<string>;
+    vmResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the HybridWorker Group. Changing this forces a new Automation to be created.
      */
-    workerGroupName?: pulumi.Input<string>;
+    workerGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      */
-    workerId?: pulumi.Input<string>;
+    workerId?: pulumi.Input<string | undefined>;
     /**
      * The name of HybridWorker.
      */
-    workerName?: pulumi.Input<string>;
+    workerName?: pulumi.Input<string | undefined>;
     /**
      * The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
      */
-    workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -149,41 +149,41 @@ export interface CacheBlobNfsTargetState {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The client-facing file path of the HPC Cache Blob NFS Target.
      */
-    namespacePath?: pulumi.Input<string>;
+    namespacePath?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
      *
      * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
-    storageContainerId?: pulumi.Input<string>;
+    storageContainerId?: pulumi.Input<string | undefined>;
     /**
      * The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
-    usageModel?: pulumi.Input<string>;
+    usageModel?: pulumi.Input<string | undefined>;
     /**
      * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
      */
-    verificationTimerInSeconds?: pulumi.Input<number>;
+    verificationTimerInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
      */
-    writeBackTimerInSeconds?: pulumi.Input<number>;
+    writeBackTimerInSeconds?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface CacheBlobNfsTargetArgs {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
@@ -201,7 +201,7 @@ export interface CacheBlobNfsTargetArgs {
     /**
      * The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The client-facing file path of the HPC Cache Blob NFS Target.
      */
@@ -223,9 +223,9 @@ export interface CacheBlobNfsTargetArgs {
     /**
      * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
      */
-    verificationTimerInSeconds?: pulumi.Input<number>;
+    verificationTimerInSeconds?: pulumi.Input<number | undefined>;
     /**
      * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
      */
-    writeBackTimerInSeconds?: pulumi.Input<number>;
+    writeBackTimerInSeconds?: pulumi.Input<number | undefined>;
 }

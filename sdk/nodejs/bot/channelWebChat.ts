@@ -132,19 +132,19 @@ export interface ChannelWebChatState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
-    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[]>;
+    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[] | undefined>;
 }
 
 /**
@@ -158,7 +158,7 @@ export interface ChannelWebChatArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
      */
@@ -166,5 +166,5 @@ export interface ChannelWebChatArgs {
     /**
      * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
-    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[]>;
+    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[] | undefined>;
 }

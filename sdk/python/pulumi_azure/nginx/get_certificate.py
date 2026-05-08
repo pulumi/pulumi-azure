@@ -209,8 +209,8 @@ def get_certificate(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         nginx_deployment_id=pulumi.get(__ret__, 'nginx_deployment_id'),
         sha1_thumbprint=pulumi.get(__ret__, 'sha1_thumbprint'))
-def get_certificate_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing NGINX Certificate.

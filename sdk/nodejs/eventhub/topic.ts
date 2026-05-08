@@ -202,59 +202,59 @@ export interface TopicState {
     /**
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
      */
-    batchedOperationsEnabled?: pulumi.Input<boolean>;
+    batchedOperationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    defaultMessageTtl?: pulumi.Input<string>;
+    defaultMessageTtl?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      */
-    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
-    expressEnabled?: pulumi.Input<boolean>;
+    expressEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      */
-    maxMessageSizeInKilobytes?: pulumi.Input<number>;
+    maxMessageSizeInKilobytes?: pulumi.Input<number | undefined>;
     /**
      * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      */
-    maxSizeInMegabytes?: pulumi.Input<number>;
+    maxSizeInMegabytes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
-    namespaceName?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
      * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      */
-    partitioningEnabled?: pulumi.Input<boolean>;
+    partitioningEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    requiresDuplicateDetection?: pulumi.Input<boolean>;
-    resourceGroupName?: pulumi.Input<string>;
+    requiresDuplicateDetection?: pulumi.Input<boolean | undefined>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether the Topic supports ordering.
      */
-    supportOrdering?: pulumi.Input<boolean>;
+    supportOrdering?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -264,35 +264,35 @@ export interface TopicArgs {
     /**
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
      */
-    batchedOperationsEnabled?: pulumi.Input<boolean>;
+    batchedOperationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    defaultMessageTtl?: pulumi.Input<string>;
+    defaultMessageTtl?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      */
-    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
-    expressEnabled?: pulumi.Input<boolean>;
+    expressEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      */
-    maxMessageSizeInKilobytes?: pulumi.Input<number>;
+    maxMessageSizeInKilobytes?: pulumi.Input<number | undefined>;
     /**
      * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      */
-    maxSizeInMegabytes?: pulumi.Input<number>;
+    maxSizeInMegabytes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
@@ -302,17 +302,17 @@ export interface TopicArgs {
      *
      * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      */
-    partitioningEnabled?: pulumi.Input<boolean>;
+    partitioningEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    requiresDuplicateDetection?: pulumi.Input<boolean>;
+    requiresDuplicateDetection?: pulumi.Input<boolean | undefined>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which controls whether the Topic supports ordering.
      */
-    supportOrdering?: pulumi.Input<boolean>;
+    supportOrdering?: pulumi.Input<boolean | undefined>;
 }

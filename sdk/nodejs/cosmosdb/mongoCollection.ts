@@ -181,49 +181,49 @@ export interface MongoCollectionState {
     /**
      * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
      */
-    defaultTtlSeconds?: pulumi.Input<number>;
+    defaultTtlSeconds?: pulumi.Input<number | undefined>;
     /**
      * One or more `index` blocks as defined below.
      */
-    indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
+    indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
-    shardKey?: pulumi.Input<string>;
+    shardKey?: pulumi.Input<string | undefined>;
     /**
      * One or more `systemIndexes` blocks as defined below.
      */
-    systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[]>;
+    systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[] | undefined>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -237,13 +237,13 @@ export interface MongoCollectionArgs {
     /**
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
@@ -251,15 +251,15 @@ export interface MongoCollectionArgs {
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
      */
-    defaultTtlSeconds?: pulumi.Input<number>;
+    defaultTtlSeconds?: pulumi.Input<number | undefined>;
     /**
      * One or more `index` blocks as defined below.
      */
-    indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
+    indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
@@ -267,9 +267,9 @@ export interface MongoCollectionArgs {
     /**
      * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
-    shardKey?: pulumi.Input<string>;
+    shardKey?: pulumi.Input<string | undefined>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }

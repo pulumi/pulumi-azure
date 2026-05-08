@@ -37,8 +37,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -93,8 +93,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -149,8 +149,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -261,8 +261,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -386,8 +386,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -516,8 +516,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class SentinelFunctions {
      * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -640,8 +640,8 @@ public final class SentinelFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -682,8 +682,8 @@ public final class SentinelFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -724,8 +724,8 @@ public final class SentinelFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -766,8 +766,8 @@ public final class SentinelFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -808,8 +808,8 @@ public final class SentinelFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sentinel.SentinelFunctions;
      * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

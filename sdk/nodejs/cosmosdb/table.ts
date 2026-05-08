@@ -132,27 +132,27 @@ export interface TableState {
     /**
      * The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.TableAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.TableAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      *
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -168,11 +168,11 @@ export interface TableArgs {
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.TableAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.TableAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
      */
@@ -182,5 +182,5 @@ export interface TableArgs {
      *
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }

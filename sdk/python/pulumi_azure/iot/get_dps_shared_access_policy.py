@@ -170,9 +170,9 @@ def get_dps_shared_access_policy(iothub_dps_name: Optional[_builtins.str] = None
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dps_shared_access_policy_output(iothub_dps_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDpsSharedAccessPolicyResult]:
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy

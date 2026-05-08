@@ -603,8 +603,8 @@ def get_windows_function_app(name: Optional[_builtins.str] = None,
         virtual_network_backup_restore_enabled=pulumi.get(__ret__, 'virtual_network_backup_restore_enabled'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
-def get_windows_function_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_windows_function_app_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWindowsFunctionAppResult]:
     """
     Use this data source to access information about an existing Windows Function App.

@@ -23,16 +23,16 @@ class DatasetHttpArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
                  linked_service_name: pulumi.Input[_builtins.str],
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 relative_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 relative_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetHttp resource.
 
@@ -100,7 +100,7 @@ class DatasetHttpArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
 
@@ -109,133 +109,133 @@ class DatasetHttpArgs:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Dataset.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="relativeUrl")
-    def relative_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative URL based on the URL in the HTTP Linked Service.
         """
         return pulumi.get(self, "relative_url")
 
     @relative_url.setter
-    def relative_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_url", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The body for the HTTP request.
         """
         return pulumi.get(self, "request_body")
 
     @request_body.setter
-    def request_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_body", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMethod")
-    def request_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method for the HTTP request. (e.g. GET, POST)
         """
         return pulumi.get(self, "request_method")
 
     @request_method.setter
-    def request_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_method", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]:
+    def schema_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]):
+    def schema_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
 @pulumi.input_type
 class _DatasetHttpState:
     def __init__(__self__, *,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 relative_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 relative_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetHttp resources.
 
@@ -281,7 +281,7 @@ class _DatasetHttpState:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
 
@@ -290,139 +290,139 @@ class _DatasetHttpState:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Dataset.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory Linked Service name in which to associate the Dataset with.
         """
         return pulumi.get(self, "linked_service_name")
 
     @linked_service_name.setter
-    def linked_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="relativeUrl")
-    def relative_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relative_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative URL based on the URL in the HTTP Linked Service.
         """
         return pulumi.get(self, "relative_url")
 
     @relative_url.setter
-    def relative_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relative_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relative_url", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The body for the HTTP request.
         """
         return pulumi.get(self, "request_body")
 
     @request_body.setter
-    def request_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_body", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMethod")
-    def request_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method for the HTTP request. (e.g. GET, POST)
         """
         return pulumi.get(self, "request_method")
 
     @request_method.setter
-    def request_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_method", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]:
+    def schema_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]):
+    def schema_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
@@ -432,18 +432,18 @@ class DatasetHttp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 relative_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 relative_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
@@ -561,18 +561,18 @@ class DatasetHttp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 relative_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 relative_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,18 +608,18 @@ class DatasetHttp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            folder: Optional[pulumi.Input[_builtins.str]] = None,
-            linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            relative_url: Optional[pulumi.Input[_builtins.str]] = None,
-            request_body: Optional[pulumi.Input[_builtins.str]] = None,
-            request_method: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None) -> 'DatasetHttp':
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            relative_url: pulumi.Input[Optional[_builtins.str]] = None,
+            request_body: pulumi.Input[Optional[_builtins.str]] = None,
+            request_method: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None) -> 'DatasetHttp':
         """
         Get an existing DatasetHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

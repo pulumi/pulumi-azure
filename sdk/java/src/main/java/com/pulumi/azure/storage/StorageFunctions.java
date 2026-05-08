@@ -71,8 +71,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -120,8 +120,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -267,8 +267,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -325,8 +325,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -412,8 +412,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -499,8 +499,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -586,8 +586,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -673,8 +673,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -763,8 +763,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -857,8 +857,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -951,8 +951,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1045,8 +1045,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1139,8 +1139,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
      * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1221,8 +1221,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetBlobArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1263,8 +1263,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetBlobArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1305,8 +1305,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetBlobArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1347,8 +1347,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetBlobArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1389,8 +1389,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetBlobArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetContainersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1472,8 +1472,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetContainersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1513,8 +1513,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetContainersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1554,8 +1554,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetContainersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1595,8 +1595,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetContainersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1637,8 +1637,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1692,8 +1692,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1747,8 +1747,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1802,8 +1802,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1857,8 +1857,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1912,8 +1912,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1965,8 +1965,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2018,8 +2018,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2071,8 +2071,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2124,8 +2124,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2176,8 +2176,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2224,8 +2224,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2272,8 +2272,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2320,8 +2320,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2368,8 +2368,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2419,8 +2419,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2475,8 +2475,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2531,8 +2531,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2587,8 +2587,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2643,8 +2643,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetShareArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2697,8 +2697,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2751,8 +2751,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2805,8 +2805,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2859,8 +2859,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2913,8 +2913,8 @@ public final class StorageFunctions {
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2966,8 +2966,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3015,8 +3015,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3064,8 +3064,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3113,8 +3113,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3162,8 +3162,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3211,8 +3211,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3260,8 +3260,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3309,8 +3309,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3358,8 +3358,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3407,8 +3407,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3456,8 +3456,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3497,8 +3497,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3538,8 +3538,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3579,8 +3579,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3620,8 +3620,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3661,8 +3661,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3702,8 +3702,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3743,8 +3743,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3784,8 +3784,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3825,8 +3825,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3866,8 +3866,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3908,8 +3908,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3950,8 +3950,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3992,8 +3992,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4034,8 +4034,8 @@ public final class StorageFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
      * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

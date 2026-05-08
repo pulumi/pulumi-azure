@@ -164,43 +164,43 @@ export interface NamespaceState {
     /**
      * Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventgrid.NamespaceIdentity>;
+    identity?: pulumi.Input<inputs.eventgrid.NamespaceIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceInboundIpRule>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    topicSpacesConfigurations?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceTopicSpacesConfiguration>[]>;
+    topicSpacesConfigurations?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceTopicSpacesConfiguration>[] | undefined>;
 }
 
 /**
@@ -210,27 +210,27 @@ export interface NamespaceArgs {
     /**
      * Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventgrid.NamespaceIdentity>;
+    identity?: pulumi.Input<inputs.eventgrid.NamespaceIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceInboundIpRule>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
      */
@@ -238,13 +238,13 @@ export interface NamespaceArgs {
     /**
      * Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `topicSpacesConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    topicSpacesConfigurations?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceTopicSpacesConfiguration>[]>;
+    topicSpacesConfigurations?: pulumi.Input<pulumi.Input<inputs.eventgrid.NamespaceTopicSpacesConfiguration>[] | undefined>;
 }

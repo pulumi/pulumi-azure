@@ -196,8 +196,8 @@ def get_virtual_hub(name: Optional[_builtins.str] = None,
         virtual_router_asn=pulumi.get(__ret__, 'virtual_router_asn'),
         virtual_router_ips=pulumi.get(__ret__, 'virtual_router_ips'),
         virtual_wan_id=pulumi.get(__ret__, 'virtual_wan_id'))
-def get_virtual_hub_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_hub_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubResult]:
     """
     Uses this data source to access information about an existing Virtual Hub.

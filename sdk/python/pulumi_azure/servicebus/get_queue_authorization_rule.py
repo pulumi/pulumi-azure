@@ -253,11 +253,11 @@ def get_queue_authorization_rule(name: Optional[_builtins.str] = None,
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         send=pulumi.get(__ret__, 'send'))
-def get_queue_authorization_rule_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        namespace_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        queue_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        queue_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_queue_authorization_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        queue_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        queue_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
     """
     Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.

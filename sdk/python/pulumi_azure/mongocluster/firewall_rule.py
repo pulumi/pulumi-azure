@@ -22,7 +22,7 @@ class FirewallRuleArgs:
                  end_ip_address: pulumi.Input[_builtins.str],
                  mongo_cluster_id: pulumi.Input[_builtins.str],
                  start_ip_address: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -75,24 +75,24 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Mongo Cluster Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FirewallRuleState:
     def __init__(__self__, *,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
 
@@ -112,50 +112,50 @@ class _FirewallRuleState:
 
     @_builtins.property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end IP address of the Mongo Cluster Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
     @end_ip_address.setter
-    def end_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoClusterId")
-    def mongo_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mongo_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Mongo Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mongo_cluster_id")
 
     @mongo_cluster_id.setter
-    def mongo_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mongo_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mongo_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Mongo Cluster Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start IP address of the Mongo Cluster Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 
     @start_ip_address.setter
-    def start_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_ip_address", value)
 
 
@@ -165,10 +165,10 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Mongo Cluster Firewall Rule.
@@ -290,10 +290,10 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,10 +323,10 @@ class FirewallRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            mongo_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_ip_address: Optional[pulumi.Input[_builtins.str]] = None) -> 'FirewallRule':
+            end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_ip_address: pulumi.Input[Optional[_builtins.str]] = None) -> 'FirewallRule':
         """
         Get an existing FirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

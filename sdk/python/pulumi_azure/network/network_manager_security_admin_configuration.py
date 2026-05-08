@@ -20,9 +20,9 @@ __all__ = ['NetworkManagerSecurityAdminConfigurationArgs', 'NetworkManagerSecuri
 class NetworkManagerSecurityAdminConfigurationArgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[_builtins.str],
-                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerSecurityAdminConfiguration resource.
 
@@ -53,48 +53,48 @@ class NetworkManagerSecurityAdminConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyOnNetworkIntentPolicyBasedServices")
-    def apply_on_network_intent_policy_based_services(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apply_on_network_intent_policy_based_services(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         """
         return pulumi.get(self, "apply_on_network_intent_policy_based_services")
 
     @apply_on_network_intent_policy_based_services.setter
-    def apply_on_network_intent_policy_based_services(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apply_on_network_intent_policy_based_services(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apply_on_network_intent_policy_based_services", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Security Admin Configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkManagerSecurityAdminConfigurationState:
     def __init__(__self__, *,
-                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerSecurityAdminConfiguration resources.
 
@@ -114,50 +114,50 @@ class _NetworkManagerSecurityAdminConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="applyOnNetworkIntentPolicyBasedServices")
-    def apply_on_network_intent_policy_based_services(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apply_on_network_intent_policy_based_services(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         """
         return pulumi.get(self, "apply_on_network_intent_policy_based_services")
 
     @apply_on_network_intent_policy_based_services.setter
-    def apply_on_network_intent_policy_based_services(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apply_on_network_intent_policy_based_services(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apply_on_network_intent_policy_based_services", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Security Admin Configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
-    def network_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         """
         return pulumi.get(self, "network_manager_id")
 
     @network_manager_id.setter
-    def network_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_manager_id", value)
 
 
@@ -167,10 +167,10 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager Security Admin Configuration.
@@ -302,10 +302,10 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -331,10 +331,10 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apply_on_network_intent_policy_based_services: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_manager_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkManagerSecurityAdminConfiguration':
+            apply_on_network_intent_policy_based_services: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_manager_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerSecurityAdminConfiguration':
         """
         Get an existing NetworkManagerSecurityAdminConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

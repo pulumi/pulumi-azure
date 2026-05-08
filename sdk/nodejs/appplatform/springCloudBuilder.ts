@@ -141,19 +141,19 @@ export interface SpringCloudBuilderState {
     /**
      * One or more `buildPackGroup` blocks as defined below.
      */
-    buildPackGroups?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudBuilderBuildPackGroup>[]>;
+    buildPackGroups?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudBuilderBuildPackGroup>[] | undefined>;
     /**
      * The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
     /**
      * A `stack` block as defined below.
      */
-    stack?: pulumi.Input<inputs.appplatform.SpringCloudBuilderStack>;
+    stack?: pulumi.Input<inputs.appplatform.SpringCloudBuilderStack | undefined>;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface SpringCloudBuilderArgs {
     /**
      * The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
      */

@@ -120,11 +120,11 @@ export interface GetNatGatewayOutputArgs {
     /**
      * A list of existing Public IP Address resource IDs which the NAT Gateway is using.
      */
-    publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
      */
-    publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name of the Resource Group where the NAT Gateway exists.
      */

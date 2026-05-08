@@ -27,22 +27,22 @@ class SparkClusterArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input['SparkClusterRolesArgs'],
                  tier: pulumi.Input[_builtins.str],
-                 compute_isolation: Optional[pulumi.Input['SparkClusterComputeIsolationArgs']] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]] = None,
-                 encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension: Optional[pulumi.Input['SparkClusterExtensionArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input['SparkClusterMetastoresArgs']] = None,
-                 monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
-                 private_link_configuration: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']] = None,
-                 security_profile: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']] = None,
-                 storage_account_gen2: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 compute_isolation: pulumi.Input[Optional['SparkClusterComputeIsolationArgs']] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]] = None,
+                 encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension: pulumi.Input[Optional['SparkClusterExtensionArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional['SparkClusterMetastoresArgs']] = None,
+                 monitor: pulumi.Input[Optional['SparkClusterMonitorArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['SparkClusterNetworkArgs']] = None,
+                 private_link_configuration: pulumi.Input[Optional['SparkClusterPrivateLinkConfigurationArgs']] = None,
+                 security_profile: pulumi.Input[Optional['SparkClusterSecurityProfileArgs']] = None,
+                 storage_account_gen2: pulumi.Input[Optional['SparkClusterStorageAccountGen2Args']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SparkCluster resource.
 
@@ -184,175 +184,175 @@ class SparkClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeIsolation")
-    def compute_isolation(self) -> Optional[pulumi.Input['SparkClusterComputeIsolationArgs']]:
+    def compute_isolation(self) -> pulumi.Input[Optional['SparkClusterComputeIsolationArgs']]:
         """
         A `compute_isolation` block as defined below.
         """
         return pulumi.get(self, "compute_isolation")
 
     @compute_isolation.setter
-    def compute_isolation(self, value: Optional[pulumi.Input['SparkClusterComputeIsolationArgs']]):
+    def compute_isolation(self, value: pulumi.Input[Optional['SparkClusterComputeIsolationArgs']]):
         pulumi.set(self, "compute_isolation", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptions")
-    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]:
+    def disk_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
         """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
-    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]):
+    def disk_encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionInTransitEnabled")
-    def encryption_in_transit_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_in_transit_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_in_transit_enabled")
 
     @encryption_in_transit_enabled.setter
-    def encryption_in_transit_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_in_transit_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_in_transit_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input['SparkClusterExtensionArgs']]:
+    def extension(self) -> pulumi.Input[Optional['SparkClusterExtensionArgs']]:
         """
         An `extension` block as defined below.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input['SparkClusterExtensionArgs']]):
+    def extension(self, value: pulumi.Input[Optional['SparkClusterExtensionArgs']]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def metastores(self) -> Optional[pulumi.Input['SparkClusterMetastoresArgs']]:
+    def metastores(self) -> pulumi.Input[Optional['SparkClusterMetastoresArgs']]:
         """
         A `metastores` block as defined below.
         """
         return pulumi.get(self, "metastores")
 
     @metastores.setter
-    def metastores(self, value: Optional[pulumi.Input['SparkClusterMetastoresArgs']]):
+    def metastores(self, value: pulumi.Input[Optional['SparkClusterMetastoresArgs']]):
         pulumi.set(self, "metastores", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['SparkClusterMonitorArgs']]:
+    def monitor(self) -> pulumi.Input[Optional['SparkClusterMonitorArgs']]:
         """
         A `monitor` block as defined below.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['SparkClusterMonitorArgs']]):
+    def monitor(self, value: pulumi.Input[Optional['SparkClusterMonitorArgs']]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['SparkClusterNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['SparkClusterNetworkArgs']]:
         """
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['SparkClusterNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['SparkClusterNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfiguration")
-    def private_link_configuration(self) -> Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]:
+    def private_link_configuration(self) -> pulumi.Input[Optional['SparkClusterPrivateLinkConfigurationArgs']]:
         """
         A `private_link_configuration` block as defined below.
         """
         return pulumi.get(self, "private_link_configuration")
 
     @private_link_configuration.setter
-    def private_link_configuration(self, value: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]):
+    def private_link_configuration(self, value: pulumi.Input[Optional['SparkClusterPrivateLinkConfigurationArgs']]):
         pulumi.set(self, "private_link_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['SparkClusterSecurityProfileArgs']]:
         """
         A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['SparkClusterSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']]:
+    def storage_account_gen2(self) -> pulumi.Input[Optional['SparkClusterStorageAccountGen2Args']]:
         """
         A `storage_account_gen2` block as defined below.
         """
         return pulumi.get(self, "storage_account_gen2")
 
     @storage_account_gen2.setter
-    def storage_account_gen2(self, value: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']]):
+    def storage_account_gen2(self, value: pulumi.Input[Optional['SparkClusterStorageAccountGen2Args']]):
         pulumi.set(self, "storage_account_gen2", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]:
         """
         One or more `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Tags which should be assigned to this HDInsight Spark Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
@@ -361,49 +361,49 @@ class SparkClusterArgs:
         return pulumi.get(self, "tls_min_version")
 
     @tls_min_version.setter
-    def tls_min_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_min_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
 class _SparkClusterState:
     def __init__(__self__, *,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input['SparkClusterComponentVersionArgs']] = None,
-                 compute_isolation: Optional[pulumi.Input['SparkClusterComputeIsolationArgs']] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]] = None,
-                 encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension: Optional[pulumi.Input['SparkClusterExtensionArgs']] = None,
-                 gateway: Optional[pulumi.Input['SparkClusterGatewayArgs']] = None,
-                 https_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input['SparkClusterMetastoresArgs']] = None,
-                 monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
-                 private_link_configuration: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input['SparkClusterRolesArgs']] = None,
-                 security_profile: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']] = None,
-                 ssh_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_gen2: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional['SparkClusterComponentVersionArgs']] = None,
+                 compute_isolation: pulumi.Input[Optional['SparkClusterComputeIsolationArgs']] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]] = None,
+                 encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension: pulumi.Input[Optional['SparkClusterExtensionArgs']] = None,
+                 gateway: pulumi.Input[Optional['SparkClusterGatewayArgs']] = None,
+                 https_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional['SparkClusterMetastoresArgs']] = None,
+                 monitor: pulumi.Input[Optional['SparkClusterMonitorArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['SparkClusterNetworkArgs']] = None,
+                 private_link_configuration: pulumi.Input[Optional['SparkClusterPrivateLinkConfigurationArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional['SparkClusterRolesArgs']] = None,
+                 security_profile: pulumi.Input[Optional['SparkClusterSecurityProfileArgs']] = None,
+                 ssh_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_gen2: pulumi.Input[Optional['SparkClusterStorageAccountGen2Args']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SparkCluster resources.
 
@@ -485,271 +485,271 @@ class _SparkClusterState:
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_version")
 
     @cluster_version.setter
-    def cluster_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_version", value)
 
     @_builtins.property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> Optional[pulumi.Input['SparkClusterComponentVersionArgs']]:
+    def component_version(self) -> pulumi.Input[Optional['SparkClusterComponentVersionArgs']]:
         """
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: Optional[pulumi.Input['SparkClusterComponentVersionArgs']]):
+    def component_version(self, value: pulumi.Input[Optional['SparkClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
 
     @_builtins.property
     @pulumi.getter(name="computeIsolation")
-    def compute_isolation(self) -> Optional[pulumi.Input['SparkClusterComputeIsolationArgs']]:
+    def compute_isolation(self) -> pulumi.Input[Optional['SparkClusterComputeIsolationArgs']]:
         """
         A `compute_isolation` block as defined below.
         """
         return pulumi.get(self, "compute_isolation")
 
     @compute_isolation.setter
-    def compute_isolation(self, value: Optional[pulumi.Input['SparkClusterComputeIsolationArgs']]):
+    def compute_isolation(self, value: pulumi.Input[Optional['SparkClusterComputeIsolationArgs']]):
         pulumi.set(self, "compute_isolation", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptions")
-    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]:
+    def disk_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
         """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
-    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]):
+    def disk_encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterDiskEncryptionArgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionInTransitEnabled")
-    def encryption_in_transit_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_in_transit_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_in_transit_enabled")
 
     @encryption_in_transit_enabled.setter
-    def encryption_in_transit_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_in_transit_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_in_transit_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input['SparkClusterExtensionArgs']]:
+    def extension(self) -> pulumi.Input[Optional['SparkClusterExtensionArgs']]:
         """
         An `extension` block as defined below.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input['SparkClusterExtensionArgs']]):
+    def extension(self, value: pulumi.Input[Optional['SparkClusterExtensionArgs']]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input['SparkClusterGatewayArgs']]:
+    def gateway(self) -> pulumi.Input[Optional['SparkClusterGatewayArgs']]:
         """
         A `gateway` block as defined below.
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input['SparkClusterGatewayArgs']]):
+    def gateway(self, value: pulumi.Input[Optional['SparkClusterGatewayArgs']]):
         pulumi.set(self, "gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsEndpoint")
-    def https_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
         """
         return pulumi.get(self, "https_endpoint")
 
     @https_endpoint.setter
-    def https_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def metastores(self) -> Optional[pulumi.Input['SparkClusterMetastoresArgs']]:
+    def metastores(self) -> pulumi.Input[Optional['SparkClusterMetastoresArgs']]:
         """
         A `metastores` block as defined below.
         """
         return pulumi.get(self, "metastores")
 
     @metastores.setter
-    def metastores(self, value: Optional[pulumi.Input['SparkClusterMetastoresArgs']]):
+    def metastores(self, value: pulumi.Input[Optional['SparkClusterMetastoresArgs']]):
         pulumi.set(self, "metastores", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['SparkClusterMonitorArgs']]:
+    def monitor(self) -> pulumi.Input[Optional['SparkClusterMonitorArgs']]:
         """
         A `monitor` block as defined below.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['SparkClusterMonitorArgs']]):
+    def monitor(self, value: pulumi.Input[Optional['SparkClusterMonitorArgs']]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['SparkClusterNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['SparkClusterNetworkArgs']]:
         """
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['SparkClusterNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['SparkClusterNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfiguration")
-    def private_link_configuration(self) -> Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]:
+    def private_link_configuration(self) -> pulumi.Input[Optional['SparkClusterPrivateLinkConfigurationArgs']]:
         """
         A `private_link_configuration` block as defined below.
         """
         return pulumi.get(self, "private_link_configuration")
 
     @private_link_configuration.setter
-    def private_link_configuration(self, value: Optional[pulumi.Input['SparkClusterPrivateLinkConfigurationArgs']]):
+    def private_link_configuration(self, value: pulumi.Input[Optional['SparkClusterPrivateLinkConfigurationArgs']]):
         pulumi.set(self, "private_link_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input['SparkClusterRolesArgs']]:
+    def roles(self) -> pulumi.Input[Optional['SparkClusterRolesArgs']]:
         """
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input['SparkClusterRolesArgs']]):
+    def roles(self, value: pulumi.Input[Optional['SparkClusterRolesArgs']]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]:
+    def security_profile(self) -> pulumi.Input[Optional['SparkClusterSecurityProfileArgs']]:
         """
         A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['SparkClusterSecurityProfileArgs']]):
+    def security_profile(self, value: pulumi.Input[Optional['SparkClusterSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="sshEndpoint")
-    def ssh_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
         """
         return pulumi.get(self, "ssh_endpoint")
 
     @ssh_endpoint.setter
-    def ssh_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']]:
+    def storage_account_gen2(self) -> pulumi.Input[Optional['SparkClusterStorageAccountGen2Args']]:
         """
         A `storage_account_gen2` block as defined below.
         """
         return pulumi.get(self, "storage_account_gen2")
 
     @storage_account_gen2.setter
-    def storage_account_gen2(self, value: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']]):
+    def storage_account_gen2(self, value: pulumi.Input[Optional['SparkClusterStorageAccountGen2Args']]):
         pulumi.set(self, "storage_account_gen2", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]:
         """
         One or more `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of Tags which should be assigned to this HDInsight Spark Cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
@@ -758,19 +758,19 @@ class _SparkClusterState:
         return pulumi.get(self, "tls_min_version")
 
     @tls_min_version.setter
-    def tls_min_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_min_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -780,28 +780,28 @@ class SparkCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input[Union['SparkClusterComponentVersionArgs', 'SparkClusterComponentVersionArgsDict']]] = None,
-                 compute_isolation: Optional[pulumi.Input[Union['SparkClusterComputeIsolationArgs', 'SparkClusterComputeIsolationArgsDict']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SparkClusterDiskEncryptionArgs', 'SparkClusterDiskEncryptionArgsDict']]]]] = None,
-                 encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension: Optional[pulumi.Input[Union['SparkClusterExtensionArgs', 'SparkClusterExtensionArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['SparkClusterGatewayArgs', 'SparkClusterGatewayArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input[Union['SparkClusterMetastoresArgs', 'SparkClusterMetastoresArgsDict']]] = None,
-                 monitor: Optional[pulumi.Input[Union['SparkClusterMonitorArgs', 'SparkClusterMonitorArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['SparkClusterNetworkArgs', 'SparkClusterNetworkArgsDict']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[Union['SparkClusterPrivateLinkConfigurationArgs', 'SparkClusterPrivateLinkConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Union['SparkClusterRolesArgs', 'SparkClusterRolesArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SparkClusterSecurityProfileArgs', 'SparkClusterSecurityProfileArgsDict']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[Union['SparkClusterStorageAccountGen2Args', 'SparkClusterStorageAccountGen2ArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SparkClusterStorageAccountArgs', 'SparkClusterStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional[Union['SparkClusterComponentVersionArgs', 'SparkClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: pulumi.Input[Optional[Union['SparkClusterComputeIsolationArgs', 'SparkClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SparkClusterDiskEncryptionArgs', 'SparkClusterDiskEncryptionArgsDict']]]]] = None,
+                 encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension: pulumi.Input[Optional[Union['SparkClusterExtensionArgs', 'SparkClusterExtensionArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['SparkClusterGatewayArgs', 'SparkClusterGatewayArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional[Union['SparkClusterMetastoresArgs', 'SparkClusterMetastoresArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['SparkClusterMonitorArgs', 'SparkClusterMonitorArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['SparkClusterNetworkArgs', 'SparkClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: pulumi.Input[Optional[Union['SparkClusterPrivateLinkConfigurationArgs', 'SparkClusterPrivateLinkConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Union['SparkClusterRolesArgs', 'SparkClusterRolesArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SparkClusterSecurityProfileArgs', 'SparkClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: pulumi.Input[Optional[Union['SparkClusterStorageAccountGen2Args', 'SparkClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SparkClusterStorageAccountArgs', 'SparkClusterStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a HDInsight Spark Cluster.
@@ -1003,28 +1003,28 @@ class SparkCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 component_version: Optional[pulumi.Input[Union['SparkClusterComponentVersionArgs', 'SparkClusterComponentVersionArgsDict']]] = None,
-                 compute_isolation: Optional[pulumi.Input[Union['SparkClusterComputeIsolationArgs', 'SparkClusterComputeIsolationArgsDict']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SparkClusterDiskEncryptionArgs', 'SparkClusterDiskEncryptionArgsDict']]]]] = None,
-                 encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension: Optional[pulumi.Input[Union['SparkClusterExtensionArgs', 'SparkClusterExtensionArgsDict']]] = None,
-                 gateway: Optional[pulumi.Input[Union['SparkClusterGatewayArgs', 'SparkClusterGatewayArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 metastores: Optional[pulumi.Input[Union['SparkClusterMetastoresArgs', 'SparkClusterMetastoresArgsDict']]] = None,
-                 monitor: Optional[pulumi.Input[Union['SparkClusterMonitorArgs', 'SparkClusterMonitorArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['SparkClusterNetworkArgs', 'SparkClusterNetworkArgsDict']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[Union['SparkClusterPrivateLinkConfigurationArgs', 'SparkClusterPrivateLinkConfigurationArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Union['SparkClusterRolesArgs', 'SparkClusterRolesArgsDict']]] = None,
-                 security_profile: Optional[pulumi.Input[Union['SparkClusterSecurityProfileArgs', 'SparkClusterSecurityProfileArgsDict']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[Union['SparkClusterStorageAccountGen2Args', 'SparkClusterStorageAccountGen2ArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SparkClusterStorageAccountArgs', 'SparkClusterStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_version: pulumi.Input[Optional[Union['SparkClusterComponentVersionArgs', 'SparkClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: pulumi.Input[Optional[Union['SparkClusterComputeIsolationArgs', 'SparkClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SparkClusterDiskEncryptionArgs', 'SparkClusterDiskEncryptionArgsDict']]]]] = None,
+                 encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension: pulumi.Input[Optional[Union['SparkClusterExtensionArgs', 'SparkClusterExtensionArgsDict']]] = None,
+                 gateway: pulumi.Input[Optional[Union['SparkClusterGatewayArgs', 'SparkClusterGatewayArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 metastores: pulumi.Input[Optional[Union['SparkClusterMetastoresArgs', 'SparkClusterMetastoresArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['SparkClusterMonitorArgs', 'SparkClusterMonitorArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['SparkClusterNetworkArgs', 'SparkClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: pulumi.Input[Optional[Union['SparkClusterPrivateLinkConfigurationArgs', 'SparkClusterPrivateLinkConfigurationArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Union['SparkClusterRolesArgs', 'SparkClusterRolesArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['SparkClusterSecurityProfileArgs', 'SparkClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: pulumi.Input[Optional[Union['SparkClusterStorageAccountGen2Args', 'SparkClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SparkClusterStorageAccountArgs', 'SparkClusterStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1080,30 +1080,30 @@ class SparkCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_version: Optional[pulumi.Input[_builtins.str]] = None,
-            component_version: Optional[pulumi.Input[Union['SparkClusterComponentVersionArgs', 'SparkClusterComponentVersionArgsDict']]] = None,
-            compute_isolation: Optional[pulumi.Input[Union['SparkClusterComputeIsolationArgs', 'SparkClusterComputeIsolationArgsDict']]] = None,
-            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SparkClusterDiskEncryptionArgs', 'SparkClusterDiskEncryptionArgsDict']]]]] = None,
-            encryption_in_transit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            extension: Optional[pulumi.Input[Union['SparkClusterExtensionArgs', 'SparkClusterExtensionArgsDict']]] = None,
-            gateway: Optional[pulumi.Input[Union['SparkClusterGatewayArgs', 'SparkClusterGatewayArgsDict']]] = None,
-            https_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            metastores: Optional[pulumi.Input[Union['SparkClusterMetastoresArgs', 'SparkClusterMetastoresArgsDict']]] = None,
-            monitor: Optional[pulumi.Input[Union['SparkClusterMonitorArgs', 'SparkClusterMonitorArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network: Optional[pulumi.Input[Union['SparkClusterNetworkArgs', 'SparkClusterNetworkArgsDict']]] = None,
-            private_link_configuration: Optional[pulumi.Input[Union['SparkClusterPrivateLinkConfigurationArgs', 'SparkClusterPrivateLinkConfigurationArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            roles: Optional[pulumi.Input[Union['SparkClusterRolesArgs', 'SparkClusterRolesArgsDict']]] = None,
-            security_profile: Optional[pulumi.Input[Union['SparkClusterSecurityProfileArgs', 'SparkClusterSecurityProfileArgsDict']]] = None,
-            ssh_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_gen2: Optional[pulumi.Input[Union['SparkClusterStorageAccountGen2Args', 'SparkClusterStorageAccountGen2ArgsDict']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SparkClusterStorageAccountArgs', 'SparkClusterStorageAccountArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tier: Optional[pulumi.Input[_builtins.str]] = None,
-            tls_min_version: Optional[pulumi.Input[_builtins.str]] = None,
-            zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SparkCluster':
+            cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
+            component_version: pulumi.Input[Optional[Union['SparkClusterComponentVersionArgs', 'SparkClusterComponentVersionArgsDict']]] = None,
+            compute_isolation: pulumi.Input[Optional[Union['SparkClusterComputeIsolationArgs', 'SparkClusterComputeIsolationArgsDict']]] = None,
+            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SparkClusterDiskEncryptionArgs', 'SparkClusterDiskEncryptionArgsDict']]]]] = None,
+            encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extension: pulumi.Input[Optional[Union['SparkClusterExtensionArgs', 'SparkClusterExtensionArgsDict']]] = None,
+            gateway: pulumi.Input[Optional[Union['SparkClusterGatewayArgs', 'SparkClusterGatewayArgsDict']]] = None,
+            https_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            metastores: pulumi.Input[Optional[Union['SparkClusterMetastoresArgs', 'SparkClusterMetastoresArgsDict']]] = None,
+            monitor: pulumi.Input[Optional[Union['SparkClusterMonitorArgs', 'SparkClusterMonitorArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['SparkClusterNetworkArgs', 'SparkClusterNetworkArgsDict']]] = None,
+            private_link_configuration: pulumi.Input[Optional[Union['SparkClusterPrivateLinkConfigurationArgs', 'SparkClusterPrivateLinkConfigurationArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Union['SparkClusterRolesArgs', 'SparkClusterRolesArgsDict']]] = None,
+            security_profile: pulumi.Input[Optional[Union['SparkClusterSecurityProfileArgs', 'SparkClusterSecurityProfileArgsDict']]] = None,
+            ssh_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_gen2: pulumi.Input[Optional[Union['SparkClusterStorageAccountGen2Args', 'SparkClusterStorageAccountGen2ArgsDict']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SparkClusterStorageAccountArgs', 'SparkClusterStorageAccountArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tls_min_version: pulumi.Input[Optional[_builtins.str]] = None,
+            zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SparkCluster':
         """
         Get an existing SparkCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

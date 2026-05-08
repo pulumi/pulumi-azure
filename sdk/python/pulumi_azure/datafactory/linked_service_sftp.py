@@ -26,21 +26,21 @@ class LinkedServiceSftpArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  username: pulumi.Input[_builtins.str],
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_passwords: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]] = None,
-                 key_vault_private_key_content_base64: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']] = None,
-                 key_vault_private_key_passphrase: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_host_key_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]] = None,
+                 key_vault_private_key_content_base64: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']] = None,
+                 key_vault_private_key_passphrase: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_host_key_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceSftp resource.
 
@@ -171,7 +171,7 @@ class LinkedServiceSftpArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
 
@@ -180,60 +180,60 @@ class LinkedServiceSftpArgs:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Linked Service.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyFingerprint")
-    def host_key_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key_fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host key fingerprint of the SFTP server.
         """
         return pulumi.get(self, "host_key_fingerprint")
 
     @host_key_fingerprint.setter
-    def host_key_fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key_fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key_fingerprint", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the integration runtime to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPasswords")
-    def key_vault_passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]:
+    def key_vault_passwords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]:
         """
         A `key_vault_password` block as defined below.
 
@@ -242,24 +242,24 @@ class LinkedServiceSftpArgs:
         return pulumi.get(self, "key_vault_passwords")
 
     @key_vault_passwords.setter
-    def key_vault_passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]):
+    def key_vault_passwords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]):
         pulumi.set(self, "key_vault_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateKeyContentBase64")
-    def key_vault_private_key_content_base64(self) -> Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]:
+    def key_vault_private_key_content_base64(self) -> pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]:
         """
         A `key_vault_private_key_content_base64` block as defined below.
         """
         return pulumi.get(self, "key_vault_private_key_content_base64")
 
     @key_vault_private_key_content_base64.setter
-    def key_vault_private_key_content_base64(self, value: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]):
+    def key_vault_private_key_content_base64(self, value: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]):
         pulumi.set(self, "key_vault_private_key_content_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateKeyPassphrase")
-    def key_vault_private_key_passphrase(self) -> Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]:
+    def key_vault_private_key_passphrase(self) -> pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]:
         """
         A `key_vault_private_key_passphrase` block as defined below.
 
@@ -268,72 +268,72 @@ class LinkedServiceSftpArgs:
         return pulumi.get(self, "key_vault_private_key_passphrase")
 
     @key_vault_private_key_passphrase.setter
-    def key_vault_private_key_passphrase(self, value: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]):
+    def key_vault_private_key_passphrase(self, value: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]):
         pulumi.set(self, "key_vault_private_key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password to log on to the SFTP Server for Basic Authentication.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyContentBase64")
-    def private_key_content_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_content_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
         """
         return pulumi.get(self, "private_key_content_base64")
 
     @private_key_content_base64.setter
-    def private_key_content_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_content_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_content_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyPassphrase")
-    def private_key_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The passphrase for the private key if the key is encrypted.
         """
         return pulumi.get(self, "private_key_passphrase")
 
     @private_key_passphrase.setter
-    def private_key_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyPath")
-    def private_key_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to the private key file that the self-hosted integration runtime can access.
 
@@ -342,45 +342,45 @@ class LinkedServiceSftpArgs:
         return pulumi.get(self, "private_key_path")
 
     @private_key_path.setter
-    def private_key_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_path", value)
 
     @_builtins.property
     @pulumi.getter(name="skipHostKeyValidation")
-    def skip_host_key_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_host_key_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         """
         return pulumi.get(self, "skip_host_key_validation")
 
     @skip_host_key_validation.setter
-    def skip_host_key_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_host_key_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_host_key_validation", value)
 
 
 @pulumi.input_type
 class _LinkedServiceSftpState:
     def __init__(__self__, *,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_passwords: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]] = None,
-                 key_vault_private_key_content_base64: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']] = None,
-                 key_vault_private_key_passphrase: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_key_content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_host_key_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]] = None,
+                 key_vault_private_key_content_base64: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']] = None,
+                 key_vault_private_key_passphrase: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_key_content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_host_key_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceSftp resources.
 
@@ -456,7 +456,7 @@ class _LinkedServiceSftpState:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
 
@@ -465,96 +465,96 @@ class _LinkedServiceSftpState:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Linked Service.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SFTP server hostname.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyFingerprint")
-    def host_key_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_key_fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host key fingerprint of the SFTP server.
         """
         return pulumi.get(self, "host_key_fingerprint")
 
     @host_key_fingerprint.setter
-    def host_key_fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_key_fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_key_fingerprint", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the integration runtime to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPasswords")
-    def key_vault_passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]:
+    def key_vault_passwords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]:
         """
         A `key_vault_password` block as defined below.
 
@@ -563,24 +563,24 @@ class _LinkedServiceSftpState:
         return pulumi.get(self, "key_vault_passwords")
 
     @key_vault_passwords.setter
-    def key_vault_passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]):
+    def key_vault_passwords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkedServiceSftpKeyVaultPasswordArgs']]]]):
         pulumi.set(self, "key_vault_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateKeyContentBase64")
-    def key_vault_private_key_content_base64(self) -> Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]:
+    def key_vault_private_key_content_base64(self) -> pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]:
         """
         A `key_vault_private_key_content_base64` block as defined below.
         """
         return pulumi.get(self, "key_vault_private_key_content_base64")
 
     @key_vault_private_key_content_base64.setter
-    def key_vault_private_key_content_base64(self, value: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]):
+    def key_vault_private_key_content_base64(self, value: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args']]):
         pulumi.set(self, "key_vault_private_key_content_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateKeyPassphrase")
-    def key_vault_private_key_passphrase(self) -> Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]:
+    def key_vault_private_key_passphrase(self) -> pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]:
         """
         A `key_vault_private_key_passphrase` block as defined below.
 
@@ -589,84 +589,84 @@ class _LinkedServiceSftpState:
         return pulumi.get(self, "key_vault_private_key_passphrase")
 
     @key_vault_private_key_passphrase.setter
-    def key_vault_private_key_passphrase(self, value: Optional[pulumi.Input['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]):
+    def key_vault_private_key_passphrase(self, value: pulumi.Input[Optional['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs']]):
         pulumi.set(self, "key_vault_private_key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password to log on to the SFTP Server for Basic Authentication.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyContentBase64")
-    def private_key_content_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_content_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
         """
         return pulumi.get(self, "private_key_content_base64")
 
     @private_key_content_base64.setter
-    def private_key_content_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_content_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_content_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyPassphrase")
-    def private_key_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The passphrase for the private key if the key is encrypted.
         """
         return pulumi.get(self, "private_key_passphrase")
 
     @private_key_passphrase.setter
-    def private_key_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyPath")
-    def private_key_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to the private key file that the self-hosted integration runtime can access.
 
@@ -675,31 +675,31 @@ class _LinkedServiceSftpState:
         return pulumi.get(self, "private_key_path")
 
     @private_key_path.setter
-    def private_key_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_path", value)
 
     @_builtins.property
     @pulumi.getter(name="skipHostKeyValidation")
-    def skip_host_key_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_host_key_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         """
         return pulumi.get(self, "skip_host_key_validation")
 
     @skip_host_key_validation.setter
-    def skip_host_key_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_host_key_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_host_key_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username used to log on to the SFTP server.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -709,26 +709,26 @@ class LinkedServiceSftp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_passwords: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
-                 key_vault_private_key_content_base64: Optional[pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
-                 key_vault_private_key_passphrase: Optional[pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_key_content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_host_key_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
+                 key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
+                 key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_key_content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_host_key_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
@@ -852,26 +852,26 @@ class LinkedServiceSftp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_passwords: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
-                 key_vault_private_key_content_base64: Optional[pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
-                 key_vault_private_key_passphrase: Optional[pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_key_content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_host_key_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
+                 key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
+                 key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_key_content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_host_key_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -923,26 +923,26 @@ class LinkedServiceSftp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            host: Optional[pulumi.Input[_builtins.str]] = None,
-            host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_passwords: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
-            key_vault_private_key_content_base64: Optional[pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
-            key_vault_private_key_passphrase: Optional[pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            private_key_content_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key_path: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_host_key_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkedServiceSftp':
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
+            key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
+            key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            private_key_content_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_path: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_host_key_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedServiceSftp':
         """
         Get an existing LinkedServiceSftp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

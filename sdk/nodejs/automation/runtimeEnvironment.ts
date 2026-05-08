@@ -168,35 +168,35 @@ export interface RuntimeEnvironmentState {
     /**
      * The ID of the automation account in which the Automation Runtime Environment is created. Changing this forces a new resource to be created.
      */
-    automationAccountId?: pulumi.Input<string>;
+    automationAccountId?: pulumi.Input<string | undefined>;
     /**
      * A description of the Automation Runtime Environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The location where the Automation Runtime Environment is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name for the Automation Runtime Environment. Changing this forces a new Automation Runtime Environment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of default packages to be installed in the Automation Runtime Environment. The default packages can only be used with PowerShell runtime environments. Removing packages will force a new Automation Runtime Environment, adding new packages will update the existing Automation Runtime Environment.
      */
-    runtimeDefaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    runtimeDefaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The programming language used by the Automation Runtime Environment. Possible values are `Python` and `PowerShell`. Changing this forces a new Automation Runtime Environment to be created.
      */
-    runtimeLanguage?: pulumi.Input<string>;
+    runtimeLanguage?: pulumi.Input<string | undefined>;
     /**
      * The version of the runtime environment. Changing this forces a new Automation Runtime Environment to be created.
      */
-    runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Automation Runtime Environment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -210,19 +210,19 @@ export interface RuntimeEnvironmentArgs {
     /**
      * A description of the Automation Runtime Environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The location where the Automation Runtime Environment is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name for the Automation Runtime Environment. Changing this forces a new Automation Runtime Environment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of default packages to be installed in the Automation Runtime Environment. The default packages can only be used with PowerShell runtime environments. Removing packages will force a new Automation Runtime Environment, adding new packages will update the existing Automation Runtime Environment.
      */
-    runtimeDefaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    runtimeDefaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The programming language used by the Automation Runtime Environment. Possible values are `Python` and `PowerShell`. Changing this forces a new Automation Runtime Environment to be created.
      */
@@ -234,5 +234,5 @@ export interface RuntimeEnvironmentArgs {
     /**
      * A mapping of tags which should be assigned to the Automation Runtime Environment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

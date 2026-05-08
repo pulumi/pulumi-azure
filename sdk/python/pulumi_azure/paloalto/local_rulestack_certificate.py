@@ -20,11 +20,11 @@ __all__ = ['LocalRulestackCertificateArgs', 'LocalRulestackCertificate']
 class LocalRulestackCertificateArgs:
     def __init__(__self__, *,
                  rulestack_id: pulumi.Input[_builtins.str],
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_signed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_signed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalRulestackCertificate resource.
 
@@ -63,55 +63,55 @@ class LocalRulestackCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditComment")
-    def audit_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The comment for Audit purposes.
         """
         return pulumi.get(self, "audit_comment")
 
     @audit_comment.setter
-    def audit_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Certificate.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultCertificateId")
-    def key_vault_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         """
         return pulumi.get(self, "key_vault_certificate_id")
 
     @key_vault_certificate_id.setter
-    def key_vault_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Palo Alto Networks Rulestack Certificate.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="selfSigned")
-    def self_signed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def self_signed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
 
@@ -120,19 +120,19 @@ class LocalRulestackCertificateArgs:
         return pulumi.get(self, "self_signed")
 
     @self_signed.setter
-    def self_signed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def self_signed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "self_signed", value)
 
 
 @pulumi.input_type
 class _LocalRulestackCertificateState:
     def __init__(__self__, *,
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_signed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_signed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackCertificate resources.
 
@@ -160,67 +160,67 @@ class _LocalRulestackCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="auditComment")
-    def audit_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The comment for Audit purposes.
         """
         return pulumi.get(self, "audit_comment")
 
     @audit_comment.setter
-    def audit_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Certificate.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultCertificateId")
-    def key_vault_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         """
         return pulumi.get(self, "key_vault_certificate_id")
 
     @key_vault_certificate_id.setter
-    def key_vault_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Palo Alto Networks Rulestack Certificate.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rulestackId")
-    def rulestack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rulestack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         """
         return pulumi.get(self, "rulestack_id")
 
     @rulestack_id.setter
-    def rulestack_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rulestack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rulestack_id", value)
 
     @_builtins.property
     @pulumi.getter(name="selfSigned")
-    def self_signed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def self_signed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
 
@@ -229,7 +229,7 @@ class _LocalRulestackCertificateState:
         return pulumi.get(self, "self_signed")
 
     @self_signed.setter
-    def self_signed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def self_signed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "self_signed", value)
 
 
@@ -239,12 +239,12 @@ class LocalRulestackCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_signed: Optional[pulumi.Input[_builtins.bool]] = None,
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_signed: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Palo Alto Networks Rulestack Certificate.
@@ -354,12 +354,12 @@ class LocalRulestackCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_signed: Optional[pulumi.Input[_builtins.bool]] = None,
+                 audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_signed: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -387,12 +387,12 @@ class LocalRulestackCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            audit_comment: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rulestack_id: Optional[pulumi.Input[_builtins.str]] = None,
-            self_signed: Optional[pulumi.Input[_builtins.bool]] = None) -> 'LocalRulestackCertificate':
+            audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rulestack_id: pulumi.Input[Optional[_builtins.str]] = None,
+            self_signed: pulumi.Input[Optional[_builtins.bool]] = None) -> 'LocalRulestackCertificate':
         """
         Get an existing LocalRulestackCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

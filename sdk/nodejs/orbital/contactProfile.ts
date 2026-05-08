@@ -218,43 +218,43 @@ export interface ContactProfileState {
     /**
      * Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
      */
-    autoTracking?: pulumi.Input<string>;
+    autoTracking?: pulumi.Input<string | undefined>;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
-    eventHubUri?: pulumi.Input<string>;
+    eventHubUri?: pulumi.Input<string | undefined>;
     /**
      * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      */
-    links?: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLink>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLink>[] | undefined>;
     /**
      * The location where the contact profile exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maximum elevation of the antenna during the contact in decimal degrees.
      */
-    minimumElevationDegrees?: pulumi.Input<number>;
+    minimumElevationDegrees?: pulumi.Input<number | undefined>;
     /**
      * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
-    minimumVariableContactDuration?: pulumi.Input<string>;
+    minimumVariableContactDuration?: pulumi.Input<string | undefined>;
     /**
      * The name of the contact profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      */
-    networkConfigurationSubnetId?: pulumi.Input<string>;
+    networkConfigurationSubnetId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -268,7 +268,7 @@ export interface ContactProfileArgs {
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
-    eventHubUri?: pulumi.Input<string>;
+    eventHubUri?: pulumi.Input<string | undefined>;
     /**
      * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      */
@@ -276,11 +276,11 @@ export interface ContactProfileArgs {
     /**
      * The location where the contact profile exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Maximum elevation of the antenna during the contact in decimal degrees.
      */
-    minimumElevationDegrees?: pulumi.Input<number>;
+    minimumElevationDegrees?: pulumi.Input<number | undefined>;
     /**
      * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
@@ -288,7 +288,7 @@ export interface ContactProfileArgs {
     /**
      * The name of the contact profile. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      */
@@ -300,5 +300,5 @@ export interface ContactProfileArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

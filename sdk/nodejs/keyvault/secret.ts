@@ -201,60 +201,60 @@ export interface SecretState {
     /**
      * Specifies the content type for the Key Vault Secret.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    notBeforeDate?: pulumi.Input<string>;
+    notBeforeDate?: pulumi.Input<string | undefined>;
     /**
      * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
      */
-    resourceVersionlessId?: pulumi.Input<string>;
+    resourceVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
      * > **Note:** One of `value` or `valueWo` must be specified.
      */
-    valueWo?: pulumi.Input<string>;
+    valueWo?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
-    valueWoVersion?: pulumi.Input<number>;
+    valueWoVersion?: pulumi.Input<number | undefined>;
     /**
      * The current version of the Key Vault Secret.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The Base ID of the Key Vault Secret.
      */
-    versionlessId?: pulumi.Input<string>;
+    versionlessId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -264,11 +264,11 @@ export interface SecretArgs {
     /**
      * Specifies the content type for the Key Vault Secret.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      */
@@ -276,30 +276,30 @@ export interface SecretArgs {
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    notBeforeDate?: pulumi.Input<string>;
+    notBeforeDate?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
      * > **Note:** One of `value` or `valueWo` must be specified.
      */
-    valueWo?: pulumi.Input<string>;
+    valueWo?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
-    valueWoVersion?: pulumi.Input<number>;
+    valueWoVersion?: pulumi.Input<number | undefined>;
 }

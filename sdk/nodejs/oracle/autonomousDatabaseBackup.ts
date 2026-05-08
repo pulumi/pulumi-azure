@@ -132,19 +132,19 @@ export interface AutonomousDatabaseBackupState {
     /**
      * The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
      */
-    autonomousDatabaseId?: pulumi.Input<string>;
+    autonomousDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
      */
-    retentionPeriodInDays?: pulumi.Input<number>;
+    retentionPeriodInDays?: pulumi.Input<number | undefined>;
     /**
      * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -158,7 +158,7 @@ export interface AutonomousDatabaseBackupArgs {
     /**
      * The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
      */
@@ -166,5 +166,5 @@ export interface AutonomousDatabaseBackupArgs {
     /**
      * The type of backup to create.Currently, only `LongTerm` backup operations are supported through the Oracle database At azure service. Defaults to `LongTerm`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

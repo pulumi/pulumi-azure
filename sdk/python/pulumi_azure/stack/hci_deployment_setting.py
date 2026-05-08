@@ -90,10 +90,10 @@ class HciDeploymentSettingArgs:
 @pulumi.input_type
 class _HciDeploymentSettingState:
     def __init__(__self__, *,
-                 arc_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scale_units: Optional[pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]]] = None,
-                 stack_hci_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]]] = None,
+                 stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciDeploymentSetting resources.
 
@@ -113,50 +113,50 @@ class _HciDeploymentSettingState:
 
     @_builtins.property
     @pulumi.getter(name="arcResourceIds")
-    def arc_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def arc_resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
         """
         return pulumi.get(self, "arc_resource_ids")
 
     @arc_resource_ids.setter
-    def arc_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def arc_resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "arc_resource_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleUnits")
-    def scale_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]]]:
+    def scale_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]]]:
         """
         One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         """
         return pulumi.get(self, "scale_units")
 
     @scale_units.setter
-    def scale_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]]]):
+    def scale_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]]]):
         pulumi.set(self, "scale_units", value)
 
     @_builtins.property
     @pulumi.getter(name="stackHciClusterId")
-    def stack_hci_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_hci_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
         """
         return pulumi.get(self, "stack_hci_cluster_id")
 
     @stack_hci_cluster_id.setter
-    def stack_hci_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_hci_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_hci_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The deployment template version. The format must be a set of numbers separated by dots such as `10.0.0.0`. Changing this forces a new Stack HCI Deployment Setting to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -166,10 +166,10 @@ class HciDeploymentSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scale_units: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
-                 stack_hci_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
+                 stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Stack HCI Deployment Setting.
@@ -231,10 +231,10 @@ class HciDeploymentSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scale_units: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
-                 stack_hci_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
+                 stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,10 +266,10 @@ class HciDeploymentSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arc_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            scale_units: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
-            stack_hci_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'HciDeploymentSetting':
+            arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
+            stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'HciDeploymentSetting':
         """
         Get an existing HciDeploymentSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

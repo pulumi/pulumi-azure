@@ -314,9 +314,9 @@ def get_app(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         templates=pulumi.get(__ret__, 'templates'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
-def get_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                   read_secrets: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                   read_secrets: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Use this data source to access information about an existing Container App.

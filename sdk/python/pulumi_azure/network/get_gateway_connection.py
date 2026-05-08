@@ -397,8 +397,8 @@ def get_gateway_connection(name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_policy_based_traffic_selectors=pulumi.get(__ret__, 'use_policy_based_traffic_selectors'),
         virtual_network_gateway_id=pulumi.get(__ret__, 'virtual_network_gateway_id'))
-def get_gateway_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayConnectionResult]:
     """
     Use this data source to access information about an existing Virtual Network Gateway Connection.

@@ -186,39 +186,39 @@ export interface OutboundRuleState {
     /**
      * The number of outbound ports to be used for NAT. Defaults to `1024`.
      */
-    allocatedOutboundPorts?: pulumi.Input<number>;
+    allocatedOutboundPorts?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
-    backendAddressPoolId?: pulumi.Input<string>;
+    backendAddressPoolId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
-    enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
+    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[] | undefined>;
     /**
      * The timeout for the TCP idle connection Defaults to `4`.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      */
-    loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    tcpResetEnabled?: pulumi.Input<boolean>;
+    tcpResetEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface OutboundRuleArgs {
     /**
      * The number of outbound ports to be used for NAT. Defaults to `1024`.
      */
-    allocatedOutboundPorts?: pulumi.Input<number>;
+    allocatedOutboundPorts?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
@@ -236,15 +236,15 @@ export interface OutboundRuleArgs {
     /**
      * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
-    enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
+    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[] | undefined>;
     /**
      * The timeout for the TCP idle connection Defaults to `4`.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      */
@@ -252,7 +252,7 @@ export interface OutboundRuleArgs {
     /**
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
@@ -260,5 +260,5 @@ export interface OutboundRuleArgs {
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    tcpResetEnabled?: pulumi.Input<boolean>;
+    tcpResetEnabled?: pulumi.Input<boolean | undefined>;
 }

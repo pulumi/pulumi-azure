@@ -29,8 +29,8 @@ public final class MarketplaceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.marketplace.MarketplaceFunctions;
      * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class MarketplaceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.marketplace.MarketplaceFunctions;
      * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -131,8 +131,8 @@ public final class MarketplaceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.marketplace.MarketplaceFunctions;
      * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class MarketplaceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.marketplace.MarketplaceFunctions;
      * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -233,8 +233,8 @@ public final class MarketplaceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.marketplace.MarketplaceFunctions;
      * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

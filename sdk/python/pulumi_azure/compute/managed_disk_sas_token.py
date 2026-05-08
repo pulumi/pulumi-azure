@@ -79,10 +79,10 @@ class ManagedDiskSasTokenArgs:
 @pulumi.input_type
 class _ManagedDiskSasTokenState:
     def __init__(__self__, *,
-                 access_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedDiskSasToken resources.
 
@@ -105,7 +105,7 @@ class _ManagedDiskSasTokenState:
 
     @_builtins.property
     @pulumi.getter(name="accessLevel")
-    def access_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
 
@@ -115,43 +115,43 @@ class _ManagedDiskSasTokenState:
         return pulumi.get(self, "access_level")
 
     @access_level.setter
-    def access_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_level", value)
 
     @_builtins.property
     @pulumi.getter(name="durationInSeconds")
-    def duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "duration_in_seconds")
 
     @duration_in_seconds.setter
-    def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskId")
-    def managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_disk_id")
 
     @managed_disk_id.setter
-    def managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The computed Shared Access Signature (SAS) of the Managed Disk.
         """
         return pulumi.get(self, "sas_url")
 
     @sas_url.setter
-    def sas_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_url", value)
 
 
@@ -161,9 +161,9 @@ class ManagedDiskSasToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Disk SAS Token.
@@ -289,9 +289,9 @@ class ManagedDiskSasToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,10 +323,10 @@ class ManagedDiskSasToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_level: Optional[pulumi.Input[_builtins.str]] = None,
-            duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sas_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedDiskSasToken':
+            access_level: pulumi.Input[Optional[_builtins.str]] = None,
+            duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            managed_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedDiskSasToken':
         """
         Get an existing ManagedDiskSasToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

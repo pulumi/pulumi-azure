@@ -62,8 +62,8 @@ class AutomanageConfigurationAssignmentArgs:
 @pulumi.input_type
 class _AutomanageConfigurationAssignmentState:
     def __init__(__self__, *,
-                 arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomanageConfigurationAssignment resources.
 
@@ -79,19 +79,19 @@ class _AutomanageConfigurationAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="arcMachineId")
-    def arc_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arc_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "arc_machine_id")
 
     @arc_machine_id.setter
-    def arc_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arc_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_machine_id", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationId")
-    def configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 
@@ -100,7 +100,7 @@ class _AutomanageConfigurationAssignmentState:
         return pulumi.get(self, "configuration_id")
 
     @configuration_id.setter
-    def configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_id", value)
 
 
@@ -110,8 +110,8 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Arc Machine Automanage Configuration Profile Assignment.
@@ -225,8 +225,8 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,8 +252,8 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arc_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutomanageConfigurationAssignment':
+            arc_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutomanageConfigurationAssignment':
         """
         Get an existing AutomanageConfigurationAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

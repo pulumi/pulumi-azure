@@ -284,11 +284,11 @@ def get_subscription(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         topic_id=pulumi.get(__ret__, 'topic_id'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-def get_subscription_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            namespace_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            topic_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            topic_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_subscription_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            topic_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            topic_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Use this data source to access information about an existing ServiceBus Subscription.

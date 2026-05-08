@@ -22,14 +22,14 @@ __all__ = ['EventHubArgs', 'EventHub']
 class EventHubArgs:
     def __init__(__self__, *,
                  partition_count: pulumi.Input[_builtins.int],
-                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
-                 message_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_description: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 capture_description: pulumi.Input[Optional['EventHubCaptureDescriptionArgs']] = None,
+                 message_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_description: pulumi.Input[Optional['EventHubRetentionDescriptionArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHub resource.
 
@@ -89,19 +89,19 @@ class EventHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]:
+    def capture_description(self) -> pulumi.Input[Optional['EventHubCaptureDescriptionArgs']]:
         """
         A `capture_description` block as defined below.
         """
         return pulumi.get(self, "capture_description")
 
     @capture_description.setter
-    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]):
+    def capture_description(self, value: pulumi.Input[Optional['EventHubCaptureDescriptionArgs']]):
         pulumi.set(self, "capture_description", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetention")
-    def message_retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_retention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to retain the events for this Event Hub.
 
@@ -110,91 +110,91 @@ class EventHubArgs:
         return pulumi.get(self, "message_retention")
 
     @message_retention.setter
-    def message_retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_retention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_retention", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the EventHub Namespace.
         """
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     @_utilities.deprecated("""`namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""`resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDescription")
-    def retention_description(self) -> Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]:
+    def retention_description(self) -> pulumi.Input[Optional['EventHubRetentionDescriptionArgs']]:
         """
         A `retention_description` block as defined below.
         """
         return pulumi.get(self, "retention_description")
 
     @retention_description.setter
-    def retention_description(self, value: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]):
+    def retention_description(self, value: pulumi.Input[Optional['EventHubRetentionDescriptionArgs']]):
         pulumi.set(self, "retention_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _EventHubState:
     def __init__(__self__, *,
-                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
-                 message_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_description: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 capture_description: pulumi.Input[Optional['EventHubCaptureDescriptionArgs']] = None,
+                 message_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 partition_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_description: pulumi.Input[Optional['EventHubRetentionDescriptionArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHub resources.
 
@@ -242,19 +242,19 @@ class _EventHubState:
 
     @_builtins.property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]:
+    def capture_description(self) -> pulumi.Input[Optional['EventHubCaptureDescriptionArgs']]:
         """
         A `capture_description` block as defined below.
         """
         return pulumi.get(self, "capture_description")
 
     @capture_description.setter
-    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]):
+    def capture_description(self, value: pulumi.Input[Optional['EventHubCaptureDescriptionArgs']]):
         pulumi.set(self, "capture_description", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetention")
-    def message_retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_retention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days to retain the events for this Event Hub.
 
@@ -263,46 +263,46 @@ class _EventHubState:
         return pulumi.get(self, "message_retention")
 
     @message_retention.setter
-    def message_retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_retention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_retention", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the EventHub Namespace.
         """
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     @_utilities.deprecated("""`namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the current number of shards on the Event Hub.
 
@@ -313,53 +313,53 @@ class _EventHubState:
         return pulumi.get(self, "partition_count")
 
     @partition_count.setter
-    def partition_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_count", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers for partitions created for Event Hubs.
         """
         return pulumi.get(self, "partition_ids")
 
     @partition_ids.setter
-    def partition_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""`resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDescription")
-    def retention_description(self) -> Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]:
+    def retention_description(self) -> pulumi.Input[Optional['EventHubRetentionDescriptionArgs']]:
         """
         A `retention_description` block as defined below.
         """
         return pulumi.get(self, "retention_description")
 
     @retention_description.setter
-    def retention_description(self, value: Optional[pulumi.Input['EventHubRetentionDescriptionArgs']]):
+    def retention_description(self, value: pulumi.Input[Optional['EventHubRetentionDescriptionArgs']]):
         pulumi.set(self, "retention_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -369,15 +369,15 @@ class EventHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
-                 message_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_description: Optional[pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 capture_description: pulumi.Input[Optional[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
+                 message_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_description: pulumi.Input[Optional[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
@@ -504,15 +504,15 @@ class EventHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
-                 message_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_description: Optional[pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 capture_description: pulumi.Input[Optional[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
+                 message_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_description: pulumi.Input[Optional[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -544,16 +544,16 @@ class EventHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capture_description: Optional[pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
-            message_retention: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_count: Optional[pulumi.Input[_builtins.int]] = None,
-            partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_description: Optional[pulumi.Input[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventHub':
+            capture_description: pulumi.Input[Optional[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
+            message_retention: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_count: pulumi.Input[Optional[_builtins.int]] = None,
+            partition_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_description: pulumi.Input[Optional[Union['EventHubRetentionDescriptionArgs', 'EventHubRetentionDescriptionArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventHub':
         """
         Get an existing EventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -47,7 +47,7 @@ class PortalTenantConfigurationArgs:
 @pulumi.input_type
 class _PortalTenantConfigurationState:
     def __init__(__self__, *,
-                 private_markdown_storage_enforced: Optional[pulumi.Input[_builtins.bool]] = None):
+                 private_markdown_storage_enforced: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PortalTenantConfiguration resources.
 
@@ -60,7 +60,7 @@ class _PortalTenantConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="privateMarkdownStorageEnforced")
-    def private_markdown_storage_enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_markdown_storage_enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the private tile markdown storage which used to display custom dynamic and static content enabled?
 
@@ -69,7 +69,7 @@ class _PortalTenantConfigurationState:
         return pulumi.get(self, "private_markdown_storage_enforced")
 
     @private_markdown_storage_enforced.setter
-    def private_markdown_storage_enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_markdown_storage_enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_markdown_storage_enforced", value)
 
 
@@ -79,7 +79,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_markdown_storage_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
+                 private_markdown_storage_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages Portal Tenant Configuration.
@@ -180,7 +180,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_markdown_storage_enforced: Optional[pulumi.Input[_builtins.bool]] = None,
+                 private_markdown_storage_enforced: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,7 +203,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            private_markdown_storage_enforced: Optional[pulumi.Input[_builtins.bool]] = None) -> 'PortalTenantConfiguration':
+            private_markdown_storage_enforced: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PortalTenantConfiguration':
         """
         Get an existing PortalTenantConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

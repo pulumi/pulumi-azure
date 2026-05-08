@@ -274,8 +274,8 @@ def get_host_pool(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validate_environment=pulumi.get(__ret__, 'validate_environment'))
-def get_host_pool_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_host_pool_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Use this data source to access information about an existing Virtual Desktop Host Pool.

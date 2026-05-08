@@ -22,10 +22,10 @@ class DevBoxDefinitionArgs:
                  dev_center_id: pulumi.Input[_builtins.str],
                  image_reference_id: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 hibernate_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DevBoxDefinition resource.
 
@@ -89,7 +89,7 @@ class DevBoxDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="hibernateSupportEnabled")
-    def hibernate_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hibernate_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
 
@@ -98,56 +98,56 @@ class DevBoxDefinitionArgs:
         return pulumi.get(self, "hibernate_support_enabled")
 
     @hibernate_support_enabled.setter
-    def hibernate_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hibernate_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hibernate_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DevBoxDefinitionState:
     def __init__(__self__, *,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernate_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DevBoxDefinition resources.
 
@@ -178,19 +178,19 @@ class _DevBoxDefinitionState:
 
     @_builtins.property
     @pulumi.getter(name="devCenterId")
-    def dev_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Dev Center. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
-    def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernateSupportEnabled")
-    def hibernate_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hibernate_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
 
@@ -199,67 +199,67 @@ class _DevBoxDefinitionState:
         return pulumi.get(self, "hibernate_support_enabled")
 
     @hibernate_support_enabled.setter
-    def hibernate_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hibernate_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hibernate_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="imageReferenceId")
-    def image_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the image for the Dev Center Dev Box Definition.
         """
         return pulumi.get(self, "image_reference_id")
 
     @image_reference_id.setter
-    def image_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_reference_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SKU for the Dev Center Dev Box Definition.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -269,13 +269,13 @@ class DevBoxDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernate_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Dev Center Dev Box Definition.
@@ -396,13 +396,13 @@ class DevBoxDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernate_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -435,13 +435,13 @@ class DevBoxDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DevBoxDefinition':
+            dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hibernate_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DevBoxDefinition':
         """
         Get an existing DevBoxDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

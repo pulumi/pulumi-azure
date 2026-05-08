@@ -168,43 +168,43 @@ export interface NamespaceState {
     /**
      * Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for Azure Insights metrics.
      */
-    metricId?: pulumi.Input<string>;
+    metricId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the SKU to use. At this time the only supported value is `Standard`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -214,11 +214,11 @@ export interface NamespaceArgs {
     /**
      * Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
@@ -230,5 +230,5 @@ export interface NamespaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

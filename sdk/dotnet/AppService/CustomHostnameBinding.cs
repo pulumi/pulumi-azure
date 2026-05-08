@@ -23,7 +23,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.Index.Id("server", new()
+    ///     var server = new Random.Id("server", new()
     ///     {
     ///         Keepers = 
     ///         {

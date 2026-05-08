@@ -220,9 +220,9 @@ def get_subnet(name: Optional[_builtins.str] = None,
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         service_endpoints=pulumi.get(__ret__, 'service_endpoints'),
         virtual_network_name=pulumi.get(__ret__, 'virtual_network_name'))
-def get_subnet_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subnet_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.

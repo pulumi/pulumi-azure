@@ -139,23 +139,23 @@ export interface ServicesAccountState {
     /**
      * Customer owned application ID. Changing this forces a new Account to be created.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Billing Plan Id.
      */
-    billingPlanId?: pulumi.Input<string>;
+    billingPlanId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Account. Changing this forces a new Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface ServicesAccountArgs {
     /**
      * Specifies the name of this Account. Changing this forces a new Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
      */
@@ -177,5 +177,5 @@ export interface ServicesAccountArgs {
     /**
      * A mapping of tags which should be assigned to the Account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

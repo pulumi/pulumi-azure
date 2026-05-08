@@ -175,45 +175,45 @@ export interface RuntimeEnvironmentPackageState {
     /**
      * The ID of the Automation Runtime Environment in which to create this package. Changing this forces a new resource to be created.
      */
-    automationRuntimeEnvironmentId?: pulumi.Input<string>;
+    automationRuntimeEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The HTTPS URI of the package content. Changing this forces a new resource to be created.
      */
-    contentUri?: pulumi.Input<string>;
+    contentUri?: pulumi.Input<string | undefined>;
     /**
      * The version of the package content. Changing this forces a new resource to be created.
      *
      * > **Note:** The `contentVersion` must be a version string with 2 to 4 segments (e.g. `1.0`, `1.0.0`, or `1.0.0.0`).
      */
-    contentVersion?: pulumi.Input<string>;
+    contentVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether this is a default package.
      */
-    default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean | undefined>;
     /**
      * The hash algorithm used to hash the content. Changing this forces a new resource to be created.
      *
      * > **Note:** The argument `hashAlgorithm` is required when `hashValue` is specified.
      */
-    hashAlgorithm?: pulumi.Input<string>;
+    hashAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * The hash value of the content. Changing this forces a new resource to be created.
      *
      * > **Note:** The argument `hashValue` is required when `hashAlgorithm` is specified.
      */
-    hashValue?: pulumi.Input<string>;
+    hashValue?: pulumi.Input<string | undefined>;
     /**
      * The name of the package. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The size of the package in bytes.
      */
-    sizeInBytes?: pulumi.Input<number>;
+    sizeInBytes?: pulumi.Input<number | undefined>;
     /**
      * The version of the package as reported by the platform.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -233,21 +233,21 @@ export interface RuntimeEnvironmentPackageArgs {
      *
      * > **Note:** The `contentVersion` must be a version string with 2 to 4 segments (e.g. `1.0`, `1.0.0`, or `1.0.0.0`).
      */
-    contentVersion?: pulumi.Input<string>;
+    contentVersion?: pulumi.Input<string | undefined>;
     /**
      * The hash algorithm used to hash the content. Changing this forces a new resource to be created.
      *
      * > **Note:** The argument `hashAlgorithm` is required when `hashValue` is specified.
      */
-    hashAlgorithm?: pulumi.Input<string>;
+    hashAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * The hash value of the content. Changing this forces a new resource to be created.
      *
      * > **Note:** The argument `hashValue` is required when `hashAlgorithm` is specified.
      */
-    hashValue?: pulumi.Input<string>;
+    hashValue?: pulumi.Input<string | undefined>;
     /**
      * The name of the package. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

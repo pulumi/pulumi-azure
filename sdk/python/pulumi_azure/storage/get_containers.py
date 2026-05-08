@@ -111,8 +111,8 @@ def get_containers(name_prefix: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
-def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_containers_output(name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainersResult]:
     """
     Use this data source to access information about the existing Storage Containers within a Storage Account.

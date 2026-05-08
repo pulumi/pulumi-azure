@@ -287,111 +287,111 @@ export interface AppServiceState {
     /**
      * The ID of the App Service Plan within which to create this App Service.
      */
-    appServicePlanId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.AppServiceBackup>;
+    backup?: pulumi.Input<inputs.appservice.AppServiceBackup | undefined>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */
-    clientCertEnabled?: pulumi.Input<boolean>;
+    clientCertEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      */
-    clientCertMode?: pulumi.Input<string>;
+    clientCertMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[] | undefined>;
     /**
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
-    defaultSiteHostname?: pulumi.Input<string>;
+    defaultSiteHostname?: pulumi.Input<string | undefined>;
     /**
      * Is the App Service Enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the App Service only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
+    identity?: pulumi.Input<inputs.appservice.AppServiceIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.AppServiceLogs>;
+    logs?: pulumi.Input<inputs.appservice.AppServiceLogs | undefined>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
      */
-    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
-    outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      */
-    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig | undefined>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteCredential>[] | undefined>;
     /**
      * A `sourceControl` block as defined below.
      */
-    sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
+    sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceStorageAccount>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -405,59 +405,59 @@ export interface AppServiceArgs {
     /**
      * A key-value pair of App Settings.
      */
-    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    backup?: pulumi.Input<inputs.appservice.AppServiceBackup>;
+    backup?: pulumi.Input<inputs.appservice.AppServiceBackup | undefined>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */
-    clientCertEnabled?: pulumi.Input<boolean>;
+    clientCertEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      */
-    clientCertMode?: pulumi.Input<string>;
+    clientCertMode?: pulumi.Input<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[] | undefined>;
     /**
      * Is the App Service Enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Can the App Service only be accessed via HTTPS? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
+    identity?: pulumi.Input<inputs.appservice.AppServiceIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    keyVaultReferenceIdentityId?: pulumi.Input<string>;
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `logs` block as defined below.
      */
-    logs?: pulumi.Input<inputs.appservice.AppServiceLogs>;
+    logs?: pulumi.Input<inputs.appservice.AppServiceLogs | undefined>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
@@ -465,17 +465,17 @@ export interface AppServiceArgs {
     /**
      * A `siteConfig` block as defined below.
      */
-    siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig | undefined>;
     /**
      * A `sourceControl` block as defined below.
      */
-    sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
+    sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceStorageAccount>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

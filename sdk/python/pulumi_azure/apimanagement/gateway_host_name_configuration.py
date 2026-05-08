@@ -23,11 +23,11 @@ class GatewayHostNameConfigurationArgs:
                  certificate_id: pulumi.Input[_builtins.str],
                  gateway_name: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
-                 http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls10_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls10_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls11_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GatewayHostNameConfiguration resource.
 
@@ -106,77 +106,77 @@ class GatewayHostNameConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="http2Enabled")
-    def http2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http2_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTP/2.0 is supported. Defaults to `true`.
         """
         return pulumi.get(self, "http2_enabled")
 
     @http2_enabled.setter
-    def http2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http2_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http2_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestClientCertificateEnabled")
-    def request_client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the API Management Gateway requests a client certificate.
         """
         return pulumi.get(self, "request_client_certificate_enabled")
 
     @request_client_certificate_enabled.setter
-    def request_client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tls10Enabled")
-    def tls10_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls10_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether TLS 1.0 is supported.
         """
         return pulumi.get(self, "tls10_enabled")
 
     @tls10_enabled.setter
-    def tls10_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls10_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls10_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tls11Enabled")
-    def tls11_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls11_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether TLS 1.1 is supported.
         """
         return pulumi.get(self, "tls11_enabled")
 
     @tls11_enabled.setter
-    def tls11_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls11_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls11_enabled", value)
 
 
 @pulumi.input_type
 class _GatewayHostNameConfigurationState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls10_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls10_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls11_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GatewayHostNameConfiguration resources.
 
@@ -211,110 +211,110 @@ class _GatewayHostNameConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate ID to be used for TLS connection establishment.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gateway_name")
 
     @gateway_name.setter
-    def gateway_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host name to use for the API Management Gateway Host Name Configuration.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="http2Enabled")
-    def http2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http2_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTP/2.0 is supported. Defaults to `true`.
         """
         return pulumi.get(self, "http2_enabled")
 
     @http2_enabled.setter
-    def http2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http2_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http2_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestClientCertificateEnabled")
-    def request_client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the API Management Gateway requests a client certificate.
         """
         return pulumi.get(self, "request_client_certificate_enabled")
 
     @request_client_certificate_enabled.setter
-    def request_client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tls10Enabled")
-    def tls10_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls10_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether TLS 1.0 is supported.
         """
         return pulumi.get(self, "tls10_enabled")
 
     @tls10_enabled.setter
-    def tls10_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls10_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls10_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tls11Enabled")
-    def tls11_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls11_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether TLS 1.1 is supported.
         """
         return pulumi.get(self, "tls11_enabled")
 
     @tls11_enabled.setter
-    def tls11_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls11_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls11_enabled", value)
 
 
@@ -324,15 +324,15 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls10_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls10_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls11_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an API Management Gateway Host Name Configuration.
@@ -493,15 +493,15 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls10_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls10_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tls11_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -538,15 +538,15 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-            host_name: Optional[pulumi.Input[_builtins.str]] = None,
-            http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            request_client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tls10_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'GatewayHostNameConfiguration':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            request_client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tls10_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tls11_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GatewayHostNameConfiguration':
         """
         Get an existing GatewayHostNameConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

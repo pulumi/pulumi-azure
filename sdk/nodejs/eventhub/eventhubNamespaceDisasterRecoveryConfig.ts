@@ -142,19 +142,19 @@ export interface EventhubNamespaceDisasterRecoveryConfigState {
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the EventHub Namespace to replicate to.
      */
-    partnerNamespaceId?: pulumi.Input<string>;
+    partnerNamespaceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,7 +164,7 @@ export interface EventhubNamespaceDisasterRecoveryConfigArgs {
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
      */

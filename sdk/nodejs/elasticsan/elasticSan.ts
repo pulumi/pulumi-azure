@@ -198,59 +198,59 @@ export interface ElasticSanState {
      *
      * > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      */
-    baseSizeInTib?: pulumi.Input<number>;
+    baseSizeInTib?: pulumi.Input<number | undefined>;
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
      * > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      */
-    extendedSizeInTib?: pulumi.Input<number>;
+    extendedSizeInTib?: pulumi.Input<number | undefined>;
     /**
      * The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.elasticsan.ElasticSanSku>;
+    sku?: pulumi.Input<inputs.elasticsan.ElasticSanSku | undefined>;
     /**
      * A mapping of tags which should be assigned to the Elastic SAN resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Total Provisioned IOps of the Elastic SAN resource.
      */
-    totalIops?: pulumi.Input<number>;
+    totalIops?: pulumi.Input<number | undefined>;
     /**
      * Total Provisioned MBps Elastic SAN resource.
      */
-    totalMbps?: pulumi.Input<number>;
+    totalMbps?: pulumi.Input<number | undefined>;
     /**
      * Total size of the Elastic SAN resource in TB.
      */
-    totalSizeInTib?: pulumi.Input<number>;
+    totalSizeInTib?: pulumi.Input<number | undefined>;
     /**
      * Total size of the provisioned Volumes in GiB.
      */
-    totalVolumeSizeInGib?: pulumi.Input<number>;
+    totalVolumeSizeInGib?: pulumi.Input<number | undefined>;
     /**
      * Total number of volume groups in this Elastic SAN resource.
      */
-    volumeGroupCount?: pulumi.Input<number>;
+    volumeGroupCount?: pulumi.Input<number | undefined>;
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      *
      * > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -268,15 +268,15 @@ export interface ElasticSanArgs {
      *
      * > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      */
-    extendedSizeInTib?: pulumi.Input<number>;
+    extendedSizeInTib?: pulumi.Input<number | undefined>;
     /**
      * The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
      */
@@ -288,11 +288,11 @@ export interface ElasticSanArgs {
     /**
      * A mapping of tags which should be assigned to the Elastic SAN resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      *
      * > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

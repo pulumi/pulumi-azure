@@ -178,33 +178,33 @@ export interface ManagedStorageAccountState {
     /**
      * The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should Storage Account access key be regenerated periodically?
      *
      * > **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      */
-    regenerateKeyAutomatically?: pulumi.Input<boolean>;
+    regenerateKeyAutomatically?: pulumi.Input<boolean | undefined>;
     /**
      * How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      */
-    regenerationPeriod?: pulumi.Input<string>;
+    regenerationPeriod?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
      */
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -218,17 +218,17 @@ export interface ManagedStorageAccountArgs {
     /**
      * The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Should Storage Account access key be regenerated periodically?
      *
      * > **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      */
-    regenerateKeyAutomatically?: pulumi.Input<boolean>;
+    regenerateKeyAutomatically?: pulumi.Input<boolean | undefined>;
     /**
      * How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      */
-    regenerationPeriod?: pulumi.Input<string>;
+    regenerationPeriod?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account.
      */
@@ -240,5 +240,5 @@ export interface ManagedStorageAccountArgs {
     /**
      * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

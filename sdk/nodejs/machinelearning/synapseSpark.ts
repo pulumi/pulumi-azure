@@ -214,35 +214,35 @@ export interface SynapseSparkState {
     /**
      * The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    machineLearningWorkspaceId?: pulumi.Input<string>;
+    machineLearningWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    synapseSparkPoolId?: pulumi.Input<string>;
+    synapseSparkPoolId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -252,19 +252,19 @@ export interface SynapseSparkArgs {
     /**
      * The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
@@ -272,7 +272,7 @@ export interface SynapseSparkArgs {
     /**
      * The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
@@ -280,5 +280,5 @@ export interface SynapseSparkArgs {
     /**
      * A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -174,9 +174,9 @@ def get_frontdoor_origin_group(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         restore_traffic_time_to_healed_or_new_endpoint_in_minutes=pulumi.get(__ret__, 'restore_traffic_time_to_healed_or_new_endpoint_in_minutes'),
         session_affinity_enabled=pulumi.get(__ret__, 'session_affinity_enabled'))
-def get_frontdoor_origin_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_frontdoor_origin_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorOriginGroupResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Origin Group.

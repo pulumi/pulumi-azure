@@ -22,10 +22,10 @@ __all__ = ['AccountQueuePropertiesInitArgs', 'AccountQueueProperties']
 class AccountQueuePropertiesInitArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
-                 hour_metrics: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']] = None,
-                 logging: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']] = None,
-                 minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None):
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
+                 hour_metrics: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']] = None,
+                 logging: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']] = None,
+                 minute_metrics: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']] = None):
         """
         The set of arguments for constructing a AccountQueueProperties resource.
 
@@ -61,19 +61,19 @@ class AccountQueuePropertiesInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
         """
         A `cors_rule` block as defined above.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="hourMetrics")
-    def hour_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]:
+    def hour_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]:
         """
         A `hour_metrics` block as defined below.
 
@@ -82,42 +82,42 @@ class AccountQueuePropertiesInitArgs:
         return pulumi.get(self, "hour_metrics")
 
     @hour_metrics.setter
-    def hour_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]):
+    def hour_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]):
         pulumi.set(self, "hour_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]:
+    def logging(self) -> pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]:
         """
         A `logging` block as defined below.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]):
+    def logging(self, value: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @_builtins.property
     @pulumi.getter(name="minuteMetrics")
-    def minute_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]:
+    def minute_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]:
         """
         A `minute_metrics` block as defined below.
         """
         return pulumi.get(self, "minute_metrics")
 
     @minute_metrics.setter
-    def minute_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]):
+    def minute_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]):
         pulumi.set(self, "minute_metrics", value)
 
 
 @pulumi.input_type
 class _AccountQueuePropertiesState:
     def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
-                 hour_metrics: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']] = None,
-                 logging: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']] = None,
-                 minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
+                 hour_metrics: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']] = None,
+                 logging: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']] = None,
+                 minute_metrics: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountQueueProperties resources.
 
@@ -142,19 +142,19 @@ class _AccountQueuePropertiesState:
 
     @_builtins.property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
         """
         A `cors_rule` block as defined above.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="hourMetrics")
-    def hour_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]:
+    def hour_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]:
         """
         A `hour_metrics` block as defined below.
 
@@ -163,43 +163,43 @@ class _AccountQueuePropertiesState:
         return pulumi.get(self, "hour_metrics")
 
     @hour_metrics.setter
-    def hour_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]):
+    def hour_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]):
         pulumi.set(self, "hour_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]:
+    def logging(self) -> pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]:
         """
         A `logging` block as defined below.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]):
+    def logging(self, value: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @_builtins.property
     @pulumi.getter(name="minuteMetrics")
-    def minute_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]:
+    def minute_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]:
         """
         A `minute_metrics` block as defined below.
         """
         return pulumi.get(self, "minute_metrics")
 
     @minute_metrics.setter
-    def minute_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]):
+    def minute_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]):
         pulumi.set(self, "minute_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -209,11 +209,11 @@ class AccountQueueProperties(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]]] = None,
-                 hour_metrics: Optional[pulumi.Input[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']]] = None,
-                 logging: Optional[pulumi.Input[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']]] = None,
-                 minute_metrics: Optional[pulumi.Input[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]]] = None,
+                 hour_metrics: pulumi.Input[Optional[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']]] = None,
+                 minute_metrics: pulumi.Input[Optional[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Queue Properties of an Azure Storage Account.
@@ -364,11 +364,11 @@ class AccountQueueProperties(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]]] = None,
-                 hour_metrics: Optional[pulumi.Input[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']]] = None,
-                 logging: Optional[pulumi.Input[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']]] = None,
-                 minute_metrics: Optional[pulumi.Input[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]]] = None,
+                 hour_metrics: pulumi.Input[Optional[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']]] = None,
+                 logging: pulumi.Input[Optional[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']]] = None,
+                 minute_metrics: pulumi.Input[Optional[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,11 +395,11 @@ class AccountQueueProperties(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]]] = None,
-            hour_metrics: Optional[pulumi.Input[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']]] = None,
-            logging: Optional[pulumi.Input[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']]] = None,
-            minute_metrics: Optional[pulumi.Input[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountQueueProperties':
+            cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]]] = None,
+            hour_metrics: pulumi.Input[Optional[Union['AccountQueuePropertiesHourMetricsArgs', 'AccountQueuePropertiesHourMetricsArgsDict']]] = None,
+            logging: pulumi.Input[Optional[Union['AccountQueuePropertiesLoggingArgs', 'AccountQueuePropertiesLoggingArgsDict']]] = None,
+            minute_metrics: pulumi.Input[Optional[Union['AccountQueuePropertiesMinuteMetricsArgs', 'AccountQueuePropertiesMinuteMetricsArgsDict']]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountQueueProperties':
         """
         Get an existing AccountQueueProperties resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

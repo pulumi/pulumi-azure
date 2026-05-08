@@ -20,8 +20,8 @@ __all__ = ['AccountStaticWebsiteInitArgs', 'AccountStaticWebsite']
 class AccountStaticWebsiteInitArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None):
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountStaticWebsite resource.
 
@@ -49,35 +49,35 @@ class AccountStaticWebsiteInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="error404Document")
-    def error404_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error404_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         """
         return pulumi.get(self, "error404_document")
 
     @error404_document.setter
-    def error404_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error404_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error404_document", value)
 
     @_builtins.property
     @pulumi.getter(name="indexDocument")
-    def index_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
         """
         return pulumi.get(self, "index_document")
 
     @index_document.setter
-    def index_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_document", value)
 
 
 @pulumi.input_type
 class _AccountStaticWebsiteState:
     def __init__(__self__, *,
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountStaticWebsite resources.
 
@@ -94,38 +94,38 @@ class _AccountStaticWebsiteState:
 
     @_builtins.property
     @pulumi.getter(name="error404Document")
-    def error404_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error404_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         """
         return pulumi.get(self, "error404_document")
 
     @error404_document.setter
-    def error404_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error404_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error404_document", value)
 
     @_builtins.property
     @pulumi.getter(name="indexDocument")
-    def index_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
         """
         return pulumi.get(self, "index_document")
 
     @index_document.setter
-    def index_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_document", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -135,9 +135,9 @@ class AccountStaticWebsite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Static Website of an Azure Storage Account.
@@ -238,9 +238,9 @@ class AccountStaticWebsite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,9 +265,9 @@ class AccountStaticWebsite(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            error404_document: Optional[pulumi.Input[_builtins.str]] = None,
-            index_document: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountStaticWebsite':
+            error404_document: pulumi.Input[Optional[_builtins.str]] = None,
+            index_document: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountStaticWebsite':
         """
         Get an existing AccountStaticWebsite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

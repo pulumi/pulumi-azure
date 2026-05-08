@@ -322,77 +322,77 @@ export interface VirtualNetworkGatewayState {
     /**
      * If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
      */
-    activeActive?: pulumi.Input<boolean>;
+    activeActive?: pulumi.Input<boolean | undefined>;
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
      */
-    bgpEnabled?: pulumi.Input<boolean>;
+    bgpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
-    bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean>;
+    bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
-    bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
+    bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings | undefined>;
     /**
      * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      */
-    customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
+    customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
     /**
      * The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
      */
-    defaultLocalNetworkGatewayId?: pulumi.Input<string>;
+    defaultLocalNetworkGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Is DNS forwarding enabled?
      */
-    dnsForwardingEnabled?: pulumi.Input<boolean>;
+    dnsForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      *
      * > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
      */
-    generation?: pulumi.Input<string>;
+    generation?: pulumi.Input<string | undefined>;
     /**
      * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIpConfiguration>[] | undefined>;
     /**
      * Is IP Sec Replay Protection enabled? Defaults to `true`.
      */
-    ipSecReplayProtectionEnabled?: pulumi.Input<boolean>;
+    ipSecReplayProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `policyGroup` blocks as defined below.
      */
-    policyGroups?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroup>[]>;
+    policyGroups?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroup>[] | undefined>;
     /**
      * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
      */
-    privateIpAddressEnabled?: pulumi.Input<boolean>;
+    privateIpAddressEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
      */
-    remoteVnetTrafficEnabled?: pulumi.Input<boolean>;
+    remoteVnetTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` and `ErGwScale` SKU is only supported by an `ExpressRoute` gateway.
      *
@@ -400,27 +400,27 @@ export interface VirtualNetworkGatewayState {
      *
      * > **Note:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code="InvalidGatewaySkuSpecifiedForGatewayDeploymentType"` please try another region.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
      */
-    virtualWanTrafficEnabled?: pulumi.Input<boolean>;
+    virtualWanTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
-    vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
+    vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
      * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      */
-    vpnType?: pulumi.Input<string>;
+    vpnType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -430,45 +430,45 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
      */
-    activeActive?: pulumi.Input<boolean>;
+    activeActive?: pulumi.Input<boolean | undefined>;
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
      */
-    bgpEnabled?: pulumi.Input<boolean>;
+    bgpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
-    bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean>;
+    bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
-    bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
+    bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings | undefined>;
     /**
      * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      */
-    customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
+    customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
     /**
      * The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
      */
-    defaultLocalNetworkGatewayId?: pulumi.Input<string>;
+    defaultLocalNetworkGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Is DNS forwarding enabled?
      */
-    dnsForwardingEnabled?: pulumi.Input<boolean>;
+    dnsForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      *
      * > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
      */
-    generation?: pulumi.Input<string>;
+    generation?: pulumi.Input<string | undefined>;
     /**
      * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ipConfiguration` block, an active-active gateway requires exactly two `ipConfiguration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      */
@@ -476,27 +476,27 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Is IP Sec Replay Protection enabled? Defaults to `true`.
      */
-    ipSecReplayProtectionEnabled?: pulumi.Input<boolean>;
+    ipSecReplayProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `policyGroup` blocks as defined below.
      */
-    policyGroups?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroup>[]>;
+    policyGroups?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroup>[] | undefined>;
     /**
      * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
      */
-    privateIpAddressEnabled?: pulumi.Input<boolean>;
+    privateIpAddressEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
      */
-    remoteVnetTrafficEnabled?: pulumi.Input<boolean>;
+    remoteVnetTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
@@ -512,7 +512,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
@@ -520,13 +520,13 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
      */
-    virtualWanTrafficEnabled?: pulumi.Input<boolean>;
+    virtualWanTrafficEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
-    vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
+    vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
      * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      */
-    vpnType?: pulumi.Input<string>;
+    vpnType?: pulumi.Input<string | undefined>;
 }

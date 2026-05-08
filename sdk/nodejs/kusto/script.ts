@@ -209,39 +209,39 @@ export interface ScriptState {
     /**
      * Flag that indicates whether to continue if one of the command fails.
      */
-    continueOnErrorsEnabled?: pulumi.Input<boolean>;
+    continueOnErrorsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
      */
-    databaseId?: pulumi.Input<string>;
+    databaseId?: pulumi.Input<string | undefined>;
     /**
      * A unique string. If changed the script will be applied again.
      */
-    forceAnUpdateWhenValueChanged?: pulumi.Input<string>;
+    forceAnUpdateWhenValueChanged?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
      */
-    principalPermissionsAction?: pulumi.Input<string>;
+    principalPermissionsAction?: pulumi.Input<string | undefined>;
     /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
-    sasToken?: pulumi.Input<string>;
+    sasToken?: pulumi.Input<string | undefined>;
     /**
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
-    scriptContent?: pulumi.Input<string>;
+    scriptContent?: pulumi.Input<string | undefined>;
     /**
      * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
      */
-    scriptLevel?: pulumi.Input<string>;
+    scriptLevel?: pulumi.Input<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface ScriptArgs {
     /**
      * Flag that indicates whether to continue if one of the command fails.
      */
-    continueOnErrorsEnabled?: pulumi.Input<boolean>;
+    continueOnErrorsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
      */
@@ -259,29 +259,29 @@ export interface ScriptArgs {
     /**
      * A unique string. If changed the script will be applied again.
      */
-    forceAnUpdateWhenValueChanged?: pulumi.Input<string>;
+    forceAnUpdateWhenValueChanged?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the script caller’s permissions remain in effect after the script has finished running? Possible values are `RemovePermissionOnScriptCompletion` and `RetainPermissionOnScriptCompletion`.
      */
-    principalPermissionsAction?: pulumi.Input<string>;
+    principalPermissionsAction?: pulumi.Input<string | undefined>;
     /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
-    sasToken?: pulumi.Input<string>;
+    sasToken?: pulumi.Input<string | undefined>;
     /**
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
-    scriptContent?: pulumi.Input<string>;
+    scriptContent?: pulumi.Input<string | undefined>;
     /**
      * The type of script commands. Possible values are `Database` or `Cluster`. Defaults to `Database`. Changing this forces a new resource to be created.
      */
-    scriptLevel?: pulumi.Input<string>;
+    scriptLevel?: pulumi.Input<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }

@@ -138,19 +138,19 @@ export interface ChannelLineState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * One or more `lineChannel` blocks as defined below.
      */
-    lineChannels?: pulumi.Input<pulumi.Input<inputs.bot.ChannelLineLineChannel>[]>;
+    lineChannels?: pulumi.Input<pulumi.Input<inputs.bot.ChannelLineLineChannel>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface ChannelLineArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
      */

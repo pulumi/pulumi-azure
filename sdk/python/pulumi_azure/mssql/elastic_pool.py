@@ -25,16 +25,16 @@ class ElasticPoolArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ElasticPoolSkuArgs'],
-                 enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ElasticPool resource.
 
@@ -138,7 +138,7 @@ class ElasticPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="enclaveType")
-    def enclave_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enclave_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 
@@ -151,12 +151,12 @@ class ElasticPoolArgs:
         return pulumi.get(self, "enclave_type")
 
     @enclave_type.setter
-    def enclave_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enclave_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enclave_type", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityReplicaCount")
-    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def high_availability_replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
 
@@ -165,48 +165,48 @@ class ElasticPoolArgs:
         return pulumi.get(self, "high_availability_replica_count")
 
     @high_availability_replica_count.setter
-    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def high_availability_replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationName")
-    def maintenance_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 
     @maintenance_configuration_name.setter
-    def maintenance_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 
@@ -215,75 +215,75 @@ class ElasticPoolArgs:
         return pulumi.get(self, "max_size_bytes")
 
     @max_size_bytes.setter
-    def max_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_size_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         """
         return pulumi.get(self, "max_size_gb")
 
     @max_size_gb.setter
-    def max_size_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_size_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
 @pulumi.input_type
 class _ElasticPoolState:
     def __init__(__self__, *,
-                 enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_database_settings: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['ElasticPoolSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_database_settings: pulumi.Input[Optional['ElasticPoolPerDatabaseSettingsArgs']] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['ElasticPoolSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ElasticPool resources.
 
@@ -343,7 +343,7 @@ class _ElasticPoolState:
 
     @_builtins.property
     @pulumi.getter(name="enclaveType")
-    def enclave_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enclave_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 
@@ -356,12 +356,12 @@ class _ElasticPoolState:
         return pulumi.get(self, "enclave_type")
 
     @enclave_type.setter
-    def enclave_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enclave_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enclave_type", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityReplicaCount")
-    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def high_availability_replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
 
@@ -370,48 +370,48 @@ class _ElasticPoolState:
         return pulumi.get(self, "high_availability_replica_count")
 
     @high_availability_replica_count.setter
-    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def high_availability_replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfigurationName")
-    def maintenance_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 
     @maintenance_configuration_name.setter
-    def maintenance_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 
@@ -420,103 +420,103 @@ class _ElasticPoolState:
         return pulumi.get(self, "max_size_bytes")
 
     @max_size_bytes.setter
-    def max_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_size_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         """
         return pulumi.get(self, "max_size_gb")
 
     @max_size_gb.setter
-    def max_size_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_size_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_size_gb", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="perDatabaseSettings")
-    def per_database_settings(self) -> Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']]:
+    def per_database_settings(self) -> pulumi.Input[Optional['ElasticPoolPerDatabaseSettingsArgs']]:
         """
         A `per_database_settings` block as defined below.
         """
         return pulumi.get(self, "per_database_settings")
 
     @per_database_settings.setter
-    def per_database_settings(self, value: Optional[pulumi.Input['ElasticPoolPerDatabaseSettingsArgs']]):
+    def per_database_settings(self, value: pulumi.Input[Optional['ElasticPoolPerDatabaseSettingsArgs']]):
         pulumi.set(self, "per_database_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ElasticPoolSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ElasticPoolSkuArgs']]:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ElasticPoolSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ElasticPoolSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -526,20 +526,20 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_database_settings: pulumi.Input[Optional[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Allows you to manage an Azure SQL Elastic Pool.
@@ -566,7 +566,7 @@ class ElasticPool(pulumi.CustomResource):
             location=example.location,
             server_name=example_server.name,
             license_type="LicenseIncluded",
-            max_size_gb=756,
+            max_size_gb=float(756),
             sku={
                 "name": "BasicPool",
                 "tier": "Basic",
@@ -575,7 +575,7 @@ class ElasticPool(pulumi.CustomResource):
             },
             per_database_settings={
                 "min_capacity": 0.25,
-                "max_capacity": 4,
+                "max_capacity": float(4),
             })
         ```
 
@@ -653,7 +653,7 @@ class ElasticPool(pulumi.CustomResource):
             location=example.location,
             server_name=example_server.name,
             license_type="LicenseIncluded",
-            max_size_gb=756,
+            max_size_gb=float(756),
             sku={
                 "name": "BasicPool",
                 "tier": "Basic",
@@ -662,7 +662,7 @@ class ElasticPool(pulumi.CustomResource):
             },
             per_database_settings={
                 "min_capacity": 0.25,
-                "max_capacity": 4,
+                "max_capacity": float(4),
             })
         ```
 
@@ -697,20 +697,20 @@ class ElasticPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_database_settings: pulumi.Input[Optional[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -752,20 +752,20 @@ class ElasticPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
-            high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-            license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            max_size_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            server_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ElasticPool':
+            enclave_type: pulumi.Input[Optional[_builtins.str]] = None,
+            high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            per_database_settings: pulumi.Input[Optional[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ElasticPool':
         """
         Get an existing ElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

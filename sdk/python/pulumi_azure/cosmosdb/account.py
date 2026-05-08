@@ -25,37 +25,37 @@ class AccountArgs:
                  geo_locations: pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]],
                  offer_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 access_key_metadata_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
-                 analytical_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
-                 burst_capacity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
-                 capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
-                 cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_tier_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_write_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition_merge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
+                 access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 analytical_storage: pulumi.Input[Optional['AccountAnalyticalStorageArgs']] = None,
+                 analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup: pulumi.Input[Optional['AccountBackupArgs']] = None,
+                 burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 capacity: pulumi.Input[Optional['AccountCapacityArgs']] = None,
+                 cors_rule: pulumi.Input[Optional['AccountCorsRuleArgs']] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_bypass_for_azure_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_acl_bypass_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restore: pulumi.Input[Optional['AccountRestoreArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -188,94 +188,94 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKeyMetadataWritesEnabled")
-    def access_key_metadata_writes_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_key_metadata_writes_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @access_key_metadata_writes_enabled.setter
-    def access_key_metadata_writes_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_key_metadata_writes_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_key_metadata_writes_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorage")
-    def analytical_storage(self) -> Optional[pulumi.Input['AccountAnalyticalStorageArgs']]:
+    def analytical_storage(self) -> pulumi.Input[Optional['AccountAnalyticalStorageArgs']]:
         """
         An `analytical_storage` block as defined below.
         """
         return pulumi.get(self, "analytical_storage")
 
     @analytical_storage.setter
-    def analytical_storage(self, value: Optional[pulumi.Input['AccountAnalyticalStorageArgs']]):
+    def analytical_storage(self, value: pulumi.Input[Optional['AccountAnalyticalStorageArgs']]):
         pulumi.set(self, "analytical_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageEnabled")
-    def analytical_storage_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def analytical_storage_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "analytical_storage_enabled")
 
     @analytical_storage_enabled.setter
-    def analytical_storage_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def analytical_storage_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "analytical_storage_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_failover_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
-    def automatic_failover_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_failover_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_failover_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['AccountBackupArgs']]:
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['AccountBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['AccountBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="burstCapacityEnabled")
-    def burst_capacity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def burst_capacity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "burst_capacity_enabled")
 
     @burst_capacity_enabled.setter
-    def burst_capacity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def burst_capacity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "burst_capacity_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['AccountCapacityArgs']]:
+    def capacity(self) -> pulumi.Input[Optional['AccountCapacityArgs']]:
         """
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['AccountCapacityArgs']]):
+    def capacity(self, value: pulumi.Input[Optional['AccountCapacityArgs']]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="corsRule")
-    def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
+    def cors_rule(self) -> pulumi.Input[Optional['AccountCorsRuleArgs']]:
         return pulumi.get(self, "cors_rule")
 
     @cors_rule.setter
-    def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
+    def cors_rule(self, value: pulumi.Input[Optional['AccountCorsRuleArgs']]):
         pulumi.set(self, "cors_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 
@@ -284,109 +284,109 @@ class AccountArgs:
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultIdentityType")
-    def default_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         """
         return pulumi.get(self, "default_identity_type")
 
     @default_identity_type.setter
-    def default_identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="freeTierEnabled")
-    def free_tier_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def free_tier_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "free_tier_enabled")
 
     @free_tier_enabled.setter
-    def free_tier_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def free_tier_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "free_tier_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRangeFilters")
-    def ip_range_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_range_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ip_range_filters")
 
     @ip_range_filters.setter
-    def ip_range_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_range_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_range_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
-    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_virtual_network_filter_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "is_virtual_network_filter_enabled")
 
     @is_virtual_network_filter_enabled.setter
-    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_virtual_network_filter_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_virtual_network_filter_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
     @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimal_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 
@@ -395,159 +395,159 @@ class AccountArgs:
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimal_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoServerVersion")
-    def mongo_server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mongo_server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "mongo_server_version")
 
     @mongo_server_version.setter
-    def mongo_server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mongo_server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mongo_server_version", value)
 
     @_builtins.property
     @pulumi.getter(name="multipleWriteLocationsEnabled")
-    def multiple_write_locations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multiple_write_locations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "multiple_write_locations_enabled")
 
     @multiple_write_locations_enabled.setter
-    def multiple_write_locations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multiple_write_locations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multiple_write_locations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAclBypassForAzureServices")
-    def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def network_acl_bypass_for_azure_services(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
     @network_acl_bypass_for_azure_services.setter
-    def network_acl_bypass_for_azure_services(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def network_acl_bypass_for_azure_services(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "network_acl_bypass_for_azure_services", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAclBypassIds")
-    def network_acl_bypass_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_acl_bypass_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "network_acl_bypass_ids")
 
     @network_acl_bypass_ids.setter
-    def network_acl_bypass_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_acl_bypass_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_acl_bypass_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionMergeEnabled")
-    def partition_merge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def partition_merge_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "partition_merge_enabled")
 
     @partition_merge_enabled.setter
-    def partition_merge_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def partition_merge_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "partition_merge_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input['AccountRestoreArgs']]:
+    def restore(self) -> pulumi.Input[Optional['AccountRestoreArgs']]:
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input['AccountRestoreArgs']]):
+    def restore(self, value: pulumi.Input[Optional['AccountRestoreArgs']]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 access_key_metadata_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
-                 analytical_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
-                 burst_capacity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
-                 capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
-                 consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
-                 cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_tier_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_write_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 offer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_merge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_readonly_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_readonly_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_readonly_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_readonly_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_readonly_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_readonly_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
-                 write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 analytical_storage: pulumi.Input[Optional['AccountAnalyticalStorageArgs']] = None,
+                 analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup: pulumi.Input[Optional['AccountBackupArgs']] = None,
+                 burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 capacity: pulumi.Input[Optional['AccountCapacityArgs']] = None,
+                 consistency_policy: pulumi.Input[Optional['AccountConsistencyPolicyArgs']] = None,
+                 cors_rule: pulumi.Input[Optional['AccountCorsRuleArgs']] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
+                 identity: pulumi.Input[Optional['AccountIdentityArgs']] = None,
+                 ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_bypass_for_azure_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_acl_bypass_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 offer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_readonly_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_readonly_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_readonly_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional['AccountRestoreArgs']] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_readonly_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_readonly_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_readonly_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
+                 write_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -687,103 +687,103 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="accessKeyMetadataWritesEnabled")
-    def access_key_metadata_writes_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_key_metadata_writes_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @access_key_metadata_writes_enabled.setter
-    def access_key_metadata_writes_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_key_metadata_writes_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_key_metadata_writes_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorage")
-    def analytical_storage(self) -> Optional[pulumi.Input['AccountAnalyticalStorageArgs']]:
+    def analytical_storage(self) -> pulumi.Input[Optional['AccountAnalyticalStorageArgs']]:
         """
         An `analytical_storage` block as defined below.
         """
         return pulumi.get(self, "analytical_storage")
 
     @analytical_storage.setter
-    def analytical_storage(self, value: Optional[pulumi.Input['AccountAnalyticalStorageArgs']]):
+    def analytical_storage(self, value: pulumi.Input[Optional['AccountAnalyticalStorageArgs']]):
         pulumi.set(self, "analytical_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageEnabled")
-    def analytical_storage_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def analytical_storage_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "analytical_storage_enabled")
 
     @analytical_storage_enabled.setter
-    def analytical_storage_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def analytical_storage_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "analytical_storage_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_failover_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
-    def automatic_failover_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_failover_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_failover_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['AccountBackupArgs']]:
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['AccountBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['AccountBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="burstCapacityEnabled")
-    def burst_capacity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def burst_capacity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "burst_capacity_enabled")
 
     @burst_capacity_enabled.setter
-    def burst_capacity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def burst_capacity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "burst_capacity_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['AccountCapacityArgs']]:
+    def capacity(self) -> pulumi.Input[Optional['AccountCapacityArgs']]:
         """
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['AccountCapacityArgs']]):
+    def capacity(self, value: pulumi.Input[Optional['AccountCapacityArgs']]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="consistencyPolicy")
-    def consistency_policy(self) -> Optional[pulumi.Input['AccountConsistencyPolicyArgs']]:
+    def consistency_policy(self) -> pulumi.Input[Optional['AccountConsistencyPolicyArgs']]:
         return pulumi.get(self, "consistency_policy")
 
     @consistency_policy.setter
-    def consistency_policy(self, value: Optional[pulumi.Input['AccountConsistencyPolicyArgs']]):
+    def consistency_policy(self, value: pulumi.Input[Optional['AccountConsistencyPolicyArgs']]):
         pulumi.set(self, "consistency_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="corsRule")
-    def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
+    def cors_rule(self) -> pulumi.Input[Optional['AccountCorsRuleArgs']]:
         return pulumi.get(self, "cors_rule")
 
     @cors_rule.setter
-    def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
+    def cors_rule(self, value: pulumi.Input[Optional['AccountCorsRuleArgs']]):
         pulumi.set(self, "cors_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 
@@ -792,130 +792,130 @@ class _AccountState:
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultIdentityType")
-    def default_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         """
         return pulumi.get(self, "default_identity_type")
 
     @default_identity_type.setter
-    def default_identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_identity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint used to connect to the CosmosDB account.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="freeTierEnabled")
-    def free_tier_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def free_tier_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "free_tier_enabled")
 
     @free_tier_enabled.setter
-    def free_tier_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def free_tier_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "free_tier_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="geoLocations")
-    def geo_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]:
+    def geo_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]:
         return pulumi.get(self, "geo_locations")
 
     @geo_locations.setter
-    def geo_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]):
+    def geo_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]):
         pulumi.set(self, "geo_locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AccountIdentityArgs']]:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRangeFilters")
-    def ip_range_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_range_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ip_range_filters")
 
     @ip_range_filters.setter
-    def ip_range_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_range_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_range_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
-    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_virtual_network_filter_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "is_virtual_network_filter_enabled")
 
     @is_virtual_network_filter_enabled.setter
-    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_virtual_network_filter_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_virtual_network_filter_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
     @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
     @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimal_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 
@@ -924,295 +924,295 @@ class _AccountState:
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimal_tls_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoServerVersion")
-    def mongo_server_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mongo_server_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "mongo_server_version")
 
     @mongo_server_version.setter
-    def mongo_server_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mongo_server_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mongo_server_version", value)
 
     @_builtins.property
     @pulumi.getter(name="multipleWriteLocationsEnabled")
-    def multiple_write_locations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multiple_write_locations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "multiple_write_locations_enabled")
 
     @multiple_write_locations_enabled.setter
-    def multiple_write_locations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multiple_write_locations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multiple_write_locations_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAclBypassForAzureServices")
-    def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def network_acl_bypass_for_azure_services(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
     @network_acl_bypass_for_azure_services.setter
-    def network_acl_bypass_for_azure_services(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def network_acl_bypass_for_azure_services(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "network_acl_bypass_for_azure_services", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAclBypassIds")
-    def network_acl_bypass_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_acl_bypass_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "network_acl_bypass_ids")
 
     @network_acl_bypass_ids.setter
-    def network_acl_bypass_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_acl_bypass_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_acl_bypass_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="offerType")
-    def offer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         """
         return pulumi.get(self, "offer_type")
 
     @offer_type.setter
-    def offer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionMergeEnabled")
-    def partition_merge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def partition_merge_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "partition_merge_enabled")
 
     @partition_merge_enabled.setter
-    def partition_merge_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def partition_merge_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "partition_merge_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryMongodbConnectionString")
-    def primary_mongodb_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_mongodb_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary Mongodb connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_mongodb_connection_string")
 
     @primary_mongodb_connection_string.setter
-    def primary_mongodb_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_mongodb_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_mongodb_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryReadonlyKey")
-    def primary_readonly_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_readonly_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary read-only Key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_key")
 
     @primary_readonly_key.setter
-    def primary_readonly_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_readonly_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_readonly_key", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryReadonlyMongodbConnectionString")
-    def primary_readonly_mongodb_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_readonly_mongodb_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary readonly Mongodb connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_mongodb_connection_string")
 
     @primary_readonly_mongodb_connection_string.setter
-    def primary_readonly_mongodb_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_readonly_mongodb_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_readonly_mongodb_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryReadonlySqlConnectionString")
-    def primary_readonly_sql_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_readonly_sql_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary readonly SQL connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_sql_connection_string")
 
     @primary_readonly_sql_connection_string.setter
-    def primary_readonly_sql_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_readonly_sql_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_readonly_sql_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primarySqlConnectionString")
-    def primary_sql_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_sql_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary SQL connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_sql_connection_string")
 
     @primary_sql_connection_string.setter
-    def primary_sql_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_sql_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_sql_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="readEndpoints")
-    def read_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of read endpoints available for this CosmosDB account.
         """
         return pulumi.get(self, "read_endpoints")
 
     @read_endpoints.setter
-    def read_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input['AccountRestoreArgs']]:
+    def restore(self) -> pulumi.Input[Optional['AccountRestoreArgs']]:
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input['AccountRestoreArgs']]):
+    def restore(self, value: pulumi.Input[Optional['AccountRestoreArgs']]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryMongodbConnectionString")
-    def secondary_mongodb_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_mongodb_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary Mongodb connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_mongodb_connection_string")
 
     @secondary_mongodb_connection_string.setter
-    def secondary_mongodb_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_mongodb_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_mongodb_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryReadonlyKey")
-    def secondary_readonly_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_readonly_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary read-only key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_key")
 
     @secondary_readonly_key.setter
-    def secondary_readonly_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_readonly_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_readonly_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryReadonlyMongodbConnectionString")
-    def secondary_readonly_mongodb_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_readonly_mongodb_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary readonly Mongodb connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_mongodb_connection_string")
 
     @secondary_readonly_mongodb_connection_string.setter
-    def secondary_readonly_mongodb_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_readonly_mongodb_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_readonly_mongodb_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryReadonlySqlConnectionString")
-    def secondary_readonly_sql_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_readonly_sql_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary readonly SQL connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_sql_connection_string")
 
     @secondary_readonly_sql_connection_string.setter
-    def secondary_readonly_sql_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_readonly_sql_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_readonly_sql_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySqlConnectionString")
-    def secondary_sql_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_sql_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary SQL connection string for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_sql_connection_string")
 
     @secondary_sql_connection_string.setter
-    def secondary_sql_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_sql_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_sql_connection_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="writeEndpoints")
-    def write_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def write_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of write endpoints available for this CosmosDB account.
         """
         return pulumi.get(self, "write_endpoints")
 
     @write_endpoints.setter
-    def write_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def write_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "write_endpoints", value)
 
 
@@ -1222,41 +1222,41 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key_metadata_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 analytical_storage: Optional[pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
-                 analytical_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup: Optional[pulumi.Input[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
-                 burst_capacity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
-                 capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-                 consistency_policy: Optional[pulumi.Input[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
-                 cors_rule: Optional[pulumi.Input[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_tier_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_write_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 offer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_merge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
+                 access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
+                 analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+                 burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
+                 capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
+                 consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
+                 cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_bypass_for_azure_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_acl_bypass_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 offer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
@@ -1510,41 +1510,41 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key_metadata_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 analytical_storage: Optional[pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
-                 analytical_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup: Optional[pulumi.Input[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
-                 burst_capacity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
-                 capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-                 consistency_policy: Optional[pulumi.Input[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
-                 cors_rule: Optional[pulumi.Input[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 free_tier_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongo_server_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_write_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 offer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_merge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
+                 access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
+                 analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+                 burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
+                 capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
+                 consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
+                 cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_bypass_for_azure_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 network_acl_bypass_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 offer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1624,56 +1624,56 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_key_metadata_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            analytical_storage: Optional[pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
-            analytical_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            backup: Optional[pulumi.Input[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
-            burst_capacity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
-            capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-            consistency_policy: Optional[pulumi.Input[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
-            cors_rule: Optional[pulumi.Input[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
-            create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            default_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            free_tier_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
-            identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            is_virtual_network_filter_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            minimal_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
-            mongo_server_version: Optional[pulumi.Input[_builtins.str]] = None,
-            multiple_write_locations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_acl_bypass_for_azure_services: Optional[pulumi.Input[_builtins.bool]] = None,
-            network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            offer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_merge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_readonly_key: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_readonly_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_readonly_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            restore: Optional[pulumi.Input[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_readonly_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_readonly_mongodb_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_readonly_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_sql_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
-            write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
+            analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+            burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
+            capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
+            consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
+            cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
+            mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
+            multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acl_bypass_for_azure_services: pulumi.Input[Optional[_builtins.bool]] = None,
+            network_acl_bypass_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            offer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_readonly_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_readonly_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_readonly_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            read_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_readonly_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_readonly_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_readonly_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
+            write_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

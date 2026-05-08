@@ -36,11 +36,11 @@ class ClusterApiServerProfileArgsDict(TypedDict):
     """
     Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP Address the Ingress Profile is associated with.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL the API Server Profile is associated with.
     """
@@ -49,8 +49,8 @@ class ClusterApiServerProfileArgsDict(TypedDict):
 class ClusterApiServerProfileArgs:
     def __init__(__self__, *,
                  visibility: pulumi.Input[_builtins.str],
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] visibility: Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip_address: The IP Address the Ingress Profile is associated with.
@@ -76,26 +76,26 @@ class ClusterApiServerProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Address the Ingress Profile is associated with.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL the API Server Profile is associated with.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -108,19 +108,19 @@ class ClusterClusterProfileArgsDict(TypedDict):
     """
     The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
     """
-    fips_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    fips_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    managed_resource_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    managed_resource_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
     """
-    pull_secret: NotRequired[pulumi.Input[_builtins.str]]
+    pull_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
     """
-    resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource group that the cluster profile is attached to.
     """
@@ -130,10 +130,10 @@ class ClusterClusterProfileArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] domain: The custom domain for the cluster. For more info, see [Prepare a custom domain for your cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#prepare-a-custom-domain-for-your-cluster-optional). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] version: The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
@@ -179,50 +179,50 @@ class ClusterClusterProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
-    def fips_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "fips_enabled")
 
     @fips_enabled.setter
-    def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fips_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
     @managed_resource_group_name.setter
-    def managed_resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pullSecret")
-    def pull_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "pull_secret")
 
     @pull_secret.setter
-    def pull_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupId")
-    def resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource group that the cluster profile is attached to.
         """
         return pulumi.get(self, "resource_group_id")
 
     @resource_group_id.setter
-    def resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_id", value)
 
 
@@ -231,11 +231,11 @@ class ClusterIngressProfileArgsDict(TypedDict):
     """
     Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP Address the Ingress Profile is associated with.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
     """
@@ -244,8 +244,8 @@ class ClusterIngressProfileArgsDict(TypedDict):
 class ClusterIngressProfileArgs:
     def __init__(__self__, *,
                  visibility: pulumi.Input[_builtins.str],
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] visibility: Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip_address: The IP Address the Ingress Profile is associated with.
@@ -271,26 +271,26 @@ class ClusterIngressProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Address the Ingress Profile is associated with.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -303,11 +303,11 @@ class ClusterMainProfileArgsDict(TypedDict):
     """
     The size of the Virtual Machines for the main nodes. Changing this forces a new resource to be created.
     """
-    disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -319,8 +319,8 @@ class ClusterMainProfileArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet where main nodes will be hosted. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vm_size: The size of the Virtual Machines for the main nodes. Changing this forces a new resource to be created.
@@ -362,19 +362,19 @@ class ClusterMainProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -383,7 +383,7 @@ class ClusterMainProfileArgs:
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
 
@@ -396,11 +396,11 @@ class ClusterNetworkProfileArgsDict(TypedDict):
     """
     The network range used by the OpenShift service. Changing this forces a new resource to be created.
     """
-    outbound_type: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
     """
-    preconfigured_network_security_group_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    preconfigured_network_security_group_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
     """
@@ -410,8 +410,8 @@ class ClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  pod_cidr: pulumi.Input[_builtins.str],
                  service_cidr: pulumi.Input[_builtins.str],
-                 outbound_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_network_security_group_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 outbound_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_network_security_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] pod_cidr: The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_cidr: The network range used by the OpenShift service. Changing this forces a new resource to be created.
@@ -451,26 +451,26 @@ class ClusterNetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="outboundType")
-    def outbound_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "outbound_type")
 
     @outbound_type.setter
-    def outbound_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredNetworkSecurityGroupEnabled")
-    def preconfigured_network_security_group_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preconfigured_network_security_group_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a preconfigured network security group is being used on the subnets. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "preconfigured_network_security_group_enabled")
 
     @preconfigured_network_security_group_enabled.setter
-    def preconfigured_network_security_group_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preconfigured_network_security_group_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preconfigured_network_security_group_enabled", value)
 
 
@@ -544,11 +544,11 @@ class ClusterWorkerProfileArgsDict(TypedDict):
     """
     The size of the Virtual Machines for the worker nodes. Changing this forces a new resource to be created.
     """
-    disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
     """
-    encryption_at_host_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    encryption_at_host_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -562,8 +562,8 @@ class ClusterWorkerProfileArgs:
                  node_count: pulumi.Input[_builtins.int],
                  subnet_id: pulumi.Input[_builtins.str],
                  vm_size: pulumi.Input[_builtins.str],
-                 disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_at_host_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] disk_size_gb: The internal OS disk size of the worker Virtual Machines in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] node_count: The initial number of worker nodes which should exist in the cluster. Changing this forces a new resource to be created.
@@ -633,19 +633,19 @@ class ClusterWorkerProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
-    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_at_host_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
@@ -654,7 +654,7 @@ class ClusterWorkerProfileArgs:
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
-    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_at_host_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_at_host_enabled", value)
 
 

@@ -188,8 +188,8 @@ def get_frontdoor_firewall_policy(name: Optional[_builtins.str] = None,
         redirect_url=pulumi.get(__ret__, 'redirect_url'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'))
-def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_frontdoor_firewall_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorFirewallPolicyResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.

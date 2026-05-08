@@ -124,9 +124,9 @@ def get_table_entities(filter: Optional[_builtins.str] = None,
         items=pulumi.get(__ret__, 'items'),
         selects=pulumi.get(__ret__, 'selects'),
         storage_table_id=pulumi.get(__ret__, 'storage_table_id'))
-def get_table_entities_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
-                              selects: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                              storage_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_entities_output(filter: pulumi.Input[Optional[_builtins.str]] = None,
+                              selects: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                              storage_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableEntitiesResult]:
     """
     Use this data source to access information about an existing Storage Table Entity.

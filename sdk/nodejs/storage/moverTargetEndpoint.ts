@@ -155,23 +155,23 @@ export interface MoverTargetEndpointState {
     /**
      * Specifies a description for the Storage Mover Target Endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    storageContainerName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    storageMoverId?: pulumi.Input<string>;
+    storageMoverId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,11 +181,11 @@ export interface MoverTargetEndpointArgs {
     /**
      * Specifies a description for the Storage Mover Target Endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */

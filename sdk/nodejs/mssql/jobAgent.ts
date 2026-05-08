@@ -151,27 +151,27 @@ export interface JobAgentState {
     /**
      * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    databaseId?: pulumi.Input<string>;
+    databaseId?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.mssql.JobAgentIdentity>;
+    identity?: pulumi.Input<inputs.mssql.JobAgentIdentity | undefined>;
     /**
      * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to this Elastic Job Agent.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -185,21 +185,21 @@ export interface JobAgentArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.mssql.JobAgentIdentity>;
+    identity?: pulumi.Input<inputs.mssql.JobAgentIdentity | undefined>;
     /**
      * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to this Elastic Job Agent.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

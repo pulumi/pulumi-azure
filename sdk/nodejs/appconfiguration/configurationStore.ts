@@ -340,89 +340,89 @@ export interface ConfigurationStoreState {
     /**
      * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
      */
-    dataPlaneProxyAuthenticationMode?: pulumi.Input<string>;
+    dataPlaneProxyAuthenticationMode?: pulumi.Input<string | undefined>;
     /**
      * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      *
      * > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      */
-    dataPlaneProxyPrivateLinkDelegationEnabled?: pulumi.Input<boolean>;
+    dataPlaneProxyPrivateLinkDelegationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `encryption` block as defined below.
      */
-    encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
+    encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
     /**
      * The URL of the App Configuration Replica.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
+    identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the App Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `primaryReadKey` block as defined below containing the primary read access key.
      */
-    primaryReadKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryReadKey>[]>;
+    primaryReadKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryReadKey>[] | undefined>;
     /**
      * A `primaryWriteKey` block as defined below containing the primary write access key.
      */
-    primaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryWriteKey>[]>;
+    primaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryWriteKey>[] | undefined>;
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      *
      * > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      *
      * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
-    purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `replica` blocks as defined below.
      */
-    replicas?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreReplica>[]>;
+    replicas?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreReplica>[] | undefined>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `secondaryReadKey` block as defined below containing the secondary read access key.
      */
-    secondaryReadKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryReadKey>[]>;
+    secondaryReadKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryReadKey>[] | undefined>;
     /**
      * A `secondaryWriteKey` block as defined below containing the secondary write access key.
      */
-    secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[]>;
+    secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[] | undefined>;
     /**
      * The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
      *
      * > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
      *
      * > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      */
-    softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -432,49 +432,49 @@ export interface ConfigurationStoreArgs {
     /**
      * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
      */
-    dataPlaneProxyAuthenticationMode?: pulumi.Input<string>;
+    dataPlaneProxyAuthenticationMode?: pulumi.Input<string | undefined>;
     /**
      * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      *
      * > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      */
-    dataPlaneProxyPrivateLinkDelegationEnabled?: pulumi.Input<boolean>;
+    dataPlaneProxyPrivateLinkDelegationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `encryption` block as defined below.
      */
-    encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
+    encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
+    identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the App Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      *
      * > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      *
      * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
-    purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `replica` blocks as defined below.
      */
-    replicas?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreReplica>[]>;
+    replicas?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreReplica>[] | undefined>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
@@ -484,15 +484,15 @@ export interface ConfigurationStoreArgs {
      *
      * > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
      *
      * > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      */
-    softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

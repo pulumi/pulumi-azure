@@ -156,27 +156,27 @@ export interface MonitorSsoConfigurationState {
     /**
      * The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
      */
-    datadogMonitorId?: pulumi.Input<string>;
+    datadogMonitorId?: pulumi.Input<string | undefined>;
     /**
      * The application Id to perform SSO operation.
      */
-    enterpriseApplicationId?: pulumi.Input<string>;
+    enterpriseApplicationId?: pulumi.Input<string | undefined>;
     /**
      * The SingleSignOn URL to login to Datadog org.
      */
-    loginUrl?: pulumi.Input<string>;
+    loginUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the SingleSignOn configuration. Defaults to `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      */
-    singleSignOn?: pulumi.Input<string>;
+    singleSignOn?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    singleSignOnEnabled?: pulumi.Input<string>;
+    singleSignOnEnabled?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,13 +194,13 @@ export interface MonitorSsoConfigurationArgs {
     /**
      * The name of the SingleSignOn configuration. Defaults to `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      */
-    singleSignOn?: pulumi.Input<string>;
+    singleSignOn?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    singleSignOnEnabled?: pulumi.Input<string>;
+    singleSignOnEnabled?: pulumi.Input<string | undefined>;
 }

@@ -58,9 +58,9 @@ class CapabilityArgs:
 @pulumi.input_type
 class _CapabilityState:
     def __init__(__self__, *,
-                 capability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 capability_urn: Optional[pulumi.Input[_builtins.str]] = None,
-                 chaos_studio_target_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 capability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 capability_urn: pulumi.Input[Optional[_builtins.str]] = None,
+                 chaos_studio_target_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Capability resources.
 
@@ -77,38 +77,38 @@ class _CapabilityState:
 
     @_builtins.property
     @pulumi.getter(name="capabilityType")
-    def capability_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capability_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
         """
         return pulumi.get(self, "capability_type")
 
     @capability_type.setter
-    def capability_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capability_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capability_type", value)
 
     @_builtins.property
     @pulumi.getter(name="capabilityUrn")
-    def capability_urn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capability_urn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Unique Resource Name of the Capability.
         """
         return pulumi.get(self, "capability_urn")
 
     @capability_urn.setter
-    def capability_urn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capability_urn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capability_urn", value)
 
     @_builtins.property
     @pulumi.getter(name="chaosStudioTargetId")
-    def chaos_studio_target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chaos_studio_target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
         """
         return pulumi.get(self, "chaos_studio_target_id")
 
     @chaos_studio_target_id.setter
-    def chaos_studio_target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chaos_studio_target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chaos_studio_target_id", value)
 
 
@@ -118,8 +118,8 @@ class Capability(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 chaos_studio_target_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 capability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 chaos_studio_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Chaos Studio Capability.
@@ -140,7 +140,7 @@ class Capability(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
             },
             identity={
@@ -205,7 +205,7 @@ class Capability(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
             },
             identity={
@@ -255,8 +255,8 @@ class Capability(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capability_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 chaos_studio_target_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 capability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 chaos_studio_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,9 +283,9 @@ class Capability(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capability_type: Optional[pulumi.Input[_builtins.str]] = None,
-            capability_urn: Optional[pulumi.Input[_builtins.str]] = None,
-            chaos_studio_target_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Capability':
+            capability_type: pulumi.Input[Optional[_builtins.str]] = None,
+            capability_urn: pulumi.Input[Optional[_builtins.str]] = None,
+            chaos_studio_target_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Capability':
         """
         Get an existing Capability resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

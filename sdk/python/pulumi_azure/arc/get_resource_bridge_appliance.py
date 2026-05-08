@@ -184,8 +184,8 @@ def get_resource_bridge_appliance(name: Optional[_builtins.str] = None,
         public_key_base64=pulumi.get(__ret__, 'public_key_base64'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_bridge_appliance_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_bridge_appliance_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceBridgeApplianceResult]:
     """
     Use this data source to access information about an existing Arc Resource Bridge Appliance.

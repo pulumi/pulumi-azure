@@ -130,8 +130,8 @@ def get_resolver_virtual_network_link(dns_forwarding_ruleset_id: Optional[_built
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                             name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                             name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverVirtualNetworkLinkResult]:
     """
     Gets information about an existing Private DNS Resolver Virtual Network Link.

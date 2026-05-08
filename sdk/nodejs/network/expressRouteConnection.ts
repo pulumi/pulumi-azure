@@ -214,43 +214,43 @@ export interface ExpressRouteConnectionState {
     /**
      * The authorization key to establish the Express Route Connection.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
-    expressRouteCircuitPeeringId?: pulumi.Input<string>;
+    expressRouteCircuitPeeringId?: pulumi.Input<string | undefined>;
     /**
      * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
      */
-    expressRouteGatewayBypassEnabled?: pulumi.Input<boolean>;
+    expressRouteGatewayBypassEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
-    expressRouteGatewayId?: pulumi.Input<string>;
+    expressRouteGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
      */
-    internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
-    privateLinkFastPathEnabled?: pulumi.Input<boolean>;
+    privateLinkFastPathEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `routing` block as defined below.
      */
-    routing?: pulumi.Input<inputs.network.ExpressRouteConnectionRouting>;
+    routing?: pulumi.Input<inputs.network.ExpressRouteConnectionRouting | undefined>;
     /**
      * The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
      */
-    routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -260,11 +260,11 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The authorization key to establish the Express Route Connection.
      */
-    authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
@@ -272,7 +272,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
      */
-    expressRouteGatewayBypassEnabled?: pulumi.Input<boolean>;
+    expressRouteGatewayBypassEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
@@ -280,21 +280,21 @@ export interface ExpressRouteConnectionArgs {
     /**
      * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
      */
-    internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
-    privateLinkFastPathEnabled?: pulumi.Input<boolean>;
+    privateLinkFastPathEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `routing` block as defined below.
      */
-    routing?: pulumi.Input<inputs.network.ExpressRouteConnectionRouting>;
+    routing?: pulumi.Input<inputs.network.ExpressRouteConnectionRouting | undefined>;
     /**
      * The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
      */
-    routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number | undefined>;
 }

@@ -20,7 +20,7 @@ __all__ = ['WebAppActiveSlotArgs', 'WebAppActiveSlot']
 class WebAppActiveSlotArgs:
     def __init__(__self__, *,
                  slot_id: pulumi.Input[_builtins.str],
-                 overwrite_network_config: Optional[pulumi.Input[_builtins.bool]] = None):
+                 overwrite_network_config: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WebAppActiveSlot resource.
 
@@ -45,23 +45,23 @@ class WebAppActiveSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="overwriteNetworkConfig")
-    def overwrite_network_config(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_network_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "overwrite_network_config")
 
     @overwrite_network_config.setter
-    def overwrite_network_config(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_network_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_network_config", value)
 
 
 @pulumi.input_type
 class _WebAppActiveSlotState:
     def __init__(__self__, *,
-                 last_successful_swap: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_network_config: Optional[pulumi.Input[_builtins.bool]] = None,
-                 slot_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 last_successful_swap: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_network_config: pulumi.Input[Optional[_builtins.bool]] = None,
+                 slot_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAppActiveSlot resources.
 
@@ -78,38 +78,38 @@ class _WebAppActiveSlotState:
 
     @_builtins.property
     @pulumi.getter(name="lastSuccessfulSwap")
-    def last_successful_swap(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_successful_swap(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp of the last successful swap with `Production`.
         """
         return pulumi.get(self, "last_successful_swap")
 
     @last_successful_swap.setter
-    def last_successful_swap(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_successful_swap(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_successful_swap", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteNetworkConfig")
-    def overwrite_network_config(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_network_config(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "overwrite_network_config")
 
     @overwrite_network_config.setter
-    def overwrite_network_config(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_network_config(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_network_config", value)
 
     @_builtins.property
     @pulumi.getter(name="slotId")
-    def slot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Slot to swap with `Production`.
         """
         return pulumi.get(self, "slot_id")
 
     @slot_id.setter
-    def slot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slot_id", value)
 
 
@@ -119,8 +119,8 @@ class WebAppActiveSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 overwrite_network_config: Optional[pulumi.Input[_builtins.bool]] = None,
-                 slot_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 overwrite_network_config: pulumi.Input[Optional[_builtins.bool]] = None,
+                 slot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Web App Active Slot.
@@ -306,8 +306,8 @@ class WebAppActiveSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 overwrite_network_config: Optional[pulumi.Input[_builtins.bool]] = None,
-                 slot_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 overwrite_network_config: pulumi.Input[Optional[_builtins.bool]] = None,
+                 slot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,9 +332,9 @@ class WebAppActiveSlot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            last_successful_swap: Optional[pulumi.Input[_builtins.str]] = None,
-            overwrite_network_config: Optional[pulumi.Input[_builtins.bool]] = None,
-            slot_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WebAppActiveSlot':
+            last_successful_swap: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_network_config: pulumi.Input[Optional[_builtins.bool]] = None,
+            slot_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebAppActiveSlot':
         """
         Get an existing WebAppActiveSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

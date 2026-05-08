@@ -136,15 +136,15 @@ export interface PolicyState {
     /**
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -158,9 +158,9 @@ export interface PolicyArgs {
     /**
      * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string | undefined>;
 }

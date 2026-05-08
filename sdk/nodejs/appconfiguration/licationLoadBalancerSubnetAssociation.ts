@@ -152,21 +152,21 @@ export interface LicationLoadBalancerSubnetAssociationState {
     /**
      * The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
      */
-    applicationLoadBalancerId?: pulumi.Input<string>;
+    applicationLoadBalancerId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet which the Application Gateway for Containers associated to.
      *
      * > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Gateway for Containers Association.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface LicationLoadBalancerSubnetAssociationArgs {
     /**
      * The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet which the Application Gateway for Containers associated to.
      *
@@ -190,5 +190,5 @@ export interface LicationLoadBalancerSubnetAssociationArgs {
     /**
      * A mapping of tags which should be assigned to the Application Gateway for Containers Association.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

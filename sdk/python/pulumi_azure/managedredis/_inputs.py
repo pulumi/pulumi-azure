@@ -73,55 +73,55 @@ class ManagedRedisCustomerManagedKeyArgs:
 
 
 class ManagedRedisDefaultDatabaseArgsDict(TypedDict):
-    access_keys_authentication_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    access_keys_authentication_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether access key authentication is enabled for the database. Defaults to `false`.
     """
-    client_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    client_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
     """
-    clustering_policy: NotRequired[pulumi.Input[_builtins.str]]
+    clustering_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 
     !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
-    eviction_policy: NotRequired[pulumi.Input[_builtins.str]]
+    eviction_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
     """
-    geo_replication_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    geo_replication_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 
     !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Managed Redis Database Instance.
     """
-    modules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgsDict']]]]
+    modules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]]]
     """
     A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
     """
-    persistence_append_only_file_backup_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    persistence_append_only_file_backup_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistence_redis_database_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
     """
-    persistence_redis_database_backup_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    persistence_redis_database_backup_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistence_append_only_file_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     TCP port of the database endpoint.
     """
-    primary_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    primary_access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Primary Access Key for the Managed Redis Database Instance. Only exported if `access_keys_authentication_enabled` is set to `true`.
     """
-    secondary_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_access_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Secondary Access Key for the Managed Redis Database Instance. Only exported if `access_keys_authentication_enabled` is set to `true`.
     """
@@ -129,18 +129,18 @@ class ManagedRedisDefaultDatabaseArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedRedisDefaultDatabaseArgs:
     def __init__(__self__, *,
-                 access_keys_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 clustering_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_replication_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 modules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]] = None,
-                 persistence_append_only_file_backup_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_redis_database_backup_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_keys_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 clustering_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_replication_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]] = None,
+                 persistence_append_only_file_backup_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_redis_database_backup_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] access_keys_authentication_enabled: Whether access key authentication is enabled for the database. Defaults to `false`.
         :param pulumi.Input[_builtins.str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
@@ -186,31 +186,31 @@ class ManagedRedisDefaultDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKeysAuthenticationEnabled")
-    def access_keys_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_keys_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether access key authentication is enabled for the database. Defaults to `false`.
         """
         return pulumi.get(self, "access_keys_authentication_enabled")
 
     @access_keys_authentication_enabled.setter
-    def access_keys_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_keys_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_keys_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientProtocol")
-    def client_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
         """
         return pulumi.get(self, "client_protocol")
 
     @client_protocol.setter
-    def client_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="clusteringPolicy")
-    def clustering_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def clustering_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 
@@ -219,24 +219,24 @@ class ManagedRedisDefaultDatabaseArgs:
         return pulumi.get(self, "clustering_policy")
 
     @clustering_policy.setter
-    def clustering_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def clustering_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "clustering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eviction_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eviction_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eviction_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="geoReplicationGroupName")
-    def geo_replication_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_replication_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 
@@ -245,91 +245,91 @@ class ManagedRedisDefaultDatabaseArgs:
         return pulumi.get(self, "geo_replication_group_name")
 
     @geo_replication_group_name.setter
-    def geo_replication_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_replication_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_replication_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Redis Database Instance.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]]:
+    def modules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]]:
         """
         A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
         """
         return pulumi.get(self, "modules")
 
     @modules.setter
-    def modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]]):
+    def modules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]]):
         pulumi.set(self, "modules", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceAppendOnlyFileBackupFrequency")
-    def persistence_append_only_file_backup_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence_append_only_file_backup_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistence_redis_database_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
         """
         return pulumi.get(self, "persistence_append_only_file_backup_frequency")
 
     @persistence_append_only_file_backup_frequency.setter
-    def persistence_append_only_file_backup_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence_append_only_file_backup_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence_append_only_file_backup_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceRedisDatabaseBackupFrequency")
-    def persistence_redis_database_backup_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence_redis_database_backup_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency of Redis Database (RDB) backups. Possible values are `1h`, `6h` and `12h`. Providing this value implies RDB persistence method is enabled. Conflicts with `persistence_append_only_file_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
         """
         return pulumi.get(self, "persistence_redis_database_backup_frequency")
 
     @persistence_redis_database_backup_frequency.setter
-    def persistence_redis_database_backup_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence_redis_database_backup_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence_redis_database_backup_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TCP port of the database endpoint.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Access Key for the Managed Redis Database Instance. Only exported if `access_keys_authentication_enabled` is set to `true`.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Access Key for the Managed Redis Database Instance. Only exported if `access_keys_authentication_enabled` is set to `true`.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
 
@@ -340,7 +340,7 @@ class ManagedRedisDefaultDatabaseModuleArgsDict(TypedDict):
 
     !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
-    args: NotRequired[pulumi.Input[_builtins.str]]
+    args: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 
@@ -348,7 +348,7 @@ class ManagedRedisDefaultDatabaseModuleArgsDict(TypedDict):
 
     > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the module to be used.
     """
@@ -357,8 +357,8 @@ class ManagedRedisDefaultDatabaseModuleArgsDict(TypedDict):
 class ManagedRedisDefaultDatabaseModuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 args: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 args: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
                
@@ -392,7 +392,7 @@ class ManagedRedisDefaultDatabaseModuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def args(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def args(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 
@@ -403,19 +403,19 @@ class ManagedRedisDefaultDatabaseModuleArgs:
         return pulumi.get(self, "args")
 
     @args.setter
-    def args(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def args(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "args", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the module to be used.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -424,22 +424,22 @@ class ManagedRedisIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Managed Redis instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Redis instance.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ManagedRedisIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Managed Redis instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Redis instance.
@@ -468,7 +468,7 @@ class ManagedRedisIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Redis instance.
 
@@ -477,25 +477,25 @@ class ManagedRedisIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 

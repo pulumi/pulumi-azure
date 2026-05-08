@@ -73,11 +73,11 @@ class AgreementArgs:
 @pulumi.input_type
 class _AgreementState:
     def __init__(__self__, *,
-                 license_text_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_policy_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None):
+                 license_text_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_policy_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Agreement resources.
 
@@ -98,56 +98,56 @@ class _AgreementState:
 
     @_builtins.property
     @pulumi.getter(name="licenseTextLink")
-    def license_text_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_text_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "license_text_link")
 
     @license_text_link.setter
-    def license_text_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_text_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_text_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def offer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "offer")
 
     @offer.setter
-    def offer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyPolicyLink")
-    def privacy_policy_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_policy_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "privacy_policy_link")
 
     @privacy_policy_link.setter
-    def privacy_policy_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_policy_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_policy_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
 
@@ -157,9 +157,9 @@ class Agreement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
@@ -250,9 +250,9 @@ class Agreement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 offer: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 offer: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,11 +283,11 @@ class Agreement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            license_text_link: Optional[pulumi.Input[_builtins.str]] = None,
-            offer: Optional[pulumi.Input[_builtins.str]] = None,
-            plan: Optional[pulumi.Input[_builtins.str]] = None,
-            privacy_policy_link: Optional[pulumi.Input[_builtins.str]] = None,
-            publisher: Optional[pulumi.Input[_builtins.str]] = None) -> 'Agreement':
+            license_text_link: pulumi.Input[Optional[_builtins.str]] = None,
+            offer: pulumi.Input[Optional[_builtins.str]] = None,
+            plan: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_policy_link: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher: pulumi.Input[Optional[_builtins.str]] = None) -> 'Agreement':
         """
         Get an existing Agreement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -102,17 +102,17 @@ export interface AssignmentDynamicScopeState {
     /**
      * A `filter` block as defined below.
      */
-    filter?: pulumi.Input<inputs.maintenance.AssignmentDynamicScopeFilter>;
+    filter?: pulumi.Input<inputs.maintenance.AssignmentDynamicScopeFilter | undefined>;
     /**
      * The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
      */
-    maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
      *
      * > **Note:** The `name` must be unique per subscription.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,5 +132,5 @@ export interface AssignmentDynamicScopeArgs {
      *
      * > **Note:** The `name` must be unique per subscription.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

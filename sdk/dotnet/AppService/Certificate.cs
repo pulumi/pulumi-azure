@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppService
     ///         Name = "example-cert",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         PfxBlob = Std.Index.Filebase64.Invoke(new()
+    ///         PfxBlob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "certificate.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),

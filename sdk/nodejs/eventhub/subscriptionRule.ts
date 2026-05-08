@@ -214,28 +214,28 @@ export interface SubscriptionRuleState {
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    correlationFilter?: pulumi.Input<inputs.eventhub.SubscriptionRuleCorrelationFilter>;
+    correlationFilter?: pulumi.Input<inputs.eventhub.SubscriptionRuleCorrelationFilter | undefined>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
-    filterType?: pulumi.Input<string>;
+    filterType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
-    sqlFilter?: pulumi.Input<string>;
-    sqlFilterCompatibilityLevel?: pulumi.Input<number>;
+    sqlFilter?: pulumi.Input<string | undefined>;
+    sqlFilterCompatibilityLevel?: pulumi.Input<number | undefined>;
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -245,11 +245,11 @@ export interface SubscriptionRuleArgs {
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    correlationFilter?: pulumi.Input<inputs.eventhub.SubscriptionRuleCorrelationFilter>;
+    correlationFilter?: pulumi.Input<inputs.eventhub.SubscriptionRuleCorrelationFilter | undefined>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
@@ -257,11 +257,11 @@ export interface SubscriptionRuleArgs {
     /**
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
-    sqlFilter?: pulumi.Input<string>;
+    sqlFilter?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */

@@ -194,8 +194,8 @@ def get_virtual_machine(name: Optional[_builtins.str] = None,
         public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
         public_ip_addresses=pulumi.get(__ret__, 'public_ip_addresses'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_virtual_machine_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Use this data source to access information about an existing Virtual Machine.

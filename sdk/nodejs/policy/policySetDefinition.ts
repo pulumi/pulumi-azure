@@ -180,39 +180,39 @@ export interface PolicySetDefinitionState {
     /**
      * The description of this Policy Set Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Policy Set Definition.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      */
-    managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
-    parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string | undefined>;
     /**
      * One or more `policyDefinitionGroup` blocks as defined below.
      */
-    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionGroup>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionGroup>[] | undefined>;
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */
-    policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
+    policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[] | undefined>;
     /**
      * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      */
-    policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,7 +222,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * The description of this Policy Set Definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this Policy Set Definition.
      */
@@ -230,23 +230,23 @@ export interface PolicySetDefinitionArgs {
     /**
      * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      */
-    managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
-    parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string | undefined>;
     /**
      * One or more `policyDefinitionGroup` blocks as defined below.
      */
-    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionGroup>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionGroup>[] | undefined>;
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */

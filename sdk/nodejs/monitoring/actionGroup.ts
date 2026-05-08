@@ -283,71 +283,71 @@ export interface ActionGroupState {
     /**
      * One or more `armRoleReceiver` blocks as defined below.
      */
-    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[]>;
+    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[] | undefined>;
     /**
      * One or more `automationRunbookReceiver` blocks as defined below.
      */
-    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[]>;
+    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[] | undefined>;
     /**
      * One or more `azureAppPushReceiver` blocks as defined below.
      */
-    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[]>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[] | undefined>;
     /**
      * One or more `azureFunctionReceiver` blocks as defined below.
      */
-    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[]>;
+    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[] | undefined>;
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[]>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[] | undefined>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `eventHubReceiver` blocks as defined below.
      */
-    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEventHubReceiver>[]>;
+    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEventHubReceiver>[] | undefined>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */
-    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
+    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[] | undefined>;
     /**
      * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
-    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
+    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[] | undefined>;
     /**
      * The name of the Action Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string | undefined>;
     /**
      * One or more `smsReceiver` blocks as defined below.
      */
-    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[]>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
-    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[]>;
+    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[] | undefined>;
     /**
      * One or more `webhookReceiver` blocks as defined below.
      */
-    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[]>;
+    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[] | undefined>;
 }
 
 /**
@@ -357,47 +357,47 @@ export interface ActionGroupArgs {
     /**
      * One or more `armRoleReceiver` blocks as defined below.
      */
-    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[]>;
+    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[] | undefined>;
     /**
      * One or more `automationRunbookReceiver` blocks as defined below.
      */
-    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[]>;
+    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[] | undefined>;
     /**
      * One or more `azureAppPushReceiver` blocks as defined below.
      */
-    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[]>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[] | undefined>;
     /**
      * One or more `azureFunctionReceiver` blocks as defined below.
      */
-    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[]>;
+    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[] | undefined>;
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[]>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[] | undefined>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `eventHubReceiver` blocks as defined below.
      */
-    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEventHubReceiver>[]>;
+    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEventHubReceiver>[] | undefined>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */
-    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
+    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[] | undefined>;
     /**
      * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
-    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
+    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[] | undefined>;
     /**
      * The name of the Action Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
      */
@@ -409,17 +409,17 @@ export interface ActionGroupArgs {
     /**
      * One or more `smsReceiver` blocks as defined below.
      */
-    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[]>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
-    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[]>;
+    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[] | undefined>;
     /**
      * One or more `webhookReceiver` blocks as defined below.
      */
-    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[]>;
+    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[] | undefined>;
 }

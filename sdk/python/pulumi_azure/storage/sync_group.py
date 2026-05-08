@@ -20,7 +20,7 @@ __all__ = ['SyncGroupArgs', 'SyncGroup']
 class SyncGroupArgs:
     def __init__(__self__, *,
                  storage_sync_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncGroup resource.
 
@@ -45,22 +45,22 @@ class SyncGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SyncGroupState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyncGroup resources.
 
@@ -74,26 +74,26 @@ class _SyncGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSyncId")
-    def storage_sync_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_sync_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
         """
         return pulumi.get(self, "storage_sync_id")
 
     @storage_sync_id.setter
-    def storage_sync_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_sync_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_sync_id", value)
 
 
@@ -103,8 +103,8 @@ class SyncGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Sync Group.
@@ -206,8 +206,8 @@ class SyncGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_sync_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_sync_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,8 +231,8 @@ class SyncGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_sync_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SyncGroup':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_sync_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SyncGroup':
         """
         Get an existing SyncGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -235,39 +235,39 @@ export interface InferenceClusterState {
      *
      * > **Note:** When creating or attaching a cluster, if the cluster will be used for production (`clusterPurpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      */
-    clusterPurpose?: pulumi.Input<string>;
+    clusterPurpose?: pulumi.Input<string | undefined>;
     /**
      * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity | undefined>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    machineLearningWorkspaceId?: pulumi.Input<string>;
+    machineLearningWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
+    ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -279,15 +279,15 @@ export interface InferenceClusterArgs {
      *
      * > **Note:** When creating or attaching a cluster, if the cluster will be used for production (`clusterPurpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      */
-    clusterPurpose?: pulumi.Input<string>;
+    clusterPurpose?: pulumi.Input<string | undefined>;
     /**
      * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity | undefined>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
@@ -295,7 +295,7 @@ export interface InferenceClusterArgs {
     /**
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
@@ -303,13 +303,13 @@ export interface InferenceClusterArgs {
     /**
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
+    ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

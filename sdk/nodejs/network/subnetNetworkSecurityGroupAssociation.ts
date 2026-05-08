@@ -141,11 +141,11 @@ export interface SubnetNetworkSecurityGroupAssociationState {
     /**
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    networkSecurityGroupId?: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**

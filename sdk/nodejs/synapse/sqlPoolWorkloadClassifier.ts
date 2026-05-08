@@ -187,35 +187,35 @@ export interface SqlPoolWorkloadClassifierState {
     /**
      * Specifies the session context value that a request can be classified against.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      */
-    importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string | undefined>;
     /**
      * Specifies the label value that a request can be classified against.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier member name used to classified against.
      */
-    memberName?: pulumi.Input<string>;
+    memberName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
-    workloadGroupId?: pulumi.Input<string>;
+    workloadGroupId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,19 +225,19 @@ export interface SqlPoolWorkloadClassifierArgs {
     /**
      * Specifies the session context value that a request can be classified against.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      */
-    importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string | undefined>;
     /**
      * Specifies the label value that a request can be classified against.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier member name used to classified against.
      */
@@ -245,11 +245,11 @@ export interface SqlPoolWorkloadClassifierArgs {
     /**
      * The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */

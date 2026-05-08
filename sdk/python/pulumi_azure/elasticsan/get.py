@@ -252,8 +252,8 @@ def get(name: Optional[_builtins.str] = None,
         total_volume_size_in_gib=pulumi.get(__ret__, 'total_volume_size_in_gib'),
         volume_group_count=pulumi.get(__ret__, 'volume_group_count'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResult]:
     """
     Use this data source to access information about an existing Elastic SAN.

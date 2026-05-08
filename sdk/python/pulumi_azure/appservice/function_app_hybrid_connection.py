@@ -23,7 +23,7 @@ class FunctionAppHybridConnectionArgs:
                  hostname: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  relay_id: pulumi.Input[_builtins.str],
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionAppHybridConnection resource.
 
@@ -90,30 +90,30 @@ class FunctionAppHybridConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="sendKeyName")
-    def send_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
         """
         return pulumi.get(self, "send_key_name")
 
     @send_key_name.setter
-    def send_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_key_name", value)
 
 
 @pulumi.input_type
 class _FunctionAppHybridConnectionState:
     def __init__(__self__, *,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 relay_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 relay_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionAppHybridConnection resources.
 
@@ -151,122 +151,122 @@ class _FunctionAppHybridConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="functionAppId")
-    def function_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "function_app_id")
 
     @function_app_id.setter
-    def function_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname of the endpoint.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Relay Namespace.
         """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port to use for the endpoint
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="relayId")
-    def relay_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "relay_id")
 
     @relay_id.setter
-    def relay_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_id", value)
 
     @_builtins.property
     @pulumi.getter(name="relayName")
-    def relay_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Relay in use.
         """
         return pulumi.get(self, "relay_name")
 
     @relay_name.setter
-    def relay_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendKeyName")
-    def send_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
         """
         return pulumi.get(self, "send_key_name")
 
     @send_key_name.setter
-    def send_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendKeyValue")
-    def send_key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Access Key for the `send_key_name`
         """
         return pulumi.get(self, "send_key_value")
 
     @send_key_value.setter
-    def send_key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_key_value", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusNamespace")
-    def service_bus_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_bus_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Bus Namespace.
         """
         return pulumi.get(self, "service_bus_namespace")
 
     @service_bus_namespace.setter
-    def service_bus_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_bus_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_bus_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBusSuffix")
-    def service_bus_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_bus_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The suffix for the endpoint.
         """
         return pulumi.get(self, "service_bus_suffix")
 
     @service_bus_suffix.setter
-    def service_bus_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_bus_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_bus_suffix", value)
 
 
@@ -276,11 +276,11 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 relay_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 relay_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Function App Hybrid Connection.
@@ -455,11 +455,11 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 relay_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 relay_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -499,16 +499,16 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            relay_id: Optional[pulumi.Input[_builtins.str]] = None,
-            relay_name: Optional[pulumi.Input[_builtins.str]] = None,
-            send_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-            send_key_value: Optional[pulumi.Input[_builtins.str]] = None,
-            service_bus_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None) -> 'FunctionAppHybridConnection':
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            relay_id: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            service_bus_suffix: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionAppHybridConnection':
         """
         Get an existing FunctionAppHybridConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

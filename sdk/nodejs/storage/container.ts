@@ -178,43 +178,43 @@ export interface ContainerState {
      *
      * > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
-    containerAccessType?: pulumi.Input<string>;
+    containerAccessType?: pulumi.Input<string | undefined>;
     /**
      * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
      */
-    defaultEncryptionScope?: pulumi.Input<string>;
+    defaultEncryptionScope?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    encryptionScopeOverrideEnabled?: pulumi.Input<boolean>;
+    encryptionScopeOverrideEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is there an Immutability Policy configured on this Storage Container?
      */
-    hasImmutabilityPolicy?: pulumi.Input<boolean>;
+    hasImmutabilityPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Is there a Legal Hold configured on this Storage Container?
      */
-    hasLegalHold?: pulumi.Input<boolean>;
+    hasLegalHold?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Resource Manager ID of this Storage Container.
      *
      * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
-    resourceManagerId?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account where the Container should be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
      *
@@ -222,7 +222,7 @@ export interface ContainerState {
      *
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -234,29 +234,29 @@ export interface ContainerArgs {
      *
      * > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
-    containerAccessType?: pulumi.Input<string>;
+    containerAccessType?: pulumi.Input<string | undefined>;
     /**
      * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
      */
-    defaultEncryptionScope?: pulumi.Input<string>;
+    defaultEncryptionScope?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    encryptionScopeOverrideEnabled?: pulumi.Input<boolean>;
+    encryptionScopeOverrideEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account where the Container should be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
      *
@@ -264,5 +264,5 @@ export interface ContainerArgs {
      *
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }

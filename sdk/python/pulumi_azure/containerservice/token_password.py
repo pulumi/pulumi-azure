@@ -23,7 +23,7 @@ class TokenPasswordArgs:
     def __init__(__self__, *,
                  container_registry_token_id: pulumi.Input[_builtins.str],
                  password1: pulumi.Input['TokenPasswordPassword1Args'],
-                 password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None):
+                 password2: pulumi.Input[Optional['TokenPasswordPassword2Args']] = None):
         """
         The set of arguments for constructing a TokenPassword resource.
 
@@ -62,23 +62,23 @@ class TokenPasswordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password2(self) -> Optional[pulumi.Input['TokenPasswordPassword2Args']]:
+    def password2(self) -> pulumi.Input[Optional['TokenPasswordPassword2Args']]:
         """
         One `password` block as defined below.
         """
         return pulumi.get(self, "password2")
 
     @password2.setter
-    def password2(self, value: Optional[pulumi.Input['TokenPasswordPassword2Args']]):
+    def password2(self, value: pulumi.Input[Optional['TokenPasswordPassword2Args']]):
         pulumi.set(self, "password2", value)
 
 
 @pulumi.input_type
 class _TokenPasswordState:
     def __init__(__self__, *,
-                 container_registry_token_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 password1: Optional[pulumi.Input['TokenPasswordPassword1Args']] = None,
-                 password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None):
+                 container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 password1: pulumi.Input[Optional['TokenPasswordPassword1Args']] = None,
+                 password2: pulumi.Input[Optional['TokenPasswordPassword2Args']] = None):
         """
         Input properties used for looking up and filtering TokenPassword resources.
 
@@ -95,38 +95,38 @@ class _TokenPasswordState:
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryTokenId")
-    def container_registry_token_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_token_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
         """
         return pulumi.get(self, "container_registry_token_id")
 
     @container_registry_token_id.setter
-    def container_registry_token_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_token_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_token_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def password1(self) -> Optional[pulumi.Input['TokenPasswordPassword1Args']]:
+    def password1(self) -> pulumi.Input[Optional['TokenPasswordPassword1Args']]:
         """
         One `password` block as defined below.
         """
         return pulumi.get(self, "password1")
 
     @password1.setter
-    def password1(self, value: Optional[pulumi.Input['TokenPasswordPassword1Args']]):
+    def password1(self, value: pulumi.Input[Optional['TokenPasswordPassword1Args']]):
         pulumi.set(self, "password1", value)
 
     @_builtins.property
     @pulumi.getter
-    def password2(self) -> Optional[pulumi.Input['TokenPasswordPassword2Args']]:
+    def password2(self) -> pulumi.Input[Optional['TokenPasswordPassword2Args']]:
         """
         One `password` block as defined below.
         """
         return pulumi.get(self, "password2")
 
     @password2.setter
-    def password2(self, value: Optional[pulumi.Input['TokenPasswordPassword2Args']]):
+    def password2(self, value: pulumi.Input[Optional['TokenPasswordPassword2Args']]):
         pulumi.set(self, "password2", value)
 
 
@@ -136,9 +136,9 @@ class TokenPassword(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_token_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 password1: Optional[pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
-                 password2: Optional[pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None,
+                 container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
+                 password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
@@ -283,9 +283,9 @@ class TokenPassword(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_registry_token_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 password1: Optional[pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
-                 password2: Optional[pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None,
+                 container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
+                 password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,9 +312,9 @@ class TokenPassword(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_registry_token_id: Optional[pulumi.Input[_builtins.str]] = None,
-            password1: Optional[pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
-            password2: Optional[pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None) -> 'TokenPassword':
+            container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
+            password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
+            password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None) -> 'TokenPassword':
         """
         Get an existing TokenPassword resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

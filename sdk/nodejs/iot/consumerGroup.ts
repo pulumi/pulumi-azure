@@ -135,19 +135,19 @@ export interface ConsumerGroupState {
     /**
      * The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
      */
-    eventhubEndpointName?: pulumi.Input<string>;
+    eventhubEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the IoT Hub. Changing this forces a new resource to be created.
      */
-    iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string | undefined>;
     /**
      * The name of this Consumer Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -165,7 +165,7 @@ export interface ConsumerGroupArgs {
     /**
      * The name of this Consumer Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
      */

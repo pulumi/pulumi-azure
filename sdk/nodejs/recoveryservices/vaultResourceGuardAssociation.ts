@@ -118,11 +118,11 @@ export interface VaultResourceGuardAssociationState {
     /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      */
-    resourceGuardId?: pulumi.Input<string>;
+    resourceGuardId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
      */
-    vaultId?: pulumi.Input<string>;
+    vaultId?: pulumi.Input<string | undefined>;
 }
 
 /**

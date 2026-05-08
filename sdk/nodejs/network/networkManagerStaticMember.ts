@@ -153,21 +153,21 @@ export interface NetworkManagerStaticMemberState {
     /**
      * Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
      */
-    networkGroupId?: pulumi.Input<string>;
+    networkGroupId?: pulumi.Input<string | undefined>;
     /**
      * The region of the Network Manager Static Member.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
      *
      * > **Note:** Subnet is supported only if the Network Manager has added `Routing` to `scopeAccesses` and the Network Group has set `Subnet` as the `memberType` value.
      */
-    targetVirtualNetworkId?: pulumi.Input<string>;
+    targetVirtualNetworkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface NetworkManagerStaticMemberArgs {
     /**
      * Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
      */

@@ -133,11 +133,11 @@ export interface GeoReplicationState {
     /**
      * A set of other Managed Redis IDs to link together in the geo-replication group. The ID of this Managed Redis is always included by default and does not need to be provided here. Can contain up to 4 Managed Redis IDs, making up a group of 5 in total. All Managed Redis must have the same `geoReplicationGroupName` configured. Once linked, the geo-replication state of all Managed Redis will be updated.
      */
-    linkedManagedRedisIds?: pulumi.Input<pulumi.Input<string>[]>;
+    linkedManagedRedisIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Managed Redis through which geo-replication group will be managed. Linking is reciprocal, if A is linked to B, both A and B will have the same linking state. There is no need to have duplicate `azure.managedredis.GeoReplication` resources for each. Changing this forces a new resource to be created.
      */
-    managedRedisId?: pulumi.Input<string>;
+    managedRedisId?: pulumi.Input<string | undefined>;
 }
 
 /**

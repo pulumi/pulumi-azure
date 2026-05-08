@@ -30,27 +30,27 @@ __all__ = [
 ]
 
 class AssignmentDynamicScopeFilterArgsDict(TypedDict):
-    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of locations to scope the query to.
     """
-    os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    os_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
     """
-    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of allowed resource groups.
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
     """
-    tag_filter: NotRequired[pulumi.Input[_builtins.str]]
+    tag_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]]]
     """
     One or more `tags` blocks as defined below.
     """
@@ -58,12 +58,12 @@ class AssignmentDynamicScopeFilterArgsDict(TypedDict):
 @pulumi.input_type
 class AssignmentDynamicScopeFilterArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 os_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]] = None):
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 os_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: Specifies a list of locations to scope the query to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] os_types: Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
@@ -87,74 +87,74 @@ class AssignmentDynamicScopeFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of locations to scope the query to.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter(name="osTypes")
-    def os_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def os_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
         """
         return pulumi.get(self, "os_types")
 
     @os_types.setter
-    def os_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def os_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "os_types", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of allowed resource groups.
         """
         return pulumi.get(self, "resource_groups")
 
     @resource_groups.setter
-    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_types", value)
 
     @_builtins.property
     @pulumi.getter(name="tagFilter")
-    def tag_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
         """
         return pulumi.get(self, "tag_filter")
 
     @tag_filter.setter
-    def tag_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]]:
         """
         One or more `tags` blocks as defined below.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -206,15 +206,15 @@ class AssignmentDynamicScopeFilterTagArgs:
 
 
 class ConfigurationInstallPatchesArgsDict(TypedDict):
-    linuxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgsDict']]]]
+    linuxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]]
     """
     A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
     """
-    reboot: NotRequired[pulumi.Input[_builtins.str]]
+    reboot: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
     """
-    windows: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgsDict']]]]
+    windows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]]
     """
     A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
     """
@@ -222,9 +222,9 @@ class ConfigurationInstallPatchesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationInstallPatchesArgs:
     def __init__(__self__, *,
-                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]] = None,
-                 reboot: Optional[pulumi.Input[_builtins.str]] = None,
-                 windows: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]] = None):
+                 linuxes: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]] = None,
+                 reboot: pulumi.Input[Optional[_builtins.str]] = None,
+                 windows: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]] linuxes: A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         :param pulumi.Input[_builtins.str] reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
@@ -239,51 +239,51 @@ class ConfigurationInstallPatchesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def linuxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]:
+    def linuxes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]:
         """
         A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
         return pulumi.get(self, "linuxes")
 
     @linuxes.setter
-    def linuxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]):
+    def linuxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]):
         pulumi.set(self, "linuxes", value)
 
     @_builtins.property
     @pulumi.getter
-    def reboot(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reboot(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
         """
         return pulumi.get(self, "reboot")
 
     @reboot.setter
-    def reboot(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reboot(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reboot", value)
 
     @_builtins.property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]:
+    def windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]:
         """
         A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]):
+    def windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]):
         pulumi.set(self, "windows", value)
 
 
 class ConfigurationInstallPatchesLinuxArgsDict(TypedDict):
-    classifications_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    classifications_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
     """
-    package_names_mask_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    package_names_mask_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of package names to be excluded from patching.
     """
-    package_names_mask_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    package_names_mask_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of package names to be included for patching.
     """
@@ -291,9 +291,9 @@ class ConfigurationInstallPatchesLinuxArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationInstallPatchesLinuxArgs:
     def __init__(__self__, *,
-                 classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 package_names_mask_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 package_names_mask_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 classifications_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 package_names_mask_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 package_names_mask_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifications_to_includes: List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] package_names_mask_to_excludes: List of package names to be excluded from patching.
@@ -308,51 +308,51 @@ class ConfigurationInstallPatchesLinuxArgs:
 
     @_builtins.property
     @pulumi.getter(name="classificationsToIncludes")
-    def classifications_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classifications_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
         """
         return pulumi.get(self, "classifications_to_includes")
 
     @classifications_to_includes.setter
-    def classifications_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classifications_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classifications_to_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="packageNamesMaskToExcludes")
-    def package_names_mask_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def package_names_mask_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of package names to be excluded from patching.
         """
         return pulumi.get(self, "package_names_mask_to_excludes")
 
     @package_names_mask_to_excludes.setter
-    def package_names_mask_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def package_names_mask_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "package_names_mask_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="packageNamesMaskToIncludes")
-    def package_names_mask_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def package_names_mask_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of package names to be included for patching.
         """
         return pulumi.get(self, "package_names_mask_to_includes")
 
     @package_names_mask_to_includes.setter
-    def package_names_mask_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def package_names_mask_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "package_names_mask_to_includes", value)
 
 
 class ConfigurationInstallPatchesWindowArgsDict(TypedDict):
-    classifications_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    classifications_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
     """
-    kb_numbers_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kb_numbers_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of KB numbers to be excluded from patching.
     """
-    kb_numbers_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kb_numbers_to_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of KB numbers to be included for patching.
     """
@@ -360,9 +360,9 @@ class ConfigurationInstallPatchesWindowArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationInstallPatchesWindowArgs:
     def __init__(__self__, *,
-                 classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kb_numbers_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kb_numbers_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 classifications_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kb_numbers_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kb_numbers_to_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifications_to_includes: List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kb_numbers_to_excludes: List of KB numbers to be excluded from patching.
@@ -377,38 +377,38 @@ class ConfigurationInstallPatchesWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="classificationsToIncludes")
-    def classifications_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classifications_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         """
         return pulumi.get(self, "classifications_to_includes")
 
     @classifications_to_includes.setter
-    def classifications_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classifications_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classifications_to_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="kbNumbersToExcludes")
-    def kb_numbers_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kb_numbers_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of KB numbers to be excluded from patching.
         """
         return pulumi.get(self, "kb_numbers_to_excludes")
 
     @kb_numbers_to_excludes.setter
-    def kb_numbers_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kb_numbers_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kb_numbers_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="kbNumbersToIncludes")
-    def kb_numbers_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kb_numbers_to_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of KB numbers to be included for patching.
         """
         return pulumi.get(self, "kb_numbers_to_includes")
 
     @kb_numbers_to_includes.setter
-    def kb_numbers_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kb_numbers_to_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kb_numbers_to_includes", value)
 
 
@@ -421,15 +421,15 @@ class ConfigurationWindowArgsDict(TypedDict):
     """
     The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
     """
-    duration: NotRequired[pulumi.Input[_builtins.str]]
+    duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration of the maintenance window in HH:mm format.
     """
-    expiration_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    expiration_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
     """
-    recur_every: NotRequired[pulumi.Input[_builtins.str]]
+    recur_every: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
     """
@@ -439,9 +439,9 @@ class ConfigurationWindowArgs:
     def __init__(__self__, *,
                  start_date_time: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 recur_every: Optional[pulumi.Input[_builtins.str]] = None):
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 recur_every: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] start_date_time: Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
         :param pulumi.Input[_builtins.str] time_zone: The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
@@ -484,38 +484,38 @@ class ConfigurationWindowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration of the maintenance window in HH:mm format.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDateTime")
-    def expiration_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
         """
         return pulumi.get(self, "expiration_date_time")
 
     @expiration_date_time.setter
-    def expiration_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="recurEvery")
-    def recur_every(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recur_every(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
         """
         return pulumi.get(self, "recur_every")
 
     @recur_every.setter
-    def recur_every(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recur_every(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recur_every", value)
 
 

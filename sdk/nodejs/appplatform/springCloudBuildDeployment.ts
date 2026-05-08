@@ -169,35 +169,35 @@ export interface SpringCloudBuildDeploymentState {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
      */
-    addonJson?: pulumi.Input<string>;
+    addonJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Spring Cloud Build Result.
      */
-    buildResultId?: pulumi.Input<string>;
+    buildResultId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    quota?: pulumi.Input<inputs.appplatform.SpringCloudBuildDeploymentQuota>;
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudBuildDeploymentQuota | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
      */
-    springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,11 +207,11 @@ export interface SpringCloudBuildDeploymentArgs {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
      */
-    addonJson?: pulumi.Input<string>;
+    addonJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Spring Cloud Build Result.
      */
@@ -219,19 +219,19 @@ export interface SpringCloudBuildDeploymentArgs {
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    quota?: pulumi.Input<inputs.appplatform.SpringCloudBuildDeploymentQuota>;
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudBuildDeploymentQuota | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
      */

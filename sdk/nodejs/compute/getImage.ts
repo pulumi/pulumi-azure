@@ -137,11 +137,11 @@ export interface GetImageOutputArgs {
     /**
      * The name of the Image.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Regex pattern of the image to match.
      */
-    nameRegex?: pulumi.Input<string>;
+    nameRegex?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Resource Group where this Image exists.
      */
@@ -149,5 +149,5 @@ export interface GetImageOutputArgs {
     /**
      * By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
      */
-    sortDescending?: pulumi.Input<boolean>;
+    sortDescending?: pulumi.Input<boolean | undefined>;
 }

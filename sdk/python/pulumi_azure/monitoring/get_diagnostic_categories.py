@@ -131,7 +131,7 @@ def get_diagnostic_categories(resource_id: Optional[_builtins.str] = None,
         log_category_types=pulumi.get(__ret__, 'log_category_types'),
         metrics=pulumi.get(__ret__, 'metrics'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
-def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_diagnostic_categories_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticCategoriesResult]:
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.

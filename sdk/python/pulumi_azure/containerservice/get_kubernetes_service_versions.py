@@ -157,9 +157,9 @@ def get_kubernetes_service_versions(include_preview: Optional[_builtins.bool] = 
         location=pulumi.get(__ret__, 'location'),
         version_prefix=pulumi.get(__ret__, 'version_prefix'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                           location: Optional[pulumi.Input[_builtins.str]] = None,
-                                           version_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_kubernetes_service_versions_output(include_preview: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                           location: pulumi.Input[Optional[_builtins.str]] = None,
+                                           version_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesServiceVersionsResult]:
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.

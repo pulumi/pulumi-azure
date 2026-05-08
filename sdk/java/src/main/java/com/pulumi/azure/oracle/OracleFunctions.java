@@ -74,8 +74,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -122,8 +122,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -170,8 +170,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -266,8 +266,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -314,8 +314,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -362,8 +362,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -410,8 +410,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -458,8 +458,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -506,8 +506,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -554,8 +554,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -603,8 +603,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -652,8 +652,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -701,8 +701,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -750,8 +750,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -799,8 +799,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -846,8 +846,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -893,8 +893,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -940,8 +940,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -987,8 +987,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1034,8 +1034,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1081,8 +1081,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1128,8 +1128,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1175,8 +1175,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1222,8 +1222,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1269,8 +1269,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1318,8 +1318,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1367,8 +1367,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1416,8 +1416,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1465,8 +1465,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromBackupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1514,8 +1514,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1563,8 +1563,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1612,8 +1612,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1661,8 +1661,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1710,8 +1710,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1759,8 +1759,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1808,8 +1808,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1857,8 +1857,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1906,8 +1906,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1955,8 +1955,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2004,8 +2004,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2052,8 +2052,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2100,8 +2100,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2148,8 +2148,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2196,8 +2196,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2244,8 +2244,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2292,8 +2292,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2340,8 +2340,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2388,8 +2388,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2436,8 +2436,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2484,8 +2484,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2533,8 +2533,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2582,8 +2582,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2631,8 +2631,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2680,8 +2680,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2731,8 +2731,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2782,8 +2782,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2833,8 +2833,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2884,8 +2884,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2935,8 +2935,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2984,8 +2984,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3033,8 +3033,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3082,8 +3082,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3131,8 +3131,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3180,8 +3180,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3229,8 +3229,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3278,8 +3278,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3327,8 +3327,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3376,8 +3376,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3425,8 +3425,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetExascaleDatabaseStorageVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3476,8 +3476,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3528,8 +3528,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3580,8 +3580,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3632,8 +3632,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3684,8 +3684,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3734,8 +3734,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3783,8 +3783,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3832,8 +3832,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3881,8 +3881,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3930,8 +3930,8 @@ public final class OracleFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.oracle.OracleFunctions;
      * import com.pulumi.azure.oracle.inputs.GetResourceAnchorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -30,19 +30,19 @@ class PolicySetDefinitionPolicyDefinitionGroupArgsDict(TypedDict):
     """
     The name which should be used for this Policy Definition Group.
     """
-    additional_metadata_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    additional_metadata_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of a resource that contains additional metadata for this Policy Definition Group.
     """
-    category: NotRequired[pulumi.Input[_builtins.str]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The category of this Policy Definition Group.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of this Policy Definition Group.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name of this Policy Definition Group.
     """
@@ -51,10 +51,10 @@ class PolicySetDefinitionPolicyDefinitionGroupArgsDict(TypedDict):
 class PolicySetDefinitionPolicyDefinitionGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 additional_metadata_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_metadata_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Definition Group.
         :param pulumi.Input[_builtins.str] additional_metadata_resource_id: The ID of a resource that contains additional metadata for this Policy Definition Group.
@@ -86,50 +86,50 @@ class PolicySetDefinitionPolicyDefinitionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalMetadataResourceId")
-    def additional_metadata_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_metadata_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a resource that contains additional metadata for this Policy Definition Group.
         """
         return pulumi.get(self, "additional_metadata_resource_id")
 
     @additional_metadata_resource_id.setter
-    def additional_metadata_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_metadata_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_metadata_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category of this Policy Definition Group.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Policy Definition Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this Policy Definition Group.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -138,19 +138,19 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgsDict(TypedDict):
     """
     The ID of the Policy Definition to include in this Policy Set Definition.
     """
-    parameter_values: NotRequired[pulumi.Input[_builtins.str]]
+    parameter_values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Parameter values for the references Policy Definition in JSON format.
     """
-    policy_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    policy_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
     """
-    reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique ID within this Policy Set Definition for this Policy Definition Reference.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the Policy Definition to use.
     """
@@ -159,10 +159,10 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgsDict(TypedDict):
 class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[_builtins.str],
-                 parameter_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition to include in this Policy Set Definition.
         :param pulumi.Input[_builtins.str] parameter_values: Parameter values for the references Policy Definition in JSON format.
@@ -194,75 +194,75 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameter values for the references Policy Definition in JSON format.
         """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
-    def parameter_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_values", value)
 
     @_builtins.property
     @pulumi.getter(name="policyGroupNames")
-    def policy_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
         """
         return pulumi.get(self, "policy_group_names")
 
     @policy_group_names.setter
-    def policy_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceId")
-    def reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique ID within this Policy Set Definition for this Policy Definition Reference.
         """
         return pulumi.get(self, "reference_id")
 
     @reference_id.setter
-    def reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Policy Definition to use.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 class VirtualMachineConfigurationAssignmentConfigurationArgsDict(TypedDict):
-    assignment_type: NotRequired[pulumi.Input[_builtins.str]]
+    assignment_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
     """
-    content_hash: NotRequired[pulumi.Input[_builtins.str]]
+    content_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content hash for the Guest Configuration package.
 
     > **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
     """
-    content_uri: NotRequired[pulumi.Input[_builtins.str]]
+    content_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The content URI where the Guest Configuration package is stored.
 
     > **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]]
     """
     One or more `parameter` blocks as defined below which define what configuration parameters and values against.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
     """
@@ -270,11 +270,11 @@ class VirtualMachineConfigurationAssignmentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualMachineConfigurationAssignmentConfigurationArgs:
     def __init__(__self__, *,
-                 assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param pulumi.Input[_builtins.str] content_hash: The content hash for the Guest Configuration package.
@@ -299,19 +299,19 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignmentType")
-    def assignment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         """
         return pulumi.get(self, "assignment_type")
 
     @assignment_type.setter
-    def assignment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="contentHash")
-    def content_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content hash for the Guest Configuration package.
 
@@ -320,12 +320,12 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
-    def content_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="contentUri")
-    def content_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content URI where the Guest Configuration package is stored.
 
@@ -334,31 +334,31 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
         return pulumi.get(self, "content_uri")
 
     @content_uri.setter
-    def content_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]:
         """
         One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 

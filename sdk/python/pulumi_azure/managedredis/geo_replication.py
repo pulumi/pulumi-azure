@@ -58,8 +58,8 @@ class GeoReplicationArgs:
 @pulumi.input_type
 class _GeoReplicationState:
     def __init__(__self__, *,
-                 linked_managed_redis_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 linked_managed_redis_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GeoReplication resources.
 
@@ -73,26 +73,26 @@ class _GeoReplicationState:
 
     @_builtins.property
     @pulumi.getter(name="linkedManagedRedisIds")
-    def linked_managed_redis_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def linked_managed_redis_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of other Managed Redis IDs to link together in the geo-replication group. The ID of this Managed Redis is always included by default and does not need to be provided here. Can contain up to 4 Managed Redis IDs, making up a group of 5 in total. All Managed Redis must have the same `geo_replication_group_name` configured. Once linked, the geo-replication state of all Managed Redis will be updated.
         """
         return pulumi.get(self, "linked_managed_redis_ids")
 
     @linked_managed_redis_ids.setter
-    def linked_managed_redis_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def linked_managed_redis_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "linked_managed_redis_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="managedRedisId")
-    def managed_redis_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_redis_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed Redis through which geo-replication group will be managed. Linking is reciprocal, if A is linked to B, both A and B will have the same linking state. There is no need to have duplicate `managedredis.GeoReplication` resources for each. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_redis_id")
 
     @managed_redis_id.setter
-    def managed_redis_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_redis_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_redis_id", value)
 
 
@@ -102,8 +102,8 @@ class GeoReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_managed_redis_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_managed_redis_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Managed Redis Geo-Replication by linking and unlinking databases in a geo-replication group.
@@ -233,8 +233,8 @@ class GeoReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_managed_redis_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_managed_redis_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,8 +260,8 @@ class GeoReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            linked_managed_redis_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GeoReplication':
+            linked_managed_redis_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            managed_redis_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GeoReplication':
         """
         Get an existing GeoReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

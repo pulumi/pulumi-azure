@@ -168,43 +168,43 @@ export interface GalleryApplicationState {
     /**
      * A description of the Gallery Application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The end of life date in RFC3339 format of the Gallery Application.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * The End User Licence Agreement of the Gallery Application.
      */
-    eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
      */
-    galleryId?: pulumi.Input<string>;
+    galleryId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Gallery Application. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The URI containing the Privacy Statement associated with the Gallery Application.
      */
-    privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string | undefined>;
     /**
      * The URI containing the Release Notes associated with the Gallery Application.
      */
-    releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string | undefined>;
     /**
      * The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    supportedOsType?: pulumi.Input<string>;
+    supportedOsType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Gallery Application.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -214,15 +214,15 @@ export interface GalleryApplicationArgs {
     /**
      * A description of the Gallery Application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The end of life date in RFC3339 format of the Gallery Application.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * The End User Licence Agreement of the Gallery Application.
      */
-    eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
      */
@@ -230,19 +230,19 @@ export interface GalleryApplicationArgs {
     /**
      * The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Gallery Application. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The URI containing the Privacy Statement associated with the Gallery Application.
      */
-    privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string | undefined>;
     /**
      * The URI containing the Release Notes associated with the Gallery Application.
      */
-    releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string | undefined>;
     /**
      * The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
@@ -250,5 +250,5 @@ export interface GalleryApplicationArgs {
     /**
      * A mapping of tags to assign to the Gallery Application.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -195,39 +195,39 @@ export interface MedtechServiceState {
     /**
      * Specifies the Device Mappings of the Med Tech Service.
      */
-    deviceMappingJson?: pulumi.Input<string>;
+    deviceMappingJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Consumer Group of the Event Hub to connect to.
      */
-    eventhubConsumerGroupName?: pulumi.Input<string>;
+    eventhubConsumerGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Event Hub to connect to.
      */
-    eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the namespace name of the Event Hub to connect to.
      */
-    eventhubNamespaceName?: pulumi.Input<string>;
+    eventhubNamespaceName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.MedtechServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.MedtechServiceIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Healthcare Med Tech Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -253,19 +253,19 @@ export interface MedtechServiceArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.healthcare.MedtechServiceIdentity>;
+    identity?: pulumi.Input<inputs.healthcare.MedtechServiceIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Healthcare Med Tech Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
      */

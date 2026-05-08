@@ -186,8 +186,8 @@ def get_definition(name: Optional[_builtins.str] = None,
         target_scope=pulumi.get(__ret__, 'target_scope'),
         time_created=pulumi.get(__ret__, 'time_created'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_definition_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                          scope_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_definition_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                          scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefinitionResult]:
     """
     Use this data source to access information about an existing Azure Blueprint Definition

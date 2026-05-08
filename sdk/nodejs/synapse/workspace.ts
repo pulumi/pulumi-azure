@@ -349,87 +349,87 @@ export interface WorkspaceState {
     /**
      * An `azureDevopsRepo` block as defined below.
      */
-    azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
     /**
      * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
      */
-    azureadAuthenticationOnly?: pulumi.Input<boolean>;
+    azureadAuthenticationOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
-    computeSubnetId?: pulumi.Input<string>;
+    computeSubnetId?: pulumi.Input<string | undefined>;
     /**
      * A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      */
-    connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `customerManagedKey` block as defined below.
      */
-    customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey | undefined>;
     /**
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      */
-    dataExfiltrationProtectionEnabled?: pulumi.Input<boolean>;
+    dataExfiltrationProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `githubRepo` block as defined below.
      */
-    githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
+    githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity | undefined>;
     /**
      * Allowed AAD Tenant Ids For Linking.
      */
-    linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Workspace managed resource group. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      */
-    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of purview account.
      */
-    purviewId?: pulumi.Input<string>;
+    purviewId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      */
-    sqlAdministratorLogin?: pulumi.Input<string>;
+    sqlAdministratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      */
-    sqlAdministratorLoginPassword?: pulumi.Input<string>;
+    sqlAdministratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */
-    sqlIdentityControlEnabled?: pulumi.Input<boolean>;
+    sqlIdentityControlEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
-    storageDataLakeGen2FilesystemId?: pulumi.Input<string>;
+    storageDataLakeGen2FilesystemId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Synapse Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -439,59 +439,59 @@ export interface WorkspaceArgs {
     /**
      * An `azureDevopsRepo` block as defined below.
      */
-    azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
     /**
      * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
      */
-    azureadAuthenticationOnly?: pulumi.Input<boolean>;
+    azureadAuthenticationOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
-    computeSubnetId?: pulumi.Input<string>;
+    computeSubnetId?: pulumi.Input<string | undefined>;
     /**
      * A `customerManagedKey` block as defined below.
      */
-    customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey | undefined>;
     /**
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      */
-    dataExfiltrationProtectionEnabled?: pulumi.Input<boolean>;
+    dataExfiltrationProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `githubRepo` block as defined below.
      */
-    githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
+    githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity | undefined>;
     /**
      * Allowed AAD Tenant Ids For Linking.
      */
-    linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Workspace managed resource group. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      */
-    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of purview account.
      */
-    purviewId?: pulumi.Input<string>;
+    purviewId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -499,15 +499,15 @@ export interface WorkspaceArgs {
     /**
      * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      */
-    sqlAdministratorLogin?: pulumi.Input<string>;
+    sqlAdministratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      */
-    sqlAdministratorLoginPassword?: pulumi.Input<string>;
+    sqlAdministratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */
-    sqlIdentityControlEnabled?: pulumi.Input<boolean>;
+    sqlIdentityControlEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
@@ -515,5 +515,5 @@ export interface WorkspaceArgs {
     /**
      * A mapping of tags which should be assigned to the Synapse Workspace.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

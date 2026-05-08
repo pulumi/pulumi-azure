@@ -204,60 +204,60 @@ export interface LinkedServiceAzureBlobStorageState {
      *
      * The following supported arguments are specific to Azure Blob Storage Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      *
      * > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      */
-    connectionStringInsecure?: pulumi.Input<string>;
+    connectionStringInsecure?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      */
-    keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken>;
+    keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      */
-    sasTokenLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey>;
+    sasTokenLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey | undefined>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
-    sasUri?: pulumi.Input<string>;
-    serviceEndpoint?: pulumi.Input<string>;
-    servicePrincipalId?: pulumi.Input<string>;
-    servicePrincipalKey?: pulumi.Input<string>;
-    servicePrincipalLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey>;
-    storageKind?: pulumi.Input<string>;
-    tenantId?: pulumi.Input<string>;
-    useManagedIdentity?: pulumi.Input<boolean>;
+    sasUri?: pulumi.Input<string | undefined>;
+    serviceEndpoint?: pulumi.Input<string | undefined>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
+    servicePrincipalKey?: pulumi.Input<string | undefined>;
+    servicePrincipalLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey | undefined>;
+    storageKind?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string | undefined>;
+    useManagedIdentity?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -269,21 +269,21 @@ export interface LinkedServiceAzureBlobStorageArgs {
      *
      * The following supported arguments are specific to Azure Blob Storage Linked Service:
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      *
      * > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      */
-    connectionStringInsecure?: pulumi.Input<string>;
+    connectionStringInsecure?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -291,36 +291,36 @@ export interface LinkedServiceAzureBlobStorageArgs {
     /**
      * The description for the Data Factory Linked Service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      */
-    keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken>;
+    keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      */
-    sasTokenLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey>;
+    sasTokenLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey | undefined>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
-    sasUri?: pulumi.Input<string>;
-    serviceEndpoint?: pulumi.Input<string>;
-    servicePrincipalId?: pulumi.Input<string>;
-    servicePrincipalKey?: pulumi.Input<string>;
-    servicePrincipalLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey>;
-    storageKind?: pulumi.Input<string>;
-    tenantId?: pulumi.Input<string>;
-    useManagedIdentity?: pulumi.Input<boolean>;
+    sasUri?: pulumi.Input<string | undefined>;
+    serviceEndpoint?: pulumi.Input<string | undefined>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
+    servicePrincipalKey?: pulumi.Input<string | undefined>;
+    servicePrincipalLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey | undefined>;
+    storageKind?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string | undefined>;
+    useManagedIdentity?: pulumi.Input<boolean | undefined>;
 }

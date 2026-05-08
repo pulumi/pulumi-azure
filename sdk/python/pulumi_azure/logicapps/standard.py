@@ -25,26 +25,26 @@ class StandardArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_access_key: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 bundle_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
-                 storage_account_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_extension_bundle: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['StandardIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 site_config: pulumi.Input[Optional['StandardSiteConfigArgs']] = None,
+                 storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_content_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Standard resource.
 
@@ -180,7 +180,7 @@ class StandardArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
@@ -189,132 +189,132 @@ class StandardArgs:
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="bundleVersion")
-    def bundle_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         """
         return pulumi.get(self, "bundle_version")
 
     @bundle_version.setter
-    def bundle_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         """
         return pulumi.get(self, "client_affinity_enabled")
 
     @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateMode")
-    def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
     @client_certificate_mode.setter
-    def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]:
         """
         A `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Logic App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
-    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @ftp_publish_basic_authentication_enabled.setter
-    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ftp_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['StandardIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['StandardIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['StandardIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['StandardIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 
@@ -323,36 +323,36 @@ class StandardArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="scmPublishBasicAuthenticationEnabled")
-    def scm_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scm_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "scm_publish_basic_authentication_enabled")
 
     @scm_publish_basic_authentication_enabled.setter
-    def scm_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scm_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scm_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['StandardSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['StandardSiteConfigArgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['StandardSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['StandardSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountShareName")
-    def storage_account_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
 
@@ -363,48 +363,48 @@ class StandardArgs:
         return pulumi.get(self, "storage_account_share_name")
 
     @storage_account_share_name.setter
-    def storage_account_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_share_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useExtensionBundle")
-    def use_extension_bundle(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_extension_bundle(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         """
         return pulumi.get(self, "use_extension_bundle")
 
     @use_extension_bundle.setter
-    def use_extension_bundle(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_extension_bundle(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_extension_bundle", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime version associated with the Logic App. Defaults to `~4`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
@@ -415,55 +415,55 @@ class StandardArgs:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetContentShareEnabled")
-    def vnet_content_share_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vnet_content_share_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         return pulumi.get(self, "vnet_content_share_enabled")
 
     @vnet_content_share_enabled.setter
-    def vnet_content_share_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vnet_content_share_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vnet_content_share_enabled", value)
 
 
 @pulumi.input_type
 class _StandardState:
     def __init__(__self__, *,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 bundle_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
-                 custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_extension_bundle: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
+                 custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['StandardIdentityArgs']] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 site_config: pulumi.Input[Optional['StandardSiteConfigArgs']] = None,
+                 site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_content_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Standard resources.
 
@@ -573,19 +573,19 @@ class _StandardState:
 
     @_builtins.property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Plan within which to create this Logic App.
         """
         return pulumi.get(self, "app_service_plan_id")
 
     @app_service_plan_id.setter
-    def app_service_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
@@ -594,192 +594,192 @@ class _StandardState:
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="bundleVersion")
-    def bundle_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         """
         return pulumi.get(self, "bundle_version")
 
     @bundle_version.setter
-    def bundle_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         """
         return pulumi.get(self, "client_affinity_enabled")
 
     @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateMode")
-    def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
     @client_certificate_mode.setter
-    def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]:
         """
         A `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainVerificationId")
-    def custom_domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @custom_domain_verification_id.setter
-    def custom_domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_verification_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultHostname")
-    def default_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
         """
         return pulumi.get(self, "default_hostname")
 
     @default_hostname.setter
-    def default_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Logic App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
-    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @ftp_publish_basic_authentication_enabled.setter
-    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ftp_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['StandardIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['StandardIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['StandardIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['StandardIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Logic App kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
     @outbound_ip_addresses.setter
-    def outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def possible_outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @possible_outbound_ip_addresses.setter
-    def possible_outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def possible_outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 
@@ -788,84 +788,84 @@ class _StandardState:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scmPublishBasicAuthenticationEnabled")
-    def scm_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scm_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "scm_publish_basic_authentication_enabled")
 
     @scm_publish_basic_authentication_enabled.setter
-    def scm_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scm_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scm_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['StandardSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['StandardSiteConfigArgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['StandardSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['StandardSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]]:
+    def site_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]]):
+    def site_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key which will be used to access the backend storage account for the Logic App.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountShareName")
-    def storage_account_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
 
@@ -876,48 +876,48 @@ class _StandardState:
         return pulumi.get(self, "storage_account_share_name")
 
     @storage_account_share_name.setter
-    def storage_account_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_share_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="useExtensionBundle")
-    def use_extension_bundle(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_extension_bundle(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         """
         return pulumi.get(self, "use_extension_bundle")
 
     @use_extension_bundle.setter
-    def use_extension_bundle(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_extension_bundle(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_extension_bundle", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The runtime version associated with the Logic App. Defaults to `~4`.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
@@ -928,19 +928,19 @@ class _StandardState:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetContentShareEnabled")
-    def vnet_content_share_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vnet_content_share_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         return pulumi.get(self, "vnet_content_share_enabled")
 
     @vnet_content_share_enabled.setter
-    def vnet_content_share_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vnet_content_share_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vnet_content_share_enabled", value)
 
 
@@ -950,30 +950,30 @@ class Standard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 bundle_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_extension_bundle: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_content_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Logic App (Standard / Single Tenant)
@@ -1229,30 +1229,30 @@ class Standard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 bundle_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 use_extension_bundle: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_content_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1312,36 +1312,36 @@ class Standard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            bundle_version: Optional[pulumi.Input[_builtins.str]] = None,
-            client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
-            custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scm_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]]] = None,
-            storage_account_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            use_extension_bundle: Optional[pulumi.Input[_builtins.bool]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Standard':
+            app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]]] = None,
+            storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_content_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Standard':
         """
         Get an existing Standard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

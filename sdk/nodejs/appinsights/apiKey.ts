@@ -178,25 +178,25 @@ export interface ApiKeyState {
     /**
      * The API Key secret (Sensitive).
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    readPermissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one read or write permission must be defined.
      */
-    writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    writePermissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -210,15 +210,15 @@ export interface ApiKeyArgs {
     /**
      * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    readPermissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one read or write permission must be defined.
      */
-    writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    writePermissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

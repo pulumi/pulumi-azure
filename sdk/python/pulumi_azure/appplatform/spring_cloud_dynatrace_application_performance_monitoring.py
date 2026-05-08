@@ -23,11 +23,11 @@ class SpringCloudDynatraceApplicationPerformanceMonitoringArgs:
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
                  tenant: pulumi.Input[_builtins.str],
                  tenant_token: pulumi.Input[_builtins.str],
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudDynatraceApplicationPerformanceMonitoring resource.
 
@@ -106,77 +106,77 @@ class SpringCloudDynatraceApplicationPerformanceMonitoringArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
-    def api_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API token of the Dynatrace environment.
         """
         return pulumi.get(self, "api_token")
 
     @api_token.setter
-    def api_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
 
     @_builtins.property
     @pulumi.getter(name="apiUrl")
-    def api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API Url of the Dynatrace environment.
         """
         return pulumi.get(self, "api_url")
 
     @api_url.setter
-    def api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_url", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Dynatrace environment ID.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for Dynatrace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _SpringCloudDynatraceApplicationPerformanceMonitoringState:
     def __init__(__self__, *,
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_point: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_point: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudDynatraceApplicationPerformanceMonitoring resources.
 
@@ -211,110 +211,110 @@ class _SpringCloudDynatraceApplicationPerformanceMonitoringState:
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
-    def api_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API token of the Dynatrace environment.
         """
         return pulumi.get(self, "api_token")
 
     @api_token.setter
-    def api_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
 
     @_builtins.property
     @pulumi.getter(name="apiUrl")
-    def api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API Url of the Dynatrace environment.
         """
         return pulumi.get(self, "api_url")
 
     @api_url.setter
-    def api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_url", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionPoint")
-    def connection_point(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_point(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the endpoint to connect to the Dynatrace environment.
         """
         return pulumi.get(self, "connection_point")
 
     @connection_point.setter
-    def connection_point(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_point(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_point", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Dynatrace environment ID.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="globallyEnabled")
-    def globally_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def globally_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         """
         return pulumi.get(self, "globally_enabled")
 
     @globally_enabled.setter
-    def globally_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def globally_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "globally_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Application Performance Monitoring resource for Dynatrace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Dynatrace tenant.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantToken")
-    def tenant_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the internal token that is used for authentication when OneAgent connects to the Dynatrace cluster to send data.
         """
         return pulumi.get(self, "tenant_token")
 
     @tenant_token.setter
-    def tenant_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_token", value)
 
 
@@ -324,15 +324,15 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_point: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_point: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
@@ -465,15 +465,15 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_point: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_point: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,15 +512,15 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_token: Optional[pulumi.Input[_builtins.str]] = None,
-            api_url: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_point: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            globally_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_token: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudDynatraceApplicationPerformanceMonitoring':
+            api_token: pulumi.Input[Optional[_builtins.str]] = None,
+            api_url: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_point: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            globally_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudDynatraceApplicationPerformanceMonitoring':
         """
         Get an existing SpringCloudDynatraceApplicationPerformanceMonitoring resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

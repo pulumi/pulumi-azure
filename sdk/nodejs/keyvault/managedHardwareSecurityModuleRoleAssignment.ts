@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example", {
  *     name: "a9dbe818-56e7-5878-c0ce-a1477692c1d6",
  *     managedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.id,
- *     scope: user.then(user => user.scope),
+ *     scope: output(user.then(user => user.scope)).apply(x =>String(x)),
  *     roleDefinitionId: user.then(user => user.resourceManagerId),
  *     principalId: current.objectId,
  * });
@@ -139,27 +139,27 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
     /**
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    managedHsmId?: pulumi.Input<string>;
+    managedHsmId?: pulumi.Input<string | undefined>;
     /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) The resource id of created assignment resource.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentArgs {
     /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      */

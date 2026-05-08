@@ -153,9 +153,9 @@ def get_agreement(offer: Optional[_builtins.str] = None,
         plan=pulumi.get(__ret__, 'plan'),
         privacy_policy_link=pulumi.get(__ret__, 'privacy_policy_link'),
         publisher=pulumi.get(__ret__, 'publisher'))
-def get_agreement_output(offer: Optional[pulumi.Input[_builtins.str]] = None,
-                         plan: Optional[pulumi.Input[_builtins.str]] = None,
-                         publisher: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agreement_output(offer: pulumi.Input[Optional[_builtins.str]] = None,
+                         plan: pulumi.Input[Optional[_builtins.str]] = None,
+                         publisher: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgreementResult]:
     """
     Uses this data source to access information about an existing Marketplace Agreement.

@@ -191,47 +191,47 @@ export interface SqlPoolState {
     /**
      * The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * Is transparent data encryption enabled?
      */
-    dataEncrypted?: pulumi.Input<boolean>;
+    dataEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Is geo-backup policy enabled? Defaults to `true`.
      */
-    geoBackupPolicyEnabled?: pulumi.Input<boolean>;
+    geoBackupPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    recoveryDatabaseId?: pulumi.Input<string>;
+    recoveryDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
+    restore?: pulumi.Input<inputs.synapse.SqlPoolRestore | undefined>;
     /**
      * Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    storageAccountType?: pulumi.Input<string>;
+    storageAccountType?: pulumi.Input<string | undefined>;
     /**
      * The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
      */
-    synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Synapse SQL Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -241,31 +241,31 @@ export interface SqlPoolArgs {
     /**
      * The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * Is transparent data encryption enabled?
      */
-    dataEncrypted?: pulumi.Input<boolean>;
+    dataEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Is geo-backup policy enabled? Defaults to `true`.
      */
-    geoBackupPolicyEnabled?: pulumi.Input<boolean>;
+    geoBackupPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    recoveryDatabaseId?: pulumi.Input<string>;
+    recoveryDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      */
-    restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
+    restore?: pulumi.Input<inputs.synapse.SqlPoolRestore | undefined>;
     /**
      * Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
      */
@@ -281,5 +281,5 @@ export interface SqlPoolArgs {
     /**
      * A mapping of tags which should be assigned to the Synapse SQL Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

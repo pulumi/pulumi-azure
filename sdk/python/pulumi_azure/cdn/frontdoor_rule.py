@@ -24,9 +24,9 @@ class FrontdoorRuleArgs:
                  actions: pulumi.Input['FrontdoorRuleActionsArgs'],
                  cdn_frontdoor_rule_set_id: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
-                 behavior_on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional['FrontdoorRuleConditionsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorRule resource.
 
@@ -89,51 +89,51 @@ class FrontdoorRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="behaviorOnMatch")
-    def behavior_on_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def behavior_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         """
         return pulumi.get(self, "behavior_on_match")
 
     @behavior_on_match.setter
-    def behavior_on_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def behavior_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "behavior_on_match", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['FrontdoorRuleConditionsArgs']]:
         """
         A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['FrontdoorRuleConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FrontdoorRuleState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input['FrontdoorRuleActionsArgs']] = None,
-                 behavior_on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 actions: pulumi.Input[Optional['FrontdoorRuleActionsArgs']] = None,
+                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional['FrontdoorRuleConditionsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRule resources.
 
@@ -164,79 +164,79 @@ class _FrontdoorRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['FrontdoorRuleActionsArgs']]:
+    def actions(self) -> pulumi.Input[Optional['FrontdoorRuleActionsArgs']]:
         """
         An `actions` block as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['FrontdoorRuleActionsArgs']]):
+    def actions(self, value: pulumi.Input[Optional['FrontdoorRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="behaviorOnMatch")
-    def behavior_on_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def behavior_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         """
         return pulumi.get(self, "behavior_on_match")
 
     @behavior_on_match.setter
-    def behavior_on_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def behavior_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "behavior_on_match", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
-    def cdn_frontdoor_rule_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_rule_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 
     @cdn_frontdoor_rule_set_id.setter
-    def cdn_frontdoor_rule_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_rule_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_rule_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRuleSetName")
-    def cdn_frontdoor_rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Front Door Rule Set containing this Front Door Rule.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_name")
 
     @cdn_frontdoor_rule_set_name.setter
-    def cdn_frontdoor_rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_rule_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['FrontdoorRuleConditionsArgs']]:
         """
         A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['FrontdoorRuleConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 
@@ -245,7 +245,7 @@ class _FrontdoorRuleState:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
@@ -255,12 +255,12 @@ class FrontdoorRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
-                 behavior_on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
+                 actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
+                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Rule.
@@ -842,12 +842,12 @@ class FrontdoorRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
-                 behavior_on_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdn_frontdoor_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 conditions: Optional[pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
+                 actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
+                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -880,13 +880,13 @@ class FrontdoorRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
-            behavior_on_match: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_frontdoor_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            cdn_frontdoor_rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-            conditions: Optional[pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None) -> 'FrontdoorRule':
+            actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
+            behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cdn_frontdoor_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None) -> 'FrontdoorRule':
         """
         Get an existing FrontdoorRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

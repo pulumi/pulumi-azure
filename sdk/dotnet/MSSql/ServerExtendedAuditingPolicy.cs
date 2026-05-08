@@ -130,7 +130,7 @@ namespace Pulumi.Azure.MSSql
     ///         PrincipalId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var sqlvnetrule = new Azurerm.Index.SqlVirtualNetworkRule("sqlvnetrule", new()
+    ///     var sqlvnetrule = new Azurerm.SqlVirtualNetworkRule("sqlvnetrule", new()
     ///     {
     ///         Name = "sql-vnet-rule",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.MSSql
     ///         SubnetId = exampleSubnet.Id,
     ///     });
     /// 
-    ///     var exampleSqlFirewallRule = new Azurerm.Index.SqlFirewallRule("example", new()
+    ///     var exampleSqlFirewallRule = new Azurerm.SqlFirewallRule("example", new()
     ///     {
     ///         Name = "FirewallRule1",
     ///         ResourceGroupName = exampleResourceGroup.Name,

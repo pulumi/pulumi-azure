@@ -158,27 +158,27 @@ export interface ShareState {
     /**
      * The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Data Share's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `snapshotSchedule` block as defined below.
      */
-    snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule>;
+    snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule | undefined>;
     /**
      * The terms of the Data Share.
      */
-    terms?: pulumi.Input<string>;
+    terms?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface ShareArgs {
     /**
      * The Data Share's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
      */
@@ -200,13 +200,13 @@ export interface ShareArgs {
     /**
      * The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `snapshotSchedule` block as defined below.
      */
-    snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule>;
+    snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule | undefined>;
     /**
      * The terms of the Data Share.
      */
-    terms?: pulumi.Input<string>;
+    terms?: pulumi.Input<string | undefined>;
 }

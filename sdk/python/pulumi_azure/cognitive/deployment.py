@@ -24,10 +24,10 @@ class DeploymentArgs:
                  cognitive_account_id: pulumi.Input[_builtins.str],
                  model: pulumi.Input['DeploymentModelArgs'],
                  sku: pulumi.Input['DeploymentSkuArgs'],
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_upgrade_option: Optional[pulumi.Input[_builtins.str]] = None):
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -89,63 +89,63 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicThrottlingEnabled")
-    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_throttling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether dynamic throttling is enabled.
         """
         return pulumi.get(self, "dynamic_throttling_enabled")
 
     @dynamic_throttling_enabled.setter
-    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_throttling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rai_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of RAI policy.
         """
         return pulumi.get(self, "rai_policy_name")
 
     @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rai_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")
-    def version_upgrade_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_upgrade_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         return pulumi.get(self, "version_upgrade_option")
 
     @version_upgrade_option.setter
-    def version_upgrade_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_upgrade_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_upgrade_option", value)
 
 
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['DeploymentSkuArgs']] = None,
-                 version_upgrade_option: Optional[pulumi.Input[_builtins.str]] = None):
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 model: pulumi.Input[Optional['DeploymentModelArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['DeploymentSkuArgs']] = None,
+                 version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
 
@@ -174,86 +174,86 @@ class _DeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="cognitiveAccountId")
-    def cognitive_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cognitive_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
 
     @cognitive_account_id.setter
-    def cognitive_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cognitive_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cognitive_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicThrottlingEnabled")
-    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dynamic_throttling_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether dynamic throttling is enabled.
         """
         return pulumi.get(self, "dynamic_throttling_enabled")
 
     @dynamic_throttling_enabled.setter
-    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dynamic_throttling_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input['DeploymentModelArgs']]:
+    def model(self) -> pulumi.Input[Optional['DeploymentModelArgs']]:
         """
         A `model` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input['DeploymentModelArgs']]):
+    def model(self, value: pulumi.Input[Optional['DeploymentModelArgs']]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rai_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of RAI policy.
         """
         return pulumi.get(self, "rai_policy_name")
 
     @rai_policy_name.setter
-    def rai_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rai_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['DeploymentSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['DeploymentSkuArgs']]:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['DeploymentSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['DeploymentSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")
-    def version_upgrade_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_upgrade_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         return pulumi.get(self, "version_upgrade_option")
 
     @version_upgrade_option.setter
-    def version_upgrade_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_upgrade_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_upgrade_option", value)
 
 
@@ -263,13 +263,13 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 model: Optional[pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
-                 version_upgrade_option: Optional[pulumi.Input[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
+                 version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Cognitive Services Account Deployment.
@@ -396,13 +396,13 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 model: Optional[pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
-                 version_upgrade_option: Optional[pulumi.Input[_builtins.str]] = None,
+                 cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
+                 version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -435,13 +435,13 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cognitive_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            model: Optional[pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
-            version_upgrade_option: Optional[pulumi.Input[_builtins.str]] = None) -> 'Deployment':
+            cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
+            version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

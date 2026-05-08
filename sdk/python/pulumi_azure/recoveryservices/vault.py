@@ -23,18 +23,18 @@ class VaultArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 classic_vmware_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_mode_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['VaultEncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['VaultIdentityArgs']] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring: pulumi.Input[Optional['VaultMonitoringArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Vault resource.
 
@@ -114,19 +114,19 @@ class VaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="classicVmwareReplicationEnabled")
-    def classic_vmware_replication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def classic_vmware_replication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "classic_vmware_replication_enabled")
 
     @classic_vmware_replication_enabled.setter
-    def classic_vmware_replication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def classic_vmware_replication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "classic_vmware_replication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
-    def cross_region_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_region_restore_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
 
@@ -135,12 +135,12 @@ class VaultArgs:
         return pulumi.get(self, "cross_region_restore_enabled")
 
     @cross_region_restore_enabled.setter
-    def cross_region_restore_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_region_restore_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_region_restore_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['VaultEncryptionArgs']]:
         """
         An `encryption` block as defined below. Required with `identity`.
 
@@ -149,24 +149,24 @@ class VaultArgs:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['VaultEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VaultIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['VaultIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VaultIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['VaultIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def immutability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def immutability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
 
@@ -175,109 +175,109 @@ class VaultArgs:
         return pulumi.get(self, "immutability")
 
     @immutability.setter
-    def immutability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def immutability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "immutability", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArgs']]:
+    def monitoring(self) -> pulumi.Input[Optional['VaultMonitoringArgs']]:
         """
         A `monitoring` block as defined below.
         """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArgs']]):
+    def monitoring(self, value: pulumi.Input[Optional['VaultMonitoringArgs']]):
         pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is it enabled to access the vault from public networks. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteEnabled")
     @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-    def soft_delete_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def soft_delete_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "soft_delete_enabled")
 
     @soft_delete_enabled.setter
-    def soft_delete_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def soft_delete_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "soft_delete_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageModeType")
-    def storage_mode_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_mode_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         """
         return pulumi.get(self, "storage_mode_type")
 
     @storage_mode_type.setter
-    def storage_mode_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_mode_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_mode_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _VaultState:
     def __init__(__self__, *,
-                 classic_vmware_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_mode_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional['VaultEncryptionArgs']] = None,
+                 identity: pulumi.Input[Optional['VaultIdentityArgs']] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring: pulumi.Input[Optional['VaultMonitoringArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
 
@@ -335,19 +335,19 @@ class _VaultState:
 
     @_builtins.property
     @pulumi.getter(name="classicVmwareReplicationEnabled")
-    def classic_vmware_replication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def classic_vmware_replication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "classic_vmware_replication_enabled")
 
     @classic_vmware_replication_enabled.setter
-    def classic_vmware_replication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def classic_vmware_replication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "classic_vmware_replication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionRestoreEnabled")
-    def cross_region_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_region_restore_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
 
@@ -356,12 +356,12 @@ class _VaultState:
         return pulumi.get(self, "cross_region_restore_enabled")
 
     @cross_region_restore_enabled.setter
-    def cross_region_restore_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_region_restore_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_region_restore_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['VaultEncryptionArgs']]:
         """
         An `encryption` block as defined below. Required with `identity`.
 
@@ -370,24 +370,24 @@ class _VaultState:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['VaultEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VaultIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['VaultIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VaultIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['VaultIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def immutability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def immutability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
 
@@ -396,113 +396,113 @@ class _VaultState:
         return pulumi.get(self, "immutability")
 
     @immutability.setter
-    def immutability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def immutability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "immutability", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArgs']]:
+    def monitoring(self) -> pulumi.Input[Optional['VaultMonitoringArgs']]:
         """
         A `monitoring` block as defined below.
         """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArgs']]):
+    def monitoring(self, value: pulumi.Input[Optional['VaultMonitoringArgs']]):
         pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is it enabled to access the vault from public networks. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteEnabled")
     @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-    def soft_delete_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def soft_delete_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "soft_delete_enabled")
 
     @soft_delete_enabled.setter
-    def soft_delete_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def soft_delete_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "soft_delete_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageModeType")
-    def storage_mode_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_mode_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         """
         return pulumi.get(self, "storage_mode_type")
 
     @storage_mode_type.setter
-    def storage_mode_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_mode_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_mode_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -512,20 +512,20 @@ class Vault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 classic_vmware_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring: Optional[pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_mode_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Recovery Services Vault.
@@ -640,20 +640,20 @@ class Vault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 classic_vmware_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption: Optional[pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
-                 immutability: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring: Optional[pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_mode_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
+                 immutability: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -691,20 +691,20 @@ class Vault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            classic_vmware_replication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            cross_region_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption: Optional[pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
-            identity: Optional[pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
-            immutability: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            monitoring: Optional[pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            soft_delete_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_mode_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Vault':
+            classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
+            immutability: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Vault':
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -173,27 +173,27 @@ export interface SpringCloudAppMysqlAssociationState {
     /**
      * Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
      */
-    mysqlServerId?: pulumi.Input<string>;
+    mysqlServerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      */
-    springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface SpringCloudAppMysqlAssociationArgs {
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */

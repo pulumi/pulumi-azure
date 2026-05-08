@@ -23,9 +23,9 @@ class VpnServerConfigurationPolicyGroupArgs:
     def __init__(__self__, *,
                  policies: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]],
                  vpn_server_configuration_id: pulumi.Input[_builtins.str],
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None):
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a VpnServerConfigurationPolicyGroup resource.
 
@@ -70,49 +70,49 @@ class VpnServerConfigurationPolicyGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
 
 @pulumi.input_type
 class _VpnServerConfigurationPolicyGroupState:
     def __init__(__self__, *,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnServerConfigurationPolicyGroup resources.
 
@@ -135,62 +135,62 @@ class _VpnServerConfigurationPolicyGroupState:
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]]:
         """
         One or more `policy` blocks as documented below.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnServerConfigurationId")
-    def vpn_server_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_server_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_server_configuration_id")
 
     @vpn_server_configuration_id.setter
-    def vpn_server_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_server_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_server_configuration_id", value)
 
 
@@ -200,11 +200,11 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a VPN Server Configuration Policy Group.
@@ -335,11 +335,11 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,11 +368,11 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpnServerConfigurationPolicyGroup':
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpnServerConfigurationPolicyGroup':
         """
         Get an existing VpnServerConfigurationPolicyGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

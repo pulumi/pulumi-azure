@@ -345,53 +345,53 @@ export interface FrontdoorOriginState {
     /**
      * The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      */
-    cdnFrontdoorOriginGroupId?: pulumi.Input<string>;
+    cdnFrontdoorOriginGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether certificate name checks are enabled for this origin.
      */
-    certificateNameCheckEnabled?: pulumi.Input<boolean>;
+    certificateNameCheckEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
      * !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
      */
-    httpPort?: pulumi.Input<number>;
+    httpPort?: pulumi.Input<number | undefined>;
     /**
      * The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
      */
-    httpsPort?: pulumi.Input<number>;
+    httpsPort?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      *
      * > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      */
-    originHostHeader?: pulumi.Input<string>;
+    originHostHeader?: pulumi.Input<string | undefined>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * A `privateLink` block as defined below.
      *
      * > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      */
-    privateLink?: pulumi.Input<inputs.cdn.FrontdoorOriginPrivateLink>;
+    privateLink?: pulumi.Input<inputs.cdn.FrontdoorOriginPrivateLink | undefined>;
     /**
      * The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
      */
-    weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -409,7 +409,7 @@ export interface FrontdoorOriginArgs {
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
@@ -419,33 +419,33 @@ export interface FrontdoorOriginArgs {
     /**
      * The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
      */
-    httpPort?: pulumi.Input<number>;
+    httpPort?: pulumi.Input<number | undefined>;
     /**
      * The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
      */
-    httpsPort?: pulumi.Input<number>;
+    httpsPort?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      *
      * > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      */
-    originHostHeader?: pulumi.Input<string>;
+    originHostHeader?: pulumi.Input<string | undefined>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * A `privateLink` block as defined below.
      *
      * > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      */
-    privateLink?: pulumi.Input<inputs.cdn.FrontdoorOriginPrivateLink>;
+    privateLink?: pulumi.Input<inputs.cdn.FrontdoorOriginPrivateLink | undefined>;
     /**
      * The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
      */
-    weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number | undefined>;
 }

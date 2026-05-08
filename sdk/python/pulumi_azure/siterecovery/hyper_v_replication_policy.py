@@ -23,7 +23,7 @@ class HyperVReplicationPolicyArgs:
                  recovery_point_retention_in_hours: pulumi.Input[_builtins.int],
                  recovery_vault_id: pulumi.Input[_builtins.str],
                  replication_interval_in_seconds: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HyperVReplicationPolicy resource.
 
@@ -90,25 +90,25 @@ class HyperVReplicationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _HyperVReplicationPolicyState:
     def __init__(__self__, *,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 application_consistent_snapshot_frequency_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HyperVReplicationPolicy resources.
 
@@ -131,62 +131,62 @@ class _HyperVReplicationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the frequency at which to create application consistent recovery points.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_hours")
 
     @application_consistent_snapshot_frequency_in_hours.setter
-    def application_consistent_snapshot_frequency_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def application_consistent_snapshot_frequency_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "application_consistent_snapshot_frequency_in_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replication policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryPointRetentionInHours")
-    def recovery_point_retention_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_point_retention_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration in hours for which the recovery points need to be stored.
         """
         return pulumi.get(self, "recovery_point_retention_in_hours")
 
     @recovery_point_retention_in_hours.setter
-    def recovery_point_retention_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_point_retention_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_point_retention_in_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultId")
-    def recovery_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
-    def recovery_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationIntervalInSeconds")
-    def replication_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replication_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         """
         return pulumi.get(self, "replication_interval_in_seconds")
 
     @replication_interval_in_seconds.setter
-    def replication_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replication_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replication_interval_in_seconds", value)
 
 
@@ -196,11 +196,11 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 application_consistent_snapshot_frequency_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
@@ -313,11 +313,11 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_point_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 application_consistent_snapshot_frequency_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_point_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -350,11 +350,11 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_point_retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-            recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None) -> 'HyperVReplicationPolicy':
+            application_consistent_snapshot_frequency_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_point_retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> 'HyperVReplicationPolicy':
         """
         Get an existing HyperVReplicationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

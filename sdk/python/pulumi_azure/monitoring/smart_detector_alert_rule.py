@@ -27,11 +27,11 @@ class SmartDetectorAlertRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_resource_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  severity: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmartDetectorAlertRule resource.
 
@@ -138,79 +138,79 @@ class SmartDetectorAlertRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the Smart Detector Alert Rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Smart Detector Alert Rule enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingDuration")
-    def throttling_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def throttling_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         """
         return pulumi.get(self, "throttling_duration")
 
     @throttling_duration.setter
-    def throttling_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def throttling_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "throttling_duration", value)
 
 
 @pulumi.input_type
 class _SmartDetectorAlertRuleState:
     def __init__(__self__, *,
-                 action_group: Optional[pulumi.Input['SmartDetectorAlertRuleActionGroupArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling_duration: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_group: pulumi.Input[Optional['SmartDetectorAlertRuleActionGroupArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling_duration: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmartDetectorAlertRule resources.
 
@@ -251,134 +251,134 @@ class _SmartDetectorAlertRuleState:
 
     @_builtins.property
     @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[pulumi.Input['SmartDetectorAlertRuleActionGroupArgs']]:
+    def action_group(self) -> pulumi.Input[Optional['SmartDetectorAlertRuleActionGroupArgs']]:
         """
         An `action_group` block as defined below.
         """
         return pulumi.get(self, "action_group")
 
     @action_group.setter
-    def action_group(self, value: Optional[pulumi.Input['SmartDetectorAlertRuleActionGroupArgs']]):
+    def action_group(self, value: pulumi.Input[Optional['SmartDetectorAlertRuleActionGroupArgs']]):
         pulumi.set(self, "action_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the Smart Detector Alert Rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorType")
-    def detector_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         """
         return pulumi.get(self, "detector_type")
 
     @detector_type.setter
-    def detector_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Smart Detector Alert Rule enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeResourceIds")
-    def scope_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scope_resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the scopes of this Smart Detector Alert Rule.
         """
         return pulumi.get(self, "scope_resource_ids")
 
     @scope_resource_ids.setter
-    def scope_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scope_resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scope_resource_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throttlingDuration")
-    def throttling_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def throttling_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         """
         return pulumi.get(self, "throttling_duration")
 
     @throttling_duration.setter
-    def throttling_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def throttling_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "throttling_duration", value)
 
 
@@ -388,17 +388,17 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_group: Optional[pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling_duration: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Monitor Smart Detector Alert Rule.
@@ -533,17 +533,17 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_group: Optional[pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttling_duration: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throttling_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -586,17 +586,17 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_group: Optional[pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            detector_type: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            severity: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            throttling_duration: Optional[pulumi.Input[_builtins.str]] = None) -> 'SmartDetectorAlertRule':
+            action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            detector_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throttling_duration: pulumi.Input[Optional[_builtins.str]] = None) -> 'SmartDetectorAlertRule':
         """
         Get an existing SmartDetectorAlertRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

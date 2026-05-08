@@ -122,15 +122,15 @@ export interface MoverProjectState {
     /**
      * Specifies a description for this Storage Mover Project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
      */
-    storageMoverId?: pulumi.Input<string>;
+    storageMoverId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,11 +140,11 @@ export interface MoverProjectArgs {
     /**
      * Specifies a description for this Storage Mover Project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
      */

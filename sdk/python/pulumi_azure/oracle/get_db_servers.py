@@ -119,8 +119,8 @@ def get_db_servers(cloud_exadata_infrastructure_name: Optional[_builtins.str] = 
         db_servers=pulumi.get(__ret__, 'db_servers'),
         id=pulumi.get(__ret__, 'id'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_db_servers_output(cloud_exadata_infrastructure_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_servers_output(cloud_exadata_infrastructure_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbServersResult]:
     """
     Use this data source to access information about existing DB Servers.

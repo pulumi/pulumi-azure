@@ -384,7 +384,7 @@ class ApplicationGatewayAuthenticationCertificateArgsDict(TypedDict):
     """
     The Name of the Authentication Certificate to use.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -394,7 +394,7 @@ class ApplicationGatewayAuthenticationCertificateArgs:
     def __init__(__self__, *,
                  data: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data: The contents of the Authentication Certificate which should be used.
         :param pulumi.Input[_builtins.str] name: The Name of the Authentication Certificate to use.
@@ -431,14 +431,14 @@ class ApplicationGatewayAuthenticationCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -447,7 +447,7 @@ class ApplicationGatewayAutoscaleConfigurationArgsDict(TypedDict):
     """
     Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
     """
-    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    max_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
     """
@@ -456,7 +456,7 @@ class ApplicationGatewayAutoscaleConfigurationArgsDict(TypedDict):
 class ApplicationGatewayAutoscaleConfigurationArgs:
     def __init__(__self__, *,
                  min_capacity: pulumi.Input[_builtins.int],
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] min_capacity: Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
         :param pulumi.Input[_builtins.int] max_capacity: Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
@@ -479,14 +479,14 @@ class ApplicationGatewayAutoscaleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_capacity", value)
 
 
@@ -503,31 +503,31 @@ class ApplicationGatewayBackendArgsDict(TypedDict):
     """
     The Protocol which should be used. Possible values are `Tcp` and `Tls`.
     """
-    client_ip_preservation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    client_ip_preservation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    probe_id: NotRequired[pulumi.Input[_builtins.str]]
+    probe_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Probe.
     """
-    probe_name: NotRequired[pulumi.Input[_builtins.str]]
+    probe_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of an associated Probe.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
     """
-    trusted_root_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_root_certificate_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of `trusted_root_certificate` names.
     """
@@ -538,13 +538,13 @@ class ApplicationGatewayBackendArgs:
                  name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
-                 client_ip_preservation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 trusted_root_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 client_ip_preservation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 trusted_root_certificate_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Backend Settings Collection.
         :param pulumi.Input[_builtins.int] port: The port which should be used for this Backend Settings Collection.
@@ -613,86 +613,86 @@ class ApplicationGatewayBackendArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientIpPreservationEnabled")
-    def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_ip_preservation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
         """
         return pulumi.get(self, "client_ip_preservation_enabled")
 
     @client_ip_preservation_enabled.setter
-    def client_ip_preservation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_ip_preservation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_ip_preservation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="probeId")
-    def probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def probe_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Probe.
         """
         return pulumi.get(self, "probe_id")
 
     @probe_id.setter
-    def probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def probe_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "probe_id", value)
 
     @_builtins.property
     @pulumi.getter(name="probeName")
-    def probe_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def probe_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an associated Probe.
         """
         return pulumi.get(self, "probe_name")
 
     @probe_name.setter
-    def probe_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def probe_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "probe_name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedRootCertificateNames")
-    def trusted_root_certificate_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_root_certificate_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of `trusted_root_certificate` names.
         """
         return pulumi.get(self, "trusted_root_certificate_names")
 
     @trusted_root_certificate_names.setter
-    def trusted_root_certificate_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_root_certificate_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_root_certificate_names", value)
 
 
@@ -701,15 +701,15 @@ class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
     """
     The name of the Backend Address Pool.
     """
-    fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of FQDN's which should be part of the Backend Address Pool.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IP Addresses which should be part of the Backend Address Pool.
     """
@@ -718,9 +718,9 @@ class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
 class ApplicationGatewayBackendAddressPoolArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: A list of FQDN's which should be part of the Backend Address Pool.
@@ -749,38 +749,38 @@ class ApplicationGatewayBackendAddressPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of FQDN's which should be part of the Backend Address Pool.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Addresses which should be part of the Backend Address Pool.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
 
@@ -801,51 +801,51 @@ class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
     """
     The Protocol which should be used. Possible values are `Http` and `Https`.
     """
-    affinity_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    affinity_cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the affinity cookie.
     """
-    authentication_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict']]]]
+    authentication_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]]
     """
     One or more `authentication_certificate_backend` blocks as defined below.
     """
-    connection_draining: NotRequired[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict']]
+    connection_draining: NotRequired[pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]]
     """
     A `connection_draining` block as defined below.
     """
-    dedicated_backend_connection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    dedicated_backend_connection_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to use a dedicated backend connection. Defaults to `false`.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Path which should be used as a prefix for all HTTP requests.
     """
-    pick_host_name_from_backend_address: NotRequired[pulumi.Input[_builtins.bool]]
+    pick_host_name_from_backend_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether host header should be picked from the host name of the backend server. Defaults to `false`.
     """
-    probe_id: NotRequired[pulumi.Input[_builtins.str]]
+    probe_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Probe.
     """
-    probe_name: NotRequired[pulumi.Input[_builtins.str]]
+    probe_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of an associated HTTP Probe.
     """
-    request_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    request_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
     """
-    trusted_root_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_root_certificate_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of `trusted_root_certificate` names.
     """
@@ -857,18 +857,18 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
-                 affinity_cookie_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]] = None,
-                 connection_draining: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']] = None,
-                 dedicated_backend_connection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 pick_host_name_from_backend_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 trusted_root_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 affinity_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]] = None,
+                 connection_draining: pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']] = None,
+                 dedicated_backend_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 pick_host_name_from_backend_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 probe_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 trusted_root_certificate_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[_builtins.str] name: The name of the Authentication Certificate.
@@ -966,146 +966,146 @@ class ApplicationGatewayBackendHttpSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="affinityCookieName")
-    def affinity_cookie_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def affinity_cookie_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the affinity cookie.
         """
         return pulumi.get(self, "affinity_cookie_name")
 
     @affinity_cookie_name.setter
-    def affinity_cookie_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def affinity_cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "affinity_cookie_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]:
+    def authentication_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]:
         """
         One or more `authentication_certificate_backend` blocks as defined below.
         """
         return pulumi.get(self, "authentication_certificates")
 
     @authentication_certificates.setter
-    def authentication_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]):
+    def authentication_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]):
         pulumi.set(self, "authentication_certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionDraining")
-    def connection_draining(self) -> Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]:
+    def connection_draining(self) -> pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]:
         """
         A `connection_draining` block as defined below.
         """
         return pulumi.get(self, "connection_draining")
 
     @connection_draining.setter
-    def connection_draining(self, value: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]):
+    def connection_draining(self, value: pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]):
         pulumi.set(self, "connection_draining", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedBackendConnectionEnabled")
-    def dedicated_backend_connection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dedicated_backend_connection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use a dedicated backend connection. Defaults to `false`.
         """
         return pulumi.get(self, "dedicated_backend_connection_enabled")
 
     @dedicated_backend_connection_enabled.setter
-    def dedicated_backend_connection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dedicated_backend_connection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dedicated_backend_connection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Path which should be used as a prefix for all HTTP requests.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="pickHostNameFromBackendAddress")
-    def pick_host_name_from_backend_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pick_host_name_from_backend_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether host header should be picked from the host name of the backend server. Defaults to `false`.
         """
         return pulumi.get(self, "pick_host_name_from_backend_address")
 
     @pick_host_name_from_backend_address.setter
-    def pick_host_name_from_backend_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pick_host_name_from_backend_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pick_host_name_from_backend_address", value)
 
     @_builtins.property
     @pulumi.getter(name="probeId")
-    def probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def probe_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Probe.
         """
         return pulumi.get(self, "probe_id")
 
     @probe_id.setter
-    def probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def probe_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "probe_id", value)
 
     @_builtins.property
     @pulumi.getter(name="probeName")
-    def probe_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def probe_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an associated HTTP Probe.
         """
         return pulumi.get(self, "probe_name")
 
     @probe_name.setter
-    def probe_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def probe_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "probe_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTimeout")
-    def request_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         """
         return pulumi.get(self, "request_timeout")
 
     @request_timeout.setter
-    def request_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedRootCertificateNames")
-    def trusted_root_certificate_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_root_certificate_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of `trusted_root_certificate` names.
         """
         return pulumi.get(self, "trusted_root_certificate_names")
 
     @trusted_root_certificate_names.setter
-    def trusted_root_certificate_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_root_certificate_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_root_certificate_names", value)
 
 
@@ -1114,7 +1114,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict(Type
     """
     The Name of the Authentication Certificate to use.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -1123,7 +1123,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict(Type
 class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the Authentication Certificate to use.
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
@@ -1146,14 +1146,14 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1213,7 +1213,7 @@ class ApplicationGatewayCustomErrorConfigurationArgsDict(TypedDict):
     """
     Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -1223,7 +1223,7 @@ class ApplicationGatewayCustomErrorConfigurationArgs:
     def __init__(__self__, *,
                  custom_error_page_url: pulumi.Input[_builtins.str],
                  status_code: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_error_page_url: Error page URL of the application gateway customer error.
         :param pulumi.Input[_builtins.str] status_code: Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
@@ -1260,14 +1260,14 @@ class ApplicationGatewayCustomErrorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1276,31 +1276,31 @@ class ApplicationGatewayFrontendIpConfigurationArgsDict(TypedDict):
     """
     The name of the Frontend IP Configuration.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Private IP Address to use for the Application Gateway.
     """
-    private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address_allocation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
     """
-    private_link_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated private link configuration.
     """
-    private_link_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the private link configuration to use for this frontend IP configuration.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet.
     """
@@ -1309,13 +1309,13 @@ class ApplicationGatewayFrontendIpConfigurationArgsDict(TypedDict):
 class ApplicationGatewayFrontendIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_allocation: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address_allocation: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Frontend IP Configuration.
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
@@ -1356,86 +1356,86 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Private IP Address to use for the Application Gateway.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddressAllocation")
-    def private_ip_address_allocation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address_allocation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
 
     @private_ip_address_allocation.setter
-    def private_ip_address_allocation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address_allocation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address_allocation", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfigurationId")
-    def private_link_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated private link configuration.
         """
         return pulumi.get(self, "private_link_configuration_id")
 
     @private_link_configuration_id.setter
-    def private_link_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkConfigurationName")
-    def private_link_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private link configuration to use for this frontend IP configuration.
         """
         return pulumi.get(self, "private_link_configuration_name")
 
     @private_link_configuration_name.setter
-    def private_link_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -1448,7 +1448,7 @@ class ApplicationGatewayFrontendPortArgsDict(TypedDict):
     """
     The port used for this Frontend Port.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -1458,7 +1458,7 @@ class ApplicationGatewayFrontendPortArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Frontend Port.
         :param pulumi.Input[_builtins.int] port: The port used for this Frontend Port.
@@ -1495,14 +1495,14 @@ class ApplicationGatewayFrontendPortArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1515,7 +1515,7 @@ class ApplicationGatewayGatewayIpConfigurationArgsDict(TypedDict):
     """
     The ID of the Subnet which the Application Gateway should be connected to.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -1525,7 +1525,7 @@ class ApplicationGatewayGatewayIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of this Gateway IP Configuration.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which the Application Gateway should be connected to.
@@ -1562,14 +1562,14 @@ class ApplicationGatewayGatewayIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1637,53 +1637,53 @@ class ApplicationGatewayHttpListenerArgsDict(TypedDict):
     """
     The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
     """
-    custom_error_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict']]]]
+    custom_error_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]]
     """
     One or more `custom_error_configuration` blocks as defined below.
     """
-    firewall_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
     """
-    frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    frontend_ip_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Frontend Configuration.
     """
-    frontend_port_id: NotRequired[pulumi.Input[_builtins.str]]
+    frontend_port_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Frontend Port.
     """
-    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
     """
-    host_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    host_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 
     > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    require_sni: NotRequired[pulumi.Input[_builtins.bool]]
+    require_sni: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Server Name Indication be Required? Defaults to `false`.
     """
-    ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated SSL Certificate.
     """
-    ssl_certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_certificate_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the associated SSL Certificate which should be used for this HTTP Listener.
     """
-    ssl_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated SSL Profile.
     """
-    ssl_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the associated SSL Profile which should be used for this HTTP Listener.
     """
@@ -1695,18 +1695,18 @@ class ApplicationGatewayHttpListenerArgs:
                  frontend_port_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_port_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 require_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_port_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 require_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The Name of the Frontend IP Configuration used for this HTTP Listener.
         :param pulumi.Input[_builtins.str] frontend_port_name: The Name of the Frontend Port use for this HTTP Listener.
@@ -1806,67 +1806,67 @@ class ApplicationGatewayHttpListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="customErrorConfigurations")
-    def custom_error_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]:
+    def custom_error_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]:
         """
         One or more `custom_error_configuration` blocks as defined below.
         """
         return pulumi.get(self, "custom_error_configurations")
 
     @custom_error_configurations.setter
-    def custom_error_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]):
+    def custom_error_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]):
         pulumi.set(self, "custom_error_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyId")
-    def firewall_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         """
         return pulumi.get(self, "firewall_policy_id")
 
     @firewall_policy_id.setter
-    def firewall_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationId")
-    def frontend_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Frontend Configuration.
         """
         return pulumi.get(self, "frontend_ip_configuration_id")
 
     @frontend_ip_configuration_id.setter
-    def frontend_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPortId")
-    def frontend_port_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_port_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Frontend Port.
         """
         return pulumi.get(self, "frontend_port_id")
 
     @frontend_port_id.setter
-    def frontend_port_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_port_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_port_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         """
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 
@@ -1875,79 +1875,79 @@ class ApplicationGatewayHttpListenerArgs:
         return pulumi.get(self, "host_names")
 
     @host_names.setter
-    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "host_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSni")
-    def require_sni(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_sni(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Server Name Indication be Required? Defaults to `false`.
         """
         return pulumi.get(self, "require_sni")
 
     @require_sni.setter
-    def require_sni(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_sni(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_sni", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCertificateId")
-    def ssl_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated SSL Certificate.
         """
         return pulumi.get(self, "ssl_certificate_id")
 
     @ssl_certificate_id.setter
-    def ssl_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCertificateName")
-    def ssl_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the associated SSL Certificate which should be used for this HTTP Listener.
         """
         return pulumi.get(self, "ssl_certificate_name")
 
     @ssl_certificate_name.setter
-    def ssl_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfileId")
-    def ssl_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated SSL Profile.
         """
         return pulumi.get(self, "ssl_profile_id")
 
     @ssl_profile_id.setter
-    def ssl_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfileName")
-    def ssl_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the associated SSL Profile which should be used for this HTTP Listener.
         """
         return pulumi.get(self, "ssl_profile_name")
 
     @ssl_profile_name.setter
-    def ssl_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile_name", value)
 
 
@@ -1960,7 +1960,7 @@ class ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict(TypedDict):
     """
     Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -1970,7 +1970,7 @@ class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
     def __init__(__self__, *,
                  custom_error_page_url: pulumi.Input[_builtins.str],
                  status_code: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_error_page_url: Error page URL of the application gateway customer error.
         :param pulumi.Input[_builtins.str] status_code: Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
@@ -2007,14 +2007,14 @@ class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -2023,20 +2023,20 @@ class ApplicationGatewayIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ApplicationGatewayIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
@@ -2063,32 +2063,32 @@ class ApplicationGatewayIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -2109,39 +2109,39 @@ class ApplicationGatewayListenerArgsDict(TypedDict):
     """
     The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
     """
-    frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    frontend_ip_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Frontend Configuration.
     """
-    frontend_port_id: NotRequired[pulumi.Input[_builtins.str]]
+    frontend_port_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Frontend Port.
     """
-    host_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    host_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
 
     > **Note:** `host_names` cannot be set when `protocol` is set to `Tcp`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_certificate_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated SSL Certificate.
     """
-    ssl_certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_certificate_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the associated SSL Certificate which should be used for this Listener.
 
     > **Note:** `ssl_certificate_name` must be set when `protocol` is set to `Tls`.
     """
-    ssl_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_profile_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated SSL Profile.
     """
-    ssl_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the associated SSL Profile which should be used for this Listener.
     """
@@ -2153,14 +2153,14 @@ class ApplicationGatewayListenerArgs:
                  frontend_port_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontend_port_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontend_port_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The Name of the Frontend IP Configuration used for this Listener.
         :param pulumi.Input[_builtins.str] frontend_port_name: The Name of the Frontend Port use for this Listener.
@@ -2250,31 +2250,31 @@ class ApplicationGatewayListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationId")
-    def frontend_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Frontend Configuration.
         """
         return pulumi.get(self, "frontend_ip_configuration_id")
 
     @frontend_ip_configuration_id.setter
-    def frontend_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendPortId")
-    def frontend_port_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontend_port_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Frontend Port.
         """
         return pulumi.get(self, "frontend_port_id")
 
     @frontend_port_id.setter
-    def frontend_port_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontend_port_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontend_port_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
 
@@ -2283,36 +2283,36 @@ class ApplicationGatewayListenerArgs:
         return pulumi.get(self, "host_names")
 
     @host_names.setter
-    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "host_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCertificateId")
-    def ssl_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated SSL Certificate.
         """
         return pulumi.get(self, "ssl_certificate_id")
 
     @ssl_certificate_id.setter
-    def ssl_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCertificateName")
-    def ssl_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the associated SSL Certificate which should be used for this Listener.
 
@@ -2321,40 +2321,40 @@ class ApplicationGatewayListenerArgs:
         return pulumi.get(self, "ssl_certificate_name")
 
     @ssl_certificate_name.setter
-    def ssl_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfileId")
-    def ssl_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated SSL Profile.
         """
         return pulumi.get(self, "ssl_profile_id")
 
     @ssl_profile_id.setter
-    def ssl_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfileName")
-    def ssl_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the associated SSL Profile which should be used for this Listener.
         """
         return pulumi.get(self, "ssl_profile_name")
 
     @ssl_profile_name.setter
-    def ssl_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile_name", value)
 
 
 class ApplicationGatewayPrivateEndpointConnectionArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Application Gateway. Changing this forces a new resource to be created.
     """
@@ -2362,8 +2362,8 @@ class ApplicationGatewayPrivateEndpointConnectionArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGatewayPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[_builtins.str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -2375,26 +2375,26 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Application Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2413,7 +2413,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgsDict(TypedDict):
     """
     The name of the private link configuration.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -2423,7 +2423,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]],
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
@@ -2472,14 +2472,14 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -2500,7 +2500,7 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgsDict(TypedDic
     """
     The ID of the subnet the private link configuration should connect to.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Static IP Address which should be used.
     """
@@ -2512,7 +2512,7 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
                  primary: pulumi.Input[_builtins.bool],
                  private_ip_address_allocation: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration.
         :param pulumi.Input[_builtins.bool] primary: Is this the Primary IP Configuration?
@@ -2577,14 +2577,14 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Static IP Address which should be used.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
 
@@ -2611,45 +2611,45 @@ class ApplicationGatewayProbeArgsDict(TypedDict):
     """
     The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
 
     > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    match: NotRequired[pulumi.Input['ApplicationGatewayProbeMatchArgsDict']]
+    match: NotRequired[pulumi.Input[Optional['ApplicationGatewayProbeMatchArgs']]]
     """
     A `match` block as defined above.
 
     > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
     """
-    minimum_servers: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_servers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of servers that are always marked as healthy. Defaults to `0`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The relative URL path of the Probe. Valid value starts with `/`.
 
     > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
     """
-    pick_host_name_from_backend_http_settings: NotRequired[pulumi.Input[_builtins.bool]]
+    pick_host_name_from_backend_http_settings: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
 
     > **Note:** `pick_host_name_from_backend_http_settings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
 
     > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
     """
-    proxy_protocol_header_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    proxy_protocol_header_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
 
@@ -2664,14 +2664,14 @@ class ApplicationGatewayProbeArgs:
                  protocol: pulumi.Input[_builtins.str],
                  timeout: pulumi.Input[_builtins.int],
                  unhealthy_threshold: pulumi.Input[_builtins.int],
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 match: Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']] = None,
-                 minimum_servers: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 pick_host_name_from_backend_http_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 proxy_protocol_header_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 match: pulumi.Input[Optional['ApplicationGatewayProbeMatchArgs']] = None,
+                 minimum_servers: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 pick_host_name_from_backend_http_settings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 proxy_protocol_header_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] interval: The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
         :param pulumi.Input[_builtins.str] name: The name of the Probe.
@@ -2787,7 +2787,7 @@ class ApplicationGatewayProbeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
 
@@ -2796,24 +2796,24 @@ class ApplicationGatewayProbeArgs:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def match(self) -> Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']]:
+    def match(self) -> pulumi.Input[Optional['ApplicationGatewayProbeMatchArgs']]:
         """
         A `match` block as defined above.
 
@@ -2822,24 +2822,24 @@ class ApplicationGatewayProbeArgs:
         return pulumi.get(self, "match")
 
     @match.setter
-    def match(self, value: Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']]):
+    def match(self, value: pulumi.Input[Optional['ApplicationGatewayProbeMatchArgs']]):
         pulumi.set(self, "match", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumServers")
-    def minimum_servers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_servers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of servers that are always marked as healthy. Defaults to `0`.
         """
         return pulumi.get(self, "minimum_servers")
 
     @minimum_servers.setter
-    def minimum_servers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_servers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative URL path of the Probe. Valid value starts with `/`.
 
@@ -2848,12 +2848,12 @@ class ApplicationGatewayProbeArgs:
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="pickHostNameFromBackendHttpSettings")
-    def pick_host_name_from_backend_http_settings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pick_host_name_from_backend_http_settings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
 
@@ -2862,12 +2862,12 @@ class ApplicationGatewayProbeArgs:
         return pulumi.get(self, "pick_host_name_from_backend_http_settings")
 
     @pick_host_name_from_backend_http_settings.setter
-    def pick_host_name_from_backend_http_settings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pick_host_name_from_backend_http_settings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pick_host_name_from_backend_http_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
 
@@ -2876,12 +2876,12 @@ class ApplicationGatewayProbeArgs:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyProtocolHeaderEnabled")
-    def proxy_protocol_header_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def proxy_protocol_header_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
 
@@ -2890,7 +2890,7 @@ class ApplicationGatewayProbeArgs:
         return pulumi.get(self, "proxy_protocol_header_enabled")
 
     @proxy_protocol_header_enabled.setter
-    def proxy_protocol_header_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def proxy_protocol_header_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "proxy_protocol_header_enabled", value)
 
 
@@ -2899,7 +2899,7 @@ class ApplicationGatewayProbeMatchArgsDict(TypedDict):
     """
     A list of allowed status codes for this Health Probe.
     """
-    body: NotRequired[pulumi.Input[_builtins.str]]
+    body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A snippet from the Response Body which must be present in the Response.
     """
@@ -2908,7 +2908,7 @@ class ApplicationGatewayProbeMatchArgsDict(TypedDict):
 class ApplicationGatewayProbeMatchArgs:
     def __init__(__self__, *,
                  status_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 body: Optional[pulumi.Input[_builtins.str]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] status_codes: A list of allowed status codes for this Health Probe.
         :param pulumi.Input[_builtins.str] body: A snippet from the Response Body which must be present in the Response.
@@ -2931,14 +2931,14 @@ class ApplicationGatewayProbeMatchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A snippet from the Response Body which must be present in the Response.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
 
@@ -2951,24 +2951,24 @@ class ApplicationGatewayRedirectConfigurationArgsDict(TypedDict):
     """
     The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    include_path: NotRequired[pulumi.Input[_builtins.bool]]
+    include_path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to include the path in the redirected URL. Defaults to `false`
     """
-    include_query_string: NotRequired[pulumi.Input[_builtins.bool]]
+    include_query_string: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to include the query string in the redirected URL. Default to `false`
     """
-    target_listener_id: NotRequired[pulumi.Input[_builtins.str]]
-    target_listener_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_listener_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_listener_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the listener to redirect to. Cannot be set if `target_url` is set.
     """
-    target_url: NotRequired[pulumi.Input[_builtins.str]]
+    target_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
     """
@@ -2978,12 +2978,12 @@ class ApplicationGatewayRedirectConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  redirect_type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_query_string: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_listener_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_listener_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_query_string: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_listener_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_listener_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Unique name of the redirect configuration block
         :param pulumi.Input[_builtins.str] redirect_type: The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
@@ -3034,71 +3034,71 @@ class ApplicationGatewayRedirectConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="includePath")
-    def include_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include the path in the redirected URL. Defaults to `false`
         """
         return pulumi.get(self, "include_path")
 
     @include_path.setter
-    def include_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_path", value)
 
     @_builtins.property
     @pulumi.getter(name="includeQueryString")
-    def include_query_string(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_query_string(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to include the query string in the redirected URL. Default to `false`
         """
         return pulumi.get(self, "include_query_string")
 
     @include_query_string.setter
-    def include_query_string(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_query_string(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_query_string", value)
 
     @_builtins.property
     @pulumi.getter(name="targetListenerId")
-    def target_listener_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_listener_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_listener_id")
 
     @target_listener_id.setter
-    def target_listener_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_listener_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_listener_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetListenerName")
-    def target_listener_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_listener_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the listener to redirect to. Cannot be set if `target_url` is set.
         """
         return pulumi.get(self, "target_listener_name")
 
     @target_listener_name.setter
-    def target_listener_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_listener_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_listener_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetUrl")
-    def target_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
         """
         return pulumi.get(self, "target_url")
 
     @target_url.setter
-    def target_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_url", value)
 
 
@@ -3115,59 +3115,59 @@ class ApplicationGatewayRequestRoutingRuleArgsDict(TypedDict):
     """
     The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
     """
-    backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    backend_address_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Backend Address Pool.
     """
-    backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    backend_address_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
     """
-    backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
+    backend_http_settings_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Backend HTTP Settings Configuration.
     """
-    backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
+    backend_http_settings_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
     """
-    http_listener_id: NotRequired[pulumi.Input[_builtins.str]]
+    http_listener_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated HTTP Listener.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
     > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
     """
-    redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Redirect Configuration.
     """
-    redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
     """
-    rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_rule_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Rewrite Rule Set.
     """
-    rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_rule_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
 
     > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
     """
-    url_path_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    url_path_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated URL Path Map.
     """
-    url_path_map_name: NotRequired[pulumi.Input[_builtins.str]]
+    url_path_map_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the URL Path Map which should be associated with this Routing Rule.
     """
@@ -3178,19 +3178,19 @@ class ApplicationGatewayRequestRoutingRuleArgs:
                  http_listener_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  rule_type: pulumi.Input[_builtins.str],
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_address_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_http_settings_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_http_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_listener_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 redirect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_path_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_path_map_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_address_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_http_settings_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_http_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_listener_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 redirect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_path_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_path_map_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] http_listener_name: The Name of the HTTP Listener which should be used for this Routing Rule.
         :param pulumi.Input[_builtins.str] name: The Name of this Request Routing Rule.
@@ -3281,79 +3281,79 @@ class ApplicationGatewayRequestRoutingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Backend Address Pool.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolName")
-    def backend_address_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         """
         return pulumi.get(self, "backend_address_pool_name")
 
     @backend_address_pool_name.setter
-    def backend_address_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backendHttpSettingsId")
-    def backend_http_settings_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_http_settings_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Backend HTTP Settings Configuration.
         """
         return pulumi.get(self, "backend_http_settings_id")
 
     @backend_http_settings_id.setter
-    def backend_http_settings_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_http_settings_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_http_settings_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backendHttpSettingsName")
-    def backend_http_settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_http_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         """
         return pulumi.get(self, "backend_http_settings_name")
 
     @backend_http_settings_name.setter
-    def backend_http_settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_http_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_http_settings_name", value)
 
     @_builtins.property
     @pulumi.getter(name="httpListenerId")
-    def http_listener_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_listener_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated HTTP Listener.
         """
         return pulumi.get(self, "http_listener_id")
 
     @http_listener_id.setter
-    def http_listener_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_listener_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_listener_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
@@ -3362,48 +3362,48 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectConfigurationId")
-    def redirect_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Redirect Configuration.
         """
         return pulumi.get(self, "redirect_configuration_id")
 
     @redirect_configuration_id.setter
-    def redirect_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectConfigurationName")
-    def redirect_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         """
         return pulumi.get(self, "redirect_configuration_name")
 
     @redirect_configuration_name.setter
-    def redirect_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteRuleSetId")
-    def rewrite_rule_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_rule_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Rewrite Rule Set.
         """
         return pulumi.get(self, "rewrite_rule_set_id")
 
     @rewrite_rule_set_id.setter
-    def rewrite_rule_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_rule_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_rule_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteRuleSetName")
-    def rewrite_rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
 
@@ -3412,31 +3412,31 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         return pulumi.get(self, "rewrite_rule_set_name")
 
     @rewrite_rule_set_name.setter
-    def rewrite_rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_rule_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="urlPathMapId")
-    def url_path_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_path_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated URL Path Map.
         """
         return pulumi.get(self, "url_path_map_id")
 
     @url_path_map_id.setter
-    def url_path_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_path_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_path_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="urlPathMapName")
-    def url_path_map_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_path_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the URL Path Map which should be associated with this Routing Rule.
         """
         return pulumi.get(self, "url_path_map_name")
 
     @url_path_map_name.setter
-    def url_path_map_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_path_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_path_map_name", value)
 
 
@@ -3445,11 +3445,11 @@ class ApplicationGatewayRewriteRuleSetArgsDict(TypedDict):
     """
     Unique name of the rewrite rule set block
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    rewrite_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict']]]]
+    rewrite_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]]
     """
     One or more `rewrite_rule` blocks as defined below.
     """
@@ -3458,8 +3458,8 @@ class ApplicationGatewayRewriteRuleSetArgsDict(TypedDict):
 class ApplicationGatewayRewriteRuleSetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Unique name of the rewrite rule set block
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
@@ -3485,26 +3485,26 @@ class ApplicationGatewayRewriteRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteRules")
-    def rewrite_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]:
+    def rewrite_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]:
         """
         One or more `rewrite_rule` blocks as defined below.
         """
         return pulumi.get(self, "rewrite_rules")
 
     @rewrite_rules.setter
-    def rewrite_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]):
+    def rewrite_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]):
         pulumi.set(self, "rewrite_rules", value)
 
 
@@ -3517,19 +3517,19 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict(TypedDict):
     """
     Rule sequence of the rewrite rule that determines the order of execution in a set.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]]
     """
     One or more `condition` blocks as defined above.
     """
-    request_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict']]]]
+    request_header_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]]
     """
     One or more `request_header_configuration` blocks as defined above.
     """
-    response_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict']]]]
+    response_header_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]]
     """
     One or more `response_header_configuration` blocks as defined above.
     """
-    url: NotRequired[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict']]
+    url: NotRequired[pulumi.Input[Optional['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]]
     """
     One `url` block as defined below
     """
@@ -3539,10 +3539,10 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  rule_sequence: pulumi.Input[_builtins.int],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]] = None,
-                 request_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]] = None,
-                 response_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]] = None,
-                 url: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]] = None,
+                 request_header_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]] = None,
+                 response_header_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]] = None,
+                 url: pulumi.Input[Optional['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: Unique name of the rewrite rule block
         :param pulumi.Input[_builtins.int] rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
@@ -3588,50 +3588,50 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]:
         """
         One or more `condition` blocks as defined above.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderConfigurations")
-    def request_header_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]:
+    def request_header_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]:
         """
         One or more `request_header_configuration` blocks as defined above.
         """
         return pulumi.get(self, "request_header_configurations")
 
     @request_header_configurations.setter
-    def request_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]):
+    def request_header_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]):
         pulumi.set(self, "request_header_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="responseHeaderConfigurations")
-    def response_header_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]:
+    def response_header_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]:
         """
         One or more `response_header_configuration` blocks as defined above.
         """
         return pulumi.get(self, "response_header_configurations")
 
     @response_header_configurations.setter
-    def response_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]):
+    def response_header_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]):
         pulumi.set(self, "response_header_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]:
+    def url(self) -> pulumi.Input[Optional['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]:
         """
         One `url` block as defined below
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]):
+    def url(self, value: pulumi.Input[Optional['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]):
         pulumi.set(self, "url", value)
 
 
@@ -3644,11 +3644,11 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict(TypedDict):
     """
     The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
     """
-    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_case: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Perform a case in-sensitive comparison. Defaults to `false`
     """
-    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Negate the result of the condition evaluation. Defaults to `false`
     """
@@ -3658,8 +3658,8 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[_builtins.str],
                  variable: pulumi.Input[_builtins.str],
-                 ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 negate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] pattern: The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
         :param pulumi.Input[_builtins.str] variable: The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
@@ -3699,26 +3699,26 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreCase")
-    def ignore_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Perform a case in-sensitive comparison. Defaults to `false`
         """
         return pulumi.get(self, "ignore_case")
 
     @ignore_case.setter
-    def ignore_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_case", value)
 
     @_builtins.property
     @pulumi.getter
-    def negate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Negate the result of the condition evaluation. Defaults to `false`
         """
         return pulumi.get(self, "negate")
 
     @negate.setter
-    def negate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "negate", value)
 
 
@@ -3817,21 +3817,21 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs
 
 
 class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict(TypedDict):
-    components: NotRequired[pulumi.Input[_builtins.str]]
+    components: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
 
     > **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL path to rewrite.
     """
-    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The query string to rewrite.
     """
-    reroute: NotRequired[pulumi.Input[_builtins.bool]]
+    reroute: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
     """
@@ -3839,10 +3839,10 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
     def __init__(__self__, *,
-                 components: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 reroute: Optional[pulumi.Input[_builtins.bool]] = None):
+                 components: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 reroute: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] components: The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
                
@@ -3862,7 +3862,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def components(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
 
@@ -3871,43 +3871,43 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def components(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL path to rewrite.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query string to rewrite.
         """
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def reroute(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reroute(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
         """
         return pulumi.get(self, "reroute")
 
     @reroute.setter
-    def reroute(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reroute(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reroute", value)
 
 
@@ -3932,19 +3932,19 @@ class ApplicationGatewayRoutingRuleArgsDict(TypedDict):
     """
     The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
     """
-    backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    backend_address_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Backend Address Pool.
     """
-    backend_id: NotRequired[pulumi.Input[_builtins.str]]
+    backend_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Backend Settings.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    listener_id: NotRequired[pulumi.Input[_builtins.str]]
+    listener_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Listener.
     """
@@ -3957,10 +3957,10 @@ class ApplicationGatewayRoutingRuleArgs:
                  listener_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 listener_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 listener_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] backend_address_pool_name: The Name of the Backend Address Pool which should be used for this Routing Rule.
         :param pulumi.Input[_builtins.str] backend_name: The Name of the Backend Settings which should be used for this Routing Rule.
@@ -4048,50 +4048,50 @@ class ApplicationGatewayRoutingRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Backend Address Pool.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backendId")
-    def backend_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Backend Settings.
         """
         return pulumi.get(self, "backend_id")
 
     @backend_id.setter
-    def backend_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="listenerId")
-    def listener_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def listener_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Listener.
         """
         return pulumi.get(self, "listener_id")
 
     @listener_id.setter
-    def listener_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def listener_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "listener_id", value)
 
 
@@ -4108,7 +4108,7 @@ class ApplicationGatewaySkuArgsDict(TypedDict):
 
     > **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
     """
@@ -4118,7 +4118,7 @@ class ApplicationGatewaySkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  tier: pulumi.Input[_builtins.str],
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
                
@@ -4163,14 +4163,14 @@ class ApplicationGatewaySkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -4179,17 +4179,17 @@ class ApplicationGatewaySslCertificateArgsDict(TypedDict):
     """
     The Name of the SSL certificate that is unique within this Application Gateway
     """
-    data: NotRequired[pulumi.Input[_builtins.str]]
+    data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
 
     > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
@@ -4199,11 +4199,11 @@ class ApplicationGatewaySslCertificateArgsDict(TypedDict):
 
     > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password for the pfx file specified in data. Required if `data` is set.
     """
-    public_cert_data: NotRequired[pulumi.Input[_builtins.str]]
+    public_cert_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Public Certificate Data associated with the SSL Certificate.
     """
@@ -4212,11 +4212,11 @@ class ApplicationGatewaySslCertificateArgsDict(TypedDict):
 class ApplicationGatewaySslCertificateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 data: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_cert_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 data: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_cert_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the SSL certificate that is unique within this Application Gateway
         :param pulumi.Input[_builtins.str] data: The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
@@ -4259,7 +4259,7 @@ class ApplicationGatewaySslCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
 
@@ -4268,24 +4268,24 @@ class ApplicationGatewaySslCertificateArgs:
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
@@ -4298,45 +4298,45 @@ class ApplicationGatewaySslCertificateArgs:
         return pulumi.get(self, "key_vault_secret_id")
 
     @key_vault_secret_id.setter
-    def key_vault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the pfx file specified in data. Required if `data` is set.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCertData")
-    def public_cert_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_cert_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Public Certificate Data associated with the SSL Certificate.
         """
         return pulumi.get(self, "public_cert_data")
 
     @public_cert_data.setter
-    def public_cert_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_cert_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_cert_data", value)
 
 
 class ApplicationGatewaySslPolicyArgsDict(TypedDict):
-    cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    disabled_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cipher_suites: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    disabled_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
     > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
     """
-    min_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
-    policy_name: NotRequired[pulumi.Input[_builtins.str]]
-    policy_type: NotRequired[pulumi.Input[_builtins.str]]
+    min_protocol_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    policy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    policy_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
@@ -4346,11 +4346,11 @@ class ApplicationGatewaySslPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGatewaySslPolicyArgs:
     def __init__(__self__, *,
-                 cipher_suites: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disabled_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 min_protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 cipher_suites: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disabled_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 min_protocol_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
@@ -4372,16 +4372,16 @@ class ApplicationGatewaySslPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cipherSuites")
-    def cipher_suites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cipher_suites(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "cipher_suites")
 
     @cipher_suites.setter
-    def cipher_suites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cipher_suites(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cipher_suites", value)
 
     @_builtins.property
     @pulumi.getter(name="disabledProtocols")
-    def disabled_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
@@ -4390,30 +4390,30 @@ class ApplicationGatewaySslPolicyArgs:
         return pulumi.get(self, "disabled_protocols")
 
     @disabled_protocols.setter
-    def disabled_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="minProtocolVersion")
-    def min_protocol_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_protocol_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "min_protocol_version")
 
     @min_protocol_version.setter
-    def min_protocol_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_protocol_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_protocol_version", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
@@ -4422,7 +4422,7 @@ class ApplicationGatewaySslPolicyArgs:
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
 
@@ -4431,24 +4431,24 @@ class ApplicationGatewaySslProfileArgsDict(TypedDict):
     """
     The name of the SSL Profile that is unique within this Application Gateway.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    ssl_policy: NotRequired[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgsDict']]
+    ssl_policy: NotRequired[pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgs']]]
     """
     a `ssl_policy` block as defined below.
     """
-    trusted_client_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_client_certificate_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
     """
-    verify_client_cert_issuer_dn: NotRequired[pulumi.Input[_builtins.bool]]
-    verify_client_certificate_issuer_dn: NotRequired[pulumi.Input[_builtins.bool]]
+    verify_client_cert_issuer_dn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    verify_client_certificate_issuer_dn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should client certificate issuer DN be verified? Defaults to `false`.
     """
-    verify_client_certificate_revocation: NotRequired[pulumi.Input[_builtins.str]]
+    verify_client_certificate_revocation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the method to check client certificate revocation status. Possible value is `OCSP`.
     """
@@ -4457,12 +4457,12 @@ class ApplicationGatewaySslProfileArgsDict(TypedDict):
 class ApplicationGatewaySslProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']] = None,
-                 trusted_client_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verify_client_cert_issuer_dn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_client_certificate_issuer_dn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify_client_certificate_revocation: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_policy: pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgs']] = None,
+                 trusted_client_certificate_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verify_client_cert_issuer_dn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_client_certificate_issuer_dn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify_client_certificate_revocation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the SSL Profile that is unique within this Application Gateway.
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
@@ -4502,86 +4502,86 @@ class ApplicationGatewaySslProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="sslPolicy")
-    def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]:
+    def ssl_policy(self) -> pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgs']]:
         """
         a `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
-    def ssl_policy(self, value: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]):
+    def ssl_policy(self, value: pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgs']]):
         pulumi.set(self, "ssl_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedClientCertificateNames")
-    def trusted_client_certificate_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_client_certificate_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         """
         return pulumi.get(self, "trusted_client_certificate_names")
 
     @trusted_client_certificate_names.setter
-    def trusted_client_certificate_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_client_certificate_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_client_certificate_names", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyClientCertIssuerDn")
     @_utilities.deprecated("""the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider""")
-    def verify_client_cert_issuer_dn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_client_cert_issuer_dn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "verify_client_cert_issuer_dn")
 
     @verify_client_cert_issuer_dn.setter
-    def verify_client_cert_issuer_dn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_client_cert_issuer_dn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_client_cert_issuer_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyClientCertificateIssuerDn")
-    def verify_client_certificate_issuer_dn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_client_certificate_issuer_dn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should client certificate issuer DN be verified? Defaults to `false`.
         """
         return pulumi.get(self, "verify_client_certificate_issuer_dn")
 
     @verify_client_certificate_issuer_dn.setter
-    def verify_client_certificate_issuer_dn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_client_certificate_issuer_dn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_client_certificate_issuer_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyClientCertificateRevocation")
-    def verify_client_certificate_revocation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verify_client_certificate_revocation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the method to check client certificate revocation status. Possible value is `OCSP`.
         """
         return pulumi.get(self, "verify_client_certificate_revocation")
 
     @verify_client_certificate_revocation.setter
-    def verify_client_certificate_revocation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verify_client_certificate_revocation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verify_client_certificate_revocation", value)
 
 
 class ApplicationGatewaySslProfileSslPolicyArgsDict(TypedDict):
-    cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    disabled_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cipher_suites: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    disabled_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
     > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
     """
-    min_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
-    policy_name: NotRequired[pulumi.Input[_builtins.str]]
-    policy_type: NotRequired[pulumi.Input[_builtins.str]]
+    min_protocol_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    policy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    policy_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
@@ -4591,11 +4591,11 @@ class ApplicationGatewaySslProfileSslPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationGatewaySslProfileSslPolicyArgs:
     def __init__(__self__, *,
-                 cipher_suites: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disabled_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 min_protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 cipher_suites: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disabled_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 min_protocol_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
@@ -4617,16 +4617,16 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cipherSuites")
-    def cipher_suites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cipher_suites(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "cipher_suites")
 
     @cipher_suites.setter
-    def cipher_suites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cipher_suites(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cipher_suites", value)
 
     @_builtins.property
     @pulumi.getter(name="disabledProtocols")
-    def disabled_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
@@ -4635,30 +4635,30 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         return pulumi.get(self, "disabled_protocols")
 
     @disabled_protocols.setter
-    def disabled_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="minProtocolVersion")
-    def min_protocol_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_protocol_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "min_protocol_version")
 
     @min_protocol_version.setter
-    def min_protocol_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_protocol_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_protocol_version", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
@@ -4667,7 +4667,7 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
 
@@ -4680,7 +4680,7 @@ class ApplicationGatewayTrustedClientCertificateArgsDict(TypedDict):
     """
     The name of the Trusted Client Certificate that is unique within this Application Gateway.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -4690,7 +4690,7 @@ class ApplicationGatewayTrustedClientCertificateArgs:
     def __init__(__self__, *,
                  data: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data: The base-64 encoded certificate.
         :param pulumi.Input[_builtins.str] name: The name of the Trusted Client Certificate that is unique within this Application Gateway.
@@ -4727,14 +4727,14 @@ class ApplicationGatewayTrustedClientCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -4743,15 +4743,15 @@ class ApplicationGatewayTrustedRootCertificateArgsDict(TypedDict):
     """
     The Name of the Trusted Root Certificate to use.
     """
-    data: NotRequired[pulumi.Input[_builtins.str]]
+    data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
 
@@ -4766,9 +4766,9 @@ class ApplicationGatewayTrustedRootCertificateArgsDict(TypedDict):
 class ApplicationGatewayTrustedRootCertificateArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 data: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the Trusted Root Certificate to use.
         :param pulumi.Input[_builtins.str] data: The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
@@ -4803,31 +4803,31 @@ class ApplicationGatewayTrustedRootCertificateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         """
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
 
@@ -4840,7 +4840,7 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         return pulumi.get(self, "key_vault_secret_id")
 
     @key_vault_secret_id.setter
-    def key_vault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_id", value)
 
 
@@ -4853,38 +4853,38 @@ class ApplicationGatewayUrlPathMapArgsDict(TypedDict):
     """
     One or more `path_rule` blocks as defined above.
     """
-    default_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    default_backend_address_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Default Backend Address Pool.
     """
-    default_backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_backend_address_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
     """
-    default_backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
+    default_backend_http_settings_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Default Backend HTTP Settings Collection.
     """
-    default_backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_backend_http_settings_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
     """
-    default_redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    default_redirect_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Default Redirect Configuration.
     """
-    default_redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_redirect_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
 
     > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
     """
-    default_rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
-    default_rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_rewrite_rule_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_rewrite_rule_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
@@ -4894,15 +4894,15 @@ class ApplicationGatewayUrlPathMapArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  path_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgs']]],
-                 default_backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_backend_address_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_backend_http_settings_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_backend_http_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_redirect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_redirect_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_rewrite_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_rewrite_rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_backend_address_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_backend_http_settings_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_backend_http_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_redirect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_redirect_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_rewrite_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_rewrite_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the URL Path Map.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgs']]] path_rules: One or more `path_rule` blocks as defined above.
@@ -4964,67 +4964,67 @@ class ApplicationGatewayUrlPathMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultBackendAddressPoolId")
-    def default_backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Default Backend Address Pool.
         """
         return pulumi.get(self, "default_backend_address_pool_id")
 
     @default_backend_address_pool_id.setter
-    def default_backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultBackendAddressPoolName")
-    def default_backend_address_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_backend_address_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
         """
         return pulumi.get(self, "default_backend_address_pool_name")
 
     @default_backend_address_pool_name.setter
-    def default_backend_address_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_backend_address_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_backend_address_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultBackendHttpSettingsId")
-    def default_backend_http_settings_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_backend_http_settings_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Default Backend HTTP Settings Collection.
         """
         return pulumi.get(self, "default_backend_http_settings_id")
 
     @default_backend_http_settings_id.setter
-    def default_backend_http_settings_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_backend_http_settings_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_backend_http_settings_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultBackendHttpSettingsName")
-    def default_backend_http_settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_backend_http_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
         """
         return pulumi.get(self, "default_backend_http_settings_name")
 
     @default_backend_http_settings_name.setter
-    def default_backend_http_settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_backend_http_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_backend_http_settings_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRedirectConfigurationId")
-    def default_redirect_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_redirect_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Default Redirect Configuration.
         """
         return pulumi.get(self, "default_redirect_configuration_id")
 
     @default_redirect_configuration_id.setter
-    def default_redirect_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_redirect_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_redirect_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRedirectConfigurationName")
-    def default_redirect_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_redirect_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
 
@@ -5033,40 +5033,40 @@ class ApplicationGatewayUrlPathMapArgs:
         return pulumi.get(self, "default_redirect_configuration_name")
 
     @default_redirect_configuration_name.setter
-    def default_redirect_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_redirect_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_redirect_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRewriteRuleSetId")
-    def default_rewrite_rule_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_rewrite_rule_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "default_rewrite_rule_set_id")
 
     @default_rewrite_rule_set_id.setter
-    def default_rewrite_rule_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_rewrite_rule_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_rewrite_rule_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRewriteRuleSetName")
-    def default_rewrite_rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_rewrite_rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
         """
         return pulumi.get(self, "default_rewrite_rule_set_name")
 
     @default_rewrite_rule_set_name.setter
-    def default_rewrite_rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_rewrite_rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_rewrite_rule_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -5079,43 +5079,43 @@ class ApplicationGatewayUrlPathMapPathRuleArgsDict(TypedDict):
     """
     A list of Paths used in this Path Rule.
     """
-    backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    backend_address_pool_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Backend Address Pool.
     """
-    backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    backend_address_pool_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
     """
-    backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
+    backend_http_settings_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Backend HTTP Settings Configuration.
     """
-    backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
+    backend_http_settings_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
     """
-    firewall_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_policy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Rewrite Rule Set
     """
-    redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Redirect Configuration.
     """
-    redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
     """
-    rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_rule_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the associated Rewrite Rule Set.
     """
-    rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_rule_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
     """
@@ -5125,16 +5125,16 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_address_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_http_settings_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_http_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_rule_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_rule_set_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_address_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_http_settings_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_http_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the Path Rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] paths: A list of Paths used in this Path Rule.
@@ -5198,122 +5198,122 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Backend Address Pool.
         """
         return pulumi.get(self, "backend_address_pool_id")
 
     @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolName")
-    def backend_address_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_address_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
         """
         return pulumi.get(self, "backend_address_pool_name")
 
     @backend_address_pool_name.setter
-    def backend_address_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_address_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_address_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backendHttpSettingsId")
-    def backend_http_settings_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_http_settings_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Backend HTTP Settings Configuration.
         """
         return pulumi.get(self, "backend_http_settings_id")
 
     @backend_http_settings_id.setter
-    def backend_http_settings_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_http_settings_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_http_settings_id", value)
 
     @_builtins.property
     @pulumi.getter(name="backendHttpSettingsName")
-    def backend_http_settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_http_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
         """
         return pulumi.get(self, "backend_http_settings_name")
 
     @backend_http_settings_name.setter
-    def backend_http_settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_http_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_http_settings_name", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyId")
-    def firewall_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
         """
         return pulumi.get(self, "firewall_policy_id")
 
     @firewall_policy_id.setter
-    def firewall_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectConfigurationId")
-    def redirect_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Redirect Configuration.
         """
         return pulumi.get(self, "redirect_configuration_id")
 
     @redirect_configuration_id.setter
-    def redirect_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectConfigurationName")
-    def redirect_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
         """
         return pulumi.get(self, "redirect_configuration_name")
 
     @redirect_configuration_name.setter
-    def redirect_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteRuleSetId")
-    def rewrite_rule_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_rule_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Rewrite Rule Set.
         """
         return pulumi.get(self, "rewrite_rule_set_id")
 
     @rewrite_rule_set_id.setter
-    def rewrite_rule_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_rule_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_rule_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteRuleSetName")
-    def rewrite_rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
         """
         return pulumi.get(self, "rewrite_rule_set_name")
 
     @rewrite_rule_set_name.setter
-    def rewrite_rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_rule_set_name", value)
 
 
@@ -5330,27 +5330,27 @@ class ApplicationGatewayWafConfigurationArgsDict(TypedDict):
     """
     The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
     """
-    disabled_rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict']]]]
+    disabled_rule_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]]
     """
     One or more `disabled_rule_group` blocks as defined below.
     """
-    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgsDict']]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
-    file_upload_limit_mb: NotRequired[pulumi.Input[_builtins.int]]
+    file_upload_limit_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
     """
-    max_request_body_size_kb: NotRequired[pulumi.Input[_builtins.int]]
+    max_request_body_size_kb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
     """
-    request_body_check: NotRequired[pulumi.Input[_builtins.bool]]
+    request_body_check: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Request Body Inspection enabled? Defaults to `true`.
     """
-    rule_set_type: NotRequired[pulumi.Input[_builtins.str]]
+    rule_set_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
     """
@@ -5361,12 +5361,12 @@ class ApplicationGatewayWafConfigurationArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  firewall_mode: pulumi.Input[_builtins.str],
                  rule_set_version: pulumi.Input[_builtins.str],
-                 disabled_rule_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]] = None,
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]] = None,
-                 file_upload_limit_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_request_body_size_kb: Optional[pulumi.Input[_builtins.int]] = None,
-                 request_body_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_set_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_rule_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]] = None,
+                 exclusions: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]] = None,
+                 file_upload_limit_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_request_body_size_kb: pulumi.Input[Optional[_builtins.int]] = None,
+                 request_body_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_set_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Is the Web Application Firewall enabled?
         :param pulumi.Input[_builtins.str] firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
@@ -5432,74 +5432,74 @@ class ApplicationGatewayWafConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledRuleGroups")
-    def disabled_rule_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]:
+    def disabled_rule_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]:
         """
         One or more `disabled_rule_group` blocks as defined below.
         """
         return pulumi.get(self, "disabled_rule_groups")
 
     @disabled_rule_groups.setter
-    def disabled_rule_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]):
+    def disabled_rule_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]):
         pulumi.set(self, "disabled_rule_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]:
+    def exclusions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]):
+    def exclusions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
 
     @_builtins.property
     @pulumi.getter(name="fileUploadLimitMb")
-    def file_upload_limit_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def file_upload_limit_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         """
         return pulumi.get(self, "file_upload_limit_mb")
 
     @file_upload_limit_mb.setter
-    def file_upload_limit_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def file_upload_limit_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "file_upload_limit_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRequestBodySizeKb")
-    def max_request_body_size_kb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_request_body_size_kb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
         """
         return pulumi.get(self, "max_request_body_size_kb")
 
     @max_request_body_size_kb.setter
-    def max_request_body_size_kb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_request_body_size_kb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_request_body_size_kb", value)
 
     @_builtins.property
     @pulumi.getter(name="requestBodyCheck")
-    def request_body_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_body_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Request Body Inspection enabled? Defaults to `true`.
         """
         return pulumi.get(self, "request_body_check")
 
     @request_body_check.setter
-    def request_body_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_body_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_body_check", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSetType")
-    def rule_set_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_set_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
         """
         return pulumi.get(self, "rule_set_type")
 
     @rule_set_type.setter
-    def rule_set_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_set_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_set_type", value)
 
 
@@ -5508,7 +5508,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict(TypedDict):
     """
     The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
     """
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
     """
@@ -5517,7 +5517,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict(TypedDict):
 class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[_builtins.str],
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         :param pulumi.Input[_builtins.str] rule_group_name: The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] rules: A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
@@ -5540,14 +5540,14 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -5556,11 +5556,11 @@ class ApplicationGatewayWafConfigurationExclusionArgsDict(TypedDict):
     """
     Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
     """
-    selector: NotRequired[pulumi.Input[_builtins.str]]
+    selector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
     """
-    selector_match_operator: NotRequired[pulumi.Input[_builtins.str]]
+    selector_match_operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
     """
@@ -5569,8 +5569,8 @@ class ApplicationGatewayWafConfigurationExclusionArgsDict(TypedDict):
 class ApplicationGatewayWafConfigurationExclusionArgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[_builtins.str],
-                 selector: Optional[pulumi.Input[_builtins.str]] = None,
-                 selector_match_operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 selector_match_operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_variable: Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
         :param pulumi.Input[_builtins.str] selector: String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
@@ -5596,26 +5596,26 @@ class ApplicationGatewayWafConfigurationExclusionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
         """
         return pulumi.get(self, "selector")
 
     @selector.setter
-    def selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selector", value)
 
     @_builtins.property
     @pulumi.getter(name="selectorMatchOperator")
-    def selector_match_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selector_match_operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
         """
         return pulumi.get(self, "selector_match_operator")
 
     @selector_match_operator.setter
-    def selector_match_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selector_match_operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selector_match_operator", value)
 
 
@@ -5628,15 +5628,15 @@ class ExpressRouteCircuitPeeringIpv6ArgsDict(TypedDict):
     """
     A subnet for the secondary link.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
     """
-    microsoft_peering: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict']]
+    microsoft_peering: NotRequired[pulumi.Input[Optional['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]]
     """
     A `microsoft_peering` block as defined below.
     """
-    route_filter_id: NotRequired[pulumi.Input[_builtins.str]]
+    route_filter_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
@@ -5648,9 +5648,9 @@ class ExpressRouteCircuitPeeringIpv6Args:
     def __init__(__self__, *,
                  primary_peer_address_prefix: pulumi.Input[_builtins.str],
                  secondary_peer_address_prefix: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 microsoft_peering: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']] = None,
-                 route_filter_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 microsoft_peering: pulumi.Input[Optional['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']] = None,
+                 route_filter_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] primary_peer_address_prefix: A subnet for the primary link.
         :param pulumi.Input[_builtins.str] secondary_peer_address_prefix: A subnet for the secondary link.
@@ -5695,31 +5695,31 @@ class ExpressRouteCircuitPeeringIpv6Args:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftPeering")
-    def microsoft_peering(self) -> Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]:
+    def microsoft_peering(self) -> pulumi.Input[Optional['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]:
         """
         A `microsoft_peering` block as defined below.
         """
         return pulumi.get(self, "microsoft_peering")
 
     @microsoft_peering.setter
-    def microsoft_peering(self, value: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]):
+    def microsoft_peering(self, value: pulumi.Input[Optional['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]):
         pulumi.set(self, "microsoft_peering", value)
 
     @_builtins.property
     @pulumi.getter(name="routeFilterId")
-    def route_filter_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_filter_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
@@ -5728,24 +5728,24 @@ class ExpressRouteCircuitPeeringIpv6Args:
         return pulumi.get(self, "route_filter_id")
 
     @route_filter_id.setter
-    def route_filter_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_filter_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_filter_id", value)
 
 
 class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict(TypedDict):
-    advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    advertised_communities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The communities of Bgp Peering specified for microsoft peering.
     """
-    advertised_public_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    advertised_public_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Advertised Public Prefixes.
     """
-    customer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    customer_asn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The CustomerASN of the peering. Defaults to `0`.
     """
-    routing_registry_name: NotRequired[pulumi.Input[_builtins.str]]
+    routing_registry_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
     """
@@ -5753,10 +5753,10 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
     def __init__(__self__, *,
-                 advertised_communities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 advertised_public_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 customer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 routing_registry_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 advertised_communities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 advertised_public_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 customer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 routing_registry_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_communities: The communities of Bgp Peering specified for microsoft peering.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_public_prefixes: A list of Advertised Public Prefixes.
@@ -5774,50 +5774,50 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
 
     @_builtins.property
     @pulumi.getter(name="advertisedCommunities")
-    def advertised_communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def advertised_communities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The communities of Bgp Peering specified for microsoft peering.
         """
         return pulumi.get(self, "advertised_communities")
 
     @advertised_communities.setter
-    def advertised_communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def advertised_communities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "advertised_communities", value)
 
     @_builtins.property
     @pulumi.getter(name="advertisedPublicPrefixes")
-    def advertised_public_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def advertised_public_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Advertised Public Prefixes.
         """
         return pulumi.get(self, "advertised_public_prefixes")
 
     @advertised_public_prefixes.setter
-    def advertised_public_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def advertised_public_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "advertised_public_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAsn")
-    def customer_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def customer_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The CustomerASN of the peering. Defaults to `0`.
         """
         return pulumi.get(self, "customer_asn")
 
     @customer_asn.setter
-    def customer_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def customer_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "customer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRegistryName")
-    def routing_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
     @routing_registry_name.setter
-    def routing_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_registry_name", value)
 
 
@@ -5826,15 +5826,15 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict(TypedDict):
     """
     A list of Advertised Public Prefixes.
     """
-    advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    advertised_communities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The communities of Bgp Peering specified for microsoft peering.
     """
-    customer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    customer_asn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The CustomerASN of the peering. Defaults to `0`.
     """
-    routing_registry_name: NotRequired[pulumi.Input[_builtins.str]]
+    routing_registry_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
     """
@@ -5843,9 +5843,9 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict(TypedDict):
 class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
     def __init__(__self__, *,
                  advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 advertised_communities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 customer_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 routing_registry_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 advertised_communities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 customer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 routing_registry_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_public_prefixes: A list of Advertised Public Prefixes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] advertised_communities: The communities of Bgp Peering specified for microsoft peering.
@@ -5874,38 +5874,38 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="advertisedCommunities")
-    def advertised_communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def advertised_communities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The communities of Bgp Peering specified for microsoft peering.
         """
         return pulumi.get(self, "advertised_communities")
 
     @advertised_communities.setter
-    def advertised_communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def advertised_communities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "advertised_communities", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAsn")
-    def customer_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def customer_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The CustomerASN of the peering. Defaults to `0`.
         """
         return pulumi.get(self, "customer_asn")
 
     @customer_asn.setter
-    def customer_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def customer_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "customer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRegistryName")
-    def routing_registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
     @routing_registry_name.setter
-    def routing_registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_registry_name", value)
 
 
@@ -5963,19 +5963,19 @@ class ExpressRouteCircuitSkuArgs:
 
 
 class ExpressRouteConnectionRoutingArgsDict(TypedDict):
-    associated_route_table_id: NotRequired[pulumi.Input[_builtins.str]]
+    associated_route_table_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Virtual Hub Route Table associated with this Express Route Connection.
     """
-    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Route Map associated with this Express Route Connection for inbound routes.
     """
-    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Route Map associated with this Express Route Connection for outbound routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict']]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -5983,10 +5983,10 @@ class ExpressRouteConnectionRoutingArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressRouteConnectionRoutingArgs:
     def __init__(__self__, *,
-                 associated_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']] = None):
+                 associated_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_route_table: pulumi.Input[Optional['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
         :param pulumi.Input[_builtins.str] inbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for inbound routes.
@@ -6004,59 +6004,59 @@ class ExpressRouteConnectionRoutingArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedRouteTableId")
-    def associated_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Hub Route Table associated with this Express Route Connection.
         """
         return pulumi.get(self, "associated_route_table_id")
 
     @associated_route_table_id.setter
-    def associated_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundRouteMapId")
-    def inbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Route Map associated with this Express Route Connection for inbound routes.
         """
         return pulumi.get(self, "inbound_route_map_id")
 
     @inbound_route_map_id.setter
-    def inbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundRouteMapId")
-    def outbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Route Map associated with this Express Route Connection for outbound routes.
         """
         return pulumi.get(self, "outbound_route_map_id")
 
     @outbound_route_map_id.setter
-    def outbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> pulumi.Input[Optional['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: pulumi.Input[Optional['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
 
 class ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of labels to logically group route tables.
     """
-    route_table_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    route_table_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
     """
@@ -6064,8 +6064,8 @@ class ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels to logically group route tables.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
@@ -6077,26 +6077,26 @@ class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of labels to logically group route tables.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_table_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
         """
         return pulumi.get(self, "route_table_ids")
 
     @route_table_ids.setter
-    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_table_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_table_ids", value)
 
 
@@ -6105,20 +6105,20 @@ class ExpressRoutePortIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ExpressRoutePortIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
@@ -6145,79 +6145,79 @@ class ExpressRoutePortIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class ExpressRoutePortLink1ArgsDict(TypedDict):
-    admin_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    admin_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether enable administration state on the Express Route Port Link? Defaults to `false`.
     """
-    connector_type: NotRequired[pulumi.Input[_builtins.str]]
+    connector_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The connector type of the Express Route Port Link.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of this Express Route Port Link.
     """
-    interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The interface name of the Azure router associated with the Express Route Port Link.
     """
-    macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
     """
-    macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
+    macsec_cipher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
     """
-    macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
     """
-    macsec_sci_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    macsec_sci_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
     > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
     """
-    patch_panel_id: NotRequired[pulumi.Input[_builtins.str]]
+    patch_panel_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that maps from the Express Route Port Link to the patch panel port.
     """
-    rack_id: NotRequired[pulumi.Input[_builtins.str]]
+    rack_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that maps from the patch panel port to the rack.
     """
-    router_name: NotRequired[pulumi.Input[_builtins.str]]
+    router_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Azure router associated with the Express Route Port Link.
     """
@@ -6225,17 +6225,17 @@ class ExpressRoutePortLink1ArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressRoutePortLink1Args:
     def __init__(__self__, *,
-                 admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_cak_keyvault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_cipher: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_ckn_keyvault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_sci_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_panel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 router_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_cak_keyvault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_cipher: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_ckn_keyvault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_sci_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_panel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 router_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         :param pulumi.Input[_builtins.str] connector_type: The connector type of the Express Route Port Link.
@@ -6276,91 +6276,91 @@ class ExpressRoutePortLink1Args:
 
     @_builtins.property
     @pulumi.getter(name="adminEnabled")
-    def admin_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         """
         return pulumi.get(self, "admin_enabled")
 
     @admin_enabled.setter
-    def admin_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connector type of the Express Route Port Link.
         """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of this Express Route Port Link.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceName")
-    def interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The interface name of the Azure router associated with the Express Route Port Link.
         """
         return pulumi.get(self, "interface_name")
 
     @interface_name.setter
-    def interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecCakKeyvaultSecretId")
-    def macsec_cak_keyvault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macsec_cak_keyvault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
         """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
     @macsec_cak_keyvault_secret_id.setter
-    def macsec_cak_keyvault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macsec_cak_keyvault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macsec_cak_keyvault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecCipher")
-    def macsec_cipher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macsec_cipher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         """
         return pulumi.get(self, "macsec_cipher")
 
     @macsec_cipher.setter
-    def macsec_cipher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macsec_cipher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macsec_cipher", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecCknKeyvaultSecretId")
-    def macsec_ckn_keyvault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macsec_ckn_keyvault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         """
         return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
 
     @macsec_ckn_keyvault_secret_id.setter
-    def macsec_ckn_keyvault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macsec_ckn_keyvault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macsec_ckn_keyvault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecSciEnabled")
-    def macsec_sci_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def macsec_sci_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
@@ -6369,90 +6369,90 @@ class ExpressRoutePortLink1Args:
         return pulumi.get(self, "macsec_sci_enabled")
 
     @macsec_sci_enabled.setter
-    def macsec_sci_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def macsec_sci_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "macsec_sci_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="patchPanelId")
-    def patch_panel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patch_panel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that maps from the Express Route Port Link to the patch panel port.
         """
         return pulumi.get(self, "patch_panel_id")
 
     @patch_panel_id.setter
-    def patch_panel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patch_panel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patch_panel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rackId")
-    def rack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that maps from the patch panel port to the rack.
         """
         return pulumi.get(self, "rack_id")
 
     @rack_id.setter
-    def rack_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rack_id", value)
 
     @_builtins.property
     @pulumi.getter(name="routerName")
-    def router_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def router_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure router associated with the Express Route Port Link.
         """
         return pulumi.get(self, "router_name")
 
     @router_name.setter
-    def router_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def router_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "router_name", value)
 
 
 class ExpressRoutePortLink2ArgsDict(TypedDict):
-    admin_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    admin_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether enable administration state on the Express Route Port Link? Defaults to `false`.
     """
-    connector_type: NotRequired[pulumi.Input[_builtins.str]]
+    connector_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The connector type of the Express Route Port Link.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of this Express Route Port Link.
     """
-    interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The interface name of the Azure router associated with the Express Route Port Link.
     """
-    macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
     """
-    macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
+    macsec_cipher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
     """
-    macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
     """
-    macsec_sci_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    macsec_sci_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
     > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
     """
-    patch_panel_id: NotRequired[pulumi.Input[_builtins.str]]
+    patch_panel_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that maps from the Express Route Port Link to the patch panel port.
     """
-    rack_id: NotRequired[pulumi.Input[_builtins.str]]
+    rack_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID that maps from the patch panel port to the rack.
     """
-    router_name: NotRequired[pulumi.Input[_builtins.str]]
+    router_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Azure router associated with the Express Route Port Link.
     """
@@ -6460,17 +6460,17 @@ class ExpressRoutePortLink2ArgsDict(TypedDict):
 @pulumi.input_type
 class ExpressRoutePortLink2Args:
     def __init__(__self__, *,
-                 admin_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_cak_keyvault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_cipher: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_ckn_keyvault_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 macsec_sci_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 patch_panel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 router_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_cak_keyvault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_cipher: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_ckn_keyvault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 macsec_sci_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 patch_panel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 router_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         :param pulumi.Input[_builtins.str] connector_type: The connector type of the Express Route Port Link.
@@ -6511,91 +6511,91 @@ class ExpressRoutePortLink2Args:
 
     @_builtins.property
     @pulumi.getter(name="adminEnabled")
-    def admin_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def admin_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         """
         return pulumi.get(self, "admin_enabled")
 
     @admin_enabled.setter
-    def admin_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def admin_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "admin_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connector type of the Express Route Port Link.
         """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of this Express Route Port Link.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceName")
-    def interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The interface name of the Azure router associated with the Express Route Port Link.
         """
         return pulumi.get(self, "interface_name")
 
     @interface_name.setter
-    def interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecCakKeyvaultSecretId")
-    def macsec_cak_keyvault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macsec_cak_keyvault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
         """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
     @macsec_cak_keyvault_secret_id.setter
-    def macsec_cak_keyvault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macsec_cak_keyvault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macsec_cak_keyvault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecCipher")
-    def macsec_cipher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macsec_cipher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         """
         return pulumi.get(self, "macsec_cipher")
 
     @macsec_cipher.setter
-    def macsec_cipher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macsec_cipher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macsec_cipher", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecCknKeyvaultSecretId")
-    def macsec_ckn_keyvault_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def macsec_ckn_keyvault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         """
         return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
 
     @macsec_ckn_keyvault_secret_id.setter
-    def macsec_ckn_keyvault_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def macsec_ckn_keyvault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macsec_ckn_keyvault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="macsecSciEnabled")
-    def macsec_sci_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def macsec_sci_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
@@ -6604,43 +6604,43 @@ class ExpressRoutePortLink2Args:
         return pulumi.get(self, "macsec_sci_enabled")
 
     @macsec_sci_enabled.setter
-    def macsec_sci_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def macsec_sci_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "macsec_sci_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="patchPanelId")
-    def patch_panel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def patch_panel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that maps from the Express Route Port Link to the patch panel port.
         """
         return pulumi.get(self, "patch_panel_id")
 
     @patch_panel_id.setter
-    def patch_panel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def patch_panel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "patch_panel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rackId")
-    def rack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID that maps from the patch panel port to the rack.
         """
         return pulumi.get(self, "rack_id")
 
     @rack_id.setter
-    def rack_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rack_id", value)
 
     @_builtins.property
     @pulumi.getter(name="routerName")
-    def router_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def router_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Azure router associated with the Express Route Port Link.
         """
         return pulumi.get(self, "router_name")
 
     @router_name.setter
-    def router_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def router_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "router_name", value)
 
 
@@ -6649,29 +6649,29 @@ class FirewallApplicationRuleCollectionRuleArgsDict(TypedDict):
     """
     Specifies the name of the rule.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a description for the rule.
     """
-    fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fqdn_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
     """
-    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgsDict']]]]
+    protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]]
     """
     One or more `protocol` blocks as defined below.
     """
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of source IP addresses and/or IP ranges.
     """
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of source IP Group IDs for the rule.
 
     > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
     """
-    target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    target_fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of FQDNs.
     """
@@ -6680,12 +6680,12 @@ class FirewallApplicationRuleCollectionRuleArgsDict(TypedDict):
 class FirewallApplicationRuleCollectionRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the rule.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the rule.
@@ -6725,55 +6725,55 @@ class FirewallApplicationRuleCollectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fqdnTags")
-    def fqdn_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdn_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
         """
         return pulumi.get(self, "fqdn_tags")
 
     @fqdn_tags.setter
-    def fqdn_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdn_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdn_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]:
+    def protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]:
         """
         One or more `protocol` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]):
+    def protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]):
         pulumi.set(self, "protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of source IP addresses and/or IP ranges.
         """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of source IP Group IDs for the rule.
 
@@ -6782,19 +6782,19 @@ class FirewallApplicationRuleCollectionRuleArgs:
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="targetFqdns")
-    def target_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of FQDNs.
         """
         return pulumi.get(self, "target_fqdns")
 
     @target_fqdns.setter
-    def target_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_fqdns", value)
 
 
@@ -6850,11 +6850,11 @@ class FirewallIpConfigurationArgsDict(TypedDict):
     """
     Specifies the name of the IP Configuration.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address associated with the Firewall.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Public IP Address associated with the firewall.
 
@@ -6864,7 +6864,7 @@ class FirewallIpConfigurationArgsDict(TypedDict):
 
     > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
@@ -6877,9 +6877,9 @@ class FirewallIpConfigurationArgsDict(TypedDict):
 class FirewallIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the IP Configuration.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address associated with the Firewall.
@@ -6918,19 +6918,19 @@ class FirewallIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address associated with the Firewall.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Public IP Address associated with the firewall.
 
@@ -6943,12 +6943,12 @@ class FirewallIpConfigurationArgs:
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
@@ -6959,7 +6959,7 @@ class FirewallIpConfigurationArgs:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -6980,7 +6980,7 @@ class FirewallManagementIpConfigurationArgsDict(TypedDict):
 
     > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address associated with the Firewall.
     """
@@ -6991,7 +6991,7 @@ class FirewallManagementIpConfigurationArgs:
                  name: pulumi.Input[_builtins.str],
                  public_ip_address_id: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the IP Configuration.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP Address associated with the firewall.
@@ -7050,14 +7050,14 @@ class FirewallManagementIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address associated with the Firewall.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
 
@@ -7086,15 +7086,15 @@ class FirewallNatRuleCollectionRuleArgsDict(TypedDict):
     """
     The port of the service behind the Firewall.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a description for the rule.
     """
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of source IP addresses and/or IP ranges.
     """
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of source IP Group IDs for the rule.
 
@@ -7110,9 +7110,9 @@ class FirewallNatRuleCollectionRuleArgs:
                  protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  translated_address: pulumi.Input[_builtins.str],
                  translated_port: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: A list of destination IP addresses and/or IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: A list of destination ports.
@@ -7213,31 +7213,31 @@ class FirewallNatRuleCollectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of source IP addresses and/or IP ranges.
         """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of source IP Group IDs for the rule.
 
@@ -7246,7 +7246,7 @@ class FirewallNatRuleCollectionRuleArgs:
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
 
@@ -7263,15 +7263,15 @@ class FirewallNetworkRuleCollectionRuleArgsDict(TypedDict):
     """
     A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a description for the rule.
     """
-    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
     """
-    destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of destination FQDNS for the rule.
 
@@ -7279,15 +7279,15 @@ class FirewallNetworkRuleCollectionRuleArgsDict(TypedDict):
 
     > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
     """
-    destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of destination IP Group IDs for the rule.
     """
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of source IP addresses and/or IP ranges.
     """
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IP Group IDs for the rule.
 
@@ -7300,12 +7300,12 @@ class FirewallNetworkRuleCollectionRuleArgs:
                  destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: A list of destination ports.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the rule.
@@ -7377,31 +7377,31 @@ class FirewallNetworkRuleCollectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
         """
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
-    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFqdns")
-    def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of destination FQDNS for the rule.
 
@@ -7412,36 +7412,36 @@ class FirewallNetworkRuleCollectionRuleArgs:
         return pulumi.get(self, "destination_fqdns")
 
     @destination_fqdns.setter
-    def destination_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIpGroups")
-    def destination_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of destination IP Group IDs for the rule.
         """
         return pulumi.get(self, "destination_ip_groups")
 
     @destination_ip_groups.setter
-    def destination_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of source IP addresses and/or IP ranges.
         """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Group IDs for the rule.
 
@@ -7450,16 +7450,16 @@ class FirewallNetworkRuleCollectionRuleArgs:
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
 
 class FirewallPolicyDnsArgsDict(TypedDict):
-    proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    proxy_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
     """
-    servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of custom DNS servers' IP addresses.
     """
@@ -7467,8 +7467,8 @@ class FirewallPolicyDnsArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallPolicyDnsArgs:
     def __init__(__self__, *,
-                 proxy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 proxy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.bool] proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] servers: A list of custom DNS servers' IP addresses.
@@ -7480,51 +7480,51 @@ class FirewallPolicyDnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="proxyEnabled")
-    def proxy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def proxy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         """
         return pulumi.get(self, "proxy_enabled")
 
     @proxy_enabled.setter
-    def proxy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def proxy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "proxy_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of custom DNS servers' IP addresses.
         """
         return pulumi.get(self, "servers")
 
     @servers.setter
-    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "servers", value)
 
 
 class FirewallPolicyExplicitProxyArgsDict(TypedDict):
-    enable_pac_file: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_pac_file: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the pac file port and url need to be provided.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the explicit proxy is enabled for this Firewall Policy.
     """
-    http_port: NotRequired[pulumi.Input[_builtins.int]]
+    http_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port number for explicit http protocol.
     """
-    https_port: NotRequired[pulumi.Input[_builtins.int]]
+    https_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port number for explicit proxy https protocol.
     """
-    pac_file: NotRequired[pulumi.Input[_builtins.str]]
+    pac_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a SAS URL for PAC file.
     """
-    pac_file_port: NotRequired[pulumi.Input[_builtins.int]]
+    pac_file_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies a port number for firewall to serve PAC file.
     """
@@ -7532,12 +7532,12 @@ class FirewallPolicyExplicitProxyArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallPolicyExplicitProxyArgs:
     def __init__(__self__, *,
-                 enable_pac_file: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 pac_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 pac_file_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 enable_pac_file: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 pac_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 pac_file_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] enable_pac_file: Whether the pac file port and url need to be provided.
         :param pulumi.Input[_builtins.bool] enabled: Whether the explicit proxy is enabled for this Firewall Policy.
@@ -7561,74 +7561,74 @@ class FirewallPolicyExplicitProxyArgs:
 
     @_builtins.property
     @pulumi.getter(name="enablePacFile")
-    def enable_pac_file(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_pac_file(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the pac file port and url need to be provided.
         """
         return pulumi.get(self, "enable_pac_file")
 
     @enable_pac_file.setter
-    def enable_pac_file(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_pac_file(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_pac_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the explicit proxy is enabled for this Firewall Policy.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number for explicit http protocol.
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_port", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def https_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number for explicit proxy https protocol.
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def https_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "https_port", value)
 
     @_builtins.property
     @pulumi.getter(name="pacFile")
-    def pac_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pac_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a SAS URL for PAC file.
         """
         return pulumi.get(self, "pac_file")
 
     @pac_file.setter
-    def pac_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pac_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pac_file", value)
 
     @_builtins.property
     @pulumi.getter(name="pacFilePort")
-    def pac_file_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pac_file_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a port number for firewall to serve PAC file.
         """
         return pulumi.get(self, "pac_file_port")
 
     @pac_file_port.setter
-    def pac_file_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pac_file_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pac_file_port", value)
 
 
@@ -7637,20 +7637,20 @@ class FirewallPolicyIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FirewallPolicyIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
@@ -7677,32 +7677,32 @@ class FirewallPolicyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -7715,11 +7715,11 @@ class FirewallPolicyInsightsArgsDict(TypedDict):
     """
     Whether the insights functionality is enabled for this Firewall Policy.
     """
-    log_analytics_workspaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict']]]]
+    log_analytics_workspaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]]
     """
     A list of `log_analytics_workspace` block as defined below.
     """
-    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The log retention period in days.
     """
@@ -7729,8 +7729,8 @@ class FirewallPolicyInsightsArgs:
     def __init__(__self__, *,
                  default_log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[_builtins.bool],
-                 log_analytics_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 log_analytics_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] default_log_analytics_workspace_id: The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
         :param pulumi.Input[_builtins.bool] enabled: Whether the insights functionality is enabled for this Firewall Policy.
@@ -7770,26 +7770,26 @@ class FirewallPolicyInsightsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaces")
-    def log_analytics_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]:
+    def log_analytics_workspaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]:
         """
         A list of `log_analytics_workspace` block as defined below.
         """
         return pulumi.get(self, "log_analytics_workspaces")
 
     @log_analytics_workspaces.setter
-    def log_analytics_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]):
+    def log_analytics_workspaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]):
         pulumi.set(self, "log_analytics_workspaces", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The log retention period in days.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
 
@@ -7841,19 +7841,19 @@ class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs:
 
 
 class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
-    mode: NotRequired[pulumi.Input[_builtins.str]]
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
     """
-    private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    private_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
     """
-    signature_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict']]]]
+    signature_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]]
     """
     One or more `signature_overrides` blocks as defined below.
     """
-    traffic_bypasses: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgsDict']]]]
+    traffic_bypasses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]]
     """
     One or more `traffic_bypass` blocks as defined below.
     """
@@ -7861,10 +7861,10 @@ class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signature_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]] = None,
-                 traffic_bypasses: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]] = None):
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signature_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]] = None,
+                 traffic_bypasses: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_ranges: A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
@@ -7882,59 +7882,59 @@ class FirewallPolicyIntrusionDetectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="privateRanges")
-    def private_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
         """
         return pulumi.get(self, "private_ranges")
 
     @private_ranges.setter
-    def private_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureOverrides")
-    def signature_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]:
+    def signature_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]:
         """
         One or more `signature_overrides` blocks as defined below.
         """
         return pulumi.get(self, "signature_overrides")
 
     @signature_overrides.setter
-    def signature_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]):
+    def signature_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]):
         pulumi.set(self, "signature_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficBypasses")
-    def traffic_bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]:
+    def traffic_bypasses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]:
         """
         One or more `traffic_bypass` blocks as defined below.
         """
         return pulumi.get(self, "traffic_bypasses")
 
     @traffic_bypasses.setter
-    def traffic_bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]):
+    def traffic_bypasses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]):
         pulumi.set(self, "traffic_bypasses", value)
 
 
 class FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     12-digit number (id) which identifies your signature.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     state can be any of `Off`, `Alert` or `Deny`.
     """
@@ -7942,8 +7942,8 @@ class FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionSignatureOverrideArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: 12-digit number (id) which identifies your signature.
         :param pulumi.Input[_builtins.str] state: state can be any of `Off`, `Alert` or `Deny`.
@@ -7955,26 +7955,26 @@ class FirewallPolicyIntrusionDetectionSignatureOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         12-digit number (id) which identifies your signature.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         state can be any of `Off`, `Alert` or `Deny`.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -7987,27 +7987,27 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgsDict(TypedDict):
     """
     The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description for this bypass traffic setting.
     """
-    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
     """
-    destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
     """
-    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
     """
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of source addresses that shall be bypassed by intrusion detection.
     """
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of source IP groups that shall be bypassed by intrusion detection.
     """
@@ -8017,12 +8017,12 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this bypass traffic setting.
         :param pulumi.Input[_builtins.str] protocol: The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
@@ -8074,74 +8074,74 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for this bypass traffic setting.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
-    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIpGroups")
-    def destination_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "destination_ip_groups")
 
     @destination_ip_groups.setter
-    def destination_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPorts")
-    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "destination_ports")
 
     @destination_ports.setter
-    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of source addresses that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
 
@@ -8235,29 +8235,29 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict(Typ
     """
     The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    destination_fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    destination_fqdn_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of destination FQDN tags.
     """
-    destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    destination_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    destination_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
     """
-    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict']]]]
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]]
     """
     Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
     """
-    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict']]]]
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    terminate_tls: NotRequired[pulumi.Input[_builtins.bool]]
+    protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    terminate_tls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
     """
-    web_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    web_categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
     """
@@ -8266,17 +8266,17 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict(Typ
 class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 terminate_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_fqdn_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_headers: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 terminate_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
@@ -8323,116 +8323,116 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
-    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFqdnTags")
-    def destination_fqdn_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_fqdn_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of destination FQDN tags.
         """
         return pulumi.get(self, "destination_fqdn_tags")
 
     @destination_fqdn_tags.setter
-    def destination_fqdn_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_fqdn_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_fqdn_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFqdns")
-    def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "destination_fqdns")
 
     @destination_fqdns.setter
-    def destination_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationUrls")
-    def destination_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
         """
         return pulumi.get(self, "destination_urls")
 
     @destination_urls.setter
-    def destination_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]:
+    def http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]:
         """
         Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
         """
         return pulumi.get(self, "http_headers")
 
     @http_headers.setter
-    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]):
+    def http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]):
         pulumi.set(self, "http_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]:
+    def protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]:
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]):
+    def protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]):
         pulumi.set(self, "protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateTls")
-    def terminate_tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         """
         return pulumi.get(self, "terminate_tls")
 
     @terminate_tls.setter
-    def terminate_tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_tls", value)
 
     @_builtins.property
     @pulumi.getter(name="webCategories")
-    def web_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def web_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         return pulumi.get(self, "web_categories")
 
     @web_categories.setter
-    def web_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def web_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "web_categories", value)
 
 
@@ -8625,19 +8625,19 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict(TypedDict):
     """
     Specifies the translated port.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    destination_address: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    destination_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination IP address (including CIDR).
     """
-    destination_ports: NotRequired[pulumi.Input[_builtins.str]]
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    translated_address: NotRequired[pulumi.Input[_builtins.str]]
+    destination_ports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    translated_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the translated address.
     """
-    translated_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    translated_fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the translated FQDN.
 
@@ -8650,13 +8650,13 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  translated_port: pulumi.Input[_builtins.int],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_ports: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 translated_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 translated_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_ports: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 translated_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 translated_fqdn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[_builtins.int] translated_port: Specifies the translated port.
@@ -8719,67 +8719,67 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddress")
-    def destination_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination IP address (including CIDR).
         """
         return pulumi.get(self, "destination_address")
 
     @destination_address.setter
-    def destination_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPorts")
-    def destination_ports(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_ports(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination_ports")
 
     @destination_ports.setter
-    def destination_ports(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_ports(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="translatedAddress")
-    def translated_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translated_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the translated address.
         """
         return pulumi.get(self, "translated_address")
 
     @translated_address.setter
-    def translated_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translated_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translated_address", value)
 
     @_builtins.property
     @pulumi.getter(name="translatedFqdn")
-    def translated_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translated_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the translated FQDN.
 
@@ -8788,7 +8788,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
         return pulumi.get(self, "translated_fqdn")
 
     @translated_fqdn.setter
-    def translated_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translated_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translated_fqdn", value)
 
 
@@ -8884,15 +8884,15 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgsDict(TypedDi
     The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
     """
     protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    destination_fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    destination_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of destination IP groups.
     """
-    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
@@ -8900,12 +8900,12 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
                  destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
                  protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ip_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ip_groups: Specifies a list of destination IP groups.
@@ -8958,68 +8958,68 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "destination_addresses")
 
     @destination_addresses.setter
-    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFqdns")
-    def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "destination_fqdns")
 
     @destination_fqdns.setter
-    def destination_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIpGroups")
-    def destination_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of destination IP groups.
         """
         return pulumi.get(self, "destination_ip_groups")
 
     @destination_ip_groups.setter
-    def destination_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "source_addresses")
 
     @source_addresses.setter
-    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
-    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_ip_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
-    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_ip_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_ip_groups", value)
 
 
 class FirewallPolicyThreatIntelligenceAllowlistArgsDict(TypedDict):
-    fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    fqdns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of FQDNs that will be skipped for threat detection.
     """
-    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IP addresses or CIDR ranges that will be skipped for threat detection.
     """
@@ -9027,8 +9027,8 @@ class FirewallPolicyThreatIntelligenceAllowlistArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallPolicyThreatIntelligenceAllowlistArgs:
     def __init__(__self__, *,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: A list of FQDNs that will be skipped for threat detection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: A list of IP addresses or CIDR ranges that will be skipped for threat detection.
@@ -9040,26 +9040,26 @@ class FirewallPolicyThreatIntelligenceAllowlistArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of FQDNs that will be skipped for threat detection.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
 
@@ -9115,15 +9115,15 @@ class FirewallVirtualHubArgsDict(TypedDict):
     """
     Specifies the ID of the Virtual Hub where the Firewall resides in.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address associated with the Firewall.
     """
-    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of public IP addresses associated with the Firewall.
     """
-    public_ip_count: NotRequired[pulumi.Input[_builtins.int]]
+    public_ip_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
     """
@@ -9132,9 +9132,9 @@ class FirewallVirtualHubArgsDict(TypedDict):
 class FirewallVirtualHubArgs:
     def __init__(__self__, *,
                  virtual_hub_id: pulumi.Input[_builtins.str],
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 public_ip_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_ip_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] virtual_hub_id: Specifies the ID of the Virtual Hub where the Firewall resides in.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address associated with the Firewall.
@@ -9163,38 +9163,38 @@ class FirewallVirtualHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address associated with the Firewall.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of public IP addresses associated with the Firewall.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpCount")
-    def public_ip_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def public_ip_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
         """
         return pulumi.get(self, "public_ip_count")
 
     @public_ip_count.setter
-    def public_ip_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def public_ip_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "public_ip_count", value)
 
 
@@ -9207,7 +9207,7 @@ class LocalNetworkGatewayBgpSettingsArgsDict(TypedDict):
     """
     The BGP peering address and BGP identifier of this BGP speaker.
     """
-    peer_weight: NotRequired[pulumi.Input[_builtins.int]]
+    peer_weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight added to routes learned from this BGP speaker.
     """
@@ -9217,7 +9217,7 @@ class LocalNetworkGatewayBgpSettingsArgs:
     def __init__(__self__, *,
                  asn: pulumi.Input[_builtins.int],
                  bgp_peering_address: pulumi.Input[_builtins.str],
-                 peer_weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 peer_weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] asn: The BGP speaker's ASN.
         :param pulumi.Input[_builtins.str] bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
@@ -9254,14 +9254,14 @@ class LocalNetworkGatewayBgpSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peer_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight added to routes learned from this BGP speaker.
         """
         return pulumi.get(self, "peer_weight")
 
     @peer_weight.setter
-    def peer_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peer_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_weight", value)
 
 
@@ -9270,31 +9270,31 @@ class NetworkConnectionMonitorEndpointArgsDict(TypedDict):
     """
     The name of the endpoint for the Network Connection Monitor .
     """
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address or domain name of the Network Connection Monitor endpoint.
     """
-    coverage_level: NotRequired[pulumi.Input[_builtins.str]]
+    coverage_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
     """
-    excluded_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
     """
-    filter: NotRequired[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorEndpointFilterArgs']]]
     """
     A `filter` block as defined below.
     """
-    included_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
     """
-    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID which is used as the endpoint by the Network Connection Monitor.
     """
-    target_resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    target_resource_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
     """
@@ -9303,13 +9303,13 @@ class NetworkConnectionMonitorEndpointArgsDict(TypedDict):
 class NetworkConnectionMonitorEndpointArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 coverage_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 filter: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']] = None,
-                 included_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 coverage_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 filter: pulumi.Input[Optional['NetworkConnectionMonitorEndpointFilterArgs']] = None,
+                 included_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the endpoint for the Network Connection Monitor .
         :param pulumi.Input[_builtins.str] address: The IP address or domain name of the Network Connection Monitor endpoint.
@@ -9350,95 +9350,95 @@ class NetworkConnectionMonitorEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address or domain name of the Network Connection Monitor endpoint.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="coverageLevel")
-    def coverage_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def coverage_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
         """
         return pulumi.get(self, "coverage_level")
 
     @coverage_level.setter
-    def coverage_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def coverage_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "coverage_level", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedIpAddresses")
-    def excluded_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
         """
         return pulumi.get(self, "excluded_ip_addresses")
 
     @excluded_ip_addresses.setter
-    def excluded_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['NetworkConnectionMonitorEndpointFilterArgs']]:
         """
         A `filter` block as defined below.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['NetworkConnectionMonitorEndpointFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="includedIpAddresses")
-    def included_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
         """
         return pulumi.get(self, "included_ip_addresses")
 
     @included_ip_addresses.setter
-    def included_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID which is used as the endpoint by the Network Connection Monitor.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
         """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_type", value)
 
 
 class NetworkConnectionMonitorEndpointFilterArgsDict(TypedDict):
-    items: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgsDict']]]]
+    items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]]
     """
     A `item` block as defined below.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
     """
@@ -9446,8 +9446,8 @@ class NetworkConnectionMonitorEndpointFilterArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkConnectionMonitorEndpointFilterArgs:
     def __init__(__self__, *,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 items: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]] items: A `item` block as defined below.
         :param pulumi.Input[_builtins.str] type: The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
@@ -9459,35 +9459,35 @@ class NetworkConnectionMonitorEndpointFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]:
+    def items(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]:
         """
         A `item` block as defined below.
         """
         return pulumi.get(self, "items")
 
     @items.setter
-    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]):
+    def items(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]):
         pulumi.set(self, "items", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class NetworkConnectionMonitorEndpointFilterItemArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address of the filter item.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
     """
@@ -9495,8 +9495,8 @@ class NetworkConnectionMonitorEndpointFilterItemArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkConnectionMonitorEndpointFilterItemArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address: The address of the filter item.
         :param pulumi.Input[_builtins.str] type: The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
@@ -9508,26 +9508,26 @@ class NetworkConnectionMonitorEndpointFilterItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address of the filter item.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -9540,27 +9540,27 @@ class NetworkConnectionMonitorTestConfigurationArgsDict(TypedDict):
     """
     The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
     """
-    http_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict']]
+    http_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]]
     """
     A `http_configuration` block as defined below.
     """
-    icmp_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict']]
+    icmp_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]]
     """
     A `icmp_configuration` block as defined below.
     """
-    preferred_ip_version: NotRequired[pulumi.Input[_builtins.str]]
+    preferred_ip_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
     """
-    success_threshold: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict']]
+    success_threshold: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]]
     """
     A `success_threshold` block as defined below.
     """
-    tcp_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict']]
+    tcp_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]]
     """
     A `tcp_configuration` block as defined below.
     """
-    test_frequency_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    test_frequency_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
     """
@@ -9570,12 +9570,12 @@ class NetworkConnectionMonitorTestConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 http_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']] = None,
-                 icmp_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']] = None,
-                 preferred_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_threshold: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']] = None,
-                 tcp_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']] = None,
-                 test_frequency_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 http_configuration: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']] = None,
+                 icmp_configuration: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']] = None,
+                 preferred_ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_threshold: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']] = None,
+                 tcp_configuration: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']] = None,
+                 test_frequency_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of test configuration for the Network Connection Monitor.
         :param pulumi.Input[_builtins.str] protocol: The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
@@ -9627,99 +9627,99 @@ class NetworkConnectionMonitorTestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpConfiguration")
-    def http_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]:
+    def http_configuration(self) -> pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]:
         """
         A `http_configuration` block as defined below.
         """
         return pulumi.get(self, "http_configuration")
 
     @http_configuration.setter
-    def http_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]):
+    def http_configuration(self, value: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]):
         pulumi.set(self, "http_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpConfiguration")
-    def icmp_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]:
+    def icmp_configuration(self) -> pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]:
         """
         A `icmp_configuration` block as defined below.
         """
         return pulumi.get(self, "icmp_configuration")
 
     @icmp_configuration.setter
-    def icmp_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]):
+    def icmp_configuration(self, value: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]):
         pulumi.set(self, "icmp_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredIpVersion")
-    def preferred_ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_ip_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
         """
         return pulumi.get(self, "preferred_ip_version")
 
     @preferred_ip_version.setter
-    def preferred_ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_ip_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_ip_version", value)
 
     @_builtins.property
     @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]:
+    def success_threshold(self) -> pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]:
         """
         A `success_threshold` block as defined below.
         """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
-    def success_threshold(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]):
+    def success_threshold(self, value: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]):
         pulumi.set(self, "success_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpConfiguration")
-    def tcp_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]:
+    def tcp_configuration(self) -> pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]:
         """
         A `tcp_configuration` block as defined below.
         """
         return pulumi.get(self, "tcp_configuration")
 
     @tcp_configuration.setter
-    def tcp_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]):
+    def tcp_configuration(self, value: pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]):
         pulumi.set(self, "tcp_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="testFrequencyInSeconds")
-    def test_frequency_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def test_frequency_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
         """
         return pulumi.get(self, "test_frequency_in_seconds")
 
     @test_frequency_in_seconds.setter
-    def test_frequency_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def test_frequency_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "test_frequency_in_seconds", value)
 
 
 class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict(TypedDict):
-    method: NotRequired[pulumi.Input[_builtins.str]]
+    method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path component of the URI. It only accepts the absolute path.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port for the HTTP connection.
     """
-    prefer_https: NotRequired[pulumi.Input[_builtins.bool]]
+    prefer_https: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
     """
-    request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict']]]]
+    request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]]
     """
     A `request_header` block as defined below.
     """
-    valid_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    valid_status_code_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
     """
@@ -9727,12 +9727,12 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict(TypedDi
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
     def __init__(__self__, *,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 prefer_https: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]] = None,
-                 valid_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefer_https: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request_headers: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]] = None,
+                 valid_status_code_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] method: The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
         :param pulumi.Input[_builtins.str] path: The path component of the URI. It only accepts the absolute path.
@@ -9756,74 +9756,74 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path component of the URI. It only accepts the absolute path.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port for the HTTP connection.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="preferHttps")
-    def prefer_https(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prefer_https(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
         """
         return pulumi.get(self, "prefer_https")
 
     @prefer_https.setter
-    def prefer_https(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prefer_https(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prefer_https", value)
 
     @_builtins.property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]:
+    def request_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]:
         """
         A `request_header` block as defined below.
         """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
-    def request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]):
+    def request_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]):
         pulumi.set(self, "request_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="validStatusCodeRanges")
-    def valid_status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def valid_status_code_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
         """
         return pulumi.get(self, "valid_status_code_ranges")
 
     @valid_status_code_ranges.setter
-    def valid_status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def valid_status_code_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "valid_status_code_ranges", value)
 
 
@@ -9875,7 +9875,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArg
 
 
 class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict(TypedDict):
-    trace_route_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    trace_route_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should path evaluation with trace route be enabled? Defaults to `true`.
     """
@@ -9883,7 +9883,7 @@ class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict(TypedDi
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs:
     def __init__(__self__, *,
-                 trace_route_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 trace_route_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] trace_route_enabled: Should path evaluation with trace route be enabled? Defaults to `true`.
         """
@@ -9892,23 +9892,23 @@ class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="traceRouteEnabled")
-    def trace_route_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trace_route_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should path evaluation with trace route be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "trace_route_enabled")
 
     @trace_route_enabled.setter
-    def trace_route_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trace_route_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trace_route_enabled", value)
 
 
 class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict(TypedDict):
-    checks_failed_percent: NotRequired[pulumi.Input[_builtins.int]]
+    checks_failed_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum percentage of failed checks permitted for a test to be successful.
     """
-    round_trip_time_ms: NotRequired[pulumi.Input[_builtins.float]]
+    round_trip_time_ms: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum round-trip time in milliseconds permitted for a test to be successful.
     """
@@ -9916,8 +9916,8 @@ class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict(TypedDic
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
     def __init__(__self__, *,
-                 checks_failed_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 round_trip_time_ms: Optional[pulumi.Input[_builtins.float]] = None):
+                 checks_failed_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 round_trip_time_ms: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.int] checks_failed_percent: The maximum percentage of failed checks permitted for a test to be successful.
         :param pulumi.Input[_builtins.float] round_trip_time_ms: The maximum round-trip time in milliseconds permitted for a test to be successful.
@@ -9929,26 +9929,26 @@ class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
 
     @_builtins.property
     @pulumi.getter(name="checksFailedPercent")
-    def checks_failed_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def checks_failed_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum percentage of failed checks permitted for a test to be successful.
         """
         return pulumi.get(self, "checks_failed_percent")
 
     @checks_failed_percent.setter
-    def checks_failed_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def checks_failed_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "checks_failed_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="roundTripTimeMs")
-    def round_trip_time_ms(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def round_trip_time_ms(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum round-trip time in milliseconds permitted for a test to be successful.
         """
         return pulumi.get(self, "round_trip_time_ms")
 
     @round_trip_time_ms.setter
-    def round_trip_time_ms(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def round_trip_time_ms(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "round_trip_time_ms", value)
 
 
@@ -9957,11 +9957,11 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict(TypedDic
     """
     The port for the TCP connection.
     """
-    destination_port_behavior: NotRequired[pulumi.Input[_builtins.str]]
+    destination_port_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
     """
-    trace_route_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    trace_route_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should path evaluation with trace route be enabled? Defaults to `true`.
     """
@@ -9970,8 +9970,8 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict(TypedDic
 class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[_builtins.int],
-                 destination_port_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_route_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 destination_port_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_route_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] port: The port for the TCP connection.
         :param pulumi.Input[_builtins.str] destination_port_behavior: The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
@@ -9997,26 +9997,26 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationPortBehavior")
-    def destination_port_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_port_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
         """
         return pulumi.get(self, "destination_port_behavior")
 
     @destination_port_behavior.setter
-    def destination_port_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_port_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_port_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="traceRouteEnabled")
-    def trace_route_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trace_route_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should path evaluation with trace route be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "trace_route_enabled")
 
     @trace_route_enabled.setter
-    def trace_route_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trace_route_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trace_route_enabled", value)
 
 
@@ -10037,7 +10037,7 @@ class NetworkConnectionMonitorTestGroupArgsDict(TypedDict):
     """
     A list of test configuration names.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the test group be enabled? Defaults to `true`.
     """
@@ -10049,7 +10049,7 @@ class NetworkConnectionMonitorTestGroupArgs:
                  name: pulumi.Input[_builtins.str],
                  source_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  test_configuration_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_endpoints: A list of destination endpoint names.
         :param pulumi.Input[_builtins.str] name: The name of the test group for the Network Connection Monitor.
@@ -10114,14 +10114,14 @@ class NetworkConnectionMonitorTestGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the test group be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -10136,27 +10136,27 @@ class NetworkInterfaceIpConfigurationArgsDict(TypedDict):
 
     > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
     """
-    gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The first private IP address of the network interface.
     """
-    private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reference to a Public IP Address to associate with this NIC
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Subnet where this Network Interface should be located in.
 
@@ -10168,12 +10168,12 @@ class NetworkInterfaceIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  private_ip_address_allocation: pulumi.Input[_builtins.str],
-                 gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 gateway_load_balancer_frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A name used for this IP Configuration.
         :param pulumi.Input[_builtins.str] private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
@@ -10231,67 +10231,67 @@ class NetworkInterfaceIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
-    def gateway_load_balancer_frontend_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_load_balancer_frontend_ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         """
         return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
     @gateway_load_balancer_frontend_ip_configuration_id.setter
-    def gateway_load_balancer_frontend_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_load_balancer_frontend_ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_load_balancer_frontend_ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first private IP address of the network interface.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddressVersion")
-    def private_ip_address_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
         """
         return pulumi.get(self, "private_ip_address_version")
 
     @private_ip_address_version.setter
-    def private_ip_address_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference to a Public IP Address to associate with this NIC
         """
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet where this Network Interface should be located in.
 
@@ -10300,7 +10300,7 @@ class NetworkInterfaceIpConfigurationArgs:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
@@ -10407,13 +10407,13 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict(TypedDict):
     """
     Specifies the resource ID of Network Group which the configuration applies to.
     """
-    global_mesh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    global_mesh_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
 
     > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
     """
-    use_hub_gateway: NotRequired[pulumi.Input[_builtins.bool]]
+    use_hub_gateway: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the hub gateway is used. Possible values are `true` and `false`.
     """
@@ -10423,8 +10423,8 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
     def __init__(__self__, *,
                  group_connectivity: pulumi.Input[_builtins.str],
                  network_group_id: pulumi.Input[_builtins.str],
-                 global_mesh_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_hub_gateway: Optional[pulumi.Input[_builtins.bool]] = None):
+                 global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_hub_gateway: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] group_connectivity: Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the resource ID of Network Group which the configuration applies to.
@@ -10466,7 +10466,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="globalMeshEnabled")
-    def global_mesh_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_mesh_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
 
@@ -10475,19 +10475,19 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
         return pulumi.get(self, "global_mesh_enabled")
 
     @global_mesh_enabled.setter
-    def global_mesh_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_mesh_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_mesh_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="useHubGateway")
-    def use_hub_gateway(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_hub_gateway(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the hub gateway is used. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "use_hub_gateway")
 
     @use_hub_gateway.setter
-    def use_hub_gateway(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_hub_gateway(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_hub_gateway", value)
 
 
@@ -10539,15 +10539,15 @@ class NetworkManagerConnectivityConfigurationHubArgs:
 
 
 class NetworkManagerCrossTenantScopeArgsDict(TypedDict):
-    management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    management_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of management groups.
     """
-    subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subscriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of subscriptions.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant ID.
     """
@@ -10555,9 +10555,9 @@ class NetworkManagerCrossTenantScopeArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkManagerCrossTenantScopeArgs:
     def __init__(__self__, *,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 management_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] management_groups: List of management groups.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subscriptions: List of subscriptions.
@@ -10572,38 +10572,38 @@ class NetworkManagerCrossTenantScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def management_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of management groups.
         """
         return pulumi.get(self, "management_groups")
 
     @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def management_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "management_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subscriptions.
         """
         return pulumi.get(self, "subscriptions")
 
     @subscriptions.setter
-    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscriptions", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant ID.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -10659,7 +10659,7 @@ class NetworkManagerRoutingRuleNextHopArgsDict(TypedDict):
     """
     The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
     """
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
     """
@@ -10668,7 +10668,7 @@ class NetworkManagerRoutingRuleNextHopArgsDict(TypedDict):
 class NetworkManagerRoutingRuleNextHopArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 address: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
         :param pulumi.Input[_builtins.str] address: The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
@@ -10691,25 +10691,25 @@ class NetworkManagerRoutingRuleNextHopArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
 
 class NetworkManagerScopeArgsDict(TypedDict):
-    management_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    management_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of management group IDs.
 
     > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
     """
-    subscription_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subscription_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of subscription IDs.
     """
@@ -10717,8 +10717,8 @@ class NetworkManagerScopeArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkManagerScopeArgs:
     def __init__(__self__, *,
-                 management_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 management_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] management_group_ids: A list of management group IDs.
                
@@ -10732,7 +10732,7 @@ class NetworkManagerScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="managementGroupIds")
-    def management_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def management_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of management group IDs.
 
@@ -10741,19 +10741,19 @@ class NetworkManagerScopeArgs:
         return pulumi.get(self, "management_group_ids")
 
     @management_group_ids.setter
-    def management_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def management_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "management_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subscription IDs.
         """
         return pulumi.get(self, "subscription_ids")
 
     @subscription_ids.setter
-    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscription_ids", value)
 
 
@@ -10882,47 +10882,47 @@ class NetworkSecurityGroupSecurityRuleArgsDict(TypedDict):
     """
     Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for this rule. Restricted to 140 characters.
     """
-    destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    destination_address_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
     """
-    destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
     """
-    destination_application_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_application_security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A List of destination Application Security Group IDs
     """
-    destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    destination_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
     """
-    destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
     """
-    source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    source_address_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
     """
-    source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
     """
-    source_application_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_application_security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A List of source Application Security Group IDs
     """
-    source_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    source_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
     """
-    source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of source ports or port ranges. This is required if `source_port_range` is not specified.
     """
@@ -10935,17 +10935,17 @@ class NetworkSecurityGroupSecurityRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_application_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destination_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_application_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_port_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_application_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_application_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[_builtins.str] direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
@@ -11054,134 +11054,134 @@ class NetworkSecurityGroupSecurityRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for this rule. Restricted to 140 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefix")
-    def destination_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
         """
         return pulumi.get(self, "destination_address_prefix")
 
     @destination_address_prefix.setter
-    def destination_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         """
         return pulumi.get(self, "destination_address_prefixes")
 
     @destination_address_prefixes.setter
-    def destination_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
-    def destination_application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_application_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A List of destination Application Security Group IDs
         """
         return pulumi.get(self, "destination_application_security_group_ids")
 
     @destination_application_security_group_ids.setter
-    def destination_application_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_application_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_application_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
-    def destination_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def destination_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         """
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def destination_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefix")
-    def source_address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         """
         return pulumi.get(self, "source_address_prefix")
 
     @source_address_prefix.setter
-    def source_address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         """
         return pulumi.get(self, "source_address_prefixes")
 
     @source_address_prefixes.setter
-    def source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
-    def source_application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_application_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A List of source Application Security Group IDs
         """
         return pulumi.get(self, "source_application_security_group_ids")
 
     @source_application_security_group_ids.setter
-    def source_application_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_application_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_application_security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
-    def source_port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port_range", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
@@ -11249,7 +11249,7 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgsDict(TypedDict):
     """
     The resource ID of the attached workspace.
     """
-    interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    interval_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How frequently service should do flow analytics in minutes. Defaults to `60`.
     """
@@ -11261,7 +11261,7 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
                  workspace_id: pulumi.Input[_builtins.str],
                  workspace_region: pulumi.Input[_builtins.str],
                  workspace_resource_id: pulumi.Input[_builtins.str],
-                 interval_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 interval_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Boolean flag to enable/disable traffic analytics.
         :param pulumi.Input[_builtins.str] workspace_id: The resource GUID of the attached workspace.
@@ -11326,14 +11326,14 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
 
     @_builtins.property
     @pulumi.getter(name="intervalInMinutes")
-    def interval_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How frequently service should do flow analytics in minutes. Defaults to `60`.
         """
         return pulumi.get(self, "interval_in_minutes")
 
     @interval_in_minutes.setter
-    def interval_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_minutes", value)
 
 
@@ -11346,11 +11346,11 @@ class PointToPointVpnGatewayConnectionConfigurationArgsDict(TypedDict):
     """
     A `vpn_client_address_pool` block as defined below.
     """
-    internet_security_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    internet_security_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
     """
-    route: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgsDict']]
+    route: NotRequired[pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]]
     """
     A `route` block as defined below.
     """
@@ -11360,8 +11360,8 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  vpn_client_address_pool: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'],
-                 internet_security_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 route: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']] = None):
+                 internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 route: pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRouteArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Connection Configuration.
         :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'] vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
@@ -11401,26 +11401,26 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="internetSecurityEnabled")
-    def internet_security_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_security_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 
     @internet_security_enabled.setter
-    def internet_security_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_security_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_security_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def route(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]:
+    def route(self) -> pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]:
         """
         A `route` block as defined below.
         """
         return pulumi.get(self, "route")
 
     @route.setter
-    def route(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]):
+    def route(self, value: pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]):
         pulumi.set(self, "route", value)
 
 
@@ -11429,15 +11429,15 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgsDict(TypedDict):
     """
     The Virtual Hub Route Table resource id associated with this Routing Configuration.
     """
-    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
     """
-    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict']]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -11446,9 +11446,9 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgsDict(TypedDict):
 class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
     def __init__(__self__, *,
                  associated_route_table_id: pulumi.Input[_builtins.str],
-                 inbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']] = None):
+                 inbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_route_table: pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] associated_route_table_id: The Virtual Hub Route Table resource id associated with this Routing Configuration.
         :param pulumi.Input[_builtins.str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
@@ -11477,38 +11477,38 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="inboundRouteMapId")
-    def inbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         """
         return pulumi.get(self, "inbound_route_map_id")
 
     @inbound_route_map_id.setter
-    def inbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundRouteMapId")
-    def outbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         """
         return pulumi.get(self, "outbound_route_map_id")
 
     @outbound_route_map_id.setter
-    def outbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
 
@@ -11517,7 +11517,7 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs
     """
     The list of Virtual Hub Route Table resource id which the routes will be propagated to.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
     """
@@ -11526,7 +11526,7 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs
 class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs:
     def __init__(__self__, *,
                  ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ids: The list of Virtual Hub Route Table resource id which the routes will be propagated to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
@@ -11549,14 +11549,14 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -11772,15 +11772,15 @@ class RouteMapRuleArgsDict(TypedDict):
     """
     The unique name for the rule.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgsDict']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]]
     """
     An `action` block as defined below.
     """
-    match_criterions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgsDict']]]]
+    match_criterions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]]
     """
     A `match_criterion` block as defined below.
     """
-    next_step_if_matched: NotRequired[pulumi.Input[_builtins.str]]
+    next_step_if_matched: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
     """
@@ -11789,9 +11789,9 @@ class RouteMapRuleArgsDict(TypedDict):
 class RouteMapRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]] = None,
-                 match_criterions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]] = None,
-                 next_step_if_matched: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]] = None,
+                 match_criterions: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]] = None,
+                 next_step_if_matched: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The unique name for the rule.
         :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]] actions: An `action` block as defined below.
@@ -11820,38 +11820,38 @@ class RouteMapRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="matchCriterions")
-    def match_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]:
+    def match_criterions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]:
         """
         A `match_criterion` block as defined below.
         """
         return pulumi.get(self, "match_criterions")
 
     @match_criterions.setter
-    def match_criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]):
+    def match_criterions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]):
         pulumi.set(self, "match_criterions", value)
 
     @_builtins.property
     @pulumi.getter(name="nextStepIfMatched")
-    def next_step_if_matched(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_step_if_matched(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
         """
         return pulumi.get(self, "next_step_if_matched")
 
     @next_step_if_matched.setter
-    def next_step_if_matched(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_step_if_matched(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_step_if_matched", value)
 
 
@@ -11860,7 +11860,7 @@ class RouteMapRuleActionArgsDict(TypedDict):
     """
     The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]]
     """
     A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
     """
@@ -11869,7 +11869,7 @@ class RouteMapRuleActionArgsDict(TypedDict):
 class RouteMapRuleActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]] = None):
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
         :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]] parameters: A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
@@ -11892,27 +11892,27 @@ class RouteMapRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]:
         """
         A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
 class RouteMapRuleActionParameterArgsDict(TypedDict):
-    as_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    as_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of AS paths.
     """
-    communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    communities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of BGP communities.
     """
-    route_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    route_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of route prefixes.
     """
@@ -11920,9 +11920,9 @@ class RouteMapRuleActionParameterArgsDict(TypedDict):
 @pulumi.input_type
 class RouteMapRuleActionParameterArgs:
     def __init__(__self__, *,
-                 as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 as_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 communities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] as_paths: A list of AS paths.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] communities: A list of BGP communities.
@@ -11937,38 +11937,38 @@ class RouteMapRuleActionParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="asPaths")
-    def as_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def as_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of AS paths.
         """
         return pulumi.get(self, "as_paths")
 
     @as_paths.setter
-    def as_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def as_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "as_paths", value)
 
     @_builtins.property
     @pulumi.getter
-    def communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def communities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of BGP communities.
         """
         return pulumi.get(self, "communities")
 
     @communities.setter
-    def communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def communities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "communities", value)
 
     @_builtins.property
     @pulumi.getter(name="routePrefixes")
-    def route_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of route prefixes.
         """
         return pulumi.get(self, "route_prefixes")
 
     @route_prefixes.setter
-    def route_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_prefixes", value)
 
 
@@ -11977,15 +11977,15 @@ class RouteMapRuleMatchCriterionArgsDict(TypedDict):
     """
     The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
     """
-    as_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    as_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of AS paths which this criterion matches.
     """
-    communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    communities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of BGP communities which this criterion matches.
     """
-    route_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    route_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of route prefixes which this criterion matches.
     """
@@ -11994,9 +11994,9 @@ class RouteMapRuleMatchCriterionArgsDict(TypedDict):
 class RouteMapRuleMatchCriterionArgs:
     def __init__(__self__, *,
                  match_condition: pulumi.Input[_builtins.str],
-                 as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 as_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 communities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] match_condition: The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] as_paths: A list of AS paths which this criterion matches.
@@ -12025,38 +12025,38 @@ class RouteMapRuleMatchCriterionArgs:
 
     @_builtins.property
     @pulumi.getter(name="asPaths")
-    def as_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def as_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of AS paths which this criterion matches.
         """
         return pulumi.get(self, "as_paths")
 
     @as_paths.setter
-    def as_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def as_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "as_paths", value)
 
     @_builtins.property
     @pulumi.getter
-    def communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def communities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of BGP communities which this criterion matches.
         """
         return pulumi.get(self, "communities")
 
     @communities.setter
-    def communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def communities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "communities", value)
 
     @_builtins.property
     @pulumi.getter(name="routePrefixes")
-    def route_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of route prefixes which this criterion matches.
         """
         return pulumi.get(self, "route_prefixes")
 
     @route_prefixes.setter
-    def route_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_prefixes", value)
 
 
@@ -12073,7 +12073,7 @@ class RouteTableRouteArgsDict(TypedDict):
     """
     The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
     """
-    next_hop_in_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    next_hop_in_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
     """
@@ -12084,7 +12084,7 @@ class RouteTableRouteArgs:
                  address_prefix: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  next_hop_type: pulumi.Input[_builtins.str],
-                 next_hop_in_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 next_hop_in_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         :param pulumi.Input[_builtins.str] name: The name of the route.
@@ -12135,14 +12135,14 @@ class RouteTableRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="nextHopInIpAddress")
-    def next_hop_in_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_hop_in_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
         return pulumi.get(self, "next_hop_in_ip_address")
 
     @next_hop_in_ip_address.setter
-    def next_hop_in_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_hop_in_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_in_ip_address", value)
 
 
@@ -12264,7 +12264,7 @@ class SubnetDelegationServiceDelegationArgsDict(TypedDict):
     """
     The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
@@ -12275,7 +12275,7 @@ class SubnetDelegationServiceDelegationArgsDict(TypedDict):
 class SubnetDelegationServiceDelegationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
@@ -12300,7 +12300,7 @@ class SubnetDelegationServiceDelegationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
@@ -12309,7 +12309,7 @@ class SubnetDelegationServiceDelegationArgs:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
 
@@ -12324,7 +12324,7 @@ class SubnetIpAddressPoolArgsDict(TypedDict):
 
     > **Note:** `number_of_ip_addresses` cannot be decreased.
     """
-    allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allocated_ip_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IP address prefixes allocated to the subnet.
     """
@@ -12334,7 +12334,7 @@ class SubnetIpAddressPoolArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
                  number_of_ip_addresses: pulumi.Input[_builtins.str],
-                 allocated_ip_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allocated_ip_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Network Manager IP Address Management (IPAM) Pool.
         :param pulumi.Input[_builtins.str] number_of_ip_addresses: The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
@@ -12375,14 +12375,14 @@ class SubnetIpAddressPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedIpAddressPrefixes")
-    def allocated_ip_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allocated_ip_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IP address prefixes allocated to the subnet.
         """
         return pulumi.get(self, "allocated_ip_address_prefixes")
 
     @allocated_ip_address_prefixes.setter
-    def allocated_ip_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allocated_ip_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allocated_ip_address_prefixes", value)
 
 
@@ -12397,11 +12397,11 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgsDict(TypedDict):
 
     > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of this Subnet Service Endpoint Storage Policy Definition.
     """
-    service: NotRequired[pulumi.Input[_builtins.str]]
+    service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
     """
@@ -12411,8 +12411,8 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  service_resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_resources: Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
@@ -12456,26 +12456,26 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Subnet Service Endpoint Storage Policy Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service", value)
 
 
@@ -12531,11 +12531,11 @@ class TrafficManagerAzureEndpointSubnetArgsDict(TypedDict):
     """
     The first IP Address in this subnet.
     """
-    last: NotRequired[pulumi.Input[_builtins.str]]
+    last: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last IP Address in this subnet.
     """
-    scope: NotRequired[pulumi.Input[_builtins.int]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The block size (number of leading bits in the subnet mask).
     """
@@ -12544,8 +12544,8 @@ class TrafficManagerAzureEndpointSubnetArgsDict(TypedDict):
 class TrafficManagerAzureEndpointSubnetArgs:
     def __init__(__self__, *,
                  first: pulumi.Input[_builtins.str],
-                 last: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.int]] = None):
+                 last: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] first: The first IP Address in this subnet.
         :param pulumi.Input[_builtins.str] last: The last IP Address in this subnet.
@@ -12571,26 +12571,26 @@ class TrafficManagerAzureEndpointSubnetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def last(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last IP Address in this subnet.
         """
         return pulumi.get(self, "last")
 
     @last.setter
-    def last(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The block size (number of leading bits in the subnet mask).
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scope", value)
 
 
@@ -12646,11 +12646,11 @@ class TrafficManagerExternalEndpointSubnetArgsDict(TypedDict):
     """
     The first IP Address in this subnet.
     """
-    last: NotRequired[pulumi.Input[_builtins.str]]
+    last: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last IP Address in this subnet.
     """
-    scope: NotRequired[pulumi.Input[_builtins.int]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The block size (number of leading bits in the subnet mask).
     """
@@ -12659,8 +12659,8 @@ class TrafficManagerExternalEndpointSubnetArgsDict(TypedDict):
 class TrafficManagerExternalEndpointSubnetArgs:
     def __init__(__self__, *,
                  first: pulumi.Input[_builtins.str],
-                 last: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.int]] = None):
+                 last: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] first: The first IP Address in this subnet.
         :param pulumi.Input[_builtins.str] last: The last IP Address in this subnet.
@@ -12686,26 +12686,26 @@ class TrafficManagerExternalEndpointSubnetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def last(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last IP Address in this subnet.
         """
         return pulumi.get(self, "last")
 
     @last.setter
-    def last(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The block size (number of leading bits in the subnet mask).
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scope", value)
 
 
@@ -12761,11 +12761,11 @@ class TrafficManagerNestedEndpointSubnetArgsDict(TypedDict):
     """
     The first IP Address in this subnet.
     """
-    last: NotRequired[pulumi.Input[_builtins.str]]
+    last: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last IP Address in this subnet.
     """
-    scope: NotRequired[pulumi.Input[_builtins.int]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The block size (number of leading bits in the subnet mask).
     """
@@ -12774,8 +12774,8 @@ class TrafficManagerNestedEndpointSubnetArgsDict(TypedDict):
 class TrafficManagerNestedEndpointSubnetArgs:
     def __init__(__self__, *,
                  first: pulumi.Input[_builtins.str],
-                 last: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.int]] = None):
+                 last: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] first: The first IP Address in this subnet.
         :param pulumi.Input[_builtins.str] last: The last IP Address in this subnet.
@@ -12801,26 +12801,26 @@ class TrafficManagerNestedEndpointSubnetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def last(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last IP Address in this subnet.
         """
         return pulumi.get(self, "last")
 
     @last.setter
-    def last(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The block size (number of leading bits in the subnet mask).
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scope", value)
 
 
@@ -12880,27 +12880,27 @@ class TrafficManagerProfileMonitorConfigArgsDict(TypedDict):
     """
     The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
     """
-    custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgsDict']]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]]
     """
     One or more `custom_header` blocks as defined below.
     """
-    expected_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expected_status_code_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of status code ranges in the format of `100-101`.
     """
-    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
     """
-    tolerated_number_of_failures: NotRequired[pulumi.Input[_builtins.int]]
+    tolerated_number_of_failures: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
     """
@@ -12910,12 +12910,12 @@ class TrafficManagerProfileMonitorConfigArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]] = None,
-                 expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tolerated_number_of_failures: Optional[pulumi.Input[_builtins.int]] = None):
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]] = None,
+                 expected_status_code_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tolerated_number_of_failures: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] port: The port number used by the monitoring checks.
         :param pulumi.Input[_builtins.str] protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
@@ -12967,74 +12967,74 @@ class TrafficManagerProfileMonitorConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]:
+    def custom_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]):
+    def custom_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedStatusCodeRanges")
-    def expected_status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expected_status_code_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of status code ranges in the format of `100-101`.
         """
         return pulumi.get(self, "expected_status_code_ranges")
 
     @expected_status_code_ranges.setter
-    def expected_status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expected_status_code_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expected_status_code_ranges", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tolerated_number_of_failures(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
         return pulumi.get(self, "tolerated_number_of_failures")
 
     @tolerated_number_of_failures.setter
-    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tolerated_number_of_failures(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
 
 
@@ -13086,31 +13086,31 @@ class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
 
 
 class VirtualHubConnectionRoutingArgsDict(TypedDict):
-    associated_route_table_id: NotRequired[pulumi.Input[_builtins.str]]
+    associated_route_table_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the route table associated with this Virtual Hub connection.
     """
-    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
     """
-    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgsDict']]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]]
     """
     A `propagated_route_table` block as defined below.
     """
-    static_vnet_local_route_override_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    static_vnet_local_route_override_criteria: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
     """
-    static_vnet_propagate_static_routes_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    static_vnet_propagate_static_routes_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
     """
-    static_vnet_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgsDict']]]]
+    static_vnet_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]]
     """
     A `static_vnet_route` block as defined below.
     """
@@ -13118,13 +13118,13 @@ class VirtualHubConnectionRoutingArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualHubConnectionRoutingArgs:
     def __init__(__self__, *,
-                 associated_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']] = None,
-                 static_vnet_local_route_override_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_vnet_propagate_static_routes_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 static_vnet_routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]] = None):
+                 associated_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_route_table: pulumi.Input[Optional['VirtualHubConnectionRoutingPropagatedRouteTableArgs']] = None,
+                 static_vnet_local_route_override_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_vnet_propagate_static_routes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 static_vnet_routes: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
         :param pulumi.Input[_builtins.str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
@@ -13151,95 +13151,95 @@ class VirtualHubConnectionRoutingArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedRouteTableId")
-    def associated_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the route table associated with this Virtual Hub connection.
         """
         return pulumi.get(self, "associated_route_table_id")
 
     @associated_route_table_id.setter
-    def associated_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundRouteMapId")
-    def inbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         """
         return pulumi.get(self, "inbound_route_map_id")
 
     @inbound_route_map_id.setter
-    def inbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundRouteMapId")
-    def outbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         """
         return pulumi.get(self, "outbound_route_map_id")
 
     @outbound_route_map_id.setter
-    def outbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> pulumi.Input[Optional['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: pulumi.Input[Optional['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
     @_builtins.property
     @pulumi.getter(name="staticVnetLocalRouteOverrideCriteria")
-    def static_vnet_local_route_override_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def static_vnet_local_route_override_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "static_vnet_local_route_override_criteria")
 
     @static_vnet_local_route_override_criteria.setter
-    def static_vnet_local_route_override_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def static_vnet_local_route_override_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "static_vnet_local_route_override_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="staticVnetPropagateStaticRoutesEnabled")
-    def static_vnet_propagate_static_routes_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def static_vnet_propagate_static_routes_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
         """
         return pulumi.get(self, "static_vnet_propagate_static_routes_enabled")
 
     @static_vnet_propagate_static_routes_enabled.setter
-    def static_vnet_propagate_static_routes_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def static_vnet_propagate_static_routes_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "static_vnet_propagate_static_routes_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="staticVnetRoutes")
-    def static_vnet_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]:
+    def static_vnet_routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]:
         """
         A `static_vnet_route` block as defined below.
         """
         return pulumi.get(self, "static_vnet_routes")
 
     @static_vnet_routes.setter
-    def static_vnet_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]):
+    def static_vnet_routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]):
         pulumi.set(self, "static_vnet_routes", value)
 
 
 class VirtualHubConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of labels to assign to this route table.
     """
-    route_table_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    route_table_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Route Table IDs to associated with this Virtual Hub Connection.
     """
@@ -13247,8 +13247,8 @@ class VirtualHubConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: The list of labels to assign to this route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: A list of Route Table IDs to associated with this Virtual Hub Connection.
@@ -13260,39 +13260,39 @@ class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of labels to assign to this route table.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_table_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Route Table IDs to associated with this Virtual Hub Connection.
         """
         return pulumi.get(self, "route_table_ids")
 
     @route_table_ids.setter
-    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_table_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_table_ids", value)
 
 
 class VirtualHubConnectionRoutingStaticVnetRouteArgsDict(TypedDict):
-    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of CIDR Ranges which should be used as Address Prefixes.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name which should be used for this Static Route.
     """
-    next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    next_hop_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP Address which should be used for the Next Hop.
     """
@@ -13300,9 +13300,9 @@ class VirtualHubConnectionRoutingStaticVnetRouteArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualHubConnectionRoutingStaticVnetRouteArgs:
     def __init__(__self__, *,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 next_hop_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 next_hop_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: A list of CIDR Ranges which should be used as Address Prefixes.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Static Route.
@@ -13317,38 +13317,38 @@ class VirtualHubConnectionRoutingStaticVnetRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of CIDR Ranges which should be used as Address Prefixes.
         """
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Static Route.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nextHopIpAddress")
-    def next_hop_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_hop_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP Address which should be used for the Next Hop.
         """
         return pulumi.get(self, "next_hop_ip_address")
 
     @next_hop_ip_address.setter
-    def next_hop_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_hop_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_ip_address", value)
 
 
@@ -13416,7 +13416,7 @@ class VirtualHubRouteTableRouteArgsDict(TypedDict):
     """
     The next hop's resource ID.
     """
-    next_hop_type: NotRequired[pulumi.Input[_builtins.str]]
+    next_hop_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
 
@@ -13430,7 +13430,7 @@ class VirtualHubRouteTableRouteArgs:
                  destinations_type: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  next_hop: pulumi.Input[_builtins.str],
-                 next_hop_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 next_hop_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: A list of destination addresses for this route.
         :param pulumi.Input[_builtins.str] destinations_type: The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
@@ -13497,7 +13497,7 @@ class VirtualHubRouteTableRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="nextHopType")
-    def next_hop_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def next_hop_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
 
@@ -13506,7 +13506,7 @@ class VirtualHubRouteTableRouteArgs:
         return pulumi.get(self, "next_hop_type")
 
     @next_hop_type.setter
-    def next_hop_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def next_hop_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "next_hop_type", value)
 
 
@@ -13592,15 +13592,15 @@ class VirtualNetworkEncryptionArgs:
 
 
 class VirtualNetworkGatewayBgpSettingsArgsDict(TypedDict):
-    asn: NotRequired[pulumi.Input[_builtins.int]]
+    asn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Autonomous System Number (ASN) to use as part of the BGP.
     """
-    peer_weight: NotRequired[pulumi.Input[_builtins.int]]
+    peer_weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
     """
-    peering_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict']]]]
+    peering_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]]
     """
     A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
     """
@@ -13608,9 +13608,9 @@ class VirtualNetworkGatewayBgpSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkGatewayBgpSettingsArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 peering_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]] = None):
+                 asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 peering_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] asn: The Autonomous System Number (ASN) to use as part of the BGP.
         :param pulumi.Input[_builtins.int] peer_weight: The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
@@ -13625,57 +13625,57 @@ class VirtualNetworkGatewayBgpSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Autonomous System Number (ASN) to use as part of the BGP.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "asn", value)
 
     @_builtins.property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def peer_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
         """
         return pulumi.get(self, "peer_weight")
 
     @peer_weight.setter
-    def peer_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def peer_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_weight", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringAddresses")
-    def peering_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]:
+    def peering_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]:
         """
         A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         return pulumi.get(self, "peering_addresses")
 
     @peering_addresses.setter
-    def peering_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]):
+    def peering_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]):
         pulumi.set(self, "peering_addresses", value)
 
 
 class VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict(TypedDict):
-    apipa_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    apipa_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
 
     > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
     """
-    default_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    default_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
     """
-    ip_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    ip_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
     """
-    tunnel_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tunnel_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
     """
@@ -13683,10 +13683,10 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
     def __init__(__self__, *,
-                 apipa_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 apipa_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apipa_addresses: A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
                
@@ -13706,7 +13706,7 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="apipaAddresses")
-    def apipa_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def apipa_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
 
@@ -13715,43 +13715,43 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
         return pulumi.get(self, "apipa_addresses")
 
     @apipa_addresses.setter
-    def apipa_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def apipa_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "apipa_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAddresses")
-    def default_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
         """
         return pulumi.get(self, "default_addresses")
 
     @default_addresses.setter
-    def default_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationName")
-    def ip_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
         """
         return pulumi.get(self, "ip_configuration_name")
 
     @ip_configuration_name.setter
-    def ip_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelIpAddresses")
-    def tunnel_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tunnel_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
         """
         return pulumi.get(self, "tunnel_ip_addresses")
 
     @tunnel_ip_addresses.setter
-    def tunnel_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tunnel_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tunnel_ip_addresses", value)
 
 
@@ -13760,7 +13760,7 @@ class VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict(TypedDict):
     """
     single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
     """
-    secondary: NotRequired[pulumi.Input[_builtins.str]]
+    secondary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
     """
@@ -13769,7 +13769,7 @@ class VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict(TypedDict):
 class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
     def __init__(__self__, *,
                  primary: pulumi.Input[_builtins.str],
-                 secondary: Optional[pulumi.Input[_builtins.str]] = None):
+                 secondary: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] primary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
         :param pulumi.Input[_builtins.str] secondary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
@@ -13792,14 +13792,14 @@ class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def secondary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
         """
         return pulumi.get(self, "secondary")
 
     @secondary.setter
-    def secondary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary", value)
 
 
@@ -13830,11 +13830,11 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgsDict(TypedDict):
     Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
     or `None`.
     """
-    sa_datasize: NotRequired[pulumi.Input[_builtins.int]]
+    sa_datasize: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
     """
-    sa_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    sa_lifetime: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
     """
@@ -13848,8 +13848,8 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
                  ipsec_encryption: pulumi.Input[_builtins.str],
                  ipsec_integrity: pulumi.Input[_builtins.str],
                  pfs_group: pulumi.Input[_builtins.str],
-                 sa_datasize: Optional[pulumi.Input[_builtins.int]] = None,
-                 sa_lifetime: Optional[pulumi.Input[_builtins.int]] = None):
+                 sa_datasize: pulumi.Input[Optional[_builtins.int]] = None,
+                 sa_lifetime: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] dh_group: The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
         :param pulumi.Input[_builtins.str] ike_encryption: The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
@@ -13949,26 +13949,26 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="saDatasize")
-    def sa_datasize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sa_datasize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
         """
         return pulumi.get(self, "sa_datasize")
 
     @sa_datasize.setter
-    def sa_datasize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sa_datasize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sa_datasize", value)
 
     @_builtins.property
     @pulumi.getter(name="saLifetime")
-    def sa_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sa_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
         """
         return pulumi.get(self, "sa_lifetime")
 
     @sa_lifetime.setter
-    def sa_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sa_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sa_lifetime", value)
 
 
@@ -14020,7 +14020,7 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
 
 
 class VirtualNetworkGatewayCustomRouteArgsDict(TypedDict):
-    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of address blocks reserved for this virtual network in CIDR notation.
     """
@@ -14028,7 +14028,7 @@ class VirtualNetworkGatewayCustomRouteArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkGatewayCustomRouteArgs:
     def __init__(__self__, *,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
@@ -14037,14 +14037,14 @@ class VirtualNetworkGatewayCustomRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
 
@@ -14053,15 +14053,15 @@ class VirtualNetworkGatewayIpConfigurationArgsDict(TypedDict):
     """
     The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
     """
-    private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address_allocation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
     """
-    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the public IP address to associate with the Virtual Network Gateway.
 
@@ -14072,9 +14072,9 @@ class VirtualNetworkGatewayIpConfigurationArgsDict(TypedDict):
 class VirtualNetworkGatewayIpConfigurationArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_allocation: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address_allocation: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
         :param pulumi.Input[_builtins.str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
@@ -14105,31 +14105,31 @@ class VirtualNetworkGatewayIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddressAllocation")
-    def private_ip_address_allocation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address_allocation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
 
     @private_ip_address_allocation.setter
-    def private_ip_address_allocation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address_allocation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address_allocation", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the public IP address to associate with the Virtual Network Gateway.
 
@@ -14138,7 +14138,7 @@ class VirtualNetworkGatewayIpConfigurationArgs:
         return pulumi.get(self, "public_ip_address_id")
 
     @public_ip_address_id.setter
-    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address_id", value)
 
 
@@ -14147,7 +14147,7 @@ class VirtualNetworkGatewayNatRuleExternalMappingArgsDict(TypedDict):
     """
     The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
     """
-    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The single port range for the Virtual Network Gateway Nat Rule external mapping.
     """
@@ -14156,7 +14156,7 @@ class VirtualNetworkGatewayNatRuleExternalMappingArgsDict(TypedDict):
 class VirtualNetworkGatewayNatRuleExternalMappingArgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[_builtins.str],
-                 port_range: Optional[pulumi.Input[_builtins.str]] = None):
+                 port_range: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address_space: The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
         :param pulumi.Input[_builtins.str] port_range: The single port range for the Virtual Network Gateway Nat Rule external mapping.
@@ -14179,14 +14179,14 @@ class VirtualNetworkGatewayNatRuleExternalMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="portRange")
-    def port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The single port range for the Virtual Network Gateway Nat Rule external mapping.
         """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
-    def port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_range", value)
 
 
@@ -14195,7 +14195,7 @@ class VirtualNetworkGatewayNatRuleInternalMappingArgsDict(TypedDict):
     """
     The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
     """
-    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The single port range for the Virtual Network Gateway Nat Rule internal mapping.
     """
@@ -14204,7 +14204,7 @@ class VirtualNetworkGatewayNatRuleInternalMappingArgsDict(TypedDict):
 class VirtualNetworkGatewayNatRuleInternalMappingArgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[_builtins.str],
-                 port_range: Optional[pulumi.Input[_builtins.str]] = None):
+                 port_range: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address_space: The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
         :param pulumi.Input[_builtins.str] port_range: The single port range for the Virtual Network Gateway Nat Rule internal mapping.
@@ -14227,14 +14227,14 @@ class VirtualNetworkGatewayNatRuleInternalMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="portRange")
-    def port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The single port range for the Virtual Network Gateway Nat Rule internal mapping.
         """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
-    def port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_range", value)
 
 
@@ -14247,11 +14247,11 @@ class VirtualNetworkGatewayPolicyGroupArgsDict(TypedDict):
     """
     One or more `policy_member` blocks as defined below.
     """
-    is_default: NotRequired[pulumi.Input[_builtins.bool]]
+    is_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
     """
@@ -14261,8 +14261,8 @@ class VirtualNetworkGatewayPolicyGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  policy_members: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupPolicyMemberArgs']]],
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None):
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Network Gateway Policy Group.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupPolicyMemberArgs']]] policy_members: One or more `policy_member` blocks as defined below.
@@ -14302,26 +14302,26 @@ class VirtualNetworkGatewayPolicyGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
 
@@ -14396,55 +14396,55 @@ class VirtualNetworkGatewayVpnClientConfigurationArgsDict(TypedDict):
     """
     The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
     """
-    aad_audience: NotRequired[pulumi.Input[_builtins.str]]
+    aad_audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client id of the Azure VPN application.
     See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
     """
-    aad_issuer: NotRequired[pulumi.Input[_builtins.str]]
+    aad_issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The STS url for your tenant
     """
-    aad_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    aad_tenant: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AzureAD Tenant URL
     """
-    ipsec_policy: NotRequired[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict']]
+    ipsec_policy: NotRequired[pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']]]
     """
     An `ipsec_policy` block as defined below.
     """
-    radius_server_address: NotRequired[pulumi.Input[_builtins.str]]
+    radius_server_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address of the Radius server.
     """
-    radius_server_secret: NotRequired[pulumi.Input[_builtins.str]]
+    radius_server_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret used by the Radius server.
     """
-    radius_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict']]]]
+    radius_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]]]
     """
     One or more `radius_server` blocks as defined below.
     """
-    revoked_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict']]]]
+    revoked_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]]
     """
     One or more `revoked_certificate` blocks which are defined below.
     """
-    root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict']]]]
+    root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]]
     """
     One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
     """
-    virtual_network_gateway_client_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict']]]]
+    virtual_network_gateway_client_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]]]
     """
     One or more `virtual_network_gateway_client_connection` blocks as defined below.
     """
-    vpn_auth_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpn_auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the vpn authentication types for the virtual network gateway.
     The supported values are `AAD`, `Radius` and `Certificate`.
 
     > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
     """
-    vpn_client_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpn_client_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of the protocols supported by the vpn client.
     The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -14456,18 +14456,18 @@ class VirtualNetworkGatewayVpnClientConfigurationArgsDict(TypedDict):
 class VirtualNetworkGatewayVpnClientConfigurationArgs:
     def __init__(__self__, *,
                  address_spaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 aad_audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 aad_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 aad_tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']] = None,
-                 radius_server_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 radius_server_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]] = None,
-                 revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]] = None,
-                 root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]] = None,
-                 virtual_network_gateway_client_connections: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]] = None,
-                 vpn_auth_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpn_client_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aad_audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 aad_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 aad_tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipsec_policy: pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']] = None,
+                 radius_server_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 radius_server_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 radius_servers: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]] = None,
+                 revoked_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]] = None,
+                 root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]] = None,
+                 virtual_network_gateway_client_connections: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]] = None,
+                 vpn_auth_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpn_client_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
         :param pulumi.Input[_builtins.str] aad_audience: The client id of the Azure VPN application.
@@ -14530,7 +14530,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadAudience")
-    def aad_audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aad_audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client id of the Azure VPN application.
         See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
@@ -14538,120 +14538,120 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         return pulumi.get(self, "aad_audience")
 
     @aad_audience.setter
-    def aad_audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aad_audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aad_audience", value)
 
     @_builtins.property
     @pulumi.getter(name="aadIssuer")
-    def aad_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aad_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The STS url for your tenant
         """
         return pulumi.get(self, "aad_issuer")
 
     @aad_issuer.setter
-    def aad_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aad_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aad_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="aadTenant")
-    def aad_tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aad_tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AzureAD Tenant URL
         """
         return pulumi.get(self, "aad_tenant")
 
     @aad_tenant.setter
-    def aad_tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aad_tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aad_tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']]:
+    def ipsec_policy(self) -> pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']]:
         """
         An `ipsec_policy` block as defined below.
         """
         return pulumi.get(self, "ipsec_policy")
 
     @ipsec_policy.setter
-    def ipsec_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']]):
+    def ipsec_policy(self, value: pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']]):
         pulumi.set(self, "ipsec_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusServerAddress")
-    def radius_server_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def radius_server_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address of the Radius server.
         """
         return pulumi.get(self, "radius_server_address")
 
     @radius_server_address.setter
-    def radius_server_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def radius_server_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "radius_server_address", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusServerSecret")
-    def radius_server_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def radius_server_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret used by the Radius server.
         """
         return pulumi.get(self, "radius_server_secret")
 
     @radius_server_secret.setter
-    def radius_server_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def radius_server_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "radius_server_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusServers")
-    def radius_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]]:
+    def radius_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]]:
         """
         One or more `radius_server` blocks as defined below.
         """
         return pulumi.get(self, "radius_servers")
 
     @radius_servers.setter
-    def radius_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]]):
+    def radius_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]]):
         pulumi.set(self, "radius_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedCertificates")
-    def revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]:
+    def revoked_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]:
         """
         One or more `revoked_certificate` blocks which are defined below.
         """
         return pulumi.get(self, "revoked_certificates")
 
     @revoked_certificates.setter
-    def revoked_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]):
+    def revoked_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]):
         pulumi.set(self, "revoked_certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="rootCertificates")
-    def root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]:
+    def root_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]:
         """
         One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         """
         return pulumi.get(self, "root_certificates")
 
     @root_certificates.setter
-    def root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]):
+    def root_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]):
         pulumi.set(self, "root_certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkGatewayClientConnections")
-    def virtual_network_gateway_client_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]]:
+    def virtual_network_gateway_client_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]]:
         """
         One or more `virtual_network_gateway_client_connection` blocks as defined below.
         """
         return pulumi.get(self, "virtual_network_gateway_client_connections")
 
     @virtual_network_gateway_client_connections.setter
-    def virtual_network_gateway_client_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]]):
+    def virtual_network_gateway_client_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]]):
         pulumi.set(self, "virtual_network_gateway_client_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnAuthTypes")
-    def vpn_auth_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpn_auth_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the vpn authentication types for the virtual network gateway.
         The supported values are `AAD`, `Radius` and `Certificate`.
@@ -14661,12 +14661,12 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         return pulumi.get(self, "vpn_auth_types")
 
     @vpn_auth_types.setter
-    def vpn_auth_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpn_auth_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpn_auth_types", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnClientProtocols")
-    def vpn_client_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpn_client_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the protocols supported by the vpn client.
         The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -14676,7 +14676,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         return pulumi.get(self, "vpn_client_protocols")
 
     @vpn_client_protocols.setter
-    def vpn_client_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpn_client_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpn_client_protocols", value)
 
 
@@ -15078,7 +15078,7 @@ class VirtualNetworkIpAddressPoolArgsDict(TypedDict):
 
     > **Note:** `number_of_ip_addresses` cannot be decreased.
     """
-    allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allocated_ip_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IP address prefixes allocated to the Virtual Network.
     """
@@ -15088,7 +15088,7 @@ class VirtualNetworkIpAddressPoolArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
                  number_of_ip_addresses: pulumi.Input[_builtins.str],
-                 allocated_ip_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allocated_ip_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Network Manager IP Address Management (IPAM) Pool.
         :param pulumi.Input[_builtins.str] number_of_ip_addresses: The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
@@ -15129,14 +15129,14 @@ class VirtualNetworkIpAddressPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatedIpAddressPrefixes")
-    def allocated_ip_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allocated_ip_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IP address prefixes allocated to the Virtual Network.
         """
         return pulumi.get(self, "allocated_ip_address_prefixes")
 
     @allocated_ip_address_prefixes.setter
-    def allocated_ip_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allocated_ip_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allocated_ip_address_prefixes", value)
 
 
@@ -15149,19 +15149,19 @@ class VirtualNetworkSubnetArgsDict(TypedDict):
     """
     The name of the subnet.
     """
-    default_outbound_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    default_outbound_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable default outbound access to the internet for the subnet. Defaults to `true`.
     """
-    delegation: NotRequired[pulumi.Input['VirtualNetworkSubnetDelegationArgsDict']]
+    delegation: NotRequired[pulumi.Input[Optional['VirtualNetworkSubnetDelegationArgs']]]
     """
     One or more `delegation` blocks as defined below.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of this subnet.
     """
-    private_endpoint_network_policies: NotRequired[pulumi.Input[_builtins.str]]
+    private_endpoint_network_policies: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 
@@ -15171,27 +15171,27 @@ class VirtualNetworkSubnetArgsDict(TypedDict):
 
     > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
     """
-    private_link_service_network_policies_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    private_link_service_network_policies_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
     > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
     """
-    route_table_id: NotRequired[pulumi.Input[_builtins.str]]
+    route_table_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Route Table that should be associated with this subnet.
 
     > **Note:** If you declare the subnet inline inside `network.VirtualNetwork`, set `route_table_id` in that `subnet` block — do not also create an `network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `network.Subnet` resource.
     """
-    security_group: NotRequired[pulumi.Input[_builtins.str]]
+    security_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
     """
-    service_endpoint_policy_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    service_endpoint_policy_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of IDs of Service Endpoint Policies to associate with the subnet.
     """
-    service_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    service_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
     """
@@ -15201,15 +15201,15 @@ class VirtualNetworkSubnetArgs:
     def __init__(__self__, *,
                  address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 default_outbound_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delegation: Optional[pulumi.Input['VirtualNetworkSubnetDelegationArgs']] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_network_policies: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_network_policies_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 default_outbound_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delegation: pulumi.Input[Optional['VirtualNetworkSubnetDelegationArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[_builtins.str] name: The name of the subnet.
@@ -15280,43 +15280,43 @@ class VirtualNetworkSubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultOutboundAccessEnabled")
-    def default_outbound_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_outbound_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable default outbound access to the internet for the subnet. Defaults to `true`.
         """
         return pulumi.get(self, "default_outbound_access_enabled")
 
     @default_outbound_access_enabled.setter
-    def default_outbound_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_outbound_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_outbound_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def delegation(self) -> Optional[pulumi.Input['VirtualNetworkSubnetDelegationArgs']]:
+    def delegation(self) -> pulumi.Input[Optional['VirtualNetworkSubnetDelegationArgs']]:
         """
         One or more `delegation` blocks as defined below.
         """
         return pulumi.get(self, "delegation")
 
     @delegation.setter
-    def delegation(self, value: Optional[pulumi.Input['VirtualNetworkSubnetDelegationArgs']]):
+    def delegation(self, value: pulumi.Input[Optional['VirtualNetworkSubnetDelegationArgs']]):
         pulumi.set(self, "delegation", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of this subnet.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
-    def private_endpoint_network_policies(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_network_policies(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 
@@ -15329,12 +15329,12 @@ class VirtualNetworkSubnetArgs:
         return pulumi.get(self, "private_endpoint_network_policies")
 
     @private_endpoint_network_policies.setter
-    def private_endpoint_network_policies(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_network_policies(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_network_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
-    def private_link_service_network_policies_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_link_service_network_policies_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
@@ -15343,12 +15343,12 @@ class VirtualNetworkSubnetArgs:
         return pulumi.get(self, "private_link_service_network_policies_enabled")
 
     @private_link_service_network_policies_enabled.setter
-    def private_link_service_network_policies_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_link_service_network_policies_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_link_service_network_policies_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Route Table that should be associated with this subnet.
 
@@ -15357,43 +15357,43 @@ class VirtualNetworkSubnetArgs:
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
-    def route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroup")
-    def security_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
         return pulumi.get(self, "security_group")
 
     @security_group.setter
-    def security_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_group", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointPolicyIds")
-    def service_endpoint_policy_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_endpoint_policy_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IDs of Service Endpoint Policies to associate with the subnet.
         """
         return pulumi.get(self, "service_endpoint_policy_ids")
 
     @service_endpoint_policy_ids.setter
-    def service_endpoint_policy_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_endpoint_policy_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_endpoint_policy_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
         """
         return pulumi.get(self, "service_endpoints")
 
     @service_endpoints.setter
-    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_endpoints", value)
 
 
@@ -15449,7 +15449,7 @@ class VirtualNetworkSubnetDelegationServiceDelegationArgsDict(TypedDict):
     """
     The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
@@ -15460,7 +15460,7 @@ class VirtualNetworkSubnetDelegationServiceDelegationArgsDict(TypedDict):
 class VirtualNetworkSubnetDelegationServiceDelegationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
@@ -15485,7 +15485,7 @@ class VirtualNetworkSubnetDelegationServiceDelegationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
@@ -15494,7 +15494,7 @@ class VirtualNetworkSubnetDelegationServiceDelegationArgs:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
 
 
@@ -15503,7 +15503,7 @@ class VnpGatewayNatRuleExternalMappingArgsDict(TypedDict):
     """
     The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
     """
-    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The single port range for the VPN Gateway Nat Rule external mapping.
     """
@@ -15512,7 +15512,7 @@ class VnpGatewayNatRuleExternalMappingArgsDict(TypedDict):
 class VnpGatewayNatRuleExternalMappingArgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[_builtins.str],
-                 port_range: Optional[pulumi.Input[_builtins.str]] = None):
+                 port_range: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address_space: The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
         :param pulumi.Input[_builtins.str] port_range: The single port range for the VPN Gateway Nat Rule external mapping.
@@ -15535,14 +15535,14 @@ class VnpGatewayNatRuleExternalMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="portRange")
-    def port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The single port range for the VPN Gateway Nat Rule external mapping.
         """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
-    def port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_range", value)
 
 
@@ -15551,7 +15551,7 @@ class VnpGatewayNatRuleInternalMappingArgsDict(TypedDict):
     """
     The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
     """
-    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The single port range for the VPN Gateway Nat Rule internal mapping.
     """
@@ -15560,7 +15560,7 @@ class VnpGatewayNatRuleInternalMappingArgsDict(TypedDict):
 class VnpGatewayNatRuleInternalMappingArgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[_builtins.str],
-                 port_range: Optional[pulumi.Input[_builtins.str]] = None):
+                 port_range: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address_space: The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
         :param pulumi.Input[_builtins.str] port_range: The single port range for the VPN Gateway Nat Rule internal mapping.
@@ -15583,14 +15583,14 @@ class VnpGatewayNatRuleInternalMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="portRange")
-    def port_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The single port range for the VPN Gateway Nat Rule internal mapping.
         """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
-    def port_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port_range", value)
 
 
@@ -15603,15 +15603,15 @@ class VpnGatewayBgpSettingsArgsDict(TypedDict):
     """
     The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
     """
-    bgp_peering_address: NotRequired[pulumi.Input[_builtins.str]]
+    bgp_peering_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Address which should be used for the BGP Peering.
     """
-    instance0_bgp_peering_address: NotRequired[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict']]
+    instance0_bgp_peering_address: NotRequired[pulumi.Input[Optional['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]]
     """
     An `instance_bgp_peering_address` block as defined below.
     """
-    instance1_bgp_peering_address: NotRequired[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict']]
+    instance1_bgp_peering_address: NotRequired[pulumi.Input[Optional['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]]
     """
     An `instance_bgp_peering_address` block as defined below.
     """
@@ -15621,9 +15621,9 @@ class VpnGatewayBgpSettingsArgs:
     def __init__(__self__, *,
                  asn: pulumi.Input[_builtins.int],
                  peer_weight: pulumi.Input[_builtins.int],
-                 bgp_peering_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance0_bgp_peering_address: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']] = None,
-                 instance1_bgp_peering_address: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']] = None):
+                 bgp_peering_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance0_bgp_peering_address: pulumi.Input[Optional['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']] = None,
+                 instance1_bgp_peering_address: pulumi.Input[Optional['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] asn: The ASN of the BGP Speaker. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] peer_weight: The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
@@ -15666,38 +15666,38 @@ class VpnGatewayBgpSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpPeeringAddress")
-    def bgp_peering_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_peering_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Address which should be used for the BGP Peering.
         """
         return pulumi.get(self, "bgp_peering_address")
 
     @bgp_peering_address.setter
-    def bgp_peering_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_peering_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_peering_address", value)
 
     @_builtins.property
     @pulumi.getter(name="instance0BgpPeeringAddress")
-    def instance0_bgp_peering_address(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]:
+    def instance0_bgp_peering_address(self) -> pulumi.Input[Optional['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]:
         """
         An `instance_bgp_peering_address` block as defined below.
         """
         return pulumi.get(self, "instance0_bgp_peering_address")
 
     @instance0_bgp_peering_address.setter
-    def instance0_bgp_peering_address(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]):
+    def instance0_bgp_peering_address(self, value: pulumi.Input[Optional['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]):
         pulumi.set(self, "instance0_bgp_peering_address", value)
 
     @_builtins.property
     @pulumi.getter(name="instance1BgpPeeringAddress")
-    def instance1_bgp_peering_address(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]:
+    def instance1_bgp_peering_address(self) -> pulumi.Input[Optional['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]:
         """
         An `instance_bgp_peering_address` block as defined below.
         """
         return pulumi.get(self, "instance1_bgp_peering_address")
 
     @instance1_bgp_peering_address.setter
-    def instance1_bgp_peering_address(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]):
+    def instance1_bgp_peering_address(self, value: pulumi.Input[Optional['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]):
         pulumi.set(self, "instance1_bgp_peering_address", value)
 
 
@@ -15706,15 +15706,15 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict(TypedDict):
     """
     A list of custom BGP peering addresses to assign to this instance.
     """
-    default_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    default_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
     """
-    ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    ip_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pre-defined id of VPN Gateway IP Configuration.
     """
-    tunnel_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tunnel_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
     """
@@ -15723,9 +15723,9 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict(TypedDict):
 class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
     def __init__(__self__, *,
                  custom_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 default_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 default_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -15754,38 +15754,38 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultIps")
-    def default_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         return pulumi.get(self, "default_ips")
 
     @default_ips.setter
-    def default_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationId")
-    def ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
     @ip_configuration_id.setter
-    def ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelIps")
-    def tunnel_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tunnel_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         return pulumi.get(self, "tunnel_ips")
 
     @tunnel_ips.setter
-    def tunnel_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tunnel_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tunnel_ips", value)
 
 
@@ -15794,15 +15794,15 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict(TypedDict):
     """
     A list of custom BGP peering addresses to assign to this instance.
     """
-    default_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    default_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
     """
-    ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    ip_configuration_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pre-defined id of VPN Gateway IP Configuration.
     """
-    tunnel_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tunnel_ips: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
     """
@@ -15811,9 +15811,9 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict(TypedDict):
 class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
     def __init__(__self__, *,
                  custom_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 default_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 default_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -15842,38 +15842,38 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultIps")
-    def default_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         return pulumi.get(self, "default_ips")
 
     @default_ips.setter
-    def default_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurationId")
-    def ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
     @ip_configuration_id.setter
-    def ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelIps")
-    def tunnel_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tunnel_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         return pulumi.get(self, "tunnel_ips")
 
     @tunnel_ips.setter
-    def tunnel_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tunnel_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tunnel_ips", value)
 
 
@@ -15882,15 +15882,15 @@ class VpnGatewayConnectionRoutingArgsDict(TypedDict):
     """
     The ID of the Route Table associated with this VPN Connection.
     """
-    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
     """
-    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_route_map_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict']]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -15899,9 +15899,9 @@ class VpnGatewayConnectionRoutingArgsDict(TypedDict):
 class VpnGatewayConnectionRoutingArgs:
     def __init__(__self__, *,
                  associated_route_table: pulumi.Input[_builtins.str],
-                 inbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_route_map_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None):
+                 inbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_route_map_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagated_route_table: pulumi.Input[Optional['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] associated_route_table: The ID of the Route Table associated with this VPN Connection.
         :param pulumi.Input[_builtins.str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
@@ -15930,38 +15930,38 @@ class VpnGatewayConnectionRoutingArgs:
 
     @_builtins.property
     @pulumi.getter(name="inboundRouteMapId")
-    def inbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         """
         return pulumi.get(self, "inbound_route_map_id")
 
     @inbound_route_map_id.setter
-    def inbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundRouteMapId")
-    def outbound_route_map_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_route_map_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         """
         return pulumi.get(self, "outbound_route_map_id")
 
     @outbound_route_map_id.setter
-    def outbound_route_map_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_route_map_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_route_map_id", value)
 
     @_builtins.property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> pulumi.Input[Optional['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: pulumi.Input[Optional['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
 
@@ -15970,7 +15970,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
     """
     A list of Route Table IDs to associated with this VPN Gateway Connection.
     """
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of labels to assign to this route table.
     """
@@ -15979,7 +15979,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
 class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
     def __init__(__self__, *,
                  route_table_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: A list of Route Table IDs to associated with this VPN Gateway Connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: A list of labels to assign to this route table.
@@ -16002,14 +16002,14 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of labels to assign to this route table.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
 
@@ -16069,59 +16069,59 @@ class VpnGatewayConnectionVpnLinkArgsDict(TypedDict):
     """
     The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
     """
-    bandwidth_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    bandwidth_mbps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The expected connection bandwidth in MBPS. Defaults to `10`.
     """
-    bgp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    bgp_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
     """
-    connection_mode: NotRequired[pulumi.Input[_builtins.str]]
+    connection_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
     """
-    custom_bgp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict']]]]
+    custom_bgp_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]]
     """
     One or more `custom_bgp_address` blocks as defined below.
     """
-    dpd_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    dpd_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
     """
-    egress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    egress_nat_rule_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the egress NAT Rule Ids.
     """
-    ingress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ingress_nat_rule_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the ingress NAT Rule Ids.
     """
-    ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict']]]]
+    ipsec_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]]
     """
     One or more `ipsec_policy` blocks as defined above.
     """
-    local_azure_ip_address_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    local_azure_ip_address_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to use local Azure IP to initiate connection? Defaults to `false`.
     """
-    policy_based_traffic_selector_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    policy_based_traffic_selector_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable policy-based traffic selectors? Defaults to `false`.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
     """
-    ratelimit_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ratelimit_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the rate limit be enabled? Defaults to `false`.
     """
-    route_weight: NotRequired[pulumi.Input[_builtins.int]]
+    route_weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Routing weight for this VPN Link Connection. Defaults to `0`.
     """
-    shared_key: NotRequired[pulumi.Input[_builtins.str]]
+    shared_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SharedKey for this VPN Link Connection.
     """
@@ -16131,20 +16131,20 @@ class VpnGatewayConnectionVpnLinkArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  vpn_site_link_id: pulumi.Input[_builtins.str],
-                 bandwidth_mbps: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_bgp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]] = None,
-                 dpd_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
-                 local_azure_ip_address_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_based_traffic_selector_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 ratelimit_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 route_weight: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bandwidth_mbps: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_bgp_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]] = None,
+                 dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipsec_policies: pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
+                 local_azure_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_based_traffic_selector_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 ratelimit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 route_weight: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this VPN Link Connection.
         :param pulumi.Input[_builtins.str] vpn_site_link_id: The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
@@ -16220,170 +16220,170 @@ class VpnGatewayConnectionVpnLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="bandwidthMbps")
-    def bandwidth_mbps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bandwidth_mbps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The expected connection bandwidth in MBPS. Defaults to `10`.
         """
         return pulumi.get(self, "bandwidth_mbps")
 
     @bandwidth_mbps.setter
-    def bandwidth_mbps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bandwidth_mbps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bandwidth_mbps", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpEnabled")
-    def bgp_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bgp_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         """
         return pulumi.get(self, "bgp_enabled")
 
     @bgp_enabled.setter
-    def bgp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bgp_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bgp_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
-    def connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
         """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
-    def connection_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customBgpAddresses")
-    def custom_bgp_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]:
+    def custom_bgp_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]:
         """
         One or more `custom_bgp_address` blocks as defined below.
         """
         return pulumi.get(self, "custom_bgp_addresses")
 
     @custom_bgp_addresses.setter
-    def custom_bgp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]):
+    def custom_bgp_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]):
         pulumi.set(self, "custom_bgp_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="dpdTimeoutSeconds")
-    def dpd_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dpd_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
         """
         return pulumi.get(self, "dpd_timeout_seconds")
 
     @dpd_timeout_seconds.setter
-    def dpd_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dpd_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dpd_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="egressNatRuleIds")
-    def egress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def egress_nat_rule_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the egress NAT Rule Ids.
         """
         return pulumi.get(self, "egress_nat_rule_ids")
 
     @egress_nat_rule_ids.setter
-    def egress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def egress_nat_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "egress_nat_rule_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressNatRuleIds")
-    def ingress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ingress_nat_rule_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the ingress NAT Rule Ids.
         """
         return pulumi.get(self, "ingress_nat_rule_ids")
 
     @ingress_nat_rule_ids.setter
-    def ingress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ingress_nat_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ingress_nat_rule_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]:
+    def ipsec_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]:
         """
         One or more `ipsec_policy` blocks as defined above.
         """
         return pulumi.get(self, "ipsec_policies")
 
     @ipsec_policies.setter
-    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]):
+    def ipsec_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]):
         pulumi.set(self, "ipsec_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="localAzureIpAddressEnabled")
-    def local_azure_ip_address_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_azure_ip_address_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use local Azure IP to initiate connection? Defaults to `false`.
         """
         return pulumi.get(self, "local_azure_ip_address_enabled")
 
     @local_azure_ip_address_enabled.setter
-    def local_azure_ip_address_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_azure_ip_address_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_azure_ip_address_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="policyBasedTrafficSelectorEnabled")
-    def policy_based_traffic_selector_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_based_traffic_selector_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable policy-based traffic selectors? Defaults to `false`.
         """
         return pulumi.get(self, "policy_based_traffic_selector_enabled")
 
     @policy_based_traffic_selector_enabled.setter
-    def policy_based_traffic_selector_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_based_traffic_selector_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_based_traffic_selector_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="ratelimitEnabled")
-    def ratelimit_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ratelimit_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the rate limit be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "ratelimit_enabled")
 
     @ratelimit_enabled.setter
-    def ratelimit_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ratelimit_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ratelimit_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="routeWeight")
-    def route_weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def route_weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Routing weight for this VPN Link Connection. Defaults to `0`.
         """
         return pulumi.get(self, "route_weight")
 
     @route_weight.setter
-    def route_weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def route_weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "route_weight", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SharedKey for this VPN Link Connection.
         """
         return pulumi.get(self, "shared_key")
 
     @shared_key.setter
-    def shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_key", value)
 
 
@@ -16596,15 +16596,15 @@ class VpnGatewayConnectionVpnLinkIpsecPolicyArgs:
 
 
 class VpnGatewayIpConfigurationArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the IP configuration for the VPN Gateway.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of this IP configuration.
     """
-    public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public IP address of this IP configuration.
     """
@@ -16612,9 +16612,9 @@ class VpnGatewayIpConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class VpnGatewayIpConfigurationArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The identifier of the IP configuration for the VPN Gateway.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address of this IP configuration.
@@ -16629,38 +16629,38 @@ class VpnGatewayIpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the IP configuration for the VPN Gateway.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of this IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public IP address of this IP configuration.
         """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
-    def public_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address", value)
 
 
@@ -17052,15 +17052,15 @@ class VpnServerConfigurationPolicyGroupPolicyArgs:
 
 
 class VpnServerConfigurationRadiusArgsDict(TypedDict):
-    client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgsDict']]]]
+    client_root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]]
     """
     One or more `client_root_certificate` blocks as defined below.
     """
-    server_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgsDict']]]]
+    server_root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]]
     """
     One or more `server_root_certificate` blocks as defined below.
     """
-    servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgsDict']]]]
+    servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]]
     """
     One or more `server` blocks as defined below.
     """
@@ -17068,9 +17068,9 @@ class VpnServerConfigurationRadiusArgsDict(TypedDict):
 @pulumi.input_type
 class VpnServerConfigurationRadiusArgs:
     def __init__(__self__, *,
-                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]] = None,
-                 server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]] = None):
+                 client_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]] = None,
+                 server_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]] = None,
+                 servers: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
@@ -17085,38 +17085,38 @@ class VpnServerConfigurationRadiusArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientRootCertificates")
-    def client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]:
+    def client_root_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]:
         """
         One or more `client_root_certificate` blocks as defined below.
         """
         return pulumi.get(self, "client_root_certificates")
 
     @client_root_certificates.setter
-    def client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]):
+    def client_root_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]):
         pulumi.set(self, "client_root_certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]:
+    def server_root_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]:
         """
         One or more `server_root_certificate` blocks as defined below.
         """
         return pulumi.get(self, "server_root_certificates")
 
     @server_root_certificates.setter
-    def server_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]):
+    def server_root_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]):
         pulumi.set(self, "server_root_certificates", value)
 
     @_builtins.property
     @pulumi.getter
-    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]:
+    def servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]:
         """
         One or more `server` blocks as defined below.
         """
         return pulumi.get(self, "servers")
 
     @servers.setter
-    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]):
+    def servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]):
         pulumi.set(self, "servers", value)
 
 
@@ -17285,31 +17285,31 @@ class VpnSiteLinkArgsDict(TypedDict):
     """
     The name which should be used for this VPN Site Link.
     """
-    bgp: NotRequired[pulumi.Input['VpnSiteLinkBgpArgsDict']]
+    bgp: NotRequired[pulumi.Input[Optional['VpnSiteLinkBgpArgs']]]
     """
     A `bgp` block as defined above.
 
     > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
     """
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The FQDN of this VPN Site Link.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the VPN Site Link.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address of this VPN Site Link.
 
     > **Note:** Either `fqdn` or `ip_address` should be specified.
     """
-    provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
     """
-    speed_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    speed_in_mbps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
     """
@@ -17318,12 +17318,12 @@ class VpnSiteLinkArgsDict(TypedDict):
 class VpnSiteLinkArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 bgp: Optional[pulumi.Input['VpnSiteLinkBgpArgs']] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 speed_in_mbps: Optional[pulumi.Input[_builtins.int]] = None):
+                 bgp: pulumi.Input[Optional['VpnSiteLinkBgpArgs']] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 speed_in_mbps: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this VPN Site Link.
         :param pulumi.Input['VpnSiteLinkBgpArgs'] bgp: A `bgp` block as defined above.
@@ -17365,7 +17365,7 @@ class VpnSiteLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bgp(self) -> Optional[pulumi.Input['VpnSiteLinkBgpArgs']]:
+    def bgp(self) -> pulumi.Input[Optional['VpnSiteLinkBgpArgs']]:
         """
         A `bgp` block as defined above.
 
@@ -17374,36 +17374,36 @@ class VpnSiteLinkArgs:
         return pulumi.get(self, "bgp")
 
     @bgp.setter
-    def bgp(self, value: Optional[pulumi.Input['VpnSiteLinkBgpArgs']]):
+    def bgp(self, value: pulumi.Input[Optional['VpnSiteLinkBgpArgs']]):
         pulumi.set(self, "bgp", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of this VPN Site Link.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPN Site Link.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of this VPN Site Link.
 
@@ -17412,31 +17412,31 @@ class VpnSiteLinkArgs:
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
         """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="speedInMbps")
-    def speed_in_mbps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def speed_in_mbps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         """
         return pulumi.get(self, "speed_in_mbps")
 
     @speed_in_mbps.setter
-    def speed_in_mbps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def speed_in_mbps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "speed_in_mbps", value)
 
 
@@ -17488,7 +17488,7 @@ class VpnSiteLinkBgpArgs:
 
 
 class VpnSiteO365PolicyArgsDict(TypedDict):
-    traffic_category: NotRequired[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgsDict']]
+    traffic_category: NotRequired[pulumi.Input[Optional['VpnSiteO365PolicyTrafficCategoryArgs']]]
     """
     A `traffic_category` block as defined above.
     """
@@ -17496,7 +17496,7 @@ class VpnSiteO365PolicyArgsDict(TypedDict):
 @pulumi.input_type
 class VpnSiteO365PolicyArgs:
     def __init__(__self__, *,
-                 traffic_category: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']] = None):
+                 traffic_category: pulumi.Input[Optional['VpnSiteO365PolicyTrafficCategoryArgs']] = None):
         """
         :param pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs'] traffic_category: A `traffic_category` block as defined above.
         """
@@ -17505,27 +17505,27 @@ class VpnSiteO365PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="trafficCategory")
-    def traffic_category(self) -> Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']]:
+    def traffic_category(self) -> pulumi.Input[Optional['VpnSiteO365PolicyTrafficCategoryArgs']]:
         """
         A `traffic_category` block as defined above.
         """
         return pulumi.get(self, "traffic_category")
 
     @traffic_category.setter
-    def traffic_category(self, value: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']]):
+    def traffic_category(self, value: pulumi.Input[Optional['VpnSiteO365PolicyTrafficCategoryArgs']]):
         pulumi.set(self, "traffic_category", value)
 
 
 class VpnSiteO365PolicyTrafficCategoryArgsDict(TypedDict):
-    allow_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
     """
-    default_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    default_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
     """
-    optimize_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    optimize_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
     """
@@ -17533,9 +17533,9 @@ class VpnSiteO365PolicyTrafficCategoryArgsDict(TypedDict):
 @pulumi.input_type
 class VpnSiteO365PolicyTrafficCategoryArgs:
     def __init__(__self__, *,
-                 allow_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 optimize_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 optimize_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_endpoint_enabled: Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] default_endpoint_enabled: Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
@@ -17550,38 +17550,38 @@ class VpnSiteO365PolicyTrafficCategoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowEndpointEnabled")
-    def allow_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
         """
         return pulumi.get(self, "allow_endpoint_enabled")
 
     @allow_endpoint_enabled.setter
-    def allow_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEndpointEnabled")
-    def default_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
         """
         return pulumi.get(self, "default_endpoint_enabled")
 
     @default_endpoint_enabled.setter
-    def default_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="optimizeEndpointEnabled")
-    def optimize_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optimize_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
         """
         return pulumi.get(self, "optimize_endpoint_enabled")
 
     @optimize_endpoint_enabled.setter
-    def optimize_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optimize_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optimize_endpoint_enabled", value)
 
 

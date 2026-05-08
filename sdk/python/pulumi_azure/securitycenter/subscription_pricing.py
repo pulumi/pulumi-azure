@@ -22,9 +22,9 @@ __all__ = ['SubscriptionPricingArgs', 'SubscriptionPricing']
 class SubscriptionPricingArgs:
     def __init__(__self__, *,
                  tier: pulumi.Input[_builtins.str],
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subplan: Optional[pulumi.Input[_builtins.str]] = None):
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subplan: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionPricing resource.
 
@@ -55,48 +55,48 @@ class SubscriptionPricingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]:
         """
         One or more `extension` blocks as defined below.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def subplan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subplan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subplan")
 
     @subplan.setter
-    def subplan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subplan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subplan", value)
 
 
 @pulumi.input_type
 class _SubscriptionPricingState:
     def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subplan: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subplan: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionPricing resources.
 
@@ -116,50 +116,50 @@ class _SubscriptionPricingState:
 
     @_builtins.property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]:
+    def extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]:
         """
         One or more `extension` blocks as defined below.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]):
+    def extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def subplan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subplan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subplan")
 
     @subplan.setter
-    def subplan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subplan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subplan", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -169,10 +169,10 @@ class SubscriptionPricing(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subplan: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subplan: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Pricing Tier for Azure Security Center in the current subscription.
@@ -326,10 +326,10 @@ class SubscriptionPricing(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subplan: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subplan: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,10 +355,10 @@ class SubscriptionPricing(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            subplan: Optional[pulumi.Input[_builtins.str]] = None,
-            tier: Optional[pulumi.Input[_builtins.str]] = None) -> 'SubscriptionPricing':
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subplan: pulumi.Input[Optional[_builtins.str]] = None,
+            tier: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubscriptionPricing':
         """
         Get an existing SubscriptionPricing resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

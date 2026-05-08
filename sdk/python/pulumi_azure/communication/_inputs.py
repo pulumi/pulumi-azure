@@ -30,23 +30,23 @@ __all__ = [
 ]
 
 class EmailServiceDomainVerificationRecordArgsDict(TypedDict):
-    dkim2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2ArgsDict']]]]
+    dkim2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]]]
     """
     (Optional) An `dkim2` block as defined below.
     """
-    dkims: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgsDict']]]]
+    dkims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]]]
     """
     (Optional) An `dkim` block as defined below.
     """
-    dmarcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgsDict']]]]
+    dmarcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]]]
     """
     (Optional) An `dmarc` block as defined below.
     """
-    domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgsDict']]]]
+    domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]]]
     """
     (Optional) An `domain` block as defined below.
     """
-    spfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgsDict']]]]
+    spfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]]]
     """
     (Optional) An `spf` block as defined below.
     """
@@ -54,11 +54,11 @@ class EmailServiceDomainVerificationRecordArgsDict(TypedDict):
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordArgs:
     def __init__(__self__, *,
-                 dkim2s: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]] = None,
-                 dkims: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]] = None,
-                 dmarcs: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]] = None,
-                 spfs: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]] = None):
+                 dkim2s: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]] = None,
+                 dkims: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]] = None,
+                 dmarcs: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]] = None,
+                 spfs: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]] dkim2s: (Optional) An `dkim2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]] dkims: (Optional) An `dkim` block as defined below.
@@ -79,79 +79,79 @@ class EmailServiceDomainVerificationRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dkim2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]]:
+    def dkim2s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]]:
         """
         (Optional) An `dkim2` block as defined below.
         """
         return pulumi.get(self, "dkim2s")
 
     @dkim2s.setter
-    def dkim2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]]):
+    def dkim2s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]]):
         pulumi.set(self, "dkim2s", value)
 
     @_builtins.property
     @pulumi.getter
-    def dkims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]]:
+    def dkims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]]:
         """
         (Optional) An `dkim` block as defined below.
         """
         return pulumi.get(self, "dkims")
 
     @dkims.setter
-    def dkims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]]):
+    def dkims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]]):
         pulumi.set(self, "dkims", value)
 
     @_builtins.property
     @pulumi.getter
-    def dmarcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]]:
+    def dmarcs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]]:
         """
         (Optional) An `dmarc` block as defined below.
         """
         return pulumi.get(self, "dmarcs")
 
     @dmarcs.setter
-    def dmarcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]]):
+    def dmarcs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]]):
         pulumi.set(self, "dmarcs", value)
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]]:
         """
         (Optional) An `domain` block as defined below.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def spfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]]:
+    def spfs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]]:
         """
         (Optional) An `spf` block as defined below.
         """
         return pulumi.get(self, "spfs")
 
     @spfs.setter
-    def spfs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]]):
+    def spfs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]]):
         pulumi.set(self, "spfs", value)
 
 
 class EmailServiceDomainVerificationRecordDkim2ArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the DNS record. Example: TXT
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the DNS record.
     """
@@ -159,10 +159,10 @@ class EmailServiceDomainVerificationRecordDkim2ArgsDict(TypedDict):
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDkim2Args:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.int] ttl: Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
@@ -180,67 +180,67 @@ class EmailServiceDomainVerificationRecordDkim2Args:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the DNS record. Example: TXT
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the DNS record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class EmailServiceDomainVerificationRecordDkimArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the DNS record. Example: TXT
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the DNS record.
     """
@@ -248,10 +248,10 @@ class EmailServiceDomainVerificationRecordDkimArgsDict(TypedDict):
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDkimArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.int] ttl: Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
@@ -269,67 +269,67 @@ class EmailServiceDomainVerificationRecordDkimArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the DNS record. Example: TXT
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the DNS record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class EmailServiceDomainVerificationRecordDmarcArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the DNS record. Example: TXT
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the DNS record.
     """
@@ -337,10 +337,10 @@ class EmailServiceDomainVerificationRecordDmarcArgsDict(TypedDict):
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDmarcArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.int] ttl: Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
@@ -358,67 +358,67 @@ class EmailServiceDomainVerificationRecordDmarcArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the DNS record. Example: TXT
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the DNS record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class EmailServiceDomainVerificationRecordDomainArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the DNS record. Example: TXT
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the DNS record.
     """
@@ -426,10 +426,10 @@ class EmailServiceDomainVerificationRecordDomainArgsDict(TypedDict):
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDomainArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.int] ttl: Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
@@ -447,67 +447,67 @@ class EmailServiceDomainVerificationRecordDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the DNS record. Example: TXT
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the DNS record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class EmailServiceDomainVerificationRecordSpfArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the DNS record. Example: TXT
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the DNS record.
     """
@@ -515,10 +515,10 @@ class EmailServiceDomainVerificationRecordSpfArgsDict(TypedDict):
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordSpfArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.int] ttl: Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
@@ -536,50 +536,50 @@ class EmailServiceDomainVerificationRecordSpfArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the DNS record. Example: TXT
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the DNS record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

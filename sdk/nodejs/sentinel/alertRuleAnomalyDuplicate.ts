@@ -239,78 +239,78 @@ export interface AlertRuleAnomalyDuplicateState {
     /**
      * The version of the Anomaly Security ML Analytics Settings.
      */
-    anomalySettingsVersion?: pulumi.Input<number>;
+    anomalySettingsVersion?: pulumi.Input<number | undefined>;
     /**
      * The anomaly version of the Anomaly Alert Rule.
      */
-    anomalyVersion?: pulumi.Input<string>;
+    anomalyVersion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
      */
-    builtInRuleId?: pulumi.Input<string>;
+    builtInRuleId?: pulumi.Input<string | undefined>;
     /**
      * The description of the Anomaly Alert Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Display Name of the built-in Anomaly Alert Rule.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Should the Duplicated Anomaly Alert Rule be enabled?
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The frequency the Anomaly Alert Rule will be run, such as "P1D".
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * Whether the current settings of the Anomaly Alert Rule equals default settings.
      */
-    isDefaultSettings?: pulumi.Input<boolean>;
+    isDefaultSettings?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * A list of `multiSelectObservation` blocks as defined below.
      */
-    multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateMultiSelectObservation>[]>;
-    name?: pulumi.Input<string>;
+    multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateMultiSelectObservation>[] | undefined>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of `prioritizedExcludeObservation` blocks as defined below.
      */
-    prioritizedExcludeObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>[]>;
+    prioritizedExcludeObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>[] | undefined>;
     /**
      * A `requiredDataConnector` block as defined below.
      */
-    requiredDataConnectors?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateRequiredDataConnector>[]>;
+    requiredDataConnectors?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateRequiredDataConnector>[] | undefined>;
     /**
      * The ID of the anomaly settings definition Id.
      */
-    settingsDefinitionId?: pulumi.Input<string>;
+    settingsDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A list of `singleSelectObservation` blocks as defined below.
      */
-    singleSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateSingleSelectObservation>[]>;
+    singleSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateSingleSelectObservation>[] | undefined>;
     /**
      * A list of categories of attacks by which to classify the rule.
      */
-    tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of techniques of attacks by which to classify the rule.
      */
-    techniques?: pulumi.Input<pulumi.Input<string>[]>;
+    techniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of `thresholdObservation` blocks as defined below.
      *
      * > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      */
-    thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation>[]>;
+    thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation>[] | undefined>;
 }
 
 /**
@@ -340,19 +340,19 @@ export interface AlertRuleAnomalyDuplicateArgs {
     /**
      * A list of `multiSelectObservation` blocks as defined below.
      */
-    multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateMultiSelectObservation>[]>;
+    multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateMultiSelectObservation>[] | undefined>;
     /**
      * A list of `prioritizedExcludeObservation` blocks as defined below.
      */
-    prioritizedExcludeObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>[]>;
+    prioritizedExcludeObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>[] | undefined>;
     /**
      * A list of `singleSelectObservation` blocks as defined below.
      */
-    singleSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateSingleSelectObservation>[]>;
+    singleSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateSingleSelectObservation>[] | undefined>;
     /**
      * A list of `thresholdObservation` blocks as defined below.
      *
      * > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      */
-    thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation>[]>;
+    thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation>[] | undefined>;
 }

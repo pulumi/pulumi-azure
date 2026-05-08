@@ -23,16 +23,16 @@ class PlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['PlanSkuArgs'],
-                 app_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Plan resource.
 
@@ -104,7 +104,7 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="appServiceEnvironmentId")
-    def app_service_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 
@@ -113,24 +113,24 @@ class PlanArgs:
         return pulumi.get(self, "app_service_environment_id")
 
     @app_service_environment_id.setter
-    def app_service_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isXenon")
-    def is_xenon(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_xenon(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create a xenon App Service Plan.
         """
         return pulumi.get(self, "is_xenon")
 
     @is_xenon.setter
-    def is_xenon(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_xenon(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_xenon", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 
@@ -139,84 +139,84 @@ class PlanArgs:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_elastic_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
         return pulumi.get(self, "maximum_elastic_worker_count")
 
     @maximum_elastic_worker_count.setter
-    def maximum_elastic_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_elastic_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_elastic_worker_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="perSiteScaling")
-    def per_site_scaling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def per_site_scaling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         """
         return pulumi.get(self, "per_site_scaling")
 
     @per_site_scaling.setter
-    def per_site_scaling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def per_site_scaling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "per_site_scaling", value)
 
     @_builtins.property
     @pulumi.getter
-    def reserved(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reserved(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this App Service Plan `Reserved`.
         """
         return pulumi.get(self, "reserved")
 
     @reserved.setter
-    def reserved(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reserved(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reserved", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 
@@ -225,26 +225,26 @@ class PlanArgs:
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
 @pulumi.input_type
 class _PlanState:
     def __init__(__self__, *,
-                 app_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['PlanSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
 
@@ -297,7 +297,7 @@ class _PlanState:
 
     @_builtins.property
     @pulumi.getter(name="appServiceEnvironmentId")
-    def app_service_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 
@@ -306,24 +306,24 @@ class _PlanState:
         return pulumi.get(self, "app_service_environment_id")
 
     @app_service_environment_id.setter
-    def app_service_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isXenon")
-    def is_xenon(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_xenon(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create a xenon App Service Plan.
         """
         return pulumi.get(self, "is_xenon")
 
     @is_xenon.setter
-    def is_xenon(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_xenon(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_xenon", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 
@@ -332,120 +332,120 @@ class _PlanState:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_elastic_worker_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
         return pulumi.get(self, "maximum_elastic_worker_count")
 
     @maximum_elastic_worker_count.setter
-    def maximum_elastic_worker_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_elastic_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_elastic_worker_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of workers supported with the App Service Plan's sku.
         """
         return pulumi.get(self, "maximum_number_of_workers")
 
     @maximum_number_of_workers.setter
-    def maximum_number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="perSiteScaling")
-    def per_site_scaling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def per_site_scaling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         """
         return pulumi.get(self, "per_site_scaling")
 
     @per_site_scaling.setter
-    def per_site_scaling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def per_site_scaling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "per_site_scaling", value)
 
     @_builtins.property
     @pulumi.getter
-    def reserved(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reserved(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this App Service Plan `Reserved`.
         """
         return pulumi.get(self, "reserved")
 
     @reserved.setter
-    def reserved(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reserved(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reserved", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['PlanSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['PlanSkuArgs']]:
         """
         A `sku` block as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['PlanSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['PlanSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 
@@ -454,7 +454,7 @@ class _PlanState:
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -464,18 +464,18 @@ class Plan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an App Service Plan component.
@@ -713,18 +713,18 @@ class Plan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -761,19 +761,19 @@ class Plan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            is_xenon: Optional[pulumi.Input[_builtins.bool]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_elastic_worker_count: Optional[pulumi.Input[_builtins.int]] = None,
-            maximum_number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            per_site_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-            reserved: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Plan':
+            app_service_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            is_xenon: pulumi.Input[Optional[_builtins.bool]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+            reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

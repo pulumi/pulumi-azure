@@ -207,53 +207,53 @@ export interface ConnectedRegistryState {
     /**
      * Should the log auditing be enabled?
      */
-    auditLogEnabled?: pulumi.Input<boolean>;
+    auditLogEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
      */
-    clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
+    clientTokenIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      *
      * > **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.containerservice.ConnectedRegistryNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.containerservice.ConnectedRegistryNotification>[] | undefined>;
     /**
      * The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
      */
-    parentRegistryId?: pulumi.Input<string>;
+    parentRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      */
-    syncMessageTtl?: pulumi.Input<string>;
+    syncMessageTtl?: pulumi.Input<string | undefined>;
     /**
      * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      */
-    syncSchedule?: pulumi.Input<string>;
+    syncSchedule?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
      */
-    syncTokenId?: pulumi.Input<string>;
+    syncTokenId?: pulumi.Input<string | undefined>;
     /**
      * The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
      */
-    syncWindow?: pulumi.Input<string>;
+    syncWindow?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -263,11 +263,11 @@ export interface ConnectedRegistryArgs {
     /**
      * Should the log auditing be enabled?
      */
-    auditLogEnabled?: pulumi.Input<boolean>;
+    auditLogEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
      */
-    clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
+    clientTokenIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      *
@@ -277,31 +277,31 @@ export interface ConnectedRegistryArgs {
     /**
      * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.containerservice.ConnectedRegistryNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.containerservice.ConnectedRegistryNotification>[] | undefined>;
     /**
      * The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
      */
-    parentRegistryId?: pulumi.Input<string>;
+    parentRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      */
-    syncMessageTtl?: pulumi.Input<string>;
+    syncMessageTtl?: pulumi.Input<string | undefined>;
     /**
      * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      */
-    syncSchedule?: pulumi.Input<string>;
+    syncSchedule?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
      */
@@ -309,5 +309,5 @@ export interface ConnectedRegistryArgs {
     /**
      * The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
      */
-    syncWindow?: pulumi.Input<string>;
+    syncWindow?: pulumi.Input<string | undefined>;
 }

@@ -21,16 +21,16 @@ class CassandraDatacenterArgs:
     def __init__(__self__, *,
                  cassandra_cluster_id: pulumi.Input[_builtins.str],
                  delegated_management_subnet_id: pulumi.Input[_builtins.str],
-                 availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_storage_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 base64_encoded_yaml_fragment: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_storage_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 base64_encoded_yaml_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CassandraDatacenter resource.
 
@@ -98,115 +98,115 @@ class CassandraDatacenterArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZonesEnabled")
-    def availability_zones_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def availability_zones_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether availability zones are enabled. Defaults to `true`.
         """
         return pulumi.get(self, "availability_zones_enabled")
 
     @availability_zones_enabled.setter
-    def availability_zones_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def availability_zones_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "availability_zones_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="backupStorageCustomerKeyUri")
-    def backup_storage_customer_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_storage_customer_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key URI of the customer key to use for the encryption of the backup Storage Account.
         """
         return pulumi.get(self, "backup_storage_customer_key_uri")
 
     @backup_storage_customer_key_uri.setter
-    def backup_storage_customer_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_storage_customer_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_storage_customer_key_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="base64EncodedYamlFragment")
-    def base64_encoded_yaml_fragment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base64_encoded_yaml_fragment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
         """
         return pulumi.get(self, "base64_encoded_yaml_fragment")
 
     @base64_encoded_yaml_fragment.setter
-    def base64_encoded_yaml_fragment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base64_encoded_yaml_fragment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base64_encoded_yaml_fragment", value)
 
     @_builtins.property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines the number of p30 disks that are attached to each node.
         """
         return pulumi.get(self, "disk_count")
 
     @disk_count.setter
-    def disk_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_count", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSku")
-    def disk_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         """
         return pulumi.get(self, "disk_sku")
 
     @disk_sku.setter
-    def disk_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCustomerKeyUri")
-    def managed_disk_customer_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_customer_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key URI of the customer key to use for the encryption of the Managed Disk.
         """
         return pulumi.get(self, "managed_disk_customer_key_uri")
 
     @managed_disk_customer_key_uri.setter
-    def managed_disk_customer_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_customer_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_customer_key_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
 
@@ -215,26 +215,26 @@ class CassandraDatacenterArgs:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
 
 @pulumi.input_type
 class _CassandraDatacenterState:
     def __init__(__self__, *,
-                 availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_storage_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 base64_encoded_yaml_fragment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cassandra_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_storage_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 base64_encoded_yaml_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cassandra_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CassandraDatacenter resources.
 
@@ -283,151 +283,151 @@ class _CassandraDatacenterState:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZonesEnabled")
-    def availability_zones_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def availability_zones_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether availability zones are enabled. Defaults to `true`.
         """
         return pulumi.get(self, "availability_zones_enabled")
 
     @availability_zones_enabled.setter
-    def availability_zones_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def availability_zones_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "availability_zones_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="backupStorageCustomerKeyUri")
-    def backup_storage_customer_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_storage_customer_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key URI of the customer key to use for the encryption of the backup Storage Account.
         """
         return pulumi.get(self, "backup_storage_customer_key_uri")
 
     @backup_storage_customer_key_uri.setter
-    def backup_storage_customer_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_storage_customer_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_storage_customer_key_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="base64EncodedYamlFragment")
-    def base64_encoded_yaml_fragment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base64_encoded_yaml_fragment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
         """
         return pulumi.get(self, "base64_encoded_yaml_fragment")
 
     @base64_encoded_yaml_fragment.setter
-    def base64_encoded_yaml_fragment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base64_encoded_yaml_fragment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base64_encoded_yaml_fragment", value)
 
     @_builtins.property
     @pulumi.getter(name="cassandraClusterId")
-    def cassandra_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cassandra_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         """
         return pulumi.get(self, "cassandra_cluster_id")
 
     @cassandra_cluster_id.setter
-    def cassandra_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cassandra_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cassandra_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedManagementSubnetId")
-    def delegated_management_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_management_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         """
         return pulumi.get(self, "delegated_management_subnet_id")
 
     @delegated_management_subnet_id.setter
-    def delegated_management_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_management_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_management_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Determines the number of p30 disks that are attached to each node.
         """
         return pulumi.get(self, "disk_count")
 
     @disk_count.setter
-    def disk_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_count", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSku")
-    def disk_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         """
         return pulumi.get(self, "disk_sku")
 
     @disk_sku.setter
-    def disk_sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk_sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk_sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDiskCustomerKeyUri")
-    def managed_disk_customer_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_disk_customer_key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key URI of the customer key to use for the encryption of the Managed Disk.
         """
         return pulumi.get(self, "managed_disk_customer_key_uri")
 
     @managed_disk_customer_key_uri.setter
-    def managed_disk_customer_key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_disk_customer_key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_disk_customer_key_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="seedNodeIpAddresses")
-    def seed_node_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def seed_node_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP Address for the seed nodes in this Cassandra Datacenter.
         """
         return pulumi.get(self, "seed_node_ip_addresses")
 
     @seed_node_ip_addresses.setter
-    def seed_node_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def seed_node_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "seed_node_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
 
@@ -436,7 +436,7 @@ class _CassandraDatacenterState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
 
@@ -446,18 +446,18 @@ class CassandraDatacenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_storage_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 base64_encoded_yaml_fragment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cassandra_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_storage_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 base64_encoded_yaml_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cassandra_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Cassandra Datacenter.
@@ -525,18 +525,18 @@ class CassandraDatacenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_storage_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 base64_encoded_yaml_fragment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cassandra_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disk_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_storage_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 base64_encoded_yaml_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cassandra_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disk_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -573,19 +573,19 @@ class CassandraDatacenter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            availability_zones_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            backup_storage_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            base64_encoded_yaml_fragment: Optional[pulumi.Input[_builtins.str]] = None,
-            cassandra_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            delegated_management_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_count: Optional[pulumi.Input[_builtins.int]] = None,
-            disk_sku: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_disk_customer_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_count: Optional[pulumi.Input[_builtins.int]] = None,
-            seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CassandraDatacenter':
+            availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_storage_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            base64_encoded_yaml_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+            cassandra_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_management_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_count: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_sku: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disk_customer_key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CassandraDatacenter':
         """
         Get an existing CassandraDatacenter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

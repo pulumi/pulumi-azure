@@ -24,12 +24,12 @@ class PolicySetDefinitionArgs:
                  display_name: pulumi.Input[_builtins.str],
                  policy_definition_references: pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]],
                  policy_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None):
         """
         The set of arguments for constructing a PolicySetDefinition resource.
 
@@ -99,87 +99,87 @@ class PolicySetDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Policy Set Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupId")
     @_utilities.deprecated("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-    def management_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "management_group_id")
 
     @management_group_id.setter
-    def management_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metadata for the Policy Set Definition in JSON format.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionGroups")
-    def policy_definition_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]:
+    def policy_definition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]:
         """
         One or more `policy_definition_group` blocks as defined below.
         """
         return pulumi.get(self, "policy_definition_groups")
 
     @policy_definition_groups.setter
-    def policy_definition_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]):
+    def policy_definition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]):
         pulumi.set(self, "policy_definition_groups", value)
 
 
 @pulumi.input_type
 class _PolicySetDefinitionState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
-                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
+                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicySetDefinition resources.
 
@@ -216,108 +216,108 @@ class _PolicySetDefinitionState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Policy Set Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of this Policy Set Definition.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupId")
     @_utilities.deprecated("""`management_group_id` has been deprecated in favour of the `management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.""")
-    def management_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "management_group_id")
 
     @management_group_id.setter
-    def management_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metadata for the Policy Set Definition in JSON format.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionGroups")
-    def policy_definition_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]:
+    def policy_definition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]:
         """
         One or more `policy_definition_group` blocks as defined below.
         """
         return pulumi.get(self, "policy_definition_groups")
 
     @policy_definition_groups.setter
-    def policy_definition_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]):
+    def policy_definition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]):
         pulumi.set(self, "policy_definition_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferences")
-    def policy_definition_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]:
+    def policy_definition_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]:
         """
         One or more `policy_definition_reference` blocks as defined below.
         """
         return pulumi.get(self, "policy_definition_references")
 
     @policy_definition_references.setter
-    def policy_definition_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]):
+    def policy_definition_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]):
         pulumi.set(self, "policy_definition_references", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type", value)
 
 
@@ -327,15 +327,15 @@ class PolicySetDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
-                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
+                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Policy Set Definition.
@@ -477,15 +477,15 @@ class PolicySetDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
-                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
-                 policy_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
+                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
+                 policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -520,15 +520,15 @@ class PolicySetDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
-            policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
-            policy_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicySetDefinition':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionGroupArgs', 'PolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
+            policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicySetDefinitionPolicyDefinitionReferenceArgs', 'PolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicySetDefinition':
         """
         Get an existing PolicySetDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

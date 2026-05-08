@@ -25,24 +25,24 @@ class ServerArgs:
                  sku_name: pulumi.Input[_builtins.str],
                  ssl_enforcement_enabled: pulumi.Input[_builtins.bool],
                  version: pulumi.Input[_builtins.str],
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ServerIdentityArgs']] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_minimal_tls_version_enforced: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_detection_policy: pulumi.Input[Optional['ServerThreatDetectionPolicyArgs']] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -170,115 +170,115 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `administrator_login` for the PostgreSQL Server.
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
-    def administrator_login_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def administrator_login_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         """
         return pulumi.get(self, "administrator_login_password_wo_version")
 
     @administrator_login_password_wo_version.setter
-    def administrator_login_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def administrator_login_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "administrator_login_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="autoGrowEnabled")
-    def auto_grow_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_grow_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
         """
         return pulumi.get(self, "auto_grow_enabled")
 
     @auto_grow_enabled.setter
-    def auto_grow_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_grow_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_grow_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Backup retention days for the server, supported values are between `7` and `35` days.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="creationSourceServerId")
-    def creation_source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For creation modes other than `Default`, the source server ID to use.
         """
         return pulumi.get(self, "creation_source_server_id")
 
     @creation_source_server_id.setter
-    def creation_source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_source_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="geoRedundantBackupEnabled")
-    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geo_redundant_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "geo_redundant_backup_enabled")
 
     @geo_redundant_backup_enabled.setter
-    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geo_redundant_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geo_redundant_backup_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 
@@ -287,132 +287,132 @@ class ServerArgs:
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not public network access is allowed for this server. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_in_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         """
         return pulumi.get(self, "restore_point_in_time")
 
     @restore_point_in_time.setter
-    def restore_point_in_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
 
     @_builtins.property
     @pulumi.getter(name="sslMinimalTlsVersionEnforced")
-    def ssl_minimal_tls_version_enforced(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_minimal_tls_version_enforced(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         """
         return pulumi.get(self, "ssl_minimal_tls_version_enforced")
 
     @ssl_minimal_tls_version_enforced.setter
-    def ssl_minimal_tls_version_enforced(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_minimal_tls_version_enforced(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_minimal_tls_version_enforced", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
         """
         return pulumi.get(self, "storage_mb")
 
     @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_mb", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> pulumi.Input[Optional['ServerThreatDetectionPolicyArgs']]:
         """
         Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: pulumi.Input[Optional['ServerThreatDetectionPolicyArgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
 
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['ServerIdentityArgs']] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_minimal_tls_version_enforced: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_detection_policy: pulumi.Input[Optional['ServerThreatDetectionPolicyArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
 
@@ -495,127 +495,127 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
     @administrator_login.setter
-    def administrator_login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_login_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Password associated with the `administrator_login` for the PostgreSQL Server.
         """
         return pulumi.get(self, "administrator_login_password")
 
     @administrator_login_password.setter
-    def administrator_login_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_login_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_login_password", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
-    def administrator_login_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def administrator_login_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         """
         return pulumi.get(self, "administrator_login_password_wo_version")
 
     @administrator_login_password_wo_version.setter
-    def administrator_login_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def administrator_login_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "administrator_login_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="autoGrowEnabled")
-    def auto_grow_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_grow_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
         """
         return pulumi.get(self, "auto_grow_enabled")
 
     @auto_grow_enabled.setter
-    def auto_grow_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_grow_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_grow_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Backup retention days for the server, supported values are between `7` and `35` days.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="creationSourceServerId")
-    def creation_source_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_source_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For creation modes other than `Default`, the source server ID to use.
         """
         return pulumi.get(self, "creation_source_server_id")
 
     @creation_source_server_id.setter
-    def creation_source_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_source_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_source_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the PostgreSQL Server.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="geoRedundantBackupEnabled")
-    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geo_redundant_backup_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "geo_redundant_backup_enabled")
 
     @geo_redundant_backup_enabled.setter
-    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geo_redundant_backup_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geo_redundant_backup_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ServerIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 
@@ -624,72 +624,72 @@ class _ServerState:
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not public network access is allowed for this server. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_point_in_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         """
         return pulumi.get(self, "restore_point_in_time")
 
     @restore_point_in_time.setter
-    def restore_point_in_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_point_in_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_point_in_time", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
 
@@ -698,12 +698,12 @@ class _ServerState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslEnforcementEnabled")
-    def ssl_enforcement_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_enforcement_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 
@@ -712,67 +712,67 @@ class _ServerState:
         return pulumi.get(self, "ssl_enforcement_enabled")
 
     @ssl_enforcement_enabled.setter
-    def ssl_enforcement_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_enforcement_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_enforcement_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sslMinimalTlsVersionEnforced")
-    def ssl_minimal_tls_version_enforced(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_minimal_tls_version_enforced(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         """
         return pulumi.get(self, "ssl_minimal_tls_version_enforced")
 
     @ssl_minimal_tls_version_enforced.setter
-    def ssl_minimal_tls_version_enforced(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_minimal_tls_version_enforced(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_minimal_tls_version_enforced", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
         """
         return pulumi.get(self, "storage_mb")
 
     @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_mb", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> pulumi.Input[Optional['ServerThreatDetectionPolicyArgs']]:
         """
         Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: pulumi.Input[Optional['ServerThreatDetectionPolicyArgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -782,28 +782,28 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_minimal_tls_version_enforced: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_detection_policy: pulumi.Input[Optional[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a PostgreSQL Server.
@@ -951,28 +951,28 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_minimal_tls_version_enforced: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_detection_policy: pulumi.Input[Optional[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1025,29 +1025,29 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrator_login: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_login_password: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_login_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-            auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            create_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            creation_source_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            geo_redundant_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
-            infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            restore_point_in_time: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_enforcement_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ssl_minimal_tls_version_enforced: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_mb: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            threat_detection_policy: Optional[pulumi.Input[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict']]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Server':
+            administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            create_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+            infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_point_in_time: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssl_minimal_tls_version_enforced: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mb: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            threat_detection_policy: pulumi.Input[Optional[Union['ServerThreatDetectionPolicyArgs', 'ServerThreatDetectionPolicyArgsDict']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

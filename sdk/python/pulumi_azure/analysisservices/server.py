@@ -23,14 +23,14 @@ class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_blob_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_bi_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 querypool_connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 querypool_connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -92,67 +92,67 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminUsers")
-    def admin_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of email addresses of admin users.
         """
         return pulumi.get(self, "admin_users")
 
     @admin_users.setter
-    def admin_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_users", value)
 
     @_builtins.property
     @pulumi.getter(name="backupBlobContainerUri")
-    def backup_blob_container_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_blob_container_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI and SAS token for a blob container to store backups.
         """
         return pulumi.get(self, "backup_blob_container_uri")
 
     @backup_blob_container_uri.setter
-    def backup_blob_container_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_blob_container_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_blob_container_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4FirewallRules")
-    def ipv4_firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
+    def ipv4_firewall_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
         """
         One or more `ipv4_firewall_rule` block(s) as defined below.
         """
         return pulumi.get(self, "ipv4_firewall_rules")
 
     @ipv4_firewall_rules.setter
-    def ipv4_firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]):
+    def ipv4_firewall_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]):
         pulumi.set(self, "ipv4_firewall_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="powerBiServiceEnabled")
-    def power_bi_service_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def power_bi_service_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the Power BI service is allowed to access or not.
 
@@ -161,48 +161,48 @@ class ServerArgs:
         return pulumi.get(self, "power_bi_service_enabled")
 
     @power_bi_service_enabled.setter
-    def power_bi_service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def power_bi_service_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "power_bi_service_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="querypoolConnectionMode")
-    def querypool_connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def querypool_connection_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         """
         return pulumi.get(self, "querypool_connection_mode")
 
     @querypool_connection_mode.setter
-    def querypool_connection_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def querypool_connection_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "querypool_connection_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
-                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_blob_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_bi_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 querypool_connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 querypool_connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Server resources.
 
@@ -245,67 +245,67 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter(name="adminUsers")
-    def admin_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of email addresses of admin users.
         """
         return pulumi.get(self, "admin_users")
 
     @admin_users.setter
-    def admin_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_users", value)
 
     @_builtins.property
     @pulumi.getter(name="backupBlobContainerUri")
-    def backup_blob_container_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_blob_container_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI and SAS token for a blob container to store backups.
         """
         return pulumi.get(self, "backup_blob_container_uri")
 
     @backup_blob_container_uri.setter
-    def backup_blob_container_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_blob_container_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_blob_container_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4FirewallRules")
-    def ipv4_firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
+    def ipv4_firewall_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
         """
         One or more `ipv4_firewall_rule` block(s) as defined below.
         """
         return pulumi.get(self, "ipv4_firewall_rules")
 
     @ipv4_firewall_rules.setter
-    def ipv4_firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]):
+    def ipv4_firewall_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]):
         pulumi.set(self, "ipv4_firewall_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="powerBiServiceEnabled")
-    def power_bi_service_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def power_bi_service_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the Power BI service is allowed to access or not.
 
@@ -314,67 +314,67 @@ class _ServerState:
         return pulumi.get(self, "power_bi_service_enabled")
 
     @power_bi_service_enabled.setter
-    def power_bi_service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def power_bi_service_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "power_bi_service_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="querypoolConnectionMode")
-    def querypool_connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def querypool_connection_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         """
         return pulumi.get(self, "querypool_connection_mode")
 
     @querypool_connection_mode.setter
-    def querypool_connection_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def querypool_connection_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "querypool_connection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverFullName")
-    def server_full_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_full_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the Analysis Services Server.
         """
         return pulumi.get(self, "server_full_name")
 
     @server_full_name.setter
-    def server_full_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_full_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_full_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -384,16 +384,16 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_blob_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_bi_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 querypool_connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 querypool_connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Analysis Services Server.
@@ -525,16 +525,16 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_blob_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_bi_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 querypool_connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 querypool_connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,17 +571,17 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            backup_blob_container_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            power_bi_service_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            querypool_connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            server_full_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Server':
+            admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            querypool_connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_full_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

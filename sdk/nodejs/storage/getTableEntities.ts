@@ -99,7 +99,7 @@ export interface GetTableEntitiesOutputArgs {
     /**
      * A list of properties to select from the returned Storage Table Entities.
      */
-    selects?: pulumi.Input<pulumi.Input<string>[]>;
+    selects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Storage Table ID where the entities exist.
      */

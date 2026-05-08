@@ -234,71 +234,71 @@ export interface VirtualNetworkState {
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
-    addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
      * > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      */
-    bgpCommunity?: pulumi.Input<string>;
+    bgpCommunity?: pulumi.Input<string | undefined>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan>;
+    ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
      * List of IP addresses of DNS servers
      *
      * > **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * A `encryption` block as defined below.
      */
-    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryption>;
+    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryption | undefined>;
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
-    flowTimeoutInMinutes?: pulumi.Input<number>;
+    flowTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The GUID of the Virtual Network.
      */
-    guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
-    ipAddressPools?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkIpAddressPool>[]>;
+    ipAddressPools?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkIpAddressPool>[] | undefined>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
      */
-    privateEndpointVnetPolicies?: pulumi.Input<string>;
+    privateEndpointVnetPolicies?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      *
      * > **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -310,53 +310,53 @@ export interface VirtualNetworkArgs {
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
-    addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
      * > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      */
-    bgpCommunity?: pulumi.Input<string>;
+    bgpCommunity?: pulumi.Input<string | undefined>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan>;
+    ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
      * List of IP addresses of DNS servers
      *
      * > **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * A `encryption` block as defined below.
      */
-    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryption>;
+    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryption | undefined>;
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
-    flowTimeoutInMinutes?: pulumi.Input<number>;
+    flowTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * One or more `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
-    ipAddressPools?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkIpAddressPool>[]>;
+    ipAddressPools?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkIpAddressPool>[] | undefined>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
      */
-    privateEndpointVnetPolicies?: pulumi.Input<string>;
+    privateEndpointVnetPolicies?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      */
@@ -366,9 +366,9 @@ export interface VirtualNetworkArgs {
      *
      * > **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -222,27 +222,27 @@ export interface CustomDomainState {
      *
      * !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      */
-    certificateBindingType?: pulumi.Input<string>;
+    certificateBindingType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      *
      * > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
-    containerAppEnvironmentCertificateId?: pulumi.Input<string>;
+    containerAppEnvironmentCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App Environment Managed Certificate to use.
      */
-    containerAppEnvironmentManagedCertificateId?: pulumi.Input<string>;
+    containerAppEnvironmentManagedCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      */
-    containerAppId?: pulumi.Input<string>;
+    containerAppId?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      *
      * > **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,13 +254,13 @@ export interface CustomDomainArgs {
      *
      * !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      */
-    certificateBindingType?: pulumi.Input<string>;
+    certificateBindingType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      *
      * > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
-    containerAppEnvironmentCertificateId?: pulumi.Input<string>;
+    containerAppEnvironmentCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      */
@@ -270,5 +270,5 @@ export interface CustomDomainArgs {
      *
      * > **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///         Triggers = 
     ///         {
-    ///             { "source_port_ranges", exampleNetworkManagerAdminRule.SourcePortRanges.Apply(sourcePortRanges =&gt; Std.Index.Join.Invoke(new()
+    ///             { "source_port_ranges", exampleNetworkManagerAdminRule.SourcePortRanges.Apply(sourcePortRanges =&gt; Std.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = sourcePortRanges,

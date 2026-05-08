@@ -139,19 +139,19 @@ export interface WorkspaceTableState {
     /**
      * Specifies the name of a table in a Log Analytics Workspace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
      * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
      */
-    plan?: pulumi.Input<string>;
+    plan?: pulumi.Input<string | undefined>;
     /**
      * The table's retention in days. Possible values are between `4` and `730`.
      *
      * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      *
@@ -159,11 +159,11 @@ export interface WorkspaceTableState {
      *
      * > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      */
-    totalRetentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,19 +173,19 @@ export interface WorkspaceTableArgs {
     /**
      * Specifies the name of a table in a Log Analytics Workspace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
      * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
      */
-    plan?: pulumi.Input<string>;
+    plan?: pulumi.Input<string | undefined>;
     /**
      * The table's retention in days. Possible values are between `4` and `730`.
      *
      * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      *
@@ -193,7 +193,7 @@ export interface WorkspaceTableArgs {
      *
      * > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      */
-    totalRetentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table.
      */

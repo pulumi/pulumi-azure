@@ -183,29 +183,29 @@ export interface EnvironmentManagedCertificateState {
     /**
      * The Container App Managed Environment ID to configure this Managed Certificate on. Changing this forces a new resource to be created.
      */
-    containerAppEnvironmentId?: pulumi.Input<string>;
+    containerAppEnvironmentId?: pulumi.Input<string | undefined>;
     /**
      * The domain control validation type for the managed certificate. Possible values are `CNAME` and `HTTP`. Defaults to `HTTP`. Changing this forces a new resource to be created.
      *
      * > **Note:** The supported validation methods depend on the domain. Azure will validate domain ownership based on the specified method. `HTTP` validation requires an HTTP endpoint at the domain, `CNAME` validation requires DNS CNAME record configuration.
      */
-    domainControlValidation?: pulumi.Input<string>;
+    domainControlValidation?: pulumi.Input<string | undefined>;
     /**
      * The name of the Container Apps Environment Managed Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Subject Name of the Certificate. Must be a valid domain name. Changing this forces a new resource to be created.
      */
-    subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The validation token for the managed certificate.
      */
-    validationToken?: pulumi.Input<string>;
+    validationToken?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,11 +221,11 @@ export interface EnvironmentManagedCertificateArgs {
      *
      * > **Note:** The supported validation methods depend on the domain. Azure will validate domain ownership based on the specified method. `HTTP` validation requires an HTTP endpoint at the domain, `CNAME` validation requires DNS CNAME record configuration.
      */
-    domainControlValidation?: pulumi.Input<string>;
+    domainControlValidation?: pulumi.Input<string | undefined>;
     /**
      * The name of the Container Apps Environment Managed Certificate. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Subject Name of the Certificate. Must be a valid domain name. Changing this forces a new resource to be created.
      */
@@ -233,5 +233,5 @@ export interface EnvironmentManagedCertificateArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

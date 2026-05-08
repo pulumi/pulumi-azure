@@ -19,10 +19,10 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
 
@@ -44,43 +44,43 @@ class GroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentManagementGroupId")
-    def parent_management_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Parent Management Group.
         """
         return pulumi.get(self, "parent_management_group_id")
 
     @parent_management_group_id.setter
-    def parent_management_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_management_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
 
@@ -89,18 +89,18 @@ class GroupArgs:
         return pulumi.get(self, "subscription_ids")
 
     @subscription_ids.setter
-    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscription_ids", value)
 
 
 @pulumi.input_type
 class _GroupState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant_scoped_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant_scoped_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
 
@@ -125,43 +125,43 @@ class _GroupState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentManagementGroupId")
-    def parent_management_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Parent Management Group.
         """
         return pulumi.get(self, "parent_management_group_id")
 
     @parent_management_group_id.setter
-    def parent_management_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_management_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscription_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
 
@@ -170,19 +170,19 @@ class _GroupState:
         return pulumi.get(self, "subscription_ids")
 
     @subscription_ids.setter
-    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscription_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscription_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantScopedId")
-    def tenant_scoped_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_scoped_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Management Group ID with the Tenant ID prefix.
         """
         return pulumi.get(self, "tenant_scoped_id")
 
     @tenant_scoped_id.setter
-    def tenant_scoped_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_scoped_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_scoped_id", value)
 
 
@@ -192,10 +192,10 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Management Group.
@@ -301,10 +301,10 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -331,11 +331,11 @@ class Group(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tenant_scoped_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Group':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tenant_scoped_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

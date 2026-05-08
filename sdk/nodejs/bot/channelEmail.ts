@@ -155,27 +155,27 @@ export interface ChannelEmailState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The email address that the Bot will authenticate with.
      */
-    emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string | undefined>;
     /**
      * The email password that the Bot will authenticate with.
      */
-    emailPassword?: pulumi.Input<string>;
+    emailPassword?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The magic code used to set up OAUTH authentication.
      */
-    magicCode?: pulumi.Input<string>;
+    magicCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,15 +193,15 @@ export interface ChannelEmailArgs {
     /**
      * The email password that the Bot will authenticate with.
      */
-    emailPassword?: pulumi.Input<string>;
+    emailPassword?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The magic code used to set up OAUTH authentication.
      */
-    magicCode?: pulumi.Input<string>;
+    magicCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */

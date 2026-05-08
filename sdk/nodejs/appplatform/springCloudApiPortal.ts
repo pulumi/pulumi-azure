@@ -179,39 +179,39 @@ export interface SpringCloudApiPortalState {
     /**
      * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
      */
-    apiTryOutEnabled?: pulumi.Input<boolean>;
+    apiTryOutEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of Spring Cloud Gateway.
      */
-    gatewayIds?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * is only https is allowed?
      */
-    httpsOnlyEnabled?: pulumi.Input<boolean>;
+    httpsOnlyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the public network access enabled?
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
     /**
      * A `sso` block as defined below.
      */
-    sso?: pulumi.Input<inputs.appplatform.SpringCloudApiPortalSso>;
+    sso?: pulumi.Input<inputs.appplatform.SpringCloudApiPortalSso | undefined>;
     /**
      * TODO.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,27 +221,27 @@ export interface SpringCloudApiPortalArgs {
     /**
      * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
      */
-    apiTryOutEnabled?: pulumi.Input<boolean>;
+    apiTryOutEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a list of Spring Cloud Gateway.
      */
-    gatewayIds?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * is only https is allowed?
      */
-    httpsOnlyEnabled?: pulumi.Input<boolean>;
+    httpsOnlyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is the public network access enabled?
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
      */
@@ -249,5 +249,5 @@ export interface SpringCloudApiPortalArgs {
     /**
      * A `sso` block as defined below.
      */
-    sso?: pulumi.Input<inputs.appplatform.SpringCloudApiPortalSso>;
+    sso?: pulumi.Input<inputs.appplatform.SpringCloudApiPortalSso | undefined>;
 }

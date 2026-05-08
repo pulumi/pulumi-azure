@@ -174,31 +174,31 @@ export interface StandaloneGatewayState {
     /**
      * Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
      */
-    backendSubnetId?: pulumi.Input<string>;
+    backendSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.apimanagement.StandaloneGatewaySku>;
+    sku?: pulumi.Input<inputs.apimanagement.StandaloneGatewaySku | undefined>;
     /**
      * A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
      */
-    virtualNetworkType?: pulumi.Input<string>;
+    virtualNetworkType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,15 +208,15 @@ export interface StandaloneGatewayArgs {
     /**
      * Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
      */
-    backendSubnetId?: pulumi.Input<string>;
+    backendSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -228,9 +228,9 @@ export interface StandaloneGatewayArgs {
     /**
      * A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
      */
-    virtualNetworkType?: pulumi.Input<string>;
+    virtualNetworkType?: pulumi.Input<string | undefined>;
 }

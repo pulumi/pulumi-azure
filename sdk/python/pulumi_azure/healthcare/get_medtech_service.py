@@ -171,8 +171,8 @@ def get_medtech_service(name: Optional[_builtins.str] = None,
         identities=pulumi.get(__ret__, 'identities'),
         name=pulumi.get(__ret__, 'name'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_medtech_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_medtech_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMedtechServiceResult]:
     """
     Use this data source to access information about an existing Healthcare Med Tech Service

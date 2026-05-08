@@ -22,24 +22,24 @@ class ServiceAzureBotArgs:
                  microsoft_app_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
-                 cmk_key_vault_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 luis_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_msi_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cmk_key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 luis_app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 luis_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_msi_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceAzureBot resource.
 
@@ -147,7 +147,7 @@ class ServiceAzureBotArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmkKeyVaultKeyUrl")
-    def cmk_key_vault_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cmk_key_vault_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
 
@@ -156,156 +156,156 @@ class ServiceAzureBotArgs:
         return pulumi.get(self, "cmk_key_vault_key_url")
 
     @cmk_key_vault_key_url.setter
-    def cmk_key_vault_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cmk_key_vault_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cmk_key_vault_key_url", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights API Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 
     @developer_app_insights_api_key.setter
-    def developer_app_insights_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_application_id")
 
     @developer_app_insights_application_id.setter
-    def developer_app_insights_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsKey")
-    def developer_app_insights_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insight Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_key")
 
     @developer_app_insights_key.setter
-    def developer_app_insights_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_key", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Bot Service endpoint.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
-    def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is local authentication enabled? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="luisAppIds")
-    def luis_app_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def luis_app_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of LUIS App IDs to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "luis_app_ids")
 
     @luis_app_ids.setter
-    def luis_app_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def luis_app_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "luis_app_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="luisKey")
-    def luis_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def luis_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LUIS key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "luis_key")
 
     @luis_key.setter
-    def luis_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def luis_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "luis_key", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppMsiId")
-    def microsoft_app_msi_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_msi_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_msi_id")
 
     @microsoft_app_msi_id.setter
-    def microsoft_app_msi_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_msi_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_msi_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppTenantId")
-    def microsoft_app_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_tenant_id")
 
     @microsoft_app_tenant_id.setter
-    def microsoft_app_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 
@@ -314,82 +314,82 @@ class ServiceAzureBotArgs:
         return pulumi.get(self, "microsoft_app_type")
 
     @microsoft_app_type.setter
-    def microsoft_app_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="streamingEndpointEnabled")
-    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def streaming_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_endpoint_enabled")
 
     @streaming_endpoint_enabled.setter
-    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def streaming_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "streaming_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Azure Bot Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServiceAzureBotState:
     def __init__(__self__, *,
-                 cmk_key_vault_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 luis_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_msi_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cmk_key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 luis_app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 luis_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_msi_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAzureBot resources.
 
@@ -464,7 +464,7 @@ class _ServiceAzureBotState:
 
     @_builtins.property
     @pulumi.getter(name="cmkKeyVaultKeyUrl")
-    def cmk_key_vault_key_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cmk_key_vault_key_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
 
@@ -473,168 +473,168 @@ class _ServiceAzureBotState:
         return pulumi.get(self, "cmk_key_vault_key_url")
 
     @cmk_key_vault_key_url.setter
-    def cmk_key_vault_key_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cmk_key_vault_key_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cmk_key_vault_key_url", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insights API Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 
     @developer_app_insights_api_key.setter
-    def developer_app_insights_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_application_id")
 
     @developer_app_insights_application_id.setter
-    def developer_app_insights_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="developerAppInsightsKey")
-    def developer_app_insights_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_app_insights_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application Insight Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_key")
 
     @developer_app_insights_key.setter
-    def developer_app_insights_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_app_insights_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_app_insights_key", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Bot Service endpoint.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
-    def icon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon_url", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is local authentication enabled? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="luisAppIds")
-    def luis_app_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def luis_app_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of LUIS App IDs to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "luis_app_ids")
 
     @luis_app_ids.setter
-    def luis_app_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def luis_app_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "luis_app_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="luisKey")
-    def luis_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def luis_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The LUIS key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "luis_key")
 
     @luis_key.setter
-    def luis_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def luis_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "luis_key", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppId")
-    def microsoft_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_id")
 
     @microsoft_app_id.setter
-    def microsoft_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppMsiId")
-    def microsoft_app_msi_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_msi_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_msi_id")
 
     @microsoft_app_msi_id.setter
-    def microsoft_app_msi_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_msi_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_msi_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppTenantId")
-    def microsoft_app_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "microsoft_app_tenant_id")
 
     @microsoft_app_tenant_id.setter
-    def microsoft_app_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def microsoft_app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 
@@ -643,79 +643,79 @@ class _ServiceAzureBotState:
         return pulumi.get(self, "microsoft_app_type")
 
     @microsoft_app_type.setter
-    def microsoft_app_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def microsoft_app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether public network access is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="streamingEndpointEnabled")
-    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def streaming_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_endpoint_enabled")
 
     @streaming_endpoint_enabled.setter
-    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def streaming_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "streaming_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to this Azure Bot Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -725,27 +725,27 @@ class ServiceAzureBot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmk_key_vault_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 luis_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_msi_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cmk_key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 luis_app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 luis_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_msi_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Azure Bot Service.
@@ -820,27 +820,27 @@ class ServiceAzureBot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmk_key_vault_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 luis_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_msi_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 cmk_key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 luis_app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 luis_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_msi_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -889,27 +889,27 @@ class ServiceAzureBot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cmk_key_vault_key_url: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_app_insights_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_app_insights_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            developer_app_insights_key: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            icon_url: Optional[pulumi.Input[_builtins.str]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            luis_key: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_msi_id: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            microsoft_app_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            streaming_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ServiceAzureBot':
+            cmk_key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            developer_app_insights_key: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            icon_url: pulumi.Input[Optional[_builtins.str]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            luis_app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            luis_key: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_msi_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ServiceAzureBot':
         """
         Get an existing ServiceAzureBot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

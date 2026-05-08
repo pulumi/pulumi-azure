@@ -863,107 +863,107 @@ export interface AccountState {
     /**
      * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      */
-    accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
     /**
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      *
      * > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
      */
-    accountKind?: pulumi.Input<string>;
+    accountKind?: pulumi.Input<string | undefined>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
      */
-    accountReplicationType?: pulumi.Input<string>;
+    accountReplicationType?: pulumi.Input<string | undefined>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      *
      * > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
      */
-    accountTier?: pulumi.Input<string>;
+    accountTier?: pulumi.Input<string | undefined>;
     /**
      * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      *
      * > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
-    allowNestedItemsToBePublic?: pulumi.Input<boolean>;
+    allowNestedItemsToBePublic?: pulumi.Input<boolean | undefined>;
     /**
      * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
      */
-    allowedCopyScope?: pulumi.Input<string>;
+    allowedCopyScope?: pulumi.Input<string | undefined>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
-    azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
+    azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication | undefined>;
     /**
      * A `blobProperties` block as defined below.
      */
-    blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
+    blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties | undefined>;
     /**
      * Should cross Tenant replication be enabled? Defaults to `false`.
      */
-    crossTenantReplicationEnabled?: pulumi.Input<boolean>;
+    crossTenantReplicationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `customDomain` block as documented below.
      */
-    customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      *
      * > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      */
-    customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey | undefined>;
     /**
      * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
      */
-    defaultToOauthAuthentication?: pulumi.Input<boolean>;
+    defaultToOauthAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
      */
-    dnsEndpointType?: pulumi.Input<string>;
+    dnsEndpointType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
-    httpsTrafficOnlyEnabled?: pulumi.Input<boolean>;
+    httpsTrafficOnlyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    identity?: pulumi.Input<inputs.storage.AccountIdentity | undefined>;
     /**
      * An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
      */
-    immutabilityPolicy?: pulumi.Input<inputs.storage.AccountImmutabilityPolicy>;
+    immutabilityPolicy?: pulumi.Input<inputs.storage.AccountImmutabilityPolicy | undefined>;
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      *
      * > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
      */
-    isHnsEnabled?: pulumi.Input<boolean>;
+    isHnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Are Large File Shares Enabled? Defaults to `false`.
      *
      * > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
      */
-    largeFileShareEnabled?: pulumi.Input<boolean>;
+    largeFileShareEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Local User Enabled? Defaults to `true`.
      */
-    localUserEnabled?: pulumi.Input<boolean>;
+    localUserEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      *
@@ -971,177 +971,177 @@ export interface AccountState {
      *
      * > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
-    minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkRules` block as documented below.
      */
-    networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
+    networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules | undefined>;
     /**
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      *
      * > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
      */
-    nfsv3Enabled?: pulumi.Input<boolean>;
+    nfsv3Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The primary access key for the storage account.
      */
-    primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The connection string associated with the primary blob location.
      */
-    primaryBlobConnectionString?: pulumi.Input<string>;
+    primaryBlobConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for blob storage in the primary location.
      */
-    primaryBlobEndpoint?: pulumi.Input<string>;
+    primaryBlobEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for blob storage in the primary location.
      */
-    primaryBlobHost?: pulumi.Input<string>;
+    primaryBlobHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for blob storage in the primary location.
      */
-    primaryBlobInternetEndpoint?: pulumi.Input<string>;
+    primaryBlobInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for blob storage in the primary location.
      */
-    primaryBlobInternetHost?: pulumi.Input<string>;
+    primaryBlobInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for blob storage in the primary location.
      */
-    primaryBlobMicrosoftEndpoint?: pulumi.Input<string>;
+    primaryBlobMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for blob storage in the primary location.
      */
-    primaryBlobMicrosoftHost?: pulumi.Input<string>;
+    primaryBlobMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The connection string associated with the primary location.
      */
-    primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for DFS storage in the primary location.
      */
-    primaryDfsEndpoint?: pulumi.Input<string>;
+    primaryDfsEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for DFS storage in the primary location.
      */
-    primaryDfsHost?: pulumi.Input<string>;
+    primaryDfsHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for DFS storage in the primary location.
      */
-    primaryDfsInternetEndpoint?: pulumi.Input<string>;
+    primaryDfsInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for DFS storage in the primary location.
      */
-    primaryDfsInternetHost?: pulumi.Input<string>;
+    primaryDfsInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for DFS storage in the primary location.
      */
-    primaryDfsMicrosoftEndpoint?: pulumi.Input<string>;
+    primaryDfsMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
      */
-    primaryDfsMicrosoftHost?: pulumi.Input<string>;
+    primaryDfsMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for file storage in the primary location.
      */
-    primaryFileEndpoint?: pulumi.Input<string>;
+    primaryFileEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for file storage in the primary location.
      */
-    primaryFileHost?: pulumi.Input<string>;
+    primaryFileHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for file storage in the primary location.
      */
-    primaryFileInternetEndpoint?: pulumi.Input<string>;
+    primaryFileInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for file storage in the primary location.
      */
-    primaryFileInternetHost?: pulumi.Input<string>;
+    primaryFileInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for file storage in the primary location.
      */
-    primaryFileMicrosoftEndpoint?: pulumi.Input<string>;
+    primaryFileMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for file storage in the primary location.
      */
-    primaryFileMicrosoftHost?: pulumi.Input<string>;
+    primaryFileMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The primary location of the storage account.
      */
-    primaryLocation?: pulumi.Input<string>;
+    primaryLocation?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for queue storage in the primary location.
      */
-    primaryQueueEndpoint?: pulumi.Input<string>;
+    primaryQueueEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for queue storage in the primary location.
      */
-    primaryQueueHost?: pulumi.Input<string>;
+    primaryQueueHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for queue storage in the primary location.
      */
-    primaryQueueMicrosoftEndpoint?: pulumi.Input<string>;
+    primaryQueueMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for queue storage in the primary location.
      */
-    primaryQueueMicrosoftHost?: pulumi.Input<string>;
+    primaryQueueMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for table storage in the primary location.
      */
-    primaryTableEndpoint?: pulumi.Input<string>;
+    primaryTableEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for table storage in the primary location.
      */
-    primaryTableHost?: pulumi.Input<string>;
+    primaryTableHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for table storage in the primary location.
      */
-    primaryTableMicrosoftEndpoint?: pulumi.Input<string>;
+    primaryTableMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for table storage in the primary location.
      */
-    primaryTableMicrosoftHost?: pulumi.Input<string>;
+    primaryTableMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for web storage in the primary location.
      */
-    primaryWebEndpoint?: pulumi.Input<string>;
+    primaryWebEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for web storage in the primary location.
      */
-    primaryWebHost?: pulumi.Input<string>;
+    primaryWebHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for web storage in the primary location.
      */
-    primaryWebInternetEndpoint?: pulumi.Input<string>;
+    primaryWebInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for web storage in the primary location.
      */
-    primaryWebInternetHost?: pulumi.Input<string>;
+    primaryWebInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for web storage in the primary location.
      */
-    primaryWebMicrosoftEndpoint?: pulumi.Input<string>;
+    primaryWebMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for web storage in the primary location.
      */
-    primaryWebMicrosoftHost?: pulumi.Input<string>;
+    primaryWebMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
      */
-    provisionedBillingModelVersion?: pulumi.Input<string>;
+    provisionedBillingModelVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
-    queueEncryptionKeyType?: pulumi.Input<string>;
+    queueEncryptionKeyType?: pulumi.Input<string | undefined>;
     /**
      * A `queueProperties` block as defined below.
      *
@@ -1149,181 +1149,181 @@ export interface AccountState {
      *
      * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      */
-    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
+    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties | undefined>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `routing` block as defined below.
      */
-    routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    routing?: pulumi.Input<inputs.storage.AccountRouting | undefined>;
     /**
      * A `sasPolicy` block as defined below.
      */
-    sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy>;
+    sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy | undefined>;
     /**
      * The secondary access key for the storage account.
      */
-    secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The connection string associated with the secondary blob location.
      */
-    secondaryBlobConnectionString?: pulumi.Input<string>;
+    secondaryBlobConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for blob storage in the secondary location.
      */
-    secondaryBlobEndpoint?: pulumi.Input<string>;
+    secondaryBlobEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for blob storage in the secondary location.
      */
-    secondaryBlobHost?: pulumi.Input<string>;
+    secondaryBlobHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for blob storage in the secondary location.
      */
-    secondaryBlobInternetEndpoint?: pulumi.Input<string>;
+    secondaryBlobInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for blob storage in the secondary location.
      */
-    secondaryBlobInternetHost?: pulumi.Input<string>;
+    secondaryBlobInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for blob storage in the secondary location.
      */
-    secondaryBlobMicrosoftEndpoint?: pulumi.Input<string>;
+    secondaryBlobMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
      */
-    secondaryBlobMicrosoftHost?: pulumi.Input<string>;
+    secondaryBlobMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The connection string associated with the secondary location.
      */
-    secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for DFS storage in the secondary location.
      */
-    secondaryDfsEndpoint?: pulumi.Input<string>;
+    secondaryDfsEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for DFS storage in the secondary location.
      */
-    secondaryDfsHost?: pulumi.Input<string>;
+    secondaryDfsHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for DFS storage in the secondary location.
      */
-    secondaryDfsInternetEndpoint?: pulumi.Input<string>;
+    secondaryDfsInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for DFS storage in the secondary location.
      */
-    secondaryDfsInternetHost?: pulumi.Input<string>;
+    secondaryDfsInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for DFS storage in the secondary location.
      */
-    secondaryDfsMicrosoftEndpoint?: pulumi.Input<string>;
+    secondaryDfsMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
      */
-    secondaryDfsMicrosoftHost?: pulumi.Input<string>;
+    secondaryDfsMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for file storage in the secondary location.
      */
-    secondaryFileEndpoint?: pulumi.Input<string>;
+    secondaryFileEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for file storage in the secondary location.
      */
-    secondaryFileHost?: pulumi.Input<string>;
+    secondaryFileHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for file storage in the secondary location.
      */
-    secondaryFileInternetEndpoint?: pulumi.Input<string>;
+    secondaryFileInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for file storage in the secondary location.
      */
-    secondaryFileInternetHost?: pulumi.Input<string>;
+    secondaryFileInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for file storage in the secondary location.
      */
-    secondaryFileMicrosoftEndpoint?: pulumi.Input<string>;
+    secondaryFileMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for file storage in the secondary location.
      */
-    secondaryFileMicrosoftHost?: pulumi.Input<string>;
+    secondaryFileMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The secondary location of the storage account.
      */
-    secondaryLocation?: pulumi.Input<string>;
+    secondaryLocation?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for queue storage in the secondary location.
      */
-    secondaryQueueEndpoint?: pulumi.Input<string>;
+    secondaryQueueEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for queue storage in the secondary location.
      */
-    secondaryQueueHost?: pulumi.Input<string>;
+    secondaryQueueHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for queue storage in the secondary location.
      */
-    secondaryQueueMicrosoftEndpoint?: pulumi.Input<string>;
+    secondaryQueueMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
      */
-    secondaryQueueMicrosoftHost?: pulumi.Input<string>;
+    secondaryQueueMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for table storage in the secondary location.
      */
-    secondaryTableEndpoint?: pulumi.Input<string>;
+    secondaryTableEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for table storage in the secondary location.
      */
-    secondaryTableHost?: pulumi.Input<string>;
+    secondaryTableHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for table storage in the secondary location.
      */
-    secondaryTableMicrosoftEndpoint?: pulumi.Input<string>;
+    secondaryTableMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for table storage in the secondary location.
      */
-    secondaryTableMicrosoftHost?: pulumi.Input<string>;
+    secondaryTableMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * The endpoint URL for web storage in the secondary location.
      */
-    secondaryWebEndpoint?: pulumi.Input<string>;
+    secondaryWebEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The hostname with port if applicable for web storage in the secondary location.
      */
-    secondaryWebHost?: pulumi.Input<string>;
+    secondaryWebHost?: pulumi.Input<string | undefined>;
     /**
      * The internet routing endpoint URL for web storage in the secondary location.
      */
-    secondaryWebInternetEndpoint?: pulumi.Input<string>;
+    secondaryWebInternetEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The internet routing hostname with port if applicable for web storage in the secondary location.
      */
-    secondaryWebInternetHost?: pulumi.Input<string>;
+    secondaryWebInternetHost?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing endpoint URL for web storage in the secondary location.
      */
-    secondaryWebMicrosoftEndpoint?: pulumi.Input<string>;
+    secondaryWebMicrosoftEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The microsoft routing hostname with port if applicable for web storage in the secondary location.
      */
-    secondaryWebMicrosoftHost?: pulumi.Input<string>;
+    secondaryWebMicrosoftHost?: pulumi.Input<string | undefined>;
     /**
      * Boolean, enable SFTP for the storage account
      *
      * > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
      */
-    sftpEnabled?: pulumi.Input<boolean>;
+    sftpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `shareProperties` block as defined below.
      *
      * > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
      */
-    shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
+    shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties | undefined>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
      *
      * > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
      */
-    sharedAccessKeyEnabled?: pulumi.Input<boolean>;
+    sharedAccessKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `staticWebsite` block as defined below.
      *
@@ -1333,17 +1333,17 @@ export interface AccountState {
      *
      * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      */
-    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
+    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite | undefined>;
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
      */
-    tableEncryptionKeyType?: pulumi.Input<string>;
+    tableEncryptionKeyType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -1353,13 +1353,13 @@ export interface AccountArgs {
     /**
      * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      */
-    accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string | undefined>;
     /**
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      *
      * > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
      */
-    accountKind?: pulumi.Input<string>;
+    accountKind?: pulumi.Input<string | undefined>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
      */
@@ -1375,85 +1375,85 @@ export interface AccountArgs {
      *
      * > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
-    allowNestedItemsToBePublic?: pulumi.Input<boolean>;
+    allowNestedItemsToBePublic?: pulumi.Input<boolean | undefined>;
     /**
      * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
      */
-    allowedCopyScope?: pulumi.Input<string>;
+    allowedCopyScope?: pulumi.Input<string | undefined>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
-    azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
+    azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication | undefined>;
     /**
      * A `blobProperties` block as defined below.
      */
-    blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
+    blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties | undefined>;
     /**
      * Should cross Tenant replication be enabled? Defaults to `false`.
      */
-    crossTenantReplicationEnabled?: pulumi.Input<boolean>;
+    crossTenantReplicationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `customDomain` block as documented below.
      */
-    customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      *
      * > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      */
-    customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey | undefined>;
     /**
      * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
      */
-    defaultToOauthAuthentication?: pulumi.Input<boolean>;
+    defaultToOauthAuthentication?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
      */
-    dnsEndpointType?: pulumi.Input<string>;
+    dnsEndpointType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
-    httpsTrafficOnlyEnabled?: pulumi.Input<boolean>;
+    httpsTrafficOnlyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    identity?: pulumi.Input<inputs.storage.AccountIdentity | undefined>;
     /**
      * An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
      */
-    immutabilityPolicy?: pulumi.Input<inputs.storage.AccountImmutabilityPolicy>;
+    immutabilityPolicy?: pulumi.Input<inputs.storage.AccountImmutabilityPolicy | undefined>;
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      *
      * > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
      */
-    isHnsEnabled?: pulumi.Input<boolean>;
+    isHnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Are Large File Shares Enabled? Defaults to `false`.
      *
      * > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
      */
-    largeFileShareEnabled?: pulumi.Input<boolean>;
+    largeFileShareEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is Local User Enabled? Defaults to `true`.
      */
-    localUserEnabled?: pulumi.Input<boolean>;
+    localUserEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      *
@@ -1461,33 +1461,33 @@ export interface AccountArgs {
      *
      * > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
-    minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `networkRules` block as documented below.
      */
-    networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
+    networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules | undefined>;
     /**
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      *
      * > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
      */
-    nfsv3Enabled?: pulumi.Input<boolean>;
+    nfsv3Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
      */
-    provisionedBillingModelVersion?: pulumi.Input<string>;
+    provisionedBillingModelVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
-    queueEncryptionKeyType?: pulumi.Input<string>;
+    queueEncryptionKeyType?: pulumi.Input<string | undefined>;
     /**
      * A `queueProperties` block as defined below.
      *
@@ -1495,7 +1495,7 @@ export interface AccountArgs {
      *
      * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      */
-    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
+    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties | undefined>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
@@ -1503,29 +1503,29 @@ export interface AccountArgs {
     /**
      * A `routing` block as defined below.
      */
-    routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    routing?: pulumi.Input<inputs.storage.AccountRouting | undefined>;
     /**
      * A `sasPolicy` block as defined below.
      */
-    sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy>;
+    sasPolicy?: pulumi.Input<inputs.storage.AccountSasPolicy | undefined>;
     /**
      * Boolean, enable SFTP for the storage account
      *
      * > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
      */
-    sftpEnabled?: pulumi.Input<boolean>;
+    sftpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `shareProperties` block as defined below.
      *
      * > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
      */
-    shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
+    shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties | undefined>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
      *
      * > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
      */
-    sharedAccessKeyEnabled?: pulumi.Input<boolean>;
+    sharedAccessKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `staticWebsite` block as defined below.
      *
@@ -1535,15 +1535,15 @@ export interface AccountArgs {
      *
      * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      */
-    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
+    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite | undefined>;
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
      */
-    tableEncryptionKeyType?: pulumi.Input<string>;
+    tableEncryptionKeyType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

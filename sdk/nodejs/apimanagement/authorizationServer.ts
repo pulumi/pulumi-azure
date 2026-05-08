@@ -250,85 +250,85 @@ export interface AuthorizationServerState {
     /**
      * The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * The OAUTH Authorization Endpoint.
      */
-    authorizationEndpoint?: pulumi.Input<string>;
+    authorizationEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      *
      * > **Note:** `GET` must always be present.
      */
-    authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
      */
-    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
      */
-    clientAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    clientAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Client/App ID registered with this Authorization Server.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The URI of page where Client/App Registration is performed for this Authorization Server.
      */
-    clientRegistrationEndpoint?: pulumi.Input<string>;
+    clientRegistrationEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Client/App Secret registered with this Authorization Server.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
      */
-    defaultScope?: pulumi.Input<string>;
+    defaultScope?: pulumi.Input<string | undefined>;
     /**
      * A description of the Authorization Server, which may contain HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name of this Authorization Server.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
      */
-    grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of this Authorization Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The password associated with the Resource Owner.
      *
      * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
-    resourceOwnerPassword?: pulumi.Input<string>;
+    resourceOwnerPassword?: pulumi.Input<string | undefined>;
     /**
      * The username associated with the Resource Owner.
      *
      * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
-    resourceOwnerUsername?: pulumi.Input<string>;
+    resourceOwnerUsername?: pulumi.Input<string | undefined>;
     /**
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
-    supportState?: pulumi.Input<boolean>;
+    supportState?: pulumi.Input<boolean | undefined>;
     /**
      * A `tokenBodyParameter` block as defined below.
      */
-    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
+    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[] | undefined>;
     /**
      * The OAUTH Token Endpoint.
      */
-    tokenEndpoint?: pulumi.Input<string>;
+    tokenEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -352,11 +352,11 @@ export interface AuthorizationServerArgs {
     /**
      * The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
      */
-    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
      */
-    clientAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    clientAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Client/App ID registered with this Authorization Server.
      */
@@ -368,15 +368,15 @@ export interface AuthorizationServerArgs {
     /**
      * The Client/App Secret registered with this Authorization Server.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
      */
-    defaultScope?: pulumi.Input<string>;
+    defaultScope?: pulumi.Input<string | undefined>;
     /**
      * A description of the Authorization Server, which may contain HTML formatting tags.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name of this Authorization Server.
      */
@@ -388,7 +388,7 @@ export interface AuthorizationServerArgs {
     /**
      * The name of this Authorization Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -398,23 +398,23 @@ export interface AuthorizationServerArgs {
      *
      * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
-    resourceOwnerPassword?: pulumi.Input<string>;
+    resourceOwnerPassword?: pulumi.Input<string | undefined>;
     /**
      * The username associated with the Resource Owner.
      *
      * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
-    resourceOwnerUsername?: pulumi.Input<string>;
+    resourceOwnerUsername?: pulumi.Input<string | undefined>;
     /**
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
-    supportState?: pulumi.Input<boolean>;
+    supportState?: pulumi.Input<boolean | undefined>;
     /**
      * A `tokenBodyParameter` block as defined below.
      */
-    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
+    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[] | undefined>;
     /**
      * The OAUTH Token Endpoint.
      */
-    tokenEndpoint?: pulumi.Input<string>;
+    tokenEndpoint?: pulumi.Input<string | undefined>;
 }

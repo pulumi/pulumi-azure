@@ -223,8 +223,8 @@ def get_server(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transparent_data_encryption_key_vault_key_id=pulumi.get(__ret__, 'transparent_data_encryption_key_vault_key_id'),
         version=pulumi.get(__ret__, 'version'))
-def get_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to access information about an existing Microsoft SQL Server.

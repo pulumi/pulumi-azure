@@ -157,35 +157,35 @@ export interface EmailServiceDomainState {
     /**
      * Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
      */
-    domainManagement?: pulumi.Input<string>;
+    domainManagement?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
      */
-    emailServiceId?: pulumi.Input<string>;
+    emailServiceId?: pulumi.Input<string | undefined>;
     /**
      * P2 sender domain that is displayed to the email recipients [RFC 5322].
      */
-    fromSenderDomain?: pulumi.Input<string>;
+    fromSenderDomain?: pulumi.Input<string | undefined>;
     /**
      * P1 sender domain that is present on the email envelope [RFC 5321].
      */
-    mailFromSenderDomain?: pulumi.Input<string>;
+    mailFromSenderDomain?: pulumi.Input<string | undefined>;
     /**
      * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Email Communication Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Describes user engagement tracking is enabled or disabled. Defaults to `false`.
      */
-    userEngagementTrackingEnabled?: pulumi.Input<boolean>;
+    userEngagementTrackingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) An `verificationRecords` block as defined below.
      */
-    verificationRecords?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecord>[]>;
+    verificationRecords?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecord>[] | undefined>;
 }
 
 /**
@@ -203,13 +203,13 @@ export interface EmailServiceDomainArgs {
     /**
      * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Email Communication Service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Describes user engagement tracking is enabled or disabled. Defaults to `false`.
      */
-    userEngagementTrackingEnabled?: pulumi.Input<boolean>;
+    userEngagementTrackingEnabled?: pulumi.Input<boolean | undefined>;
 }

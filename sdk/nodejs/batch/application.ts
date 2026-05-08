@@ -153,27 +153,27 @@ export interface ApplicationState {
     /**
      * The name of the Batch account. Changing this forces a new resource to be created.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
      */
-    allowUpdates?: pulumi.Input<boolean>;
+    allowUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
-    defaultVersion?: pulumi.Input<string>;
+    defaultVersion?: pulumi.Input<string | undefined>;
     /**
      * The display name for the application.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,19 +187,19 @@ export interface ApplicationArgs {
     /**
      * A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
      */
-    allowUpdates?: pulumi.Input<boolean>;
+    allowUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
-    defaultVersion?: pulumi.Input<string>;
+    defaultVersion?: pulumi.Input<string | undefined>;
     /**
      * The display name for the application.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
      */

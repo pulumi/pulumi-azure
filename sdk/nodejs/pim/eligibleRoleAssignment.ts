@@ -212,41 +212,41 @@ export interface EligibleRoleAssignmentState {
     /**
      * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
-    condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string | undefined>;
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
      */
-    conditionVersion?: pulumi.Input<string>;
+    conditionVersion?: pulumi.Input<string | undefined>;
     /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      */
-    justification?: pulumi.Input<string>;
+    justification?: pulumi.Input<string | undefined>;
     /**
      * Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * Type of principal to which the role will be assigned.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    schedule?: pulumi.Input<inputs.pim.EligibleRoleAssignmentSchedule>;
+    schedule?: pulumi.Input<inputs.pim.EligibleRoleAssignmentSchedule | undefined>;
     /**
      * The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    ticket?: pulumi.Input<inputs.pim.EligibleRoleAssignmentTicket>;
+    ticket?: pulumi.Input<inputs.pim.EligibleRoleAssignmentTicket | undefined>;
 }
 
 /**
@@ -256,17 +256,17 @@ export interface EligibleRoleAssignmentArgs {
     /**
      * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
-    condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string | undefined>;
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
      */
-    conditionVersion?: pulumi.Input<string>;
+    conditionVersion?: pulumi.Input<string | undefined>;
     /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      */
-    justification?: pulumi.Input<string>;
+    justification?: pulumi.Input<string | undefined>;
     /**
      * Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
      */
@@ -278,7 +278,7 @@ export interface EligibleRoleAssignmentArgs {
     /**
      * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    schedule?: pulumi.Input<inputs.pim.EligibleRoleAssignmentSchedule>;
+    schedule?: pulumi.Input<inputs.pim.EligibleRoleAssignmentSchedule | undefined>;
     /**
      * The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
@@ -286,5 +286,5 @@ export interface EligibleRoleAssignmentArgs {
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    ticket?: pulumi.Input<inputs.pim.EligibleRoleAssignmentTicket>;
+    ticket?: pulumi.Input<inputs.pim.EligibleRoleAssignmentTicket | undefined>;
 }

@@ -149,19 +149,19 @@ export interface ApiTagDescriptionState {
     /**
      * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      */
-    apiTagId?: pulumi.Input<string>;
+    apiTagId?: pulumi.Input<string | undefined>;
     /**
      * The description of the Tag.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The description of the external documentation resources describing the tag.
      */
-    externalDocumentationDescription?: pulumi.Input<string>;
+    externalDocumentationDescription?: pulumi.Input<string | undefined>;
     /**
      * The URL of external documentation resources describing the tag.
      */
-    externalDocumentationUrl?: pulumi.Input<string>;
+    externalDocumentationUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,13 +175,13 @@ export interface ApiTagDescriptionArgs {
     /**
      * The description of the Tag.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The description of the external documentation resources describing the tag.
      */
-    externalDocumentationDescription?: pulumi.Input<string>;
+    externalDocumentationDescription?: pulumi.Input<string | undefined>;
     /**
      * The URL of external documentation resources describing the tag.
      */
-    externalDocumentationUrl?: pulumi.Input<string>;
+    externalDocumentationUrl?: pulumi.Input<string | undefined>;
 }

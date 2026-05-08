@@ -162,27 +162,27 @@ export interface FunctionJavaScriptUDFState {
     /**
      * One or more `input` blocks as defined below.
      */
-    inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFInput>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFInput>[] | undefined>;
     /**
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `output` blocks as defined below.
      */
-    output?: pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFOutput>;
+    output?: pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFOutput | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The JavaScript of this UDF Function.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface FunctionJavaScriptUDFArgs {
     /**
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `output` blocks as defined below.
      */

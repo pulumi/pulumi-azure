@@ -147,27 +147,27 @@ export interface IntegrationAccountCertificateState {
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * A `keyVaultKey` block as documented below.
      */
-    keyVaultKey?: pulumi.Input<inputs.logicapps.IntegrationAccountCertificateKeyVaultKey>;
+    keyVaultKey?: pulumi.Input<inputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The public certificate for the Logic App Integration Account Certificate.
      */
-    publicCertificate?: pulumi.Input<string>;
+    publicCertificate?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,19 +181,19 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * A `keyVaultKey` block as documented below.
      */
-    keyVaultKey?: pulumi.Input<inputs.logicapps.IntegrationAccountCertificateKeyVaultKey>;
+    keyVaultKey?: pulumi.Input<inputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The public certificate for the Logic App Integration Account Certificate.
      */
-    publicCertificate?: pulumi.Input<string>;
+    publicCertificate?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
      */

@@ -165,35 +165,35 @@ export interface SavedSearchState {
     /**
      * The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The function alias if the query serves as a function. Changing this forces a new resource to be created.
      */
-    functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string | undefined>;
     /**
      * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      */
-    functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
+    functionParameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -211,11 +211,11 @@ export interface SavedSearchArgs {
     /**
      * The function alias if the query serves as a function. Changing this forces a new resource to be created.
      */
-    functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string | undefined>;
     /**
      * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      */
-    functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
+    functionParameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
      */
@@ -223,7 +223,7 @@ export interface SavedSearchArgs {
     /**
      * Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
@@ -231,5 +231,5 @@ export interface SavedSearchArgs {
     /**
      * A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

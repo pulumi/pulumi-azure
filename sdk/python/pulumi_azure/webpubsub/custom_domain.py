@@ -22,7 +22,7 @@ class CustomDomainArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  web_pubsub_custom_certificate_id: pulumi.Input[_builtins.str],
                  web_pubsub_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
 
@@ -79,24 +79,24 @@ class CustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CustomDomainState:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
 
@@ -118,7 +118,7 @@ class _CustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
 
@@ -127,43 +127,43 @@ class _CustomDomainState:
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="webPubsubCustomCertificateId")
-    def web_pubsub_custom_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_pubsub_custom_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_custom_certificate_id")
 
     @web_pubsub_custom_certificate_id.setter
-    def web_pubsub_custom_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_pubsub_custom_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_pubsub_custom_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="webPubsubId")
-    def web_pubsub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_pubsub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_id")
 
     @web_pubsub_id.setter
-    def web_pubsub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_pubsub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_pubsub_id", value)
 
 
@@ -173,10 +173,10 @@ class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure Web PubSub Custom Domain.
@@ -250,10 +250,10 @@ class CustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,10 +283,10 @@ class CustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            web_pubsub_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomDomain':
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            web_pubsub_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomDomain':
         """
         Get an existing CustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,8 +20,8 @@ __all__ = ['NamespaceTopicArgs', 'NamespaceTopic']
 class NamespaceTopicArgs:
     def __init__(__self__, *,
                  eventgrid_namespace_id: pulumi.Input[_builtins.str],
-                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceTopic resource.
 
@@ -49,35 +49,35 @@ class NamespaceTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventRetentionInDays")
-    def event_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def event_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Event retention for the namespace topic expressed in days. Defaults to `7`.
         """
         return pulumi.get(self, "event_retention_in_days")
 
     @event_retention_in_days.setter
-    def event_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def event_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "event_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Event Grid Namespace Topic. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NamespaceTopicState:
     def __init__(__self__, *,
-                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 eventgrid_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 eventgrid_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceTopic resources.
 
@@ -94,38 +94,38 @@ class _NamespaceTopicState:
 
     @_builtins.property
     @pulumi.getter(name="eventRetentionInDays")
-    def event_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def event_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Event retention for the namespace topic expressed in days. Defaults to `7`.
         """
         return pulumi.get(self, "event_retention_in_days")
 
     @event_retention_in_days.setter
-    def event_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def event_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "event_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="eventgridNamespaceId")
-    def eventgrid_namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eventgrid_namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Event Grid Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventgrid_namespace_id")
 
     @eventgrid_namespace_id.setter
-    def eventgrid_namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eventgrid_namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eventgrid_namespace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Event Grid Namespace Topic. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -135,9 +135,9 @@ class NamespaceTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 eventgrid_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 eventgrid_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Event Grid Namespace Topic.
@@ -242,9 +242,9 @@ class NamespaceTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 eventgrid_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 eventgrid_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,9 +269,9 @@ class NamespaceTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            eventgrid_namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'NamespaceTopic':
+            event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            eventgrid_namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'NamespaceTopic':
         """
         Get an existing NamespaceTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

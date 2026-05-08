@@ -141,27 +141,27 @@ export interface DeviceState {
     /**
      * A `deviceProperties` block as defined below.
      */
-    deviceProperties?: pulumi.Input<pulumi.Input<inputs.databoxedge.DeviceDeviceProperty>[]>;
+    deviceProperties?: pulumi.Input<pulumi.Input<inputs.databoxedge.DeviceDeviceProperty>[] | undefined>;
     /**
      * The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Gateway`, `EdgeMR_Mini`, `EdgeP_Base`, `EdgeP_High`, `EdgePR_Base`, `EdgePR_Base_UPS`, `GPU`, `RCA_Large`, `RCA_Small`, `RDC`, `TCA_Large`, `TCA_Small`, `TDC`, `TEA_1Node`, `TEA_1Node_UPS`, `TEA_1Node_Heater`, `TEA_1Node_UPS_Heater`, `TEA_4Node_Heater`, `TEA_4Node_UPS_Heater` or `TMA`. The second segment defines the `tier` of the `skuName`, possible values are `Standard`. For more information see the product documentation. Changing this forces a new Databox Edge Device to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Databox Edge Device.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -171,11 +171,11 @@ export interface DeviceArgs {
     /**
      * The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
      */
@@ -187,5 +187,5 @@ export interface DeviceArgs {
     /**
      * A mapping of tags which should be assigned to the Databox Edge Device.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

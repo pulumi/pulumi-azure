@@ -22,7 +22,7 @@ class ServiceCustomDomainArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  signalr_custom_certificate_id: pulumi.Input[_builtins.str],
                  signalr_service_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceCustomDomain resource.
 
@@ -79,24 +79,24 @@ class ServiceCustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ServiceCustomDomainState:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceCustomDomain resources.
 
@@ -118,7 +118,7 @@ class _ServiceCustomDomainState:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 
@@ -127,43 +127,43 @@ class _ServiceCustomDomainState:
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="signalrCustomCertificateId")
-    def signalr_custom_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signalr_custom_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "signalr_custom_certificate_id")
 
     @signalr_custom_certificate_id.setter
-    def signalr_custom_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signalr_custom_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signalr_custom_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="signalrServiceId")
-    def signalr_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signalr_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "signalr_service_id")
 
     @signalr_service_id.setter
-    def signalr_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signalr_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signalr_service_id", value)
 
 
@@ -173,10 +173,10 @@ class ServiceCustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure SignalR Custom Domain.
@@ -396,10 +396,10 @@ class ServiceCustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,10 +429,10 @@ class ServiceCustomDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            signalr_custom_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceCustomDomain':
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            signalr_custom_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceCustomDomain':
         """
         Get an existing ServiceCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

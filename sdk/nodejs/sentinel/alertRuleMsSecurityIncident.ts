@@ -179,45 +179,45 @@ export interface AlertRuleMsSecurityIncidentState {
     /**
      * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string | undefined>;
     /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Only create incidents when the alert display name doesn't contain text from this list.
      */
-    displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
-    displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
      */
-    productFilter?: pulumi.Input<string>;
+    productFilter?: pulumi.Input<string | undefined>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      *
      * > **Note:** At least one of the severity filters need to be set.
      */
-    severityFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    severityFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -227,11 +227,11 @@ export interface AlertRuleMsSecurityIncidentArgs {
     /**
      * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string | undefined>;
     /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
@@ -239,15 +239,15 @@ export interface AlertRuleMsSecurityIncidentArgs {
     /**
      * Only create incidents when the alert display name doesn't contain text from this list.
      */
-    displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
-    displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
@@ -255,7 +255,7 @@ export interface AlertRuleMsSecurityIncidentArgs {
     /**
      * The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
      */

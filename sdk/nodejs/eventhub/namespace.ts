@@ -229,80 +229,80 @@ export interface NamespaceState {
     /**
      * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * An `customerManagedKey` block as defined below.
      */
-    customerManagedKey?: pulumi.Input<inputs.eventhub.NamespaceCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.eventhub.NamespaceCustomerManagedKey | undefined>;
     /**
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    defaultPrimaryConnectionString?: pulumi.Input<string>;
+    defaultPrimaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    defaultPrimaryKey?: pulumi.Input<string>;
+    defaultPrimaryKey?: pulumi.Input<string | undefined>;
     /**
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    defaultSecondaryConnectionString?: pulumi.Input<string>;
+    defaultSecondaryConnectionString?: pulumi.Input<string | undefined>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    defaultSecondaryKey?: pulumi.Input<string>;
+    defaultSecondaryKey?: pulumi.Input<string | undefined>;
     /**
      * The URL to access the Service Bus Namespace.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventhub.NamespaceIdentity>;
+    identity?: pulumi.Input<inputs.eventhub.NamespaceIdentity | undefined>;
     /**
      * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `networkRuleSet` block as defined below.
      */
-    networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet>;
+    networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet | undefined>;
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      *
      * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      */
-    premiumMessagingPartitions?: pulumi.Input<number>;
+    premiumMessagingPartitions?: pulumi.Input<number | undefined>;
     /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -312,47 +312,47 @@ export interface NamespaceArgs {
     /**
      * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * An `customerManagedKey` block as defined below.
      */
-    customerManagedKey?: pulumi.Input<inputs.eventhub.NamespaceCustomerManagedKey>;
+    customerManagedKey?: pulumi.Input<inputs.eventhub.NamespaceCustomerManagedKey | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.eventhub.NamespaceIdentity>;
+    identity?: pulumi.Input<inputs.eventhub.NamespaceIdentity | undefined>;
     /**
      * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
      */
-    localAuthEnabled?: pulumi.Input<boolean>;
+    localAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `networkRuleSet` block as defined below.
      */
-    networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet>;
+    networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet | undefined>;
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      *
      * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      */
-    premiumMessagingPartitions?: pulumi.Input<number>;
+    premiumMessagingPartitions?: pulumi.Input<number | undefined>;
     /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
@@ -365,5 +365,5 @@ export interface NamespaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

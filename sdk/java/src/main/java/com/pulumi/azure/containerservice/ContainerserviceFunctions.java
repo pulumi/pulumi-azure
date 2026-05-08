@@ -56,8 +56,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -106,8 +106,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -156,8 +156,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -206,8 +206,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -256,8 +256,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -306,8 +306,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -355,8 +355,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -404,8 +404,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -453,8 +453,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -502,8 +502,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -551,8 +551,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -602,8 +602,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -653,8 +653,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -704,8 +704,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -755,8 +755,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -806,8 +806,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -854,8 +854,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -902,8 +902,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -950,8 +950,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -998,8 +998,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1046,8 +1046,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1094,8 +1094,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1142,8 +1142,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1190,8 +1190,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1238,8 +1238,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1286,8 +1286,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1335,8 +1335,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1384,8 +1384,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1433,8 +1433,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1482,8 +1482,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1531,8 +1531,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1580,8 +1580,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1629,8 +1629,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1678,8 +1678,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1727,8 +1727,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1856,8 +1856,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1906,8 +1906,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1956,8 +1956,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2006,8 +2006,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2056,8 +2056,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2106,8 +2106,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2156,8 +2156,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2206,8 +2206,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2256,8 +2256,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2306,8 +2306,8 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
      * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerApp
     ///     var exampleEnvironmentCustomDomain = new Azure.ContainerApp.EnvironmentCustomDomain("example", new()
     ///     {
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         CertificateBlobBase64 = Std.Index.Filebase64.Invoke(new()
+    ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testacc.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),

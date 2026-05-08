@@ -21,11 +21,11 @@ class SharedAccessPolicyArgs:
     def __init__(__self__, *,
                  iothub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 device_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_connect: Optional[pulumi.Input[_builtins.bool]] = None):
+                 device_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_connect: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SharedAccessPolicy resource.
 
@@ -80,7 +80,7 @@ class SharedAccessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deviceConnect")
-    def device_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def device_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 
@@ -89,36 +89,36 @@ class SharedAccessPolicyArgs:
         return pulumi.get(self, "device_connect")
 
     @device_connect.setter
-    def device_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def device_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "device_connect", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryRead")
-    def registry_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def registry_read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         """
         return pulumi.get(self, "registry_read")
 
     @registry_read.setter
-    def registry_read(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def registry_read(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "registry_read", value)
 
     @_builtins.property
     @pulumi.getter(name="registryWrite")
-    def registry_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def registry_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 
@@ -127,36 +127,36 @@ class SharedAccessPolicyArgs:
         return pulumi.get(self, "registry_write")
 
     @registry_write.setter
-    def registry_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def registry_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "registry_write", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnect")
-    def service_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def service_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
         return pulumi.get(self, "service_connect")
 
     @service_connect.setter
-    def service_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def service_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "service_connect", value)
 
 
 @pulumi.input_type
 class _SharedAccessPolicyState:
     def __init__(__self__, *,
-                 device_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_connect: Optional[pulumi.Input[_builtins.bool]] = None):
+                 device_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_connect: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SharedAccessPolicy resources.
 
@@ -201,7 +201,7 @@ class _SharedAccessPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="deviceConnect")
-    def device_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def device_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
 
@@ -210,72 +210,72 @@ class _SharedAccessPolicyState:
         return pulumi.get(self, "device_connect")
 
     @device_connect.setter
-    def device_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def device_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "device_connect", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_name")
 
     @iothub_name.setter
-    def iothub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string of the Shared Access Policy.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary key used to create the authentication token.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="registryRead")
-    def registry_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def registry_read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         """
         return pulumi.get(self, "registry_read")
 
     @registry_read.setter
-    def registry_read(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def registry_read(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "registry_read", value)
 
     @_builtins.property
     @pulumi.getter(name="registryWrite")
-    def registry_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def registry_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
 
@@ -284,55 +284,55 @@ class _SharedAccessPolicyState:
         return pulumi.get(self, "registry_write")
 
     @registry_write.setter
-    def registry_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def registry_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "registry_write", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string of the Shared Access Policy.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary key used to create the authentication token.
         """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnect")
-    def service_connect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def service_connect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
         return pulumi.get(self, "service_connect")
 
     @service_connect.setter
-    def service_connect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def service_connect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "service_connect", value)
 
 
@@ -342,13 +342,13 @@ class SharedAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_connect: Optional[pulumi.Input[_builtins.bool]] = None,
+                 device_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_connect: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an IotHub Shared Access Policy
@@ -459,13 +459,13 @@ class SharedAccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_read: Optional[pulumi.Input[_builtins.bool]] = None,
-                 registry_write: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_connect: Optional[pulumi.Input[_builtins.bool]] = None,
+                 device_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_read: pulumi.Input[Optional[_builtins.bool]] = None,
+                 registry_write: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_connect: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -502,17 +502,17 @@ class SharedAccessPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            device_connect: Optional[pulumi.Input[_builtins.bool]] = None,
-            iothub_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            registry_read: Optional[pulumi.Input[_builtins.bool]] = None,
-            registry_write: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_key: Optional[pulumi.Input[_builtins.str]] = None,
-            service_connect: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SharedAccessPolicy':
+            device_connect: pulumi.Input[Optional[_builtins.bool]] = None,
+            iothub_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            registry_write: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_connect: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SharedAccessPolicy':
         """
         Get an existing SharedAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

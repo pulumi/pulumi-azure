@@ -205,51 +205,51 @@ export interface ScheduleState {
     /**
      * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      */
-    dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence>;
+    dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence | undefined>;
     /**
      * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      */
-    hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence | undefined>;
     /**
      * The name of the dev test lab. Changing this forces a new resource to be created.
      */
-    labName?: pulumi.Input<string>;
+    labName?: pulumi.Input<string | undefined>;
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
-    notificationSettings?: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
+    notificationSettings?: pulumi.Input<inputs.devtest.ScheduleNotificationSettings | undefined>;
     /**
      * The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */
-    taskType?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string | undefined>;
     /**
      * The time zone ID (e.g. Pacific Standard time).
      */
-    timeZoneId?: pulumi.Input<string>;
+    timeZoneId?: pulumi.Input<string | undefined>;
     /**
      * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      */
-    weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence | undefined>;
 }
 
 /**
@@ -259,11 +259,11 @@ export interface ScheduleArgs {
     /**
      * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      */
-    dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence>;
+    dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence | undefined>;
     /**
      * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      */
-    hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence | undefined>;
     /**
      * The name of the dev test lab. Changing this forces a new resource to be created.
      */
@@ -271,11 +271,11 @@ export interface ScheduleArgs {
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
@@ -287,11 +287,11 @@ export interface ScheduleArgs {
     /**
      * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */
@@ -303,5 +303,5 @@ export interface ScheduleArgs {
     /**
      * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      */
-    weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence | undefined>;
 }

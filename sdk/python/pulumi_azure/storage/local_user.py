@@ -22,12 +22,12 @@ __all__ = ['LocalUserArgs', 'LocalUser']
 class LocalUserArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
-                 ssh_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_password_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
+                 ssh_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_password_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalUser resource.
 
@@ -67,89 +67,89 @@ class LocalUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="homeDirectory")
-    def home_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The home directory of the Storage Account Local User.
         """
         return pulumi.get(self, "home_directory")
 
     @home_directory.setter
-    def home_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionScopes")
-    def permission_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]:
+    def permission_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]:
         """
         One or more `permission_scope` blocks as defined below.
         """
         return pulumi.get(self, "permission_scopes")
 
     @permission_scopes.setter
-    def permission_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]):
+    def permission_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]):
         pulumi.set(self, "permission_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuthorizedKeys")
-    def ssh_authorized_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]:
+    def ssh_authorized_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]:
         """
         One or more `ssh_authorized_key` blocks as defined below.
         """
         return pulumi.get(self, "ssh_authorized_keys")
 
     @ssh_authorized_keys.setter
-    def ssh_authorized_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]):
+    def ssh_authorized_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]):
         pulumi.set(self, "ssh_authorized_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeyEnabled")
-    def ssh_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssh_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ssh_key_enabled")
 
     @ssh_key_enabled.setter
-    def ssh_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssh_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssh_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPasswordEnabled")
-    def ssh_password_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssh_password_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ssh_password_enabled")
 
     @ssh_password_enabled.setter
-    def ssh_password_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssh_password_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssh_password_enabled", value)
 
 
 @pulumi.input_type
 class _LocalUserState:
     def __init__(__self__, *,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
-                 ssh_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_password_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
+                 ssh_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_password_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalUser resources.
 
@@ -184,110 +184,110 @@ class _LocalUserState:
 
     @_builtins.property
     @pulumi.getter(name="homeDirectory")
-    def home_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The home directory of the Storage Account Local User.
         """
         return pulumi.get(self, "home_directory")
 
     @home_directory.setter
-    def home_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionScopes")
-    def permission_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]:
+    def permission_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]:
         """
         One or more `permission_scope` blocks as defined below.
         """
         return pulumi.get(self, "permission_scopes")
 
     @permission_scopes.setter
-    def permission_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]):
+    def permission_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]]]):
         pulumi.set(self, "permission_scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique Security Identifier of this Storage Account Local User.
         """
         return pulumi.get(self, "sid")
 
     @sid.setter
-    def sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sid", value)
 
     @_builtins.property
     @pulumi.getter(name="sshAuthorizedKeys")
-    def ssh_authorized_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]:
+    def ssh_authorized_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]:
         """
         One or more `ssh_authorized_key` blocks as defined below.
         """
         return pulumi.get(self, "ssh_authorized_keys")
 
     @ssh_authorized_keys.setter
-    def ssh_authorized_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]):
+    def ssh_authorized_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]):
         pulumi.set(self, "ssh_authorized_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKeyEnabled")
-    def ssh_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssh_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ssh_key_enabled")
 
     @ssh_key_enabled.setter
-    def ssh_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssh_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssh_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPasswordEnabled")
-    def ssh_password_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssh_password_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ssh_password_enabled")
 
     @ssh_password_enabled.setter
-    def ssh_password_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssh_password_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssh_password_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -297,13 +297,13 @@ class LocalUser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict']]]]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict']]]]] = None,
-                 ssh_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_password_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict']]]]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict']]]]] = None,
+                 ssh_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_password_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Account Local User.
@@ -466,13 +466,13 @@ class LocalUser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict']]]]] = None,
-                 ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict']]]]] = None,
-                 ssh_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh_password_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict']]]]] = None,
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict']]]]] = None,
+                 ssh_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh_password_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -505,15 +505,15 @@ class LocalUser(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            permission_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict']]]]] = None,
-            sid: Optional[pulumi.Input[_builtins.str]] = None,
-            ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict']]]]] = None,
-            ssh_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ssh_password_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocalUser':
+            home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserPermissionScopeArgs', 'LocalUserPermissionScopeArgsDict']]]]] = None,
+            sid: pulumi.Input[Optional[_builtins.str]] = None,
+            ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocalUserSshAuthorizedKeyArgs', 'LocalUserSshAuthorizedKeyArgsDict']]]]] = None,
+            ssh_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh_password_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocalUser':
         """
         Get an existing LocalUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

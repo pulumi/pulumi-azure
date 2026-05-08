@@ -177,8 +177,8 @@ def get_backend_address_pool(loadbalancer_id: Optional[_builtins.str] = None,
         loadbalancer_id=pulumi.get(__ret__, 'loadbalancer_id'),
         name=pulumi.get(__ret__, 'name'),
         outbound_rules=pulumi.get(__ret__, 'outbound_rules'))
-def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backend_address_pool_output(loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackendAddressPoolResult]:
     """
     Use this data source to access information about an existing Load Balancer's Backend Address Pool.

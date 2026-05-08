@@ -22,10 +22,10 @@ __all__ = ['BackendAddressPoolArgs', 'BackendAddressPool']
 class BackendAddressPoolArgs:
     def __init__(__self__, *,
                  loadbalancer_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synchronous_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendAddressPool resource.
 
@@ -61,19 +61,19 @@ class BackendAddressPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="synchronousMode")
-    def synchronous_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synchronous_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
 
@@ -82,46 +82,46 @@ class BackendAddressPoolArgs:
         return pulumi.get(self, "synchronous_mode")
 
     @synchronous_mode.setter
-    def synchronous_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synchronous_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synchronous_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
+    def tunnel_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
         """
         One or more `tunnel_interface` blocks as defined below.
         """
         return pulumi.get(self, "tunnel_interfaces")
 
     @tunnel_interfaces.setter
-    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]):
+    def tunnel_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]):
         pulumi.set(self, "tunnel_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
 @pulumi.input_type
 class _BackendAddressPoolState:
     def __init__(__self__, *,
-                 backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 synchronous_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendAddressPool resources.
 
@@ -158,79 +158,79 @@ class _BackendAddressPoolState:
 
     @_builtins.property
     @pulumi.getter(name="backendIpConfigurations")
-    def backend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backend_ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Backend IP Configurations associated with this Backend Address Pool.
         """
         return pulumi.get(self, "backend_ip_configurations")
 
     @backend_ip_configurations.setter
-    def backend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backend_ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backend_ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inbound_nat_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
         """
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inbound_nat_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Load Balancing Rules associated with this Backend Address Pool.
         """
         return pulumi.get(self, "load_balancing_rules")
 
     @load_balancing_rules.setter
-    def load_balancing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancing_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loadbalancer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
     @loadbalancer_id.setter
-    def loadbalancer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loadbalancer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loadbalancer_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def outbound_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
         """
         return pulumi.get(self, "outbound_rules")
 
     @outbound_rules.setter
-    def outbound_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def outbound_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "outbound_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="synchronousMode")
-    def synchronous_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def synchronous_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
 
@@ -239,31 +239,31 @@ class _BackendAddressPoolState:
         return pulumi.get(self, "synchronous_mode")
 
     @synchronous_mode.setter
-    def synchronous_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def synchronous_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "synchronous_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
+    def tunnel_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
         """
         One or more `tunnel_interface` blocks as defined below.
         """
         return pulumi.get(self, "tunnel_interfaces")
 
     @tunnel_interfaces.setter
-    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]):
+    def tunnel_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]):
         pulumi.set(self, "tunnel_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         return pulumi.get(self, "virtual_network_id")
 
     @virtual_network_id.setter
-    def virtual_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_id", value)
 
 
@@ -273,11 +273,11 @@ class BackendAddressPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synchronous_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Load Balancer Backend Address Pool.
@@ -406,11 +406,11 @@ class BackendAddressPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 synchronous_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
-                 virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
+                 virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,15 +441,15 @@ class BackendAddressPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            synchronous_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
-            virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackendAddressPool':
+            backend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inbound_nat_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            load_balancing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
+            virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackendAddressPool':
         """
         Get an existing BackendAddressPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

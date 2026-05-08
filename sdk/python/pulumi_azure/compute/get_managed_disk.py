@@ -324,8 +324,8 @@ def get_managed_disk(name: Optional[_builtins.str] = None,
         storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_managed_disk_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_disk_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDiskResult]:
     """
     Use this data source to access information about an existing Managed Disk.

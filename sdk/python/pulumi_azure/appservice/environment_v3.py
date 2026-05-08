@@ -23,14 +23,14 @@ class EnvironmentV3Args:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 allow_new_private_endpoint_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debugging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EnvironmentV3 resource.
 
@@ -102,79 +102,79 @@ class EnvironmentV3Args:
 
     @_builtins.property
     @pulumi.getter(name="allowNewPrivateEndpointConnections")
-    def allow_new_private_endpoint_connections(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_new_private_endpoint_connections(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should new Private Endpoint Connections be allowed. Defaults to `true`.
         """
         return pulumi.get(self, "allow_new_private_endpoint_connections")
 
     @allow_new_private_endpoint_connections.setter
-    def allow_new_private_endpoint_connections(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_new_private_endpoint_connections(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_new_private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]:
+    def cluster_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]:
         """
         Zero or more `cluster_setting` blocks as defined below.
         """
         return pulumi.get(self, "cluster_settings")
 
     @cluster_settings.setter
-    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]):
+    def cluster_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]):
         pulumi.set(self, "cluster_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostCount")
-    def dedicated_host_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dedicated_host_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dedicated_host_count")
 
     @dedicated_host_count.setter
-    def dedicated_host_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dedicated_host_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dedicated_host_count", value)
 
     @_builtins.property
     @pulumi.getter(name="internalLoadBalancingMode")
-    def internal_load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internal_load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "internal_load_balancing_mode")
 
     @internal_load_balancing_mode.setter
-    def internal_load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internal_load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internal_load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebuggingEnabled")
-    def remote_debugging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote_debugging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable remote debug. Defaults to `false`.
         """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
-    def remote_debugging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote_debugging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote_debugging_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
 
@@ -183,12 +183,12 @@ class EnvironmentV3Args:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
 
@@ -197,32 +197,32 @@ class EnvironmentV3Args:
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
 @pulumi.input_type
 class _EnvironmentV3State:
     def __init__(__self__, *,
-                 allow_new_private_endpoint_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inbound_network_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]] = None,
-                 internal_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_ssl_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 linux_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debugging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 windows_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_inbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inbound_network_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]] = None,
+                 internal_inbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_ssl_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 linux_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 windows_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EnvironmentV3 resources.
 
@@ -295,187 +295,187 @@ class _EnvironmentV3State:
 
     @_builtins.property
     @pulumi.getter(name="allowNewPrivateEndpointConnections")
-    def allow_new_private_endpoint_connections(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_new_private_endpoint_connections(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should new Private Endpoint Connections be allowed. Defaults to `true`.
         """
         return pulumi.get(self, "allow_new_private_endpoint_connections")
 
     @allow_new_private_endpoint_connections.setter
-    def allow_new_private_endpoint_connections(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_new_private_endpoint_connections(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_new_private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]:
+    def cluster_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]:
         """
         Zero or more `cluster_setting` blocks as defined below.
         """
         return pulumi.get(self, "cluster_settings")
 
     @cluster_settings.setter
-    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]):
+    def cluster_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]]):
         pulumi.set(self, "cluster_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostCount")
-    def dedicated_host_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dedicated_host_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dedicated_host_count")
 
     @dedicated_host_count.setter
-    def dedicated_host_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dedicated_host_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dedicated_host_count", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSuffix")
-    def dns_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the DNS suffix for this App Service Environment V3.
         """
         return pulumi.get(self, "dns_suffix")
 
     @dns_suffix.setter
-    def dns_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="externalInboundIpAddresses")
-    def external_inbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_inbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The external inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "external_inbound_ip_addresses")
 
     @external_inbound_ip_addresses.setter
-    def external_inbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_inbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_inbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundNetworkDependencies")
-    def inbound_network_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]]:
+    def inbound_network_dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]]:
         """
         An `inbound_network_dependencies` block as defined below.
         """
         return pulumi.get(self, "inbound_network_dependencies")
 
     @inbound_network_dependencies.setter
-    def inbound_network_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]]):
+    def inbound_network_dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]]):
         pulumi.set(self, "inbound_network_dependencies", value)
 
     @_builtins.property
     @pulumi.getter(name="internalInboundIpAddresses")
-    def internal_inbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def internal_inbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The internal inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "internal_inbound_ip_addresses")
 
     @internal_inbound_ip_addresses.setter
-    def internal_inbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def internal_inbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "internal_inbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="internalLoadBalancingMode")
-    def internal_load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internal_load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "internal_load_balancing_mode")
 
     @internal_load_balancing_mode.setter
-    def internal_load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internal_load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internal_load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSslAddressCount")
-    def ip_ssl_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ip_ssl_address_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of IP SSL addresses reserved for the App Service Environment V3.
         """
         return pulumi.get(self, "ip_ssl_address_count")
 
     @ip_ssl_address_count.setter
-    def ip_ssl_address_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ip_ssl_address_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ip_ssl_address_count", value)
 
     @_builtins.property
     @pulumi.getter(name="linuxOutboundIpAddresses")
-    def linux_outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def linux_outbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Outbound addresses of Linux based Apps in this App Service Environment V3
         """
         return pulumi.get(self, "linux_outbound_ip_addresses")
 
     @linux_outbound_ip_addresses.setter
-    def linux_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def linux_outbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "linux_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the App Service Environment exists.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Service Environment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingTier")
-    def pricing_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pricing_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pricing tier for the front end instances.
         """
         return pulumi.get(self, "pricing_tier")
 
     @pricing_tier.setter
-    def pricing_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pricing_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pricing_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebuggingEnabled")
-    def remote_debugging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote_debugging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable remote debug. Defaults to `false`.
         """
         return pulumi.get(self, "remote_debugging_enabled")
 
     @remote_debugging_enabled.setter
-    def remote_debugging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote_debugging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote_debugging_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 
@@ -486,12 +486,12 @@ class _EnvironmentV3State:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
 
@@ -500,24 +500,24 @@ class _EnvironmentV3State:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="windowsOutboundIpAddresses")
-    def windows_outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def windows_outbound_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Outbound addresses of Windows based Apps in this App Service Environment V3.
         """
         return pulumi.get(self, "windows_outbound_ip_addresses")
 
     @windows_outbound_ip_addresses.setter
-    def windows_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def windows_outbound_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "windows_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
 
@@ -526,7 +526,7 @@ class _EnvironmentV3State:
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -536,16 +536,16 @@ class EnvironmentV3(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_new_private_endpoint_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debugging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a 3rd Generation (v3) App Service Environment.
@@ -751,16 +751,16 @@ class EnvironmentV3(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_new_private_endpoint_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
-                 dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debugging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
+                 dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal_load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -803,25 +803,25 @@ class EnvironmentV3(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_new_private_endpoint_connections: Optional[pulumi.Input[_builtins.bool]] = None,
-            cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
-            dedicated_host_count: Optional[pulumi.Input[_builtins.int]] = None,
-            dns_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            external_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            inbound_network_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentV3InboundNetworkDependencyArgs', 'EnvironmentV3InboundNetworkDependencyArgsDict']]]]] = None,
-            internal_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            internal_load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_ssl_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-            linux_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pricing_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_debugging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            windows_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None) -> 'EnvironmentV3':
+            allow_new_private_endpoint_connections: pulumi.Input[Optional[_builtins.bool]] = None,
+            cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentV3ClusterSettingArgs', 'EnvironmentV3ClusterSettingArgsDict']]]]] = None,
+            dedicated_host_count: pulumi.Input[Optional[_builtins.int]] = None,
+            dns_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            external_inbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inbound_network_dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentV3InboundNetworkDependencyArgs', 'EnvironmentV3InboundNetworkDependencyArgsDict']]]]] = None,
+            internal_inbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            internal_load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_ssl_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+            linux_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pricing_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            windows_outbound_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> 'EnvironmentV3':
         """
         Get an existing EnvironmentV3 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

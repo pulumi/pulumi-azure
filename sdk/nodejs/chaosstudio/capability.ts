@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     dnsPrefix: "acctestaksexample",
  *     defaultNodePool: {
  *         name: "example-value",
- *         nodeCount: "example-value",
+ *         nodeCount: Number("example-value"),
  *         vmSize: "example-value",
  *     },
  *     identity: {
@@ -142,15 +142,15 @@ export interface CapabilityState {
     /**
      * The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
      */
-    capabilityType?: pulumi.Input<string>;
+    capabilityType?: pulumi.Input<string | undefined>;
     /**
      * The Unique Resource Name of the Capability.
      */
-    capabilityUrn?: pulumi.Input<string>;
+    capabilityUrn?: pulumi.Input<string | undefined>;
     /**
      * The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
      */
-    chaosStudioTargetId?: pulumi.Input<string>;
+    chaosStudioTargetId?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -232,7 +232,7 @@ export interface GetAccountBlobContainerSASOutputArgs {
     /**
      * The `Cache-Control` response header that is sent when this SAS token is used.
      */
-    cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string | undefined>;
     /**
      * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      */
@@ -244,19 +244,19 @@ export interface GetAccountBlobContainerSASOutputArgs {
     /**
      * The `Content-Disposition` response header that is sent when this SAS token is used.
      */
-    contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string | undefined>;
     /**
      * The `Content-Encoding` response header that is sent when this SAS token is used.
      */
-    contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string | undefined>;
     /**
      * The `Content-Language` response header that is sent when this SAS token is used.
      */
-    contentLanguage?: pulumi.Input<string>;
+    contentLanguage?: pulumi.Input<string | undefined>;
     /**
      * The `Content-Type` response header that is sent when this SAS token is used.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      *
@@ -266,15 +266,15 @@ export interface GetAccountBlobContainerSASOutputArgs {
     /**
      * Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Single IPv4 address or range (connected with a dash) of IPv4 addresses.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * Should Permissions permissions be enabled for this SAS?
      */
-    permissions?: pulumi.Input<inputs.storage.GetAccountBlobContainerSASPermissionsArgs>;
+    permissions?: pulumi.Input<inputs.storage.GetAccountBlobContainerSASPermissionsArgs | undefined>;
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */

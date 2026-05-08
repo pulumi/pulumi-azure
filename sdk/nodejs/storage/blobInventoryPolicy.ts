@@ -140,11 +140,11 @@ export interface BlobInventoryPolicyState {
     /**
      * One or more `rules` blocks as defined below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.storage.BlobInventoryPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.BlobInventoryPolicyRule>[] | undefined>;
     /**
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
 }
 
 /**

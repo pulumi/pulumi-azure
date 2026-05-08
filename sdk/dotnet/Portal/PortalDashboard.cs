@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Portal
     ///     var dash_template = NotImplemented("The template_file data resource is not yet supported.");
     /// 
     ///     //...
-    ///     var my_board = new Azurerm.Index.Dashboard("my-board", new()
+    ///     var my_board = new Azurerm.Dashboard("my-board", new()
     ///     {
     ///         Name = "my-cool-dashboard",
     ///         ResourceGroupName = example.Name,

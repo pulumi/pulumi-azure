@@ -20,7 +20,7 @@ __all__ = ['ExpressRouteAuthorizationArgs', 'ExpressRouteAuthorization']
 class ExpressRouteAuthorizationArgs:
     def __init__(__self__, *,
                  private_cloud_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteAuthorization resource.
 
@@ -45,24 +45,24 @@ class ExpressRouteAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ExpressRouteAuthorizationState:
     def __init__(__self__, *,
-                 express_route_authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 express_route_authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 express_route_authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 express_route_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteAuthorization resources.
 
@@ -82,50 +82,50 @@ class _ExpressRouteAuthorizationState:
 
     @_builtins.property
     @pulumi.getter(name="expressRouteAuthorizationId")
-    def express_route_authorization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def express_route_authorization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
         """
         return pulumi.get(self, "express_route_authorization_id")
 
     @express_route_authorization_id.setter
-    def express_route_authorization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def express_route_authorization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_authorization_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteAuthorizationKey")
-    def express_route_authorization_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def express_route_authorization_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
         """
         return pulumi.get(self, "express_route_authorization_key")
 
     @express_route_authorization_key.setter
-    def express_route_authorization_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def express_route_authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_authorization_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudId")
-    def private_cloud_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_cloud_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
         return pulumi.get(self, "private_cloud_id")
 
     @private_cloud_id.setter
-    def private_cloud_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_cloud_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_cloud_id", value)
 
 
@@ -135,8 +135,8 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure VMware Solution ExpressRoute Circuit Authorization.
@@ -254,8 +254,8 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,10 +283,10 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            express_route_authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            express_route_authorization_key: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_cloud_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExpressRouteAuthorization':
+            express_route_authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            express_route_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_cloud_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExpressRouteAuthorization':
         """
         Get an existing ExpressRouteAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

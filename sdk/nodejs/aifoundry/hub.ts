@@ -262,77 +262,77 @@ export interface HubState {
     /**
      * The Application Insights ID that should be used by this AI Foundry Hub.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * The Container Registry ID that should be used by this AI Foundry Hub.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The description of this AI Foundry Hub.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL for the discovery service to identify regional endpoints for AI Foundry Hub services.
      */
-    discoveryUrl?: pulumi.Input<string>;
+    discoveryUrl?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
      */
-    encryption?: pulumi.Input<inputs.aifoundry.HubEncryption>;
+    encryption?: pulumi.Input<inputs.aifoundry.HubEncryption | undefined>;
     /**
      * The display name of this AI Foundry Hub.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      *
      * > **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      */
-    highBusinessImpactEnabled?: pulumi.Input<boolean>;
+    highBusinessImpactEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.aifoundry.HubIdentity>;
+    identity?: pulumi.Input<inputs.aifoundry.HubIdentity | undefined>;
     /**
      * The Key Vault ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managedNetwork` block as defined below.
      */
-    managedNetwork?: pulumi.Input<inputs.aifoundry.HubManagedNetwork>;
+    managedNetwork?: pulumi.Input<inputs.aifoundry.HubManagedNetwork | undefined>;
     /**
      * The name which should be used for this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access for this AI Service Hub should be enabled. Possible values include `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Storage Account ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the AI Foundry Hub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The immutable ID associated with this AI Foundry Hub.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -342,29 +342,29 @@ export interface HubArgs {
     /**
      * The Application Insights ID that should be used by this AI Foundry Hub.
      */
-    applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string | undefined>;
     /**
      * The Container Registry ID that should be used by this AI Foundry Hub.
      */
-    containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string | undefined>;
     /**
      * The description of this AI Foundry Hub.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
      */
-    encryption?: pulumi.Input<inputs.aifoundry.HubEncryption>;
+    encryption?: pulumi.Input<inputs.aifoundry.HubEncryption | undefined>;
     /**
      * The display name of this AI Foundry Hub.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      *
      * > **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      */
-    highBusinessImpactEnabled?: pulumi.Input<boolean>;
+    highBusinessImpactEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
@@ -376,23 +376,23 @@ export interface HubArgs {
     /**
      * The Azure Region where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managedNetwork` block as defined below.
      */
-    managedNetwork?: pulumi.Input<inputs.aifoundry.HubManagedNetwork>;
+    managedNetwork?: pulumi.Input<inputs.aifoundry.HubManagedNetwork | undefined>;
     /**
      * The name which should be used for this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access for this AI Service Hub should be enabled. Possible values include `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
      */
@@ -404,5 +404,5 @@ export interface HubArgs {
     /**
      * A mapping of tags which should be assigned to the AI Foundry Hub.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

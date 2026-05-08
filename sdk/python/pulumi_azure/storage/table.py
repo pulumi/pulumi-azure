@@ -22,8 +22,8 @@ __all__ = ['TableArgs', 'Table']
 class TableArgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[_builtins.str],
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -51,36 +51,36 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]:
+    def acls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]]:
         """
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]):
+    def acls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]]):
         pulumi.set(self, "acls", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TableState:
     def __init__(__self__, *,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
 
@@ -100,50 +100,50 @@ class _TableState:
 
     @_builtins.property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]:
+    def acls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]]:
         """
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]):
+    def acls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]]):
         pulumi.set(self, "acls", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
-    def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of this Storage Table.
         """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
-    def resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
@@ -153,9 +153,9 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Table within an Azure Storage Account.
@@ -252,9 +252,9 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,10 +280,10 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Table':
+            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

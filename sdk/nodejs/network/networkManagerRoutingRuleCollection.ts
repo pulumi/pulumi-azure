@@ -153,23 +153,23 @@ export interface NetworkManagerRoutingRuleCollectionState {
     /**
      * Whether to enable the BGP route propagation. Defaults to `false`.
      */
-    bgpRoutePropagationEnabled?: pulumi.Input<boolean>;
+    bgpRoutePropagationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the Network Manager Routing Rule Collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager Routing Rule Collection. Changing this forces a new Network Manager Routing Rule Collection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of Network Group IDs which this Network Manager Routing Rule Collection applies to.
      */
-    networkGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Rule Collection to be created.
      */
-    routingConfigurationId?: pulumi.Input<string>;
+    routingConfigurationId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,15 +179,15 @@ export interface NetworkManagerRoutingRuleCollectionArgs {
     /**
      * Whether to enable the BGP route propagation. Defaults to `false`.
      */
-    bgpRoutePropagationEnabled?: pulumi.Input<boolean>;
+    bgpRoutePropagationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the Network Manager Routing Rule Collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager Routing Rule Collection. Changing this forces a new Network Manager Routing Rule Collection to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of Network Group IDs which this Network Manager Routing Rule Collection applies to.
      */

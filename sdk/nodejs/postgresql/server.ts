@@ -269,101 +269,101 @@ export interface ServerState {
     /**
      * The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
-    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
+    administratorLoginPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
-    autoGrowEnabled?: pulumi.Input<boolean>;
+    autoGrowEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
      */
-    backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * For creation modes other than `Default`, the source server ID to use.
      */
-    creationSourceServerId?: pulumi.Input<string>;
+    creationSourceServerId?: pulumi.Input<string | undefined>;
     /**
      * The FQDN of the PostgreSQL Server.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
      */
-    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    geoRedundantBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.postgresql.ServerIdentity>;
+    identity?: pulumi.Input<inputs.postgresql.ServerIdentity | undefined>;
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      *
      * > **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
-    restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      *
      * > **Note:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      *
      * > **Note:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
-    sslEnforcementEnabled?: pulumi.Input<boolean>;
+    sslEnforcementEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      */
-    sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
+    sslMinimalTlsVersionEnforced?: pulumi.Input<string | undefined>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
      */
-    storageMb?: pulumi.Input<number>;
+    storageMb?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
      */
-    threatDetectionPolicy?: pulumi.Input<inputs.postgresql.ServerThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.postgresql.ServerThreatDetectionPolicy | undefined>;
     /**
      * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -373,57 +373,57 @@ export interface ServerArgs {
     /**
      * The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
-    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
+    administratorLoginPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
-    autoGrowEnabled?: pulumi.Input<boolean>;
+    autoGrowEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
      */
-    backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
      */
-    createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string | undefined>;
     /**
      * For creation modes other than `Default`, the source server ID to use.
      */
-    creationSourceServerId?: pulumi.Input<string>;
+    creationSourceServerId?: pulumi.Input<string | undefined>;
     /**
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
      */
-    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    geoRedundantBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.postgresql.ServerIdentity>;
+    identity?: pulumi.Input<inputs.postgresql.ServerIdentity | undefined>;
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      *
      * > **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      */
-    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      */
@@ -431,7 +431,7 @@ export interface ServerArgs {
     /**
      * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
-    restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      *
@@ -447,19 +447,19 @@ export interface ServerArgs {
     /**
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      */
-    sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
+    sslMinimalTlsVersionEnforced?: pulumi.Input<string | undefined>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
      */
-    storageMb?: pulumi.Input<number>;
+    storageMb?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
      */
-    threatDetectionPolicy?: pulumi.Input<inputs.postgresql.ServerThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.postgresql.ServerThreatDetectionPolicy | undefined>;
     /**
      * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      */

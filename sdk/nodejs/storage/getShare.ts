@@ -151,11 +151,11 @@ export interface GetShareOutputArgs {
     /**
      * One or more acl blocks as defined below.
      */
-    acls?: pulumi.Input<pulumi.Input<inputs.storage.GetShareAclArgs>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.GetShareAclArgs>[] | undefined>;
     /**
      * A map of custom file share metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the share.
      */
@@ -165,9 +165,9 @@ export interface GetShareOutputArgs {
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
      */
-    storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
 }

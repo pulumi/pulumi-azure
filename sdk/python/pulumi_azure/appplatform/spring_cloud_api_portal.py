@@ -22,13 +22,13 @@ __all__ = ['SpringCloudApiPortalArgs', 'SpringCloudApiPortal']
 class SpringCloudApiPortalArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 api_try_out_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 https_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None):
+                 api_try_out_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 https_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sso: pulumi.Input[Optional['SpringCloudApiPortalSsoArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudApiPortal resource.
 
@@ -71,101 +71,101 @@ class SpringCloudApiPortalArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiTryOutEnabled")
-    def api_try_out_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def api_try_out_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         """
         return pulumi.get(self, "api_try_out_enabled")
 
     @api_try_out_enabled.setter
-    def api_try_out_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def api_try_out_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "api_try_out_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayIds")
-    def gateway_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gateway_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Spring Cloud Gateway.
         """
         return pulumi.get(self, "gateway_ids")
 
     @gateway_ids.setter
-    def gateway_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gateway_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gateway_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnlyEnabled")
-    def https_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         is only https is allowed?
         """
         return pulumi.get(self, "https_only_enabled")
 
     @https_only_enabled.setter
-    def https_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the public network access enabled?
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def sso(self) -> Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']]:
+    def sso(self) -> pulumi.Input[Optional['SpringCloudApiPortalSsoArgs']]:
         """
         A `sso` block as defined below.
         """
         return pulumi.get(self, "sso")
 
     @sso.setter
-    def sso(self, value: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']]):
+    def sso(self, value: pulumi.Input[Optional['SpringCloudApiPortalSsoArgs']]):
         pulumi.set(self, "sso", value)
 
 
 @pulumi.input_type
 class _SpringCloudApiPortalState:
     def __init__(__self__, *,
-                 api_try_out_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 https_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_try_out_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 https_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso: pulumi.Input[Optional['SpringCloudApiPortalSsoArgs']] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApiPortal resources.
 
@@ -200,110 +200,110 @@ class _SpringCloudApiPortalState:
 
     @_builtins.property
     @pulumi.getter(name="apiTryOutEnabled")
-    def api_try_out_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def api_try_out_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         """
         return pulumi.get(self, "api_try_out_enabled")
 
     @api_try_out_enabled.setter
-    def api_try_out_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def api_try_out_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "api_try_out_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayIds")
-    def gateway_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gateway_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Spring Cloud Gateway.
         """
         return pulumi.get(self, "gateway_ids")
 
     @gateway_ids.setter
-    def gateway_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gateway_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gateway_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnlyEnabled")
-    def https_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         is only https is allowed?
         """
         return pulumi.get(self, "https_only_enabled")
 
     @https_only_enabled.setter
-    def https_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the public network access enabled?
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sso(self) -> Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']]:
+    def sso(self) -> pulumi.Input[Optional['SpringCloudApiPortalSsoArgs']]:
         """
         A `sso` block as defined below.
         """
         return pulumi.get(self, "sso")
 
     @sso.setter
-    def sso(self, value: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']]):
+    def sso(self, value: pulumi.Input[Optional['SpringCloudApiPortalSsoArgs']]):
         pulumi.set(self, "sso", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         TODO.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -313,14 +313,14 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_try_out_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 https_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso: Optional[pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
+                 api_try_out_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 https_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Spring Cloud API Portal.
@@ -466,14 +466,14 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_try_out_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 https_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso: Optional[pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
+                 api_try_out_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 https_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -504,15 +504,15 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_try_out_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            https_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sso: Optional[pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'SpringCloudApiPortal':
+            api_try_out_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            gateway_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            https_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudApiPortal':
         """
         Get an existing SpringCloudApiPortal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

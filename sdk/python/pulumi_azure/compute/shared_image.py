@@ -25,30 +25,30 @@ class SharedImageArgs:
                  identifier: pulumi.Input['SharedImageIdentifierArgs'],
                  os_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 accelerated_network_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidential_vm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 confidential_vm_supported: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 specialized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None):
+                 accelerated_network_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidential_vm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 confidential_vm_supported: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type_nvme_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_types_not_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional['SharedImagePurchasePlanArgs']] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_launch_supported: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SharedImage resource.
 
@@ -188,31 +188,31 @@ class SharedImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
-    def accelerated_network_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accelerated_network_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "accelerated_network_support_enabled")
 
     @accelerated_network_support_enabled.setter
-    def accelerated_network_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accelerated_network_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accelerated_network_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="confidentialVmEnabled")
-    def confidential_vm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def confidential_vm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
@@ -221,216 +221,216 @@ class SharedImageArgs:
         return pulumi.get(self, "confidential_vm_enabled")
 
     @confidential_vm_enabled.setter
-    def confidential_vm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def confidential_vm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "confidential_vm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="confidentialVmSupported")
-    def confidential_vm_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def confidential_vm_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "confidential_vm_supported")
 
     @confidential_vm_supported.setter
-    def confidential_vm_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def confidential_vm_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "confidential_vm_supported", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this Shared Image.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="diskControllerTypeNvmeEnabled")
-    def disk_controller_type_nvme_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disk_controller_type_nvme_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_controller_type_nvme_enabled")
 
     @disk_controller_type_nvme_enabled.setter
-    def disk_controller_type_nvme_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disk_controller_type_nvme_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disk_controller_type_nvme_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="diskTypesNotAlloweds")
-    def disk_types_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disk_types_not_alloweds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         """
         return pulumi.get(self, "disk_types_not_alloweds")
 
     @disk_types_not_alloweds.setter
-    def disk_types_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disk_types_not_alloweds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disk_types_not_alloweds", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Image.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def eula(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eula(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eula")
 
     @eula.setter
-    def eula(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eula", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernationEnabled")
-    def hibernation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hibernation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hibernation_enabled")
 
     @hibernation_enabled.setter
-    def hibernation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hibernation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hibernation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRecommendedMemoryInGb")
-    def max_recommended_memory_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_recommended_memory_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum memory in GB recommended for the Image.
         """
         return pulumi.get(self, "max_recommended_memory_in_gb")
 
     @max_recommended_memory_in_gb.setter
-    def max_recommended_memory_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_recommended_memory_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_recommended_memory_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRecommendedVcpuCount")
-    def max_recommended_vcpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_recommended_vcpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum count of vCPUs recommended for the Image.
         """
         return pulumi.get(self, "max_recommended_vcpu_count")
 
     @max_recommended_vcpu_count.setter
-    def max_recommended_vcpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_recommended_vcpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_recommended_vcpu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minRecommendedMemoryInGb")
-    def min_recommended_memory_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_recommended_memory_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum memory in GB recommended for the Image.
         """
         return pulumi.get(self, "min_recommended_memory_in_gb")
 
     @min_recommended_memory_in_gb.setter
-    def min_recommended_memory_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_recommended_memory_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_recommended_memory_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="minRecommendedVcpuCount")
-    def min_recommended_vcpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_recommended_vcpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum count of vCPUs recommended for the Image.
         """
         return pulumi.get(self, "min_recommended_vcpu_count")
 
     @min_recommended_vcpu_count.setter
-    def min_recommended_vcpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_recommended_vcpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_recommended_vcpu_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_statement_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
     @privacy_statement_uri.setter
-    def privacy_statement_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_statement_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_statement_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional[pulumi.Input['SharedImagePurchasePlanArgs']]:
+    def purchase_plan(self) -> pulumi.Input[Optional['SharedImagePurchasePlanArgs']]:
         """
         A `purchase_plan` block as defined below.
         """
         return pulumi.get(self, "purchase_plan")
 
     @purchase_plan.setter
-    def purchase_plan(self, value: Optional[pulumi.Input['SharedImagePurchasePlanArgs']]):
+    def purchase_plan(self, value: pulumi.Input[Optional['SharedImagePurchasePlanArgs']]):
         pulumi.set(self, "purchase_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_note_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Release Notes associated with this Shared Image.
         """
         return pulumi.get(self, "release_note_uri")
 
     @release_note_uri.setter
-    def release_note_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_note_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_note_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def specialized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def specialized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 
@@ -439,77 +439,77 @@ class SharedImageArgs:
         return pulumi.get(self, "specialized")
 
     @specialized.setter
-    def specialized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def specialized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "specialized", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Shared Image.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedLaunchEnabled")
-    def trusted_launch_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_launch_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
     @trusted_launch_enabled.setter
-    def trusted_launch_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_launch_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_launch_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedLaunchSupported")
-    def trusted_launch_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_launch_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_supported")
 
     @trusted_launch_supported.setter
-    def trusted_launch_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_launch_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_launch_supported", value)
 
 
 @pulumi.input_type
 class _SharedImageState:
     def __init__(__self__, *,
-                 accelerated_network_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidential_vm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 confidential_vm_supported: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 specialized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None):
+                 accelerated_network_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidential_vm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 confidential_vm_supported: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type_nvme_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_types_not_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional['SharedImageIdentifierArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional['SharedImagePurchasePlanArgs']] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_launch_supported: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SharedImage resources.
 
@@ -605,31 +605,31 @@ class _SharedImageState:
 
     @_builtins.property
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
-    def accelerated_network_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accelerated_network_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "accelerated_network_support_enabled")
 
     @accelerated_network_support_enabled.setter
-    def accelerated_network_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accelerated_network_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accelerated_network_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="confidentialVmEnabled")
-    def confidential_vm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def confidential_vm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
@@ -638,264 +638,264 @@ class _SharedImageState:
         return pulumi.get(self, "confidential_vm_enabled")
 
     @confidential_vm_enabled.setter
-    def confidential_vm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def confidential_vm_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "confidential_vm_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="confidentialVmSupported")
-    def confidential_vm_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def confidential_vm_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "confidential_vm_supported")
 
     @confidential_vm_supported.setter
-    def confidential_vm_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def confidential_vm_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "confidential_vm_supported", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this Shared Image.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="diskControllerTypeNvmeEnabled")
-    def disk_controller_type_nvme_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disk_controller_type_nvme_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_controller_type_nvme_enabled")
 
     @disk_controller_type_nvme_enabled.setter
-    def disk_controller_type_nvme_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disk_controller_type_nvme_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disk_controller_type_nvme_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="diskTypesNotAlloweds")
-    def disk_types_not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disk_types_not_alloweds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         """
         return pulumi.get(self, "disk_types_not_alloweds")
 
     @disk_types_not_alloweds.setter
-    def disk_types_not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disk_types_not_alloweds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disk_types_not_alloweds", value)
 
     @_builtins.property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_of_life_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of life date in RFC3339 format of the Image.
         """
         return pulumi.get(self, "end_of_life_date")
 
     @end_of_life_date.setter
-    def end_of_life_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_of_life_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_of_life_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def eula(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eula(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eula")
 
     @eula.setter
-    def eula(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eula(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eula", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_name")
 
     @gallery_name.setter
-    def gallery_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernationEnabled")
-    def hibernation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hibernation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hibernation_enabled")
 
     @hibernation_enabled.setter
-    def hibernation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hibernation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hibernation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hyper_v_generation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hyper_v_generation")
 
     @hyper_v_generation.setter
-    def hyper_v_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hyper_v_generation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hyper_v_generation", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input['SharedImageIdentifierArgs']]:
+    def identifier(self) -> pulumi.Input[Optional['SharedImageIdentifierArgs']]:
         """
         An `identifier` block as defined below.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input['SharedImageIdentifierArgs']]):
+    def identifier(self, value: pulumi.Input[Optional['SharedImageIdentifierArgs']]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRecommendedMemoryInGb")
-    def max_recommended_memory_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_recommended_memory_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum memory in GB recommended for the Image.
         """
         return pulumi.get(self, "max_recommended_memory_in_gb")
 
     @max_recommended_memory_in_gb.setter
-    def max_recommended_memory_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_recommended_memory_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_recommended_memory_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRecommendedVcpuCount")
-    def max_recommended_vcpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_recommended_vcpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum count of vCPUs recommended for the Image.
         """
         return pulumi.get(self, "max_recommended_vcpu_count")
 
     @max_recommended_vcpu_count.setter
-    def max_recommended_vcpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_recommended_vcpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_recommended_vcpu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="minRecommendedMemoryInGb")
-    def min_recommended_memory_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_recommended_memory_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum memory in GB recommended for the Image.
         """
         return pulumi.get(self, "min_recommended_memory_in_gb")
 
     @min_recommended_memory_in_gb.setter
-    def min_recommended_memory_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_recommended_memory_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_recommended_memory_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="minRecommendedVcpuCount")
-    def min_recommended_vcpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_recommended_vcpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum count of vCPUs recommended for the Image.
         """
         return pulumi.get(self, "min_recommended_vcpu_count")
 
     @min_recommended_vcpu_count.setter
-    def min_recommended_vcpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_recommended_vcpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_recommended_vcpu_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_statement_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "privacy_statement_uri")
 
     @privacy_statement_uri.setter
-    def privacy_statement_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_statement_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_statement_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional[pulumi.Input['SharedImagePurchasePlanArgs']]:
+    def purchase_plan(self) -> pulumi.Input[Optional['SharedImagePurchasePlanArgs']]:
         """
         A `purchase_plan` block as defined below.
         """
         return pulumi.get(self, "purchase_plan")
 
     @purchase_plan.setter
-    def purchase_plan(self, value: Optional[pulumi.Input['SharedImagePurchasePlanArgs']]):
+    def purchase_plan(self, value: pulumi.Input[Optional['SharedImagePurchasePlanArgs']]):
         pulumi.set(self, "purchase_plan", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_note_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI containing the Release Notes associated with this Shared Image.
         """
         return pulumi.get(self, "release_note_uri")
 
     @release_note_uri.setter
-    def release_note_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_note_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_note_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def specialized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def specialized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 
@@ -904,43 +904,43 @@ class _SharedImageState:
         return pulumi.get(self, "specialized")
 
     @specialized.setter
-    def specialized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def specialized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "specialized", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Shared Image.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedLaunchEnabled")
-    def trusted_launch_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_launch_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
     @trusted_launch_enabled.setter
-    def trusted_launch_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_launch_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_launch_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedLaunchSupported")
-    def trusted_launch_supported(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_launch_supported(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_supported")
 
     @trusted_launch_supported.setter
-    def trusted_launch_supported(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_launch_supported(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_launch_supported", value)
 
 
@@ -950,34 +950,34 @@ class SharedImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerated_network_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidential_vm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 confidential_vm_supported: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict']]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 specialized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None,
+                 accelerated_network_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidential_vm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 confidential_vm_supported: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type_nvme_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_types_not_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict']]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_launch_supported: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Shared Image within a Shared Image Gallery.
@@ -1135,34 +1135,34 @@ class SharedImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerated_network_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidential_vm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 confidential_vm_supported: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 eula: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hibernation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-                 identifier: Optional[pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_plan: Optional[pulumi.Input[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict']]] = None,
-                 release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 specialized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None,
+                 accelerated_network_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidential_vm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 confidential_vm_supported: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_controller_type_nvme_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disk_types_not_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 eula: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hibernation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+                 identifier: pulumi.Input[Optional[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_plan: pulumi.Input[Optional[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict']]] = None,
+                 release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 specialized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_launch_supported: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1218,34 +1218,34 @@ class SharedImage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accelerated_network_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            architecture: Optional[pulumi.Input[_builtins.str]] = None,
-            confidential_vm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            confidential_vm_supported: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_controller_type_nvme_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            end_of_life_date: Optional[pulumi.Input[_builtins.str]] = None,
-            eula: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
-            hibernation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hyper_v_generation: Optional[pulumi.Input[_builtins.str]] = None,
-            identifier: Optional[pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            max_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            max_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-            min_recommended_memory_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-            min_recommended_vcpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            os_type: Optional[pulumi.Input[_builtins.str]] = None,
-            privacy_statement_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            purchase_plan: Optional[pulumi.Input[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict']]] = None,
-            release_note_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            specialized: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SharedImage':
+            accelerated_network_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            confidential_vm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            confidential_vm_supported: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_controller_type_nvme_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disk_types_not_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
+            eula: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hibernation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
+            identifier: pulumi.Input[Optional[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            max_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            max_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            min_recommended_memory_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            min_recommended_vcpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_type: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            purchase_plan: pulumi.Input[Optional[Union['SharedImagePurchasePlanArgs', 'SharedImagePurchasePlanArgsDict']]] = None,
+            release_note_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            specialized: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_launch_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            trusted_launch_supported: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SharedImage':
         """
         Get an existing SharedImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

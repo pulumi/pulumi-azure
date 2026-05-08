@@ -21,7 +21,7 @@ class TriggerCustomArgs:
     def __init__(__self__, *,
                  body: pulumi.Input[_builtins.str],
                  logic_app_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerCustom resource.
 
@@ -62,7 +62,7 @@ class TriggerCustomArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -71,17 +71,17 @@ class TriggerCustomArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TriggerCustomState:
     def __init__(__self__, *,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 callback_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerCustom resources.
 
@@ -103,43 +103,43 @@ class _TriggerCustomState:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the JSON Blob defining the Body of this Custom Trigger.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="callbackUrl")
-    def callback_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def callback_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         """
         return pulumi.get(self, "callback_url")
 
     @callback_url.setter
-    def callback_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def callback_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "callback_url", value)
 
     @_builtins.property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logic_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "logic_app_id")
 
     @logic_app_id.setter
-    def logic_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logic_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logic_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
@@ -148,7 +148,7 @@ class _TriggerCustomState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -158,9 +158,9 @@ class TriggerCustom(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Custom Trigger within a Logic App Workflow
@@ -271,9 +271,9 @@ class TriggerCustom(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,10 +301,10 @@ class TriggerCustom(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            callback_url: Optional[pulumi.Input[_builtins.str]] = None,
-            logic_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'TriggerCustom':
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            callback_url: pulumi.Input[Optional[_builtins.str]] = None,
+            logic_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TriggerCustom':
         """
         Get an existing TriggerCustom resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

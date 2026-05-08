@@ -195,65 +195,65 @@ export interface VaultState {
     /**
      * Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
      */
-    classicVmwareReplicationEnabled?: pulumi.Input<boolean>;
+    classicVmwareReplicationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      *
      * > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      */
-    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
+    crossRegionRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
      *
      * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
-    encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption>;
+    encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
+    identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity | undefined>;
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
      *
      * > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      */
-    immutability?: pulumi.Input<string>;
+    immutability?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `monitoring` block as defined below.
      */
-    monitoring?: pulumi.Input<inputs.recoveryservices.VaultMonitoring>;
+    monitoring?: pulumi.Input<inputs.recoveryservices.VaultMonitoring | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is it enabled to access the vault from public networks. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
      */
-    sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      */
-    softDeleteEnabled?: pulumi.Input<boolean>;
+    softDeleteEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      */
-    storageModeType?: pulumi.Input<string>;
+    storageModeType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -263,45 +263,45 @@ export interface VaultArgs {
     /**
      * Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
      */
-    classicVmwareReplicationEnabled?: pulumi.Input<boolean>;
+    classicVmwareReplicationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      *
      * > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      */
-    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
+    crossRegionRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
      *
      * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
-    encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption>;
+    encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
+    identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity | undefined>;
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
      *
      * > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      */
-    immutability?: pulumi.Input<string>;
+    immutability?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `monitoring` block as defined below.
      */
-    monitoring?: pulumi.Input<inputs.recoveryservices.VaultMonitoring>;
+    monitoring?: pulumi.Input<inputs.recoveryservices.VaultMonitoring | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Is it enabled to access the vault from public networks. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
@@ -313,13 +313,13 @@ export interface VaultArgs {
     /**
      * @deprecated `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      */
-    softDeleteEnabled?: pulumi.Input<boolean>;
+    softDeleteEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      */
-    storageModeType?: pulumi.Input<string>;
+    storageModeType?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

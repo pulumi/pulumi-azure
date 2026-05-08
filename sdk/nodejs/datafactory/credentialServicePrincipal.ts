@@ -199,31 +199,31 @@ export interface CredentialServicePrincipalState {
     /**
      * List of tags that can be used for describing the Data Factory Credential.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Credential.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the Service Principal.
      */
-    servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * A `servicePrincipalKey` block as defined below.
      */
-    servicePrincipalKey?: pulumi.Input<inputs.datafactory.CredentialServicePrincipalServicePrincipalKey>;
+    servicePrincipalKey?: pulumi.Input<inputs.datafactory.CredentialServicePrincipalServicePrincipalKey | undefined>;
     /**
      * The Tenant ID of the Service Principal.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -233,7 +233,7 @@ export interface CredentialServicePrincipalArgs {
     /**
      * List of tags that can be used for describing the Data Factory Credential.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
@@ -241,11 +241,11 @@ export interface CredentialServicePrincipalArgs {
     /**
      * The description for the Data Factory Credential.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the Service Principal.
      */
@@ -253,7 +253,7 @@ export interface CredentialServicePrincipalArgs {
     /**
      * A `servicePrincipalKey` block as defined below.
      */
-    servicePrincipalKey?: pulumi.Input<inputs.datafactory.CredentialServicePrincipalServicePrincipalKey>;
+    servicePrincipalKey?: pulumi.Input<inputs.datafactory.CredentialServicePrincipalServicePrincipalKey | undefined>;
     /**
      * The Tenant ID of the Service Principal.
      */

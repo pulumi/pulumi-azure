@@ -112,8 +112,8 @@ def get_subscriptions(display_name_contains: Optional[_builtins.str] = None,
         display_name_prefix=pulumi.get(__ret__, 'display_name_prefix'),
         id=pulumi.get(__ret__, 'id'),
         subscriptions=pulumi.get(__ret__, 'subscriptions'))
-def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             display_name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_subscriptions_output(display_name_contains: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             display_name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionsResult]:
     """
     Use this data source to access information about all the Subscriptions currently available.

@@ -23,11 +23,11 @@ class FunctionAppFunctionArgs:
     def __init__(__self__, *,
                  config_json: pulumi.Input[_builtins.str],
                  function_app_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 files: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionAppFunction resource.
 
@@ -80,31 +80,31 @@ class FunctionAppFunctionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this function be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]:
+    def files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]:
         """
         A `file` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "files")
 
     @files.setter
-    def files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]):
+    def files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]):
         pulumi.set(self, "files", value)
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 
@@ -113,51 +113,51 @@ class FunctionAppFunctionArgs:
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="testData")
-    def test_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The test data for the function.
         """
         return pulumi.get(self, "test_data")
 
     @test_data.setter
-    def test_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_data", value)
 
 
 @pulumi.input_type
 class _FunctionAppFunctionState:
     def __init__(__self__, *,
-                 config_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 files: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_root_path_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 script_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_file_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_data_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 config_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_root_path_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_file_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_data_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionAppFunction resources.
 
@@ -209,79 +209,79 @@ class _FunctionAppFunctionState:
 
     @_builtins.property
     @pulumi.getter(name="configJson")
-    def config_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The config for this Function in JSON format.
         """
         return pulumi.get(self, "config_json")
 
     @config_json.setter
-    def config_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_json", value)
 
     @_builtins.property
     @pulumi.getter(name="configUrl")
-    def config_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the configuration JSON.
         """
         return pulumi.get(self, "config_url")
 
     @config_url.setter
-    def config_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this function be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]:
+    def files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]:
         """
         A `file` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "files")
 
     @files.setter
-    def files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]):
+    def files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppFunctionFileArgs']]]]):
         pulumi.set(self, "files", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAppId")
-    def function_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "function_app_id")
 
     @function_app_id.setter
-    def function_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationUrl")
-    def invocation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invocation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The invocation URL.
         """
         return pulumi.get(self, "invocation_url")
 
     @invocation_url.setter
-    def invocation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invocation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invocation_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
 
@@ -290,91 +290,91 @@ class _FunctionAppFunctionState:
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptRootPathUrl")
-    def script_root_path_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_root_path_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Script root path URL.
         """
         return pulumi.get(self, "script_root_path_url")
 
     @script_root_path_url.setter
-    def script_root_path_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_root_path_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_root_path_url", value)
 
     @_builtins.property
     @pulumi.getter(name="scriptUrl")
-    def script_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The script URL.
         """
         return pulumi.get(self, "script_url")
 
     @script_url.setter
-    def script_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_url", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsFileUrl")
-    def secrets_file_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_file_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the Secrets File.
         """
         return pulumi.get(self, "secrets_file_url")
 
     @secrets_file_url.setter
-    def secrets_file_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_file_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_file_url", value)
 
     @_builtins.property
     @pulumi.getter(name="testData")
-    def test_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The test data for the function.
         """
         return pulumi.get(self, "test_data")
 
     @test_data.setter
-    def test_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_data", value)
 
     @_builtins.property
     @pulumi.getter(name="testDataUrl")
-    def test_data_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_data_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Test data URL.
         """
         return pulumi.get(self, "test_data_url")
 
     @test_data_url.setter
-    def test_data_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_data_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_data_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function URL.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -384,13 +384,13 @@ class FunctionAppFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 config_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Function App Function.
@@ -725,13 +725,13 @@ class FunctionAppFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 config_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -769,20 +769,20 @@ class FunctionAppFunction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config_json: Optional[pulumi.Input[_builtins.str]] = None,
-            config_url: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
-            function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            invocation_url: Optional[pulumi.Input[_builtins.str]] = None,
-            language: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            script_root_path_url: Optional[pulumi.Input[_builtins.str]] = None,
-            script_url: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets_file_url: Optional[pulumi.Input[_builtins.str]] = None,
-            test_data: Optional[pulumi.Input[_builtins.str]] = None,
-            test_data_url: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'FunctionAppFunction':
+            config_json: pulumi.Input[Optional[_builtins.str]] = None,
+            config_url: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            invocation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            language: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            script_root_path_url: pulumi.Input[Optional[_builtins.str]] = None,
+            script_url: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets_file_url: pulumi.Input[Optional[_builtins.str]] = None,
+            test_data: pulumi.Input[Optional[_builtins.str]] = None,
+            test_data_url: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionAppFunction':
         """
         Get an existing FunctionAppFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,8 +22,8 @@ class ContactArgs:
                  alert_notifications: pulumi.Input[_builtins.bool],
                  alerts_to_admins: pulumi.Input[_builtins.bool],
                  email: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Contact resource.
 
@@ -79,37 +79,37 @@ class ContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number of the Security Center Contact.
         """
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
 
 @pulumi.input_type
 class _ContactState:
     def __init__(__self__, *,
-                 alert_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alerts_to_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alerts_to_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
 
@@ -132,62 +132,62 @@ class _ContactState:
 
     @_builtins.property
     @pulumi.getter(name="alertNotifications")
-    def alert_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def alert_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to send security alerts notifications to the security contact.
         """
         return pulumi.get(self, "alert_notifications")
 
     @alert_notifications.setter
-    def alert_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def alert_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "alert_notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="alertsToAdmins")
-    def alerts_to_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def alerts_to_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to send security alerts notifications to subscription admins.
         """
         return pulumi.get(self, "alerts_to_admins")
 
     @alerts_to_admins.setter
-    def alerts_to_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def alerts_to_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "alerts_to_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the Security Center Contact.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number of the Security Center Contact.
         """
         return pulumi.get(self, "phone")
 
     @phone.setter
-    def phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
 
@@ -197,11 +197,11 @@ class Contact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alerts_to_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alerts_to_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the subscription's Security Center Contact.
@@ -288,11 +288,11 @@ class Contact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 alerts_to_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alerts_to_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,11 +323,11 @@ class Contact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alert_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-            alerts_to_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            phone: Optional[pulumi.Input[_builtins.str]] = None) -> 'Contact':
+            alert_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            alerts_to_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            phone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Contact':
         """
         Get an existing Contact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

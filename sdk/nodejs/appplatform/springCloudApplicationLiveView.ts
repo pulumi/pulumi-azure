@@ -109,11 +109,11 @@ export interface SpringCloudApplicationLiveViewState {
     /**
      * The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Application Live View to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -123,7 +123,7 @@ export interface SpringCloudApplicationLiveViewArgs {
     /**
      * The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Application Live View to be created.
      */

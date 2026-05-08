@@ -170,12 +170,12 @@ def get_database_system_versions(database_software_image_supported: Optional[_bu
         storage_management=pulumi.get(__ret__, 'storage_management'),
         upgrade_supported=pulumi.get(__ret__, 'upgrade_supported'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_database_system_versions_output(database_software_image_supported: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                        database_system_shape: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        location: Optional[pulumi.Input[_builtins.str]] = None,
-                                        shape_family: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        storage_management: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        upgrade_supported: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_database_system_versions_output(database_software_image_supported: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                        database_system_shape: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        location: pulumi.Input[Optional[_builtins.str]] = None,
+                                        shape_family: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        storage_management: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        upgrade_supported: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseSystemVersionsResult]:
     """
     Use this data source to access information about existing Oracle Database Systems Versions.

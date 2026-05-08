@@ -22,11 +22,11 @@ __all__ = ['SpringCloudDevToolPortalArgs', 'SpringCloudDevToolPortal']
 class SpringCloudDevToolPortalArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[_builtins.str],
-                 application_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_live_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None):
+                 application_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_live_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sso: pulumi.Input[Optional['SpringCloudDevToolPortalSsoArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudDevToolPortal resource.
 
@@ -63,74 +63,74 @@ class SpringCloudDevToolPortalArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationAcceleratorEnabled")
-    def application_accelerator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def application_accelerator_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Accelerator plugin be enabled?
         """
         return pulumi.get(self, "application_accelerator_enabled")
 
     @application_accelerator_enabled.setter
-    def application_accelerator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def application_accelerator_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "application_accelerator_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationLiveViewEnabled")
-    def application_live_view_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def application_live_view_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Live View be enabled?
         """
         return pulumi.get(self, "application_live_view_enabled")
 
     @application_live_view_enabled.setter
-    def application_live_view_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def application_live_view_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "application_live_view_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled?
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def sso(self) -> Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']]:
+    def sso(self) -> pulumi.Input[Optional['SpringCloudDevToolPortalSsoArgs']]:
         """
         A `sso` block as defined below.
         """
         return pulumi.get(self, "sso")
 
     @sso.setter
-    def sso(self, value: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']]):
+    def sso(self, value: pulumi.Input[Optional['SpringCloudDevToolPortalSsoArgs']]):
         pulumi.set(self, "sso", value)
 
 
 @pulumi.input_type
 class _SpringCloudDevToolPortalState:
     def __init__(__self__, *,
-                 application_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_live_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None):
+                 application_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_live_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso: pulumi.Input[Optional['SpringCloudDevToolPortalSsoArgs']] = None):
         """
         Input properties used for looking up and filtering SpringCloudDevToolPortal resources.
 
@@ -156,74 +156,74 @@ class _SpringCloudDevToolPortalState:
 
     @_builtins.property
     @pulumi.getter(name="applicationAcceleratorEnabled")
-    def application_accelerator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def application_accelerator_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Accelerator plugin be enabled?
         """
         return pulumi.get(self, "application_accelerator_enabled")
 
     @application_accelerator_enabled.setter
-    def application_accelerator_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def application_accelerator_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "application_accelerator_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationLiveViewEnabled")
-    def application_live_view_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def application_live_view_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Live View be enabled?
         """
         return pulumi.get(self, "application_live_view_enabled")
 
     @application_live_view_enabled.setter
-    def application_live_view_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def application_live_view_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "application_live_view_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is public network access enabled?
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="springCloudServiceId")
-    def spring_cloud_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spring_cloud_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         """
         return pulumi.get(self, "spring_cloud_service_id")
 
     @spring_cloud_service_id.setter
-    def spring_cloud_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spring_cloud_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spring_cloud_service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sso(self) -> Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']]:
+    def sso(self) -> pulumi.Input[Optional['SpringCloudDevToolPortalSsoArgs']]:
         """
         A `sso` block as defined below.
         """
         return pulumi.get(self, "sso")
 
     @sso.setter
-    def sso(self, value: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']]):
+    def sso(self, value: pulumi.Input[Optional['SpringCloudDevToolPortalSsoArgs']]):
         pulumi.set(self, "sso", value)
 
 
@@ -233,12 +233,12 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_live_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso: Optional[pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None,
+                 application_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_live_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso: pulumi.Input[Optional[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None,
                  __props__=None):
         """
         > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -368,12 +368,12 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 application_live_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso: Optional[pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None,
+                 application_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 application_live_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso: pulumi.Input[Optional[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -401,12 +401,12 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            application_live_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sso: Optional[pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None) -> 'SpringCloudDevToolPortal':
+            application_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            application_live_view_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sso: pulumi.Input[Optional[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None) -> 'SpringCloudDevToolPortal':
         """
         Get an existing SpringCloudDevToolPortal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

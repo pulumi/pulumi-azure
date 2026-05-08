@@ -23,7 +23,7 @@ class FirewallRuleArgs:
                  redis_cache_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  start_ip: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -90,25 +90,25 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FirewallRuleState:
     def __init__(__self__, *,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
 
@@ -131,62 +131,62 @@ class _FirewallRuleState:
 
     @_builtins.property
     @pulumi.getter(name="endIp")
-    def end_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The highest IP address included in the range.
         """
         return pulumi.get(self, "end_ip")
 
     @end_ip.setter
-    def end_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Firewall Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redisCacheName")
-    def redis_cache_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "redis_cache_name")
 
     @redis_cache_name.setter
-    def redis_cache_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_cache_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startIp")
-    def start_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lowest IP address included in the range
         """
         return pulumi.get(self, "start_ip")
 
     @start_ip.setter
-    def start_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_ip", value)
 
 
@@ -196,11 +196,11 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Firewall Rule associated with a Redis Cache.
@@ -341,11 +341,11 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -378,11 +378,11 @@ class FirewallRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            end_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            start_ip: Optional[pulumi.Input[_builtins.str]] = None) -> 'FirewallRule':
+            end_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_ip: pulumi.Input[Optional[_builtins.str]] = None) -> 'FirewallRule':
         """
         Get an existing FirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

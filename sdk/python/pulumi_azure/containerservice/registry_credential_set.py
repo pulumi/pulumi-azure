@@ -25,7 +25,7 @@ class RegistryCredentialSetArgs:
                  container_registry_id: pulumi.Input[_builtins.str],
                  identity: pulumi.Input['RegistryCredentialSetIdentityArgs'],
                  login_server: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryCredentialSet resource.
 
@@ -92,25 +92,25 @@ class RegistryCredentialSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RegistryCredentialSetState:
     def __init__(__self__, *,
-                 authentication_credentials: Optional[pulumi.Input['RegistryCredentialSetAuthenticationCredentialsArgs']] = None,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['RegistryCredentialSetIdentityArgs']] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_credentials: pulumi.Input[Optional['RegistryCredentialSetAuthenticationCredentialsArgs']] = None,
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['RegistryCredentialSetIdentityArgs']] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryCredentialSet resources.
 
@@ -133,62 +133,62 @@ class _RegistryCredentialSetState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationCredentials")
-    def authentication_credentials(self) -> Optional[pulumi.Input['RegistryCredentialSetAuthenticationCredentialsArgs']]:
+    def authentication_credentials(self) -> pulumi.Input[Optional['RegistryCredentialSetAuthenticationCredentialsArgs']]:
         """
         A `authentication_credentials` block as defined below.
         """
         return pulumi.get(self, "authentication_credentials")
 
     @authentication_credentials.setter
-    def authentication_credentials(self, value: Optional[pulumi.Input['RegistryCredentialSetAuthenticationCredentialsArgs']]):
+    def authentication_credentials(self, value: pulumi.Input[Optional['RegistryCredentialSetAuthenticationCredentialsArgs']]):
         pulumi.set(self, "authentication_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryId")
-    def container_registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
         """
         return pulumi.get(self, "container_registry_id")
 
     @container_registry_id.setter
-    def container_registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['RegistryCredentialSetIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['RegistryCredentialSetIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['RegistryCredentialSetIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['RegistryCredentialSetIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login server for the Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         """
         return pulumi.get(self, "login_server")
 
     @login_server.setter
-    def login_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_server", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -198,11 +198,11 @@ class RegistryCredentialSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_credentials: Optional[pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Container Registry Credential Set.
@@ -457,11 +457,11 @@ class RegistryCredentialSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_credentials: Optional[pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
-                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
-                 login_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
+                 container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
+                 login_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,11 +494,11 @@ class RegistryCredentialSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_credentials: Optional[pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
-            container_registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
-            login_server: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'RegistryCredentialSet':
+            authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
+            container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
+            login_server: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'RegistryCredentialSet':
         """
         Get an existing RegistryCredentialSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

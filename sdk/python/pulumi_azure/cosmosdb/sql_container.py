@@ -25,16 +25,16 @@ class SqlContainerArgs:
                  database_name: pulumi.Input[_builtins.str],
                  partition_key_paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional['SqlContainerAutoscaleSettingsArgs']] = None,
+                 conflict_resolution_policy: pulumi.Input[Optional['SqlContainerConflictResolutionPolicyArgs']] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexing_policy: pulumi.Input[Optional['SqlContainerIndexingPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 unique_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
         """
         The set of arguments for constructing a SqlContainer resource.
 
@@ -132,19 +132,19 @@ class SqlContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def analytical_storage_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def analytical_storage_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['SqlContainerAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -153,72 +153,72 @@ class SqlContainerArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['SqlContainerAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionPolicy")
-    def conflict_resolution_policy(self) -> Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]:
+    def conflict_resolution_policy(self) -> pulumi.Input[Optional['SqlContainerConflictResolutionPolicyArgs']]:
         """
         A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "conflict_resolution_policy")
 
     @conflict_resolution_policy.setter
-    def conflict_resolution_policy(self, value: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]):
+    def conflict_resolution_policy(self, value: pulumi.Input[Optional['SqlContainerConflictResolutionPolicyArgs']]):
         pulumi.set(self, "conflict_resolution_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="indexingPolicy")
-    def indexing_policy(self) -> Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']]:
+    def indexing_policy(self) -> pulumi.Input[Optional['SqlContainerIndexingPolicyArgs']]:
         """
         An `indexing_policy` block as defined below.
         """
         return pulumi.get(self, "indexing_policy")
 
     @indexing_policy.setter
-    def indexing_policy(self, value: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']]):
+    def indexing_policy(self, value: pulumi.Input[Optional['SqlContainerIndexingPolicyArgs']]):
         pulumi.set(self, "indexing_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyKind")
-    def partition_key_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_kind")
 
     @partition_key_kind.setter
-    def partition_key_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyVersion")
-    def partition_key_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_key_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 
@@ -227,51 +227,51 @@ class SqlContainerArgs:
         return pulumi.get(self, "partition_key_version")
 
     @partition_key_version.setter
-    def partition_key_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_key_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_key_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueKeys")
-    def unique_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]:
+    def unique_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]:
         """
         One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "unique_keys")
 
     @unique_keys.setter
-    def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]):
+    def unique_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]):
         pulumi.set(self, "unique_keys", value)
 
 
 @pulumi.input_type
 class _SqlContainerState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition_key_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional['SqlContainerAutoscaleSettingsArgs']] = None,
+                 conflict_resolution_policy: pulumi.Input[Optional['SqlContainerConflictResolutionPolicyArgs']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexing_policy: pulumi.Input[Optional['SqlContainerIndexingPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition_key_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 unique_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
         """
         Input properties used for looking up and filtering SqlContainer resources.
 
@@ -325,31 +325,31 @@ class _SqlContainerState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def analytical_storage_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def analytical_storage_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['SqlContainerAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -358,96 +358,96 @@ class _SqlContainerState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['SqlContainerAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionPolicy")
-    def conflict_resolution_policy(self) -> Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]:
+    def conflict_resolution_policy(self) -> pulumi.Input[Optional['SqlContainerConflictResolutionPolicyArgs']]:
         """
         A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "conflict_resolution_policy")
 
     @conflict_resolution_policy.setter
-    def conflict_resolution_policy(self, value: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]):
+    def conflict_resolution_policy(self, value: pulumi.Input[Optional['SqlContainerConflictResolutionPolicyArgs']]):
         pulumi.set(self, "conflict_resolution_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="indexingPolicy")
-    def indexing_policy(self) -> Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']]:
+    def indexing_policy(self) -> pulumi.Input[Optional['SqlContainerIndexingPolicyArgs']]:
         """
         An `indexing_policy` block as defined below.
         """
         return pulumi.get(self, "indexing_policy")
 
     @indexing_policy.setter
-    def indexing_policy(self, value: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']]):
+    def indexing_policy(self, value: pulumi.Input[Optional['SqlContainerIndexingPolicyArgs']]):
         pulumi.set(self, "indexing_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyKind")
-    def partition_key_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_kind")
 
     @partition_key_kind.setter
-    def partition_key_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyPaths")
-    def partition_key_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_key_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of partition key paths. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_paths")
 
     @partition_key_paths.setter
-    def partition_key_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_key_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_key_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeyVersion")
-    def partition_key_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def partition_key_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 
@@ -456,43 +456,43 @@ class _SqlContainerState:
         return pulumi.get(self, "partition_key_version")
 
     @partition_key_version.setter
-    def partition_key_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def partition_key_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "partition_key_version", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="uniqueKeys")
-    def unique_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]:
+    def unique_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]:
         """
         One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "unique_keys")
 
     @unique_keys.setter
-    def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]):
+    def unique_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]):
         pulumi.set(self, "unique_keys", value)
 
 
@@ -502,20 +502,20 @@ class SqlContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 indexing_policy: Optional[pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition_key_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
+                 conflict_resolution_policy: pulumi.Input[Optional[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexing_policy: pulumi.Input[Optional[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition_key_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 unique_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a SQL Container within a Cosmos DB Account.
@@ -681,20 +681,20 @@ class SqlContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 indexing_policy: Optional[pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition_key_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
+                 conflict_resolution_policy: pulumi.Input[Optional[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexing_policy: pulumi.Input[Optional[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_key_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition_key_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 unique_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -736,20 +736,20 @@ class SqlContainer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            autoscale_settings: Optional[pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
-            conflict_resolution_policy: Optional[pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            indexing_policy: Optional[pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_key_kind: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_key_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            partition_key_version: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            throughput: Optional[pulumi.Input[_builtins.int]] = None,
-            unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None) -> 'SqlContainer':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
+            conflict_resolution_policy: pulumi.Input[Optional[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            indexing_policy: pulumi.Input[Optional[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_kind: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_key_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            partition_key_version: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            unique_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None) -> 'SqlContainer':
         """
         Get an existing SqlContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

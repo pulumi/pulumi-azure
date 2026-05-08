@@ -144,19 +144,19 @@ export interface ApplicationNetworkRuleSetState {
     /**
      * Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
      */
-    applyToDevice?: pulumi.Input<boolean>;
+    applyToDevice?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IoT Central Application. Changing this forces a new resource to be created.
      */
-    iotcentralApplicationId?: pulumi.Input<string>;
+    iotcentralApplicationId?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipRule` blocks as defined below.
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.iotcentral.ApplicationNetworkRuleSetIpRule>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.iotcentral.ApplicationNetworkRuleSetIpRule>[] | undefined>;
 }
 
 /**
@@ -166,11 +166,11 @@ export interface ApplicationNetworkRuleSetArgs {
     /**
      * Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
      */
-    applyToDevice?: pulumi.Input<boolean>;
+    applyToDevice?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IoT Central Application. Changing this forces a new resource to be created.
      */
@@ -178,5 +178,5 @@ export interface ApplicationNetworkRuleSetArgs {
     /**
      * One or more `ipRule` blocks as defined below.
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.iotcentral.ApplicationNetworkRuleSetIpRule>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.iotcentral.ApplicationNetworkRuleSetIpRule>[] | undefined>;
 }

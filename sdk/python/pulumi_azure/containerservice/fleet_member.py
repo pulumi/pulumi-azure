@@ -21,8 +21,8 @@ class FleetMemberArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[_builtins.str],
                  kubernetes_fleet_id: pulumi.Input[_builtins.str],
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetMember resource.
 
@@ -64,36 +64,36 @@ class FleetMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group this member belongs to for multi-cluster update management.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FleetMemberState:
     def __init__(__self__, *,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FleetMember resources.
 
@@ -113,50 +113,50 @@ class _FleetMemberState:
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group this member belongs to for multi-cluster update management.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesClusterId")
-    def kubernetes_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
         """
         return pulumi.get(self, "kubernetes_cluster_id")
 
     @kubernetes_cluster_id.setter
-    def kubernetes_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesFleetId")
-    def kubernetes_fleet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_fleet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
         """
         return pulumi.get(self, "kubernetes_fleet_id")
 
     @kubernetes_fleet_id.setter
-    def kubernetes_fleet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_fleet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_fleet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -166,10 +166,10 @@ class FleetMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -192,7 +192,7 @@ class FleetMember(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -259,7 +259,7 @@ class FleetMember(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -307,10 +307,10 @@ class FleetMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kubernetes_fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kubernetes_fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,10 +338,10 @@ class FleetMember(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group: Optional[pulumi.Input[_builtins.str]] = None,
-            kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kubernetes_fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'FleetMember':
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kubernetes_fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'FleetMember':
         """
         Get an existing FleetMember resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -219,45 +219,45 @@ export interface ProjectPoolState {
     /**
      * The name of the Dev Center Dev Box Definition.
      */
-    devBoxDefinitionName?: pulumi.Input<string>;
+    devBoxDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Dev Center Attached Network in parent Project of the Dev Center Project Pool.
      */
-    devCenterAttachedNetworkName?: pulumi.Input<string>;
+    devCenterAttachedNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
      */
-    devCenterProjectId?: pulumi.Input<string>;
+    devCenterProjectId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
      */
-    localAdministratorEnabled?: pulumi.Input<boolean>;
+    localAdministratorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      *
      * > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      */
-    managedVirtualNetworkRegions?: pulumi.Input<string>;
+    managedVirtualNetworkRegions?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
      */
-    singleSignOnEnabled?: pulumi.Input<boolean>;
+    singleSignOnEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      */
-    stopOnDisconnectGracePeriodMinutes?: pulumi.Input<number>;
+    stopOnDisconnectGracePeriodMinutes?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -283,27 +283,27 @@ export interface ProjectPoolArgs {
     /**
      * The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      *
      * > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      */
-    managedVirtualNetworkRegions?: pulumi.Input<string>;
+    managedVirtualNetworkRegions?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
      */
-    singleSignOnEnabled?: pulumi.Input<boolean>;
+    singleSignOnEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      */
-    stopOnDisconnectGracePeriodMinutes?: pulumi.Input<number>;
+    stopOnDisconnectGracePeriodMinutes?: pulumi.Input<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

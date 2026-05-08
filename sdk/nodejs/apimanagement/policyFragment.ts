@@ -150,27 +150,27 @@ export interface PolicyFragmentState {
     /**
      * The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The description for the Policy Fragment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
      * > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the Policy Fragment.
      *
      * > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,17 +184,17 @@ export interface PolicyFragmentArgs {
     /**
      * The description for the Policy Fragment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
      * > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the Policy Fragment.
      *

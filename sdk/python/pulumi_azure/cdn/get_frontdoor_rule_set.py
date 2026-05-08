@@ -131,9 +131,9 @@ def get_frontdoor_rule_set(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         profile_name=pulumi.get(__ret__, 'profile_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_frontdoor_rule_set_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorRuleSetResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Rule Set.

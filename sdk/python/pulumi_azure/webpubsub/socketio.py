@@ -23,19 +23,19 @@ class SocketioArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SocketioSkuArgs'],
-                 aad_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['SocketioIdentityArgs']] = None,
-                 live_trace_connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['SocketioIdentityArgs']] = None,
+                 live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Socketio resource.
 
@@ -114,115 +114,115 @@ class SocketioArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadAuthEnabled")
-    def aad_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aad_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Azure Active Directory authentication is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "aad_auth_enabled")
 
     @aad_auth_enabled.setter
-    def aad_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aad_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aad_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SocketioIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['SocketioIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SocketioIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['SocketioIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceConnectivityLogsEnabled")
-    def live_trace_connectivity_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_connectivity_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connectivity log category for live trace is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_connectivity_logs_enabled")
 
     @live_trace_connectivity_logs_enabled.setter
-    def live_trace_connectivity_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_connectivity_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_connectivity_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceEnabled")
-    def live_trace_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the live trace tool is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_enabled")
 
     @live_trace_enabled.setter
-    def live_trace_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceHttpRequestLogsEnabled")
-    def live_trace_http_request_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_http_request_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_http_request_logs_enabled")
 
     @live_trace_http_request_logs_enabled.setter
-    def live_trace_http_request_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_http_request_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_http_request_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceMessagingLogsEnabled")
-    def live_trace_messaging_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_messaging_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the messaging log category for live trace is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_messaging_logs_enabled")
 
     @live_trace_messaging_logs_enabled.setter
-    def live_trace_messaging_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_messaging_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_messaging_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication using an access key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
 
@@ -231,36 +231,36 @@ class SocketioArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceMode")
-    def service_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
         """
         return pulumi.get(self, "service_mode")
 
     @service_mode.setter
-    def service_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Web PubSub Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsClientCertEnabled")
-    def tls_client_cert_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls_client_cert_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
 
@@ -269,36 +269,36 @@ class SocketioArgs:
         return pulumi.get(self, "tls_client_cert_enabled")
 
     @tls_client_cert_enabled.setter
-    def tls_client_cert_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls_client_cert_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls_client_cert_enabled", value)
 
 
 @pulumi.input_type
 class _SocketioState:
     def __init__(__self__, *,
-                 aad_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['SocketioIdentityArgs']] = None,
-                 live_trace_connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['SocketioSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['SocketioIdentityArgs']] = None,
+                 live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['SocketioSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Socketio resources.
 
@@ -379,163 +379,163 @@ class _SocketioState:
 
     @_builtins.property
     @pulumi.getter(name="aadAuthEnabled")
-    def aad_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aad_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Azure Active Directory authentication is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "aad_auth_enabled")
 
     @aad_auth_enabled.setter
-    def aad_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aad_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aad_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="externalIp")
-    def external_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The publicly accessible IP address of the Web PubSub Service.
         """
         return pulumi.get(self, "external_ip")
 
     @external_ip.setter
-    def external_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The FQDN of the Web PubSub Service.
         """
         return pulumi.get(self, "hostname")
 
     @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SocketioIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['SocketioIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SocketioIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['SocketioIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceConnectivityLogsEnabled")
-    def live_trace_connectivity_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_connectivity_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connectivity log category for live trace is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_connectivity_logs_enabled")
 
     @live_trace_connectivity_logs_enabled.setter
-    def live_trace_connectivity_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_connectivity_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_connectivity_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceEnabled")
-    def live_trace_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the live trace tool is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_enabled")
 
     @live_trace_enabled.setter
-    def live_trace_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceHttpRequestLogsEnabled")
-    def live_trace_http_request_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_http_request_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_http_request_logs_enabled")
 
     @live_trace_http_request_logs_enabled.setter
-    def live_trace_http_request_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_http_request_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_http_request_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="liveTraceMessagingLogsEnabled")
-    def live_trace_messaging_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def live_trace_messaging_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the messaging log category for live trace is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "live_trace_messaging_logs_enabled")
 
     @live_trace_messaging_logs_enabled.setter
-    def live_trace_messaging_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def live_trace_messaging_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "live_trace_messaging_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication using an access key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary access key for the Web PubSub Service.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The primary connection string for the Web PubSub Service.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @primary_connection_string.setter
-    def primary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
 
@@ -544,108 +544,108 @@ class _SocketioState:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def public_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The publicly accessible port for client-side usage of the Web PubSub Service.
         """
         return pulumi.get(self, "public_port")
 
     @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def public_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "public_port", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key for the Web PubSub Service.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary connection string for the Web PubSub Service.
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @secondary_connection_string.setter
-    def secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The publicly accessible port for server-side usage of the Web PubSub Service.
         """
         return pulumi.get(self, "server_port")
 
     @server_port.setter
-    def server_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_port", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceMode")
-    def service_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
         """
         return pulumi.get(self, "service_mode")
 
     @service_mode.setter
-    def service_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SocketioSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SocketioSkuArgs']]:
         """
         One or more `sku` blocks as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SocketioSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SocketioSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Web PubSub Service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsClientCertEnabled")
-    def tls_client_cert_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls_client_cert_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
 
@@ -654,7 +654,7 @@ class _SocketioState:
         return pulumi.get(self, "tls_client_cert_enabled")
 
     @tls_client_cert_enabled.setter
-    def tls_client_cert_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls_client_cert_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls_client_cert_enabled", value)
 
 
@@ -664,21 +664,21 @@ class Socketio(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
-                 live_trace_connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
+                 live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Web PubSub Service for Socket.IO.
@@ -793,21 +793,21 @@ class Socketio(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
-                 live_trace_connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 live_trace_messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
+                 live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 live_trace_messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -856,29 +856,29 @@ class Socketio(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aad_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            external_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
-            live_trace_connectivity_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            live_trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            live_trace_http_request_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            live_trace_messaging_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            public_port: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            server_port: Optional[pulumi.Input[_builtins.int]] = None,
-            service_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            sku: Optional[pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Socketio':
+            aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
+            live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            live_trace_messaging_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            public_port: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            server_port: pulumi.Input[Optional[_builtins.int]] = None,
+            service_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Socketio':
         """
         Get an existing Socketio resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -243,81 +243,81 @@ export interface CacheState {
     /**
      * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      */
-    automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
+    automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
-    cacheSizeInGb?: pulumi.Input<number>;
+    cacheSizeInGb?: pulumi.Input<number | undefined>;
     /**
      * A `defaultAccessPolicy` block as defined below.
      */
-    defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy | undefined>;
     /**
      * A `directoryActiveDirectory` block as defined below.
      */
-    directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
+    directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory | undefined>;
     /**
      * A `directoryFlatFile` block as defined below.
      */
-    directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
+    directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile | undefined>;
     /**
      * A `directoryLdap` block as defined below.
      *
      * > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      */
-    directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
+    directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap | undefined>;
     /**
      * A `dns` block as defined below.
      */
-    dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    dns?: pulumi.Input<inputs.hpc.CacheDns | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    identity?: pulumi.Input<inputs.hpc.CacheIdentity>;
+    identity?: pulumi.Input<inputs.hpc.CacheIdentity | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A list of IP Addresses where the HPC Cache can be mounted.
      */
-    mountAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    mountAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
      */
-    ntpServer?: pulumi.Input<string>;
+    ntpServer?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      *
      * > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the HPC Cache.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -327,7 +327,7 @@ export interface CacheArgs {
     /**
      * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      */
-    automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
+    automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      *
@@ -337,49 +337,49 @@ export interface CacheArgs {
     /**
      * A `defaultAccessPolicy` block as defined below.
      */
-    defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy | undefined>;
     /**
      * A `directoryActiveDirectory` block as defined below.
      */
-    directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
+    directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory | undefined>;
     /**
      * A `directoryFlatFile` block as defined below.
      */
-    directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
+    directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile | undefined>;
     /**
      * A `directoryLdap` block as defined below.
      *
      * > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      */
-    directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
+    directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap | undefined>;
     /**
      * A `dns` block as defined below.
      */
-    dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    dns?: pulumi.Input<inputs.hpc.CacheDns | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    identity?: pulumi.Input<inputs.hpc.CacheIdentity>;
+    identity?: pulumi.Input<inputs.hpc.CacheIdentity | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
      */
-    keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
      */
-    ntpServer?: pulumi.Input<string>;
+    ntpServer?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
@@ -397,5 +397,5 @@ export interface CacheArgs {
     /**
      * A mapping of tags to assign to the HPC Cache.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

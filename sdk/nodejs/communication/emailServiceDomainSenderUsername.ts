@@ -126,15 +126,15 @@ export interface EmailServiceDomainSenderUsernameState {
     /**
      * The display name for the Email Communication Service Domain Sender Username resource.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Email Communication Service Domain resource. Changing this forces a new resource to be created.
      */
-    emailServiceDomainId?: pulumi.Input<string>;
+    emailServiceDomainId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface EmailServiceDomainSenderUsernameArgs {
     /**
      * The display name for the Email Communication Service Domain Sender Username resource.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Email Communication Service Domain resource. Changing this forces a new resource to be created.
      */
@@ -152,5 +152,5 @@ export interface EmailServiceDomainSenderUsernameArgs {
     /**
      * The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -23,7 +23,7 @@ class HypervNetworkMappingArgs:
                  source_network_name: pulumi.Input[_builtins.str],
                  source_system_center_virtual_machine_manager_name: pulumi.Input[_builtins.str],
                  target_network_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HypervNetworkMapping resource.
 
@@ -90,25 +90,25 @@ class HypervNetworkMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HyperV network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _HypervNetworkMappingState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_system_center_virtual_machine_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HypervNetworkMapping resources.
 
@@ -131,62 +131,62 @@ class _HypervNetworkMappingState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HyperV network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultId")
-    def recovery_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
-    def recovery_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceNetworkName")
-    def source_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the primary network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_network_name")
 
     @source_network_name.setter
-    def source_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSystemCenterVirtualMachineManagerName")
-    def source_system_center_virtual_machine_manager_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_system_center_virtual_machine_manager_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_system_center_virtual_machine_manager_name")
 
     @source_system_center_virtual_machine_manager_name.setter
-    def source_system_center_virtual_machine_manager_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_system_center_virtual_machine_manager_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_system_center_virtual_machine_manager_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the recovery network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
 
@@ -196,11 +196,11 @@ class HypervNetworkMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_system_center_virtual_machine_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
@@ -323,11 +323,11 @@ class HypervNetworkMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_system_center_virtual_machine_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,11 +360,11 @@ class HypervNetworkMapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_network_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_network_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'HypervNetworkMapping':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_system_center_virtual_machine_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'HypervNetworkMapping':
         """
         Get an existing HypervNetworkMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

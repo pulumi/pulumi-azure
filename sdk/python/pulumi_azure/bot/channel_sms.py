@@ -24,7 +24,7 @@ class ChannelSmsArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sms_channel_account_security_id: pulumi.Input[_builtins.str],
                  sms_channel_auth_token: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelSms resource.
 
@@ -105,26 +105,26 @@ class ChannelSmsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _ChannelSmsState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_channel_account_security_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_channel_auth_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_channel_account_security_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_channel_auth_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelSms resources.
 
@@ -150,74 +150,74 @@ class _ChannelSmsState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number for the SMS Channel.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the SMS Channel should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="smsChannelAccountSecurityId")
-    def sms_channel_account_security_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sms_channel_account_security_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account security identifier (SID) for the SMS Channel.
         """
         return pulumi.get(self, "sms_channel_account_security_id")
 
     @sms_channel_account_security_id.setter
-    def sms_channel_account_security_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sms_channel_account_security_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sms_channel_account_security_id", value)
 
     @_builtins.property
     @pulumi.getter(name="smsChannelAuthToken")
-    def sms_channel_auth_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sms_channel_auth_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization token for the SMS Channel.
         """
         return pulumi.get(self, "sms_channel_auth_token")
 
     @sms_channel_auth_token.setter
-    def sms_channel_auth_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sms_channel_auth_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sms_channel_auth_token", value)
 
 
@@ -227,12 +227,12 @@ class ChannelSms(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_channel_account_security_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_channel_auth_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_channel_account_security_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_channel_auth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a SMS integration for a Bot Channel
@@ -342,12 +342,12 @@ class ChannelSms(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_channel_account_security_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sms_channel_auth_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_channel_account_security_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sms_channel_auth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,12 +385,12 @@ class ChannelSms(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sms_channel_account_security_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sms_channel_auth_token: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelSms':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sms_channel_account_security_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sms_channel_auth_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelSms':
         """
         Get an existing ChannelSms resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

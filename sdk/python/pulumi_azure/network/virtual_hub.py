@@ -22,16 +22,16 @@ __all__ = ['VirtualHubArgs', 'VirtualHub']
 class VirtualHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualHub resource.
 
@@ -83,142 +83,142 @@ class VirtualHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         """
         return pulumi.get(self, "address_prefix")
 
     @address_prefix.setter
-    def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="branchToBranchTrafficEnabled")
-    def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def branch_to_branch_traffic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @branch_to_branch_traffic_enabled.setter
-    def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def branch_to_branch_traffic_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "branch_to_branch_traffic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hubRoutingPreference")
-    def hub_routing_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_routing_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         """
         return pulumi.get(self, "hub_routing_preference")
 
     @hub_routing_preference.setter
-    def hub_routing_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_routing_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_routing_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Hub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]:
         """
         One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Virtual Hub.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
-    def virtual_router_auto_scale_min_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def virtual_router_auto_scale_min_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         """
         return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
 
     @virtual_router_auto_scale_min_capacity.setter
-    def virtual_router_auto_scale_min_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def virtual_router_auto_scale_min_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "virtual_router_auto_scale_min_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualWanId")
-    def virtual_wan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_wan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_wan_id")
 
     @virtual_wan_id.setter
-    def virtual_wan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_wan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_wan_id", value)
 
 
 @pulumi.input_type
 class _VirtualHubState:
     def __init__(__self__, *,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_router_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_router_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHub resources.
 
@@ -268,170 +268,170 @@ class _VirtualHubState:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         """
         return pulumi.get(self, "address_prefix")
 
     @address_prefix.setter
-    def address_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="branchToBranchTrafficEnabled")
-    def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def branch_to_branch_traffic_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @branch_to_branch_traffic_enabled.setter
-    def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def branch_to_branch_traffic_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "branch_to_branch_traffic_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteTableId")
-    def default_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the default Route Table in the Virtual Hub.
         """
         return pulumi.get(self, "default_route_table_id")
 
     @default_route_table_id.setter
-    def default_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hubRoutingPreference")
-    def hub_routing_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_routing_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         """
         return pulumi.get(self, "hub_routing_preference")
 
     @hub_routing_preference.setter
-    def hub_routing_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_routing_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_routing_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Virtual Hub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]:
+    def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]:
         """
         One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
+    def routes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the Virtual Hub.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def virtual_router_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Autonomous System Number of the Virtual Hub BGP router.
         """
         return pulumi.get(self, "virtual_router_asn")
 
     @virtual_router_asn.setter
-    def virtual_router_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def virtual_router_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "virtual_router_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
-    def virtual_router_auto_scale_min_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def virtual_router_auto_scale_min_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         """
         return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
 
     @virtual_router_auto_scale_min_capacity.setter
-    def virtual_router_auto_scale_min_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def virtual_router_auto_scale_min_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "virtual_router_auto_scale_min_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualRouterIps")
-    def virtual_router_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def virtual_router_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP addresses of the Virtual Hub BGP router.
         """
         return pulumi.get(self, "virtual_router_ips")
 
     @virtual_router_ips.setter
-    def virtual_router_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def virtual_router_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_router_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualWanId")
-    def virtual_wan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_wan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_wan_id")
 
     @virtual_wan_id.setter
-    def virtual_wan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_wan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_wan_id", value)
 
 
@@ -441,17 +441,17 @@ class VirtualHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Hub within a Virtual WAN.
@@ -568,17 +568,17 @@ class VirtualHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
-                 sku: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
+                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -614,20 +614,20 @@ class VirtualHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            branch_to_branch_traffic_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hub_routing_preference: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
-            sku: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_router_asn: Optional[pulumi.Input[_builtins.int]] = None,
-            virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualHub':
+            address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            branch_to_branch_traffic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hub_routing_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
+            sku: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_router_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            virtual_wan_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualHub':
         """
         Get an existing VirtualHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

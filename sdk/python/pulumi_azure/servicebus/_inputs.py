@@ -38,7 +38,7 @@ class NamespaceCustomerManagedKeyArgsDict(TypedDict):
     """
     The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
     """
-    infrastructure_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    infrastructure_encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
     """
@@ -48,7 +48,7 @@ class NamespaceCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  identity_id: pulumi.Input[_builtins.str],
                  key_vault_key_id: pulumi.Input[_builtins.str],
-                 infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] identity_id: The ID of the User Assigned Identity that has access to the key.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
@@ -85,14 +85,14 @@ class NamespaceCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @infrastructure_encryption_enabled.setter
-    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
 
@@ -101,17 +101,17 @@ class NamespaceIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
     > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
     """
@@ -120,9 +120,9 @@ class NamespaceIdentityArgsDict(TypedDict):
 class NamespaceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
@@ -153,7 +153,7 @@ class NamespaceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
@@ -162,54 +162,54 @@ class NamespaceIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class NamespaceNetworkRuleSetArgsDict(TypedDict):
-    default_action: NotRequired[pulumi.Input[_builtins.str]]
+    default_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
     """
-    network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgsDict']]]]
+    network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]]
     """
     One or more `network_rules` blocks as defined below.
     """
-    public_network_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    public_network_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 
     > **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
     """
-    trusted_services_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    trusted_services_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
     """
@@ -217,11 +217,11 @@ class NamespaceNetworkRuleSetArgsDict(TypedDict):
 @pulumi.input_type
 class NamespaceNetworkRuleSetArgs:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trusted_services_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 default_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trusted_services_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
@@ -244,43 +244,43 @@ class NamespaceNetworkRuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
+    def network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
         """
         One or more `network_rules` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
+    def network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 
@@ -289,19 +289,19 @@ class NamespaceNetworkRuleSetArgs:
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedServicesAllowed")
-    def trusted_services_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trusted_services_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
         return pulumi.get(self, "trusted_services_allowed")
 
     @trusted_services_allowed.setter
-    def trusted_services_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trusted_services_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trusted_services_allowed", value)
 
 
@@ -310,7 +310,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgsDict(TypedDict):
     """
     The Subnet ID which should be able to access this Service Bus Namespace.
     """
-    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
     """
@@ -319,7 +319,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgsDict(TypedDict):
 class NamespaceNetworkRuleSetNetworkRuleArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The Subnet ID which should be able to access this Service Bus Namespace.
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -342,29 +342,29 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 
 class SubscriptionClientScopedSubscriptionArgsDict(TypedDict):
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 
     > **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
     """
-    is_client_scoped_subscription_durable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_client_scoped_subscription_durable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the client scoped subscription is durable. This property can only be controlled from the application side.
     """
-    is_client_scoped_subscription_shareable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_client_scoped_subscription_shareable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
     """
@@ -372,9 +372,9 @@ class SubscriptionClientScopedSubscriptionArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionClientScopedSubscriptionArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_client_scoped_subscription_durable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_client_scoped_subscription_shareable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_client_scoped_subscription_durable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_client_scoped_subscription_shareable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
                
@@ -391,7 +391,7 @@ class SubscriptionClientScopedSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
 
@@ -400,70 +400,70 @@ class SubscriptionClientScopedSubscriptionArgs:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isClientScopedSubscriptionDurable")
-    def is_client_scoped_subscription_durable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_client_scoped_subscription_durable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         """
         return pulumi.get(self, "is_client_scoped_subscription_durable")
 
     @is_client_scoped_subscription_durable.setter
-    def is_client_scoped_subscription_durable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_client_scoped_subscription_durable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_client_scoped_subscription_durable", value)
 
     @_builtins.property
     @pulumi.getter(name="isClientScopedSubscriptionShareable")
-    def is_client_scoped_subscription_shareable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_client_scoped_subscription_shareable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_client_scoped_subscription_shareable")
 
     @is_client_scoped_subscription_shareable.setter
-    def is_client_scoped_subscription_shareable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_client_scoped_subscription_shareable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_client_scoped_subscription_shareable", value)
 
 
 class SubscriptionRuleCorrelationFilterArgsDict(TypedDict):
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Content type of the message.
     """
-    correlation_id: NotRequired[pulumi.Input[_builtins.str]]
+    correlation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the correlation.
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application specific label.
     """
-    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the message.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 
     > **Note:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
     """
-    reply_to: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address of the queue to reply to.
     """
-    reply_to_session_id: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to_session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session identifier to reply to.
     """
-    session_id: NotRequired[pulumi.Input[_builtins.str]]
+    session_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session identifier.
     """
-    to: NotRequired[pulumi.Input[_builtins.str]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address to send to.
     """
@@ -471,15 +471,15 @@ class SubscriptionRuleCorrelationFilterArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionRuleCorrelationFilterArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 correlation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 reply_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 reply_to_session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 to: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 correlation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 reply_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 reply_to_session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content_type: Content type of the message.
         :param pulumi.Input[_builtins.str] correlation_id: Identifier of the correlation.
@@ -514,55 +514,55 @@ class SubscriptionRuleCorrelationFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content type of the message.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="correlationId")
-    def correlation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def correlation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the correlation.
         """
         return pulumi.get(self, "correlation_id")
 
     @correlation_id.setter
-    def correlation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def correlation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "correlation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application specific label.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the message.
         """
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
 
@@ -571,55 +571,55 @@ class SubscriptionRuleCorrelationFilterArgs:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="replyTo")
-    def reply_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reply_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the queue to reply to.
         """
         return pulumi.get(self, "reply_to")
 
     @reply_to.setter
-    def reply_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reply_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reply_to", value)
 
     @_builtins.property
     @pulumi.getter(name="replyToSessionId")
-    def reply_to_session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reply_to_session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session identifier to reply to.
         """
         return pulumi.get(self, "reply_to_session_id")
 
     @reply_to_session_id.setter
-    def reply_to_session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reply_to_session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reply_to_session_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionId")
-    def session_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session identifier.
         """
         return pulumi.get(self, "session_id")
 
     @session_id.setter
-    def session_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address to send to.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "to", value)
 
 

@@ -209,63 +209,63 @@ export interface ProvisionedClusterState {
     /**
      * The version of the agent running on the cluster resource.
      */
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
      */
-    arcAgentAutoUpgradeEnabled?: pulumi.Input<boolean>;
+    arcAgentAutoUpgradeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The version of the Arc agents to be installed on the cluster.
      */
-    arcAgentDesiredVersion?: pulumi.Input<string>;
+    arcAgentDesiredVersion?: pulumi.Input<string | undefined>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.arckubernetes.ProvisionedClusterAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.arckubernetes.ProvisionedClusterAzureActiveDirectory | undefined>;
     /**
      * The distribution running on this Arc Kubernetes Provisioned Cluster.
      */
-    distribution?: pulumi.Input<string>;
+    distribution?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    identity?: pulumi.Input<inputs.arckubernetes.ProvisionedClusterIdentity>;
+    identity?: pulumi.Input<inputs.arckubernetes.ProvisionedClusterIdentity | undefined>;
     /**
      * The infrastructure on which the Arc Kubernetes Provisioned Cluster is running on.
      */
-    infrastructure?: pulumi.Input<string>;
+    infrastructure?: pulumi.Input<string | undefined>;
     /**
      * The Kubernetes version of the cluster resource.
      */
-    kubernetesVersion?: pulumi.Input<string>;
+    kubernetesVersion?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Arc Kubernetes Provisioned Cluster. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The cluster offering.
      */
-    offering?: pulumi.Input<string>;
+    offering?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Arc Kubernetes Provisioned Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The number of CPU cores present in the cluster resource.
      */
-    totalCoreCount?: pulumi.Input<number>;
+    totalCoreCount?: pulumi.Input<number | undefined>;
     /**
      * The number of nodes present in the cluster resource.
      */
-    totalNodeCount?: pulumi.Input<number>;
+    totalNodeCount?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -275,15 +275,15 @@ export interface ProvisionedClusterArgs {
     /**
      * Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
      */
-    arcAgentAutoUpgradeEnabled?: pulumi.Input<boolean>;
+    arcAgentAutoUpgradeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The version of the Arc agents to be installed on the cluster.
      */
-    arcAgentDesiredVersion?: pulumi.Input<string>;
+    arcAgentDesiredVersion?: pulumi.Input<string | undefined>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.arckubernetes.ProvisionedClusterAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.arckubernetes.ProvisionedClusterAzureActiveDirectory | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
@@ -291,11 +291,11 @@ export interface ProvisionedClusterArgs {
     /**
      * The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Arc Kubernetes Provisioned Cluster. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
@@ -303,5 +303,5 @@ export interface ProvisionedClusterArgs {
     /**
      * A mapping of tags which should be assigned to the Arc Kubernetes Provisioned Cluster.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

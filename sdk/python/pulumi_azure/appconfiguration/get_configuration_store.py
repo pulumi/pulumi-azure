@@ -340,8 +340,8 @@ def get_configuration_store(name: Optional[_builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         soft_delete_retention_days=pulumi.get(__ret__, 'soft_delete_retention_days'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configuration_store_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_store_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationStoreResult]:
     """
     Use this data source to access information about an existing App Configuration.

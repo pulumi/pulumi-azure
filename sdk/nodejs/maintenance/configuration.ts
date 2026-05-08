@@ -170,45 +170,45 @@ export interface ConfigurationState {
     /**
      * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
      */
-    inGuestUserPatchMode?: pulumi.Input<string>;
+    inGuestUserPatchMode?: pulumi.Input<string | undefined>;
     /**
      * An `installPatches` block as defined below.
      *
      * > **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
-    installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
+    installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of properties to assign to the resource.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * A `window` block as defined below.
      */
-    window?: pulumi.Input<inputs.maintenance.ConfigurationWindow>;
+    window?: pulumi.Input<inputs.maintenance.ConfigurationWindow | undefined>;
 }
 
 /**
@@ -218,25 +218,25 @@ export interface ConfigurationArgs {
     /**
      * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
      */
-    inGuestUserPatchMode?: pulumi.Input<string>;
+    inGuestUserPatchMode?: pulumi.Input<string | undefined>;
     /**
      * An `installPatches` block as defined below.
      *
      * > **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
-    installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
+    installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of properties to assign to the resource.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      */
@@ -248,13 +248,13 @@ export interface ConfigurationArgs {
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * A `window` block as defined below.
      */
-    window?: pulumi.Input<inputs.maintenance.ConfigurationWindow>;
+    window?: pulumi.Input<inputs.maintenance.ConfigurationWindow | undefined>;
 }

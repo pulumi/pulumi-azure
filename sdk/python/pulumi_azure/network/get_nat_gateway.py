@@ -204,10 +204,10 @@ def get_nat_gateway(name: Optional[_builtins.str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_nat_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           public_ip_address_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                           public_ip_prefix_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_nat_gateway_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           public_ip_address_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                           public_ip_prefix_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Use this data source to access information about an existing NAT Gateway.

@@ -158,8 +158,8 @@ def get_environment_storage(container_app_environment_id: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         nfs_server_url=pulumi.get(__ret__, 'nfs_server_url'),
         share_name=pulumi.get(__ret__, 'share_name'))
-def get_environment_storage_output(container_app_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_storage_output(container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentStorageResult]:
     """
     Use this data source to access information about an existing Container App Environment Storage.

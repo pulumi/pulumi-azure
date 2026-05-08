@@ -26,8 +26,8 @@ class VolumeGroupOracleArgs:
                  group_description: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volumes: pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeGroupOracle resource.
 
@@ -111,39 +111,39 @@ class VolumeGroupOracleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _VolumeGroupOracleState:
     def __init__(__self__, *,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]] = None):
         """
         Input properties used for looking up and filtering VolumeGroupOracle resources.
 
@@ -172,86 +172,86 @@ class _VolumeGroupOracleState:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationIdentifier")
-    def application_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "application_identifier")
 
     @application_identifier.setter
-    def application_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="groupDescription")
-    def group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "group_description")
 
     @group_description.setter
-    def group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]]:
         """
         One or more `volume` blocks as defined below.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -261,13 +261,13 @@ class VolumeGroupOracle(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Application Volume Group for Oracle application.
@@ -336,7 +336,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "zone": "1",
                     "volume_spec_name": "ora-data1",
                     "storage_quota_in_gb": 1024,
-                    "throughput_in_mibps": 24,
+                    "throughput_in_mibps": float(24),
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
@@ -359,7 +359,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "zone": "1",
                     "volume_spec_name": "ora-log",
                     "storage_quota_in_gb": 1024,
-                    "throughput_in_mibps": 24,
+                    "throughput_in_mibps": float(24),
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
@@ -474,7 +474,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "subnet_id": example_primary_subnet.id,
                 "volume_spec_name": "ora-data1",
                 "storage_quota_in_gb": 1024,
-                "throughput_in_mibps": 24,
+                "throughput_in_mibps": float(24),
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
@@ -504,7 +504,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "subnet_id": example_secondary_subnet.id,
                 "volume_spec_name": "ora-data1",
                 "storage_quota_in_gb": 1024,
-                "throughput_in_mibps": 24,
+                "throughput_in_mibps": float(24),
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
@@ -626,7 +626,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "zone": "1",
                     "volume_spec_name": "ora-data1",
                     "storage_quota_in_gb": 1024,
-                    "throughput_in_mibps": 24,
+                    "throughput_in_mibps": float(24),
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
@@ -649,7 +649,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "zone": "1",
                     "volume_spec_name": "ora-log",
                     "storage_quota_in_gb": 1024,
-                    "throughput_in_mibps": 24,
+                    "throughput_in_mibps": float(24),
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
@@ -764,7 +764,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "subnet_id": example_primary_subnet.id,
                 "volume_spec_name": "ora-data1",
                 "storage_quota_in_gb": 1024,
-                "throughput_in_mibps": 24,
+                "throughput_in_mibps": float(24),
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
@@ -794,7 +794,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "subnet_id": example_secondary_subnet.id,
                 "volume_spec_name": "ora-data1",
                 "storage_quota_in_gb": 1024,
-                "throughput_in_mibps": 24,
+                "throughput_in_mibps": float(24),
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
@@ -848,13 +848,13 @@ class VolumeGroupOracle(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict']]]]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -891,13 +891,13 @@ class VolumeGroupOracle(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            application_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            group_description: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict']]]]] = None) -> 'VolumeGroupOracle':
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            application_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            group_description: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupOracleVolumeArgs', 'VolumeGroupOracleVolumeArgsDict']]]]] = None) -> 'VolumeGroupOracle':
         """
         Get an existing VolumeGroupOracle resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

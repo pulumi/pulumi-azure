@@ -24,7 +24,7 @@ class ContactArgs:
                  reservation_end_time: pulumi.Input[_builtins.str],
                  reservation_start_time: pulumi.Input[_builtins.str],
                  spacecraft_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Contact resource.
 
@@ -105,26 +105,26 @@ class ContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ContactState:
     def __init__(__self__, *,
-                 contact_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 spacecraft_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 spacecraft_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
 
@@ -150,74 +150,74 @@ class _ContactState:
 
     @_builtins.property
     @pulumi.getter(name="contactProfileId")
-    def contact_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the orbital contact profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "contact_profile_id")
 
     @contact_profile_id.setter
-    def contact_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groundStationName")
-    def ground_station_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ground_station_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Azure ground station. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ground_station_name")
 
     @ground_station_name.setter
-    def ground_station_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ground_station_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ground_station_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationEndTime")
-    def reservation_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reservation_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reservation end time of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "reservation_end_time")
 
     @reservation_end_time.setter
-    def reservation_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reservation_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reservation_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationStartTime")
-    def reservation_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reservation_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reservation start time of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "reservation_start_time")
 
     @reservation_start_time.setter
-    def reservation_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reservation_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reservation_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="spacecraftId")
-    def spacecraft_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spacecraft_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spacecraft_id")
 
     @spacecraft_id.setter
-    def spacecraft_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spacecraft_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spacecraft_id", value)
 
 
@@ -227,12 +227,12 @@ class Contact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 spacecraft_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 spacecraft_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an orbital contact.
@@ -254,8 +254,8 @@ class Contact(pulumi.CustomResource):
             location="westeurope",
             norad_id="12345",
             links=[{
-                "bandwidth_mhz": 100,
-                "center_frequency_mhz": 101,
+                "bandwidth_mhz": float(100),
+                "center_frequency_mhz": float(101),
                 "direction": "Uplink",
                 "polarization": "LHCP",
                 "name": "examplename",
@@ -299,8 +299,8 @@ class Contact(pulumi.CustomResource):
             links=[{
                 "channels": [{
                     "name": "channelname",
-                    "bandwidth_mhz": 100,
-                    "center_frequency_mhz": 101,
+                    "bandwidth_mhz": float(100),
+                    "center_frequency_mhz": float(101),
                     "end_points": [{
                         "end_point_name": "AQUA_command",
                         "ip_address": "10.0.1.0",
@@ -373,8 +373,8 @@ class Contact(pulumi.CustomResource):
             location="westeurope",
             norad_id="12345",
             links=[{
-                "bandwidth_mhz": 100,
-                "center_frequency_mhz": 101,
+                "bandwidth_mhz": float(100),
+                "center_frequency_mhz": float(101),
                 "direction": "Uplink",
                 "polarization": "LHCP",
                 "name": "examplename",
@@ -418,8 +418,8 @@ class Contact(pulumi.CustomResource):
             links=[{
                 "channels": [{
                     "name": "channelname",
-                    "bandwidth_mhz": 100,
-                    "center_frequency_mhz": 101,
+                    "bandwidth_mhz": float(100),
+                    "center_frequency_mhz": float(101),
                     "end_points": [{
                         "end_point_name": "AQUA_command",
                         "ip_address": "10.0.1.0",
@@ -472,12 +472,12 @@ class Contact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 spacecraft_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 spacecraft_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,12 +513,12 @@ class Contact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ground_station_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            reservation_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            reservation_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            spacecraft_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Contact':
+            contact_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            spacecraft_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Contact':
         """
         Get an existing Contact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

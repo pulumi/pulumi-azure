@@ -168,37 +168,37 @@ export interface ImageState {
      *
      * > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      */
-    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[] | undefined>;
     /**
      * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    hyperVGeneration?: pulumi.Input<string>;
+    hyperVGeneration?: pulumi.Input<string | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the image. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      */
-    osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
+    osDisk?: pulumi.Input<inputs.compute.ImageOsDisk | undefined>;
     /**
      * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Virtual Machine ID from which to create the image.
      */
-    sourceVirtualMachineId?: pulumi.Input<string>;
+    sourceVirtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
@@ -206,7 +206,7 @@ export interface ImageState {
      *
      * > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      */
-    zoneResilient?: pulumi.Input<boolean>;
+    zoneResilient?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -218,25 +218,25 @@ export interface ImageArgs {
      *
      * > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      */
-    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[] | undefined>;
     /**
      * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    hyperVGeneration?: pulumi.Input<string>;
+    hyperVGeneration?: pulumi.Input<string | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the image. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      */
-    osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
+    osDisk?: pulumi.Input<inputs.compute.ImageOsDisk | undefined>;
     /**
      * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      */
@@ -244,11 +244,11 @@ export interface ImageArgs {
     /**
      * The Virtual Machine ID from which to create the image.
      */
-    sourceVirtualMachineId?: pulumi.Input<string>;
+    sourceVirtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
@@ -256,5 +256,5 @@ export interface ImageArgs {
      *
      * > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      */
-    zoneResilient?: pulumi.Input<boolean>;
+    zoneResilient?: pulumi.Input<boolean | undefined>;
 }

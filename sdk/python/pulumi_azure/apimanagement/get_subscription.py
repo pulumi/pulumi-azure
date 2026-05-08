@@ -209,8 +209,8 @@ def get_subscription(api_management_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_subscription_output(api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_output(api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Use this data source to access information about an existing API Management Subscription.

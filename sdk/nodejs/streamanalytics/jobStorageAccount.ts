@@ -157,13 +157,13 @@ export interface JobStorageAccountState {
     /**
      * The authentication mode for the Stream Analytics Job's Storage Account. Possible values are `ConnectionString`, and `Msi`.
      */
-    authenticationMode?: pulumi.Input<string>;
-    storageAccountKey?: pulumi.Input<string>;
-    storageAccountName?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<string | undefined>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
+    storageAccountName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    streamAnalyticsJobId?: pulumi.Input<string>;
+    streamAnalyticsJobId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -174,7 +174,7 @@ export interface JobStorageAccountArgs {
      * The authentication mode for the Stream Analytics Job's Storage Account. Possible values are `ConnectionString`, and `Msi`.
      */
     authenticationMode: pulumi.Input<string>;
-    storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string | undefined>;
     storageAccountName: pulumi.Input<string>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.

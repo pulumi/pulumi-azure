@@ -191,27 +191,27 @@ export interface ResolverForwardingRuleState {
     /**
      * Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    dnsForwardingRulesetId?: pulumi.Input<string>;
+    dnsForwardingRulesetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      */
-    targetDnsServers?: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverForwardingRuleTargetDnsServer>[]>;
+    targetDnsServers?: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverForwardingRuleTargetDnsServer>[] | undefined>;
 }
 
 /**
@@ -229,15 +229,15 @@ export interface ResolverForwardingRuleArgs {
     /**
      * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      */

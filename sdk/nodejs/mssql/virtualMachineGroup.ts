@@ -158,31 +158,31 @@ export interface VirtualMachineGroupState {
     /**
      * The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
      */
-    sqlImageOffer?: pulumi.Input<string>;
+    sqlImageOffer?: pulumi.Input<string | undefined>;
     /**
      * The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
      */
-    sqlImageSku?: pulumi.Input<string>;
+    sqlImageSku?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `wsfcDomainProfile` block as defined below.
      */
-    wsfcDomainProfile?: pulumi.Input<inputs.mssql.VirtualMachineGroupWsfcDomainProfile>;
+    wsfcDomainProfile?: pulumi.Input<inputs.mssql.VirtualMachineGroupWsfcDomainProfile | undefined>;
 }
 
 /**
@@ -192,11 +192,11 @@ export interface VirtualMachineGroupArgs {
     /**
      * The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      */
@@ -212,7 +212,7 @@ export interface VirtualMachineGroupArgs {
     /**
      * A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `wsfcDomainProfile` block as defined below.
      */

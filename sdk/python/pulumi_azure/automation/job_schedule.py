@@ -23,9 +23,9 @@ class JobScheduleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  runbook_name: pulumi.Input[_builtins.str],
                  schedule_name: pulumi.Input[_builtins.str],
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobSchedule resource.
 
@@ -100,19 +100,19 @@ class JobScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="jobScheduleId")
-    def job_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "job_schedule_id")
 
     @job_schedule_id.setter
-    def job_schedule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 
@@ -121,33 +121,33 @@ class JobScheduleArgs:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="runOn")
-    def run_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "run_on")
 
     @run_on.setter
-    def run_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_on", value)
 
 
 @pulumi.input_type
 class _JobScheduleState:
     def __init__(__self__, *,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobSchedule resources.
 
@@ -181,31 +181,31 @@ class _JobScheduleState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_account_name")
 
     @automation_account_name.setter
-    def automation_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobScheduleId")
-    def job_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "job_schedule_id")
 
     @job_schedule_id.setter
-    def job_schedule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 
@@ -214,67 +214,67 @@ class _JobScheduleState:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
-    def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of the Automation Job Schedule.
         """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
-    def resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runOn")
-    def run_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "run_on")
 
     @run_on.setter
-    def run_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_on", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookName")
-    def runbook_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_name")
 
     @runbook_name.setter
-    def runbook_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleName")
-    def schedule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Schedule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "schedule_name")
 
     @schedule_name.setter
-    def schedule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_name", value)
 
 
@@ -284,13 +284,13 @@ class JobSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Links an Automation Runbook and Schedule.
@@ -405,13 +405,13 @@ class JobSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -447,14 +447,14 @@ class JobSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            run_on: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
-            schedule_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'JobSchedule':
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            run_on: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'JobSchedule':
         """
         Get an existing JobSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -156,23 +156,23 @@ export interface ActiveDirectoryAdministratorState {
     /**
      * The login name of the principal to set as the server administrator
      */
-    login?: pulumi.Input<string>;
+    login?: pulumi.Input<string | undefined>;
     /**
      * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Tenant ID
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**

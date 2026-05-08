@@ -189,59 +189,59 @@ export interface TriggerScheduleState {
     /**
      * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * The Schedule Trigger's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * The interval for how often the trigger occurs. This defaults to `1`.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Pipeline name that the trigger will act on.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * The pipeline parameters that the trigger will act upon.
      */
-    pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `pipeline` block as defined below.
      */
-    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[]>;
+    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[] | undefined>;
     /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
-    schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule>;
+    schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule | undefined>;
     /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The timezone of the start/end time.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,11 +251,11 @@ export interface TriggerScheduleArgs {
     /**
      * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -263,45 +263,45 @@ export interface TriggerScheduleArgs {
     /**
      * The Schedule Trigger's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * The interval for how often the trigger occurs. This defaults to `1`.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Data Factory Pipeline name that the trigger will act on.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * The pipeline parameters that the trigger will act upon.
      */
-    pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `pipeline` block as defined below.
      */
-    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[]>;
+    pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[] | undefined>;
     /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
-    schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule>;
+    schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule | undefined>;
     /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The timezone of the start/end time.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }

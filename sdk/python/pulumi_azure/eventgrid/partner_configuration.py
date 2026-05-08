@@ -22,9 +22,9 @@ __all__ = ['PartnerConfigurationArgs', 'PartnerConfiguration']
 class PartnerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 default_maximum_expiration_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 partner_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerConfiguration resource.
 
@@ -55,48 +55,48 @@ class PartnerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultMaximumExpirationTimeInDays")
-    def default_maximum_expiration_time_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_maximum_expiration_time_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
         """
         return pulumi.get(self, "default_maximum_expiration_time_in_days")
 
     @default_maximum_expiration_time_in_days.setter
-    def default_maximum_expiration_time_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_maximum_expiration_time_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_maximum_expiration_time_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerAuthorizations")
-    def partner_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]:
+    def partner_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]:
         """
         One or more `partner_authorization` blocks as defined below.
         """
         return pulumi.get(self, "partner_authorizations")
 
     @partner_authorizations.setter
-    def partner_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]):
+    def partner_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]):
         pulumi.set(self, "partner_authorizations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Event Grid Partner Configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PartnerConfigurationState:
     def __init__(__self__, *,
-                 default_maximum_expiration_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 partner_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PartnerConfiguration resources.
 
@@ -116,50 +116,50 @@ class _PartnerConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="defaultMaximumExpirationTimeInDays")
-    def default_maximum_expiration_time_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_maximum_expiration_time_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
         """
         return pulumi.get(self, "default_maximum_expiration_time_in_days")
 
     @default_maximum_expiration_time_in_days.setter
-    def default_maximum_expiration_time_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_maximum_expiration_time_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_maximum_expiration_time_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerAuthorizations")
-    def partner_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]:
+    def partner_authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]:
         """
         One or more `partner_authorization` blocks as defined below.
         """
         return pulumi.get(self, "partner_authorizations")
 
     @partner_authorizations.setter
-    def partner_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]):
+    def partner_authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]]]):
         pulumi.set(self, "partner_authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Event Grid Partner Configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -169,10 +169,10 @@ class PartnerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_maximum_expiration_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 partner_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an Event Grid Partner Configuration.
@@ -284,10 +284,10 @@ class PartnerConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_maximum_expiration_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 partner_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,10 +313,10 @@ class PartnerConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_maximum_expiration_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            partner_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PartnerConfiguration':
+            default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PartnerConfiguration':
         """
         Get an existing PartnerConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

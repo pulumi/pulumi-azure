@@ -195,27 +195,27 @@ export interface VirtualHubRouteTableRouteState {
     /**
      * A list of destination addresses for this route.
      */
-    destinations?: pulumi.Input<pulumi.Input<string>[]>;
+    destinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
      */
-    destinationsType?: pulumi.Input<string>;
+    destinationsType?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this route. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The next hop's resource ID.
      */
-    nextHop?: pulumi.Input<string>;
+    nextHop?: pulumi.Input<string | undefined>;
     /**
      * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
      */
-    nextHopType?: pulumi.Input<string>;
+    nextHopType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created.
      */
-    routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -233,7 +233,7 @@ export interface VirtualHubRouteTableRouteArgs {
     /**
      * The name which should be used for this route. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The next hop's resource ID.
      */
@@ -241,7 +241,7 @@ export interface VirtualHubRouteTableRouteArgs {
     /**
      * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
      */
-    nextHopType?: pulumi.Input<string>;
+    nextHopType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created.
      */

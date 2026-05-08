@@ -114,15 +114,15 @@ export interface SourceCodeTokenState {
     /**
      * The OAuth access token.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The OAuth access token secret.
      */
-    tokenSecret?: pulumi.Input<string>;
+    tokenSecret?: pulumi.Input<string | undefined>;
     /**
      * The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,7 +136,7 @@ export interface SourceCodeTokenArgs {
     /**
      * The OAuth access token secret.
      */
-    tokenSecret?: pulumi.Input<string>;
+    tokenSecret?: pulumi.Input<string | undefined>;
     /**
      * The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
      */

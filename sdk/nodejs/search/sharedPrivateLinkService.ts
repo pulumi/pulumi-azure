@@ -158,29 +158,29 @@ export interface SharedPrivateLinkServiceState {
     /**
      * Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
      */
-    searchServiceId?: pulumi.Input<string>;
+    searchServiceId?: pulumi.Input<string | undefined>;
     /**
      * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    subresourceName?: pulumi.Input<string>;
+    subresourceName?: pulumi.Input<string | undefined>;
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
      * > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,11 +190,11 @@ export interface SharedPrivateLinkServiceArgs {
     /**
      * Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string | undefined>;
     /**
      * Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
      */

@@ -122,5 +122,5 @@ export interface GetCertificateOutputArgs {
      * The name of the resource group in which to create the certificate.
      */
     resourceGroupName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

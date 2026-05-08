@@ -22,16 +22,16 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: Optional[pulumi.Input['TopicIdentityArgs']] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']] = None,
-                 input_mapping_fields: Optional[pulumi.Input['TopicInputMappingFieldsArgs']] = None,
-                 input_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: pulumi.Input[Optional['TopicIdentityArgs']] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
+                 input_mapping_default_values: pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']] = None,
+                 input_mapping_fields: pulumi.Input[Optional['TopicInputMappingFieldsArgs']] = None,
+                 input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -83,142 +83,142 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['TopicIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['TopicIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['TopicIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['TopicIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']]:
+    def input_mapping_default_values(self) -> pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']]:
         """
         A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_default_values")
 
     @input_mapping_default_values.setter
-    def input_mapping_default_values(self, value: Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']]):
+    def input_mapping_default_values(self, value: pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']]):
         pulumi.set(self, "input_mapping_default_values", value)
 
     @_builtins.property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional[pulumi.Input['TopicInputMappingFieldsArgs']]:
+    def input_mapping_fields(self) -> pulumi.Input[Optional['TopicInputMappingFieldsArgs']]:
         """
         A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_fields")
 
     @input_mapping_fields.setter
-    def input_mapping_fields(self, value: Optional[pulumi.Input['TopicInputMappingFieldsArgs']]):
+    def input_mapping_fields(self, value: pulumi.Input[Optional['TopicInputMappingFieldsArgs']]):
         pulumi.set(self, "input_mapping_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_schema")
 
     @input_schema.setter
-    def input_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not public network access is allowed for this server. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _TopicState:
     def __init__(__self__, *,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['TopicIdentityArgs']] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']] = None,
-                 input_mapping_fields: Optional[pulumi.Input['TopicInputMappingFieldsArgs']] = None,
-                 input_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['TopicIdentityArgs']] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]] = None,
+                 input_mapping_default_values: pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']] = None,
+                 input_mapping_fields: pulumi.Input[Optional['TopicInputMappingFieldsArgs']] = None,
+                 input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Topic resources.
 
@@ -268,170 +268,170 @@ class _TopicState:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Endpoint associated with the EventGrid Topic.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['TopicIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['TopicIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['TopicIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['TopicIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicInboundIpRuleArgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']]:
+    def input_mapping_default_values(self) -> pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']]:
         """
         A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_default_values")
 
     @input_mapping_default_values.setter
-    def input_mapping_default_values(self, value: Optional[pulumi.Input['TopicInputMappingDefaultValuesArgs']]):
+    def input_mapping_default_values(self, value: pulumi.Input[Optional['TopicInputMappingDefaultValuesArgs']]):
         pulumi.set(self, "input_mapping_default_values", value)
 
     @_builtins.property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional[pulumi.Input['TopicInputMappingFieldsArgs']]:
+    def input_mapping_fields(self) -> pulumi.Input[Optional['TopicInputMappingFieldsArgs']]:
         """
         A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_fields")
 
     @input_mapping_fields.setter
-    def input_mapping_fields(self, value: Optional[pulumi.Input['TopicInputMappingFieldsArgs']]):
+    def input_mapping_fields(self, value: pulumi.Input[Optional['TopicInputMappingFieldsArgs']]):
         pulumi.set(self, "input_mapping_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_schema")
 
     @input_schema.setter
-    def input_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Primary Shared Access Key associated with the EventGrid Topic.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not public network access is allowed for this server. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Shared Access Key associated with the EventGrid Topic.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -441,17 +441,17 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['TopicIdentityArgs', 'TopicIdentityArgsDict']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict']]]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict']]] = None,
-                 input_mapping_fields: Optional[pulumi.Input[Union['TopicInputMappingFieldsArgs', 'TopicInputMappingFieldsArgsDict']]] = None,
-                 input_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['TopicIdentityArgs', 'TopicIdentityArgsDict']]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict']]]]] = None,
+                 input_mapping_default_values: pulumi.Input[Optional[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict']]] = None,
+                 input_mapping_fields: pulumi.Input[Optional[Union['TopicInputMappingFieldsArgs', 'TopicInputMappingFieldsArgsDict']]] = None,
+                 input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an EventGrid Topic
@@ -566,17 +566,17 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[Union['TopicIdentityArgs', 'TopicIdentityArgsDict']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict']]]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict']]] = None,
-                 input_mapping_fields: Optional[pulumi.Input[Union['TopicInputMappingFieldsArgs', 'TopicInputMappingFieldsArgsDict']]] = None,
-                 input_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['TopicIdentityArgs', 'TopicIdentityArgsDict']]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict']]]]] = None,
+                 input_mapping_default_values: pulumi.Input[Optional[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict']]] = None,
+                 input_mapping_fields: pulumi.Input[Optional[Union['TopicInputMappingFieldsArgs', 'TopicInputMappingFieldsArgsDict']]] = None,
+                 input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -616,20 +616,20 @@ class Topic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['TopicIdentityArgs', 'TopicIdentityArgsDict']]] = None,
-            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict']]]]] = None,
-            input_mapping_default_values: Optional[pulumi.Input[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict']]] = None,
-            input_mapping_fields: Optional[pulumi.Input[Union['TopicInputMappingFieldsArgs', 'TopicInputMappingFieldsArgsDict']]] = None,
-            input_schema: Optional[pulumi.Input[_builtins.str]] = None,
-            local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Topic':
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['TopicIdentityArgs', 'TopicIdentityArgsDict']]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicInboundIpRuleArgs', 'TopicInboundIpRuleArgsDict']]]]] = None,
+            input_mapping_default_values: pulumi.Input[Optional[Union['TopicInputMappingDefaultValuesArgs', 'TopicInputMappingDefaultValuesArgsDict']]] = None,
+            input_mapping_fields: pulumi.Input[Optional[Union['TopicInputMappingFieldsArgs', 'TopicInputMappingFieldsArgsDict']]] = None,
+            input_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Topic':
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

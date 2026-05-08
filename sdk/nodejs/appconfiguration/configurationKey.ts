@@ -245,41 +245,41 @@ export interface ConfigurationKeyState {
     /**
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      */
-    configurationStoreId?: pulumi.Input<string>;
+    configurationStoreId?: pulumi.Input<string | undefined>;
     /**
      * The content type of the App Configuration Key. This should only be set when type is set to `kv`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The ETag of the key.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the App Configuration Key to create. Changing this forces a new resource to be created.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The label of the App Configuration Key. Changing this forces a new resource to be created.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Should this App Configuration Key be Locked to prevent changes?
      */
-    locked?: pulumi.Input<boolean>;
+    locked?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      *
      * > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
      *
@@ -287,7 +287,7 @@ export interface ConfigurationKeyState {
      *
      * > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
-    vaultKeyReference?: pulumi.Input<string>;
+    vaultKeyReference?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -301,11 +301,11 @@ export interface ConfigurationKeyArgs {
     /**
      * The content type of the App Configuration Key. This should only be set when type is set to `kv`.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The ETag of the key.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the App Configuration Key to create. Changing this forces a new resource to be created.
      */
@@ -313,25 +313,25 @@ export interface ConfigurationKeyArgs {
     /**
      * The label of the App Configuration Key. Changing this forces a new resource to be created.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Should this App Configuration Key be Locked to prevent changes?
      */
-    locked?: pulumi.Input<boolean>;
+    locked?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      *
      * > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
      *
@@ -339,5 +339,5 @@ export interface ConfigurationKeyArgs {
      *
      * > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
-    vaultKeyReference?: pulumi.Input<string>;
+    vaultKeyReference?: pulumi.Input<string | undefined>;
 }

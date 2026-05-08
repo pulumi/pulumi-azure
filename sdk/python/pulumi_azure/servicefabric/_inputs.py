@@ -142,7 +142,7 @@ class ClusterCertificateArgsDict(TypedDict):
     """
     The X509 Store where the Certificate Exists, such as `My`.
     """
-    thumbprint_secondary: NotRequired[pulumi.Input[_builtins.str]]
+    thumbprint_secondary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Secondary Thumbprint of the Certificate.
     """
@@ -152,7 +152,7 @@ class ClusterCertificateArgs:
     def __init__(__self__, *,
                  thumbprint: pulumi.Input[_builtins.str],
                  x509_store_name: pulumi.Input[_builtins.str],
-                 thumbprint_secondary: Optional[pulumi.Input[_builtins.str]] = None):
+                 thumbprint_secondary: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] thumbprint: The Thumbprint of the Certificate.
         :param pulumi.Input[_builtins.str] x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
@@ -189,14 +189,14 @@ class ClusterCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="thumbprintSecondary")
-    def thumbprint_secondary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint_secondary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Thumbprint of the Certificate.
         """
         return pulumi.get(self, "thumbprint_secondary")
 
     @thumbprint_secondary.setter
-    def thumbprint_secondary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint_secondary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint_secondary", value)
 
 
@@ -252,7 +252,7 @@ class ClusterCertificateCommonNamesCommonNameArgsDict(TypedDict):
     """
     The common or subject name of the certificate.
     """
-    certificate_issuer_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_issuer_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Issuer Thumbprint of the Certificate.
 
@@ -263,7 +263,7 @@ class ClusterCertificateCommonNamesCommonNameArgsDict(TypedDict):
 class ClusterCertificateCommonNamesCommonNameArgs:
     def __init__(__self__, *,
                  certificate_common_name: pulumi.Input[_builtins.str],
-                 certificate_issuer_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_issuer_thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_common_name: The common or subject name of the certificate.
         :param pulumi.Input[_builtins.str] certificate_issuer_thumbprint: The Issuer Thumbprint of the Certificate.
@@ -288,7 +288,7 @@ class ClusterCertificateCommonNamesCommonNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateIssuerThumbprint")
-    def certificate_issuer_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_issuer_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Issuer Thumbprint of the Certificate.
 
@@ -297,7 +297,7 @@ class ClusterCertificateCommonNamesCommonNameArgs:
         return pulumi.get(self, "certificate_issuer_thumbprint")
 
     @certificate_issuer_thumbprint.setter
-    def certificate_issuer_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_issuer_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_issuer_thumbprint", value)
 
 
@@ -310,7 +310,7 @@ class ClusterClientCertificateCommonNameArgsDict(TypedDict):
     """
     Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
     """
-    issuer_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    issuer_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Issuer Thumbprint of the Certificate.
 
@@ -322,7 +322,7 @@ class ClusterClientCertificateCommonNameArgs:
     def __init__(__self__, *,
                  common_name: pulumi.Input[_builtins.str],
                  is_admin: pulumi.Input[_builtins.bool],
-                 issuer_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 issuer_thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] common_name: The common or subject name of the certificate.
         :param pulumi.Input[_builtins.bool] is_admin: Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
@@ -361,7 +361,7 @@ class ClusterClientCertificateCommonNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="issuerThumbprint")
-    def issuer_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Issuer Thumbprint of the Certificate.
 
@@ -370,7 +370,7 @@ class ClusterClientCertificateCommonNameArgs:
         return pulumi.get(self, "issuer_thumbprint")
 
     @issuer_thumbprint.setter
-    def issuer_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_thumbprint", value)
 
 
@@ -530,7 +530,7 @@ class ClusterFabricSettingArgsDict(TypedDict):
     """
     The name of the Fabric Setting, such as `Security` or `Federation`.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map containing settings for the specified Fabric Setting.
     """
@@ -539,7 +539,7 @@ class ClusterFabricSettingArgsDict(TypedDict):
 class ClusterFabricSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Fabric Setting, such as `Security` or `Federation`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map containing settings for the specified Fabric Setting.
@@ -562,14 +562,14 @@ class ClusterFabricSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map containing settings for the specified Fabric Setting.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -594,35 +594,35 @@ class ClusterNodeTypeArgsDict(TypedDict):
     """
     The name of the Node Type.
     """
-    application_ports: NotRequired[pulumi.Input['ClusterNodeTypeApplicationPortsArgsDict']]
+    application_ports: NotRequired[pulumi.Input[Optional['ClusterNodeTypeApplicationPortsArgs']]]
     """
     A `application_ports` block as defined below.
     """
-    capacities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    capacities: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
     """
-    durability_level: NotRequired[pulumi.Input[_builtins.str]]
+    durability_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
     """
-    ephemeral_ports: NotRequired[pulumi.Input['ClusterNodeTypeEphemeralPortsArgsDict']]
+    ephemeral_ports: NotRequired[pulumi.Input[Optional['ClusterNodeTypeEphemeralPortsArgs']]]
     """
     A `ephemeral_ports` block as defined below.
     """
-    is_stateless: NotRequired[pulumi.Input[_builtins.bool]]
+    is_stateless: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should this node type run only stateless services?
     """
-    multiple_availability_zones: NotRequired[pulumi.Input[_builtins.bool]]
+    multiple_availability_zones: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Does this node type span availability zones?
     """
-    placement_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    placement_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
     """
-    reverse_proxy_endpoint_port: NotRequired[pulumi.Input[_builtins.int]]
+    reverse_proxy_endpoint_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
     """
@@ -635,14 +635,14 @@ class ClusterNodeTypeArgs:
                  instance_count: pulumi.Input[_builtins.int],
                  is_primary: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
-                 application_ports: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']] = None,
-                 capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 durability_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 ephemeral_ports: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']] = None,
-                 is_stateless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 multiple_availability_zones: Optional[pulumi.Input[_builtins.bool]] = None,
-                 placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 reverse_proxy_endpoint_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 application_ports: pulumi.Input[Optional['ClusterNodeTypeApplicationPortsArgs']] = None,
+                 capacities: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 durability_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 ephemeral_ports: pulumi.Input[Optional['ClusterNodeTypeEphemeralPortsArgs']] = None,
+                 is_stateless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 multiple_availability_zones: pulumi.Input[Optional[_builtins.bool]] = None,
+                 placement_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 reverse_proxy_endpoint_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] client_endpoint_port: The Port used for the Client Endpoint for this Node Type.
         :param pulumi.Input[_builtins.int] http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type.
@@ -742,98 +742,98 @@ class ClusterNodeTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationPorts")
-    def application_ports(self) -> Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']]:
+    def application_ports(self) -> pulumi.Input[Optional['ClusterNodeTypeApplicationPortsArgs']]:
         """
         A `application_ports` block as defined below.
         """
         return pulumi.get(self, "application_ports")
 
     @application_ports.setter
-    def application_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']]):
+    def application_ports(self, value: pulumi.Input[Optional['ClusterNodeTypeApplicationPortsArgs']]):
         pulumi.set(self, "application_ports", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def capacities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         """
         return pulumi.get(self, "capacities")
 
     @capacities.setter
-    def capacities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def capacities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacities", value)
 
     @_builtins.property
     @pulumi.getter(name="durabilityLevel")
-    def durability_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def durability_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         """
         return pulumi.get(self, "durability_level")
 
     @durability_level.setter
-    def durability_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def durability_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "durability_level", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralPorts")
-    def ephemeral_ports(self) -> Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']]:
+    def ephemeral_ports(self) -> pulumi.Input[Optional['ClusterNodeTypeEphemeralPortsArgs']]:
         """
         A `ephemeral_ports` block as defined below.
         """
         return pulumi.get(self, "ephemeral_ports")
 
     @ephemeral_ports.setter
-    def ephemeral_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']]):
+    def ephemeral_ports(self, value: pulumi.Input[Optional['ClusterNodeTypeEphemeralPortsArgs']]):
         pulumi.set(self, "ephemeral_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="isStateless")
-    def is_stateless(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_stateless(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should this node type run only stateless services?
         """
         return pulumi.get(self, "is_stateless")
 
     @is_stateless.setter
-    def is_stateless(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_stateless(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_stateless", value)
 
     @_builtins.property
     @pulumi.getter(name="multipleAvailabilityZones")
-    def multiple_availability_zones(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multiple_availability_zones(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Does this node type span availability zones?
         """
         return pulumi.get(self, "multiple_availability_zones")
 
     @multiple_availability_zones.setter
-    def multiple_availability_zones(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multiple_availability_zones(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multiple_availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="placementProperties")
-    def placement_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def placement_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         """
         return pulumi.get(self, "placement_properties")
 
     @placement_properties.setter
-    def placement_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def placement_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "placement_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reverse_proxy_endpoint_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 
     @reverse_proxy_endpoint_port.setter
-    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reverse_proxy_endpoint_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
 
 
@@ -940,7 +940,7 @@ class ClusterReverseProxyCertificateArgsDict(TypedDict):
     """
     The X509 Store where the Certificate Exists, such as `My`.
     """
-    thumbprint_secondary: NotRequired[pulumi.Input[_builtins.str]]
+    thumbprint_secondary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Secondary Thumbprint of the Certificate.
     """
@@ -950,7 +950,7 @@ class ClusterReverseProxyCertificateArgs:
     def __init__(__self__, *,
                  thumbprint: pulumi.Input[_builtins.str],
                  x509_store_name: pulumi.Input[_builtins.str],
-                 thumbprint_secondary: Optional[pulumi.Input[_builtins.str]] = None):
+                 thumbprint_secondary: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] thumbprint: The Thumbprint of the Certificate.
         :param pulumi.Input[_builtins.str] x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
@@ -987,14 +987,14 @@ class ClusterReverseProxyCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="thumbprintSecondary")
-    def thumbprint_secondary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbprint_secondary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Secondary Thumbprint of the Certificate.
         """
         return pulumi.get(self, "thumbprint_secondary")
 
     @thumbprint_secondary.setter
-    def thumbprint_secondary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbprint_secondary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbprint_secondary", value)
 
 
@@ -1050,7 +1050,7 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgsDict(TypedDict):
     """
     The common or subject name of the certificate.
     """
-    certificate_issuer_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_issuer_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Issuer Thumbprint of the Certificate.
 
@@ -1061,7 +1061,7 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgsDict(TypedDict):
 class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
     def __init__(__self__, *,
                  certificate_common_name: pulumi.Input[_builtins.str],
-                 certificate_issuer_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_issuer_thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_common_name: The common or subject name of the certificate.
         :param pulumi.Input[_builtins.str] certificate_issuer_thumbprint: The Issuer Thumbprint of the Certificate.
@@ -1086,7 +1086,7 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateIssuerThumbprint")
-    def certificate_issuer_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_issuer_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Issuer Thumbprint of the Certificate.
 
@@ -1095,44 +1095,44 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
         return pulumi.get(self, "certificate_issuer_thumbprint")
 
     @certificate_issuer_thumbprint.setter
-    def certificate_issuer_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_issuer_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_issuer_thumbprint", value)
 
 
 class ClusterUpgradePolicyArgsDict(TypedDict):
-    delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgsDict']]
+    delta_health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicyDeltaHealthPolicyArgs']]]
     """
     A `delta_health_policy` block as defined below
     """
-    force_restart_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    force_restart_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
     """
-    health_check_retry_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    health_check_retry_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
     """
-    health_check_stable_duration: NotRequired[pulumi.Input[_builtins.str]]
+    health_check_stable_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
     """
-    health_check_wait_duration: NotRequired[pulumi.Input[_builtins.str]]
+    health_check_wait_duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
     """
-    health_policy: NotRequired[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgsDict']]
+    health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicyHealthPolicyArgs']]]
     """
     A `health_policy` block as defined below
     """
-    upgrade_domain_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    upgrade_domain_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
     """
-    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
     """
-    upgrade_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    upgrade_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
     """
@@ -1140,15 +1140,15 @@ class ClusterUpgradePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterUpgradePolicyArgs:
     def __init__(__self__, *,
-                 delta_health_policy: Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs']] = None,
-                 force_restart_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_retry_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_stable_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_wait_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_policy: Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs']] = None,
-                 upgrade_domain_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_replica_set_check_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 upgrade_timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 delta_health_policy: pulumi.Input[Optional['ClusterUpgradePolicyDeltaHealthPolicyArgs']] = None,
+                 force_restart_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_retry_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_stable_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_wait_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_policy: pulumi.Input[Optional['ClusterUpgradePolicyHealthPolicyArgs']] = None,
+                 upgrade_domain_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_replica_set_check_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 upgrade_timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs'] delta_health_policy: A `delta_health_policy` block as defined below
         :param pulumi.Input[_builtins.bool] force_restart_enabled: Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
@@ -1181,123 +1181,123 @@ class ClusterUpgradePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deltaHealthPolicy")
-    def delta_health_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs']]:
+    def delta_health_policy(self) -> pulumi.Input[Optional['ClusterUpgradePolicyDeltaHealthPolicyArgs']]:
         """
         A `delta_health_policy` block as defined below
         """
         return pulumi.get(self, "delta_health_policy")
 
     @delta_health_policy.setter
-    def delta_health_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs']]):
+    def delta_health_policy(self, value: pulumi.Input[Optional['ClusterUpgradePolicyDeltaHealthPolicyArgs']]):
         pulumi.set(self, "delta_health_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="forceRestartEnabled")
-    def force_restart_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_restart_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
         """
         return pulumi.get(self, "force_restart_enabled")
 
     @force_restart_enabled.setter
-    def force_restart_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_restart_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_restart_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckRetryTimeout")
-    def health_check_retry_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_retry_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
         """
         return pulumi.get(self, "health_check_retry_timeout")
 
     @health_check_retry_timeout.setter
-    def health_check_retry_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_retry_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_retry_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckStableDuration")
-    def health_check_stable_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_stable_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
         """
         return pulumi.get(self, "health_check_stable_duration")
 
     @health_check_stable_duration.setter
-    def health_check_stable_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_stable_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_stable_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckWaitDuration")
-    def health_check_wait_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_wait_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
         """
         return pulumi.get(self, "health_check_wait_duration")
 
     @health_check_wait_duration.setter
-    def health_check_wait_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_wait_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_wait_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="healthPolicy")
-    def health_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs']]:
+    def health_policy(self) -> pulumi.Input[Optional['ClusterUpgradePolicyHealthPolicyArgs']]:
         """
         A `health_policy` block as defined below
         """
         return pulumi.get(self, "health_policy")
 
     @health_policy.setter
-    def health_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs']]):
+    def health_policy(self, value: pulumi.Input[Optional['ClusterUpgradePolicyHealthPolicyArgs']]):
         pulumi.set(self, "health_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeDomainTimeout")
-    def upgrade_domain_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_domain_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
         """
         return pulumi.get(self, "upgrade_domain_timeout")
 
     @upgrade_domain_timeout.setter
-    def upgrade_domain_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_domain_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_domain_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeReplicaSetCheckTimeout")
-    def upgrade_replica_set_check_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_replica_set_check_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
         """
         return pulumi.get(self, "upgrade_replica_set_check_timeout")
 
     @upgrade_replica_set_check_timeout.setter
-    def upgrade_replica_set_check_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_replica_set_check_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_replica_set_check_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="upgradeTimeout")
-    def upgrade_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upgrade_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
         """
         return pulumi.get(self, "upgrade_timeout")
 
     @upgrade_timeout.setter
-    def upgrade_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upgrade_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upgrade_timeout", value)
 
 
 class ClusterUpgradePolicyDeltaHealthPolicyArgsDict(TypedDict):
-    max_delta_unhealthy_applications_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_delta_unhealthy_applications_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
     """
-    max_delta_unhealthy_nodes_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_delta_unhealthy_nodes_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
     """
-    max_upgrade_domain_delta_unhealthy_nodes_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_upgrade_domain_delta_unhealthy_nodes_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
     """
@@ -1305,9 +1305,9 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterUpgradePolicyDeltaHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_delta_unhealthy_applications_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_delta_unhealthy_nodes_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_upgrade_domain_delta_unhealthy_nodes_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_delta_unhealthy_applications_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_delta_unhealthy_nodes_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_upgrade_domain_delta_unhealthy_nodes_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_delta_unhealthy_applications_percent: Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
         :param pulumi.Input[_builtins.int] max_delta_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
@@ -1322,47 +1322,47 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxDeltaUnhealthyApplicationsPercent")
-    def max_delta_unhealthy_applications_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_delta_unhealthy_applications_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
         """
         return pulumi.get(self, "max_delta_unhealthy_applications_percent")
 
     @max_delta_unhealthy_applications_percent.setter
-    def max_delta_unhealthy_applications_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_delta_unhealthy_applications_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_delta_unhealthy_applications_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDeltaUnhealthyNodesPercent")
-    def max_delta_unhealthy_nodes_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_delta_unhealthy_nodes_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
         """
         return pulumi.get(self, "max_delta_unhealthy_nodes_percent")
 
     @max_delta_unhealthy_nodes_percent.setter
-    def max_delta_unhealthy_nodes_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_delta_unhealthy_nodes_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_delta_unhealthy_nodes_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUpgradeDomainDeltaUnhealthyNodesPercent")
-    def max_upgrade_domain_delta_unhealthy_nodes_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_upgrade_domain_delta_unhealthy_nodes_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
         """
         return pulumi.get(self, "max_upgrade_domain_delta_unhealthy_nodes_percent")
 
     @max_upgrade_domain_delta_unhealthy_nodes_percent.setter
-    def max_upgrade_domain_delta_unhealthy_nodes_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_upgrade_domain_delta_unhealthy_nodes_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_upgrade_domain_delta_unhealthy_nodes_percent", value)
 
 
 class ClusterUpgradePolicyHealthPolicyArgsDict(TypedDict):
-    max_unhealthy_applications_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_unhealthy_applications_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
     """
-    max_unhealthy_nodes_percent: NotRequired[pulumi.Input[_builtins.int]]
+    max_unhealthy_nodes_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
     """
@@ -1370,8 +1370,8 @@ class ClusterUpgradePolicyHealthPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterUpgradePolicyHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_unhealthy_applications_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_unhealthy_nodes_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_unhealthy_applications_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_unhealthy_nodes_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_unhealthy_applications_percent: Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
         :param pulumi.Input[_builtins.int] max_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
@@ -1383,35 +1383,35 @@ class ClusterUpgradePolicyHealthPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyApplicationsPercent")
-    def max_unhealthy_applications_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unhealthy_applications_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
         """
         return pulumi.get(self, "max_unhealthy_applications_percent")
 
     @max_unhealthy_applications_percent.setter
-    def max_unhealthy_applications_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unhealthy_applications_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unhealthy_applications_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyNodesPercent")
-    def max_unhealthy_nodes_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_unhealthy_nodes_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
         """
         return pulumi.get(self, "max_unhealthy_nodes_percent")
 
     @max_unhealthy_nodes_percent.setter
-    def max_unhealthy_nodes_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_unhealthy_nodes_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_unhealthy_nodes_percent", value)
 
 
 class ManagedClusterAuthenticationArgsDict(TypedDict):
-    active_directory: NotRequired[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgsDict']]
+    active_directory: NotRequired[pulumi.Input[Optional['ManagedClusterAuthenticationActiveDirectoryArgs']]]
     """
     A `active_directory` block as defined above.
     """
-    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgsDict']]]]
+    certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]]
     """
     One or more `certificate` blocks as defined below.
     """
@@ -1419,8 +1419,8 @@ class ManagedClusterAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedClusterAuthenticationArgs:
     def __init__(__self__, *,
-                 active_directory: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]] = None):
+                 active_directory: pulumi.Input[Optional['ManagedClusterAuthenticationActiveDirectoryArgs']] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]] = None):
         """
         :param pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
@@ -1432,26 +1432,26 @@ class ManagedClusterAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']]:
+    def active_directory(self) -> pulumi.Input[Optional['ManagedClusterAuthenticationActiveDirectoryArgs']]:
         """
         A `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']]):
+    def active_directory(self, value: pulumi.Input[Optional['ManagedClusterAuthenticationActiveDirectoryArgs']]):
         pulumi.set(self, "active_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]:
         """
         One or more `certificate` blocks as defined below.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
 
@@ -1530,7 +1530,7 @@ class ManagedClusterAuthenticationCertificateArgsDict(TypedDict):
     """
     The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
     """
-    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate's CN.
     """
@@ -1540,7 +1540,7 @@ class ManagedClusterAuthenticationCertificateArgs:
     def __init__(__self__, *,
                  thumbprint: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] thumbprint: The thumbprint of the certificate.
         :param pulumi.Input[_builtins.str] type: The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
@@ -1577,14 +1577,14 @@ class ManagedClusterAuthenticationCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate's CN.
         """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
 
@@ -1671,7 +1671,7 @@ class ManagedClusterLbRuleArgsDict(TypedDict):
     """
     The transport protocol used in this rule. Can be one of `tcp` or `udp`.
     """
-    probe_request_path: NotRequired[pulumi.Input[_builtins.str]]
+    probe_request_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path for the probe to check, when probe protocol is set to `http`.
     """
@@ -1683,7 +1683,7 @@ class ManagedClusterLbRuleArgs:
                  frontend_port: pulumi.Input[_builtins.int],
                  probe_protocol: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
-                 probe_request_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 probe_request_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] backend_port: LB Backend port.
         :param pulumi.Input[_builtins.int] frontend_port: LB Frontend port.
@@ -1748,14 +1748,14 @@ class ManagedClusterLbRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="probeRequestPath")
-    def probe_request_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def probe_request_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path for the probe to check, when probe protocol is set to `http`.
         """
         return pulumi.get(self, "probe_request_path")
 
     @probe_request_path.setter
-    def probe_request_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def probe_request_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "probe_request_path", value)
 
 
@@ -1800,35 +1800,35 @@ class ManagedClusterNodeTypeArgsDict(TypedDict):
     """
     The size of the instances in this node type.
     """
-    capacities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    capacities: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of key/value pairs used to set capacity tags for this node type.
     """
-    data_disk_type: NotRequired[pulumi.Input[_builtins.str]]
+    data_disk_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Resource Group.
     """
-    multiple_placement_groups_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    multiple_placement_groups_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set the node type can be composed of multiple placement groups.
     """
-    placement_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    placement_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of placement tags that can be used to indicate where services should run..
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
     """
-    stateless: NotRequired[pulumi.Input[_builtins.bool]]
+    stateless: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, only stateless workloads can run on this node type.
     """
-    vm_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgsDict']]]]
+    vm_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]]
     """
     One or more `vm_secrets` blocks as defined below.
     """
@@ -1846,14 +1846,14 @@ class ManagedClusterNodeTypeArgs:
                  vm_image_version: pulumi.Input[_builtins.str],
                  vm_instance_count: pulumi.Input[_builtins.int],
                  vm_size: pulumi.Input[_builtins.str],
-                 capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multiple_placement_groups_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stateless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]] = None):
+                 capacities: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_placement_groups_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 placement_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stateless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vm_secrets: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] application_port_range: Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
         :param pulumi.Input[_builtins.int] data_disk_size_gb: The size of the data disk in gigabytes..
@@ -2023,98 +2023,98 @@ class ManagedClusterNodeTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def capacities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of key/value pairs used to set capacity tags for this node type.
         """
         return pulumi.get(self, "capacities")
 
     @capacities.setter
-    def capacities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def capacities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacities", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDiskType")
-    def data_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
         """
         return pulumi.get(self, "data_disk_type")
 
     @data_disk_type.setter
-    def data_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_disk_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Resource Group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiplePlacementGroupsEnabled")
-    def multiple_placement_groups_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multiple_placement_groups_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set the node type can be composed of multiple placement groups.
         """
         return pulumi.get(self, "multiple_placement_groups_enabled")
 
     @multiple_placement_groups_enabled.setter
-    def multiple_placement_groups_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multiple_placement_groups_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multiple_placement_groups_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="placementProperties")
-    def placement_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def placement_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of placement tags that can be used to indicate where services should run..
         """
         return pulumi.get(self, "placement_properties")
 
     @placement_properties.setter
-    def placement_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def placement_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "placement_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter
-    def stateless(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stateless(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, only stateless workloads can run on this node type.
         """
         return pulumi.get(self, "stateless")
 
     @stateless.setter
-    def stateless(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stateless(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stateless", value)
 
     @_builtins.property
     @pulumi.getter(name="vmSecrets")
-    def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]:
+    def vm_secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]:
         """
         One or more `vm_secrets` blocks as defined below.
         """
         return pulumi.get(self, "vm_secrets")
 
     @vm_secrets.setter
-    def vm_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]):
+    def vm_secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]):
         pulumi.set(self, "vm_secrets", value)
 
 

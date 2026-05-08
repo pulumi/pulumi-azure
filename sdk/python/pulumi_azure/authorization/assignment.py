@@ -21,15 +21,15 @@ class AssignmentArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_service_principal_aad_check: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Assignment resource.
 
@@ -104,19 +104,19 @@ class AssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 
@@ -125,12 +125,12 @@ class AssignmentArgs:
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedManagedIdentityResourceId")
-    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_managed_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
 
@@ -139,60 +139,60 @@ class AssignmentArgs:
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @delegated_managed_identity_resource_id.setter
-    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_managed_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_managed_identity_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for this Role Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionName")
-    def role_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a built-in Role. Changing this forces a new resource to be created.
 
@@ -201,12 +201,12 @@ class AssignmentArgs:
         return pulumi.get(self, "role_definition_name")
 
     @role_definition_name.setter
-    def role_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipServicePrincipalAadCheck")
-    def skip_service_principal_aad_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_service_principal_aad_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
 
@@ -215,24 +215,24 @@ class AssignmentArgs:
         return pulumi.get(self, "skip_service_principal_aad_check")
 
     @skip_service_principal_aad_check.setter
-    def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_service_principal_aad_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_service_principal_aad_check", value)
 
 
 @pulumi.input_type
 class _AssignmentState:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_service_principal_aad_check: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Assignment resources.
 
@@ -283,19 +283,19 @@ class _AssignmentState:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 
@@ -304,12 +304,12 @@ class _AssignmentState:
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedManagedIdentityResourceId")
-    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_managed_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
 
@@ -318,36 +318,36 @@ class _AssignmentState:
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @delegated_managed_identity_resource_id.setter
-    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_managed_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_managed_identity_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for this Role Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
 
@@ -356,36 +356,36 @@ class _AssignmentState:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionName")
-    def role_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a built-in Role. Changing this forces a new resource to be created.
 
@@ -394,24 +394,24 @@ class _AssignmentState:
         return pulumi.get(self, "role_definition_name")
 
     @role_definition_name.setter
-    def role_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_definition_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="skipServicePrincipalAadCheck")
-    def skip_service_principal_aad_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_service_principal_aad_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
 
@@ -420,7 +420,7 @@ class _AssignmentState:
         return pulumi.get(self, "skip_service_principal_aad_check")
 
     @skip_service_principal_aad_check.setter
-    def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_service_principal_aad_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_service_principal_aad_check", value)
 
 
@@ -430,17 +430,17 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_service_principal_aad_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Assigns a given Principal (User or Group) to a given Role.
@@ -799,17 +799,17 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_service_principal_aad_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -846,17 +846,17 @@ class Assignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            condition: Optional[pulumi.Input[_builtins.str]] = None,
-            condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-            delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Assignment':
+            condition: pulumi.Input[Optional[_builtins.str]] = None,
+            condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_service_principal_aad_check: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Assignment':
         """
         Get an existing Assignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

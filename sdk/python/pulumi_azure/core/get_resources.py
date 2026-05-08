@@ -136,10 +136,10 @@ def get_resources(name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         resources=pulumi.get(__ret__, 'resources'),
         type=pulumi.get(__ret__, 'type'))
-def get_resources_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         required_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                         resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resources_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         required_tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                         resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcesResult]:
     """
     Use this data source to access information about existing resources.

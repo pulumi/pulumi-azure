@@ -191,59 +191,59 @@ export interface SpringCloudAppState {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Service.
      */
-    addonJson?: pulumi.Input<string>;
+    addonJson?: pulumi.Input<string | undefined>;
     /**
      * A `customPersistentDisk` block as defined below.
      */
-    customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[]>;
+    customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[] | undefined>;
     /**
      * The Fully Qualified DNS Name of the Spring Application in the service.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Is only HTTPS allowed? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
+    identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity | undefined>;
     /**
      * An `ingressSettings` block as defined below.
      */
-    ingressSettings?: pulumi.Input<inputs.appplatform.SpringCloudAppIngressSettings>;
+    ingressSettings?: pulumi.Input<inputs.appplatform.SpringCloudAppIngressSettings | undefined>;
     /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      */
-    isPublic?: pulumi.Input<boolean>;
+    isPublic?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `persistentDisk` block as defined below.
      */
-    persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk>;
+    persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk | undefined>;
     /**
      * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
      */
-    publicEndpointEnabled?: pulumi.Input<boolean>;
+    publicEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Is End to End TLS Enabled? Defaults to `false`.
      */
-    tlsEnabled?: pulumi.Input<boolean>;
+    tlsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The public endpoint of the Spring Cloud Application.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -253,39 +253,39 @@ export interface SpringCloudAppArgs {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Service.
      */
-    addonJson?: pulumi.Input<string>;
+    addonJson?: pulumi.Input<string | undefined>;
     /**
      * A `customPersistentDisk` block as defined below.
      */
-    customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[]>;
+    customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[] | undefined>;
     /**
      * Is only HTTPS allowed? Defaults to `false`.
      */
-    httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
+    identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity | undefined>;
     /**
      * An `ingressSettings` block as defined below.
      */
-    ingressSettings?: pulumi.Input<inputs.appplatform.SpringCloudAppIngressSettings>;
+    ingressSettings?: pulumi.Input<inputs.appplatform.SpringCloudAppIngressSettings | undefined>;
     /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      */
-    isPublic?: pulumi.Input<boolean>;
+    isPublic?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `persistentDisk` block as defined below.
      */
-    persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk>;
+    persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk | undefined>;
     /**
      * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
      */
-    publicEndpointEnabled?: pulumi.Input<boolean>;
+    publicEndpointEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
@@ -297,5 +297,5 @@ export interface SpringCloudAppArgs {
     /**
      * Is End to End TLS Enabled? Defaults to `false`.
      */
-    tlsEnabled?: pulumi.Input<boolean>;
+    tlsEnabled?: pulumi.Input<boolean | undefined>;
 }

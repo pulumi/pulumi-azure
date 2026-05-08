@@ -118,9 +118,9 @@ export interface GetDnsZoneOutputArgs {
      * If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
      * DNS Zones in your subscription that matches `name` will be returned.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags for the zone.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

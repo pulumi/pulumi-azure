@@ -24,8 +24,8 @@ class ConnectionTypeArgs:
                  automation_account_name: pulumi.Input[_builtins.str],
                  fields: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionType resource.
 
@@ -81,37 +81,37 @@ class ConnectionTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_global(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection type is global. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "is_global")
 
     @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_global(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_global", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ConnectionTypeState:
     def __init__(__self__, *,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]]] = None,
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]]] = None,
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionType resources.
 
@@ -134,62 +134,62 @@ class _ConnectionTypeState:
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def automation_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "automation_account_name")
 
     @automation_account_name.setter
-    def automation_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def automation_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]]]:
+    def fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]]]:
         """
         One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]]]):
+    def fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeFieldArgs']]]]):
         pulumi.set(self, "fields", value)
 
     @_builtins.property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_global(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection type is global. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "is_global")
 
     @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_global(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_global", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -199,11 +199,11 @@ class ConnectionType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages anAutomation Connection Type.
@@ -322,11 +322,11 @@ class ConnectionType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
-                 is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
+                 is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,11 +357,11 @@ class ConnectionType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
-            is_global: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ConnectionType':
+            automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
+            is_global: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConnectionType':
         """
         Get an existing ConnectionType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

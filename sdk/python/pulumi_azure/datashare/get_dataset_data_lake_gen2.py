@@ -170,8 +170,8 @@ def get_dataset_data_lake_gen2(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         share_id=pulumi.get(__ret__, 'share_id'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
-def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      share_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_data_lake_gen2_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      share_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetDataLakeGen2Result]:
     """
     Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.

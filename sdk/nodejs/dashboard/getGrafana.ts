@@ -159,7 +159,7 @@ export interface GetGrafanaOutputArgs {
     /**
      * The managed identity of the grafana resource.
      */
-    identity?: pulumi.Input<inputs.dashboard.GetGrafanaIdentityArgs>;
+    identity?: pulumi.Input<inputs.dashboard.GetGrafanaIdentityArgs | undefined>;
     /**
      * Name of the grafana dashboard.
      */

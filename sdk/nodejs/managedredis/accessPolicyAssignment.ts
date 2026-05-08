@@ -92,13 +92,13 @@ export interface AccessPolicyAssignmentState {
     /**
      * The ID of the Managed Redis instance. Changing this forces a new Access Policy Assignment to be created.
      */
-    managedRedisId?: pulumi.Input<string>;
+    managedRedisId?: pulumi.Input<string | undefined>;
     /**
      * The object ID of the Azure Active Directory user, group, service principal, or managed identity to assign the access policy to. Changing this forces a new Access Policy Assignment to be created.
      *
      * > **Note:** Access Policy Assignments are created on the `default` database of the Managed Redis instance.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
 }
 
 /**

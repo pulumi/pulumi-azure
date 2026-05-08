@@ -151,9 +151,9 @@ export interface GetTrafficManagerProfileOutputArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      */
-    trafficViewEnabled?: pulumi.Input<boolean>;
+    trafficViewEnabled?: pulumi.Input<boolean | undefined>;
 }

@@ -165,7 +165,7 @@ class CustomProviderResourceTypeArgsDict(TypedDict):
     """
     Specifies the name of the route definition.
     """
-    routing_type: NotRequired[pulumi.Input[_builtins.str]]
+    routing_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
     """
@@ -175,7 +175,7 @@ class CustomProviderResourceTypeArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 routing_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 routing_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint: Specifies the endpoint of the route definition.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the route definition.
@@ -212,14 +212,14 @@ class CustomProviderResourceTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingType")
-    def routing_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
         """
         return pulumi.get(self, "routing_type")
 
     @routing_type.setter
-    def routing_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_type", value)
 
 
@@ -252,7 +252,7 @@ class CustomProviderValidationArgs:
 
 
 class ResourceDeploymentScriptAzureCliContainerArgsDict(TypedDict):
-    container_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
     """
@@ -260,7 +260,7 @@ class ResourceDeploymentScriptAzureCliContainerArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceDeploymentScriptAzureCliContainerArgs:
     def __init__(__self__, *,
-                 container_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
@@ -269,14 +269,14 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerGroupName")
-    def container_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         return pulumi.get(self, "container_group_name")
 
     @container_group_name.setter
-    def container_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_group_name", value)
 
 
@@ -285,11 +285,11 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgsDict(TypedDict):
     """
     Specifies the name of the environment variable.
     """
-    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    secure_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the value of the secure environment variable.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the value of the environment variable.
     """
@@ -298,8 +298,8 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgsDict(TypedDict):
 class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 secure_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 secure_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the environment variable.
         :param pulumi.Input[_builtins.str] secure_value: Specifies the value of the secure environment variable.
@@ -325,26 +325,26 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="secureValue")
-    def secure_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the secure environment variable.
         """
         return pulumi.get(self, "secure_value")
 
     @secure_value.setter
-    def secure_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the environment variable.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -443,7 +443,7 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
 
 
 class ResourceDeploymentScriptPowerShellContainerArgsDict(TypedDict):
-    container_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
     """
@@ -451,7 +451,7 @@ class ResourceDeploymentScriptPowerShellContainerArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceDeploymentScriptPowerShellContainerArgs:
     def __init__(__self__, *,
-                 container_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
@@ -460,14 +460,14 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerGroupName")
-    def container_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
         return pulumi.get(self, "container_group_name")
 
     @container_group_name.setter
-    def container_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_group_name", value)
 
 
@@ -476,11 +476,11 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict(TypedDict):
     """
     Specifies the name of the environment variable.
     """
-    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    secure_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the value of the secure environment variable.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the value of the environment variable.
     """
@@ -489,8 +489,8 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict(TypedDict):
 class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 secure_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 secure_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the environment variable.
         :param pulumi.Input[_builtins.str] secure_value: Specifies the value of the secure environment variable.
@@ -516,26 +516,26 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="secureValue")
-    def secure_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the secure environment variable.
         """
         return pulumi.get(self, "secure_value")
 
     @secure_value.setter
-    def secure_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the environment variable.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -742,11 +742,11 @@ class ResourceGroupCostManagementViewDatasetArgsDict(TypedDict):
     """
     The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
     """
-    groupings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgsDict']]]]
+    groupings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]]
     """
     One or more `grouping` blocks as defined below.
     """
-    sortings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgsDict']]]]
+    sortings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]]
     """
     One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
     """
@@ -756,8 +756,8 @@ class ResourceGroupCostManagementViewDatasetArgs:
     def __init__(__self__, *,
                  aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]],
                  granularity: pulumi.Input[_builtins.str],
-                 groupings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]] = None,
-                 sortings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]] = None):
+                 groupings: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]] = None,
+                 sortings: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]] aggregations: One or more `aggregation` blocks as defined above.
         :param pulumi.Input[_builtins.str] granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
@@ -797,26 +797,26 @@ class ResourceGroupCostManagementViewDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groupings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]:
+    def groupings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]:
         """
         One or more `grouping` blocks as defined below.
         """
         return pulumi.get(self, "groupings")
 
     @groupings.setter
-    def groupings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]):
+    def groupings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]):
         pulumi.set(self, "groupings", value)
 
     @_builtins.property
     @pulumi.getter
-    def sortings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]:
+    def sortings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]:
         """
         One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         return pulumi.get(self, "sortings")
 
     @sortings.setter
-    def sortings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]):
+    def sortings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]):
         pulumi.set(self, "sortings", value)
 
 
@@ -1041,17 +1041,17 @@ class ResourceGroupPolicyAssignmentIdentityArgsDict(TypedDict):
     """
     The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
     > **Note:** This is required when `type` is set to `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID of the Policy Assignment for this Resource Group.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID of the Policy Assignment for this Resource Group.
     """
@@ -1060,9 +1060,9 @@ class ResourceGroupPolicyAssignmentIdentityArgsDict(TypedDict):
 class ResourceGroupPolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -1093,7 +1093,7 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
@@ -1102,31 +1102,31 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID of the Policy Assignment for this Resource Group.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Policy Assignment for this Resource Group.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1135,7 +1135,7 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
     """
     The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
     """
-    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_definition_reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
     """
@@ -1144,7 +1144,7 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
 class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[_builtins.str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
@@ -1167,14 +1167,14 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
@@ -1183,7 +1183,7 @@ class ResourceGroupPolicyAssignmentOverrideArgsDict(TypedDict):
     """
     Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgsDict']]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]]
     """
     One or more `override_selector` block as defined below.
     """
@@ -1192,7 +1192,7 @@ class ResourceGroupPolicyAssignmentOverrideArgsDict(TypedDict):
 class ResourceGroupPolicyAssignmentOverrideArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
@@ -1215,28 +1215,28 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]:
         """
         One or more `override_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 class ResourceGroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    kind: NotRequired[pulumi.Input[_builtins.str]]
-    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
     def __init__(__self__, *,
-                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -1246,29 +1246,29 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ins")
 
     @ins.setter
-    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ins", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="notIns")
-    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "not_ins")
 
     @not_ins.setter
-    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
 
 
@@ -1277,7 +1277,7 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
     """
     One or more `resource_selector` block as defined below.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a name for the resource selector.
     """
@@ -1286,7 +1286,7 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
 class ResourceGroupPolicyAssignmentResourceSelectorArgs:
     def __init__(__self__, *,
                  selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies a name for the resource selector.
@@ -1309,28 +1309,28 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a name for the resource selector.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
     kind: pulumi.Input[_builtins.str]
-    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -1348,20 +1348,20 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ins")
 
     @ins.setter
-    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ins", value)
 
     @_builtins.property
     @pulumi.getter(name="notIns")
-    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "not_ins")
 
     @not_ins.setter
-    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
 
 
@@ -1370,17 +1370,17 @@ class ResourcePolicyAssignmentIdentityArgsDict(TypedDict):
     """
     The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
     > **Note:** This is required when `type` is set to `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID of the Policy Assignment for this Resource.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID of the Policy Assignment for this Resource.
     """
@@ -1389,9 +1389,9 @@ class ResourcePolicyAssignmentIdentityArgsDict(TypedDict):
 class ResourcePolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -1422,7 +1422,7 @@ class ResourcePolicyAssignmentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
@@ -1431,31 +1431,31 @@ class ResourcePolicyAssignmentIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID of the Policy Assignment for this Resource.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Policy Assignment for this Resource.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -1464,7 +1464,7 @@ class ResourcePolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
     """
     The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
     """
-    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_definition_reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
     """
@@ -1473,7 +1473,7 @@ class ResourcePolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
 class ResourcePolicyAssignmentNonComplianceMessageArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[_builtins.str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
@@ -1496,14 +1496,14 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
@@ -1512,7 +1512,7 @@ class ResourcePolicyAssignmentOverrideArgsDict(TypedDict):
     """
     Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgsDict']]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]]
     """
     One or more `override_selector` block as defined below.
     """
@@ -1521,7 +1521,7 @@ class ResourcePolicyAssignmentOverrideArgsDict(TypedDict):
 class ResourcePolicyAssignmentOverrideArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
@@ -1544,28 +1544,28 @@ class ResourcePolicyAssignmentOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]:
         """
         One or more `override_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 class ResourcePolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    kind: NotRequired[pulumi.Input[_builtins.str]]
-    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ResourcePolicyAssignmentOverrideSelectorArgs:
     def __init__(__self__, *,
-                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -1575,29 +1575,29 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ins")
 
     @ins.setter
-    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ins", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="notIns")
-    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "not_ins")
 
     @not_ins.setter
-    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
 
 
@@ -1606,7 +1606,7 @@ class ResourcePolicyAssignmentResourceSelectorArgsDict(TypedDict):
     """
     One or more `resource_selector` block as defined below.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a name for the resource selector.
     """
@@ -1615,7 +1615,7 @@ class ResourcePolicyAssignmentResourceSelectorArgsDict(TypedDict):
 class ResourcePolicyAssignmentResourceSelectorArgs:
     def __init__(__self__, *,
                  selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies a name for the resource selector.
@@ -1638,28 +1638,28 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a name for the resource selector.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class ResourcePolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
     kind: pulumi.Input[_builtins.str]
-    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -1677,20 +1677,20 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ins")
 
     @ins.setter
-    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ins", value)
 
     @_builtins.property
     @pulumi.getter(name="notIns")
-    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "not_ins")
 
     @not_ins.setter
-    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
 
 
@@ -1856,11 +1856,11 @@ class SubscriptionCostManagementViewDatasetArgsDict(TypedDict):
     """
     The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
     """
-    groupings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgsDict']]]]
+    groupings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]]
     """
     One or more `grouping` blocks as defined below.
     """
-    sortings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgsDict']]]]
+    sortings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]]
     """
     One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
     """
@@ -1870,8 +1870,8 @@ class SubscriptionCostManagementViewDatasetArgs:
     def __init__(__self__, *,
                  aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]],
                  granularity: pulumi.Input[_builtins.str],
-                 groupings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]] = None,
-                 sortings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]] = None):
+                 groupings: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]] = None,
+                 sortings: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]] aggregations: One or more `aggregation` blocks as defined above.
         :param pulumi.Input[_builtins.str] granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
@@ -1911,26 +1911,26 @@ class SubscriptionCostManagementViewDatasetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groupings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]:
+    def groupings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]:
         """
         One or more `grouping` blocks as defined below.
         """
         return pulumi.get(self, "groupings")
 
     @groupings.setter
-    def groupings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]):
+    def groupings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]):
         pulumi.set(self, "groupings", value)
 
     @_builtins.property
     @pulumi.getter
-    def sortings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]:
+    def sortings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]:
         """
         One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         return pulumi.get(self, "sortings")
 
     @sortings.setter
-    def sortings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]):
+    def sortings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]):
         pulumi.set(self, "sortings", value)
 
 
@@ -2155,17 +2155,17 @@ class SubscriptionPolicyAssignmentIdentityArgsDict(TypedDict):
     """
     The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
     > **Note:** This is required when `type` is set to `UserAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID of the Policy Assignment for this Subscription.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID of the Policy Assignment for this Subscription.
     """
@@ -2174,9 +2174,9 @@ class SubscriptionPolicyAssignmentIdentityArgsDict(TypedDict):
 class SubscriptionPolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -2207,7 +2207,7 @@ class SubscriptionPolicyAssignmentIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
@@ -2216,31 +2216,31 @@ class SubscriptionPolicyAssignmentIdentityArgs:
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID of the Policy Assignment for this Subscription.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID of the Policy Assignment for this Subscription.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -2249,7 +2249,7 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
     """
     The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
     """
-    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    policy_definition_reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
     """
@@ -2258,7 +2258,7 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
 class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
-                 policy_definition_reference_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_definition_reference_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[_builtins.str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
@@ -2281,14 +2281,14 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
-    def policy_definition_reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
@@ -2297,7 +2297,7 @@ class SubscriptionPolicyAssignmentOverrideArgsDict(TypedDict):
     """
     Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
     """
-    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgsDict']]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]]
     """
     One or more `override_selector` block as defined below.
     """
@@ -2306,7 +2306,7 @@ class SubscriptionPolicyAssignmentOverrideArgsDict(TypedDict):
 class SubscriptionPolicyAssignmentOverrideArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` block as defined below.
@@ -2329,28 +2329,28 @@ class SubscriptionPolicyAssignmentOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]:
         """
         One or more `override_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 class SubscriptionPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    kind: NotRequired[pulumi.Input[_builtins.str]]
-    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentOverrideSelectorArgs:
     def __init__(__self__, *,
-                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -2360,29 +2360,29 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ins")
 
     @ins.setter
-    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ins", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="notIns")
-    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "not_ins")
 
     @not_ins.setter
-    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
 
 
@@ -2391,7 +2391,7 @@ class SubscriptionPolicyAssignmentResourceSelectorArgsDict(TypedDict):
     """
     One or more `resource_selector` block as defined below.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a name for the resource selector.
     """
@@ -2400,7 +2400,7 @@ class SubscriptionPolicyAssignmentResourceSelectorArgsDict(TypedDict):
 class SubscriptionPolicyAssignmentResourceSelectorArgs:
     def __init__(__self__, *,
                  selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies a name for the resource selector.
@@ -2423,28 +2423,28 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a name for the resource selector.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
     kind: pulumi.Input[_builtins.str]
-    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_ins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -2462,20 +2462,20 @@ class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "ins")
 
     @ins.setter
-    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ins", value)
 
     @_builtins.property
     @pulumi.getter(name="notIns")
-    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_ins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "not_ins")
 
     @not_ins.setter
-    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_ins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_ins", value)
 
 

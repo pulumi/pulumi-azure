@@ -270,87 +270,87 @@ export interface KeyState {
     /**
      * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      */
-    curve?: pulumi.Input<string>;
+    curve?: pulumi.Input<string | undefined>;
     /**
      * The RSA public exponent of this Key Vault Key.
      */
-    e?: pulumi.Input<string>;
+    e?: pulumi.Input<string | undefined>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Removing this field from the config forces a new resource to be created.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
-    keyOpts?: pulumi.Input<pulumi.Input<string>[]>;
+    keyOpts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    keySize?: pulumi.Input<number>;
+    keySize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    keyType?: pulumi.Input<string>;
+    keyType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * The RSA modulus of this Key Vault Key.
      */
-    n?: pulumi.Input<string>;
+    n?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
-    notBeforeDate?: pulumi.Input<string>;
+    notBeforeDate?: pulumi.Input<string | undefined>;
     /**
      * The OpenSSH encoded public key of this Key Vault Key.
      */
-    publicKeyOpenssh?: pulumi.Input<string>;
+    publicKeyOpenssh?: pulumi.Input<string | undefined>;
     /**
      * The PEM encoded public key of this Key Vault Key.
      */
-    publicKeyPem?: pulumi.Input<string>;
+    publicKeyPem?: pulumi.Input<string | undefined>;
     /**
      * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
      */
-    resourceVersionlessId?: pulumi.Input<string>;
+    resourceVersionlessId?: pulumi.Input<string | undefined>;
     /**
      * A `rotationPolicy` block as defined below.
      */
-    rotationPolicy?: pulumi.Input<inputs.keyvault.KeyRotationPolicy>;
+    rotationPolicy?: pulumi.Input<inputs.keyvault.KeyRotationPolicy | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The current version of the Key Vault Key.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The Base ID of the Key Vault Key.
      */
-    versionlessId?: pulumi.Input<string>;
+    versionlessId?: pulumi.Input<string | undefined>;
     /**
      * The EC X component of this Key Vault Key.
      */
-    x?: pulumi.Input<string>;
+    x?: pulumi.Input<string | undefined>;
     /**
      * The EC Y component of this Key Vault Key.
      */
-    y?: pulumi.Input<string>;
+    y?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -360,13 +360,13 @@ export interface KeyArgs {
     /**
      * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      */
-    curve?: pulumi.Input<string>;
+    curve?: pulumi.Input<string | undefined>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Removing this field from the config forces a new resource to be created.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
@@ -374,7 +374,7 @@ export interface KeyArgs {
     /**
      * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    keySize?: pulumi.Input<number>;
+    keySize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
@@ -386,19 +386,19 @@ export interface KeyArgs {
     /**
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
-    notBeforeDate?: pulumi.Input<string>;
+    notBeforeDate?: pulumi.Input<string | undefined>;
     /**
      * A `rotationPolicy` block as defined below.
      */
-    rotationPolicy?: pulumi.Input<inputs.keyvault.KeyRotationPolicy>;
+    rotationPolicy?: pulumi.Input<inputs.keyvault.KeyRotationPolicy | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

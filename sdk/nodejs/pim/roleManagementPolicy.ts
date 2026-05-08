@@ -173,35 +173,35 @@ export interface RoleManagementPolicyState {
     /**
      * An `activationRules` block as defined below.
      */
-    activationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActivationRules>;
+    activationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActivationRules | undefined>;
     /**
      * An `activeAssignmentRules` block as defined below.
      */
-    activeAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActiveAssignmentRules>;
+    activeAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActiveAssignmentRules | undefined>;
     /**
      * (String) The description of this policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `eligibleAssignmentRules` block as defined below.
      */
-    eligibleAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyEligibleAssignmentRules>;
+    eligibleAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyEligibleAssignmentRules | undefined>;
     /**
      * (String) The name of this policy, which is typically a UUID and may change over time.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `notificationRules` block as defined below.
      */
-    notificationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRules>;
+    notificationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRules | undefined>;
     /**
      * The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
      */
-    roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,19 +211,19 @@ export interface RoleManagementPolicyArgs {
     /**
      * An `activationRules` block as defined below.
      */
-    activationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActivationRules>;
+    activationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActivationRules | undefined>;
     /**
      * An `activeAssignmentRules` block as defined below.
      */
-    activeAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActiveAssignmentRules>;
+    activeAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyActiveAssignmentRules | undefined>;
     /**
      * An `eligibleAssignmentRules` block as defined below.
      */
-    eligibleAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyEligibleAssignmentRules>;
+    eligibleAssignmentRules?: pulumi.Input<inputs.pim.RoleManagementPolicyEligibleAssignmentRules | undefined>;
     /**
      * A `notificationRules` block as defined below.
      */
-    notificationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRules>;
+    notificationRules?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRules | undefined>;
     /**
      * The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
      */

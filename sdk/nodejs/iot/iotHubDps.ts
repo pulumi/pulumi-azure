@@ -187,55 +187,55 @@ export interface IotHubDpsState {
     /**
      * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
-    allocationPolicy?: pulumi.Input<string>;
+    allocationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    dataResidencyEnabled?: pulumi.Input<boolean>;
+    dataResidencyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The device endpoint of the IoT Device Provisioning Service.
      */
-    deviceProvisioningHostName?: pulumi.Input<string>;
+    deviceProvisioningHostName?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the IoT Device Provisioning Service.
      */
-    idScope?: pulumi.Input<string>;
+    idScope?: pulumi.Input<string | undefined>;
     /**
      * An `ipFilterRule` block as defined below.
      */
-    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsIpFilterRule>[]>;
+    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsIpFilterRule>[] | undefined>;
     /**
      * A `linkedHub` block as defined below.
      */
-    linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
+    linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether requests from Public Network are allowed. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The service endpoint of the IoT Device Provisioning Service.
      */
-    serviceOperationsHostName?: pulumi.Input<string>;
+    serviceOperationsHostName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.iot.IotHubDpsSku>;
+    sku?: pulumi.Input<inputs.iot.IotHubDpsSku | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -245,31 +245,31 @@ export interface IotHubDpsArgs {
     /**
      * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
-    allocationPolicy?: pulumi.Input<string>;
+    allocationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    dataResidencyEnabled?: pulumi.Input<boolean>;
+    dataResidencyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `ipFilterRule` block as defined below.
      */
-    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsIpFilterRule>[]>;
+    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsIpFilterRule>[] | undefined>;
     /**
      * A `linkedHub` block as defined below.
      */
-    linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
+    linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether requests from Public Network are allowed. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
@@ -281,5 +281,5 @@ export interface IotHubDpsArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -22,7 +22,7 @@ class ClusterTrustedAccessRoleBindingArgs:
                  kubernetes_cluster_id: pulumi.Input[_builtins.str],
                  roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterTrustedAccessRoleBinding resource.
 
@@ -75,24 +75,24 @@ class ClusterTrustedAccessRoleBindingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ClusterTrustedAccessRoleBindingState:
     def __init__(__self__, *,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterTrustedAccessRoleBinding resources.
 
@@ -112,50 +112,50 @@ class _ClusterTrustedAccessRoleBindingState:
 
     @_builtins.property
     @pulumi.getter(name="kubernetesClusterId")
-    def kubernetes_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kubernetes_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
         return pulumi.get(self, "kubernetes_cluster_id")
 
     @kubernetes_cluster_id.setter
-    def kubernetes_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kubernetes_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kubernetes_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of roles to bind, each item is a resource type qualified role name.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
 
@@ -165,10 +165,10 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -192,7 +192,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=example_azurerm_client_config["tenantId"],
             sku_name="example-value",
-            soft_delete_retention_days="example-value")
+            soft_delete_retention_days=int("example-value"))
         example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=example_azurerm_client_config["tenantId"],
@@ -205,7 +205,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -293,7 +293,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=example_azurerm_client_config["tenantId"],
             sku_name="example-value",
-            soft_delete_retention_days="example-value")
+            soft_delete_retention_days=int("example-value"))
         example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=example_azurerm_client_config["tenantId"],
@@ -306,7 +306,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -374,10 +374,10 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,10 +407,10 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            kubernetes_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            source_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterTrustedAccessRoleBinding':
+            kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterTrustedAccessRoleBinding':
         """
         Get an existing ClusterTrustedAccessRoleBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

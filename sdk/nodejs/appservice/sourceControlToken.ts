@@ -121,17 +121,17 @@ export interface SourceControlTokenState {
     /**
      * The Access Token.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The Access Token Secret.
      *
      * > **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
-    tokenSecret?: pulumi.Input<string>;
+    tokenSecret?: pulumi.Input<string | undefined>;
     /**
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,7 +147,7 @@ export interface SourceControlTokenArgs {
      *
      * > **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
-    tokenSecret?: pulumi.Input<string>;
+    tokenSecret?: pulumi.Input<string | undefined>;
     /**
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
      */

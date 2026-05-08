@@ -48,11 +48,11 @@ __all__ = [
 ]
 
 class BudgetManagementGroupFilterArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]]
     """
     One or more `dimension` blocks as defined below to filter the budget on.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]]
     """
     One or more `tag` blocks as defined below to filter the budget on.
     """
@@ -60,8 +60,8 @@ class BudgetManagementGroupFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetManagementGroupFilterArgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
@@ -73,26 +73,26 @@ class BudgetManagementGroupFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]:
         """
         One or more `tag` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +105,7 @@ class BudgetManagementGroupFilterDimensionArgsDict(TypedDict):
     """
     Specifies a list of values for the column.
     """
-    operator: NotRequired[pulumi.Input[_builtins.str]]
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
     """
@@ -115,7 +115,7 @@ class BudgetManagementGroupFilterDimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specifies a list of values for the column.
@@ -152,14 +152,14 @@ class BudgetManagementGroupFilterDimensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator", value)
 
 
@@ -172,7 +172,7 @@ class BudgetManagementGroupFilterTagArgsDict(TypedDict):
     """
     Specifies a list of values for the tag.
     """
-    operator: NotRequired[pulumi.Input[_builtins.str]]
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
     """
@@ -182,7 +182,7 @@ class BudgetManagementGroupFilterTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the tag to use for the filter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specifies a list of values for the tag.
@@ -219,14 +219,14 @@ class BudgetManagementGroupFilterTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator", value)
 
 
@@ -243,11 +243,11 @@ class BudgetManagementGroupNotificationArgsDict(TypedDict):
     """
     Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the notification be enabled? Defaults to `true`.
     """
-    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
     """
@@ -258,8 +258,8 @@ class BudgetManagementGroupNotificationArgs:
                  contact_emails: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  operator: pulumi.Input[_builtins.str],
                  threshold: pulumi.Input[_builtins.int],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 threshold_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 threshold_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_emails: Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[_builtins.str] operator: The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
@@ -313,26 +313,26 @@ class BudgetManagementGroupNotificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the notification be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold_type", value)
 
 
@@ -341,7 +341,7 @@ class BudgetManagementGroupTimePeriodArgsDict(TypedDict):
     """
     The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
     """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date for the budget. If not set this will be 10 years after the start date.
     """
@@ -350,7 +350,7 @@ class BudgetManagementGroupTimePeriodArgsDict(TypedDict):
 class BudgetManagementGroupTimePeriodArgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] start_date: The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] end_date: The end date for the budget. If not set this will be 10 years after the start date.
@@ -373,23 +373,23 @@ class BudgetManagementGroupTimePeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date for the budget. If not set this will be 10 years after the start date.
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
 
 class BudgetResourceGroupFilterArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]]
     """
     One or more `dimension` blocks as defined below to filter the budget on.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]]
     """
     One or more `tag` blocks as defined below to filter the budget on.
     """
@@ -397,8 +397,8 @@ class BudgetResourceGroupFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetResourceGroupFilterArgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
@@ -410,26 +410,26 @@ class BudgetResourceGroupFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]:
         """
         One or more `tag` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -442,7 +442,7 @@ class BudgetResourceGroupFilterDimensionArgsDict(TypedDict):
     """
     Specifies a list of values for the column.
     """
-    operator: NotRequired[pulumi.Input[_builtins.str]]
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
     """
@@ -452,7 +452,7 @@ class BudgetResourceGroupFilterDimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specifies a list of values for the column.
@@ -489,14 +489,14 @@ class BudgetResourceGroupFilterDimensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator", value)
 
 
@@ -509,7 +509,7 @@ class BudgetResourceGroupFilterTagArgsDict(TypedDict):
     """
     Specifies a list of values for the tag.
     """
-    operator: NotRequired[pulumi.Input[_builtins.str]]
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
     """
@@ -519,7 +519,7 @@ class BudgetResourceGroupFilterTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the tag to use for the filter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specifies a list of values for the tag.
@@ -556,14 +556,14 @@ class BudgetResourceGroupFilterTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator", value)
 
 
@@ -576,25 +576,25 @@ class BudgetResourceGroupNotificationArgsDict(TypedDict):
     """
     Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
     """
-    contact_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
     """
-    contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
     """
-    contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the notification be enabled? Defaults to `true`.
 
     > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
     """
-    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
     """
@@ -604,11 +604,11 @@ class BudgetResourceGroupNotificationArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  threshold: pulumi.Input[_builtins.int],
-                 contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 threshold_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contact_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contact_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 threshold_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
         :param pulumi.Input[_builtins.int] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -659,43 +659,43 @@ class BudgetResourceGroupNotificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_emails")
 
     @contact_emails.setter
-    def contact_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_groups")
 
     @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_roles")
 
     @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the notification be enabled? Defaults to `true`.
 
@@ -704,19 +704,19 @@ class BudgetResourceGroupNotificationArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold_type", value)
 
 
@@ -725,7 +725,7 @@ class BudgetResourceGroupTimePeriodArgsDict(TypedDict):
     """
     The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
     """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date for the budget. If not set this will be 10 years after the start date.
     """
@@ -734,7 +734,7 @@ class BudgetResourceGroupTimePeriodArgsDict(TypedDict):
 class BudgetResourceGroupTimePeriodArgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] start_date: The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
         :param pulumi.Input[_builtins.str] end_date: The end date for the budget. If not set this will be 10 years after the start date.
@@ -757,23 +757,23 @@ class BudgetResourceGroupTimePeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date for the budget. If not set this will be 10 years after the start date.
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
 
 class BudgetSubscriptionFilterArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgsDict']]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]]
     """
     One or more `dimension` blocks as defined below to filter the budget on.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]]
     """
     One or more `tag` blocks as defined below to filter the budget on.
     """
@@ -781,8 +781,8 @@ class BudgetSubscriptionFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetSubscriptionFilterArgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
@@ -794,26 +794,26 @@ class BudgetSubscriptionFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]:
         """
         One or more `tag` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -826,7 +826,7 @@ class BudgetSubscriptionFilterDimensionArgsDict(TypedDict):
     """
     Specifies a list of values for the column.
     """
-    operator: NotRequired[pulumi.Input[_builtins.str]]
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
     """
@@ -836,7 +836,7 @@ class BudgetSubscriptionFilterDimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specifies a list of values for the column.
@@ -873,14 +873,14 @@ class BudgetSubscriptionFilterDimensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator", value)
 
 
@@ -893,7 +893,7 @@ class BudgetSubscriptionFilterTagArgsDict(TypedDict):
     """
     Specifies a list of values for the tag.
     """
-    operator: NotRequired[pulumi.Input[_builtins.str]]
+    operator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
     """
@@ -903,7 +903,7 @@ class BudgetSubscriptionFilterTagArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 operator: Optional[pulumi.Input[_builtins.str]] = None):
+                 operator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the tag to use for the filter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Specifies a list of values for the tag.
@@ -940,14 +940,14 @@ class BudgetSubscriptionFilterTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operator", value)
 
 
@@ -960,25 +960,25 @@ class BudgetSubscriptionNotificationArgsDict(TypedDict):
     """
     Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
     """
-    contact_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_emails: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
     """
-    contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
     """
-    contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    contact_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should the notification be enabled? Defaults to `true`.
 
     > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
     """
-    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    threshold_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
     """
@@ -988,11 +988,11 @@ class BudgetSubscriptionNotificationArgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[_builtins.str],
                  threshold: pulumi.Input[_builtins.int],
-                 contact_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 threshold_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contact_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contact_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 threshold_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] operator: The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
         :param pulumi.Input[_builtins.int] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -1043,43 +1043,43 @@ class BudgetSubscriptionNotificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_emails")
 
     @contact_emails.setter
-    def contact_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_groups")
 
     @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def contact_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_roles")
 
     @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def contact_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "contact_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the notification be enabled? Defaults to `true`.
 
@@ -1088,19 +1088,19 @@ class BudgetSubscriptionNotificationArgs:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold_type", value)
 
 
@@ -1109,7 +1109,7 @@ class BudgetSubscriptionTimePeriodArgsDict(TypedDict):
     """
     The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
     """
-    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The end date for the budget. If not set this will be 10 years after the start date.
     """
@@ -1118,7 +1118,7 @@ class BudgetSubscriptionTimePeriodArgsDict(TypedDict):
 class BudgetSubscriptionTimePeriodArgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[_builtins.str],
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] start_date: The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
         :param pulumi.Input[_builtins.str] end_date: The end date for the budget. If not set this will be 10 years after the start date.
@@ -1141,14 +1141,14 @@ class BudgetSubscriptionTimePeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date for the budget. If not set this will be 10 years after the start date.
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
 

@@ -32,8 +32,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -83,8 +83,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -134,8 +134,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -236,8 +236,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -287,8 +287,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -387,8 +387,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -437,8 +437,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class ManagedredisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.managedredis.ManagedredisFunctions;
      * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

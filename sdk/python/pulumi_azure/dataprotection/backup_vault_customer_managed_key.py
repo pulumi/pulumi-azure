@@ -58,8 +58,8 @@ class BackupVaultCustomerManagedKeyArgs:
 @pulumi.input_type
 class _BackupVaultCustomerManagedKeyState:
     def __init__(__self__, *,
-                 data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupVaultCustomerManagedKey resources.
 
@@ -73,26 +73,26 @@ class _BackupVaultCustomerManagedKeyState:
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionBackupVaultId")
-    def data_protection_backup_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_protection_backup_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Backup Vault. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_protection_backup_vault_id")
 
     @data_protection_backup_vault_id.setter
-    def data_protection_backup_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_protection_backup_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_protection_backup_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Key Vault Key which should be used to Encrypt the data in this Backup Vault.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
-    def key_vault_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
 
@@ -102,8 +102,8 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Backup Vault Customer Managed Key.
@@ -341,8 +341,8 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,8 +368,8 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_protection_backup_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupVaultCustomerManagedKey':
+            data_protection_backup_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupVaultCustomerManagedKey':
         """
         Get an existing BackupVaultCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

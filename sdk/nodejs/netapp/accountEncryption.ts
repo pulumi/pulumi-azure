@@ -222,27 +222,27 @@ export interface AccountEncryptionState {
     /**
      * The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
      */
-    crossTenantKeyVaultResourceId?: pulumi.Input<string>;
+    crossTenantKeyVaultResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specify the versionless ID of the encryption key.
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
      */
-    federatedClientId?: pulumi.Input<string>;
+    federatedClientId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
      */
-    netappAccountId?: pulumi.Input<string>;
+    netappAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      */
-    systemAssignedIdentityPrincipalId?: pulumi.Input<string>;
+    systemAssignedIdentityPrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,7 +252,7 @@ export interface AccountEncryptionArgs {
     /**
      * The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
      */
-    crossTenantKeyVaultResourceId?: pulumi.Input<string>;
+    crossTenantKeyVaultResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specify the versionless ID of the encryption key.
      */
@@ -260,7 +260,7 @@ export interface AccountEncryptionArgs {
     /**
      * The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
      */
-    federatedClientId?: pulumi.Input<string>;
+    federatedClientId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
      */
@@ -268,9 +268,9 @@ export interface AccountEncryptionArgs {
     /**
      * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      */
-    systemAssignedIdentityPrincipalId?: pulumi.Input<string>;
+    systemAssignedIdentityPrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      */
-    userAssignedIdentityId?: pulumi.Input<string>;
+    userAssignedIdentityId?: pulumi.Input<string | undefined>;
 }

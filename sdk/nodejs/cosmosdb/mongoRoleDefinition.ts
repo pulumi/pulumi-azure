@@ -156,21 +156,21 @@ export interface MongoRoleDefinitionState {
     /**
      * The resource ID of the Mongo DB. Changing this forces a new resource to be created.
      */
-    cosmosMongoDatabaseId?: pulumi.Input<string>;
+    cosmosMongoDatabaseId?: pulumi.Input<string | undefined>;
     /**
      * A list of Mongo Roles which are inherited to the Mongo Role Definition.
      *
      * > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      */
-    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `privilege` block as defined below.
      */
-    privileges?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoRoleDefinitionPrivilege>[]>;
+    privileges?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoRoleDefinitionPrivilege>[] | undefined>;
     /**
      * The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,11 +186,11 @@ export interface MongoRoleDefinitionArgs {
      *
      * > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      */
-    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    inheritedRoleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `privilege` block as defined below.
      */
-    privileges?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoRoleDefinitionPrivilege>[]>;
+    privileges?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoRoleDefinitionPrivilege>[] | undefined>;
     /**
      * The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
      */

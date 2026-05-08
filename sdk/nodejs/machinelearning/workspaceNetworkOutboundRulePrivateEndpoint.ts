@@ -187,17 +187,17 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointState {
     /**
      * Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
      * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
-    serviceResourceId?: pulumi.Input<string>;
+    serviceResourceId?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
      */
-    sparkEnabled?: pulumi.Input<boolean>;
+    sparkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
      *
@@ -208,11 +208,11 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointState {
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
      * | Key Vault                  | `vault`                                   |
      */
-    subResourceTarget?: pulumi.Input<string>;
+    subResourceTarget?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,7 +222,7 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointArgs {
     /**
      * Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
@@ -232,7 +232,7 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointArgs {
     /**
      * Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
      */
-    sparkEnabled?: pulumi.Input<boolean>;
+    sparkEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
      *

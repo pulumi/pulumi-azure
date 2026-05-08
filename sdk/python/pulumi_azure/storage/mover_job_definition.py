@@ -23,11 +23,11 @@ class MoverJobDefinitionArgs:
                  source_name: pulumi.Input[_builtins.str],
                  storage_mover_project_id: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_sub_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_sub_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverJobDefinition resource.
 
@@ -106,77 +106,77 @@ class MoverJobDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
         """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for this Storage Mover Job Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSubPath")
-    def source_sub_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_sub_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_sub_path")
 
     @source_sub_path.setter
-    def source_sub_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_sub_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_sub_path", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSubPath")
-    def target_sub_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_sub_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_sub_path")
 
     @target_sub_path.setter
-    def target_sub_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_sub_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_sub_path", value)
 
 
 @pulumi.input_type
 class _MoverJobDefinitionState:
     def __init__(__self__, *,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_sub_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_sub_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverJobDefinition resources.
 
@@ -211,110 +211,110 @@ class _MoverJobDefinitionState:
 
     @_builtins.property
     @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
         """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="copyMode")
-    def copy_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
         """
         return pulumi.get(self, "copy_mode")
 
     @copy_mode.setter
-    def copy_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for this Storage Mover Job Definition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
-    def source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSubPath")
-    def source_sub_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_sub_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_sub_path")
 
     @source_sub_path.setter
-    def source_sub_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_sub_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_sub_path", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMoverProjectId")
-    def storage_mover_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_mover_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_mover_project_id")
 
     @storage_mover_project_id.setter
-    def storage_mover_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_mover_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_mover_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
-    def target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSubPath")
-    def target_sub_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_sub_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_sub_path")
 
     @target_sub_path.setter
-    def target_sub_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_sub_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_sub_path", value)
 
 
@@ -324,15 +324,15 @@ class MoverJobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Mover Job Definition.
@@ -511,15 +511,15 @@ class MoverJobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -556,15 +556,15 @@ class MoverJobDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_sub_path: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_mover_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_sub_path: Optional[pulumi.Input[_builtins.str]] = None) -> 'MoverJobDefinition':
+            agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_sub_path: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mover_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_sub_path: pulumi.Input[Optional[_builtins.str]] = None) -> 'MoverJobDefinition':
         """
         Get an existing MoverJobDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -174,8 +174,8 @@ def get_budget_subscription(name: Optional[_builtins.str] = None,
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_periods=pulumi.get(__ret__, 'time_periods'))
-def get_budget_subscription_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_budget_subscription_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetSubscriptionResult]:
     """
     Use this data source to access information about an existing Consumption Budget for a specific subscription.

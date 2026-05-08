@@ -105,8 +105,8 @@ def get_sync_group(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         storage_sync_id=pulumi.get(__ret__, 'storage_sync_id'))
-def get_sync_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                          storage_sync_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sync_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                          storage_sync_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Use this data source to access information about an existing Storage Sync Group.

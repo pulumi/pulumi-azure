@@ -180,49 +180,49 @@ export interface WorkspaceTableCustomLogState {
     /**
      * One or more `column` blocks as defined below.
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.loganalytics.WorkspaceTableCustomLogColumn>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.loganalytics.WorkspaceTableCustomLogColumn>[] | undefined>;
     /**
      * The description of the table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the table.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
      *
      * > **Note:** `name` must end with `_CL`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
      * > **Note:** Changing the table's `plan` is limited to once a week.
      */
-    plan?: pulumi.Input<string>;
+    plan?: pulumi.Input<string | undefined>;
     /**
      * The table's retention in days. Possible values range between `4` and `730`.
      *
      * > **Note:** `retentionInDays` cannot be set when `plan` is set to `Basic` because the retention is fixed.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * A list of solutions associated with the table.
      */
-    solutions?: pulumi.Input<pulumi.Input<string>[]>;
+    solutions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more `standardColumn` blocks as defined below.
      */
-    standardColumns?: pulumi.Input<pulumi.Input<inputs.loganalytics.WorkspaceTableCustomLogStandardColumn>[]>;
+    standardColumns?: pulumi.Input<pulumi.Input<inputs.loganalytics.WorkspaceTableCustomLogStandardColumn>[] | undefined>;
     /**
      * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      */
-    totalRetentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table. Changing this forces a new resource to be created.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -236,33 +236,33 @@ export interface WorkspaceTableCustomLogArgs {
     /**
      * The description of the table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the table.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
      *
      * > **Note:** `name` must end with `_CL`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
      * > **Note:** Changing the table's `plan` is limited to once a week.
      */
-    plan?: pulumi.Input<string>;
+    plan?: pulumi.Input<string | undefined>;
     /**
      * The table's retention in days. Possible values range between `4` and `730`.
      *
      * > **Note:** `retentionInDays` cannot be set when `plan` is set to `Basic` because the retention is fixed.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      */
-    totalRetentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table. Changing this forces a new resource to be created.
      */

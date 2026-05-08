@@ -28,15 +28,15 @@ class ServicesCommunicationsGatewayServiceLocationArgsDict(TypedDict):
     """
     IP address to use to contact the operator network from this region.
     """
-    allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the allowed source IP address or CIDR ranges for media.
     """
-    allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the allowed source IP address or CIDR ranges for signaling.
     """
-    esrp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    esrp_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     IP address to use to contact the ESRP from this region.
 
@@ -48,9 +48,9 @@ class ServicesCommunicationsGatewayServiceLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
                  operator_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 allowed_media_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_signaling_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 esrp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_media_source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_signaling_source_address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 esrp_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] location: Specifies the region in which the resources needed for Teams Calling will be deployed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operator_addresses: IP address to use to contact the operator network from this region.
@@ -95,31 +95,31 @@ class ServicesCommunicationsGatewayServiceLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedMediaSourceAddressPrefixes")
-    def allowed_media_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_media_source_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the allowed source IP address or CIDR ranges for media.
         """
         return pulumi.get(self, "allowed_media_source_address_prefixes")
 
     @allowed_media_source_address_prefixes.setter
-    def allowed_media_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_media_source_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_media_source_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedSignalingSourceAddressPrefixes")
-    def allowed_signaling_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_signaling_source_address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the allowed source IP address or CIDR ranges for signaling.
         """
         return pulumi.get(self, "allowed_signaling_source_address_prefixes")
 
     @allowed_signaling_source_address_prefixes.setter
-    def allowed_signaling_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_signaling_source_address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_signaling_source_address_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="esrpAddresses")
-    def esrp_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def esrp_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         IP address to use to contact the ESRP from this region.
 
@@ -128,7 +128,7 @@ class ServicesCommunicationsGatewayServiceLocationArgs:
         return pulumi.get(self, "esrp_addresses")
 
     @esrp_addresses.setter
-    def esrp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def esrp_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "esrp_addresses", value)
 
 

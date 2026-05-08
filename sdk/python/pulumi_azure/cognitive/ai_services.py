@@ -23,18 +23,18 @@ class AIServicesArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['AIServicesCustomerManagedKeyArgs']] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['AIServicesIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['AIServicesNetworkAclsArgs']] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesStorageArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['AIServicesCustomerManagedKeyArgs']] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional['AIServicesIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['AIServicesNetworkAclsArgs']] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesStorageArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AIServices resource.
 
@@ -112,7 +112,7 @@ class AIServicesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customSubdomainName")
-    def custom_subdomain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_subdomain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
 
@@ -121,162 +121,162 @@ class AIServicesArgs:
         return pulumi.get(self, "custom_subdomain_name")
 
     @custom_subdomain_name.setter
-    def custom_subdomain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_subdomain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_subdomain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['AIServicesCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['AIServicesCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as documented below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['AIServicesCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['AIServicesCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of FQDNs allowed for the AI Services Account.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AIServicesIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AIServicesIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AIServicesIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AIServicesIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['AIServicesNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['AIServicesNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['AIServicesNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['AIServicesNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundNetworkAccessRestricted")
-    def outbound_network_access_restricted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_network_access_restricted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
     @outbound_network_access_restricted.setter
-    def outbound_network_access_restricted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_network_access_restricted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_network_access_restricted", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesStorageArgs']]]]:
+    def storages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesStorageArgs']]]]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 
     @storages.setter
-    def storages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesStorageArgs']]]]):
+    def storages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesStorageArgs']]]]):
         pulumi.set(self, "storages", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AIServicesState:
     def __init__(__self__, *,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['AIServicesCustomerManagedKeyArgs']] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input['AIServicesIdentityArgs']] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input['AIServicesNetworkAclsArgs']] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesStorageArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional['AIServicesCustomerManagedKeyArgs']] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional['AIServicesIdentityArgs']] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional['AIServicesNetworkAclsArgs']] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesStorageArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AIServices resources.
 
@@ -339,7 +339,7 @@ class _AIServicesState:
 
     @_builtins.property
     @pulumi.getter(name="customSubdomainName")
-    def custom_subdomain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_subdomain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
 
@@ -348,168 +348,168 @@ class _AIServicesState:
         return pulumi.get(self, "custom_subdomain_name")
 
     @custom_subdomain_name.setter
-    def custom_subdomain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_subdomain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_subdomain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['AIServicesCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> pulumi.Input[Optional['AIServicesCustomerManagedKeyArgs']]:
         """
         A `customer_managed_key` block as documented below.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['AIServicesCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: pulumi.Input[Optional['AIServicesCustomerManagedKeyArgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint used to connect to the AI Services Account.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fqdns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of FQDNs allowed for the AI Services Account.
         """
         return pulumi.get(self, "fqdns")
 
     @fqdns.setter
-    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fqdns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fqdns", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AIServicesIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['AIServicesIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AIServicesIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['AIServicesIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
     @local_authentication_enabled.setter
-    def local_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['AIServicesNetworkAclsArgs']]:
+    def network_acls(self) -> pulumi.Input[Optional['AIServicesNetworkAclsArgs']]:
         """
         A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         """
         return pulumi.get(self, "network_acls")
 
     @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['AIServicesNetworkAclsArgs']]):
+    def network_acls(self, value: pulumi.Input[Optional['AIServicesNetworkAclsArgs']]):
         pulumi.set(self, "network_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundNetworkAccessRestricted")
-    def outbound_network_access_restricted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_network_access_restricted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
     @outbound_network_access_restricted.setter
-    def outbound_network_access_restricted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_network_access_restricted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_network_access_restricted", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A primary access key which can be used to connect to the AI Services Account.
         """
         return pulumi.get(self, "primary_access_key")
 
     @primary_access_key.setter
-    def primary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which the AI Services Account is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary access key which can be used to connect to the AI Services Account.
         """
         return pulumi.get(self, "secondary_access_key")
 
     @secondary_access_key.setter
-    def secondary_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the SKU Name for this AI Services Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 
@@ -518,31 +518,31 @@ class _AIServicesState:
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesStorageArgs']]]]:
+    def storages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesStorageArgs']]]]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 
     @storages.setter
-    def storages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesStorageArgs']]]]):
+    def storages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesStorageArgs']]]]):
         pulumi.set(self, "storages", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -552,20 +552,20 @@ class AIServices(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an AI Services Account.
@@ -685,20 +685,20 @@ class AIServices(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
-                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: Optional[pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
-                 local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acls: Optional[pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
-                 outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
+                 fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
+                 outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -741,23 +741,23 @@ class AIServices(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_subdomain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key: Optional[pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            identity: Optional[pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
-            local_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_acls: Optional[pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
-            outbound_network_access_restricted: Optional[pulumi.Input[_builtins.bool]] = None,
-            primary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            sku_name: Optional[pulumi.Input[_builtins.str]] = None,
-            storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AIServices':
+            custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
+            outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
+            primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AIServices':
         """
         Get an existing AIServices resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

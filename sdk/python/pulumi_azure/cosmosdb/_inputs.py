@@ -154,21 +154,21 @@ class AccountBackupArgsDict(TypedDict):
 
     > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
     """
-    interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    interval_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
     """
-    retention_in_hours: NotRequired[pulumi.Input[_builtins.int]]
+    retention_in_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
     """
-    storage_redundancy: NotRequired[pulumi.Input[_builtins.str]]
+    storage_redundancy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 
     > **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
     """
-    tier: NotRequired[pulumi.Input[_builtins.str]]
+    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
     """
@@ -177,10 +177,10 @@ class AccountBackupArgsDict(TypedDict):
 class AccountBackupArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 interval_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 retention_in_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 retention_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`.
                
@@ -218,31 +218,31 @@ class AccountBackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="intervalInMinutes")
-    def interval_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
         """
         return pulumi.get(self, "interval_in_minutes")
 
     @interval_in_minutes.setter
-    def interval_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInHours")
-    def retention_in_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
         """
         return pulumi.get(self, "retention_in_hours")
 
     @retention_in_hours.setter
-    def retention_in_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="storageRedundancy")
-    def storage_redundancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_redundancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 
@@ -251,19 +251,19 @@ class AccountBackupArgs:
         return pulumi.get(self, "storage_redundancy")
 
     @storage_redundancy.setter
-    def storage_redundancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_redundancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_redundancy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -328,11 +328,11 @@ class AccountConsistencyPolicyArgsDict(TypedDict):
     """
     The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
     """
-    max_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_interval_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
     """
-    max_staleness_prefix: NotRequired[pulumi.Input[_builtins.int]]
+    max_staleness_prefix: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
 
@@ -343,8 +343,8 @@ class AccountConsistencyPolicyArgsDict(TypedDict):
 class AccountConsistencyPolicyArgs:
     def __init__(__self__, *,
                  consistency_level: pulumi.Input[_builtins.str],
-                 max_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_staleness_prefix: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_staleness_prefix: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] consistency_level: The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
         :param pulumi.Input[_builtins.int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
@@ -372,19 +372,19 @@ class AccountConsistencyPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxIntervalInSeconds")
-    def max_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
         """
         return pulumi.get(self, "max_interval_in_seconds")
 
     @max_interval_in_seconds.setter
-    def max_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_staleness_prefix(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
 
@@ -393,7 +393,7 @@ class AccountConsistencyPolicyArgs:
         return pulumi.get(self, "max_staleness_prefix")
 
     @max_staleness_prefix.setter
-    def max_staleness_prefix(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_staleness_prefix(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_staleness_prefix", value)
 
 
@@ -414,7 +414,7 @@ class AccountCorsRuleArgsDict(TypedDict):
     """
     A list of response headers that are exposed to CORS clients.
     """
-    max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
     """
@@ -426,7 +426,7 @@ class AccountCorsRuleArgs:
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  exposed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 max_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
@@ -491,14 +491,14 @@ class AccountCorsRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInSeconds")
-    def max_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         """
         return pulumi.get(self, "max_age_in_seconds")
 
     @max_age_in_seconds.setter
-    def max_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_in_seconds", value)
 
 
@@ -511,11 +511,11 @@ class AccountGeoLocationArgsDict(TypedDict):
     """
     The name of the Azure region to host replicated data.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CosmosDB Account ID.
     """
-    zone_redundant: NotRequired[pulumi.Input[_builtins.bool]]
+    zone_redundant: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should zone redundancy be enabled for this region? Defaults to `false`.
     """
@@ -525,8 +525,8 @@ class AccountGeoLocationArgs:
     def __init__(__self__, *,
                  failover_priority: pulumi.Input[_builtins.int],
                  location: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.int] failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         :param pulumi.Input[_builtins.str] location: The name of the Azure region to host replicated data.
@@ -566,26 +566,26 @@ class AccountGeoLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CosmosDB Account ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should zone redundancy be enabled for this region? Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def zone_redundant(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -594,15 +594,15 @@ class AccountIdentityArgsDict(TypedDict):
     """
     The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Principal ID associated with this Managed Service Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Tenant ID associated with this Managed Service Identity.
     """
@@ -611,9 +611,9 @@ class AccountIdentityArgsDict(TypedDict):
 class AccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
@@ -642,38 +642,38 @@ class AccountIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -688,15 +688,15 @@ class AccountRestoreArgsDict(TypedDict):
 
     > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
     """
-    databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgsDict']]]]
+    databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]]
     """
     A `database` block as defined below. Changing this forces a new resource to be created.
     """
-    gremlin_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgsDict']]]]
+    gremlin_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]]]
     """
     One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
     """
-    tables_to_restores: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_restores: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of specific tables available for restore. Changing this forces a new resource to be created.
     """
@@ -706,9 +706,9 @@ class AccountRestoreArgs:
     def __init__(__self__, *,
                  restore_timestamp_in_utc: pulumi.Input[_builtins.str],
                  source_cosmosdb_account_id: pulumi.Input[_builtins.str],
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]] = None,
-                 gremlin_databases: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]] = None,
-                 tables_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]] = None,
+                 gremlin_databases: pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]] = None,
+                 tables_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
@@ -755,38 +755,38 @@ class AccountRestoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]:
+    def databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]:
         """
         A `database` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]):
+    def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]):
         pulumi.set(self, "databases", value)
 
     @_builtins.property
     @pulumi.getter(name="gremlinDatabases")
-    def gremlin_databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]]:
+    def gremlin_databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]]:
         """
         One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gremlin_databases")
 
     @gremlin_databases.setter
-    def gremlin_databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]]):
+    def gremlin_databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]]):
         pulumi.set(self, "gremlin_databases", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToRestores")
-    def tables_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_restores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of specific tables available for restore. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tables_to_restores")
 
     @tables_to_restores.setter
-    def tables_to_restores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_restores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_restores", value)
 
 
@@ -795,7 +795,7 @@ class AccountRestoreDatabaseArgsDict(TypedDict):
     """
     The database name for the restore request. Changing this forces a new resource to be created.
     """
-    collection_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    collection_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the collection names for the restore request. Changing this forces a new resource to be created.
     """
@@ -804,7 +804,7 @@ class AccountRestoreDatabaseArgsDict(TypedDict):
 class AccountRestoreDatabaseArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 collection_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The database name for the restore request. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] collection_names: A list of the collection names for the restore request. Changing this forces a new resource to be created.
@@ -827,14 +827,14 @@ class AccountRestoreDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionNames")
-    def collection_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def collection_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the collection names for the restore request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collection_names")
 
     @collection_names.setter
-    def collection_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def collection_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "collection_names", value)
 
 
@@ -843,7 +843,7 @@ class AccountRestoreGremlinDatabaseArgsDict(TypedDict):
     """
     The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
     """
-    graph_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    graph_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of the Graph names for the restore request. Changing this forces a new resource to be created.
     """
@@ -852,7 +852,7 @@ class AccountRestoreGremlinDatabaseArgsDict(TypedDict):
 class AccountRestoreGremlinDatabaseArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 graph_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 graph_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] graph_names: A list of the Graph names for the restore request. Changing this forces a new resource to be created.
@@ -875,14 +875,14 @@ class AccountRestoreGremlinDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="graphNames")
-    def graph_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def graph_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the Graph names for the restore request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "graph_names")
 
     @graph_names.setter
-    def graph_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def graph_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "graph_names", value)
 
 
@@ -891,7 +891,7 @@ class AccountVirtualNetworkRuleArgsDict(TypedDict):
     """
     The ID of the virtual network subnet.
     """
-    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
     """
@@ -900,7 +900,7 @@ class AccountVirtualNetworkRuleArgsDict(TypedDict):
 class AccountVirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
+                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the virtual network subnet.
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
@@ -923,14 +923,14 @@ class AccountVirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 
@@ -939,15 +939,15 @@ class CassandraClusterIdentityArgsDict(TypedDict):
     """
     Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CassandraClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
         """
@@ -971,25 +971,25 @@ class CassandraClusterIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class CassandraKeyspaceAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -997,7 +997,7 @@ class CassandraKeyspaceAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class CassandraKeyspaceAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -1006,19 +1006,19 @@ class CassandraKeyspaceAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 class CassandraTableAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -1026,7 +1026,7 @@ class CassandraTableAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class CassandraTableAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -1035,14 +1035,14 @@ class CassandraTableAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -1055,7 +1055,7 @@ class CassandraTableSchemaArgsDict(TypedDict):
     """
     One or more `partition_key` blocks as defined below.
     """
-    cluster_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgsDict']]]]
+    cluster_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]]
     """
     One or more `cluster_key` blocks as defined below.
     """
@@ -1065,7 +1065,7 @@ class CassandraTableSchemaArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]],
                  partition_keys: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]],
-                 cluster_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]] = None):
+                 cluster_keys: pulumi.Input[Optional[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]] partition_keys: One or more `partition_key` blocks as defined below.
@@ -1102,14 +1102,14 @@ class CassandraTableSchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterKeys")
-    def cluster_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]:
+    def cluster_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]:
         """
         One or more `cluster_key` blocks as defined below.
         """
         return pulumi.get(self, "cluster_keys")
 
     @cluster_keys.setter
-    def cluster_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]):
+    def cluster_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]):
         pulumi.set(self, "cluster_keys", value)
 
 
@@ -1236,7 +1236,7 @@ class CassandraTableSchemaPartitionKeyArgs:
 
 
 class GremlinDatabaseAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -1244,7 +1244,7 @@ class GremlinDatabaseAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class GremlinDatabaseAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -1253,19 +1253,19 @@ class GremlinDatabaseAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 class GremlinGraphAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -1273,7 +1273,7 @@ class GremlinGraphAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class GremlinGraphAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -1282,14 +1282,14 @@ class GremlinGraphAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -1298,11 +1298,11 @@ class GremlinGraphConflictResolutionPolicyArgsDict(TypedDict):
     """
     Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
     """
-    conflict_resolution_path: NotRequired[pulumi.Input[_builtins.str]]
+    conflict_resolution_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The conflict resolution path in the case of LastWriterWins mode.
     """
-    conflict_resolution_procedure: NotRequired[pulumi.Input[_builtins.str]]
+    conflict_resolution_procedure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The procedure to resolve conflicts in the case of custom mode.
     """
@@ -1311,8 +1311,8 @@ class GremlinGraphConflictResolutionPolicyArgsDict(TypedDict):
 class GremlinGraphConflictResolutionPolicyArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 conflict_resolution_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflict_resolution_procedure: Optional[pulumi.Input[_builtins.str]] = None):
+                 conflict_resolution_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflict_resolution_procedure: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
         :param pulumi.Input[_builtins.str] conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
@@ -1338,26 +1338,26 @@ class GremlinGraphConflictResolutionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionPath")
-    def conflict_resolution_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conflict_resolution_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The conflict resolution path in the case of LastWriterWins mode.
         """
         return pulumi.get(self, "conflict_resolution_path")
 
     @conflict_resolution_path.setter
-    def conflict_resolution_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conflict_resolution_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conflict_resolution_path", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionProcedure")
-    def conflict_resolution_procedure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conflict_resolution_procedure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The procedure to resolve conflicts in the case of custom mode.
         """
         return pulumi.get(self, "conflict_resolution_procedure")
 
     @conflict_resolution_procedure.setter
-    def conflict_resolution_procedure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conflict_resolution_procedure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conflict_resolution_procedure", value)
 
 
@@ -1366,23 +1366,23 @@ class GremlinGraphIndexPolicyArgsDict(TypedDict):
     """
     Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
     """
-    automatic: NotRequired[pulumi.Input[_builtins.bool]]
+    automatic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if the indexing policy is automatic. Defaults to `true`.
     """
-    composite_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgsDict']]]]
+    composite_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]]
     """
     One or more `composite_index` blocks as defined below.
     """
-    excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
     """
-    included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    included_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
     """
-    spatial_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgsDict']]]]
+    spatial_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]]
     """
     One or more `spatial_index` blocks as defined below.
     """
@@ -1391,11 +1391,11 @@ class GremlinGraphIndexPolicyArgsDict(TypedDict):
 class GremlinGraphIndexPolicyArgs:
     def __init__(__self__, *,
                  indexing_mode: pulumi.Input[_builtins.str],
-                 automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]] = None,
-                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]] = None):
+                 automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 composite_indices: pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]] = None,
+                 excluded_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 included_paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 spatial_indices: pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         :param pulumi.Input[_builtins.bool] automatic: Indicates if the indexing policy is automatic. Defaults to `true`.
@@ -1430,62 +1430,62 @@ class GremlinGraphIndexPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automatic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the indexing policy is automatic. Defaults to `true`.
         """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
-    def automatic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="compositeIndices")
-    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]:
+    def composite_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]:
         """
         One or more `composite_index` blocks as defined below.
         """
         return pulumi.get(self, "composite_indices")
 
     @composite_indices.setter
-    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]):
+    def composite_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]):
         pulumi.set(self, "composite_indices", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def included_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         """
         return pulumi.get(self, "included_paths")
 
     @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def included_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "included_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="spatialIndices")
-    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]:
+    def spatial_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]:
         """
         One or more `spatial_index` blocks as defined below.
         """
         return pulumi.get(self, "spatial_indices")
 
     @spatial_indices.setter
-    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]):
+    def spatial_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]):
         pulumi.set(self, "spatial_indices", value)
 
 
@@ -1569,13 +1569,13 @@ class GremlinGraphIndexPolicySpatialIndexArgsDict(TypedDict):
     """
     Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GremlinGraphIndexPolicySpatialIndexArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] path: Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
         """
@@ -1597,11 +1597,11 @@ class GremlinGraphIndexPolicySpatialIndexArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "types", value)
 
 
@@ -1634,15 +1634,15 @@ class GremlinGraphUniqueKeyArgs:
 
 
 class MongoClusterConnectionStringArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the connection string.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
     """
@@ -1650,9 +1650,9 @@ class MongoClusterConnectionStringArgsDict(TypedDict):
 @pulumi.input_type
 class MongoClusterConnectionStringArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the connection string.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -1667,38 +1667,38 @@ class MongoClusterConnectionStringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the connection string.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1850,7 +1850,7 @@ class MongoClusterRestoreArgs:
 
 
 class MongoCollectionAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -1858,7 +1858,7 @@ class MongoCollectionAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class MongoCollectionAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -1867,14 +1867,14 @@ class MongoCollectionAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -1883,7 +1883,7 @@ class MongoCollectionIndexArgsDict(TypedDict):
     """
     Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
     """
-    unique: NotRequired[pulumi.Input[_builtins.bool]]
+    unique: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the index unique or not? Defaults to `false`.
 
@@ -1894,7 +1894,7 @@ class MongoCollectionIndexArgsDict(TypedDict):
 class MongoCollectionIndexArgs:
     def __init__(__self__, *,
                  keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 unique: Optional[pulumi.Input[_builtins.bool]] = None):
+                 unique: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         :param pulumi.Input[_builtins.bool] unique: Is the index unique or not? Defaults to `false`.
@@ -1919,7 +1919,7 @@ class MongoCollectionIndexArgs:
 
     @_builtins.property
     @pulumi.getter
-    def unique(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unique(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the index unique or not? Defaults to `false`.
 
@@ -1928,16 +1928,16 @@ class MongoCollectionIndexArgs:
         return pulumi.get(self, "unique")
 
     @unique.setter
-    def unique(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unique(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unique", value)
 
 
 class MongoCollectionSystemIndexArgsDict(TypedDict):
-    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of system keys which are not settable for each Cosmos DB Mongo Collection.
     """
-    unique: NotRequired[pulumi.Input[_builtins.bool]]
+    unique: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Identifies whether the table contains no duplicate values.
     """
@@ -1945,8 +1945,8 @@ class MongoCollectionSystemIndexArgsDict(TypedDict):
 @pulumi.input_type
 class MongoCollectionSystemIndexArgs:
     def __init__(__self__, *,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 unique: Optional[pulumi.Input[_builtins.bool]] = None):
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unique: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keys: The list of system keys which are not settable for each Cosmos DB Mongo Collection.
         :param pulumi.Input[_builtins.bool] unique: Identifies whether the table contains no duplicate values.
@@ -1958,31 +1958,31 @@ class MongoCollectionSystemIndexArgs:
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of system keys which are not settable for each Cosmos DB Mongo Collection.
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def unique(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unique(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Identifies whether the table contains no duplicate values.
         """
         return pulumi.get(self, "unique")
 
     @unique.setter
-    def unique(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unique(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unique", value)
 
 
 class MongoDatabaseAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -1990,7 +1990,7 @@ class MongoDatabaseAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class MongoDatabaseAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -1999,14 +1999,14 @@ class MongoDatabaseAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -2058,11 +2058,11 @@ class MongoRoleDefinitionPrivilegeArgs:
 
 
 class MongoRoleDefinitionPrivilegeResourceArgsDict(TypedDict):
-    collection_name: NotRequired[pulumi.Input[_builtins.str]]
+    collection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Mongo DB Collection that the Role Definition is applied.
     """
-    db_name: NotRequired[pulumi.Input[_builtins.str]]
+    db_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Mongo DB that the Role Definition is applied.
     """
@@ -2070,8 +2070,8 @@ class MongoRoleDefinitionPrivilegeResourceArgsDict(TypedDict):
 @pulumi.input_type
 class MongoRoleDefinitionPrivilegeResourceArgs:
     def __init__(__self__, *,
-                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] collection_name: The name of the Mongo DB Collection that the Role Definition is applied.
         :param pulumi.Input[_builtins.str] db_name: The name of the Mongo DB that the Role Definition is applied.
@@ -2083,39 +2083,39 @@ class MongoRoleDefinitionPrivilegeResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Mongo DB Collection that the Role Definition is applied.
         """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dbName")
-    def db_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Mongo DB that the Role Definition is applied.
         """
         return pulumi.get(self, "db_name")
 
     @db_name.setter
-    def db_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_name", value)
 
 
 class PostgresqlClusterMaintenanceWindowArgsDict(TypedDict):
-    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
     """
-    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    start_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The start hour for maintenance window. Defaults to `0`.
     """
-    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    start_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The start minute for maintenance window. Defaults to `0`.
     """
@@ -2123,9 +2123,9 @@ class PostgresqlClusterMaintenanceWindowArgsDict(TypedDict):
 @pulumi.input_type
 class PostgresqlClusterMaintenanceWindowArgs:
     def __init__(__self__, *,
-                 day_of_week: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_hour: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_minute: Optional[pulumi.Input[_builtins.int]] = None):
+                 day_of_week: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_minute: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] day_of_week: The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         :param pulumi.Input[_builtins.int] start_hour: The start hour for maintenance window. Defaults to `0`.
@@ -2140,47 +2140,47 @@ class PostgresqlClusterMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start hour for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
-    def start_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_hour", value)
 
     @_builtins.property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start minute for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
-    def start_minute(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minute", value)
 
 
 class PostgresqlClusterServerArgsDict(TypedDict):
-    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    fqdn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Fully Qualified Domain Name of the server.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
     """
@@ -2188,8 +2188,8 @@ class PostgresqlClusterServerArgsDict(TypedDict):
 @pulumi.input_type
 class PostgresqlClusterServerArgs:
     def __init__(__self__, *,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified Domain Name of the server.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
@@ -2201,31 +2201,31 @@ class PostgresqlClusterServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Fully Qualified Domain Name of the server.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class SqlContainerAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -2233,7 +2233,7 @@ class SqlContainerAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SqlContainerAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -2242,14 +2242,14 @@ class SqlContainerAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -2258,11 +2258,11 @@ class SqlContainerConflictResolutionPolicyArgsDict(TypedDict):
     """
     Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
     """
-    conflict_resolution_path: NotRequired[pulumi.Input[_builtins.str]]
+    conflict_resolution_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The conflict resolution path in the case of `LastWriterWins` mode.
     """
-    conflict_resolution_procedure: NotRequired[pulumi.Input[_builtins.str]]
+    conflict_resolution_procedure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The procedure to resolve conflicts in the case of `Custom` mode.
     """
@@ -2271,8 +2271,8 @@ class SqlContainerConflictResolutionPolicyArgsDict(TypedDict):
 class SqlContainerConflictResolutionPolicyArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 conflict_resolution_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 conflict_resolution_procedure: Optional[pulumi.Input[_builtins.str]] = None):
+                 conflict_resolution_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 conflict_resolution_procedure: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
         :param pulumi.Input[_builtins.str] conflict_resolution_path: The conflict resolution path in the case of `LastWriterWins` mode.
@@ -2298,47 +2298,47 @@ class SqlContainerConflictResolutionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionPath")
-    def conflict_resolution_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conflict_resolution_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The conflict resolution path in the case of `LastWriterWins` mode.
         """
         return pulumi.get(self, "conflict_resolution_path")
 
     @conflict_resolution_path.setter
-    def conflict_resolution_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conflict_resolution_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conflict_resolution_path", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictResolutionProcedure")
-    def conflict_resolution_procedure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conflict_resolution_procedure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The procedure to resolve conflicts in the case of `Custom` mode.
         """
         return pulumi.get(self, "conflict_resolution_procedure")
 
     @conflict_resolution_procedure.setter
-    def conflict_resolution_procedure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conflict_resolution_procedure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conflict_resolution_procedure", value)
 
 
 class SqlContainerIndexingPolicyArgsDict(TypedDict):
-    composite_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgsDict']]]]
+    composite_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]]
     """
     One or more `composite_index` blocks as defined below.
     """
-    excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgsDict']]]]
+    excluded_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]]
     """
     One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
     """
-    included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgsDict']]]]
+    included_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]]
     """
     One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
     """
-    indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    indexing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
     """
-    spatial_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgsDict']]]]
+    spatial_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]]
     """
     One or more `spatial_index` blocks as defined below.
     """
@@ -2346,11 +2346,11 @@ class SqlContainerIndexingPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class SqlContainerIndexingPolicyArgs:
     def __init__(__self__, *,
-                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]] = None,
-                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
-                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
-                 indexing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]] = None):
+                 composite_indices: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]] = None,
+                 excluded_paths: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
+                 included_paths: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
+                 indexing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 spatial_indices: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
@@ -2371,62 +2371,62 @@ class SqlContainerIndexingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="compositeIndices")
-    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]:
+    def composite_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]:
         """
         One or more `composite_index` blocks as defined below.
         """
         return pulumi.get(self, "composite_indices")
 
     @composite_indices.setter
-    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]):
+    def composite_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]):
         pulumi.set(self, "composite_indices", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]:
+    def excluded_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]:
         """
         One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]):
+    def excluded_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]:
+    def included_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]:
         """
         One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         """
         return pulumi.get(self, "included_paths")
 
     @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]):
+    def included_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]):
         pulumi.set(self, "included_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="indexingMode")
-    def indexing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def indexing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
         """
         return pulumi.get(self, "indexing_mode")
 
     @indexing_mode.setter
-    def indexing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def indexing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "indexing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="spatialIndices")
-    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]:
+    def spatial_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]:
         """
         One or more `spatial_index` blocks as defined below.
         """
         return pulumi.get(self, "spatial_indices")
 
     @spatial_indices.setter
-    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]):
+    def spatial_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]):
         pulumi.set(self, "spatial_indices", value)
 
 
@@ -2566,7 +2566,7 @@ class SqlContainerIndexingPolicySpatialIndexArgsDict(TypedDict):
     """
     Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A set of spatial types of the path.
     """
@@ -2575,7 +2575,7 @@ class SqlContainerIndexingPolicySpatialIndexArgsDict(TypedDict):
 class SqlContainerIndexingPolicySpatialIndexArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[_builtins.str],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] path: Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] types: A set of spatial types of the path.
@@ -2598,14 +2598,14 @@ class SqlContainerIndexingPolicySpatialIndexArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of spatial types of the path.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "types", value)
 
 
@@ -2638,7 +2638,7 @@ class SqlContainerUniqueKeyArgs:
 
 
 class SqlDatabaseAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -2646,7 +2646,7 @@ class SqlDatabaseAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class SqlDatabaseAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -2655,14 +2655,14 @@ class SqlDatabaseAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -2695,7 +2695,7 @@ class SqlRoleDefinitionPermissionArgs:
 
 
 class TableAutoscaleSettingsArgsDict(TypedDict):
-    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    max_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
     """
@@ -2703,7 +2703,7 @@ class TableAutoscaleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class TableAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_throughput: The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
@@ -2712,14 +2712,14 @@ class TableAutoscaleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_throughput", value)
 
 

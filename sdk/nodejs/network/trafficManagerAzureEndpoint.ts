@@ -193,43 +193,43 @@ export interface TrafficManagerAzureEndpointState {
     /**
      * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
      */
-    alwaysServeEnabled?: pulumi.Input<boolean>;
+    alwaysServeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointCustomHeader>[]>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointCustomHeader>[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
+    geoMappings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Azure Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
      */
-    profileId?: pulumi.Input<string>;
+    profileId?: pulumi.Input<string | undefined>;
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointSubnet>[] | undefined>;
     /**
      * The ID of the Azure Resource which should be used as a target.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -239,27 +239,27 @@ export interface TrafficManagerAzureEndpointArgs {
     /**
      * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
      */
-    alwaysServeEnabled?: pulumi.Input<boolean>;
+    alwaysServeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointCustomHeader>[]>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointCustomHeader>[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
+    geoMappings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Azure Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
      */
@@ -267,7 +267,7 @@ export interface TrafficManagerAzureEndpointArgs {
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerAzureEndpointSubnet>[] | undefined>;
     /**
      * The ID of the Azure Resource which should be used as a target.
      */
@@ -275,5 +275,5 @@ export interface TrafficManagerAzureEndpointArgs {
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number | undefined>;
 }

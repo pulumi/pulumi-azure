@@ -141,23 +141,23 @@ export interface MoverAgentState {
     /**
      * Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
      */
-    arcVirtualMachineId?: pulumi.Input<string>;
+    arcVirtualMachineId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
      */
-    arcVirtualMachineUuid?: pulumi.Input<string>;
+    arcVirtualMachineUuid?: pulumi.Input<string | undefined>;
     /**
      * Specifies a description for this Storage Mover Agent.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
      */
-    storageMoverId?: pulumi.Input<string>;
+    storageMoverId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,11 +175,11 @@ export interface MoverAgentArgs {
     /**
      * Specifies a description for this Storage Mover Agent.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
      */

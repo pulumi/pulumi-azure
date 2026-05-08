@@ -196,51 +196,51 @@ export interface SpringCloudNewRelicApplicationPerformanceMonitoringState {
     /**
      * Specifies whether enable the agent. Defaults to `true`.
      */
-    agentEnabled?: pulumi.Input<boolean>;
+    agentEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the application name used to report data to New Relic.
      */
-    appName?: pulumi.Input<string>;
+    appName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the port number to differentiate JVMs for the same app on the same machine.
      */
-    appServerPort?: pulumi.Input<number>;
+    appServerPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
      */
-    auditModeEnabled?: pulumi.Input<boolean>;
+    auditModeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
      */
-    autoAppNamingEnabled?: pulumi.Input<boolean>;
+    autoAppNamingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether enable the component-based transaction naming. Defaults to `true`.
      */
-    autoTransactionNamingEnabled?: pulumi.Input<boolean>;
+    autoTransactionNamingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
      */
-    customTracingEnabled?: pulumi.Input<boolean>;
+    customTracingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a mapping of labels to be added to the New Relic application.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the license key associated with the New Relic account. This key binds your agent's data to your account in New Relic service.
      */
-    licenseKey?: pulumi.Input<string>;
+    licenseKey?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for New Relic. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    springCloudServiceId?: pulumi.Input<string>;
+    springCloudServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -250,7 +250,7 @@ export interface SpringCloudNewRelicApplicationPerformanceMonitoringArgs {
     /**
      * Specifies whether enable the agent. Defaults to `true`.
      */
-    agentEnabled?: pulumi.Input<boolean>;
+    agentEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the application name used to report data to New Relic.
      */
@@ -258,31 +258,31 @@ export interface SpringCloudNewRelicApplicationPerformanceMonitoringArgs {
     /**
      * Specifies the port number to differentiate JVMs for the same app on the same machine.
      */
-    appServerPort?: pulumi.Input<number>;
+    appServerPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
      */
-    auditModeEnabled?: pulumi.Input<boolean>;
+    auditModeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
      */
-    autoAppNamingEnabled?: pulumi.Input<boolean>;
+    autoAppNamingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether enable the component-based transaction naming. Defaults to `true`.
      */
-    autoTransactionNamingEnabled?: pulumi.Input<boolean>;
+    autoTransactionNamingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
      */
-    customTracingEnabled?: pulumi.Input<boolean>;
+    customTracingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    globallyEnabled?: pulumi.Input<boolean>;
+    globallyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a mapping of labels to be added to the New Relic application.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the license key associated with the New Relic account. This key binds your agent's data to your account in New Relic service.
      */
@@ -290,7 +290,7 @@ export interface SpringCloudNewRelicApplicationPerformanceMonitoringArgs {
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for New Relic. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */

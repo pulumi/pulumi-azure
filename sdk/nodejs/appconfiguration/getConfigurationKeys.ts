@@ -109,9 +109,9 @@ export interface GetConfigurationKeysOutputArgs {
     /**
      * The name of the App Configuration Keys to look up.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The label of the App Configuration Keys tp look up.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
 }

@@ -33,8 +33,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -109,8 +109,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -261,8 +261,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -413,8 +413,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -489,8 +489,8 @@ public final class RoleFunctions {
      * import com.pulumi.azure.authorization.RoleDefinitionArgs;
      * import com.pulumi.azure.authorization.AuthorizationFunctions;
      * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

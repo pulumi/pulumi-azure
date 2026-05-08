@@ -205,43 +205,43 @@ export interface ApplicationState {
     /**
      * The application definition ID to deploy.
      */
-    applicationDefinitionId?: pulumi.Input<string>;
+    applicationDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
      */
-    managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name and value pairs that define the managed application outputs.
      */
-    outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
-    parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string | undefined>;
     /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
+    plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan | undefined>;
     /**
      * The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface ApplicationArgs {
     /**
      * The application definition ID to deploy.
      */
-    applicationDefinitionId?: pulumi.Input<string>;
+    applicationDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
@@ -259,7 +259,7 @@ export interface ApplicationArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
      */
@@ -267,15 +267,15 @@ export interface ApplicationArgs {
     /**
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
-    parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string | undefined>;
     /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
+    plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan | undefined>;
     /**
      * The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
      */
@@ -283,5 +283,5 @@ export interface ApplicationArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

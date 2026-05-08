@@ -165,35 +165,35 @@ export interface NetworkManagerIpamPoolState {
     /**
      * Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Network Manager IPAM Pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the Network Manager IPAM Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent Network Manager. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the parent IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    parentPoolName?: pulumi.Input<string>;
+    parentPoolName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager IPAM Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -207,19 +207,19 @@ export interface NetworkManagerIpamPoolArgs {
     /**
      * The description of the Network Manager IPAM Pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the Network Manager IPAM Pool.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent Network Manager. Changing this forces a new Network Manager IPAM Pool to be created.
      */
@@ -227,9 +227,9 @@ export interface NetworkManagerIpamPoolArgs {
     /**
      * The name of the parent IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    parentPoolName?: pulumi.Input<string>;
+    parentPoolName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager IPAM Pool.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

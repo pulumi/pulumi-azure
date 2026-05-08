@@ -233,40 +233,40 @@ export interface RuleState {
      *
      * > **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
-    backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+    backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
      */
-    backendPort?: pulumi.Input<number>;
+    backendPort?: pulumi.Input<number | undefined>;
     /**
      * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
-    disableOutboundSnat?: pulumi.Input<boolean>;
+    disableOutboundSnat?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      */
-    enableFloatingIp?: pulumi.Input<boolean>;
+    enableFloatingIp?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
-    enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
-    floatingIpEnabled?: pulumi.Input<boolean>;
-    frontendIpConfigurationId?: pulumi.Input<string>;
+    floatingIpEnabled?: pulumi.Input<boolean | undefined>;
+    frontendIpConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
      */
-    frontendIpConfigurationName?: pulumi.Input<string>;
+    frontendIpConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
      */
-    frontendPort?: pulumi.Input<number>;
+    frontendPort?: pulumi.Input<number | undefined>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
      * * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
@@ -275,27 +275,27 @@ export interface RuleState {
      *
      * > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
      */
-    loadDistribution?: pulumi.Input<string>;
+    loadDistribution?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      */
-    loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A reference to a Probe used by this Load Balancing Rule.
      */
-    probeId?: pulumi.Input<string>;
+    probeId?: pulumi.Input<string | undefined>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule?
      */
-    tcpResetEnabled?: pulumi.Input<boolean>;
+    tcpResetEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -307,7 +307,7 @@ export interface RuleArgs {
      *
      * > **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
-    backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+    backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
      */
@@ -315,19 +315,19 @@ export interface RuleArgs {
     /**
      * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
-    disableOutboundSnat?: pulumi.Input<boolean>;
+    disableOutboundSnat?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      */
-    enableFloatingIp?: pulumi.Input<boolean>;
+    enableFloatingIp?: pulumi.Input<boolean | undefined>;
     /**
      * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
-    enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
-    floatingIpEnabled?: pulumi.Input<boolean>;
+    floatingIpEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
      */
@@ -339,7 +339,7 @@ export interface RuleArgs {
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are `Default`, `SourceIP` and `SourceIPProtocol`. Defaults to `Default.`
      * * `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers.
@@ -348,7 +348,7 @@ export interface RuleArgs {
      *
      * > **Note:** In the portal, this is known as Session Persistence where the options are `None`, `Client IP` and `Client IP and Protocol` respectively.
      */
-    loadDistribution?: pulumi.Input<string>;
+    loadDistribution?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      */
@@ -356,11 +356,11 @@ export interface RuleArgs {
     /**
      * Specifies the name of the LB Rule. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A reference to a Probe used by this Load Balancing Rule.
      */
-    probeId?: pulumi.Input<string>;
+    probeId?: pulumi.Input<string | undefined>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
@@ -368,5 +368,5 @@ export interface RuleArgs {
     /**
      * Is TCP Reset enabled for this Load Balancer Rule?
      */
-    tcpResetEnabled?: pulumi.Input<boolean>;
+    tcpResetEnabled?: pulumi.Input<boolean | undefined>;
 }

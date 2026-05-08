@@ -23,10 +23,10 @@ class FrontdoorOriginGroupArgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[_builtins.str],
                  load_balancing: pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'],
-                 health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 health_probe: pulumi.Input[Optional['FrontdoorOriginGroupHealthProbeArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FrontdoorOriginGroup resource.
 
@@ -76,31 +76,31 @@ class FrontdoorOriginGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="healthProbe")
-    def health_probe(self) -> Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]:
+    def health_probe(self) -> pulumi.Input[Optional['FrontdoorOriginGroupHealthProbeArgs']]:
         """
         A `health_probe` block as defined below.
         """
         return pulumi.get(self, "health_probe")
 
     @health_probe.setter
-    def health_probe(self, value: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]):
+    def health_probe(self, value: pulumi.Input[Optional['FrontdoorOriginGroupHealthProbeArgs']]):
         pulumi.set(self, "health_probe", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreTrafficTimeToHealedOrNewEndpointInMinutes")
-    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 
@@ -109,31 +109,31 @@ class FrontdoorOriginGroupArgs:
         return pulumi.get(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes")
 
     @restore_traffic_time_to_healed_or_new_endpoint_in_minutes.setter
-    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionAffinityEnabled")
-    def session_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def session_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
         return pulumi.get(self, "session_affinity_enabled")
 
     @session_affinity_enabled.setter
-    def session_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def session_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "session_affinity_enabled", value)
 
 
 @pulumi.input_type
 class _FrontdoorOriginGroupState:
     def __init__(__self__, *,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
-                 load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_probe: pulumi.Input[Optional['FrontdoorOriginGroupHealthProbeArgs']] = None,
+                 load_balancing: pulumi.Input[Optional['FrontdoorOriginGroupLoadBalancingArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOriginGroup resources.
 
@@ -161,55 +161,55 @@ class _FrontdoorOriginGroupState:
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorProfileId")
-    def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
     @cdn_frontdoor_profile_id.setter
-    def cdn_frontdoor_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="healthProbe")
-    def health_probe(self) -> Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]:
+    def health_probe(self) -> pulumi.Input[Optional['FrontdoorOriginGroupHealthProbeArgs']]:
         """
         A `health_probe` block as defined below.
         """
         return pulumi.get(self, "health_probe")
 
     @health_probe.setter
-    def health_probe(self, value: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]):
+    def health_probe(self, value: pulumi.Input[Optional['FrontdoorOriginGroupHealthProbeArgs']]):
         pulumi.set(self, "health_probe", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']]:
+    def load_balancing(self) -> pulumi.Input[Optional['FrontdoorOriginGroupLoadBalancingArgs']]:
         """
         A `load_balancing` block as defined below.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']]):
+    def load_balancing(self, value: pulumi.Input[Optional['FrontdoorOriginGroupLoadBalancingArgs']]):
         pulumi.set(self, "load_balancing", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreTrafficTimeToHealedOrNewEndpointInMinutes")
-    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
 
@@ -218,19 +218,19 @@ class _FrontdoorOriginGroupState:
         return pulumi.get(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes")
 
     @restore_traffic_time_to_healed_or_new_endpoint_in_minutes.setter
-    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def restore_traffic_time_to_healed_or_new_endpoint_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionAffinityEnabled")
-    def session_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def session_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether session affinity should be enabled on this host. Defaults to `true`.
         """
         return pulumi.get(self, "session_affinity_enabled")
 
     @session_affinity_enabled.setter
-    def session_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def session_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "session_affinity_enabled", value)
 
 
@@ -240,12 +240,12 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_probe: Optional[pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
-                 load_balancing: Optional[pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Origin Group.
@@ -365,12 +365,12 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_probe: Optional[pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
-                 load_balancing: Optional[pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,12 +400,12 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdn_frontdoor_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            health_probe: Optional[pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
-            load_balancing: Optional[pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            session_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'FrontdoorOriginGroup':
+            cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
+            load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'FrontdoorOriginGroup':
         """
         Get an existing FrontdoorOriginGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

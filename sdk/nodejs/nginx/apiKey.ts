@@ -182,23 +182,23 @@ export interface ApiKeyState {
     /**
      * The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
      */
-    endDateTime?: pulumi.Input<string>;
+    endDateTime?: pulumi.Input<string | undefined>;
     /**
      * The first three characters of the secret text to help identify it in use.
      */
-    hint?: pulumi.Input<string>;
+    hint?: pulumi.Input<string | undefined>;
     /**
      * The name of the NGINX Dataplane API Key. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NGINX Deployment that the API key is associated with. Changing this forces a new resource to be created.
      */
-    nginxDeploymentId?: pulumi.Input<string>;
+    nginxDeploymentId?: pulumi.Input<string | undefined>;
     /**
      * The value used as the Dataplane API Key. The API key requirements can be found in the [NGINXaaS Documentation](https://docs.nginx.com/nginxaas/azure/quickstart/loadbalancer-kubernetes/#create-an-nginxaas-data-plane-api-key).
      */
-    secretText?: pulumi.Input<string>;
+    secretText?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,7 +212,7 @@ export interface ApiKeyArgs {
     /**
      * The name of the NGINX Dataplane API Key. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NGINX Deployment that the API key is associated with. Changing this forces a new resource to be created.
      */

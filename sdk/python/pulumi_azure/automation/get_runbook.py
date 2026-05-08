@@ -223,9 +223,9 @@ def get_runbook(automation_account_name: Optional[_builtins.str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         runbook_type=pulumi.get(__ret__, 'runbook_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_runbook_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_runbook_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRunbookResult]:
     """
     Use this data source to access information about an existing Automation Runbook.

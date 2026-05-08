@@ -265,45 +265,45 @@ export interface ServerExtendedAuditingPolicyState {
     /**
      * A list of Actions-Groups and Actions to audit.
      */
-    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    predicateExpression?: pulumi.Input<string>;
+    predicateExpression?: pulumi.Input<string | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Subscription containing the Storage Account.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -313,25 +313,25 @@ export interface ServerExtendedAuditingPolicyArgs {
     /**
      * A list of Actions-Groups and Actions to audit.
      */
-    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
-    logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    predicateExpression?: pulumi.Input<string>;
+    predicateExpression?: pulumi.Input<string | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
@@ -339,17 +339,17 @@ export interface ServerExtendedAuditingPolicyArgs {
     /**
      * The access key to use for the auditing storage account.
      */
-    storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Subscription containing the Storage Account.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
 }

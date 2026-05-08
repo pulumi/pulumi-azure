@@ -166,23 +166,23 @@ export interface ResolverInboundEndpointState {
     /**
      * One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      */
-    ipConfigurations?: pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfigurations>;
+    ipConfigurations?: pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfigurations | undefined>;
     /**
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
-    privateDnsResolverId?: pulumi.Input<string>;
+    privateDnsResolverId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -196,11 +196,11 @@ export interface ResolverInboundEndpointArgs {
     /**
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
@@ -208,5 +208,5 @@ export interface ResolverInboundEndpointArgs {
     /**
      * A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

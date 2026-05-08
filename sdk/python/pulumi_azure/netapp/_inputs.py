@@ -80,41 +80,41 @@ class AccountActiveDirectoryArgsDict(TypedDict):
     """
     The Username of Active Directory Domain Administrator.
     """
-    aes_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    aes_encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
     """
-    kerberos_ad_name: NotRequired[pulumi.Input[_builtins.str]]
+    kerberos_ad_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the active directory machine.
     """
-    kerberos_kdc_ip: NotRequired[pulumi.Input[_builtins.str]]
+    kerberos_kdc_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     kdc server IP addresses for the active directory machine.
 
     > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
     """
-    ldap_over_tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ldap_over_tls_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
     """
-    ldap_signing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    ldap_signing_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
     """
-    local_nfs_users_with_ldap_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    local_nfs_users_with_ldap_allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
     """
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
     """
-    server_root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    server_root_ca_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
     """
-    site_name: NotRequired[pulumi.Input[_builtins.str]]
+    site_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
     """
@@ -127,15 +127,15 @@ class AccountActiveDirectoryArgs:
                  password: pulumi.Input[_builtins.str],
                  smb_server_name: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 aes_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_ad_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_kdc_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_over_tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ldap_signing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_nfs_users_with_ldap_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_root_ca_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 aes_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_ad_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_kdc_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_over_tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ldap_signing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_nfs_users_with_ldap_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_root_ca_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         :param pulumi.Input[_builtins.str] domain: The name of the Active Directory domain.
@@ -240,31 +240,31 @@ class AccountActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="aesEncryptionEnabled")
-    def aes_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def aes_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
         """
         return pulumi.get(self, "aes_encryption_enabled")
 
     @aes_encryption_enabled.setter
-    def aes_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def aes_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "aes_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosAdName")
-    def kerberos_ad_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_ad_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the active directory machine.
         """
         return pulumi.get(self, "kerberos_ad_name")
 
     @kerberos_ad_name.setter
-    def kerberos_ad_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_ad_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_ad_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKdcIp")
-    def kerberos_kdc_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_kdc_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         kdc server IP addresses for the active directory machine.
 
@@ -273,79 +273,79 @@ class AccountActiveDirectoryArgs:
         return pulumi.get(self, "kerberos_kdc_ip")
 
     @kerberos_kdc_ip.setter
-    def kerberos_kdc_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_kdc_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_kdc_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapOverTlsEnabled")
-    def ldap_over_tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_over_tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
         """
         return pulumi.get(self, "ldap_over_tls_enabled")
 
     @ldap_over_tls_enabled.setter
-    def ldap_over_tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_over_tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_over_tls_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapSigningEnabled")
-    def ldap_signing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ldap_signing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
         """
         return pulumi.get(self, "ldap_signing_enabled")
 
     @ldap_signing_enabled.setter
-    def ldap_signing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ldap_signing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ldap_signing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localNfsUsersWithLdapAllowed")
-    def local_nfs_users_with_ldap_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_nfs_users_with_ldap_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
         """
         return pulumi.get(self, "local_nfs_users_with_ldap_allowed")
 
     @local_nfs_users_with_ldap_allowed.setter
-    def local_nfs_users_with_ldap_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_nfs_users_with_ldap_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_nfs_users_with_ldap_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
         """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="serverRootCaCertificate")
-    def server_root_ca_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_root_ca_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
         """
         return pulumi.get(self, "server_root_ca_certificate")
 
     @server_root_ca_certificate.setter
-    def server_root_ca_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_root_ca_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_root_ca_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
         """
         return pulumi.get(self, "site_name")
 
     @site_name.setter
-    def site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_name", value)
 
 
@@ -354,20 +354,20 @@ class AccountIdentityArgsDict(TypedDict):
     """
     The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
     """
-    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identity id of the user assigned identity to use when type is `UserAssigned`
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: The identity id of the user assigned identity to use when type is `UserAssigned`
@@ -394,32 +394,32 @@ class AccountIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identity id of the user assigned identity to use when type is `UserAssigned`
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -821,7 +821,7 @@ class VolumeDataProtectionBackupPolicyArgsDict(TypedDict):
     """
     Resource ID of the backup backup vault to associate this volume to.
     """
-    policy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    policy_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables the backup policy on the volume, defaults to `true`.
 
@@ -833,7 +833,7 @@ class VolumeDataProtectionBackupPolicyArgs:
     def __init__(__self__, *,
                  backup_policy_id: pulumi.Input[_builtins.str],
                  backup_vault_id: pulumi.Input[_builtins.str],
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] backup_policy_id: Resource ID of the backup policy to apply to the volume.
         :param pulumi.Input[_builtins.str] backup_vault_id: Resource ID of the backup backup vault to associate this volume to.
@@ -872,7 +872,7 @@ class VolumeDataProtectionBackupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyEnabled")
-    def policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the backup policy on the volume, defaults to `true`.
 
@@ -881,7 +881,7 @@ class VolumeDataProtectionBackupPolicyArgs:
         return pulumi.get(self, "policy_enabled")
 
     @policy_enabled.setter
-    def policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_enabled", value)
 
 
@@ -904,7 +904,7 @@ class VolumeDataProtectionReplicationArgsDict(TypedDict):
 
     > **Note:** For cross-zone replication (when `remote_volume_location` is the same as the volume's `location`), both the source and destination volumes must have a `zone` assigned. For a complete example of cross-zone-region replication with fan-out deployment, see the `./examples/netapp/cross_zone_region_replication` directory within the GitHub Repository. For more information, see [Manage cross-zone-region replication for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/cross-zone-region-replication-configure).
     """
-    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint type, default value is `dst` for destination.
     """
@@ -915,7 +915,7 @@ class VolumeDataProtectionReplicationArgs:
                  remote_volume_location: pulumi.Input[_builtins.str],
                  remote_volume_resource_id: pulumi.Input[_builtins.str],
                  replication_frequency: pulumi.Input[_builtins.str],
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] remote_volume_resource_id: Resource ID of the primary volume.
@@ -978,14 +978,14 @@ class VolumeDataProtectionReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint type, default value is `dst` for destination.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
 
@@ -1038,44 +1038,44 @@ class VolumeExportPolicyRuleArgsDict(TypedDict):
     """
     The index number of the rule.
     """
-    kerberos5_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_read_only_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Kerberos 5 read-only access permitted to this volume?
     """
-    kerberos5_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5_read_write_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Kerberos 5 read/write permitted to this volume?
     """
-    kerberos5i_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5i_read_only_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Kerberos 5i read-only permitted to this volume?
     """
-    kerberos5i_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5i_read_write_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Kerberos 5i read/write permitted to this volume?
     """
-    kerberos5p_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5p_read_only_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Kerberos 5p read-only permitted to this volume?
     """
-    kerberos5p_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kerberos5p_read_write_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Kerberos 5p read/write permitted to this volume?
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
     """
-    protocols_enabled: NotRequired[pulumi.Input[_builtins.str]]
-    root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    protocols_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    root_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is root access permitted to this volume?
     """
-    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the file system on unix read only?
     """
-    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the file system on unix read and write?
     """
@@ -1085,17 +1085,17 @@ class VolumeExportPolicyRuleArgs:
     def __init__(__self__, *,
                  allowed_clients: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  rule_index: pulumi.Input[_builtins.int],
-                 kerberos5_read_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5_read_write_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5i_read_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5i_read_write_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5p_read_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos5p_read_write_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocols_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_write: Optional[pulumi.Input[_builtins.bool]] = None):
+                 kerberos5_read_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5_read_write_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5i_read_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5i_read_write_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5p_read_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos5p_read_write_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocols_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_write: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: A list of allowed clients IPv4 addresses.
         :param pulumi.Input[_builtins.int] rule_index: The index number of the rule.
@@ -1164,132 +1164,132 @@ class VolumeExportPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="kerberos5ReadOnlyEnabled")
-    def kerberos5_read_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_read_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Kerberos 5 read-only access permitted to this volume?
         """
         return pulumi.get(self, "kerberos5_read_only_enabled")
 
     @kerberos5_read_only_enabled.setter
-    def kerberos5_read_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_read_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_read_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5ReadWriteEnabled")
-    def kerberos5_read_write_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5_read_write_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Kerberos 5 read/write permitted to this volume?
         """
         return pulumi.get(self, "kerberos5_read_write_enabled")
 
     @kerberos5_read_write_enabled.setter
-    def kerberos5_read_write_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5_read_write_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5_read_write_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5iReadOnlyEnabled")
-    def kerberos5i_read_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5i_read_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Kerberos 5i read-only permitted to this volume?
         """
         return pulumi.get(self, "kerberos5i_read_only_enabled")
 
     @kerberos5i_read_only_enabled.setter
-    def kerberos5i_read_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5i_read_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5i_read_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5iReadWriteEnabled")
-    def kerberos5i_read_write_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5i_read_write_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Kerberos 5i read/write permitted to this volume?
         """
         return pulumi.get(self, "kerberos5i_read_write_enabled")
 
     @kerberos5i_read_write_enabled.setter
-    def kerberos5i_read_write_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5i_read_write_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5i_read_write_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5pReadOnlyEnabled")
-    def kerberos5p_read_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5p_read_only_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Kerberos 5p read-only permitted to this volume?
         """
         return pulumi.get(self, "kerberos5p_read_only_enabled")
 
     @kerberos5p_read_only_enabled.setter
-    def kerberos5p_read_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5p_read_only_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5p_read_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberos5pReadWriteEnabled")
-    def kerberos5p_read_write_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kerberos5p_read_write_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is Kerberos 5p read/write permitted to this volume?
         """
         return pulumi.get(self, "kerberos5p_read_write_enabled")
 
     @kerberos5p_read_write_enabled.setter
-    def kerberos5p_read_write_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kerberos5p_read_write_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kerberos5p_read_write_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolsEnabled")
     @_utilities.deprecated("""this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.""")
-    def protocols_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocols_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocols_enabled")
 
     @protocols_enabled.setter
-    def protocols_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocols_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocols_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rootAccessEnabled")
-    def root_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def root_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is root access permitted to this volume?
         """
         return pulumi.get(self, "root_access_enabled")
 
     @root_access_enabled.setter
-    def root_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def root_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "root_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadOnly")
-    def unix_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the file system on unix read only?
         """
         return pulumi.get(self, "unix_read_only")
 
     @unix_read_only.setter
-    def unix_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadWrite")
-    def unix_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the file system on unix read and write?
         """
         return pulumi.get(self, "unix_read_write")
 
     @unix_read_write.setter
-    def unix_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_write", value)
 
 
@@ -1344,42 +1344,42 @@ class VolumeGroupOracleVolumeArgsDict(TypedDict):
     """
     Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_replication: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgsDict']]
+    data_protection_replication: NotRequired[pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionReplicationArgs']]]
     """
     A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict']]
+    data_protection_snapshot_policy: NotRequired[pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']]]
     """
     A `data_protection_snapshot_policy` block as defined below.
     """
-    encryption_key_source: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_key_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Application Volume Group.
     """
-    key_vault_private_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_private_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
     """
-    mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    network_features: NotRequired[pulumi.Input[_builtins.str]]
+    mount_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    network_features: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
     """
-    proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    proximity_placement_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
 
     > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A mapping of tags which should be assigned to the Application Volume Group.
     """
-    zone: NotRequired[pulumi.Input[_builtins.str]]
+    zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
     """
@@ -1399,16 +1399,16 @@ class VolumeGroupOracleVolumeArgs:
                  throughput_in_mibps: pulumi.Input[_builtins.float],
                  volume_path: pulumi.Input[_builtins.str],
                  volume_spec_name: pulumi.Input[_builtins.str],
-                 data_protection_replication: Optional[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgs']] = None,
-                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']] = None,
-                 encryption_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_features: Optional[pulumi.Input[_builtins.str]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_protection_replication: pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionReplicationArgs']] = None,
+                 data_protection_snapshot_policy: pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 encryption_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_features: pulumi.Input[Optional[_builtins.str]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
@@ -1617,88 +1617,88 @@ class VolumeGroupOracleVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionReplication")
-    def data_protection_replication(self) -> Optional[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgs']]:
+    def data_protection_replication(self) -> pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionReplicationArgs']]:
         """
         A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "data_protection_replication")
 
     @data_protection_replication.setter
-    def data_protection_replication(self, value: Optional[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgs']]):
+    def data_protection_replication(self, value: pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionReplicationArgs']]):
         pulumi.set(self, "data_protection_replication", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionSnapshotPolicy")
-    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']]:
+    def data_protection_snapshot_policy(self) -> pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']]:
         """
         A `data_protection_snapshot_policy` block as defined below.
         """
         return pulumi.get(self, "data_protection_snapshot_policy")
 
     @data_protection_snapshot_policy.setter
-    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']]):
+    def data_protection_snapshot_policy(self, value: pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']]):
         pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeySource")
-    def encryption_key_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_key_source")
 
     @encryption_key_source.setter
-    def encryption_key_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Volume Group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateEndpointId")
-    def key_vault_private_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_private_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_private_endpoint_id")
 
     @key_vault_private_endpoint_id.setter
-    def key_vault_private_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_private_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_private_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mountIpAddresses")
-    def mount_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mount_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "mount_ip_addresses")
 
     @mount_ip_addresses.setter
-    def mount_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mount_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mount_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFeatures")
-    def network_features(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_features(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
         """
         return pulumi.get(self, "network_features")
 
     @network_features.setter
-    def network_features(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_features(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_features", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
 
@@ -1707,31 +1707,31 @@ class VolumeGroupOracleVolumeArgs:
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Application Volume Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
         """
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -1748,7 +1748,7 @@ class VolumeGroupOracleVolumeDataProtectionReplicationArgsDict(TypedDict):
     """
     Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
@@ -1759,7 +1759,7 @@ class VolumeGroupOracleVolumeDataProtectionReplicationArgs:
                  remote_volume_location: pulumi.Input[_builtins.str],
                  remote_volume_resource_id: pulumi.Input[_builtins.str],
                  replication_frequency: pulumi.Input[_builtins.str],
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume.
         :param pulumi.Input[_builtins.str] remote_volume_resource_id: Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1810,14 +1810,14 @@ class VolumeGroupOracleVolumeDataProtectionReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
 
@@ -1866,15 +1866,15 @@ class VolumeGroupOracleVolumeExportPolicyRuleArgsDict(TypedDict):
     """
     The index number of the rule, must start at 1 and maximum 5.
     """
-    root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    root_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is root access permitted to this volume? Defaults to `true`.
     """
-    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the file system on unix read only? Defaults to `false.
     """
-    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the file system on unix read and write? Defaults to `true`.
     """
@@ -1886,9 +1886,9 @@ class VolumeGroupOracleVolumeExportPolicyRuleArgs:
                  nfsv3_enabled: pulumi.Input[_builtins.bool],
                  nfsv41_enabled: pulumi.Input[_builtins.bool],
                  rule_index: pulumi.Input[_builtins.int],
-                 root_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_write: Optional[pulumi.Input[_builtins.bool]] = None):
+                 root_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_write: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] allowed_clients: A comma-sperated list of allowed client IPv4 addresses.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
@@ -1959,38 +1959,38 @@ class VolumeGroupOracleVolumeExportPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="rootAccessEnabled")
-    def root_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def root_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is root access permitted to this volume? Defaults to `true`.
         """
         return pulumi.get(self, "root_access_enabled")
 
     @root_access_enabled.setter
-    def root_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def root_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "root_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadOnly")
-    def unix_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the file system on unix read only? Defaults to `false.
         """
         return pulumi.get(self, "unix_read_only")
 
     @unix_read_only.setter
-    def unix_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadWrite")
-    def unix_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the file system on unix read and write? Defaults to `true`.
         """
         return pulumi.get(self, "unix_read_write")
 
     @unix_read_write.setter
-    def unix_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_write", value)
 
 
@@ -2045,40 +2045,40 @@ class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
     """
     Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_replication: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict']]
+    data_protection_replication: NotRequired[pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]]
     """
     A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict']]
+    data_protection_snapshot_policy: NotRequired[pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]]
     """
     A `data_protection_snapshot_policy` block as defined below.
     """
-    encryption_key_source: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_key_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Application Volume Group.
     """
-    key_vault_private_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    key_vault_private_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    network_features: NotRequired[pulumi.Input[_builtins.str]]
+    mount_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    network_features: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    proximity_placement_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A mapping of tags which should be assigned to the Application Volume Group.
     """
-    zone: NotRequired[pulumi.Input[_builtins.str]]
+    zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
     """
@@ -2098,16 +2098,16 @@ class VolumeGroupSapHanaVolumeArgs:
                  throughput_in_mibps: pulumi.Input[_builtins.float],
                  volume_path: pulumi.Input[_builtins.str],
                  volume_spec_name: pulumi.Input[_builtins.str],
-                 data_protection_replication: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']] = None,
-                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']] = None,
-                 encryption_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_features: Optional[pulumi.Input[_builtins.str]] = None,
-                 proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_protection_replication: pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']] = None,
+                 data_protection_snapshot_policy: pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 encryption_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mount_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_features: pulumi.Input[Optional[_builtins.str]] = None,
+                 proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
@@ -2314,119 +2314,119 @@ class VolumeGroupSapHanaVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionReplication")
-    def data_protection_replication(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]:
+    def data_protection_replication(self) -> pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]:
         """
         A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "data_protection_replication")
 
     @data_protection_replication.setter
-    def data_protection_replication(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]):
+    def data_protection_replication(self, value: pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]):
         pulumi.set(self, "data_protection_replication", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionSnapshotPolicy")
-    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]:
+    def data_protection_snapshot_policy(self) -> pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]:
         """
         A `data_protection_snapshot_policy` block as defined below.
         """
         return pulumi.get(self, "data_protection_snapshot_policy")
 
     @data_protection_snapshot_policy.setter
-    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]):
+    def data_protection_snapshot_policy(self, value: pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]):
         pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeySource")
-    def encryption_key_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "encryption_key_source")
 
     @encryption_key_source.setter
-    def encryption_key_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Application Volume Group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultPrivateEndpointId")
-    def key_vault_private_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_private_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "key_vault_private_endpoint_id")
 
     @key_vault_private_endpoint_id.setter
-    def key_vault_private_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_private_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_private_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="mountIpAddresses")
-    def mount_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mount_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "mount_ip_addresses")
 
     @mount_ip_addresses.setter
-    def mount_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mount_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mount_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFeatures")
-    def network_features(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_features(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "network_features")
 
     @network_features.setter
-    def network_features(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_features(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_features", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
-    def proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Application Volume Group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
@@ -2443,7 +2443,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):
     """
     eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
@@ -2454,7 +2454,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
                  remote_volume_location: pulumi.Input[_builtins.str],
                  remote_volume_resource_id: pulumi.Input[_builtins.str],
                  replication_frequency: pulumi.Input[_builtins.str],
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] remote_volume_location: Location of the primary volume.
         :param pulumi.Input[_builtins.str] remote_volume_resource_id: Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -2505,14 +2505,14 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
 
@@ -2561,15 +2561,15 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict(TypedDict):
     """
     The index number of the rule, must start at 1 and maximum 5.
     """
-    root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    root_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is root access permitted to this volume? Defaults to `true`.
     """
-    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the file system on unix read only? Defaults to `false.
     """
-    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    unix_read_write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the file system on unix read and write? Defaults to `true`.
     """
@@ -2581,9 +2581,9 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
                  nfsv3_enabled: pulumi.Input[_builtins.bool],
                  nfsv41_enabled: pulumi.Input[_builtins.bool],
                  rule_index: pulumi.Input[_builtins.int],
-                 root_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unix_read_write: Optional[pulumi.Input[_builtins.bool]] = None):
+                 root_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unix_read_write: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] allowed_clients: A comma-sperated list of allowed client IPv4 addresses.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
@@ -2654,38 +2654,38 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="rootAccessEnabled")
-    def root_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def root_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is root access permitted to this volume? Defaults to `true`.
         """
         return pulumi.get(self, "root_access_enabled")
 
     @root_access_enabled.setter
-    def root_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def root_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "root_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadOnly")
-    def unix_read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the file system on unix read only? Defaults to `false.
         """
         return pulumi.get(self, "unix_read_only")
 
     @unix_read_only.setter
-    def unix_read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="unixReadWrite")
-    def unix_read_write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unix_read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the file system on unix read and write? Defaults to `true`.
         """
         return pulumi.get(self, "unix_read_write")
 
     @unix_read_write.setter
-    def unix_read_write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unix_read_write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unix_read_write", value)
 
 

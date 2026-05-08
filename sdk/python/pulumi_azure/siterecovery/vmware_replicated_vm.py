@@ -28,21 +28,21 @@ class VmwareReplicatedVmArgs:
                  source_vm_name: pulumi.Input[_builtins.str],
                  target_resource_group_id: pulumi.Input[_builtins.str],
                  target_vm_name: pulumi.Input[_builtins.str],
-                 default_log_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_recovery_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostics_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VmwareReplicatedVm resource.
 
@@ -217,7 +217,7 @@ class VmwareReplicatedVmArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultLogStorageAccountId")
-    def default_log_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_log_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the stroage account that should be used for logging during replication. 
 
@@ -232,12 +232,12 @@ class VmwareReplicatedVmArgs:
         return pulumi.get(self, "default_log_storage_account_id")
 
     @default_log_storage_account_id.setter
-    def default_log_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_log_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_log_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRecoveryDiskType")
-    def default_recovery_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_recovery_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 
@@ -250,12 +250,12 @@ class VmwareReplicatedVmArgs:
         return pulumi.get(self, "default_recovery_disk_type")
 
     @default_recovery_disk_type.setter
-    def default_recovery_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_recovery_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_recovery_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTargetDiskEncryptionSetId")
-    def default_target_disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_target_disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 
@@ -266,24 +266,24 @@ class VmwareReplicatedVmArgs:
         return pulumi.get(self, "default_target_disk_encryption_set_id")
 
     @default_target_disk_encryption_set_id.setter
-    def default_target_disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_target_disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_target_disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]:
+    def managed_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]:
         """
         One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
 
@@ -292,72 +292,72 @@ class VmwareReplicatedVmArgs:
         return pulumi.get(self, "managed_disks")
 
     @managed_disks.setter
-    def managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]):
+    def managed_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]):
         pulumi.set(self, "managed_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="multiVmGroupName")
-    def multi_vm_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_vm_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         """
         return pulumi.get(self, "multi_vm_group_name")
 
     @multi_vm_group_name.setter
-    def multi_vm_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_vm_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_vm_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replicated VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` block as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAvailabilitySetId")
-    def target_availability_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_availability_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of availability set that the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_availability_set_id")
 
     @target_availability_set_id.setter
-    def target_availability_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_availability_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_availability_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
-    def target_boot_diagnostics_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_boot_diagnostics_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the storage account that should be used for boot diagnostics when a failover is done.
         """
         return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
 
     @target_boot_diagnostics_storage_account_id.setter
-    def target_boot_diagnostics_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_boot_diagnostics_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_boot_diagnostics_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of network to use when a failover is done.
 
@@ -366,12 +366,12 @@ class VmwareReplicatedVmArgs:
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetProximityPlacementGroupId")
-    def target_proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 
@@ -380,71 +380,71 @@ class VmwareReplicatedVmArgs:
         return pulumi.get(self, "target_proximity_placement_group_id")
 
     @target_proximity_placement_group_id.setter
-    def target_proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVmSize")
-    def target_vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Size of the VM that should be created when a failover is done, such as `Standard_F2`. If it's not specified, it will automatically be set by detecting the source VM size.
         """
         return pulumi.get(self, "target_vm_size")
 
     @target_vm_size.setter
-    def target_vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_vm_size", value)
 
     @_builtins.property
     @pulumi.getter(name="targetZone")
-    def target_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone where the Failover VM should exist.
         """
         return pulumi.get(self, "target_zone")
 
     @target_zone.setter
-    def target_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of network to use when a test failover is done.
         """
         return pulumi.get(self, "test_network_id")
 
     @test_network_id.setter
-    def test_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_network_id", value)
 
 
 @pulumi.input_type
 class _VmwareReplicatedVmState:
     def __init__(__self__, *,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_log_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_recovery_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]] = None,
-                 physical_server_credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]] = None,
+                 physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostics_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VmwareReplicatedVm resources.
 
@@ -542,19 +542,19 @@ class _VmwareReplicatedVmState:
 
     @_builtins.property
     @pulumi.getter(name="applianceName")
-    def appliance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "appliance_name")
 
     @appliance_name.setter
-    def appliance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultLogStorageAccountId")
-    def default_log_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_log_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the stroage account that should be used for logging during replication. 
 
@@ -569,12 +569,12 @@ class _VmwareReplicatedVmState:
         return pulumi.get(self, "default_log_storage_account_id")
 
     @default_log_storage_account_id.setter
-    def default_log_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_log_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_log_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRecoveryDiskType")
-    def default_recovery_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_recovery_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
 
@@ -587,12 +587,12 @@ class _VmwareReplicatedVmState:
         return pulumi.get(self, "default_recovery_disk_type")
 
     @default_recovery_disk_type.setter
-    def default_recovery_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_recovery_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_recovery_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTargetDiskEncryptionSetId")
-    def default_target_disk_encryption_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_target_disk_encryption_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
 
@@ -603,24 +603,24 @@ class _VmwareReplicatedVmState:
         return pulumi.get(self, "default_target_disk_encryption_set_id")
 
     @default_target_disk_encryption_set_id.setter
-    def default_target_disk_encryption_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_target_disk_encryption_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_target_disk_encryption_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_type", value)
 
     @_builtins.property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]:
+    def managed_disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]:
         """
         One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
 
@@ -629,120 +629,120 @@ class _VmwareReplicatedVmState:
         return pulumi.get(self, "managed_disks")
 
     @managed_disks.setter
-    def managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]):
+    def managed_disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmManagedDiskArgs']]]]):
         pulumi.set(self, "managed_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="multiVmGroupName")
-    def multi_vm_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multi_vm_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         """
         return pulumi.get(self, "multi_vm_group_name")
 
     @multi_vm_group_name.setter
-    def multi_vm_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multi_vm_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multi_vm_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replicated VM. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]:
         """
         One or more `network_interface` block as defined below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VmwareReplicatedVmNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="physicalServerCredentialName")
-    def physical_server_credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def physical_server_credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         """
         return pulumi.get(self, "physical_server_credential_name")
 
     @physical_server_credential_name.setter
-    def physical_server_credential_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def physical_server_credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "physical_server_credential_name", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryReplicationPolicyId")
-    def recovery_replication_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_replication_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the policy to use for this replicated VM.
         """
         return pulumi.get(self, "recovery_replication_policy_id")
 
     @recovery_replication_policy_id.setter
-    def recovery_replication_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_replication_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_replication_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryVaultId")
-    def recovery_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Recovery Services Vault where the replicated VM is created.
         """
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
-    def recovery_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_vault_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVmName")
-    def source_vm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source VM in VMWare. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_vm_name")
 
     @source_vm_name.setter
-    def source_vm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_vm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_vm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAvailabilitySetId")
-    def target_availability_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_availability_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of availability set that the new VM should belong to when a failover is done.
         """
         return pulumi.get(self, "target_availability_set_id")
 
     @target_availability_set_id.setter
-    def target_availability_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_availability_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_availability_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
-    def target_boot_diagnostics_storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_boot_diagnostics_storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the storage account that should be used for boot diagnostics when a failover is done.
         """
         return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
 
     @target_boot_diagnostics_storage_account_id.setter
-    def target_boot_diagnostics_storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_boot_diagnostics_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_boot_diagnostics_storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of network to use when a failover is done.
 
@@ -751,12 +751,12 @@ class _VmwareReplicatedVmState:
         return pulumi.get(self, "target_network_id")
 
     @target_network_id.setter
-    def target_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetProximityPlacementGroupId")
-    def target_proximity_placement_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Proximity Placement Group the new VM should belong to when a failover is done.
 
@@ -765,67 +765,67 @@ class _VmwareReplicatedVmState:
         return pulumi.get(self, "target_proximity_placement_group_id")
 
     @target_proximity_placement_group_id.setter
-    def target_proximity_placement_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_proximity_placement_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_proximity_placement_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceGroupId")
-    def target_resource_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of resource group where the VM should be created when a failover is done.
         """
         return pulumi.get(self, "target_resource_group_id")
 
     @target_resource_group_id.setter
-    def target_resource_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVmName")
-    def target_vm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_vm_name")
 
     @target_vm_name.setter
-    def target_vm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_vm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_vm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVmSize")
-    def target_vm_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_vm_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Size of the VM that should be created when a failover is done, such as `Standard_F2`. If it's not specified, it will automatically be set by detecting the source VM size.
         """
         return pulumi.get(self, "target_vm_size")
 
     @target_vm_size.setter
-    def target_vm_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_vm_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_vm_size", value)
 
     @_builtins.property
     @pulumi.getter(name="targetZone")
-    def target_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Availability Zone where the Failover VM should exist.
         """
         return pulumi.get(self, "target_zone")
 
     @target_zone.setter
-    def target_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def test_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of network to use when a test failover is done.
         """
         return pulumi.get(self, "test_network_id")
 
     @test_network_id.setter
-    def test_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def test_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "test_network_id", value)
 
 
@@ -835,28 +835,28 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_log_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_recovery_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
-                 physical_server_credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
+                 physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostics_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a VMWare replicated VM using Azure Site Recovery (VMWare to Azure only). A replicated VM keeps a copiously updated image of the VM in Azure in order to be able to start the VM in Azure in case of a disaster.
@@ -1092,28 +1092,28 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_log_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_recovery_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
-                 multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
-                 physical_server_credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
+                 multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
+                 physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_boot_diagnostics_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1169,28 +1169,28 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
-            default_log_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_recovery_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-            default_target_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
-            multi_vm_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
-            physical_server_credential_name: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_vm_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_vm_size: Optional[pulumi.Input[_builtins.str]] = None,
-            target_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            test_network_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VmwareReplicatedVm':
+            appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_log_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+            default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
+            multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
+            physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_availability_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_boot_diagnostics_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_proximity_placement_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_vm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_vm_size: pulumi.Input[Optional[_builtins.str]] = None,
+            target_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            test_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VmwareReplicatedVm':
         """
         Get an existing VmwareReplicatedVm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

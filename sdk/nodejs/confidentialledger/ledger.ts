@@ -168,39 +168,39 @@ export interface LedgerState {
     /**
      * A list of `azureadBasedServicePrincipal` blocks as defined below.
      */
-    azureadBasedServicePrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerAzureadBasedServicePrincipal>[]>;
+    azureadBasedServicePrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerAzureadBasedServicePrincipal>[] | undefined>;
     /**
      * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      */
-    certificateBasedSecurityPrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal>[]>;
+    certificateBasedSecurityPrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal>[] | undefined>;
     /**
      * The Identity Service Endpoint for this Confidential Ledger.
      */
-    identityServiceEndpoint?: pulumi.Input<string>;
+    identityServiceEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Endpoint for this Confidential Ledger.
      */
-    ledgerEndpoint?: pulumi.Input<string>;
+    ledgerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
      */
-    ledgerType?: pulumi.Input<string>;
+    ledgerType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Confidential Ledger.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface LedgerArgs {
     /**
      * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      */
-    certificateBasedSecurityPrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal>[]>;
+    certificateBasedSecurityPrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal>[] | undefined>;
     /**
      * Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
      */
@@ -222,11 +222,11 @@ export interface LedgerArgs {
     /**
      * Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
      */
@@ -234,5 +234,5 @@ export interface LedgerArgs {
     /**
      * A mapping of tags to assign to the Confidential Ledger.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

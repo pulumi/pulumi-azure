@@ -152,23 +152,23 @@ export interface WorkspacePolicyFragmentState {
     /**
      * Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
      */
-    apiManagementWorkspaceId?: pulumi.Input<string>;
+    apiManagementWorkspaceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description for the API Management Workspace Policy Fragment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API Management Workspace Policy Fragment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the XML content of the API Management Workspace Policy Fragment.
      */
-    xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string | undefined>;
     /**
      * Specifies the XML format of the API Management Workspace Policy Fragment. Possible values are `xml` or `rawxml`. Defaults to `xml`.
      */
-    xmlFormat?: pulumi.Input<string>;
+    xmlFormat?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,11 +182,11 @@ export interface WorkspacePolicyFragmentArgs {
     /**
      * Specifies the description for the API Management Workspace Policy Fragment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API Management Workspace Policy Fragment. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the XML content of the API Management Workspace Policy Fragment.
      */
@@ -194,5 +194,5 @@ export interface WorkspacePolicyFragmentArgs {
     /**
      * Specifies the XML format of the API Management Workspace Policy Fragment. Possible values are `xml` or `rawxml`. Defaults to `xml`.
      */
-    xmlFormat?: pulumi.Input<string>;
+    xmlFormat?: pulumi.Input<string | undefined>;
 }

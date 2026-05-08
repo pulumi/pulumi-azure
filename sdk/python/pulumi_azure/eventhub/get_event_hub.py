@@ -145,9 +145,9 @@ def get_event_hub(name: Optional[_builtins.str] = None,
         partition_count=pulumi.get(__ret__, 'partition_count'),
         partition_ids=pulumi.get(__ret__, 'partition_ids'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_event_hub_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_hub_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubResult]:
     """
     Use this data source to access information about an existing EventHub.

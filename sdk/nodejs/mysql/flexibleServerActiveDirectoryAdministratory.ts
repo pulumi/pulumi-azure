@@ -164,23 +164,23 @@ export interface FlexibleServerActiveDirectoryAdministratoryState {
     /**
      * The resource ID of the identity used for AAD Authentication.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The login name of the principal to set as the server administrator
      */
-    login?: pulumi.Input<string>;
+    login?: pulumi.Input<string | undefined>;
     /**
      * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
-    objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
      */
-    serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Tenant ID.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**

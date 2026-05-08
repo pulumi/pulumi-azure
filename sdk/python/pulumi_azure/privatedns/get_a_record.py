@@ -173,9 +173,9 @@ def get_a_record(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone_name=pulumi.get(__ret__, 'zone_name'))
-def get_a_record_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_a_record_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetARecordResult]:
     """
     Use this data source to access information about an existing Private DNS A Record within Azure DNS.

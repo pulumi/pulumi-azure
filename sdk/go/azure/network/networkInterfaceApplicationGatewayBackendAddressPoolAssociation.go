@@ -98,7 +98,7 @@ import (
 //			requestRoutingRuleName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
 //				return fmt.Sprintf("%v-rqrt", name), nil
 //			}).(pulumi.StringOutput)
-//			network, err := network.NewApplicationGateway(ctx, "network", &network.ApplicationGatewayArgs{
+//			network2, err := network.NewApplicationGateway(ctx, "network", &network.ApplicationGatewayArgs{
 //				Name:              pulumi.String("example-appgateway"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -179,7 +179,7 @@ import (
 //			_, err = network.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "example", &network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
 //				NetworkInterfaceId:  exampleNetworkInterface.ID(),
 //				IpConfigurationName: pulumi.String("testconfiguration1"),
-//				BackendAddressPoolId: pulumi.String(network.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (*string, error) {
+//				BackendAddressPoolId: pulumi.String(network2.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (*string, error) {
 //					return &backendAddressPools[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})

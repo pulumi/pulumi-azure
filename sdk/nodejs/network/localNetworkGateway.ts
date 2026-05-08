@@ -153,37 +153,37 @@ export interface LocalNetworkGatewayState {
     /**
      * The list of string CIDRs representing the address spaces the gateway exposes.
      */
-    addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
      */
-    bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings>;
+    bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings | undefined>;
     /**
      * The gateway IP address to connect with.
      */
-    gatewayAddress?: pulumi.Input<string>;
+    gatewayAddress?: pulumi.Input<string | undefined>;
     /**
      * The gateway FQDN to connect with.
      *
      * > **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      */
-    gatewayFqdn?: pulumi.Input<string>;
+    gatewayFqdn?: pulumi.Input<string | undefined>;
     /**
      * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the local network gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -193,29 +193,29 @@ export interface LocalNetworkGatewayArgs {
     /**
      * The list of string CIDRs representing the address spaces the gateway exposes.
      */
-    addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
      */
-    bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings>;
+    bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings | undefined>;
     /**
      * The gateway IP address to connect with.
      */
-    gatewayAddress?: pulumi.Input<string>;
+    gatewayAddress?: pulumi.Input<string | undefined>;
     /**
      * The gateway FQDN to connect with.
      *
      * > **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      */
-    gatewayFqdn?: pulumi.Input<string>;
+    gatewayFqdn?: pulumi.Input<string | undefined>;
     /**
      * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the local network gateway. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      */
@@ -223,5 +223,5 @@ export interface LocalNetworkGatewayArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

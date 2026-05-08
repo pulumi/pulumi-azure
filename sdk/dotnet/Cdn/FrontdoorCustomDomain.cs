@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Cdn
     /// {
     ///     var example = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = Std.Index.Join.Invoke(new()
+    ///         Name = Std.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]

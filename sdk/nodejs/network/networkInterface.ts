@@ -243,81 +243,81 @@ export interface NetworkInterfaceState {
      *
      * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      */
-    acceleratedNetworkingEnabled?: pulumi.Input<boolean>;
+    acceleratedNetworkingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      */
-    appliedDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    appliedDnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
      *
      * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      */
-    auxiliaryMode?: pulumi.Input<string>;
+    auxiliaryMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
      *
      * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      */
-    auxiliarySku?: pulumi.Input<string>;
+    auxiliarySku?: pulumi.Input<string | undefined>;
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      *
      * > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
-    internalDnsNameLabel?: pulumi.Input<string>;
+    internalDnsNameLabel?: pulumi.Input<string | undefined>;
     /**
      * Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
      */
-    internalDomainNameSuffix?: pulumi.Input<string>;
+    internalDomainNameSuffix?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[] | undefined>;
     /**
      * Should IP Forwarding be enabled? Defaults to `false`.
      */
-    ipForwardingEnabled?: pulumi.Input<boolean>;
+    ipForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Media Access Control (MAC) Address of the Network Interface.
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Interface. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The first private IP address of the network interface.
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The private IP addresses of the network interface.
      */
-    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Virtual Machine which this Network Interface is connected to.
      */
-    virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -331,33 +331,33 @@ export interface NetworkInterfaceArgs {
      *
      * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      */
-    acceleratedNetworkingEnabled?: pulumi.Input<boolean>;
+    acceleratedNetworkingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
      *
      * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      */
-    auxiliaryMode?: pulumi.Input<string>;
+    auxiliaryMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
      *
      * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      */
-    auxiliarySku?: pulumi.Input<string>;
+    auxiliarySku?: pulumi.Input<string | undefined>;
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      *
      * > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      */
-    edgeZone?: pulumi.Input<string>;
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
-    internalDnsNameLabel?: pulumi.Input<string>;
+    internalDnsNameLabel?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */
@@ -365,15 +365,15 @@ export interface NetworkInterfaceArgs {
     /**
      * Should IP Forwarding be enabled? Defaults to `false`.
      */
-    ipForwardingEnabled?: pulumi.Input<boolean>;
+    ipForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Network Interface. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
      */
@@ -381,5 +381,5 @@ export interface NetworkInterfaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -276,103 +276,103 @@ export interface ClusterState {
     /**
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
-    addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    addOnFeatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
+    certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate | undefined>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
+    certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames | undefined>;
     /**
      * A `clientCertificateCommonName` block as defined below.
      *
      * > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      */
-    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
+    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[] | undefined>;
     /**
      * One or more `clientCertificateThumbprint` blocks as defined below.
      */
-    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
+    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[] | undefined>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
-    clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string | undefined>;
     /**
      * The Cluster Endpoint for this Service Fabric Cluster.
      */
-    clusterEndpoint?: pulumi.Input<string>;
+    clusterEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A `diagnosticsConfig` block as defined below.
      */
-    diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
+    diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig | undefined>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[] | undefined>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      */
-    managementEndpoint?: pulumi.Input<string>;
+    managementEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
+    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[] | undefined>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      *
      * > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
      */
-    reliabilityLevel?: pulumi.Input<string>;
+    reliabilityLevel?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
-    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
+    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate | undefined>;
     /**
      * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      */
-    reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
+    reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames | undefined>;
     /**
      * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
      */
-    serviceFabricZonalUpgradeMode?: pulumi.Input<string>;
+    serviceFabricZonalUpgradeMode?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
-    upgradeMode?: pulumi.Input<string>;
+    upgradeMode?: pulumi.Input<string | undefined>;
     /**
      * A `upgradePolicy` block as defined below.
      */
-    upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
+    upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy | undefined>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
-    vmImage?: pulumi.Input<string>;
+    vmImage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
      */
-    vmssZonalUpgradeMode?: pulumi.Input<string>;
+    vmssZonalUpgradeMode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -382,45 +382,45 @@ export interface ClusterArgs {
     /**
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
-    addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    addOnFeatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
+    certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate | undefined>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
+    certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames | undefined>;
     /**
      * A `clientCertificateCommonName` block as defined below.
      *
      * > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      */
-    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
+    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[] | undefined>;
     /**
      * One or more `clientCertificateThumbprint` blocks as defined below.
      */
-    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
+    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[] | undefined>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
-    clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string | undefined>;
     /**
      * A `diagnosticsConfig` block as defined below.
      */
-    diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
+    diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig | undefined>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[] | undefined>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      */
@@ -428,7 +428,7 @@ export interface ClusterArgs {
     /**
      * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
@@ -446,19 +446,19 @@ export interface ClusterArgs {
     /**
      * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
-    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
+    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate | undefined>;
     /**
      * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      */
-    reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
+    reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames | undefined>;
     /**
      * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
      */
-    serviceFabricZonalUpgradeMode?: pulumi.Input<string>;
+    serviceFabricZonalUpgradeMode?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
@@ -466,7 +466,7 @@ export interface ClusterArgs {
     /**
      * A `upgradePolicy` block as defined below.
      */
-    upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
+    upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy | undefined>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
@@ -474,5 +474,5 @@ export interface ClusterArgs {
     /**
      * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
      */
-    vmssZonalUpgradeMode?: pulumi.Input<string>;
+    vmssZonalUpgradeMode?: pulumi.Input<string | undefined>;
 }

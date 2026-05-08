@@ -21,19 +21,19 @@ class InsightsArgs:
     def __init__(__self__, *,
                  application_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 daily_data_cap_in_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Insights resource.
 
@@ -110,151 +110,151 @@ class InsightsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapInGb")
-    def daily_data_cap_in_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_data_cap_in_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         """
         return pulumi.get(self, "daily_data_cap_in_gb")
 
     @daily_data_cap_in_gb.setter
-    def daily_data_cap_in_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_data_cap_in_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_data_cap_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    def daily_data_cap_notifications_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def daily_data_cap_notifications_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
     @daily_data_cap_notifications_disabled.setter
-    def daily_data_cap_notifications_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def daily_data_cap_notifications_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "daily_data_cap_notifications_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="disableIpMasking")
-    def disable_ip_masking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         """
         return pulumi.get(self, "disable_ip_masking")
 
     @disable_ip_masking.setter
-    def disable_ip_masking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_ip_masking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_ip_masking", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCustomerStorageForProfiler")
-    def force_customer_storage_for_profiler(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_customer_storage_for_profiler(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         """
         return pulumi.get(self, "force_customer_storage_for_profiler")
 
     @force_customer_storage_for_profiler.setter
-    def force_customer_storage_for_profiler(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_customer_storage_for_profiler(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_customer_storage_for_profiler", value)
 
     @_builtins.property
     @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_ingestion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @internet_ingestion_enabled.setter
-    def internet_ingestion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_ingestion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_ingestion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_query_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 
     @internet_query_enabled.setter
-    def internet_query_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_query_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_query_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable Non-Azure AD based Auth. Defaults to `false`.
         """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of a log analytics workspace resource.
 
@@ -263,31 +263,31 @@ class InsightsArgs:
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
 @pulumi.input_type
 class _InsightsState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_data_cap_in_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Insights resources.
 
@@ -351,211 +351,211 @@ class _InsightsState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The App ID associated with this Application Insights component.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationType")
-    def application_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
-    def application_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_type", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Connection String for this Application Insights component. (Sensitive)
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapInGb")
-    def daily_data_cap_in_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def daily_data_cap_in_gb(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         """
         return pulumi.get(self, "daily_data_cap_in_gb")
 
     @daily_data_cap_in_gb.setter
-    def daily_data_cap_in_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def daily_data_cap_in_gb(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "daily_data_cap_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    def daily_data_cap_notifications_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def daily_data_cap_notifications_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
     @daily_data_cap_notifications_disabled.setter
-    def daily_data_cap_notifications_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def daily_data_cap_notifications_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "daily_data_cap_notifications_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="disableIpMasking")
-    def disable_ip_masking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         """
         return pulumi.get(self, "disable_ip_masking")
 
     @disable_ip_masking.setter
-    def disable_ip_masking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_ip_masking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_ip_masking", value)
 
     @_builtins.property
     @pulumi.getter(name="forceCustomerStorageForProfiler")
-    def force_customer_storage_for_profiler(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_customer_storage_for_profiler(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         """
         return pulumi.get(self, "force_customer_storage_for_profiler")
 
     @force_customer_storage_for_profiler.setter
-    def force_customer_storage_for_profiler(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_customer_storage_for_profiler(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_customer_storage_for_profiler", value)
 
     @_builtins.property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instrumentation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Instrumentation Key for this Application Insights component. (Sensitive)
         """
         return pulumi.get(self, "instrumentation_key")
 
     @instrumentation_key.setter
-    def instrumentation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instrumentation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instrumentation_key", value)
 
     @_builtins.property
     @pulumi.getter(name="internetIngestionEnabled")
-    def internet_ingestion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_ingestion_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_ingestion_enabled")
 
     @internet_ingestion_enabled.setter
-    def internet_ingestion_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_ingestion_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_ingestion_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="internetQueryEnabled")
-    def internet_query_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internet_query_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         """
         return pulumi.get(self, "internet_query_enabled")
 
     @internet_query_enabled.setter
-    def internet_query_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internet_query_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internet_query_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable Non-Azure AD based Auth. Defaults to `false`.
         """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the id of a log analytics workspace resource.
 
@@ -564,7 +564,7 @@ class _InsightsState:
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -574,21 +574,21 @@ class Insights(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_data_cap_in_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Application Insights component.
@@ -759,21 +759,21 @@ class Insights(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_data_cap_in_gb: Optional[pulumi.Input[_builtins.float]] = None,
-                 daily_data_cap_notifications_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
+                 daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -817,24 +817,24 @@ class Insights(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            application_type: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            daily_data_cap_in_gb: Optional[pulumi.Input[_builtins.float]] = None,
-            daily_data_cap_notifications_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            disable_ip_masking: Optional[pulumi.Input[_builtins.bool]] = None,
-            force_customer_storage_for_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
-            instrumentation_key: Optional[pulumi.Input[_builtins.str]] = None,
-            internet_ingestion_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            internet_query_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            local_authentication_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            sampling_percentage: Optional[pulumi.Input[_builtins.float]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Insights':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            application_type: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
+            daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
+            instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Insights':
         """
         Get an existing Insights resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

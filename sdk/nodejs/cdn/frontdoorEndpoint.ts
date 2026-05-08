@@ -129,23 +129,23 @@ export interface FrontdoorEndpointState {
     /**
      * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      */
-    cdnFrontdoorProfileId?: pulumi.Input<string>;
+    cdnFrontdoorProfileId?: pulumi.Input<string | undefined>;
     /**
      * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -159,13 +159,13 @@ export interface FrontdoorEndpointArgs {
     /**
      * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

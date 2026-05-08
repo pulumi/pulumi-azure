@@ -24,32 +24,32 @@ class LinuxWebAppArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_plan_id: pulumi.Input[_builtins.str],
                  site_config: pulumi.Input['LinuxWebAppSiteConfigArgs'],
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']] = None,
-                 auth_settings_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']] = None,
-                 backup: Optional[pulumi.Input['LinuxWebAppBackupArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['LinuxWebAppIdentityArgs']] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input['LinuxWebAppLogsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['LinuxWebAppAuthSettingsArgs']] = None,
+                 auth_settings_v2: pulumi.Input[Optional['LinuxWebAppAuthSettingsV2Args']] = None,
+                 backup: pulumi.Input[Optional['LinuxWebAppBackupArgs']] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['LinuxWebAppIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional['LinuxWebAppLogsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sticky_settings: pulumi.Input[Optional['LinuxWebAppStickySettingsArgs']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinuxWebApp resource.
 
@@ -189,199 +189,199 @@ class LinuxWebAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs of App Settings.
         """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['LinuxWebAppAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['LinuxWebAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettingsV2")
-    def auth_settings_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']]:
+    def auth_settings_v2(self) -> pulumi.Input[Optional['LinuxWebAppAuthSettingsV2Args']]:
         """
         An `auth_settings_v2` block as defined below.
         """
         return pulumi.get(self, "auth_settings_v2")
 
     @auth_settings_v2.setter
-    def auth_settings_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']]):
+    def auth_settings_v2(self, value: pulumi.Input[Optional['LinuxWebAppAuthSettingsV2Args']]):
         pulumi.set(self, "auth_settings_v2", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['LinuxWebAppBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['LinuxWebAppBackupArgs']]:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['LinuxWebAppBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['LinuxWebAppBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Client Affinity be enabled?
         """
         return pulumi.get(self, "client_affinity_enabled")
 
     @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateEnabled")
-    def client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Client Certificates be enabled?
         """
         return pulumi.get(self, "client_certificate_enabled")
 
     @client_certificate_enabled.setter
-    def client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateExclusionPaths")
-    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @client_certificate_exclusion_paths.setter
-    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_exclusion_paths(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateMode")
-    def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
     @client_certificate_mode.setter
-    def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]:
         """
         One or more `connection_string` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Linux Web App be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
-    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @ftp_publish_basic_authentication_enabled.setter
-    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ftp_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Linux Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LinuxWebAppIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['LinuxWebAppIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LinuxWebAppIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['LinuxWebAppIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentityId")
-    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
     @key_vault_reference_identity_id.setter
-    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['LinuxWebAppLogsArgs']]:
         """
         A `logs` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['LinuxWebAppLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
 
@@ -390,72 +390,72 @@ class LinuxWebAppArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should public network access be enabled for the Web App. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="stickySettings")
-    def sticky_settings(self) -> Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]:
+    def sticky_settings(self) -> pulumi.Input[Optional['LinuxWebAppStickySettingsArgs']]:
         """
         A `sticky_settings` block as defined below.
         """
         return pulumi.get(self, "sticky_settings")
 
     @sticky_settings.setter
-    def sticky_settings(self, value: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]):
+    def sticky_settings(self, value: pulumi.Input[Optional['LinuxWebAppStickySettingsArgs']]):
         pulumi.set(self, "sticky_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
-    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def virtual_network_backup_restore_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @virtual_network_backup_restore_enabled.setter
-    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def virtual_network_backup_restore_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "virtual_network_backup_restore_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
@@ -466,12 +466,12 @@ class LinuxWebAppArgs:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetImagePullEnabled")
-    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vnet_image_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 
@@ -480,12 +480,12 @@ class LinuxWebAppArgs:
         return pulumi.get(self, "vnet_image_pull_enabled")
 
     @vnet_image_pull_enabled.setter
-    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vnet_image_pull_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vnet_image_pull_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
-    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
@@ -494,12 +494,12 @@ class LinuxWebAppArgs:
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
     @webdeploy_publish_basic_authentication_enabled.setter
-    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def webdeploy_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zipDeployFile")
-    def zip_deploy_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_deploy_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 
@@ -508,51 +508,51 @@ class LinuxWebAppArgs:
         return pulumi.get(self, "zip_deploy_file")
 
     @zip_deploy_file.setter
-    def zip_deploy_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_deploy_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_deploy_file", value)
 
 
 @pulumi.input_type
 class _LinuxWebAppState:
     def __init__(__self__, *,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']] = None,
-                 auth_settings_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']] = None,
-                 backup: Optional[pulumi.Input['LinuxWebAppBackupArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
-                 custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hosting_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input['LinuxWebAppIdentityArgs']] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input['LinuxWebAppLogsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input['LinuxWebAppSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]] = None,
-                 sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional['LinuxWebAppAuthSettingsArgs']] = None,
+                 auth_settings_v2: pulumi.Input[Optional['LinuxWebAppAuthSettingsV2Args']] = None,
+                 backup: pulumi.Input[Optional['LinuxWebAppBackupArgs']] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
+                 custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional['LinuxWebAppIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional['LinuxWebAppLogsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional['LinuxWebAppSiteConfigArgs']] = None,
+                 site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]] = None,
+                 sticky_settings: pulumi.Input[Optional['LinuxWebAppStickySettingsArgs']] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebApp resources.
 
@@ -686,247 +686,247 @@ class _LinuxWebAppState:
 
     @_builtins.property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs of App Settings.
         """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
-    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def app_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']]:
+    def auth_settings(self) -> pulumi.Input[Optional['LinuxWebAppAuthSettingsArgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsArgs']]):
+    def auth_settings(self, value: pulumi.Input[Optional['LinuxWebAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="authSettingsV2")
-    def auth_settings_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']]:
+    def auth_settings_v2(self) -> pulumi.Input[Optional['LinuxWebAppAuthSettingsV2Args']]:
         """
         An `auth_settings_v2` block as defined below.
         """
         return pulumi.get(self, "auth_settings_v2")
 
     @auth_settings_v2.setter
-    def auth_settings_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2Args']]):
+    def auth_settings_v2(self, value: pulumi.Input[Optional['LinuxWebAppAuthSettingsV2Args']]):
         pulumi.set(self, "auth_settings_v2", value)
 
     @_builtins.property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['LinuxWebAppBackupArgs']]:
+    def backup(self) -> pulumi.Input[Optional['LinuxWebAppBackupArgs']]:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['LinuxWebAppBackupArgs']]):
+    def backup(self, value: pulumi.Input[Optional['LinuxWebAppBackupArgs']]):
         pulumi.set(self, "backup", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_affinity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Client Affinity be enabled?
         """
         return pulumi.get(self, "client_affinity_enabled")
 
     @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_affinity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateEnabled")
-    def client_certificate_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_certificate_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should Client Certificates be enabled?
         """
         return pulumi.get(self, "client_certificate_enabled")
 
     @client_certificate_enabled.setter
-    def client_certificate_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_certificate_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_certificate_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateExclusionPaths")
-    def client_certificate_exclusion_paths(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
     @client_certificate_exclusion_paths.setter
-    def client_certificate_exclusion_paths(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_exclusion_paths(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_exclusion_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateMode")
-    def client_certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
     @client_certificate_mode.setter
-    def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]:
+    def connection_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]:
         """
         One or more `connection_string` blocks as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]):
+    def connection_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainVerificationId")
-    def custom_domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @custom_domain_verification_id.setter
-    def custom_domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_verification_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultHostname")
-    def default_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default hostname of the Linux Web App.
         """
         return pulumi.get(self, "default_hostname")
 
     @default_hostname.setter
-    def default_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Linux Web App be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
-    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @ftp_publish_basic_authentication_enabled.setter
-    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ftp_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostingEnvironmentId")
-    def hosting_environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosting_environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the App Service Environment used by App Service.
         """
         return pulumi.get(self, "hosting_environment_id")
 
     @hosting_environment_id.setter
-    def hosting_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosting_environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosting_environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def https_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the Linux Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
     @https_only.setter
-    def https_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def https_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "https_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LinuxWebAppIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['LinuxWebAppIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LinuxWebAppIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['LinuxWebAppIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultReferenceIdentityId")
-    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
     @key_vault_reference_identity_id.setter
-    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kind value for this Linux Web App.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['LinuxWebAppLogsArgs']]:
         """
         A `logs` block as defined below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['LinuxWebAppLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
 
@@ -935,168 +935,168 @@ class _LinuxWebAppState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddressLists")
-    def outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def outbound_ip_address_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         """
         return pulumi.get(self, "outbound_ip_address_lists")
 
     @outbound_ip_address_lists.setter
-    def outbound_ip_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def outbound_ip_address_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "outbound_ip_address_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
     @outbound_ip_addresses.setter
-    def outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddressLists")
-    def possible_outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def possible_outbound_ip_address_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of possible outbound ip address.
         """
         return pulumi.get(self, "possible_outbound_ip_address_lists")
 
     @possible_outbound_ip_address_lists.setter
-    def possible_outbound_ip_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def possible_outbound_ip_address_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "possible_outbound_ip_address_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def possible_outbound_ip_addresses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @possible_outbound_ip_addresses.setter
-    def possible_outbound_ip_addresses(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def possible_outbound_ip_addresses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should public network access be enabled for the Web App. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePlanId")
-    def service_plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Service Plan that this Linux App Service will be created in.
         """
         return pulumi.get(self, "service_plan_id")
 
     @service_plan_id.setter
-    def service_plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_plan_id", value)
 
     @_builtins.property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigArgs']]:
+    def site_config(self) -> pulumi.Input[Optional['LinuxWebAppSiteConfigArgs']]:
         """
         A `site_config` block as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigArgs']]):
+    def site_config(self, value: pulumi.Input[Optional['LinuxWebAppSiteConfigArgs']]):
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]]:
+    def site_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]]:
         """
         A `site_credential` block as defined below.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]]):
+    def site_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="stickySettings")
-    def sticky_settings(self) -> Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]:
+    def sticky_settings(self) -> pulumi.Input[Optional['LinuxWebAppStickySettingsArgs']]:
         """
         A `sticky_settings` block as defined below.
         """
         return pulumi.get(self, "sticky_settings")
 
     @sticky_settings.setter
-    def sticky_settings(self, value: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]):
+    def sticky_settings(self, value: pulumi.Input[Optional['LinuxWebAppStickySettingsArgs']]):
         pulumi.set(self, "sticky_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]:
+    def storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]):
+    def storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
-    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def virtual_network_backup_restore_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @virtual_network_backup_restore_enabled.setter
-    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def virtual_network_backup_restore_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "virtual_network_backup_restore_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 
@@ -1107,12 +1107,12 @@ class _LinuxWebAppState:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
-    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetImagePullEnabled")
-    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vnet_image_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 
@@ -1121,12 +1121,12 @@ class _LinuxWebAppState:
         return pulumi.get(self, "vnet_image_pull_enabled")
 
     @vnet_image_pull_enabled.setter
-    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vnet_image_pull_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vnet_image_pull_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
-    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
@@ -1135,12 +1135,12 @@ class _LinuxWebAppState:
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
     @webdeploy_publish_basic_authentication_enabled.setter
-    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def webdeploy_publish_basic_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zipDeployFile")
-    def zip_deploy_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_deploy_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 
@@ -1149,7 +1149,7 @@ class _LinuxWebAppState:
         return pulumi.get(self, "zip_deploy_file")
 
     @zip_deploy_file.setter
-    def zip_deploy_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_deploy_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_deploy_file", value)
 
 
@@ -1159,35 +1159,35 @@ class LinuxWebApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
-                 backup: Optional[pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
-                 sticky_settings: Optional[pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Linux Web App.
@@ -1338,35 +1338,35 @@ class LinuxWebApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
-                 backup: Optional[pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity: Optional[pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
-                 key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 logs: Optional[pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_config: Optional[pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
-                 sticky_settings: Optional[pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
+                 client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1432,44 +1432,44 @@ class LinuxWebApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: Optional[pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: Optional[pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
-            backup: Optional[pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
-            client_affinity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_certificate_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_certificate_exclusion_paths: Optional[pulumi.Input[_builtins.str]] = None,
-            client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
-            custom_domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hosting_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            https_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity: Optional[pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
-            key_vault_reference_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kind: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            logs: Optional[pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            possible_outbound_ip_addresses: Optional[pulumi.Input[_builtins.str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            site_config: Optional[pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSiteCredentialArgs', 'LinuxWebAppSiteCredentialArgsDict']]]]] = None,
-            sticky_settings: Optional[pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinuxWebApp':
+            app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
+            backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
+            client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
+            client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
+            custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            https_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
+            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSiteCredentialArgs', 'LinuxWebAppSiteCredentialArgsDict']]]]] = None,
+            sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            webdeploy_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            zip_deploy_file: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinuxWebApp':
         """
         Get an existing LinuxWebApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -208,43 +208,43 @@ export interface ProjectState {
     /**
      * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      */
-    aiServicesHubId?: pulumi.Input<string>;
+    aiServicesHubId?: pulumi.Input<string | undefined>;
     /**
      * The description of this AI Foundry Project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this AI Foundry Project.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
      */
-    highBusinessImpactEnabled?: pulumi.Input<boolean>;
+    highBusinessImpactEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.aifoundry.ProjectIdentity>;
+    identity?: pulumi.Input<inputs.aifoundry.ProjectIdentity | undefined>;
     /**
      * The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
     /**
      * The immutable project ID associated with this AI Foundry Project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the AI Foundry Project.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -258,33 +258,33 @@ export interface ProjectArgs {
     /**
      * The description of this AI Foundry Project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of this AI Foundry Project.
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
      */
-    highBusinessImpactEnabled?: pulumi.Input<boolean>;
+    highBusinessImpactEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.aifoundry.ProjectIdentity>;
+    identity?: pulumi.Input<inputs.aifoundry.ProjectIdentity | undefined>;
     /**
      * The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the AI Foundry Project.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

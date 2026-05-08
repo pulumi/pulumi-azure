@@ -206,10 +206,10 @@ def get_traffic_manager_profile(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         traffic_routing_method=pulumi.get(__ret__, 'traffic_routing_method'),
         traffic_view_enabled=pulumi.get(__ret__, 'traffic_view_enabled'))
-def get_traffic_manager_profile_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                                       traffic_view_enabled: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_traffic_manager_profile_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                                       traffic_view_enabled: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficManagerProfileResult]:
     """
     Use this data source to access information about an existing Traffic Manager Profile.

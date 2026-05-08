@@ -198,55 +198,55 @@ export interface BackendState {
     /**
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * A `circuitBreakerRule` block as documented below.
      */
-    circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule>;
+    circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule | undefined>;
     /**
      * A `credentials` block as documented below.
      */
-    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials>;
+    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials | undefined>;
     /**
      * The description of the backend.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management backend. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The protocol used by the backend host. Possible values are `http` or `soap`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * A `proxy` block as documented below.
      */
-    proxy?: pulumi.Input<inputs.apimanagement.BackendProxy>;
+    proxy?: pulumi.Input<inputs.apimanagement.BackendProxy | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * A `serviceFabricCluster` block as documented below.
      */
-    serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster>;
+    serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster | undefined>;
     /**
      * The title of the backend.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * A `tls` block as documented below.
      */
-    tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
+    tls?: pulumi.Input<inputs.apimanagement.BackendTls | undefined>;
     /**
      * The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -260,19 +260,19 @@ export interface BackendArgs {
     /**
      * A `circuitBreakerRule` block as documented below.
      */
-    circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule>;
+    circuitBreakerRule?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerRule | undefined>;
     /**
      * A `credentials` block as documented below.
      */
-    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials>;
+    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials | undefined>;
     /**
      * The description of the backend.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management backend. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The protocol used by the backend host. Possible values are `http` or `soap`.
      */
@@ -280,7 +280,7 @@ export interface BackendArgs {
     /**
      * A `proxy` block as documented below.
      */
-    proxy?: pulumi.Input<inputs.apimanagement.BackendProxy>;
+    proxy?: pulumi.Input<inputs.apimanagement.BackendProxy | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -288,19 +288,19 @@ export interface BackendArgs {
     /**
      * The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * A `serviceFabricCluster` block as documented below.
      */
-    serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster>;
+    serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster | undefined>;
     /**
      * The title of the backend.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * A `tls` block as documented below.
      */
-    tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
+    tls?: pulumi.Input<inputs.apimanagement.BackendTls | undefined>;
     /**
      * The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      */

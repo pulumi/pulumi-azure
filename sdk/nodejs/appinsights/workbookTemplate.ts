@@ -214,39 +214,39 @@ export interface WorkbookTemplateState {
     /**
      * Information about the author of the workbook template.
      */
-    author?: pulumi.Input<string>;
+    author?: pulumi.Input<string | undefined>;
     /**
      * A `galleries` block as defined below.
      */
-    galleries?: pulumi.Input<pulumi.Input<inputs.appinsights.WorkbookTemplateGallery>[]>;
+    galleries?: pulumi.Input<pulumi.Input<inputs.appinsights.WorkbookTemplateGallery>[] | undefined>;
     /**
      * Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    localized?: pulumi.Input<string>;
+    localized?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Application Insights Workbook Template.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Valid JSON object containing workbook template payload.
      */
-    templateData?: pulumi.Input<string>;
+    templateData?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface WorkbookTemplateArgs {
     /**
      * Information about the author of the workbook template.
      */
-    author?: pulumi.Input<string>;
+    author?: pulumi.Input<string | undefined>;
     /**
      * A `galleries` block as defined below.
      */
@@ -264,19 +264,19 @@ export interface WorkbookTemplateArgs {
     /**
      * Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    localized?: pulumi.Input<string>;
+    localized?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      */
@@ -284,7 +284,7 @@ export interface WorkbookTemplateArgs {
     /**
      * A mapping of tags which should be assigned to the Application Insights Workbook Template.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Valid JSON object containing workbook template payload.
      */

@@ -23,11 +23,11 @@ class CassandraTableArgs:
     def __init__(__self__, *,
                  cassandra_keyspace_id: pulumi.Input[_builtins.str],
                  schema: pulumi.Input['CassandraTableSchemaArgs'],
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional['CassandraTableAutoscaleSettingsArgs']] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CassandraTable resource.
 
@@ -82,7 +82,7 @@ class CassandraTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def analytical_storage_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
 
@@ -91,12 +91,12 @@ class CassandraTableArgs:
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def analytical_storage_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['CassandraTableAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
 
@@ -105,56 +105,56 @@ class CassandraTableArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['CassandraTableAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
 @pulumi.input_type
 class _CassandraTableState:
     def __init__(__self__, *,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
-                 cassandra_keyspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input['CassandraTableSchemaArgs']] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional['CassandraTableAutoscaleSettingsArgs']] = None,
+                 cassandra_keyspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional['CassandraTableSchemaArgs']] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CassandraTable resources.
 
@@ -187,7 +187,7 @@ class _CassandraTableState:
 
     @_builtins.property
     @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def analytical_storage_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
 
@@ -196,12 +196,12 @@ class _CassandraTableState:
         return pulumi.get(self, "analytical_storage_ttl")
 
     @analytical_storage_ttl.setter
-    def analytical_storage_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def analytical_storage_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> pulumi.Input[Optional['CassandraTableAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
 
@@ -210,67 +210,67 @@ class _CassandraTableState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: pulumi.Input[Optional['CassandraTableAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="cassandraKeyspaceId")
-    def cassandra_keyspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cassandra_keyspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cassandra_keyspace_id")
 
     @cassandra_keyspace_id.setter
-    def cassandra_keyspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cassandra_keyspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cassandra_keyspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['CassandraTableSchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['CassandraTableSchemaArgs']]:
         """
         A `schema` block as defined below.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['CassandraTableSchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['CassandraTableSchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
 
@@ -280,13 +280,13 @@ class CassandraTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
-                 cassandra_keyspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
+                 cassandra_keyspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
@@ -445,13 +445,13 @@ class CassandraTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
-                 cassandra_keyspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
+                 analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 autoscale_settings: pulumi.Input[Optional[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
+                 cassandra_keyspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,13 +482,13 @@ class CassandraTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            analytical_storage_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            autoscale_settings: Optional[pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
-            cassandra_keyspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
-            throughput: Optional[pulumi.Input[_builtins.int]] = None) -> 'CassandraTable':
+            analytical_storage_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            autoscale_settings: pulumi.Input[Optional[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
+            cassandra_keyspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
+            throughput: pulumi.Input[Optional[_builtins.int]] = None) -> 'CassandraTable':
         """
         Get an existing CassandraTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

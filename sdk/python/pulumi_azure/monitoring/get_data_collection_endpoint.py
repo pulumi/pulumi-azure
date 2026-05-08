@@ -222,8 +222,8 @@ def get_data_collection_endpoint(name: Optional[_builtins.str] = None,
         public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_collection_endpoint_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_collection_endpoint_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Use this data source to access information about an existing Data Collection Endpoint.

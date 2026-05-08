@@ -23,19 +23,19 @@ class SubscriptionArgs:
     def __init__(__self__, *,
                  max_delivery_count: pulumi.Input[_builtins.int],
                  topic_id: pulumi.Input[_builtins.str],
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 batched_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
-                 client_scoped_subscription_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_scoped_subscription: pulumi.Input[Optional['SubscriptionClientScopedSubscriptionArgs']] = None,
+                 client_scoped_subscription_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_filter_evaluation_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
 
@@ -112,43 +112,43 @@ class SubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_delete_on_idle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
     @auto_delete_on_idle.setter
-    def auto_delete_on_idle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_delete_on_idle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="batchedOperationsEnabled")
-    def batched_operations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batched_operations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether the Subscription supports batched operations.
         """
         return pulumi.get(self, "batched_operations_enabled")
 
     @batched_operations_enabled.setter
-    def batched_operations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batched_operations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batched_operations_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientScopedSubscription")
-    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]:
+    def client_scoped_subscription(self) -> pulumi.Input[Optional['SubscriptionClientScopedSubscriptionArgs']]:
         """
         A `client_scoped_subscription` block as defined below.
         """
         return pulumi.get(self, "client_scoped_subscription")
 
     @client_scoped_subscription.setter
-    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]):
+    def client_scoped_subscription(self, value: pulumi.Input[Optional['SubscriptionClientScopedSubscriptionArgs']]):
         pulumi.set(self, "client_scoped_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="clientScopedSubscriptionEnabled")
-    def client_scoped_subscription_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_scoped_subscription_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the subscription is scoped to a client id. Defaults to `false`.
 
@@ -157,136 +157,136 @@ class SubscriptionArgs:
         return pulumi.get(self, "client_scoped_subscription_enabled")
 
     @client_scoped_subscription_enabled.setter
-    def client_scoped_subscription_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_scoped_subscription_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_scoped_subscription_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
-    def dead_lettering_on_filter_evaluation_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dead_lettering_on_filter_evaluation_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         """
         return pulumi.get(self, "dead_lettering_on_filter_evaluation_error")
 
     @dead_lettering_on_filter_evaluation_error.setter
-    def dead_lettering_on_filter_evaluation_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dead_lettering_on_filter_evaluation_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dead_lettering_on_filter_evaluation_error", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         """
         return pulumi.get(self, "dead_lettering_on_message_expiration")
 
     @dead_lettering_on_message_expiration.setter
-    def dead_lettering_on_message_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dead_lettering_on_message_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dead_lettering_on_message_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_message_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "default_message_ttl")
 
     @default_message_ttl.setter
-    def default_message_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_message_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_message_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Queue or Topic to automatically forward Dead Letter messages to.
         """
         return pulumi.get(self, "forward_dead_lettered_messages_to")
 
     @forward_dead_lettered_messages_to.setter
-    def forward_dead_lettered_messages_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_dead_lettered_messages_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_dead_lettered_messages_to", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Queue or Topic to automatically forward messages to.
         """
         return pulumi.get(self, "forward_to")
 
     @forward_to.setter
-    def forward_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_to", value)
 
     @_builtins.property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
     @lock_duration.setter
-    def lock_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_session(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "requires_session")
 
     @requires_session.setter
-    def requires_session(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_session(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_session", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _SubscriptionState:
     def __init__(__self__, *,
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 batched_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
-                 client_scoped_subscription_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_scoped_subscription: pulumi.Input[Optional['SubscriptionClientScopedSubscriptionArgs']] = None,
+                 client_scoped_subscription_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_filter_evaluation_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
 
@@ -341,43 +341,43 @@ class _SubscriptionState:
 
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_delete_on_idle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
     @auto_delete_on_idle.setter
-    def auto_delete_on_idle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_delete_on_idle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="batchedOperationsEnabled")
-    def batched_operations_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batched_operations_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether the Subscription supports batched operations.
         """
         return pulumi.get(self, "batched_operations_enabled")
 
     @batched_operations_enabled.setter
-    def batched_operations_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batched_operations_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batched_operations_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="clientScopedSubscription")
-    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]:
+    def client_scoped_subscription(self) -> pulumi.Input[Optional['SubscriptionClientScopedSubscriptionArgs']]:
         """
         A `client_scoped_subscription` block as defined below.
         """
         return pulumi.get(self, "client_scoped_subscription")
 
     @client_scoped_subscription.setter
-    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]):
+    def client_scoped_subscription(self, value: pulumi.Input[Optional['SubscriptionClientScopedSubscriptionArgs']]):
         pulumi.set(self, "client_scoped_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="clientScopedSubscriptionEnabled")
-    def client_scoped_subscription_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_scoped_subscription_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         whether the subscription is scoped to a client id. Defaults to `false`.
 
@@ -386,139 +386,139 @@ class _SubscriptionState:
         return pulumi.get(self, "client_scoped_subscription_enabled")
 
     @client_scoped_subscription_enabled.setter
-    def client_scoped_subscription_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_scoped_subscription_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_scoped_subscription_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
-    def dead_lettering_on_filter_evaluation_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dead_lettering_on_filter_evaluation_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         """
         return pulumi.get(self, "dead_lettering_on_filter_evaluation_error")
 
     @dead_lettering_on_filter_evaluation_error.setter
-    def dead_lettering_on_filter_evaluation_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dead_lettering_on_filter_evaluation_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dead_lettering_on_filter_evaluation_error", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         """
         return pulumi.get(self, "dead_lettering_on_message_expiration")
 
     @dead_lettering_on_message_expiration.setter
-    def dead_lettering_on_message_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dead_lettering_on_message_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dead_lettering_on_message_expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_message_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "default_message_ttl")
 
     @default_message_ttl.setter
-    def default_message_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_message_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_message_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Queue or Topic to automatically forward Dead Letter messages to.
         """
         return pulumi.get(self, "forward_dead_lettered_messages_to")
 
     @forward_dead_lettered_messages_to.setter
-    def forward_dead_lettered_messages_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_dead_lettered_messages_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_dead_lettered_messages_to", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forward_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a Queue or Topic to automatically forward messages to.
         """
         return pulumi.get(self, "forward_to")
 
     @forward_to.setter
-    def forward_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forward_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forward_to", value)
 
     @_builtins.property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
     @lock_duration.setter
-    def lock_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_delivery_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of deliveries.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_delivery_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_delivery_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requires_session(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "requires_session")
 
     @requires_session.setter
-    def requires_session(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requires_session(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requires_session", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="topicId")
-    def topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic_id")
 
     @topic_id.setter
-    def topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_id", value)
 
 
@@ -533,21 +533,21 @@ class Subscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 batched_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
-                 client_scoped_subscription_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_scoped_subscription: pulumi.Input[Optional[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
+                 client_scoped_subscription_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_filter_evaluation_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a ServiceBus Subscription.
@@ -682,21 +682,21 @@ class Subscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-                 batched_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
-                 client_scoped_subscription_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_message_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+                 batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_scoped_subscription: pulumi.Input[Optional[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
+                 client_scoped_subscription_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_filter_evaluation_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -736,21 +736,21 @@ class Subscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
-            batched_operations_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
-            client_scoped_subscription_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[_builtins.bool]] = None,
-            dead_lettering_on_message_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_message_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-            forward_dead_lettered_messages_to: Optional[pulumi.Input[_builtins.str]] = None,
-            forward_to: Optional[pulumi.Input[_builtins.str]] = None,
-            lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            requires_session: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            topic_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Subscription':
+            auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
+            batched_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_scoped_subscription: pulumi.Input[Optional[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
+            client_scoped_subscription_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dead_lettering_on_filter_evaluation_error: pulumi.Input[Optional[_builtins.bool]] = None,
+            dead_lettering_on_message_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_dead_lettered_messages_to: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_to: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            requires_session: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Subscription':
         """
         Get an existing Subscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

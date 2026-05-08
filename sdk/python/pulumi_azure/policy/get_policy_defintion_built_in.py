@@ -216,9 +216,9 @@ def get_policy_defintion_built_in(display_name: Optional[_builtins.str] = None,
         policy_type=pulumi.get(__ret__, 'policy_type'),
         role_definition_ids=pulumi.get(__ret__, 'role_definition_ids'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_defintion_built_in_output(display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         management_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_policy_defintion_built_in_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         management_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefintionBuiltInResult]:
     """
     Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.

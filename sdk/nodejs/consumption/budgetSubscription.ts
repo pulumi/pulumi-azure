@@ -207,37 +207,37 @@ export interface BudgetSubscriptionState {
     /**
      * The total amount of cost to track with the budget.
      */
-    amount?: pulumi.Input<number>;
+    amount?: pulumi.Input<number | undefined>;
     /**
      * (Optional) The ETag of the Subscription Consumption Budget.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A `filter` block as defined below.
      */
-    filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
+    filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter | undefined>;
     /**
      * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[] | undefined>;
     /**
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      *
      * > **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    timeGrain?: pulumi.Input<string>;
+    timeGrain?: pulumi.Input<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */
-    timePeriod?: pulumi.Input<inputs.consumption.BudgetSubscriptionTimePeriod>;
+    timePeriod?: pulumi.Input<inputs.consumption.BudgetSubscriptionTimePeriod | undefined>;
 }
 
 /**
@@ -251,15 +251,15 @@ export interface BudgetSubscriptionArgs {
     /**
      * (Optional) The ETag of the Subscription Consumption Budget.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A `filter` block as defined below.
      */
-    filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
+    filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter | undefined>;
     /**
      * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `notification` blocks as defined below.
      */
@@ -273,7 +273,7 @@ export interface BudgetSubscriptionArgs {
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    timeGrain?: pulumi.Input<string>;
+    timeGrain?: pulumi.Input<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */

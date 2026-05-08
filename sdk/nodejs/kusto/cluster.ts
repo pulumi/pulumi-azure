@@ -257,101 +257,101 @@ export interface ClusterState {
     /**
      * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      */
-    allowedFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedFqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
-    allowedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      */
-    autoStopEnabled?: pulumi.Input<boolean>;
+    autoStopEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Kusto Cluster URI to be used for data ingestion.
      */
-    dataIngestionUri?: pulumi.Input<string>;
+    dataIngestionUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the cluster's disks are encrypted. Defaults to `false`.
      */
-    diskEncryptionEnabled?: pulumi.Input<boolean>;
+    diskEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
      */
-    doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    doubleEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.kusto.ClusterIdentity | undefined>;
     /**
      * A `languageExtension` block as defined below.
      */
-    languageExtension?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
+    languageExtension?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
     /**
      * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      */
-    languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
+    languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `optimizedAutoScale` block as defined below.
      */
-    optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale | undefined>;
     /**
      * Whether to restrict outbound network access. Defaults to `false`.
      */
-    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      */
-    publicIpType?: pulumi.Input<string>;
+    publicIpType?: pulumi.Input<string | undefined>;
     /**
      * Is the public network access enabled? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the purge operations are enabled. Defaults to `false`.
      */
-    purgeEnabled?: pulumi.Input<boolean>;
+    purgeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    sku?: pulumi.Input<inputs.kusto.ClusterSku>;
+    sku?: pulumi.Input<inputs.kusto.ClusterSku | undefined>;
     /**
      * Specifies if the streaming ingest is enabled. Defaults to `false`.
      */
-    streamingIngestionEnabled?: pulumi.Input<boolean>;
+    streamingIngestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
      *
      * > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
      */
-    trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -361,63 +361,63 @@ export interface ClusterArgs {
     /**
      * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      */
-    allowedFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedFqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
-    allowedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      */
-    autoStopEnabled?: pulumi.Input<boolean>;
+    autoStopEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the cluster's disks are encrypted. Defaults to `false`.
      */
-    diskEncryptionEnabled?: pulumi.Input<boolean>;
+    diskEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
      */
-    doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    doubleEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.kusto.ClusterIdentity | undefined>;
     /**
      * A `languageExtension` block as defined below.
      */
-    languageExtension?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
+    languageExtension?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
     /**
      * @deprecated `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      */
-    languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
+    languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[] | undefined>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An `optimizedAutoScale` block as defined below.
      */
-    optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale | undefined>;
     /**
      * Whether to restrict outbound network access. Defaults to `false`.
      */
-    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      */
-    publicIpType?: pulumi.Input<string>;
+    publicIpType?: pulumi.Input<string | undefined>;
     /**
      * Is the public network access enabled? Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if the purge operations are enabled. Defaults to `false`.
      */
-    purgeEnabled?: pulumi.Input<boolean>;
+    purgeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -429,23 +429,23 @@ export interface ClusterArgs {
     /**
      * Specifies if the streaming ingest is enabled. Defaults to `false`.
      */
-    streamingIngestionEnabled?: pulumi.Input<boolean>;
+    streamingIngestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
      *
      * > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
      */
-    trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

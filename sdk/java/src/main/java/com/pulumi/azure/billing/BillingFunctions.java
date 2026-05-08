@@ -35,8 +35,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -77,8 +77,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -119,8 +119,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -203,8 +203,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -245,8 +245,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -288,8 +288,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -374,8 +374,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -460,8 +460,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -502,8 +502,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -544,8 +544,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -586,8 +586,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -628,8 +628,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.billing.BillingFunctions;
      * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

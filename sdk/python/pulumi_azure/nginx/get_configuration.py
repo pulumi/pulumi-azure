@@ -144,7 +144,7 @@ def get_configuration(nginx_deployment_id: Optional[_builtins.str] = None,
         package_data=pulumi.get(__ret__, 'package_data'),
         protected_files=pulumi.get(__ret__, 'protected_files'),
         root_file=pulumi.get(__ret__, 'root_file'))
-def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_output(nginx_deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Use this data source to access information about an existing Nginx Configuration.

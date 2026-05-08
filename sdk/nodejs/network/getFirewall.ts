@@ -154,7 +154,7 @@ export interface GetFirewallOutputArgs {
     /**
      * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
      */
-    dnsProxyEnabled?: pulumi.Input<boolean>;
+    dnsProxyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Azure Firewall.
      */

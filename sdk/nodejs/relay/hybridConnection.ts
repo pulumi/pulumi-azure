@@ -143,23 +143,23 @@ export interface HybridConnectionState {
     /**
      * Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    relayNamespaceName?: pulumi.Input<string>;
+    relayNamespaceName?: pulumi.Input<string | undefined>;
     /**
      * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      */
-    requiresClientAuthorization?: pulumi.Input<boolean>;
+    requiresClientAuthorization?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface HybridConnectionArgs {
     /**
      * Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
@@ -177,7 +177,7 @@ export interface HybridConnectionArgs {
     /**
      * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      */
-    requiresClientAuthorization?: pulumi.Input<boolean>;
+    requiresClientAuthorization?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
@@ -185,5 +185,5 @@ export interface HybridConnectionArgs {
     /**
      * The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string | undefined>;
 }

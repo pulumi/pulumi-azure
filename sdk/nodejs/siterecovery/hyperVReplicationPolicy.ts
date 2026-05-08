@@ -146,23 +146,23 @@ export interface HyperVReplicationPolicyState {
     /**
      * Specifies the frequency at which to create application consistent recovery points.
      */
-    applicationConsistentSnapshotFrequencyInHours?: pulumi.Input<number>;
+    applicationConsistentSnapshotFrequencyInHours?: pulumi.Input<number | undefined>;
     /**
      * The name of the replication policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The duration in hours for which the recovery points need to be stored.
      */
-    recoveryPointRetentionInHours?: pulumi.Input<number>;
+    recoveryPointRetentionInHours?: pulumi.Input<number | undefined>;
     /**
      * The id of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    recoveryVaultId?: pulumi.Input<string>;
+    recoveryVaultId?: pulumi.Input<string | undefined>;
     /**
      * Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
      */
-    replicationIntervalInSeconds?: pulumi.Input<number>;
+    replicationIntervalInSeconds?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface HyperVReplicationPolicyArgs {
     /**
      * The name of the replication policy. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The duration in hours for which the recovery points need to be stored.
      */

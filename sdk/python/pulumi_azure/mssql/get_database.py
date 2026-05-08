@@ -311,8 +311,8 @@ def get_database(name: Optional[_builtins.str] = None,
         transparent_data_encryption_key_automatic_rotation_enabled=pulumi.get(__ret__, 'transparent_data_encryption_key_automatic_rotation_enabled'),
         transparent_data_encryption_key_vault_key_id=pulumi.get(__ret__, 'transparent_data_encryption_key_vault_key_id'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_database_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        server_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        server_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Use this data source to access information about an existing SQL database.

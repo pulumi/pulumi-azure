@@ -156,33 +156,33 @@ export interface RouteTableState {
     /**
      * Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
      */
-    bgpRoutePropagationEnabled?: pulumi.Input<boolean>;
+    bgpRoutePropagationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the route.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of objects representing routes. Each object accepts the arguments documented below.
      *
      * > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[] | undefined>;
     /**
      * The collection of Subnets associated with this route table.
      */
-    subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    subnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -192,15 +192,15 @@ export interface RouteTableArgs {
     /**
      * Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
      */
-    bgpRoutePropagationEnabled?: pulumi.Input<boolean>;
+    bgpRoutePropagationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the route.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
      */
@@ -210,9 +210,9 @@ export interface RouteTableArgs {
      *
      * > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -22,9 +22,9 @@ __all__ = ['SecurityDeviceGroupArgs', 'SecurityDeviceGroup']
 class SecurityDeviceGroupArgs:
     def __init__(__self__, *,
                  iothub_id: pulumi.Input[_builtins.str],
-                 allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None):
+                 allow_rule: pulumi.Input[Optional['SecurityDeviceGroupAllowRuleArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityDeviceGroup resource.
 
@@ -55,48 +55,48 @@ class SecurityDeviceGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowRule")
-    def allow_rule(self) -> Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']]:
+    def allow_rule(self) -> pulumi.Input[Optional['SecurityDeviceGroupAllowRuleArgs']]:
         """
         an `allow_rule` blocks as defined below.
         """
         return pulumi.get(self, "allow_rule")
 
     @allow_rule.setter
-    def allow_rule(self, value: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']]):
+    def allow_rule(self, value: pulumi.Input[Optional['SecurityDeviceGroupAllowRuleArgs']]):
         pulumi.set(self, "allow_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeRules")
-    def range_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]:
+    def range_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]:
         """
         One or more `range_rule` blocks as defined below.
         """
         return pulumi.get(self, "range_rules")
 
     @range_rules.setter
-    def range_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]):
+    def range_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]):
         pulumi.set(self, "range_rules", value)
 
 
 @pulumi.input_type
 class _SecurityDeviceGroupState:
     def __init__(__self__, *,
-                 allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None):
+                 allow_rule: pulumi.Input[Optional['SecurityDeviceGroupAllowRuleArgs']] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_rules: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering SecurityDeviceGroup resources.
 
@@ -116,50 +116,50 @@ class _SecurityDeviceGroupState:
 
     @_builtins.property
     @pulumi.getter(name="allowRule")
-    def allow_rule(self) -> Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']]:
+    def allow_rule(self) -> pulumi.Input[Optional['SecurityDeviceGroupAllowRuleArgs']]:
         """
         an `allow_rule` blocks as defined below.
         """
         return pulumi.get(self, "allow_rule")
 
     @allow_rule.setter
-    def allow_rule(self, value: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']]):
+    def allow_rule(self, value: pulumi.Input[Optional['SecurityDeviceGroupAllowRuleArgs']]):
         pulumi.set(self, "allow_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubId")
-    def iothub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "iothub_id")
 
     @iothub_id.setter
-    def iothub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeRules")
-    def range_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]:
+    def range_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]:
         """
         One or more `range_rule` blocks as defined below.
         """
         return pulumi.get(self, "range_rules")
 
     @range_rules.setter
-    def range_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]):
+    def range_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]]):
         pulumi.set(self, "range_rules", value)
 
 
@@ -169,10 +169,10 @@ class SecurityDeviceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_rule: Optional[pulumi.Input[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict']]]]] = None,
+                 allow_rule: pulumi.Input[Optional[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Iot Security Device Group.
@@ -302,10 +302,10 @@ class SecurityDeviceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_rule: Optional[pulumi.Input[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict']]]]] = None,
+                 allow_rule: pulumi.Input[Optional[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -331,10 +331,10 @@ class SecurityDeviceGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_rule: Optional[pulumi.Input[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']]] = None,
-            iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            range_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict']]]]] = None) -> 'SecurityDeviceGroup':
+            allow_rule: pulumi.Input[Optional[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            range_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityDeviceGroupRangeRuleArgs', 'SecurityDeviceGroupRangeRuleArgsDict']]]]] = None) -> 'SecurityDeviceGroup':
         """
         Get an existing SecurityDeviceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

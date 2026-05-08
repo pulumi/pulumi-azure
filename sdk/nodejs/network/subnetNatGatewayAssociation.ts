@@ -130,11 +130,11 @@ export interface SubnetNatGatewayAssociationState {
     /**
      * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -181,33 +181,33 @@ export interface CassandraTableState {
      *
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
-    cassandraKeyspaceId?: pulumi.Input<string>;
+    cassandraKeyspaceId?: pulumi.Input<string | undefined>;
     /**
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      */
-    defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `schema` block as defined below.
      */
-    schema?: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
+    schema?: pulumi.Input<inputs.cosmosdb.CassandraTableSchema | undefined>;
     /**
      * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -219,13 +219,13 @@ export interface CassandraTableArgs {
      *
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
@@ -233,11 +233,11 @@ export interface CassandraTableArgs {
     /**
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      */
-    defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `schema` block as defined below.
      */
@@ -245,5 +245,5 @@ export interface CassandraTableArgs {
     /**
      * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
      */
-    throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number | undefined>;
 }

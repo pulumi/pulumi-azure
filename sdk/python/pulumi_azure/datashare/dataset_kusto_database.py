@@ -21,7 +21,7 @@ class DatasetKustoDatabaseArgs:
     def __init__(__self__, *,
                  kusto_database_id: pulumi.Input[_builtins.str],
                  share_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatasetKustoDatabase resource.
 
@@ -60,25 +60,25 @@ class DatasetKustoDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DatasetKustoDatabaseState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatasetKustoDatabase resources.
 
@@ -101,62 +101,62 @@ class _DatasetKustoDatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Share Dataset.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoClusterLocation")
-    def kusto_cluster_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_cluster_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the Kusto Cluster.
         """
         return pulumi.get(self, "kusto_cluster_location")
 
     @kusto_cluster_location.setter
-    def kusto_cluster_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_cluster_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_cluster_location", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoDatabaseId")
-    def kusto_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
         """
         return pulumi.get(self, "kusto_database_id")
 
     @kusto_database_id.setter
-    def kusto_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_database_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareId")
-    def share_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
         """
         return pulumi.get(self, "share_id")
 
     @share_id.setter
-    def share_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_id", value)
 
 
@@ -166,9 +166,9 @@ class DatasetKustoDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Data Share Kusto Database Dataset.
@@ -323,9 +323,9 @@ class DatasetKustoDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,11 +354,11 @@ class DatasetKustoDatabase(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_cluster_location: Optional[pulumi.Input[_builtins.str]] = None,
-            kusto_database_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            share_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DatasetKustoDatabase':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_cluster_location: pulumi.Input[Optional[_builtins.str]] = None,
+            kusto_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            share_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DatasetKustoDatabase':
         """
         Get an existing DatasetKustoDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

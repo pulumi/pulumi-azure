@@ -23,16 +23,16 @@ class ComputeInstanceArgs:
     def __init__(__self__, *,
                  machine_learning_workspace_id: pulumi.Input[_builtins.str],
                  virtual_machine_size: pulumi.Input[_builtins.str],
-                 assign_to_user: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ComputeInstanceIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 assign_to_user: pulumi.Input[Optional['ComputeInstanceAssignToUserArgs']] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ComputeInstanceIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh: pulumi.Input[Optional['ComputeInstanceSshArgs']] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComputeInstance resource.
 
@@ -102,79 +102,79 @@ class ComputeInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignToUser")
-    def assign_to_user(self) -> Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']]:
+    def assign_to_user(self) -> pulumi.Input[Optional['ComputeInstanceAssignToUserArgs']]:
         """
         A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "assign_to_user")
 
     @assign_to_user.setter
-    def assign_to_user(self, value: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']]):
+    def assign_to_user(self, value: pulumi.Input[Optional['ComputeInstanceAssignToUserArgs']]):
         pulumi.set(self, "assign_to_user", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ComputeInstanceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ComputeInstanceIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ComputeInstanceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ComputeInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIpEnabled")
-    def node_public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def node_public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 
@@ -183,24 +183,24 @@ class ComputeInstanceArgs:
         return pulumi.get(self, "node_public_ip_enabled")
 
     @node_public_ip_enabled.setter
-    def node_public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def node_public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "node_public_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def ssh(self) -> Optional[pulumi.Input['ComputeInstanceSshArgs']]:
+    def ssh(self) -> pulumi.Input[Optional['ComputeInstanceSshArgs']]:
         """
         A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "ssh")
 
     @ssh.setter
-    def ssh(self, value: Optional[pulumi.Input['ComputeInstanceSshArgs']]):
+    def ssh(self, value: pulumi.Input[Optional['ComputeInstanceSshArgs']]):
         pulumi.set(self, "ssh", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetResourceId")
-    def subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
 
@@ -209,37 +209,37 @@ class ComputeInstanceArgs:
         return pulumi.get(self, "subnet_resource_id")
 
     @subnet_resource_id.setter
-    def subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ComputeInstanceState:
     def __init__(__self__, *,
-                 assign_to_user: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ComputeInstanceIdentityArgs']] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 assign_to_user: pulumi.Input[Optional['ComputeInstanceAssignToUserArgs']] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ComputeInstanceIdentityArgs']] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh: pulumi.Input[Optional['ComputeInstanceSshArgs']] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ComputeInstance resources.
 
@@ -287,91 +287,91 @@ class _ComputeInstanceState:
 
     @_builtins.property
     @pulumi.getter(name="assignToUser")
-    def assign_to_user(self) -> Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']]:
+    def assign_to_user(self) -> pulumi.Input[Optional['ComputeInstanceAssignToUserArgs']]:
         """
         A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "assign_to_user")
 
     @assign_to_user.setter
-    def assign_to_user(self, value: Optional[pulumi.Input['ComputeInstanceAssignToUserArgs']]):
+    def assign_to_user(self, value: pulumi.Input[Optional['ComputeInstanceAssignToUserArgs']]):
         pulumi.set(self, "assign_to_user", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ComputeInstanceIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ComputeInstanceIdentityArgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ComputeInstanceIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ComputeInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="localAuthEnabled")
-    def local_auth_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "local_auth_enabled")
 
     @local_auth_enabled.setter
-    def local_auth_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_auth_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="machineLearningWorkspaceId")
-    def machine_learning_workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_learning_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "machine_learning_workspace_id")
 
     @machine_learning_workspace_id.setter
-    def machine_learning_workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_learning_workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_learning_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodePublicIpEnabled")
-    def node_public_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def node_public_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 
@@ -380,24 +380,24 @@ class _ComputeInstanceState:
         return pulumi.get(self, "node_public_ip_enabled")
 
     @node_public_ip_enabled.setter
-    def node_public_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def node_public_ip_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "node_public_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def ssh(self) -> Optional[pulumi.Input['ComputeInstanceSshArgs']]:
+    def ssh(self) -> pulumi.Input[Optional['ComputeInstanceSshArgs']]:
         """
         A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "ssh")
 
     @ssh.setter
-    def ssh(self, value: Optional[pulumi.Input['ComputeInstanceSshArgs']]):
+    def ssh(self, value: pulumi.Input[Optional['ComputeInstanceSshArgs']]):
         pulumi.set(self, "ssh", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetResourceId")
-    def subnet_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
 
@@ -406,31 +406,31 @@ class _ComputeInstanceState:
         return pulumi.get(self, "subnet_resource_id")
 
     @subnet_resource_id.setter
-    def subnet_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineSize")
-    def virtual_machine_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "virtual_machine_size")
 
     @virtual_machine_size.setter
-    def virtual_machine_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_size", value)
 
 
@@ -440,18 +440,18 @@ class ComputeInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_to_user: Optional[pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh: Optional[pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Machine Learning Compute Instance.
@@ -671,18 +671,18 @@ class ComputeInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_to_user: Optional[pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
-                 local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssh: Optional[pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
-                 subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
+                 local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
+                 subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -718,18 +718,18 @@ class ComputeInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assign_to_user: Optional[pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
-            authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
-            local_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            machine_learning_workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ssh: Optional[pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
-            subnet_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None) -> 'ComputeInstance':
+            assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
+            local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
+            subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None) -> 'ComputeInstance':
         """
         Get an existing ComputeInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

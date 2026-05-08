@@ -170,35 +170,35 @@ export interface LoggerState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string | undefined>;
     /**
      * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
      */
-    applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
+    applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights | undefined>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
-    buffered?: pulumi.Input<boolean>;
+    buffered?: pulumi.Input<boolean | undefined>;
     /**
      * A description of this Logger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `eventhub` block as documented below. Changing this forces a new resource to be created.
      */
-    eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
+    eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub | undefined>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,23 +212,23 @@ export interface LoggerArgs {
     /**
      * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
      */
-    applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
+    applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights | undefined>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
-    buffered?: pulumi.Input<boolean>;
+    buffered?: pulumi.Input<boolean | undefined>;
     /**
      * A description of this Logger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An `eventhub` block as documented below. Changing this forces a new resource to be created.
      */
-    eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
+    eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub | undefined>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -236,5 +236,5 @@ export interface LoggerArgs {
     /**
      * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
 }

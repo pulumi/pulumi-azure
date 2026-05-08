@@ -330,41 +330,41 @@ export interface ServerState {
     /**
      * The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
-    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
+    administratorLoginPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * An `azureadAdministrator` block as defined below.
      */
-    azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator>;
+    azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator | undefined>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
-    connectionPolicy?: pulumi.Input<string>;
+    connectionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
      *
      * > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
      */
-    expressVulnerabilityAssessmentEnabled?: pulumi.Input<boolean>;
+    expressVulnerabilityAssessmentEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
-    fullyQualifiedDomainName?: pulumi.Input<string>;
+    fullyQualifiedDomainName?: pulumi.Input<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.mssql.ServerIdentity>;
+    identity?: pulumi.Input<inputs.mssql.ServerIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      *
@@ -372,35 +372,35 @@ export interface ServerState {
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether outbound network traffic is restricted for this server. Defaults to `false`.
      */
-    outboundNetworkRestrictionEnabled?: pulumi.Input<boolean>;
+    outboundNetworkRestrictionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identityIds`.
      */
-    primaryUserAssignedIdentityId?: pulumi.Input<string>;
+    primaryUserAssignedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A list of dropped restorable database IDs on the server.
      */
-    restorableDroppedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
+    restorableDroppedDatabaseIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
      *
@@ -410,11 +410,11 @@ export interface ServerState {
      *
      * > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
      */
-    transparentDataEncryptionKeyVaultKeyId?: pulumi.Input<string>;
+    transparentDataEncryptionKeyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -424,37 +424,37 @@ export interface ServerArgs {
     /**
      * The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      */
-    administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string | undefined>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      */
-    administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
-    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
+    administratorLoginPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * An `azureadAdministrator` block as defined below.
      */
-    azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator>;
+    azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator | undefined>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
-    connectionPolicy?: pulumi.Input<string>;
+    connectionPolicy?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
      *
      * > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
      */
-    expressVulnerabilityAssessmentEnabled?: pulumi.Input<boolean>;
+    expressVulnerabilityAssessmentEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.mssql.ServerIdentity>;
+    identity?: pulumi.Input<inputs.mssql.ServerIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      *
@@ -462,23 +462,23 @@ export interface ServerArgs {
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether outbound network traffic is restricted for this server. Defaults to `false`.
      */
-    outboundNetworkRestrictionEnabled?: pulumi.Input<boolean>;
+    outboundNetworkRestrictionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identityIds`.
      */
-    primaryUserAssignedIdentityId?: pulumi.Input<string>;
+    primaryUserAssignedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
@@ -486,7 +486,7 @@ export interface ServerArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
      *
@@ -496,7 +496,7 @@ export interface ServerArgs {
      *
      * > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
      */
-    transparentDataEncryptionKeyVaultKeyId?: pulumi.Input<string>;
+    transparentDataEncryptionKeyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */

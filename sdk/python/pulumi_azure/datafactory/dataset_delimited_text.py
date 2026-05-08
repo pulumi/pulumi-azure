@@ -23,25 +23,25 @@ class DatasetDelimitedTextArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
                  linked_service_name: pulumi.Input[_builtins.str],
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
-                 column_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_codec: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_row_as_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_server_location: Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 azure_blob_fs_location: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
+                 azure_blob_storage_location: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
+                 column_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_codec: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_row_as_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_server_location: pulumi.Input[Optional['DatasetDelimitedTextHttpServerLocationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetDelimitedText resource.
 
@@ -138,7 +138,7 @@ class DatasetDelimitedTextArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
 
@@ -147,144 +147,144 @@ class DatasetDelimitedTextArgs:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="azureBlobFsLocation")
-    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]:
+    def azure_blob_fs_location(self) -> pulumi.Input[Optional['DatasetDelimitedTextAzureBlobFsLocationArgs']]:
         """
         An `azure_blob_fs_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_fs_location")
 
     @azure_blob_fs_location.setter
-    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]):
+    def azure_blob_fs_location(self, value: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobFsLocationArgs']]):
         pulumi.set(self, "azure_blob_fs_location", value)
 
     @_builtins.property
     @pulumi.getter(name="azureBlobStorageLocation")
-    def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']]:
+    def azure_blob_storage_location(self) -> pulumi.Input[Optional['DatasetDelimitedTextAzureBlobStorageLocationArgs']]:
         """
         An `azure_blob_storage_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage_location")
 
     @azure_blob_storage_location.setter
-    def azure_blob_storage_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']]):
+    def azure_blob_storage_location(self, value: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobStorageLocationArgs']]):
         pulumi.set(self, "azure_blob_storage_location", value)
 
     @_builtins.property
     @pulumi.getter(name="columnDelimiter")
-    def column_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column delimiter. Defaults to `,`.
         """
         return pulumi.get(self, "column_delimiter")
 
     @column_delimiter.setter
-    def column_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="compressionCodec")
-    def compression_codec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression_codec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
     @compression_codec.setter
-    def compression_codec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression_codec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression_codec", value)
 
     @_builtins.property
     @pulumi.getter(name="compressionLevel")
-    def compression_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_level")
 
     @compression_level.setter
-    def compression_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Dataset.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding format for the file.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="escapeCharacter")
-    def escape_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escape_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The escape character. Defaults to `\\`.
         """
         return pulumi.get(self, "escape_character")
 
     @escape_character.setter
-    def escape_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escape_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escape_character", value)
 
     @_builtins.property
     @pulumi.getter(name="firstRowAsHeader")
-    def first_row_as_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def first_row_as_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         """
         return pulumi.get(self, "first_row_as_header")
 
     @first_row_as_header.setter
-    def first_row_as_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def first_row_as_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "first_row_as_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter(name="httpServerLocation")
-    def http_server_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']]:
+    def http_server_location(self) -> pulumi.Input[Optional['DatasetDelimitedTextHttpServerLocationArgs']]:
         """
         A `http_server_location` block as defined below.
 
@@ -293,106 +293,106 @@ class DatasetDelimitedTextArgs:
         return pulumi.get(self, "http_server_location")
 
     @http_server_location.setter
-    def http_server_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']]):
+    def http_server_location(self, value: pulumi.Input[Optional['DatasetDelimitedTextHttpServerLocationArgs']]):
         pulumi.set(self, "http_server_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullValue")
-    def null_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The null value string. Defaults to `""`.
         """
         return pulumi.get(self, "null_value")
 
     @null_value.setter
-    def null_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="quoteCharacter")
-    def quote_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quote_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The quote character. Defaults to `"`.
         """
         return pulumi.get(self, "quote_character")
 
     @quote_character.setter
-    def quote_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quote_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quote_character", value)
 
     @_builtins.property
     @pulumi.getter(name="rowDelimiter")
-    def row_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def row_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
         """
         return pulumi.get(self, "row_delimiter")
 
     @row_delimiter.setter
-    def row_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def row_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "row_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]:
+    def schema_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]):
+    def schema_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
 @pulumi.input_type
 class _DatasetDelimitedTextState:
     def __init__(__self__, *,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
-                 column_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_codec: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_row_as_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_server_location: Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 azure_blob_fs_location: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
+                 azure_blob_storage_location: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
+                 column_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_codec: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_row_as_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_server_location: pulumi.Input[Optional['DatasetDelimitedTextHttpServerLocationArgs']] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetDelimitedText resources.
 
@@ -467,7 +467,7 @@ class _DatasetDelimitedTextState:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
 
@@ -476,156 +476,156 @@ class _DatasetDelimitedTextState:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="azureBlobFsLocation")
-    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]:
+    def azure_blob_fs_location(self) -> pulumi.Input[Optional['DatasetDelimitedTextAzureBlobFsLocationArgs']]:
         """
         An `azure_blob_fs_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_fs_location")
 
     @azure_blob_fs_location.setter
-    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]):
+    def azure_blob_fs_location(self, value: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobFsLocationArgs']]):
         pulumi.set(self, "azure_blob_fs_location", value)
 
     @_builtins.property
     @pulumi.getter(name="azureBlobStorageLocation")
-    def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']]:
+    def azure_blob_storage_location(self) -> pulumi.Input[Optional['DatasetDelimitedTextAzureBlobStorageLocationArgs']]:
         """
         An `azure_blob_storage_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage_location")
 
     @azure_blob_storage_location.setter
-    def azure_blob_storage_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']]):
+    def azure_blob_storage_location(self, value: pulumi.Input[Optional['DatasetDelimitedTextAzureBlobStorageLocationArgs']]):
         pulumi.set(self, "azure_blob_storage_location", value)
 
     @_builtins.property
     @pulumi.getter(name="columnDelimiter")
-    def column_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column delimiter. Defaults to `,`.
         """
         return pulumi.get(self, "column_delimiter")
 
     @column_delimiter.setter
-    def column_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="compressionCodec")
-    def compression_codec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression_codec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_codec")
 
     @compression_codec.setter
-    def compression_codec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression_codec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression_codec", value)
 
     @_builtins.property
     @pulumi.getter(name="compressionLevel")
-    def compression_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "compression_level")
 
     @compression_level.setter
-    def compression_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression_level", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Dataset.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding format for the file.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="escapeCharacter")
-    def escape_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escape_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The escape character. Defaults to `\\`.
         """
         return pulumi.get(self, "escape_character")
 
     @escape_character.setter
-    def escape_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escape_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escape_character", value)
 
     @_builtins.property
     @pulumi.getter(name="firstRowAsHeader")
-    def first_row_as_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def first_row_as_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         """
         return pulumi.get(self, "first_row_as_header")
 
     @first_row_as_header.setter
-    def first_row_as_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def first_row_as_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "first_row_as_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter(name="httpServerLocation")
-    def http_server_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']]:
+    def http_server_location(self) -> pulumi.Input[Optional['DatasetDelimitedTextHttpServerLocationArgs']]:
         """
         A `http_server_location` block as defined below.
 
@@ -634,91 +634,91 @@ class _DatasetDelimitedTextState:
         return pulumi.get(self, "http_server_location")
 
     @http_server_location.setter
-    def http_server_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']]):
+    def http_server_location(self, value: pulumi.Input[Optional['DatasetDelimitedTextHttpServerLocationArgs']]):
         pulumi.set(self, "http_server_location", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linked_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory Linked Service name in which to associate the Dataset with.
         """
         return pulumi.get(self, "linked_service_name")
 
     @linked_service_name.setter
-    def linked_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linked_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullValue")
-    def null_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The null value string. Defaults to `""`.
         """
         return pulumi.get(self, "null_value")
 
     @null_value.setter
-    def null_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Dataset.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="quoteCharacter")
-    def quote_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quote_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The quote character. Defaults to `"`.
         """
         return pulumi.get(self, "quote_character")
 
     @quote_character.setter
-    def quote_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quote_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quote_character", value)
 
     @_builtins.property
     @pulumi.getter(name="rowDelimiter")
-    def row_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def row_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
         """
         return pulumi.get(self, "row_delimiter")
 
     @row_delimiter.setter
-    def row_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def row_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "row_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]:
+    def schema_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]):
+    def schema_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
@@ -728,27 +728,27 @@ class DatasetDelimitedText(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
-                 column_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_codec: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_row_as_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_server_location: Optional[pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 azure_blob_fs_location: pulumi.Input[Optional[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
+                 azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
+                 column_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_codec: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_row_as_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_server_location: pulumi.Input[Optional[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
@@ -895,27 +895,27 @@ class DatasetDelimitedText(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
-                 column_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_codec: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_row_as_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_server_location: Optional[pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
-                 linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 row_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 azure_blob_fs_location: pulumi.Input[Optional[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
+                 azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
+                 column_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_codec: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_row_as_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_server_location: pulumi.Input[Optional[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -960,27 +960,27 @@ class DatasetDelimitedText(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            azure_blob_fs_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
-            azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
-            column_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-            compression_codec: Optional[pulumi.Input[_builtins.str]] = None,
-            compression_level: Optional[pulumi.Input[_builtins.str]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encoding: Optional[pulumi.Input[_builtins.str]] = None,
-            escape_character: Optional[pulumi.Input[_builtins.str]] = None,
-            first_row_as_header: Optional[pulumi.Input[_builtins.bool]] = None,
-            folder: Optional[pulumi.Input[_builtins.str]] = None,
-            http_server_location: Optional[pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
-            linked_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            null_value: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-            row_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None) -> 'DatasetDelimitedText':
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            azure_blob_fs_location: pulumi.Input[Optional[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
+            azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
+            column_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            compression_codec: pulumi.Input[Optional[_builtins.str]] = None,
+            compression_level: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            escape_character: pulumi.Input[Optional[_builtins.str]] = None,
+            first_row_as_header: pulumi.Input[Optional[_builtins.bool]] = None,
+            folder: pulumi.Input[Optional[_builtins.str]] = None,
+            http_server_location: pulumi.Input[Optional[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
+            linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_value: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+            row_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None) -> 'DatasetDelimitedText':
         """
         Get an existing DatasetDelimitedText resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

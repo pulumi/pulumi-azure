@@ -137,23 +137,23 @@ export interface AccessConnectorState {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.databricks.AccessConnectorIdentity>;
+    identity?: pulumi.Input<inputs.databricks.AccessConnectorIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -163,15 +163,15 @@ export interface AccessConnectorArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.databricks.AccessConnectorIdentity>;
+    identity?: pulumi.Input<inputs.databricks.AccessConnectorIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.
      */
@@ -179,5 +179,5 @@ export interface AccessConnectorArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -137,23 +137,23 @@ export interface LocalRulestackFqdnListState {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * The description for the FQDN List.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Fully Qualified Domain Names.
      */
-    fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack FQDN List.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
      */
-    rulestackId?: pulumi.Input<string>;
+    rulestackId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,11 +163,11 @@ export interface LocalRulestackFqdnListArgs {
     /**
      * The comment for Audit purposes.
      */
-    auditComment?: pulumi.Input<string>;
+    auditComment?: pulumi.Input<string | undefined>;
     /**
      * The description for the FQDN List.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Fully Qualified Domain Names.
      */
@@ -175,7 +175,7 @@ export interface LocalRulestackFqdnListArgs {
     /**
      * The name which should be used for this Palo Alto Local Rulestack FQDN List.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
      */

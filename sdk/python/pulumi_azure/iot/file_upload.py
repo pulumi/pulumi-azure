@@ -22,13 +22,13 @@ class FileUploadArgs:
                  connection_string: pulumi.Input[_builtins.str],
                  container_name: pulumi.Input[_builtins.str],
                  iothub_id: pulumi.Input[_builtins.str],
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sas_ttl: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sas_ttl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileUpload resource.
 
@@ -101,31 +101,31 @@ class FileUploadArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the User Managed Identity used to authenticate against the storage account.
 
@@ -134,71 +134,71 @@ class FileUploadArgs:
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
     @lock_duration.setter
-    def lock_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_delivery_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_delivery_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_delivery_count", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationsEnabled")
-    def notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
         """
         return pulumi.get(self, "notifications_enabled")
 
     @notifications_enabled.setter
-    def notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sasTtl")
-    def sas_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "sas_ttl")
 
     @sas_ttl.setter
-    def sas_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_ttl", value)
 
 
 @pulumi.input_type
 class _FileUploadState:
     def __init__(__self__, *,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sas_ttl: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sas_ttl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileUpload resources.
 
@@ -238,55 +238,55 @@ class _FileUploadState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string for the Azure Storage account to which files are uploaded.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connection_string` specified.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
-    def default_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the User Managed Identity used to authenticate against the storage account.
 
@@ -295,67 +295,67 @@ class _FileUploadState:
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="iothubId")
-    def iothub_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iothub_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
         """
         return pulumi.get(self, "iothub_id")
 
     @iothub_id.setter
-    def iothub_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iothub_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iothub_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
     @lock_duration.setter
-    def lock_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_delivery_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_delivery_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_delivery_count", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationsEnabled")
-    def notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
         """
         return pulumi.get(self, "notifications_enabled")
 
     @notifications_enabled.setter
-    def notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sasTtl")
-    def sas_ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "sas_ttl")
 
     @sas_ttl.setter
-    def sas_ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_ttl", value)
 
 
@@ -365,16 +365,16 @@ class FileUpload(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sas_ttl: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sas_ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the File Upload of an IoT Hub.
@@ -506,16 +506,16 @@ class FileUpload(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sas_ttl: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sas_ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -553,16 +553,16 @@ class FileUpload(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            container_name: Optional[pulumi.Input[_builtins.str]] = None,
-            default_ttl: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
-            lock_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            max_delivery_count: Optional[pulumi.Input[_builtins.int]] = None,
-            notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            sas_ttl: Optional[pulumi.Input[_builtins.str]] = None) -> 'FileUpload':
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            container_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            max_delivery_count: pulumi.Input[Optional[_builtins.int]] = None,
+            notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sas_ttl: pulumi.Input[Optional[_builtins.str]] = None) -> 'FileUpload':
         """
         Get an existing FileUpload resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

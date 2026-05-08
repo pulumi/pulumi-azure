@@ -163,10 +163,10 @@ def get_queue(metadata: Optional[Mapping[str, _builtins.str]] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
         url=pulumi.get(__ret__, 'url'))
-def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                     name: Optional[pulumi.Input[_builtins.str]] = None,
-                     storage_account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     storage_account_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_queue_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
+                     storage_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     storage_account_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Use this data source to access information about an existing Storage Queue.

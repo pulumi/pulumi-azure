@@ -175,39 +175,39 @@ export interface VirtualMachineManagerServerState {
     /**
      * The ID of the Custom Location for the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    customLocationId?: pulumi.Input<string>;
+    customLocationId?: pulumi.Input<string | undefined>;
     /**
      * The FQDN of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the System Center Virtual Machine Manager Server should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The port on which the System Center Virtual Machine Manager Server is listening. Possible values are between `1` and `65535`. Changing this forces a new resource to be created.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The name of the Resource Group where the System Center Virtual Machine Manager should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the System Center Virtual Machine Manager Server.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The username that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,11 +225,11 @@ export interface VirtualMachineManagerServerArgs {
     /**
      * The Azure Region where the System Center Virtual Machine Manager Server should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
@@ -237,7 +237,7 @@ export interface VirtualMachineManagerServerArgs {
     /**
      * The port on which the System Center Virtual Machine Manager Server is listening. Possible values are between `1` and `65535`. Changing this forces a new resource to be created.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The name of the Resource Group where the System Center Virtual Machine Manager should exist. Changing this forces a new resource to be created.
      */
@@ -245,7 +245,7 @@ export interface VirtualMachineManagerServerArgs {
     /**
      * A mapping of tags which should be assigned to the System Center Virtual Machine Manager Server.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The username that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */

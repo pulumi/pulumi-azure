@@ -23,10 +23,10 @@ class IntegrationAccountCertificateArgs:
     def __init__(__self__, *,
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 key_vault_key: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_vault_key: pulumi.Input[Optional['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountCertificate resource.
 
@@ -74,62 +74,62 @@ class IntegrationAccountCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKey")
-    def key_vault_key(self) -> Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']]:
+    def key_vault_key(self) -> pulumi.Input[Optional['IntegrationAccountCertificateKeyVaultKeyArgs']]:
         """
         A `key_vault_key` block as documented below.
         """
         return pulumi.get(self, "key_vault_key")
 
     @key_vault_key.setter
-    def key_vault_key(self, value: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']]):
+    def key_vault_key(self, value: pulumi.Input[Optional['IntegrationAccountCertificateKeyVaultKeyArgs']]):
         pulumi.set(self, "key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCertificate")
-    def public_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public certificate for the Logic App Integration Account Certificate.
         """
         return pulumi.get(self, "public_certificate")
 
     @public_certificate.setter
-    def public_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_certificate", value)
 
 
 @pulumi.input_type
 class _IntegrationAccountCertificateState:
     def __init__(__self__, *,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key: pulumi.Input[Optional['IntegrationAccountCertificateKeyVaultKeyArgs']] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountCertificate resources.
 
@@ -155,74 +155,74 @@ class _IntegrationAccountCertificateState:
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
-    def integration_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
         """
         return pulumi.get(self, "integration_account_name")
 
     @integration_account_name.setter
-    def integration_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKey")
-    def key_vault_key(self) -> Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']]:
+    def key_vault_key(self) -> pulumi.Input[Optional['IntegrationAccountCertificateKeyVaultKeyArgs']]:
         """
         A `key_vault_key` block as documented below.
         """
         return pulumi.get(self, "key_vault_key")
 
     @key_vault_key.setter
-    def key_vault_key(self, value: Optional[pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs']]):
+    def key_vault_key(self, value: pulumi.Input[Optional['IntegrationAccountCertificateKeyVaultKeyArgs']]):
         pulumi.set(self, "key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicCertificate")
-    def public_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public certificate for the Logic App Integration Account Certificate.
         """
         return pulumi.get(self, "public_certificate")
 
     @public_certificate.setter
-    def public_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -232,12 +232,12 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key: Optional[pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Logic App Integration Account Certificate.
@@ -349,12 +349,12 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_key: Optional[pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,12 +384,12 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_key: Optional[pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
-            metadata: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationAccountCertificate':
+            integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationAccountCertificate':
         """
         Get an existing IntegrationAccountCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

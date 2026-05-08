@@ -130,23 +130,23 @@ export interface PrivateLinkScopeState {
     /**
      * The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
-    ingestionAccessMode?: pulumi.Input<string>;
+    ingestionAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
-    queryAccessMode?: pulumi.Input<string>;
+    queryAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -156,15 +156,15 @@ export interface PrivateLinkScopeArgs {
     /**
      * The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
-    ingestionAccessMode?: pulumi.Input<string>;
+    ingestionAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
-    queryAccessMode?: pulumi.Input<string>;
+    queryAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
      */
@@ -172,5 +172,5 @@ export interface PrivateLinkScopeArgs {
     /**
      * A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

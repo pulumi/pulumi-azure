@@ -112,9 +112,9 @@ def get_mca_account_scope(billing_account_name: Optional[_builtins.str] = None,
         billing_profile_name=pulumi.get(__ret__, 'billing_profile_name'),
         id=pulumi.get(__ret__, 'id'),
         invoice_section_name=pulumi.get(__ret__, 'invoice_section_name'))
-def get_mca_account_scope_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 billing_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 invoice_section_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mca_account_scope_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 billing_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 invoice_section_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMcaAccountScopeResult]:
     """
     Use this data source to access an ID for your MCA Account billing scope.

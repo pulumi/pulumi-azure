@@ -133,25 +133,25 @@ export interface GroupState {
     /**
      * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Parent Management Group.
      */
-    parentManagementGroupId?: pulumi.Input<string>;
+    parentManagementGroupId?: pulumi.Input<string | undefined>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      *
      * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
-    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Management Group ID with the Tenant ID prefix.
      */
-    tenantScopedId?: pulumi.Input<string>;
+    tenantScopedId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,19 +161,19 @@ export interface GroupArgs {
     /**
      * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Parent Management Group.
      */
-    parentManagementGroupId?: pulumi.Input<string>;
+    parentManagementGroupId?: pulumi.Input<string | undefined>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      *
      * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
-    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

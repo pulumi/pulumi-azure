@@ -162,43 +162,43 @@ export interface LabState {
     /**
      * The ID of the Storage Account used for Artifact Storage.
      */
-    artifactsStorageAccountId?: pulumi.Input<string>;
+    artifactsStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Default Premium Storage Account for this Dev Test Lab.
      */
-    defaultPremiumStorageAccountId?: pulumi.Input<string>;
+    defaultPremiumStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Default Storage Account for this Dev Test Lab.
      */
-    defaultStorageAccountId?: pulumi.Input<string>;
+    defaultStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Key used for this Dev Test Lab.
      */
-    keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account used for Storage of Premium Data Disk.
      */
-    premiumDataDiskStorageAccountId?: pulumi.Input<string>;
+    premiumDataDiskStorageAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The unique immutable identifier of the Dev Test Lab.
      */
-    uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,11 +208,11 @@ export interface LabArgs {
     /**
      * Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
      */
@@ -220,5 +220,5 @@ export interface LabArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

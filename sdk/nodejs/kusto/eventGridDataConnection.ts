@@ -288,75 +288,75 @@ export interface EventGridDataConnectionState {
     /**
      * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      */
-    blobStorageEventType?: pulumi.Input<string>;
+    blobStorageEventType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    databaseRoutingType?: pulumi.Input<string>;
+    databaseRoutingType?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
-    eventgridEventSubscriptionId?: pulumi.Input<string>;
+    eventgridEventSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    eventgridResourceId?: pulumi.Input<string>;
+    eventgridResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    eventhubConsumerGroupName?: pulumi.Input<string>;
+    eventhubConsumerGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    eventhubId?: pulumi.Input<string>;
+    eventhubId?: pulumi.Input<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
-    managedIdentityId?: pulumi.Input<string>;
+    managedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    managedIdentityResourceId?: pulumi.Input<string>;
+    managedIdentityResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * is the first record of every file ignored? Defaults to `false`.
      */
-    skipFirstRecord?: pulumi.Input<boolean>;
+    skipFirstRecord?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -366,7 +366,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      */
-    blobStorageEventType?: pulumi.Input<string>;
+    blobStorageEventType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
@@ -374,7 +374,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
@@ -382,15 +382,15 @@ export interface EventGridDataConnectionArgs {
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    databaseRoutingType?: pulumi.Input<string>;
+    databaseRoutingType?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
-    eventgridEventSubscriptionId?: pulumi.Input<string>;
+    eventgridEventSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    eventgridResourceId?: pulumi.Input<string>;
+    eventgridResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -402,23 +402,23 @@ export interface EventGridDataConnectionArgs {
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
-    managedIdentityId?: pulumi.Input<string>;
+    managedIdentityId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    managedIdentityResourceId?: pulumi.Input<string>;
+    managedIdentityResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
@@ -426,7 +426,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * is the first record of every file ignored? Defaults to `false`.
      */
-    skipFirstRecord?: pulumi.Input<boolean>;
+    skipFirstRecord?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -434,5 +434,5 @@ export interface EventGridDataConnectionArgs {
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

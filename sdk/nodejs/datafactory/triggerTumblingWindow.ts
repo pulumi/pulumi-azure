@@ -233,63 +233,63 @@ export interface TriggerTumblingWindowState {
     /**
      * Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string | undefined>;
     /**
      * Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
      */
-    delay?: pulumi.Input<string>;
+    delay?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Tumbling Window Trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * Specifies the interval of Tumbling Window. Changing this forces a new resource.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
      */
-    maxConcurrency?: pulumi.Input<number>;
+    maxConcurrency?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `pipeline` block as defined below.
      */
-    pipeline?: pulumi.Input<inputs.datafactory.TriggerTumblingWindowPipeline>;
+    pipeline?: pulumi.Input<inputs.datafactory.TriggerTumblingWindowPipeline | undefined>;
     /**
      * A `retry` block as defined below.
      */
-    retry?: pulumi.Input<inputs.datafactory.TriggerTumblingWindowRetry>;
+    retry?: pulumi.Input<inputs.datafactory.TriggerTumblingWindowRetry | undefined>;
     /**
      * Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * One or more `triggerDependency` block as defined below.
      */
-    triggerDependencies?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerTumblingWindowTriggerDependency>[]>;
+    triggerDependencies?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerTumblingWindowTriggerDependency>[] | undefined>;
 }
 
 /**
@@ -299,15 +299,15 @@ export interface TriggerTumblingWindowArgs {
     /**
      * Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
      */
-    activated?: pulumi.Input<boolean>;
+    activated?: pulumi.Input<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
      */
-    annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
@@ -315,15 +315,15 @@ export interface TriggerTumblingWindowArgs {
     /**
      * Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
      */
-    delay?: pulumi.Input<string>;
+    delay?: pulumi.Input<string | undefined>;
     /**
      * The description for the Data Factory Tumbling Window Trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
      */
@@ -335,11 +335,11 @@ export interface TriggerTumblingWindowArgs {
     /**
      * The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
      */
-    maxConcurrency?: pulumi.Input<number>;
+    maxConcurrency?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `pipeline` block as defined below.
      */
@@ -347,7 +347,7 @@ export interface TriggerTumblingWindowArgs {
     /**
      * A `retry` block as defined below.
      */
-    retry?: pulumi.Input<inputs.datafactory.TriggerTumblingWindowRetry>;
+    retry?: pulumi.Input<inputs.datafactory.TriggerTumblingWindowRetry | undefined>;
     /**
      * Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
      */
@@ -355,5 +355,5 @@ export interface TriggerTumblingWindowArgs {
     /**
      * One or more `triggerDependency` block as defined below.
      */
-    triggerDependencies?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerTumblingWindowTriggerDependency>[]>;
+    triggerDependencies?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerTumblingWindowTriggerDependency>[] | undefined>;
 }

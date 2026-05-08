@@ -142,19 +142,19 @@ export interface GatewayState {
     /**
      * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The description of the API Management Gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `locationData` block as documented below.
      */
-    locationData?: pulumi.Input<inputs.apimanagement.GatewayLocationData>;
+    locationData?: pulumi.Input<inputs.apimanagement.GatewayLocationData | undefined>;
     /**
      * The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface GatewayArgs {
     /**
      * The description of the API Management Gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `locationData` block as documented below.
      */
@@ -176,5 +176,5 @@ export interface GatewayArgs {
     /**
      * The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

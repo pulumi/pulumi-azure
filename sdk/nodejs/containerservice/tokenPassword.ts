@@ -149,15 +149,15 @@ export interface TokenPasswordState {
     /**
      * The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
      */
-    containerRegistryTokenId?: pulumi.Input<string>;
+    containerRegistryTokenId?: pulumi.Input<string | undefined>;
     /**
      * One `password` block as defined below.
      */
-    password1?: pulumi.Input<inputs.containerservice.TokenPasswordPassword1>;
+    password1?: pulumi.Input<inputs.containerservice.TokenPasswordPassword1 | undefined>;
     /**
      * One `password` block as defined below.
      */
-    password2?: pulumi.Input<inputs.containerservice.TokenPasswordPassword2>;
+    password2?: pulumi.Input<inputs.containerservice.TokenPasswordPassword2 | undefined>;
 }
 
 /**
@@ -175,5 +175,5 @@ export interface TokenPasswordArgs {
     /**
      * One `password` block as defined below.
      */
-    password2?: pulumi.Input<inputs.containerservice.TokenPasswordPassword2>;
+    password2?: pulumi.Input<inputs.containerservice.TokenPasswordPassword2 | undefined>;
 }

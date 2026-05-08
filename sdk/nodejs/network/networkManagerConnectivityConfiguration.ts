@@ -200,35 +200,35 @@ export interface NetworkManagerConnectivityConfigurationState {
     /**
      * One or more `appliesToGroup` blocks as defined below.
      */
-    appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup>[]>;
+    appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup>[] | undefined>;
     /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      */
-    connectivityTopology?: pulumi.Input<string>;
+    connectivityTopology?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
      */
-    deleteExistingPeeringEnabled?: pulumi.Input<boolean>;
+    deleteExistingPeeringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the Connectivity Configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to global mesh is supported. Possible values are `true` and `false`.
      */
-    globalMeshEnabled?: pulumi.Input<boolean>;
+    globalMeshEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `hub` block as defined below.
      */
-    hub?: pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationHub>;
+    hub?: pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationHub | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -246,23 +246,23 @@ export interface NetworkManagerConnectivityConfigurationArgs {
     /**
      * Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
      */
-    deleteExistingPeeringEnabled?: pulumi.Input<boolean>;
+    deleteExistingPeeringEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the Connectivity Configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to global mesh is supported. Possible values are `true` and `false`.
      */
-    globalMeshEnabled?: pulumi.Input<boolean>;
+    globalMeshEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `hub` block as defined below.
      */
-    hub?: pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationHub>;
+    hub?: pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationHub | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */

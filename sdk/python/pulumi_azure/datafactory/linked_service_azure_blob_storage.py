@@ -22,24 +22,24 @@ __all__ = ['LinkedServiceAzureBlobStorageArgs', 'LinkedServiceAzureBlobStorage']
 class LinkedServiceAzureBlobStorageArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[_builtins.str],
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string_insecure: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sas_token_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
-                 sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
-                 storage_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_insecure: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_sas_token: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
+                 sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_linked_key_vault_key: pulumi.Input[Optional['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
+                 storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceAzureBlobStorage resource.
 
@@ -114,7 +114,7 @@ class LinkedServiceAzureBlobStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
 
@@ -123,36 +123,36 @@ class LinkedServiceAzureBlobStorageArgs:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStringInsecure")
-    def connection_string_insecure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string_insecure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
 
@@ -161,177 +161,177 @@ class LinkedServiceAzureBlobStorageArgs:
         return pulumi.get(self, "connection_string_insecure")
 
     @connection_string_insecure.setter
-    def connection_string_insecure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string_insecure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string_insecure", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Linked Service.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration runtime reference to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSasToken")
     @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-    def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
+    def key_vault_sas_token(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
         return pulumi.get(self, "key_vault_sas_token")
 
     @key_vault_sas_token.setter
-    def key_vault_sas_token(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
+    def key_vault_sas_token(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
         pulumi.set(self, "key_vault_sas_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="sasTokenLinkedKeyVaultKey")
-    def sas_token_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]:
+    def sas_token_linked_key_vault_key(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]:
         """
         A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         """
         return pulumi.get(self, "sas_token_linked_key_vault_key")
 
     @sas_token_linked_key_vault_key.setter
-    def sas_token_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]):
+    def sas_token_linked_key_vault_key(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]):
         pulumi.set(self, "sas_token_linked_key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUri")
-    def sas_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         return pulumi.get(self, "sas_uri")
 
     @sas_uri.setter
-    def sas_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoint")
-    def service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_endpoint")
 
     @service_endpoint.setter
-    def service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalKey")
-    def service_principal_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_principal_key")
 
     @service_principal_key.setter
-    def service_principal_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_key", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalLinkedKeyVaultKey")
-    def service_principal_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]:
+    def service_principal_linked_key_vault_key(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]:
         return pulumi.get(self, "service_principal_linked_key_vault_key")
 
     @service_principal_linked_key_vault_key.setter
-    def service_principal_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]):
+    def service_principal_linked_key_vault_key(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]):
         pulumi.set(self, "service_principal_linked_key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageKind")
-    def storage_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_kind")
 
     @storage_kind.setter
-    def storage_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="useManagedIdentity")
-    def use_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_managed_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "use_managed_identity")
 
     @use_managed_identity.setter
-    def use_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_managed_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_managed_identity", value)
 
 
 @pulumi.input_type
 class _LinkedServiceAzureBlobStorageState:
     def __init__(__self__, *,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string_insecure: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sas_token_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
-                 sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
-                 storage_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_insecure: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_sas_token: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
+                 sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_linked_key_vault_key: pulumi.Input[Optional['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
+                 storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceAzureBlobStorage resources.
 
@@ -395,7 +395,7 @@ class _LinkedServiceAzureBlobStorageState:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
 
@@ -404,36 +404,36 @@ class _LinkedServiceAzureBlobStorageState:
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def annotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service.
         """
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def annotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionStringInsecure")
-    def connection_string_insecure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_string_insecure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
 
@@ -442,164 +442,164 @@ class _LinkedServiceAzureBlobStorageState:
         return pulumi.get(self, "connection_string_insecure")
 
     @connection_string_insecure.setter
-    def connection_string_insecure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_string_insecure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string_insecure", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_factory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
     @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_factory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_factory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the Data Factory Linked Service.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
-    def integration_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The integration runtime reference to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 
     @integration_runtime_name.setter
-    def integration_runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSasToken")
     @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-    def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
+    def key_vault_sas_token(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
         return pulumi.get(self, "key_vault_sas_token")
 
     @key_vault_sas_token.setter
-    def key_vault_sas_token(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
+    def key_vault_sas_token(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
         pulumi.set(self, "key_vault_sas_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="sasTokenLinkedKeyVaultKey")
-    def sas_token_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]:
+    def sas_token_linked_key_vault_key(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]:
         """
         A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         """
         return pulumi.get(self, "sas_token_linked_key_vault_key")
 
     @sas_token_linked_key_vault_key.setter
-    def sas_token_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]):
+    def sas_token_linked_key_vault_key(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]):
         pulumi.set(self, "sas_token_linked_key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUri")
-    def sas_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sas_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         return pulumi.get(self, "sas_uri")
 
     @sas_uri.setter
-    def sas_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sas_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sas_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoint")
-    def service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_endpoint")
 
     @service_endpoint.setter
-    def service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalKey")
-    def service_principal_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_principal_key")
 
     @service_principal_key.setter
-    def service_principal_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_key", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalLinkedKeyVaultKey")
-    def service_principal_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]:
+    def service_principal_linked_key_vault_key(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]:
         return pulumi.get(self, "service_principal_linked_key_vault_key")
 
     @service_principal_linked_key_vault_key.setter
-    def service_principal_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]):
+    def service_principal_linked_key_vault_key(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]):
         pulumi.set(self, "service_principal_linked_key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter(name="storageKind")
-    def storage_kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_kind")
 
     @storage_kind.setter
-    def storage_kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_kind", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="useManagedIdentity")
-    def use_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_managed_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "use_managed_identity")
 
     @use_managed_identity.setter
-    def use_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_managed_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_managed_identity", value)
 
 
@@ -609,25 +609,25 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string_insecure: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sas_token_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
-                 sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
-                 storage_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_insecure: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_sas_token: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
+                 sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
+                 storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.
@@ -734,25 +734,25 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_string_insecure: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 sas_token_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
-                 sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
-                 storage_kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_string_insecure: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault_sas_token: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
+                 sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
+                 storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -795,25 +795,25 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            connection_string: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_string_insecure: Optional[pulumi.Input[_builtins.str]] = None,
-            data_factory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault_sas_token: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            sas_token_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
-            sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal_key: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
-            storage_kind: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None) -> 'LinkedServiceAzureBlobStorage':
+            additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_string_insecure: pulumi.Input[Optional[_builtins.str]] = None,
+            data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault_sas_token: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
+            sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict']]] = None,
+            storage_kind: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            use_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None) -> 'LinkedServiceAzureBlobStorage':
         """
         Get an existing LinkedServiceAzureBlobStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

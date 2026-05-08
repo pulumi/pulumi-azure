@@ -26,13 +26,13 @@ class ManagedDevOpsPoolArgs:
                  maximum_concurrency: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_scale_set_fabric: pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs'],
-                 identity: Optional[pulumi.Input['ManagedDevOpsPoolIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stateful_agent: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentArgs']] = None,
-                 stateless_agent: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 work_folder: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity: pulumi.Input[Optional['ManagedDevOpsPoolIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stateful_agent: pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentArgs']] = None,
+                 stateless_agent: pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 work_folder: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedDevOpsPool resource.
 
@@ -133,55 +133,55 @@ class ManagedDevOpsPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedDevOpsPoolIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedDevOpsPoolIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedDevOpsPoolIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedDevOpsPoolIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Managed DevOps Pool. The name must be between 3 and 44 characters, can only include alphanumeric characters, periods (`.`) and hyphens (`-`), must start with an alphanumeric character and cannot end with a period (`.`). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="statefulAgent")
-    def stateful_agent(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentArgs']]:
+    def stateful_agent(self) -> pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentArgs']]:
         """
         A `stateful_agent` block as defined below.
         """
         return pulumi.get(self, "stateful_agent")
 
     @stateful_agent.setter
-    def stateful_agent(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentArgs']]):
+    def stateful_agent(self, value: pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentArgs']]):
         pulumi.set(self, "stateful_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="statelessAgent")
-    def stateless_agent(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentArgs']]:
+    def stateless_agent(self) -> pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentArgs']]:
         """
         A `stateless_agent` block as defined below.
 
@@ -190,49 +190,49 @@ class ManagedDevOpsPoolArgs:
         return pulumi.get(self, "stateless_agent")
 
     @stateless_agent.setter
-    def stateless_agent(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentArgs']]):
+    def stateless_agent(self, value: pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentArgs']]):
         pulumi.set(self, "stateless_agent", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Managed DevOps Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workFolder")
-    def work_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the work folder for every agent in the pool.
         """
         return pulumi.get(self, "work_folder")
 
     @work_folder.setter
-    def work_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_folder", value)
 
 
 @pulumi.input_type
 class _ManagedDevOpsPoolState:
     def __init__(__self__, *,
-                 azure_devops_organization: Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationArgs']] = None,
-                 dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input['ManagedDevOpsPoolIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stateful_agent: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentArgs']] = None,
-                 stateless_agent: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_scale_set_fabric: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs']] = None,
-                 work_folder: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_devops_organization: pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationArgs']] = None,
+                 dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ManagedDevOpsPoolIdentityArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stateful_agent: pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentArgs']] = None,
+                 stateless_agent: pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_scale_set_fabric: pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs']] = None,
+                 work_folder: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedDevOpsPool resources.
 
@@ -278,103 +278,103 @@ class _ManagedDevOpsPoolState:
 
     @_builtins.property
     @pulumi.getter(name="azureDevopsOrganization")
-    def azure_devops_organization(self) -> Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationArgs']]:
+    def azure_devops_organization(self) -> pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationArgs']]:
         """
         An `azure_devops_organization` block as defined below.
         """
         return pulumi.get(self, "azure_devops_organization")
 
     @azure_devops_organization.setter
-    def azure_devops_organization(self, value: Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationArgs']]):
+    def azure_devops_organization(self, value: pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationArgs']]):
         pulumi.set(self, "azure_devops_organization", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterProjectId")
-    def dev_center_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dev_center_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Dev Center project.
         """
         return pulumi.get(self, "dev_center_project_id")
 
     @dev_center_project_id.setter
-    def dev_center_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dev_center_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dev_center_project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedDevOpsPoolIdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['ManagedDevOpsPoolIdentityArgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedDevOpsPoolIdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['ManagedDevOpsPoolIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Region where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumConcurrency")
-    def maximum_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines how many resources can there be created at any given time. Possible values range between `1` and `10000`.
         """
         return pulumi.get(self, "maximum_concurrency")
 
     @maximum_concurrency.setter
-    def maximum_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_concurrency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Managed DevOps Pool. The name must be between 3 and 44 characters, can only include alphanumeric characters, periods (`.`) and hyphens (`-`), must start with an alphanumeric character and cannot end with a period (`.`). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Managed DevOps Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="statefulAgent")
-    def stateful_agent(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentArgs']]:
+    def stateful_agent(self) -> pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentArgs']]:
         """
         A `stateful_agent` block as defined below.
         """
         return pulumi.get(self, "stateful_agent")
 
     @stateful_agent.setter
-    def stateful_agent(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentArgs']]):
+    def stateful_agent(self, value: pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentArgs']]):
         pulumi.set(self, "stateful_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="statelessAgent")
-    def stateless_agent(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentArgs']]:
+    def stateless_agent(self) -> pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentArgs']]:
         """
         A `stateless_agent` block as defined below.
 
@@ -383,43 +383,43 @@ class _ManagedDevOpsPoolState:
         return pulumi.get(self, "stateless_agent")
 
     @stateless_agent.setter
-    def stateless_agent(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentArgs']]):
+    def stateless_agent(self, value: pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentArgs']]):
         pulumi.set(self, "stateless_agent", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags which should be assigned to the Managed DevOps Pool.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineScaleSetFabric")
-    def virtual_machine_scale_set_fabric(self) -> Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs']]:
+    def virtual_machine_scale_set_fabric(self) -> pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs']]:
         """
         A `virtual_machine_scale_set_fabric` block as defined below.
         """
         return pulumi.get(self, "virtual_machine_scale_set_fabric")
 
     @virtual_machine_scale_set_fabric.setter
-    def virtual_machine_scale_set_fabric(self, value: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs']]):
+    def virtual_machine_scale_set_fabric(self, value: pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs']]):
         pulumi.set(self, "virtual_machine_scale_set_fabric", value)
 
     @_builtins.property
     @pulumi.getter(name="workFolder")
-    def work_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the work folder for every agent in the pool.
         """
         return pulumi.get(self, "work_folder")
 
     @work_folder.setter
-    def work_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_folder", value)
 
 
@@ -429,18 +429,18 @@ class ManagedDevOpsPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_devops_organization: Optional[pulumi.Input[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict']]] = None,
-                 dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stateful_agent: Optional[pulumi.Input[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict']]] = None,
-                 stateless_agent: Optional[pulumi.Input[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_scale_set_fabric: Optional[pulumi.Input[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict']]] = None,
-                 work_folder: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_devops_organization: pulumi.Input[Optional[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict']]] = None,
+                 dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stateful_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict']]] = None,
+                 stateless_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_scale_set_fabric: pulumi.Input[Optional[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict']]] = None,
+                 work_folder: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Managed DevOps Pool.
@@ -596,18 +596,18 @@ class ManagedDevOpsPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_devops_organization: Optional[pulumi.Input[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict']]] = None,
-                 dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stateful_agent: Optional[pulumi.Input[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict']]] = None,
-                 stateless_agent: Optional[pulumi.Input[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_machine_scale_set_fabric: Optional[pulumi.Input[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict']]] = None,
-                 work_folder: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_devops_organization: pulumi.Input[Optional[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict']]] = None,
+                 dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stateful_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict']]] = None,
+                 stateless_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_scale_set_fabric: pulumi.Input[Optional[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict']]] = None,
+                 work_folder: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -649,18 +649,18 @@ class ManagedDevOpsPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_devops_organization: Optional[pulumi.Input[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict']]] = None,
-            dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict']]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            stateful_agent: Optional[pulumi.Input[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict']]] = None,
-            stateless_agent: Optional[pulumi.Input[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_machine_scale_set_fabric: Optional[pulumi.Input[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict']]] = None,
-            work_folder: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedDevOpsPool':
+            azure_devops_organization: pulumi.Input[Optional[Union['ManagedDevOpsPoolAzureDevopsOrganizationArgs', 'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict']]] = None,
+            dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedDevOpsPoolIdentityArgs', 'ManagedDevOpsPoolIdentityArgsDict']]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            stateful_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatefulAgentArgs', 'ManagedDevOpsPoolStatefulAgentArgsDict']]] = None,
+            stateless_agent: pulumi.Input[Optional[Union['ManagedDevOpsPoolStatelessAgentArgs', 'ManagedDevOpsPoolStatelessAgentArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            virtual_machine_scale_set_fabric: pulumi.Input[Optional[Union['ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs', 'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict']]] = None,
+            work_folder: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedDevOpsPool':
         """
         Get an existing ManagedDevOpsPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

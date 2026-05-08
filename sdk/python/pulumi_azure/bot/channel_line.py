@@ -24,7 +24,7 @@ class ChannelLineArgs:
                  bot_name: pulumi.Input[_builtins.str],
                  line_channels: pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelLine resource.
 
@@ -77,24 +77,24 @@ class ChannelLineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
 
 @pulumi.input_type
 class _ChannelLineState:
     def __init__(__self__, *,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelLine resources.
 
@@ -114,50 +114,50 @@ class _ChannelLineState:
 
     @_builtins.property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
 
     @bot_name.setter
-    def bot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lineChannels")
-    def line_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]]:
+    def line_channels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]]:
         """
         One or more `line_channel` blocks as defined below.
         """
         return pulumi.get(self, "line_channels")
 
     @line_channels.setter
-    def line_channels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]]):
+    def line_channels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]]):
         pulumi.set(self, "line_channels", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
 
@@ -167,10 +167,10 @@ class ChannelLine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 line_channels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Line integration for a Bot Channel
@@ -280,10 +280,10 @@ class ChannelLine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 line_channels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,10 +313,10 @@ class ChannelLine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            line_channels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelLine':
+            bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelLine':
         """
         Get an existing ChannelLine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,8 +21,8 @@ __all__ = ['ResourceProviderRegistrationArgs', 'ResourceProviderRegistration']
 @pulumi.input_type
 class ResourceProviderRegistrationArgs:
     def __init__(__self__, *,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceProviderRegistration resource.
 
@@ -38,7 +38,7 @@ class ResourceProviderRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]:
         """
         A list of `feature` blocks as defined below.
 
@@ -47,27 +47,27 @@ class ResourceProviderRegistrationArgs:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ResourceProviderRegistrationState:
     def __init__(__self__, *,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceProviderRegistration resources.
 
@@ -83,7 +83,7 @@ class _ResourceProviderRegistrationState:
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]:
         """
         A list of `feature` blocks as defined below.
 
@@ -92,19 +92,19 @@ class _ResourceProviderRegistrationState:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -114,8 +114,8 @@ class ResourceProviderRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the registration of a Resource Provider - which allows access to the API's supported by this Resource Provider.
@@ -241,8 +241,8 @@ class ResourceProviderRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,8 +264,8 @@ class ResourceProviderRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ResourceProviderRegistration':
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourceProviderRegistration':
         """
         Get an existing ResourceProviderRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

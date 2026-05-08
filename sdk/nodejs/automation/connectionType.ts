@@ -148,23 +148,23 @@ export interface ConnectionTypeState {
     /**
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
     /**
      * One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.automation.ConnectionTypeField>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.automation.ConnectionTypeField>[] | undefined>;
     /**
      * Whether the connection type is global. Changing this forces a new Automation to be created.
      */
-    isGlobal?: pulumi.Input<boolean>;
+    isGlobal?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,11 +182,11 @@ export interface ConnectionTypeArgs {
     /**
      * Whether the connection type is global. Changing this forces a new Automation to be created.
      */
-    isGlobal?: pulumi.Input<boolean>;
+    isGlobal?: pulumi.Input<boolean | undefined>;
     /**
      * The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */

@@ -23,7 +23,7 @@ class CacheAccessPolicyAssignmentArgs:
                  object_id: pulumi.Input[_builtins.str],
                  object_id_alias: pulumi.Input[_builtins.str],
                  redis_cache_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheAccessPolicyAssignment resource.
 
@@ -90,25 +90,25 @@ class CacheAccessPolicyAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CacheAccessPolicyAssignmentState:
     def __init__(__self__, *,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CacheAccessPolicyAssignment resources.
 
@@ -131,62 +131,62 @@ class _CacheAccessPolicyAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "access_policy_name")
 
     @access_policy_name.setter
-    def access_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectIdAlias")
-    def object_id_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "object_id_alias")
 
     @object_id_alias.setter
-    def object_id_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="redisCacheId")
-    def redis_cache_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redis_cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         """
         return pulumi.get(self, "redis_cache_id")
 
     @redis_cache_id.setter
-    def redis_cache_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redis_cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redis_cache_id", value)
 
 
@@ -196,11 +196,11 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Redis Cache Access Policy Assignment
@@ -331,11 +331,11 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,11 +368,11 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            object_id_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CacheAccessPolicyAssignment':
+            access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            object_id_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CacheAccessPolicyAssignment':
         """
         Get an existing CacheAccessPolicyAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

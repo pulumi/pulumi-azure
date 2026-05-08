@@ -196,31 +196,31 @@ export interface BackupPolicyPostgresqlState {
     /**
      * Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[]>;
+    backupRepeatingTimeIntervals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    defaultRetentionDuration?: pulumi.Input<string>;
+    defaultRetentionDuration?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -238,7 +238,7 @@ export interface BackupPolicyPostgresqlArgs {
     /**
      * The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
@@ -246,11 +246,11 @@ export interface BackupPolicyPostgresqlArgs {
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[]>;
+    retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */

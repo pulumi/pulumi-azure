@@ -131,9 +131,9 @@ def get_ssh_public_key(name: Optional[_builtins.str] = None,
         public_key=pulumi.get(__ret__, 'public_key'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ssh_public_key_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_ssh_public_key_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshPublicKeyResult]:
     """
     Use this data source to access information about an existing SSH Public Key.

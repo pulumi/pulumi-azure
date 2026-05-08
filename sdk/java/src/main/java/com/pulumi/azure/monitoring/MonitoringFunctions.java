@@ -47,8 +47,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -96,8 +96,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -145,8 +145,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -194,8 +194,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -243,8 +243,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -292,8 +292,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -341,8 +341,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -390,8 +390,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -439,8 +439,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -488,8 +488,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -537,8 +537,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -586,8 +586,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -635,8 +635,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -684,8 +684,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -733,8 +733,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -784,8 +784,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -838,8 +838,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -892,8 +892,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -946,8 +946,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1000,8 +1000,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1052,8 +1052,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1101,8 +1101,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1150,8 +1150,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1199,8 +1199,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1248,8 +1248,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1297,8 +1297,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1346,8 +1346,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1395,8 +1395,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1444,8 +1444,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1493,8 +1493,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1542,8 +1542,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1591,8 +1591,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1640,8 +1640,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1689,8 +1689,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1738,8 +1738,8 @@ public final class MonitoringFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.monitoring.MonitoringFunctions;
      * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

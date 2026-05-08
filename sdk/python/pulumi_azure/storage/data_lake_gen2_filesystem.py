@@ -22,12 +22,12 @@ __all__ = ['DataLakeGen2FilesystemArgs', 'DataLakeGen2Filesystem']
 class DataLakeGen2FilesystemArgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[_builtins.str],
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeGen2Filesystem resource.
 
@@ -69,31 +69,31 @@ class DataLakeGen2FilesystemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
+    def aces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
         """
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
 
     @aces.setter
-    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
+    def aces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
         pulumi.set(self, "aces", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionScope")
-    def default_encryption_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_encryption_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_encryption_scope")
 
     @default_encryption_scope.setter
-    def default_encryption_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_encryption_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_encryption_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 
@@ -102,56 +102,56 @@ class DataLakeGen2FilesystemArgs:
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
 class _DataLakeGen2FilesystemState:
     def __init__(__self__, *,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataLakeGen2Filesystem resources.
 
@@ -182,31 +182,31 @@ class _DataLakeGen2FilesystemState:
 
     @_builtins.property
     @pulumi.getter
-    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
+    def aces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
         """
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
 
     @aces.setter
-    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
+    def aces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
         pulumi.set(self, "aces", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionScope")
-    def default_encryption_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_encryption_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_encryption_scope")
 
     @default_encryption_scope.setter
-    def default_encryption_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_encryption_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_encryption_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 
@@ -215,55 +215,55 @@ class _DataLakeGen2FilesystemState:
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
 
@@ -273,13 +273,13 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Data Lake Gen2 File System within an Azure Storage Account.
@@ -392,13 +392,13 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -427,13 +427,13 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
-            default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            group: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataLakeGen2Filesystem':
+            aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
+            default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataLakeGen2Filesystem':
         """
         Get an existing DataLakeGen2Filesystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

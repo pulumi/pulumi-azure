@@ -20,10 +20,10 @@ __all__ = ['DataCollectionRuleAssociationArgs', 'DataCollectionRuleAssociation']
 class DataCollectionRuleAssociationArgs:
     def __init__(__self__, *,
                  target_resource_id: pulumi.Input[_builtins.str],
-                 data_collection_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataCollectionRuleAssociation resource.
 
@@ -61,19 +61,19 @@ class DataCollectionRuleAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionEndpointId")
-    def data_collection_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Collection Endpoint which will be associated to the target resource.
         """
         return pulumi.get(self, "data_collection_endpoint_id")
 
     @data_collection_endpoint_id.setter
-    def data_collection_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionRuleId")
-    def data_collection_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Collection Rule which will be associated to the target resource.
 
@@ -82,24 +82,24 @@ class DataCollectionRuleAssociationArgs:
         return pulumi.get(self, "data_collection_rule_id")
 
     @data_collection_rule_id.setter
-    def data_collection_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Data Collection Rule Association.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
 
@@ -108,18 +108,18 @@ class DataCollectionRuleAssociationArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DataCollectionRuleAssociationState:
     def __init__(__self__, *,
-                 data_collection_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataCollectionRuleAssociation resources.
 
@@ -146,19 +146,19 @@ class _DataCollectionRuleAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionEndpointId")
-    def data_collection_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Collection Endpoint which will be associated to the target resource.
         """
         return pulumi.get(self, "data_collection_endpoint_id")
 
     @data_collection_endpoint_id.setter
-    def data_collection_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionRuleId")
-    def data_collection_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_collection_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Data Collection Rule which will be associated to the target resource.
 
@@ -167,24 +167,24 @@ class _DataCollectionRuleAssociationState:
         return pulumi.get(self, "data_collection_rule_id")
 
     @data_collection_rule_id.setter
-    def data_collection_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_collection_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_collection_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Data Collection Rule Association.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
 
@@ -193,19 +193,19 @@ class _DataCollectionRuleAssociationState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
 
@@ -215,11 +215,11 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_collection_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Data Collection Rule Association.
@@ -446,11 +446,11 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_collection_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -477,11 +477,11 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_collection_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            data_collection_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataCollectionRuleAssociation':
+            data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataCollectionRuleAssociation':
         """
         Get an existing DataCollectionRuleAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -154,23 +154,23 @@ export interface JobCredentialState {
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
      */
-    jobAgentId?: pulumi.Input<string>;
+    jobAgentId?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to use for this Elastic Job credential.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      */
-    passwordWoVersion?: pulumi.Input<number>;
+    passwordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * The username to use for this Elastic Job credential.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,15 +184,15 @@ export interface JobCredentialArgs {
     /**
      * The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password to use for this Elastic Job credential.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      */
-    passwordWoVersion?: pulumi.Input<number>;
+    passwordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * The username to use for this Elastic Job credential.
      */

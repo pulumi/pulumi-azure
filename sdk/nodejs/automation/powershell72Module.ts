@@ -136,19 +136,19 @@ export interface Powershell72ModuleState {
     /**
      * The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
      */
-    automationAccountId?: pulumi.Input<string>;
+    automationAccountId?: pulumi.Input<string | undefined>;
     /**
      * A `moduleLink` block as defined below.
      */
-    moduleLink?: pulumi.Input<inputs.automation.Powershell72ModuleModuleLink>;
+    moduleLink?: pulumi.Input<inputs.automation.Powershell72ModuleModuleLink | undefined>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -166,9 +166,9 @@ export interface Powershell72ModuleArgs {
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

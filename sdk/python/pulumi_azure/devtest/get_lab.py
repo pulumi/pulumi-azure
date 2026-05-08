@@ -222,8 +222,8 @@ def get_lab(name: Optional[_builtins.str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
-def get_lab_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lab_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Use this data source to access information about an existing Dev Test Lab.

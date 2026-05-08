@@ -20,8 +20,8 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[_builtins.str],
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -49,35 +49,35 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A link to a Policy XML Document, which must be publicly available.
         """
         return pulumi.get(self, "xml_link")
 
     @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_link", value)
 
 
 @pulumi.input_type
 class _PolicyState:
     def __init__(__self__, *,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
 
@@ -94,38 +94,38 @@ class _PolicyState:
 
     @_builtins.property
     @pulumi.getter(name="apiManagementId")
-    def api_management_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_management_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
         """
         return pulumi.get(self, "api_management_id")
 
     @api_management_id.setter
-    def api_management_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_management_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_management_id", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_content", value)
 
     @_builtins.property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A link to a Policy XML Document, which must be publicly available.
         """
         return pulumi.get(self, "xml_link")
 
     @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml_link", value)
 
 
@@ -135,9 +135,9 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a API Management service Policy.
@@ -264,9 +264,9 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml_link: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -291,9 +291,9 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_management_id: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_content: Optional[pulumi.Input[_builtins.str]] = None,
-            xml_link: Optional[pulumi.Input[_builtins.str]] = None) -> 'Policy':
+            api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_content: pulumi.Input[Optional[_builtins.str]] = None,
+            xml_link: pulumi.Input[Optional[_builtins.str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

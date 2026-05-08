@@ -169,20 +169,20 @@ export interface DscNodeConfigurationState {
     /**
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    automationAccountName?: pulumi.Input<string>;
-    configurationName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * The PowerShell DSC Node Configuration (mof content).
      */
-    contentEmbedded?: pulumi.Input<string>;
+    contentEmbedded?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface DscNodeConfigurationArgs {
     /**
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */

@@ -198,8 +198,8 @@ def get_virtual_network_peering(name: Optional[_builtins.str] = None,
         remote_virtual_network_id=pulumi.get(__ret__, 'remote_virtual_network_id'),
         use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-def get_virtual_network_peering_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_peering_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
     """
     Use this data source to access information about an existing virtual network peering.

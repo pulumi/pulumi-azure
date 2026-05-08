@@ -182,7 +182,7 @@ def get_variables(automation_account_id: Optional[_builtins.str] = None,
         nulls=pulumi.get(__ret__, 'nulls'),
         objects=pulumi.get(__ret__, 'objects'),
         strings=pulumi.get(__ret__, 'strings'))
-def get_variables_output(automation_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_variables_output(automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariablesResult]:
     """
     Use this data source to get all variables in an Automation Account.

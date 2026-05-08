@@ -269,39 +269,39 @@ export interface NetworkConnectionMonitorState {
     /**
      * A `endpoint` block as defined below.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[] | undefined>;
     /**
      * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    networkWatcherId?: pulumi.Input<string>;
+    networkWatcherId?: pulumi.Input<string | undefined>;
     /**
      * The description of the Network Connection Monitor.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `testConfiguration` block as defined below.
      */
-    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
+    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[] | undefined>;
     /**
      * A `testGroup` block as defined below.
      */
-    testGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
+    testGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[] | undefined>;
 }
 
 /**
@@ -315,11 +315,11 @@ export interface NetworkConnectionMonitorArgs {
     /**
      * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
@@ -327,15 +327,15 @@ export interface NetworkConnectionMonitorArgs {
     /**
      * The description of the Network Connection Monitor.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A `testConfiguration` block as defined below.
      */

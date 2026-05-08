@@ -209,11 +209,11 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
         primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'))
-def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  namespace_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                  namespace_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  namespace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
     """
     Use this data source to access information about an existing Service Bus Disaster Recovery Config.

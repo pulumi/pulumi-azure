@@ -196,31 +196,31 @@ export interface NetworkMappingState {
     /**
      * The name of the network mapping. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The id of the primary network. Changing this forces a new resource to be created.
      */
-    sourceNetworkId?: pulumi.Input<string>;
+    sourceNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      */
-    sourceRecoveryFabricName?: pulumi.Input<string>;
+    sourceRecoveryFabricName?: pulumi.Input<string | undefined>;
     /**
      * The id of the recovery network. Changing this forces a new resource to be created.
      */
-    targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      */
-    targetRecoveryFabricName?: pulumi.Input<string>;
+    targetRecoveryFabricName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -230,7 +230,7 @@ export interface NetworkMappingArgs {
     /**
      * The name of the network mapping. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */

@@ -116,7 +116,7 @@ def get_source_control_token(type: Optional[_builtins.str] = None,
         token=pulumi.get(__ret__, 'token'),
         token_secret=pulumi.get(__ret__, 'token_secret'),
         type=pulumi.get(__ret__, 'type'))
-def get_source_control_token_output(type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_control_token_output(type: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlTokenResult]:
     """
     Use this data source to access information about an existing App Service Source Control Token.

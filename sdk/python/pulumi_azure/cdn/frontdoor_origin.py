@@ -24,14 +24,14 @@ class FrontdoorOriginArgs:
                  cdn_frontdoor_origin_group_id: pulumi.Input[_builtins.str],
                  certificate_name_check_enabled: pulumi.Input[_builtins.bool],
                  host_name: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link: pulumi.Input[Optional['FrontdoorOriginPrivateLinkArgs']] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a FrontdoorOrigin resource.
 
@@ -113,55 +113,55 @@ class FrontdoorOriginArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_port", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def https_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def https_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "https_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="originHostHeader")
-    def origin_host_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_host_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 
@@ -170,24 +170,24 @@ class FrontdoorOriginArgs:
         return pulumi.get(self, "origin_host_header")
 
     @origin_host_header.setter
-    def origin_host_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_host_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_host_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]:
+    def private_link(self) -> pulumi.Input[Optional['FrontdoorOriginPrivateLinkArgs']]:
         """
         A `private_link` block as defined below.
 
@@ -196,36 +196,36 @@ class FrontdoorOriginArgs:
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]):
+    def private_link(self, value: pulumi.Input[Optional['FrontdoorOriginPrivateLinkArgs']]):
         pulumi.set(self, "private_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
 class _FrontdoorOriginState:
     def __init__(__self__, *,
-                 cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link: pulumi.Input[Optional['FrontdoorOriginPrivateLinkArgs']] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOrigin resources.
 
@@ -272,43 +272,43 @@ class _FrontdoorOriginState:
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
-    def cdn_frontdoor_origin_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdn_frontdoor_origin_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_group_id")
 
     @cdn_frontdoor_origin_group_id.setter
-    def cdn_frontdoor_origin_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdn_frontdoor_origin_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdn_frontdoor_origin_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateNameCheckEnabled")
-    def certificate_name_check_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def certificate_name_check_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether certificate name checks are enabled for this origin.
         """
         return pulumi.get(self, "certificate_name_check_enabled")
 
     @certificate_name_check_enabled.setter
-    def certificate_name_check_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def certificate_name_check_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "certificate_name_check_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
@@ -317,48 +317,48 @@ class _FrontdoorOriginState:
         return pulumi.get(self, "host_name")
 
     @host_name.setter
-    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         """
         return pulumi.get(self, "http_port")
 
     @http_port.setter
-    def http_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_port", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def https_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         """
         return pulumi.get(self, "https_port")
 
     @https_port.setter
-    def https_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def https_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "https_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="originHostHeader")
-    def origin_host_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_host_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
 
@@ -367,24 +367,24 @@ class _FrontdoorOriginState:
         return pulumi.get(self, "origin_host_header")
 
     @origin_host_header.setter
-    def origin_host_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_host_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_host_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]:
+    def private_link(self) -> pulumi.Input[Optional['FrontdoorOriginPrivateLinkArgs']]:
         """
         A `private_link` block as defined below.
 
@@ -393,19 +393,19 @@ class _FrontdoorOriginState:
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]):
+    def private_link(self, value: pulumi.Input[Optional['FrontdoorOriginPrivateLinkArgs']]):
         pulumi.set(self, "private_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -415,17 +415,17 @@ class FrontdoorOrigin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link: Optional[pulumi.Input[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link: pulumi.Input[Optional[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Origin.
@@ -834,17 +834,17 @@ class FrontdoorOrigin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_name_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 https_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link: Optional[pulumi.Input[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None,
+                 cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link: pulumi.Input[Optional[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -881,17 +881,17 @@ class FrontdoorOrigin(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdn_frontdoor_origin_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_name_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            host_name: Optional[pulumi.Input[_builtins.str]] = None,
-            http_port: Optional[pulumi.Input[_builtins.int]] = None,
-            https_port: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_host_header: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            private_link: Optional[pulumi.Input[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']]] = None,
-            weight: Optional[pulumi.Input[_builtins.int]] = None) -> 'FrontdoorOrigin':
+            cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_name_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            http_port: pulumi.Input[Optional[_builtins.int]] = None,
+            https_port: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            private_link: pulumi.Input[Optional[Union['FrontdoorOriginPrivateLinkArgs', 'FrontdoorOriginPrivateLinkArgsDict']]] = None,
+            weight: pulumi.Input[Optional[_builtins.int]] = None) -> 'FrontdoorOrigin':
         """
         Get an existing FrontdoorOrigin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

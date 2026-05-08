@@ -128,23 +128,23 @@ export interface ResourceAnchorState {
     /**
      * Oracle Cloud Infrastructure compartment [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) which was created or linked by customer with Resource Anchor.
      */
-    linkedCompartmentId?: pulumi.Input<string>;
+    linkedCompartmentId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Oracle Resource Anchor exists.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Oracle Resource Anchor should exist. Changing this forces a new Oracle Resource Anchor to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Oracle Resource Anchor.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface ResourceAnchorArgs {
     /**
      * The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Oracle Resource Anchor should exist. Changing this forces a new Oracle Resource Anchor to be created.
      */
@@ -162,5 +162,5 @@ export interface ResourceAnchorArgs {
     /**
      * A mapping of tags which should be assigned to the Oracle Resource Anchor.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

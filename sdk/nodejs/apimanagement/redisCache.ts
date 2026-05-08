@@ -162,27 +162,27 @@ export interface RedisCacheState {
     /**
      * The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
      */
-    apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string | undefined>;
     /**
      * The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
      */
-    cacheLocation?: pulumi.Input<string>;
+    cacheLocation?: pulumi.Input<string | undefined>;
     /**
      * The connection string to the Cache for Redis.
      */
-    connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string | undefined>;
     /**
      * The description of the API Management Redis Cache.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Cache for Redis.
      */
-    redisCacheId?: pulumi.Input<string>;
+    redisCacheId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface RedisCacheArgs {
     /**
      * The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
      */
-    cacheLocation?: pulumi.Input<string>;
+    cacheLocation?: pulumi.Input<string | undefined>;
     /**
      * The connection string to the Cache for Redis.
      */
@@ -204,13 +204,13 @@ export interface RedisCacheArgs {
     /**
      * The description of the API Management Redis Cache.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Cache for Redis.
      */
-    redisCacheId?: pulumi.Input<string>;
+    redisCacheId?: pulumi.Input<string | undefined>;
 }

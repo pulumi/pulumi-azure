@@ -19,13 +19,13 @@ __all__ = ['ContainerArgs', 'Container']
 @pulumi.input_type
 class ContainerArgs:
     def __init__(__self__, *,
-                 container_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_scope_override_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_scope_override_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Container resource.
 
@@ -63,7 +63,7 @@ class ContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerAccessType")
-    def container_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 
@@ -72,60 +72,60 @@ class ContainerArgs:
         return pulumi.get(self, "container_access_type")
 
     @container_access_type.setter
-    def container_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionScope")
-    def default_encryption_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_encryption_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_encryption_scope")
 
     @default_encryption_scope.setter
-    def default_encryption_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_encryption_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_encryption_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionScopeOverrideEnabled")
-    def encryption_scope_override_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_scope_override_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_scope_override_enabled")
 
     @encryption_scope_override_enabled.setter
-    def encryption_scope_override_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_scope_override_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_scope_override_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of MetaData for this Container. All metadata keys should be lowercase.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Account where the Container should be created.
 
@@ -134,13 +134,13 @@ class ContainerArgs:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
     @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
 
@@ -149,23 +149,23 @@ class ContainerArgs:
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
 @pulumi.input_type
 class _ContainerState:
     def __init__(__self__, *,
-                 container_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_scope_override_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_immutability_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 has_legal_hold: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 container_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_scope_override_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_immutability_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 has_legal_hold: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Container resources.
 
@@ -215,7 +215,7 @@ class _ContainerState:
 
     @_builtins.property
     @pulumi.getter(name="containerAccessType")
-    def container_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 
@@ -224,97 +224,97 @@ class _ContainerState:
         return pulumi.get(self, "container_access_type")
 
     @container_access_type.setter
-    def container_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionScope")
-    def default_encryption_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_encryption_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "default_encryption_scope")
 
     @default_encryption_scope.setter
-    def default_encryption_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_encryption_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_encryption_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionScopeOverrideEnabled")
-    def encryption_scope_override_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encryption_scope_override_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_scope_override_enabled")
 
     @encryption_scope_override_enabled.setter
-    def encryption_scope_override_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encryption_scope_override_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encryption_scope_override_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hasImmutabilityPolicy")
-    def has_immutability_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_immutability_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is there an Immutability Policy configured on this Storage Container?
         """
         return pulumi.get(self, "has_immutability_policy")
 
     @has_immutability_policy.setter
-    def has_immutability_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_immutability_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_immutability_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="hasLegalHold")
-    def has_legal_hold(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_legal_hold(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is there a Legal Hold configured on this Storage Container?
         """
         return pulumi.get(self, "has_legal_hold")
 
     @has_legal_hold.setter
-    def has_legal_hold(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_legal_hold(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_legal_hold", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of MetaData for this Container. All metadata keys should be lowercase.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
     @_utilities.deprecated("""this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
-    def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Resource Manager ID of this Storage Container.
         """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
-    def resource_manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Account where the Container should be created.
 
@@ -323,13 +323,13 @@ class _ContainerState:
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
     @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
-    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
 
@@ -338,7 +338,7 @@ class _ContainerState:
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
 
 
@@ -348,13 +348,13 @@ class Container(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_scope_override_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_scope_override_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Container within an Azure Storage Account.
@@ -479,13 +479,13 @@ class Container(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_scope_override_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_scope_override_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,16 +515,16 @@ class Container(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            container_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-            default_encryption_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_scope_override_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_immutability_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            has_legal_hold: Optional[pulumi.Input[_builtins.bool]] = None,
-            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Container':
+            container_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_scope_override_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_immutability_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            has_legal_hold: pulumi.Input[Optional[_builtins.bool]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Container':
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

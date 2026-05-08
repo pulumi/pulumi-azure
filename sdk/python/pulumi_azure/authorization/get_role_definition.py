@@ -184,9 +184,9 @@ def get_role_definition(name: Optional[_builtins.str] = None,
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_role_definition_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               role_definition_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               scope: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_role_definition_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               role_definition_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               scope: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
     Use this data source to access information about an existing Role Definition.

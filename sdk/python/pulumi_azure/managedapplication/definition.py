@@ -24,15 +24,15 @@ class DefinitionArgs:
                  display_name: pulumi.Input[_builtins.str],
                  lock_level: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
-                 create_ui_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 main_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+                 create_ui_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 main_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Definition resource.
 
@@ -111,103 +111,103 @@ class DefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
+    def authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
         """
         One or more `authorization` block defined below.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
+    def authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_ui_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         """
         return pulumi.get(self, "create_ui_definition")
 
     @create_ui_definition.setter
-    def create_ui_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_ui_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_ui_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the managed application definition description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the inline main template JSON which has resources to be provisioned.
         """
         return pulumi.get(self, "main_template")
 
     @main_template.setter
-    def main_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageEnabled")
-    def package_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def package_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the package enabled? Defaults to `true`.
         """
         return pulumi.get(self, "package_enabled")
 
     @package_enabled.setter
-    def package_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def package_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "package_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFileUri")
-    def package_file_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the managed application definition package file Uri.
         """
         return pulumi.get(self, "package_file_uri")
 
     @package_file_uri.setter
-    def package_file_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_file_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_file_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
 
@@ -216,25 +216,25 @@ class DefinitionArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DefinitionState:
     def __init__(__self__, *,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
-                 create_ui_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 main_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+                 create_ui_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 main_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
 
@@ -280,139 +280,139 @@ class _DefinitionState:
 
     @_builtins.property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
+    def authorizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
         """
         One or more `authorization` block defined below.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
+    def authorizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @_builtins.property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_ui_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         """
         return pulumi.get(self, "create_ui_definition")
 
     @create_ui_definition.setter
-    def create_ui_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_ui_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_ui_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the managed application definition description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the managed application definition display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="lockLevel")
-    def lock_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lock_level")
 
     @lock_level.setter
-    def lock_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_level", value)
 
     @_builtins.property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the inline main template JSON which has resources to be provisioned.
         """
         return pulumi.get(self, "main_template")
 
     @main_template.setter
-    def main_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageEnabled")
-    def package_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def package_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the package enabled? Defaults to `true`.
         """
         return pulumi.get(self, "package_enabled")
 
     @package_enabled.setter
-    def package_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def package_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "package_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="packageFileUri")
-    def package_file_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the managed application definition package file Uri.
         """
         return pulumi.get(self, "package_file_uri")
 
     @package_file_uri.setter
-    def package_file_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_file_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_file_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource.
 
@@ -421,7 +421,7 @@ class _DefinitionState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -431,18 +431,18 @@ class Definition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]]] = None,
-                 create_ui_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 main_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]]] = None,
+                 create_ui_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 main_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Managed Application Definition.
@@ -568,18 +568,18 @@ class Definition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]]] = None,
-                 create_ui_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 main_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]]] = None,
+                 create_ui_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 main_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -617,18 +617,18 @@ class Definition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]]] = None,
-            create_ui_definition: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            lock_level: Optional[pulumi.Input[_builtins.str]] = None,
-            main_template: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            package_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            package_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Definition':
+            authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]]] = None,
+            create_ui_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_level: pulumi.Input[Optional[_builtins.str]] = None,
+            main_template: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            package_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Definition':
         """
         Get an existing Definition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

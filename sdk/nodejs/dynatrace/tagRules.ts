@@ -164,19 +164,19 @@ export interface TagRulesState {
     /**
      * Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
      */
-    logRule?: pulumi.Input<inputs.dynatrace.TagRulesLogRule>;
+    logRule?: pulumi.Input<inputs.dynatrace.TagRulesLogRule | undefined>;
     /**
      * Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
      */
-    metricRule?: pulumi.Input<inputs.dynatrace.TagRulesMetricRule>;
+    metricRule?: pulumi.Input<inputs.dynatrace.TagRulesMetricRule | undefined>;
     /**
      * Name of the Dynatrace monitor. Changing this forces a new resource to be created.
      */
-    monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,11 +186,11 @@ export interface TagRulesArgs {
     /**
      * Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
      */
-    logRule?: pulumi.Input<inputs.dynatrace.TagRulesLogRule>;
+    logRule?: pulumi.Input<inputs.dynatrace.TagRulesLogRule | undefined>;
     /**
      * Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
      */
-    metricRule?: pulumi.Input<inputs.dynatrace.TagRulesMetricRule>;
+    metricRule?: pulumi.Input<inputs.dynatrace.TagRulesMetricRule | undefined>;
     /**
      * Name of the Dynatrace monitor. Changing this forces a new resource to be created.
      */
@@ -198,5 +198,5 @@ export interface TagRulesArgs {
     /**
      * Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

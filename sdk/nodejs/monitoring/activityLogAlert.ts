@@ -190,39 +190,39 @@ export interface ActivityLogAlertState {
     /**
      * One or more `action` blocks as defined below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
-    criteria?: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
+    criteria?: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria | undefined>;
     /**
      * The description of this activity log alert.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface ActivityLogAlertArgs {
     /**
      * One or more `action` blocks as defined below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
@@ -240,19 +240,19 @@ export interface ActivityLogAlertArgs {
     /**
      * The description of this activity log alert.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
      */
@@ -264,5 +264,5 @@ export interface ActivityLogAlertArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

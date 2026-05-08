@@ -163,57 +163,57 @@ export interface DataCollectionRuleState {
     /**
      * The resource ID of the Data Collection Endpoint that this rule can be used with.
      */
-    dataCollectionEndpointId?: pulumi.Input<string>;
+    dataCollectionEndpointId?: pulumi.Input<string | undefined>;
     /**
      * One or more `dataFlow` blocks as defined below.
      */
-    dataFlows?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDataFlow>[]>;
+    dataFlows?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleDataFlow>[] | undefined>;
     /**
      * A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
-    dataSources?: pulumi.Input<inputs.monitoring.DataCollectionRuleDataSources>;
+    dataSources?: pulumi.Input<inputs.monitoring.DataCollectionRuleDataSources | undefined>;
     /**
      * The description of the Data Collection Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `destinations` block as defined below.
      */
-    destinations?: pulumi.Input<inputs.monitoring.DataCollectionRuleDestinations>;
+    destinations?: pulumi.Input<inputs.monitoring.DataCollectionRuleDestinations | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity>;
+    identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity | undefined>;
     /**
      * The immutable ID of the Data Collection Rule.
      */
-    immutableId?: pulumi.Input<string>;
+    immutableId?: pulumi.Input<string | undefined>;
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      *
      * > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `streamDeclaration` block as defined below.
      */
-    streamDeclarations?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclaration>[]>;
+    streamDeclarations?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclaration>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -223,7 +223,7 @@ export interface DataCollectionRuleArgs {
     /**
      * The resource ID of the Data Collection Endpoint that this rule can be used with.
      */
-    dataCollectionEndpointId?: pulumi.Input<string>;
+    dataCollectionEndpointId?: pulumi.Input<string | undefined>;
     /**
      * One or more `dataFlow` blocks as defined below.
      */
@@ -231,11 +231,11 @@ export interface DataCollectionRuleArgs {
     /**
      * A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
-    dataSources?: pulumi.Input<inputs.monitoring.DataCollectionRuleDataSources>;
+    dataSources?: pulumi.Input<inputs.monitoring.DataCollectionRuleDataSources | undefined>;
     /**
      * The description of the Data Collection Rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `destinations` block as defined below.
      */
@@ -243,21 +243,21 @@ export interface DataCollectionRuleArgs {
     /**
      * An `identity` block as defined below.
      */
-    identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity>;
+    identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity | undefined>;
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      *
      * > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
@@ -265,9 +265,9 @@ export interface DataCollectionRuleArgs {
     /**
      * A `streamDeclaration` block as defined below.
      */
-    streamDeclarations?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclaration>[]>;
+    streamDeclarations?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclaration>[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

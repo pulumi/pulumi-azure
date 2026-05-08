@@ -225,65 +225,65 @@ export interface FirewallState {
     /**
      * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      */
-    dnsProxyEnabled?: pulumi.Input<boolean>;
+    dnsProxyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Firewall Policy applied to this Firewall.
      */
-    firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string | undefined>;
     /**
      * An `ipConfiguration` block as documented below.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
-    managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
+    managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
      */
-    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      */
-    skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      */
-    threatIntelMode?: pulumi.Input<string>;
+    threatIntelMode?: pulumi.Input<string | undefined>;
     /**
      * A `virtualHub` block as documented below.
      */
-    virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
+    virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -293,35 +293,35 @@ export interface FirewallArgs {
     /**
      * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      */
-    dnsProxyEnabled?: pulumi.Input<boolean>;
+    dnsProxyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the Firewall Policy applied to this Firewall.
      */
-    firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string | undefined>;
     /**
      * An `ipConfiguration` block as documented below.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
-    managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
+    managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
      */
-    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
@@ -337,19 +337,19 @@ export interface FirewallArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      */
-    threatIntelMode?: pulumi.Input<string>;
+    threatIntelMode?: pulumi.Input<string | undefined>;
     /**
      * A `virtualHub` block as documented below.
      */
-    virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
+    virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

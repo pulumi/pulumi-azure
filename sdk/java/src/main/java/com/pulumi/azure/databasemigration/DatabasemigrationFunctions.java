@@ -32,8 +32,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -132,8 +132,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -232,8 +232,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -282,8 +282,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -380,8 +380,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -429,8 +429,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -478,8 +478,8 @@ public final class DatabasemigrationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
      * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

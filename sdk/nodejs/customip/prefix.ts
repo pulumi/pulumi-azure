@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  *     location: test.location,
  *     resourceGroupName: test.name,
  *     parentCustomIpPrefixId: global.id,
- *     cidr: global.cidr.apply(cidr => std.cidrsubnetOutput({
- *         input: cidr,
+ *     cidr: std.cidrsubnetOutput({
+ *         input: global.cidr,
  *         newbits: 16,
  *         netnum: 1,
- *     })).apply(invoke => invoke.result),
+ *     }).apply(invoke => invoke.result),
  *     zones: ["1"],
  * });
  * ```
@@ -212,53 +212,53 @@ export interface PrefixState {
     /**
      * The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
      *
      * !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      */
-    commissioningEnabled?: pulumi.Input<boolean>;
+    commissioningEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
      *
      * !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      */
-    internetAdvertisingDisabled?: pulumi.Input<boolean>;
+    internetAdvertisingDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Custom IP Prefix. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
      */
-    parentCustomIpPrefixId?: pulumi.Input<string>;
+    parentCustomIpPrefixId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
      */
-    roaValidityEndDate?: pulumi.Input<string>;
+    roaValidityEndDate?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Custom IP Prefix.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
      */
-    wanValidationSignedMessage?: pulumi.Input<string>;
+    wanValidationSignedMessage?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
      *
      * > **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -274,25 +274,25 @@ export interface PrefixArgs {
      *
      * !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      */
-    commissioningEnabled?: pulumi.Input<boolean>;
+    commissioningEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
      *
      * !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      */
-    internetAdvertisingDisabled?: pulumi.Input<boolean>;
+    internetAdvertisingDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the Custom IP Prefix. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
      */
-    parentCustomIpPrefixId?: pulumi.Input<string>;
+    parentCustomIpPrefixId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
      */
@@ -300,19 +300,19 @@ export interface PrefixArgs {
     /**
      * The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
      */
-    roaValidityEndDate?: pulumi.Input<string>;
+    roaValidityEndDate?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the Custom IP Prefix.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
      */
-    wanValidationSignedMessage?: pulumi.Input<string>;
+    wanValidationSignedMessage?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
      *
      * > **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.LogicApps
     ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         MapType = "Xslt",
-    ///         Content = Std.Index.File.Invoke(new()
+    ///         Content = Std.File.Invoke(new()
     ///         {
     ///             Input = "testdata/integration_account_map_content.xsd",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -21,9 +21,9 @@ class GalleryApplicationAssignmentArgs:
     def __init__(__self__, *,
                  gallery_application_version_id: pulumi.Input[_builtins.str],
                  virtual_machine_id: pulumi.Input[_builtins.str],
-                 configuration_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GalleryApplicationAssignment resource.
 
@@ -68,49 +68,49 @@ class GalleryApplicationAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationBlobUri")
-    def configuration_blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "configuration_blob_uri")
 
     @configuration_blob_uri.setter
-    def configuration_blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_blob_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type
 class _GalleryApplicationAssignmentState:
     def __init__(__self__, *,
-                 configuration_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_application_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_application_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GalleryApplicationAssignment resources.
 
@@ -133,62 +133,62 @@ class _GalleryApplicationAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="configurationBlobUri")
-    def configuration_blob_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_blob_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "configuration_blob_uri")
 
     @configuration_blob_uri.setter
-    def configuration_blob_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_blob_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_blob_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryApplicationVersionId")
-    def gallery_application_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gallery_application_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Gallery Application Version. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_application_version_id")
 
     @gallery_application_version_id.setter
-    def gallery_application_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gallery_application_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gallery_application_version_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
 
     @virtual_machine_id.setter
-    def virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_machine_id", value)
 
 
@@ -198,11 +198,11 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_application_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_application_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Virtual Machine Gallery Application Assignment.
@@ -385,11 +385,11 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 gallery_application_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_application_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -418,11 +418,11 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_blob_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            gallery_application_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            tag: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GalleryApplicationAssignment':
+            configuration_blob_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            gallery_application_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            tag: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GalleryApplicationAssignment':
         """
         Get an existing GalleryApplicationAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

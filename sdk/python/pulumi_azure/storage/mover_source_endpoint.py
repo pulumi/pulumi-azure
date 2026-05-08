@@ -21,10 +21,10 @@ class MoverSourceEndpointArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[_builtins.str],
                  storage_mover_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 export: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 export: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverSourceEndpoint resource.
 
@@ -72,62 +72,62 @@ class MoverSourceEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the Storage Mover Source Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def export(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directory being exported from the server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "export")
 
     @export.setter
-    def export(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsVersion")
-    def nfs_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nfs_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nfs_version")
 
     @nfs_version.setter
-    def nfs_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nfs_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nfs_version", value)
 
 
 @pulumi.input_type
 class _MoverSourceEndpointState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 export: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 export: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverSourceEndpoint resources.
 
@@ -153,74 +153,74 @@ class _MoverSourceEndpointState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a description for the Storage Mover Source Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def export(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directory being exported from the server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "export")
 
     @export.setter
-    def export(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsVersion")
-    def nfs_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nfs_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nfs_version")
 
     @nfs_version.setter
-    def nfs_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nfs_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nfs_version", value)
 
     @_builtins.property
     @pulumi.getter(name="storageMoverId")
-    def storage_mover_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_mover_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_mover_id")
 
     @storage_mover_id.setter
-    def storage_mover_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_mover_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_mover_id", value)
 
 
@@ -230,12 +230,12 @@ class MoverSourceEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 export: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 export: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Storage Mover Source Endpoint.
@@ -347,12 +347,12 @@ class MoverSourceEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 export: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 export: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -382,12 +382,12 @@ class MoverSourceEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            export: Optional[pulumi.Input[_builtins.str]] = None,
-            host: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nfs_version: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'MoverSourceEndpoint':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            export: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nfs_version: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_mover_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MoverSourceEndpoint':
         """
         Get an existing MoverSourceEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -219,23 +219,23 @@ export interface CertificateState {
     /**
      * Specify the path to the certificate file of this certificate.
      */
-    certificateVirtualPath?: pulumi.Input<string>;
+    certificateVirtualPath?: pulumi.Input<string | undefined>;
     /**
      * Specify the ID of the Key Vault Secret for this certificate.
      */
-    keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string | undefined>;
     /**
      * Specify the path to the key file of this certificate.
      */
-    keyVirtualPath?: pulumi.Input<string>;
+    keyVirtualPath?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      */
-    nginxDeploymentId?: pulumi.Input<string>;
+    nginxDeploymentId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -257,7 +257,7 @@ export interface CertificateArgs {
     /**
      * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      */

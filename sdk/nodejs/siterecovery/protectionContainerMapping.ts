@@ -209,35 +209,35 @@ export interface ProtectionContainerMappingState {
     /**
      * a `automaticUpdate` block defined as below.
      */
-    automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
+    automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate | undefined>;
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      */
-    recoveryFabricName?: pulumi.Input<string>;
+    recoveryFabricName?: pulumi.Input<string | undefined>;
     /**
      * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      */
-    recoveryReplicationPolicyId?: pulumi.Input<string>;
+    recoveryReplicationPolicyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the source protection container to map. Changing this forces a new resource to be created.
      */
-    recoverySourceProtectionContainerName?: pulumi.Input<string>;
+    recoverySourceProtectionContainerName?: pulumi.Input<string | undefined>;
     /**
      * Id of target protection container to map to. Changing this forces a new resource to be created.
      */
-    recoveryTargetProtectionContainerId?: pulumi.Input<string>;
+    recoveryTargetProtectionContainerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -247,11 +247,11 @@ export interface ProtectionContainerMappingArgs {
     /**
      * a `automaticUpdate` block defined as below.
      */
-    automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
+    automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate | undefined>;
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      */

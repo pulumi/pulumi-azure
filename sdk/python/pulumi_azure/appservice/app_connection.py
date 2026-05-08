@@ -24,10 +24,10 @@ class AppConnectionArgs:
                  authentication: pulumi.Input['AppConnectionAuthenticationArgs'],
                  function_app_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input['AppConnectionSecretStoreArgs']] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional['AppConnectionSecretStoreArgs']] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppConnection resource.
 
@@ -90,54 +90,54 @@ class AppConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_type")
 
     @client_type.setter
-    def client_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['AppConnectionSecretStoreArgs']]:
+    def secret_store(self) -> pulumi.Input[Optional['AppConnectionSecretStoreArgs']]:
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['AppConnectionSecretStoreArgs']]):
+    def secret_store(self, value: pulumi.Input[Optional['AppConnectionSecretStoreArgs']]):
         pulumi.set(self, "secret_store", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSolution")
-    def vnet_solution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_solution(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vnet_solution")
 
     @vnet_solution.setter
-    def vnet_solution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_solution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_solution", value)
 
 
 @pulumi.input_type
 class _AppConnectionState:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['AppConnectionAuthenticationArgs']] = None,
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input['AppConnectionSecretStoreArgs']] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication: pulumi.Input[Optional['AppConnectionAuthenticationArgs']] = None,
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional['AppConnectionSecretStoreArgs']] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppConnection resources.
 
@@ -165,7 +165,7 @@ class _AppConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['AppConnectionAuthenticationArgs']]:
+    def authentication(self) -> pulumi.Input[Optional['AppConnectionAuthenticationArgs']]:
         """
         The authentication info. An `authentication` block as defined below.
 
@@ -174,70 +174,70 @@ class _AppConnectionState:
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['AppConnectionAuthenticationArgs']]):
+    def authentication(self, value: pulumi.Input[Optional['AppConnectionAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clientType")
-    def client_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_type")
 
     @client_type.setter
-    def client_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_type", value)
 
     @_builtins.property
     @pulumi.getter(name="functionAppId")
-    def function_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the data source function app. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "function_app_id")
 
     @function_app_id.setter
-    def function_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['AppConnectionSecretStoreArgs']]:
+    def secret_store(self) -> pulumi.Input[Optional['AppConnectionSecretStoreArgs']]:
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['AppConnectionSecretStoreArgs']]):
+    def secret_store(self, value: pulumi.Input[Optional['AppConnectionSecretStoreArgs']]):
         pulumi.set(self, "secret_store", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetSolution")
-    def vnet_solution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vnet_solution(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vnet_solution")
 
     @vnet_solution.setter
-    def vnet_solution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vnet_solution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vnet_solution", value)
 
 
@@ -247,13 +247,13 @@ class AppConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a service connector for function app.
@@ -449,13 +449,13 @@ class AppConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
-                 client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_store: Optional[pulumi.Input[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vnet_solution: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
+                 client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_solution: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,13 +488,13 @@ class AppConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
-            client_type: Optional[pulumi.Input[_builtins.str]] = None,
-            function_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_store: Optional[pulumi.Input[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vnet_solution: Optional[pulumi.Input[_builtins.str]] = None) -> 'AppConnection':
+            authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
+            client_type: pulumi.Input[Optional[_builtins.str]] = None,
+            function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vnet_solution: pulumi.Input[Optional[_builtins.str]] = None) -> 'AppConnection':
         """
         Get an existing AppConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

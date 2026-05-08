@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.VirtualNetworkPeering;
  * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -107,8 +107,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkPeering;
  * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -121,10 +121,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var location = config.get("location").orElse(List.of(        
+ *         final var location = config.get("location").orElse(Arrays.asList(        
  *             "uksouth",
  *             "southeastasia"));
- *         final var vnetAddressSpace = config.get("vnetAddressSpace").orElse(List.of(        
+ *         final var vnetAddressSpace = config.get("vnetAddressSpace").orElse(Arrays.asList(        
  *             "10.0.0.0/16",
  *             "10.1.0.0/16"));
  *         for (var i = 0; i < location.length(); i++) {
@@ -195,8 +195,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
  * import com.pulumi.std.StdFunctions;
  * import com.pulumi.std.inputs.JoinArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
